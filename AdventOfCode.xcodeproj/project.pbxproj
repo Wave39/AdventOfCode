@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E021147B2397FEBD00F49FC1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021147A2397FEBD00F49FC1 /* main.swift */; };
 		E0211483239800A300F49FC1 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0211482239800A300F49FC1 /* StringExtensions.swift */; };
+		E02114872398089D00F49FC1 /* Puzzle_2019_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */; };
+		E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */; };
+		E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148A23982DF500F49FC1 /* Puzzle_2019.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +30,9 @@
 		E02114772397FEBD00F49FC1 /* AdventOfCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdventOfCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021147A2397FEBD00F49FC1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E0211482239800A300F49FC1 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_01.swift; sourceTree = "<group>"; };
+		E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBaseClass.swift; sourceTree = "<group>"; };
+		E021148A23982DF500F49FC1 /* Puzzle_2019.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				E02114812398008900F49FC1 /* Extensions */,
+				E02114842398083E00F49FC1 /* Puzzles */,
 				E021147A2397FEBD00F49FC1 /* main.swift */,
 			);
 			path = AdventOfCode;
@@ -71,6 +78,24 @@
 				E0211482239800A300F49FC1 /* StringExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E02114842398083E00F49FC1 /* Puzzles */ = {
+			isa = PBXGroup;
+			children = (
+				E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */,
+				E02114852398085F00F49FC1 /* 2019 */,
+			);
+			path = Puzzles;
+			sourceTree = "<group>";
+		};
+		E02114852398085F00F49FC1 /* 2019 */ = {
+			isa = PBXGroup;
+			children = (
+				E021148A23982DF500F49FC1 /* Puzzle_2019.swift */,
+				E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */,
+			);
+			path = 2019;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +158,9 @@
 			files = (
 				E0211483239800A300F49FC1 /* StringExtensions.swift in Sources */,
 				E021147B2397FEBD00F49FC1 /* main.swift in Sources */,
+				E02114872398089D00F49FC1 /* Puzzle_2019_01.swift in Sources */,
+				E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */,
+				E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

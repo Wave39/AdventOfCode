@@ -8,14 +8,26 @@
 
 import Foundation
 
+func stringClassFromString(_ className: String) -> AnyClass! {
+
+    /// get namespace
+    let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String;
+
+    /// get 'anyClass' with classname and namespace
+    let cls: AnyClass = NSClassFromString("\(namespace).\(className)")!;
+
+    // return AnyClass!
+    return cls;
+}
+
 print ("")
 print ("Welcome to BP's Advent Of Code Solution Machine.")
 print ("Make sure to click in the Output window to enter which puzzle you would like to solve.")
 
 let maxYear = 2019
-let defaultYear0 = maxYear
-let defaultPuzzle0 = 1
-let defaultYearAndPuzzle = "\(maxYear) \(defaultPuzzle0)"
+let defaultYear = maxYear
+let defaultPuzzle = 1
+let defaultYearAndPuzzle = "\(maxYear) \(defaultPuzzle)"
 
 var quitApp = false
 while !quitApp {
@@ -32,6 +44,9 @@ while !quitApp {
             if arr.count == 2 {
                 year = arr[0].toInt()
                 puzzle = arr[1].toInt()
+            } else if arr.count == 1 {
+                year = defaultYear
+                puzzle = arr[0].toInt()
             }
         } else {
             let arr = defaultYearAndPuzzle.parseIntoStringArray(separator: " ")
@@ -43,17 +58,17 @@ while !quitApp {
     
     if !quitApp {
         print ("")
-        print ("Solving puzzle \(puzzle) for year \(year), please stand by...")
+        print ("Solving \(year) puzzle \(puzzle), please stand by...")
         
         let start = DispatchTime.now()
-//        if puzzle == 1 {
-//            Day01().solve()
-//        } 
+        if year == 2019 {
+            Puzzle_2019().solve(puzzleNumber: puzzle)
+        }
         
         let end = DispatchTime.now()
         let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
         let timeInterval = Double(nanoTime) / 1_000_000_000
-        print("Time to evaluate puzzle \(puzzle): \(String(format: "%.3f", timeInterval)) seconds")
+        print("Time to evaluate \(year) puzzle \(puzzle): \(String(format: "%.3f", timeInterval)) seconds")
     }
 }
 
