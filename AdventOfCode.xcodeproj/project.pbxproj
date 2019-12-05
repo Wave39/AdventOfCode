@@ -13,6 +13,12 @@
 		E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */; };
 		E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148A23982DF500F49FC1 /* Puzzle_2019.swift */; };
 		E021148D23987F9F00F49FC1 /* Puzzle_2019_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148C23987F9F00F49FC1 /* Puzzle_2019_02.swift */; };
+		E02114902398909600F49FC1 /* Point2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148F2398909600F49FC1 /* Point2D.swift */; };
+		E02114922398928700F49FC1 /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114912398928700F49FC1 /* Point3D.swift */; };
+		E02114942398934C00F49FC1 /* Point4D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114932398934C00F49FC1 /* Point4D.swift */; };
+		E0211496239893A100F49FC1 /* Particle2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0211495239893A100F49FC1 /* Particle2D.swift */; };
+		E02114982398940300F49FC1 /* Rect2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114972398940300F49FC1 /* Rect2D.swift */; };
+		E021149A2398943900F49FC1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114992398943900F49FC1 /* Stack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +41,12 @@
 		E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBaseClass.swift; sourceTree = "<group>"; };
 		E021148A23982DF500F49FC1 /* Puzzle_2019.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019.swift; sourceTree = "<group>"; };
 		E021148C23987F9F00F49FC1 /* Puzzle_2019_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_02.swift; sourceTree = "<group>"; };
+		E021148F2398909600F49FC1 /* Point2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point2D.swift; sourceTree = "<group>"; };
+		E02114912398928700F49FC1 /* Point3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point3D.swift; sourceTree = "<group>"; };
+		E02114932398934C00F49FC1 /* Point4D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point4D.swift; sourceTree = "<group>"; };
+		E0211495239893A100F49FC1 /* Particle2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Particle2D.swift; sourceTree = "<group>"; };
+		E02114972398940300F49FC1 /* Rect2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rect2D.swift; sourceTree = "<group>"; };
+		E02114992398943900F49FC1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +79,7 @@
 		E02114792397FEBD00F49FC1 /* AdventOfCode */ = {
 			isa = PBXGroup;
 			children = (
+				E021148E2398907F00F49FC1 /* Structures */,
 				E02114812398008900F49FC1 /* Extensions */,
 				E02114842398083E00F49FC1 /* Puzzles */,
 				E021147A2397FEBD00F49FC1 /* main.swift */,
@@ -99,6 +112,19 @@
 				E021148C23987F9F00F49FC1 /* Puzzle_2019_02.swift */,
 			);
 			path = 2019;
+			sourceTree = "<group>";
+		};
+		E021148E2398907F00F49FC1 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				E0211495239893A100F49FC1 /* Particle2D.swift */,
+				E021148F2398909600F49FC1 /* Point2D.swift */,
+				E02114912398928700F49FC1 /* Point3D.swift */,
+				E02114932398934C00F49FC1 /* Point4D.swift */,
+				E02114972398940300F49FC1 /* Rect2D.swift */,
+				E02114992398943900F49FC1 /* Stack.swift */,
+			);
+			path = Structures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +186,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0211483239800A300F49FC1 /* StringExtensions.swift in Sources */,
+				E02114922398928700F49FC1 /* Point3D.swift in Sources */,
 				E021147B2397FEBD00F49FC1 /* main.swift in Sources */,
+				E0211496239893A100F49FC1 /* Particle2D.swift in Sources */,
+				E021149A2398943900F49FC1 /* Stack.swift in Sources */,
+				E02114982398940300F49FC1 /* Rect2D.swift in Sources */,
+				E02114942398934C00F49FC1 /* Point4D.swift in Sources */,
+				E02114902398909600F49FC1 /* Point2D.swift in Sources */,
 				E02114872398089D00F49FC1 /* Puzzle_2019_01.swift in Sources */,
 				E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */,
 				E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */,
