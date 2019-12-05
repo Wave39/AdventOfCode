@@ -23,22 +23,22 @@ public class Puzzle_2019_01 : PuzzleBaseClass {
     }
     
     public func solvePart1(str: String) -> Int {
-        let arr = str.parseIntoStringArray()
+        let arr = str.parseIntoIntArray()
         
         var retval = 0
         for s in arr {
-            retval += CalculateFuel(mass: Int(s)!)
+            retval += CalculateFuel(mass: s)
         }
         
         return retval
     }
 
     public func solvePart2(str: String) -> Int {
-        let arr = str.parseIntoStringArray()
+        let arr = str.parseIntoIntArray()
 
         var retval = 0
         for s in arr {
-            var f = CalculateFuel(mass: Int(s)!)
+            var f = CalculateFuel(mass: s)
             while f > 0 {
                 retval += f
                 f = CalculateFuel(mass: f)

@@ -38,6 +38,19 @@ extension String {
         return retval
     }
     
+    func parseIntoIntArray() -> [Int] {
+        return parseIntoIntArray(separator: "\n")
+    }
+    
+    func parseIntoIntArray(separator: Character) -> [Int] {
+        let arr = self.split(separator: separator)
+        var retval: [Int] = []
+        for s in arr {
+            retval.append(Int(String(s))!)
+        }
+        
+        return retval
+    }
     var uniqueCharacters: String {
         var set = Set<Character>()
         return String(filter{ set.insert($0).inserted })

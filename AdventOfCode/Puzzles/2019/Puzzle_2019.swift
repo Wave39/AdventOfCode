@@ -13,7 +13,9 @@ class Puzzle_2019 {
     func solve(puzzleNumber: Int) {
         
         if puzzleNumber == 1 {
-            Puzzle_2019_01().solve();
+            Puzzle_2019_01().solve()
+        } else if puzzleNumber == 2 {
+            Puzzle_2019_02().solve()
         } else {
             print ("The puzzle number \(puzzleNumber) was not found.")
         }

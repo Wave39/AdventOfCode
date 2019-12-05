@@ -8,25 +8,13 @@
 
 import Foundation
 
-func stringClassFromString(_ className: String) -> AnyClass! {
-
-    /// get namespace
-    let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String;
-
-    /// get 'anyClass' with classname and namespace
-    let cls: AnyClass = NSClassFromString("\(namespace).\(className)")!;
-
-    // return AnyClass!
-    return cls;
-}
-
 print ("")
 print ("Welcome to BP's Advent Of Code Solution Machine.")
 print ("Make sure to click in the Output window to enter which puzzle you would like to solve.")
 
 let maxYear = 2019
 let defaultYear = maxYear
-let defaultPuzzle = 1
+let defaultPuzzle = 2
 let defaultYearAndPuzzle = "\(maxYear) \(defaultPuzzle)"
 
 var quitApp = false

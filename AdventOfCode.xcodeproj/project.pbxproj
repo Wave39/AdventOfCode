@@ -12,6 +12,7 @@
 		E02114872398089D00F49FC1 /* Puzzle_2019_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */; };
 		E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */; };
 		E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148A23982DF500F49FC1 /* Puzzle_2019.swift */; };
+		E021148D23987F9F00F49FC1 /* Puzzle_2019_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148C23987F9F00F49FC1 /* Puzzle_2019_02.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_01.swift; sourceTree = "<group>"; };
 		E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleBaseClass.swift; sourceTree = "<group>"; };
 		E021148A23982DF500F49FC1 /* Puzzle_2019.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019.swift; sourceTree = "<group>"; };
+		E021148C23987F9F00F49FC1 /* Puzzle_2019_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_02.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				E021148A23982DF500F49FC1 /* Puzzle_2019.swift */,
 				E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */,
+				E021148C23987F9F00F49FC1 /* Puzzle_2019_02.swift */,
 			);
 			path = 2019;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				E02114872398089D00F49FC1 /* Puzzle_2019_01.swift in Sources */,
 				E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */,
 				E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */,
+				E021148D23987F9F00F49FC1 /* Puzzle_2019_02.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
