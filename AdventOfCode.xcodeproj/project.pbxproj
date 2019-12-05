@@ -19,6 +19,7 @@
 		E0211496239893A100F49FC1 /* Particle2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0211495239893A100F49FC1 /* Particle2D.swift */; };
 		E02114982398940300F49FC1 /* Rect2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114972398940300F49FC1 /* Rect2D.swift */; };
 		E021149A2398943900F49FC1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114992398943900F49FC1 /* Stack.swift */; };
+		E021149C239894DF00F49FC1 /* Puzzle_2019_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149B239894DF00F49FC1 /* Puzzle_2019_03.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,7 @@
 		E0211495239893A100F49FC1 /* Particle2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Particle2D.swift; sourceTree = "<group>"; };
 		E02114972398940300F49FC1 /* Rect2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rect2D.swift; sourceTree = "<group>"; };
 		E02114992398943900F49FC1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		E021149B239894DF00F49FC1 /* Puzzle_2019_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_03.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				E021148A23982DF500F49FC1 /* Puzzle_2019.swift */,
 				E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */,
 				E021148C23987F9F00F49FC1 /* Puzzle_2019_02.swift */,
+				E021149B239894DF00F49FC1 /* Puzzle_2019_03.swift */,
 			);
 			path = 2019;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				E02114982398940300F49FC1 /* Rect2D.swift in Sources */,
 				E02114942398934C00F49FC1 /* Point4D.swift in Sources */,
 				E02114902398909600F49FC1 /* Point2D.swift in Sources */,
+				E021149C239894DF00F49FC1 /* Puzzle_2019_03.swift in Sources */,
 				E02114872398089D00F49FC1 /* Puzzle_2019_01.swift in Sources */,
 				E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */,
 				E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */,

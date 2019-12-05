@@ -16,10 +16,45 @@ class Puzzle_2019 {
             Puzzle_2019_01().solve()
         } else if puzzleNumber == 2 {
             Puzzle_2019_02().solve()
+        } else if puzzleNumber == 3 {
+            Puzzle_2019_03().solve()
         } else {
             print ("The puzzle number \(puzzleNumber) was not found.")
         }
         
     }
     
+}
+
+// template for new puzzle classes
+
+public class Puzzle_2019_XX : PuzzleBaseClass {
+
+    public func solve() {
+        let part1 = solvePart1(str: Puzzle_2019_XX_Input.puzzleInput)
+        print ("Part 1 solution: \(part1)")
+        
+        let part2 = solvePart2(str: Puzzle_2019_XX_Input.puzzleInput)
+        print ("Part 2 solution: \(part2)")
+    }
+
+    public func solvePart1(str: String) -> Int {
+        let arr = str.parseIntoStringArray()
+        return arr.count
+    }
+    
+    public func solvePart2(str: String) -> Int {
+        let arr = str.parseIntoStringArray()
+        return arr.count
+    }
+    
+}
+
+public class Puzzle_2019_XX_Input: NSObject {
+
+    static let puzzleInput = """
+Line 1
+Line 2
+"""
+
 }
