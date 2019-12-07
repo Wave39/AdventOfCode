@@ -23,6 +23,8 @@
 		E021149E2398B16C00F49FC1 /* Puzzle_2019_04.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149D2398B16C00F49FC1 /* Puzzle_2019_04.swift */; };
 		E02114A02399621400F49FC1 /* Puzzle_2019_05.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */; };
 		E04119A2239B16830031AD8B /* Puzzle_2019_06.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */; };
+		E04119A4239BDBDB0031AD8B /* Puzzle_2019_07.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */; };
+		E04119A6239BDE900031AD8B /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A5239BDE900031AD8B /* ArrayExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +57,8 @@
 		E021149D2398B16C00F49FC1 /* Puzzle_2019_04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_04.swift; sourceTree = "<group>"; };
 		E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_05.swift; sourceTree = "<group>"; };
 		E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_06.swift; sourceTree = "<group>"; };
+		E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_07.swift; sourceTree = "<group>"; };
+		E04119A5239BDE900031AD8B /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E0211482239800A300F49FC1 /* StringExtensions.swift */,
+				E04119A5239BDE900031AD8B /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 				E021149D2398B16C00F49FC1 /* Puzzle_2019_04.swift */,
 				E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */,
 				E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */,
+				E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */,
 			);
 			path = 2019;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 				E021149A2398943900F49FC1 /* Stack.swift in Sources */,
 				E02114982398940300F49FC1 /* Rect2D.swift in Sources */,
 				E02114942398934C00F49FC1 /* Point4D.swift in Sources */,
+				E04119A6239BDE900031AD8B /* ArrayExtensions.swift in Sources */,
 				E02114902398909600F49FC1 /* Point2D.swift in Sources */,
 				E02114A02399621400F49FC1 /* Puzzle_2019_05.swift in Sources */,
 				E04119A2239B16830031AD8B /* Puzzle_2019_06.swift in Sources */,
@@ -212,6 +219,7 @@
 				E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */,
 				E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */,
 				E021148D23987F9F00F49FC1 /* Puzzle_2019_02.swift in Sources */,
+				E04119A4239BDBDB0031AD8B /* Puzzle_2019_07.swift in Sources */,
 				E021149E2398B16C00F49FC1 /* Puzzle_2019_04.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
