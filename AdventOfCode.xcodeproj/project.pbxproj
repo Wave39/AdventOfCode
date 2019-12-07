@@ -22,6 +22,7 @@
 		E021149C239894DF00F49FC1 /* Puzzle_2019_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149B239894DF00F49FC1 /* Puzzle_2019_03.swift */; };
 		E021149E2398B16C00F49FC1 /* Puzzle_2019_04.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149D2398B16C00F49FC1 /* Puzzle_2019_04.swift */; };
 		E02114A02399621400F49FC1 /* Puzzle_2019_05.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */; };
+		E04119A2239B16830031AD8B /* Puzzle_2019_06.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,7 @@
 		E021149B239894DF00F49FC1 /* Puzzle_2019_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_03.swift; sourceTree = "<group>"; };
 		E021149D2398B16C00F49FC1 /* Puzzle_2019_04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_04.swift; sourceTree = "<group>"; };
 		E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_05.swift; sourceTree = "<group>"; };
+		E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_06.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				E021149B239894DF00F49FC1 /* Puzzle_2019_03.swift */,
 				E021149D2398B16C00F49FC1 /* Puzzle_2019_04.swift */,
 				E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */,
+				E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */,
 			);
 			path = 2019;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				E02114942398934C00F49FC1 /* Point4D.swift in Sources */,
 				E02114902398909600F49FC1 /* Point2D.swift in Sources */,
 				E02114A02399621400F49FC1 /* Puzzle_2019_05.swift in Sources */,
+				E04119A2239B16830031AD8B /* Puzzle_2019_06.swift in Sources */,
 				E021149C239894DF00F49FC1 /* Puzzle_2019_03.swift in Sources */,
 				E02114872398089D00F49FC1 /* Puzzle_2019_01.swift in Sources */,
 				E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */,
