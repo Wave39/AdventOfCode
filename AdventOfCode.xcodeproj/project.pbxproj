@@ -26,6 +26,24 @@
 		E04119A4239BDBDB0031AD8B /* Puzzle_2019_07.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */; };
 		E04119A6239BDE900031AD8B /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A5239BDE900031AD8B /* ArrayExtensions.swift */; };
 		E0F4FA55239D2DA8002F51A8 /* Puzzle_2019_08.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4FA54239D2DA8002F51A8 /* Puzzle_2019_08.swift */; };
+		E0F4FA5D239D9401002F51A8 /* AdventOfCode2019Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4FA5C239D9401002F51A8 /* AdventOfCode2019Tests.swift */; };
+		E0F4FA62239D956B002F51A8 /* Puzzle_2019_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */; };
+		E0F4FA63239D95CA002F51A8 /* PuzzleBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */; };
+		E0F4FA64239D95EA002F51A8 /* Particle2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0211495239893A100F49FC1 /* Particle2D.swift */; };
+		E0F4FA65239D95EE002F51A8 /* Point2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148F2398909600F49FC1 /* Point2D.swift */; };
+		E0F4FA66239D95F1002F51A8 /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114912398928700F49FC1 /* Point3D.swift */; };
+		E0F4FA67239D95F8002F51A8 /* Point4D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114932398934C00F49FC1 /* Point4D.swift */; };
+		E0F4FA68239D95FB002F51A8 /* Rect2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114972398940300F49FC1 /* Rect2D.swift */; };
+		E0F4FA69239D95FE002F51A8 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114992398943900F49FC1 /* Stack.swift */; };
+		E0F4FA6A239D9601002F51A8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0211482239800A300F49FC1 /* StringExtensions.swift */; };
+		E0F4FA6B239D9604002F51A8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A5239BDE900031AD8B /* ArrayExtensions.swift */; };
+		E0F4FA6C239D970C002F51A8 /* Puzzle_2019_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021148C23987F9F00F49FC1 /* Puzzle_2019_02.swift */; };
+		E0F4FA6D239D970F002F51A8 /* Puzzle_2019_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149B239894DF00F49FC1 /* Puzzle_2019_03.swift */; };
+		E0F4FA6E239D9713002F51A8 /* Puzzle_2019_04.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149D2398B16C00F49FC1 /* Puzzle_2019_04.swift */; };
+		E0F4FA6F239D9716002F51A8 /* Puzzle_2019_05.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */; };
+		E0F4FA70239D9718002F51A8 /* Puzzle_2019_06.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */; };
+		E0F4FA71239D971E002F51A8 /* Puzzle_2019_07.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */; };
+		E0F4FA72239D9722002F51A8 /* Puzzle_2019_08.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4FA54239D2DA8002F51A8 /* Puzzle_2019_08.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,10 +79,20 @@
 		E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_07.swift; sourceTree = "<group>"; };
 		E04119A5239BDE900031AD8B /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		E0F4FA54239D2DA8002F51A8 /* Puzzle_2019_08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_08.swift; sourceTree = "<group>"; };
+		E0F4FA5A239D9401002F51A8 /* AdventOfCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdventOfCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0F4FA5C239D9401002F51A8 /* AdventOfCode2019Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode2019Tests.swift; sourceTree = "<group>"; };
+		E0F4FA5E239D9401002F51A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E02114742397FEBD00F49FC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0F4FA57239D9401002F51A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -78,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				E02114792397FEBD00F49FC1 /* AdventOfCode */,
+				E0F4FA5B239D9401002F51A8 /* AdventOfCodeTests */,
 				E02114782397FEBD00F49FC1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				E02114772397FEBD00F49FC1 /* AdventOfCode */,
+				E0F4FA5A239D9401002F51A8 /* AdventOfCodeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +178,15 @@
 			path = Structures;
 			sourceTree = "<group>";
 		};
+		E0F4FA5B239D9401002F51A8 /* AdventOfCodeTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0F4FA5C239D9401002F51A8 /* AdventOfCode2019Tests.swift */,
+				E0F4FA5E239D9401002F51A8 /* Info.plist */,
+			);
+			path = AdventOfCodeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,6 +207,23 @@
 			productReference = E02114772397FEBD00F49FC1 /* AdventOfCode */;
 			productType = "com.apple.product-type.tool";
 		};
+		E0F4FA59239D9401002F51A8 /* AdventOfCodeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0F4FA5F239D9401002F51A8 /* Build configuration list for PBXNativeTarget "AdventOfCodeTests" */;
+			buildPhases = (
+				E0F4FA56239D9401002F51A8 /* Sources */,
+				E0F4FA57239D9401002F51A8 /* Frameworks */,
+				E0F4FA58239D9401002F51A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdventOfCodeTests;
+			productName = AdventOfCodeTests;
+			productReference = E0F4FA5A239D9401002F51A8 /* AdventOfCodeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,6 +235,9 @@
 				ORGANIZATIONNAME = "Wave 39 LLC";
 				TargetAttributes = {
 					E02114762397FEBD00F49FC1 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					E0F4FA59239D9401002F51A8 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
@@ -197,9 +256,20 @@
 			projectRoot = "";
 			targets = (
 				E02114762397FEBD00F49FC1 /* AdventOfCode */,
+				E0F4FA59239D9401002F51A8 /* AdventOfCodeTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0F4FA58239D9401002F51A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E02114732397FEBD00F49FC1 /* Sources */ = {
@@ -225,6 +295,31 @@
 				E04119A4239BDBDB0031AD8B /* Puzzle_2019_07.swift in Sources */,
 				E021149E2398B16C00F49FC1 /* Puzzle_2019_04.swift in Sources */,
 				E0F4FA55239D2DA8002F51A8 /* Puzzle_2019_08.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0F4FA56239D9401002F51A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0F4FA62239D956B002F51A8 /* Puzzle_2019_01.swift in Sources */,
+				E0F4FA72239D9722002F51A8 /* Puzzle_2019_08.swift in Sources */,
+				E0F4FA69239D95FE002F51A8 /* Stack.swift in Sources */,
+				E0F4FA6A239D9601002F51A8 /* StringExtensions.swift in Sources */,
+				E0F4FA65239D95EE002F51A8 /* Point2D.swift in Sources */,
+				E0F4FA64239D95EA002F51A8 /* Particle2D.swift in Sources */,
+				E0F4FA6C239D970C002F51A8 /* Puzzle_2019_02.swift in Sources */,
+				E0F4FA6B239D9604002F51A8 /* ArrayExtensions.swift in Sources */,
+				E0F4FA68239D95FB002F51A8 /* Rect2D.swift in Sources */,
+				E0F4FA6F239D9716002F51A8 /* Puzzle_2019_05.swift in Sources */,
+				E0F4FA70239D9718002F51A8 /* Puzzle_2019_06.swift in Sources */,
+				E0F4FA6D239D970F002F51A8 /* Puzzle_2019_03.swift in Sources */,
+				E0F4FA66239D95F1002F51A8 /* Point3D.swift in Sources */,
+				E0F4FA5D239D9401002F51A8 /* AdventOfCode2019Tests.swift in Sources */,
+				E0F4FA67239D95F8002F51A8 /* Point4D.swift in Sources */,
+				E0F4FA63239D95CA002F51A8 /* PuzzleBaseClass.swift in Sources */,
+				E0F4FA71239D971E002F51A8 /* Puzzle_2019_07.swift in Sources */,
+				E0F4FA6E239D9713002F51A8 /* Puzzle_2019_04.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +463,42 @@
 			};
 			name = Release;
 		};
+		E0F4FA60239D9401002F51A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D9KUNWHAM5;
+				INFOPLIST_FILE = AdventOfCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wave39.AdventOfCodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E0F4FA61239D9401002F51A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = D9KUNWHAM5;
+				INFOPLIST_FILE = AdventOfCodeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.wave39.AdventOfCodeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -385,6 +516,15 @@
 			buildConfigurations = (
 				E021147F2397FEBD00F49FC1 /* Debug */,
 				E02114802397FEBD00F49FC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0F4FA5F239D9401002F51A8 /* Build configuration list for PBXNativeTarget "AdventOfCodeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0F4FA60239D9401002F51A8 /* Debug */,
+				E0F4FA61239D9401002F51A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
