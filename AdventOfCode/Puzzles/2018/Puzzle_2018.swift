@@ -14,8 +14,8 @@ class Puzzle_2018 {
         
         if puzzleNumber == 1 {
             Puzzle_2018_01().solve()
-//        } else if puzzleNumber == 2 {
-//            Puzzle_2019_02().solve()
+        } else if puzzleNumber == 2 {
+            Puzzle_2018_02().solve()
 //        } else if puzzleNumber == 3 {
 //            Puzzle_2019_03().solve()
 //        } else if puzzleNumber == 4 {
