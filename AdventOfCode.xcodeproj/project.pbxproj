@@ -25,6 +25,7 @@
 		E04119A2239B16830031AD8B /* Puzzle_2019_06.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */; };
 		E04119A4239BDBDB0031AD8B /* Puzzle_2019_07.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */; };
 		E04119A6239BDE900031AD8B /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A5239BDE900031AD8B /* ArrayExtensions.swift */; };
+		E0F4FA55239D2DA8002F51A8 /* Puzzle_2019_08.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4FA54239D2DA8002F51A8 /* Puzzle_2019_08.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,7 @@
 		E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_06.swift; sourceTree = "<group>"; };
 		E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_07.swift; sourceTree = "<group>"; };
 		E04119A5239BDE900031AD8B /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		E0F4FA54239D2DA8002F51A8 /* Puzzle_2019_08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_08.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */,
 				E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */,
 				E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */,
+				E0F4FA54239D2DA8002F51A8 /* Puzzle_2019_08.swift */,
 			);
 			path = 2019;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				E021148D23987F9F00F49FC1 /* Puzzle_2019_02.swift in Sources */,
 				E04119A4239BDBDB0031AD8B /* Puzzle_2019_07.swift in Sources */,
 				E021149E2398B16C00F49FC1 /* Puzzle_2019_04.swift in Sources */,
+				E0F4FA55239D2DA8002F51A8 /* Puzzle_2019_08.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
