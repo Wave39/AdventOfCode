@@ -44,6 +44,10 @@
 		E0F4FA70239D9718002F51A8 /* Puzzle_2019_06.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A1239B16830031AD8B /* Puzzle_2019_06.swift */; };
 		E0F4FA71239D971E002F51A8 /* Puzzle_2019_07.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04119A3239BDBDB0031AD8B /* Puzzle_2019_07.swift */; };
 		E0F4FA72239D9722002F51A8 /* Puzzle_2019_08.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4FA54239D2DA8002F51A8 /* Puzzle_2019_08.swift */; };
+		E0F4FA75239DA271002F51A8 /* Puzzle_2018.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4FA74239DA271002F51A8 /* Puzzle_2018.swift */; };
+		E0F4FA77239DA281002F51A8 /* Puzzle_2018_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4FA76239DA281002F51A8 /* Puzzle_2018_01.swift */; };
+		E0F4FA79239DA3B0002F51A8 /* AdventOfCode2018Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4FA78239DA3B0002F51A8 /* AdventOfCode2018Tests.swift */; };
+		E0F4FA7B239DA3BA002F51A8 /* Puzzle_2018_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F4FA76239DA281002F51A8 /* Puzzle_2018_01.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +86,9 @@
 		E0F4FA5A239D9401002F51A8 /* AdventOfCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdventOfCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F4FA5C239D9401002F51A8 /* AdventOfCode2019Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode2019Tests.swift; sourceTree = "<group>"; };
 		E0F4FA5E239D9401002F51A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0F4FA74239DA271002F51A8 /* Puzzle_2018.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2018.swift; sourceTree = "<group>"; };
+		E0F4FA76239DA281002F51A8 /* Puzzle_2018_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2018_01.swift; sourceTree = "<group>"; };
+		E0F4FA78239DA3B0002F51A8 /* AdventOfCode2018Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode2018Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +152,7 @@
 			children = (
 				E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */,
 				E02114852398085F00F49FC1 /* 2019 */,
+				E0F4FA73239DA24F002F51A8 /* 2018 */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -182,9 +190,19 @@
 			isa = PBXGroup;
 			children = (
 				E0F4FA5C239D9401002F51A8 /* AdventOfCode2019Tests.swift */,
+				E0F4FA78239DA3B0002F51A8 /* AdventOfCode2018Tests.swift */,
 				E0F4FA5E239D9401002F51A8 /* Info.plist */,
 			);
 			path = AdventOfCodeTests;
+			sourceTree = "<group>";
+		};
+		E0F4FA73239DA24F002F51A8 /* 2018 */ = {
+			isa = PBXGroup;
+			children = (
+				E0F4FA74239DA271002F51A8 /* Puzzle_2018.swift */,
+				E0F4FA76239DA281002F51A8 /* Puzzle_2018_01.swift */,
+			);
+			path = 2018;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +298,7 @@
 				E02114922398928700F49FC1 /* Point3D.swift in Sources */,
 				E021147B2397FEBD00F49FC1 /* main.swift in Sources */,
 				E0211496239893A100F49FC1 /* Particle2D.swift in Sources */,
+				E0F4FA75239DA271002F51A8 /* Puzzle_2018.swift in Sources */,
 				E021149A2398943900F49FC1 /* Stack.swift in Sources */,
 				E02114982398940300F49FC1 /* Rect2D.swift in Sources */,
 				E02114942398934C00F49FC1 /* Point4D.swift in Sources */,
@@ -290,6 +309,7 @@
 				E021149C239894DF00F49FC1 /* Puzzle_2019_03.swift in Sources */,
 				E02114872398089D00F49FC1 /* Puzzle_2019_01.swift in Sources */,
 				E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */,
+				E0F4FA77239DA281002F51A8 /* Puzzle_2018_01.swift in Sources */,
 				E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */,
 				E021148D23987F9F00F49FC1 /* Puzzle_2019_02.swift in Sources */,
 				E04119A4239BDBDB0031AD8B /* Puzzle_2019_07.swift in Sources */,
@@ -305,6 +325,7 @@
 				E0F4FA62239D956B002F51A8 /* Puzzle_2019_01.swift in Sources */,
 				E0F4FA72239D9722002F51A8 /* Puzzle_2019_08.swift in Sources */,
 				E0F4FA69239D95FE002F51A8 /* Stack.swift in Sources */,
+				E0F4FA79239DA3B0002F51A8 /* AdventOfCode2018Tests.swift in Sources */,
 				E0F4FA6A239D9601002F51A8 /* StringExtensions.swift in Sources */,
 				E0F4FA65239D95EE002F51A8 /* Point2D.swift in Sources */,
 				E0F4FA64239D95EA002F51A8 /* Particle2D.swift in Sources */,
@@ -315,6 +336,7 @@
 				E0F4FA70239D9718002F51A8 /* Puzzle_2019_06.swift in Sources */,
 				E0F4FA6D239D970F002F51A8 /* Puzzle_2019_03.swift in Sources */,
 				E0F4FA66239D95F1002F51A8 /* Point3D.swift in Sources */,
+				E0F4FA7B239DA3BA002F51A8 /* Puzzle_2018_01.swift in Sources */,
 				E0F4FA5D239D9401002F51A8 /* AdventOfCode2019Tests.swift in Sources */,
 				E0F4FA67239D95F8002F51A8 /* Point4D.swift in Sources */,
 				E0F4FA63239D95CA002F51A8 /* PuzzleBaseClass.swift in Sources */,

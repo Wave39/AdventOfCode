@@ -51,6 +51,8 @@ while !quitApp {
         let start = DispatchTime.now()
         if year == 2019 {
             Puzzle_2019().solve(puzzleNumber: puzzle)
+        } else if year == 2018 {
+            Puzzle_2018().solve(puzzleNumber: puzzle)
         }
         
         let end = DispatchTime.now()
