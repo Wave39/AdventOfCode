@@ -53,4 +53,16 @@ struct Point2D: Hashable, CustomStringConvertible {
         return retval
     }
     
+    func moveForward(direction: CompassDirection) -> Point2D {
+        if direction == .North {
+            return Point2D(x: self.x, y: self.y + 1)
+        } else if direction == .East {
+            return Point2D(x: self.x + 1, y: self.y)
+        } else if direction == .South {
+            return Point2D(x: self.x, y: self.y - 1)
+        } else {
+            return Point2D(x: self.x - 1, y: self.y)
+        }
+    }
+    
 }
