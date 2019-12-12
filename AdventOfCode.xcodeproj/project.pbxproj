@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E01DA9EF23A27C3900656E6E /* Puzzle_2019_12.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01DA9EE23A27C3900656E6E /* Puzzle_2019_12.swift */; };
+		E01DA9F023A27C3900656E6E /* Puzzle_2019_12.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01DA9EE23A27C3900656E6E /* Puzzle_2019_12.swift */; };
+		E01DA9F223A27E1200656E6E /* Particle3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01DA9F123A27E1200656E6E /* Particle3D.swift */; };
+		E01DA9F323A27E1200656E6E /* Particle3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01DA9F123A27E1200656E6E /* Particle3D.swift */; };
+		E01DA9F523A27EB800656E6E /* Rect3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01DA9F423A27EB800656E6E /* Rect3D.swift */; };
+		E01DA9F623A27EB800656E6E /* Rect3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01DA9F423A27EB800656E6E /* Rect3D.swift */; };
+		E01DA9F923A2B84E00656E6E /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01DA9F823A2B84E00656E6E /* GCD.swift */; };
+		E01DA9FA23A2B84E00656E6E /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01DA9F823A2B84E00656E6E /* GCD.swift */; };
 		E021147B2397FEBD00F49FC1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021147A2397FEBD00F49FC1 /* main.swift */; };
 		E0211483239800A300F49FC1 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0211482239800A300F49FC1 /* StringExtensions.swift */; };
 		E02114872398089D00F49FC1 /* Puzzle_2019_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */; };
@@ -75,6 +83,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E01DA9EE23A27C3900656E6E /* Puzzle_2019_12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_12.swift; sourceTree = "<group>"; };
+		E01DA9F123A27E1200656E6E /* Particle3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Particle3D.swift; sourceTree = "<group>"; };
+		E01DA9F423A27EB800656E6E /* Rect3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rect3D.swift; sourceTree = "<group>"; };
+		E01DA9F823A2B84E00656E6E /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		E02114772397FEBD00F49FC1 /* AdventOfCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AdventOfCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021147A2397FEBD00F49FC1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E0211482239800A300F49FC1 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -127,6 +139,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E01DA9F723A2B84500656E6E /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				E01DA9F823A2B84E00656E6E /* GCD.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
 		E021146E2397FEBD00F49FC1 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +168,7 @@
 		E02114792397FEBD00F49FC1 /* AdventOfCode */ = {
 			isa = PBXGroup;
 			children = (
+				E01DA9F723A2B84500656E6E /* Functions */,
 				E026B4E723A17C7700FDDABD /* Enumerations */,
 				E021148E2398907F00F49FC1 /* Structures */,
 				E02114812398008900F49FC1 /* Extensions */,
@@ -192,6 +213,7 @@
 				E0A1B460239E8A080067C582 /* Puzzle_2019_09.swift */,
 				E0A1B46323A031710067C582 /* Puzzle_2019_10.swift */,
 				E026B4E423A1556300FDDABD /* Puzzle_2019_11.swift */,
+				E01DA9EE23A27C3900656E6E /* Puzzle_2019_12.swift */,
 			);
 			path = 2019;
 			sourceTree = "<group>";
@@ -200,11 +222,13 @@
 			isa = PBXGroup;
 			children = (
 				E0211495239893A100F49FC1 /* Particle2D.swift */,
+				E01DA9F123A27E1200656E6E /* Particle3D.swift */,
 				E021148F2398909600F49FC1 /* Point2D.swift */,
 				E02114912398928700F49FC1 /* Point3D.swift */,
 				E02114932398934C00F49FC1 /* Point4D.swift */,
 				E02114972398940300F49FC1 /* Rect2D.swift */,
 				E02114992398943900F49FC1 /* Stack.swift */,
+				E01DA9F423A27EB800656E6E /* Rect3D.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -348,10 +372,14 @@
 				E0A1B461239E8A080067C582 /* Puzzle_2019_09.swift in Sources */,
 				E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */,
 				E0F4FA77239DA281002F51A8 /* Puzzle_2018_01.swift in Sources */,
+				E01DA9F223A27E1200656E6E /* Particle3D.swift in Sources */,
+				E01DA9EF23A27C3900656E6E /* Puzzle_2019_12.swift in Sources */,
+				E01DA9F923A2B84E00656E6E /* GCD.swift in Sources */,
 				E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */,
 				E021148D23987F9F00F49FC1 /* Puzzle_2019_02.swift in Sources */,
 				E04119A4239BDBDB0031AD8B /* Puzzle_2019_07.swift in Sources */,
 				E021149E2398B16C00F49FC1 /* Puzzle_2019_04.swift in Sources */,
+				E01DA9F523A27EB800656E6E /* Rect3D.swift in Sources */,
 				E0F4FA55239D2DA8002F51A8 /* Puzzle_2019_08.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,9 +388,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01DA9FA23A2B84E00656E6E /* GCD.swift in Sources */,
 				E0F4FA62239D956B002F51A8 /* Puzzle_2019_01.swift in Sources */,
 				E0F4FA72239D9722002F51A8 /* Puzzle_2019_08.swift in Sources */,
+				E01DA9F323A27E1200656E6E /* Particle3D.swift in Sources */,
 				E0F4FA69239D95FE002F51A8 /* Stack.swift in Sources */,
+				E01DA9F023A27C3900656E6E /* Puzzle_2019_12.swift in Sources */,
 				E0F4FA7E239DAB97002F51A8 /* Puzzle_2018_02.swift in Sources */,
 				E0A1B46823A135FE0067C582 /* DoubleExtensions.swift in Sources */,
 				E0F4FA79239DA3B0002F51A8 /* AdventOfCode2018Tests.swift in Sources */,
@@ -381,6 +412,7 @@
 				E0F4FA7B239DA3BA002F51A8 /* Puzzle_2018_01.swift in Sources */,
 				E0F4FA5D239D9401002F51A8 /* AdventOfCode2019Tests.swift in Sources */,
 				E0F4FA67239D95F8002F51A8 /* Point4D.swift in Sources */,
+				E01DA9F623A27EB800656E6E /* Rect3D.swift in Sources */,
 				E0F4FA63239D95CA002F51A8 /* PuzzleBaseClass.swift in Sources */,
 				E0F4FA71239D971E002F51A8 /* Puzzle_2019_07.swift in Sources */,
 				E0A1B462239E8A080067C582 /* Puzzle_2019_09.swift in Sources */,
