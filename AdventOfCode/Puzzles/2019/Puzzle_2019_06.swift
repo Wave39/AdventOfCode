@@ -10,7 +10,7 @@ import Foundation
 
 public class Puzzle_2019_06 : PuzzleBaseClass {
 
-    class OrbitalRelationship : CustomStringConvertible{
+    class OrbitalRelationship : CustomStringConvertible {
         var center: String
         var orbiter: String
         init(_ c: String, _ o: String) {
