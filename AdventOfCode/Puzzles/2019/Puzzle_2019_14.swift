@@ -35,13 +35,21 @@ public class Puzzle_2019_14 : PuzzleBaseClass {
     }
     
     public func solve() {
-        let part1 = solve(str: Puzzle_2019_14_Input.puzzleInput, part: 1)
+        let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         
-        let part2 = solve(str: Puzzle_2019_14_Input.puzzleInput, part: 2)
+        let part2 = solvePart2()
         print ("Part 2 solution: \(part2)")
     }
 
+    public func solvePart1() -> Int {
+        return solve(str: Puzzle_2019_14_Input.puzzleInput, part: 1)
+    }
+    
+    public func solvePart2() -> Int {
+        return solve(str: Puzzle_2019_14_Input.puzzleInput, part: 2)
+    }
+    
     public func solve(str: String, part: Int) -> Int {
         let lines = str.parseIntoStringArray()
         var equations: [ChemicalEquation] = []
@@ -144,7 +152,7 @@ public class Puzzle_2019_14 : PuzzleBaseClass {
     
 }
 
-public class Puzzle_2019_14_Input: NSObject {
+fileprivate class Puzzle_2019_14_Input: NSObject {
 
     static let puzzleInput_test1 = """
 10 ORE => 10 A
