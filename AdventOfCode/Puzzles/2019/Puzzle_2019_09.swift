@@ -8,14 +8,22 @@
 
 import Foundation
 
-public class Puzzle_2019_09 : PuzzleBaseClass {
+class Puzzle_2019_09 : PuzzleBaseClass {
     
-    public func solve() {
-        let part1 = solvePart1(str: Puzzle_2019_09_Input.puzzleInput)
+    func solve() {
+        let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         
-        let part2 = solvePart2(str: Puzzle_2019_09_Input.puzzleInput)
+        let part2 = solvePart2()
         print ("Part 2 solution: \(part2)")
+    }
+    
+    func solvePart1() -> Int {
+        return solvePart1(str: Puzzle_2019_09_Input.puzzleInput)
+    }
+    
+    func solvePart2() -> Int {
+        return solvePart2(str: Puzzle_2019_09_Input.puzzleInput)
     }
     
     func ProcessProgram(program: inout [Int], inputArray: inout [Int], programCounter: inout Int, relativeBase: inout Int) -> Int {
@@ -145,7 +153,7 @@ public class Puzzle_2019_09 : PuzzleBaseClass {
         return retval
     }
     
-    public func solvePart1(str: String) -> Int {
+    func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var inputSignals = [ 1 ]
         var programCounter = 0
@@ -154,7 +162,7 @@ public class Puzzle_2019_09 : PuzzleBaseClass {
         return results
     }
 
-    public func solvePart2(str: String) -> Int {
+    func solvePart2(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var inputSignals = [ 2 ]
         var programCounter = 0
@@ -164,7 +172,7 @@ public class Puzzle_2019_09 : PuzzleBaseClass {
     }
 }
 
-public class Puzzle_2019_09_Input: NSObject {
+fileprivate class Puzzle_2019_09_Input: NSObject {
 
     static let puzzleInput_test1 = """
 109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99

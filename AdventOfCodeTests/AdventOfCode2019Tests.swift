@@ -74,6 +74,35 @@ class AdventOfCode2019Tests: XCTestCase {
         XCTAssertEqual(String(part2), "011000011010001111100110010010000101000110000100101000000010010101110010010101100001000100100001111010010100100010010000100100111001100001001111010010")
     }
     
+    func test2019day09() {
+        let part1 = Puzzle_2019_09().solvePart1()
+        XCTAssertEqual(part1, 3409270027)
+        let part2 = Puzzle_2019_09().solvePart2()
+        XCTAssertEqual(part2, 82760)
+    }
+
+    func test2019day10() {
+        let part1 = Puzzle_2019_10().solvePart1()
+        XCTAssertEqual(part1.0, 344)
+        let part2 = Puzzle_2019_10().solvePart2()
+        XCTAssertEqual(part2, 2732)
+    }
+
+    func test2019day11() {
+        let part1 = Puzzle_2019_11().solvePart1()
+        XCTAssertEqual(part1, 2160)
+        let part2 = Puzzle_2019_11().solvePart2()
+        XCTAssertEqual(part2.0, "#....###..####.####..##...##..####.#####....#..#....#.#....#..#.#..#.#....#...#....#..#...#..###..#....#....###..###.#....###...#...#....#....#.##.#....#...#....#.#..#....#....#..#.#..#.#....#...####.#..#.####.####..##...###.#....####")
+        XCTAssertEqual(part2.1, Point2D(x: 39, y: 6))
+    }
+
+    func test2019day12() {
+        let part1 = Puzzle_2019_12().solvePart1()
+        XCTAssertEqual(part1, 13399)
+        let part2 = Puzzle_2019_12().solvePart2()
+        XCTAssertEqual(part2, 312992287193064)
+    }
+
     func test2019day13() {
         let part1 = Puzzle_2019_13().solvePart1()
         XCTAssertEqual(part1, 432)

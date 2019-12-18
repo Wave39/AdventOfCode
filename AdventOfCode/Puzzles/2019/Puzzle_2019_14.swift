@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Puzzle_2019_14 : PuzzleBaseClass {
+class Puzzle_2019_14 : PuzzleBaseClass {
 
     struct ChemicalComponent: CustomStringConvertible {
         var amount: Int = 0
@@ -34,7 +34,7 @@ public class Puzzle_2019_14 : PuzzleBaseClass {
         }
     }
     
-    public func solve() {
+    func solve() {
         let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         
@@ -42,15 +42,15 @@ public class Puzzle_2019_14 : PuzzleBaseClass {
         print ("Part 2 solution: \(part2)")
     }
 
-    public func solvePart1() -> Int {
+    func solvePart1() -> Int {
         return solve(str: Puzzle_2019_14_Input.puzzleInput, part: 1)
     }
     
-    public func solvePart2() -> Int {
+    func solvePart2() -> Int {
         return solve(str: Puzzle_2019_14_Input.puzzleInput, part: 2)
     }
     
-    public func solve(str: String, part: Int) -> Int {
+    func solve(str: String, part: Int) -> Int {
         let lines = str.parseIntoStringArray()
         var equations: [ChemicalEquation] = []
         for line in lines {

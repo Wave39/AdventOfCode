@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Puzzle_2019_15 : PuzzleBaseClass {
+class Puzzle_2019_15 : PuzzleBaseClass {
 
     var globalRenderFlag = false
     
@@ -46,7 +46,7 @@ public class Puzzle_2019_15 : PuzzleBaseClass {
         var direction: MovementDirection = .North
     }
     
-    public func solve() {
+    func solve() {
         let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
        
@@ -241,11 +241,11 @@ public class Puzzle_2019_15 : PuzzleBaseClass {
         }
     }
     
-    public func solvePart1() -> Int {
+    func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_15_Input.puzzleInput)
     }
     
-    public func solvePart2() -> Int {
+    func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_15_Input.puzzleInput)
     }
     

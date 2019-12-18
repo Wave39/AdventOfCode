@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Puzzle_2019_13 : PuzzleBaseClass {
+class Puzzle_2019_13 : PuzzleBaseClass {
 
     enum TileType: Int {
         case Empty = 0
@@ -18,7 +18,7 @@ public class Puzzle_2019_13 : PuzzleBaseClass {
         case Ball = 4
     }
     
-    public func solve() {
+    func solve() {
         let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         
@@ -26,11 +26,11 @@ public class Puzzle_2019_13 : PuzzleBaseClass {
         print ("Part 2 solution: \(part2)")
     }
 
-    public func solvePart1() -> Int {
+    func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_13_Input.puzzleInput)
     }
     
-    public func solvePart2() -> Int {
+    func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_13_Input.puzzleInput)
     }
     
@@ -180,7 +180,7 @@ public class Puzzle_2019_13 : PuzzleBaseClass {
         return (outputArray, false)
     }
 
-    public func solvePart1(str: String) -> Int {
+    func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0
@@ -254,7 +254,7 @@ public class Puzzle_2019_13 : PuzzleBaseClass {
         }
     }
     
-    public func solvePart2(str: String) -> Int {
+    func solvePart2(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0
