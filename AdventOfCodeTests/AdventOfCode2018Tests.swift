@@ -18,20 +18,19 @@ class AdventOfCode2018Tests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test2018Puzzles() {
-        
-        // day 1
-        let day01part1 = Puzzle_2018_01().solvePart1(str: Puzzle_2018_01_Input.puzzleInput)
-        XCTAssertEqual(day01part1, 472)
-        let day01part2 = Puzzle_2018_01().solvePart2(str: Puzzle_2018_01_Input.puzzleInput)
-        XCTAssertEqual(day01part2, 66932)
-       
-        // day 2
-        let day02array = Puzzle_2018_02_Input.puzzleInput.parseIntoStringArray()
-        let day02part1 = Puzzle_2018_02().solvePart1(arr: day02array)
-        XCTAssertEqual(day02part1, 6696)
-        let day02part2 = Puzzle_2018_02().solvePart2(arr: day02array)
-        XCTAssertEqual(day02part2, "bvnfawcnyoeyudzrpgslimtkj")
+    func test2018day01() {
+        let part1 = Puzzle_2018_01().solvePart1(str: Puzzle_2018_01_Input.puzzleInput)
+        XCTAssertEqual(part1, 472)
+        let part2 = Puzzle_2018_01().solvePart2(str: Puzzle_2018_01_Input.puzzleInput)
+        XCTAssertEqual(part2, 66932)
+    }
+    
+    func test2018day02() {
+        let array = Puzzle_2018_02_Input.puzzleInput.parseIntoStringArray()
+        let part1 = Puzzle_2018_02().solvePart1(arr: array)
+        XCTAssertEqual(part1, 6696)
+        let part2 = Puzzle_2018_02().solvePart2(arr: array)
+        XCTAssertEqual(part2, "bvnfawcnyoeyudzrpgslimtkj")
     }
 
 }

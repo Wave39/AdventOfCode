@@ -40,6 +40,8 @@ class Puzzle_2019 {
             Puzzle_2019_13().solve()
         } else if puzzleNumber == 14 {
             Puzzle_2019_14().solve()
+        } else if puzzleNumber == 15 {
+            Puzzle_2019_15().solve()
         } else {
             print ("The puzzle number \(puzzleNumber) was not found.")
         }
