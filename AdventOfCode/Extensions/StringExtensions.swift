@@ -51,6 +51,7 @@ extension String {
         
         return retval
     }
+    
     var uniqueCharacters: String {
         var set = Set<Character>()
         return String(filter{ set.insert($0).inserted })
