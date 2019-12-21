@@ -17,6 +17,10 @@ struct Point2D: Hashable, CustomStringConvertible {
         hasher.combine(y)
     }
     
+    static var origin: Point2D {
+        return Point2D(x: 0, y: 0)
+    }
+    
     var description: String {
         return "(\(x),\(y))"
     }

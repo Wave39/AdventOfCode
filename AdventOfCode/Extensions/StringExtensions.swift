@@ -10,6 +10,8 @@ import Foundation
 
 extension String {
     
+    static var clearConsole: String { return "\u{001b}[H" }
+    
     func trim() -> String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
