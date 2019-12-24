@@ -10,10 +10,16 @@ import Foundation
 
 extension Character {
     
-    static var blackBox: Character { return "⬛️" }
-    static var redBox: Character { return "🟥" }
-    static var yellowBox: Character { return "🟨" }
-    static var blueBox: Character { return "🟦" }
-    static var lightGrayBox: Character { return "⬜️" }
+    // For these color squares, visit this site and search for something like "fuchsia square":
+    // https://emojipedia.org/
+    
+    static var blackSquare: Character { return "⬛️" }
+    static var redSquare: Character { return "🟥" }
+    static var yellowSquare: Character { return "🟨" }
+    static var blueSquare: Character { return "🟦" }
+    static var whiteSquare: Character { return "⬜️" }
+    static var greenSquare: Character { return "🟩" }
+    static var orangeSquare: Character { return "🟧" }
+    static var purpleSquare: Character { return "🟪" }
     
 }
