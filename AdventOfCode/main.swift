@@ -14,7 +14,7 @@ print ("Make sure to click in the Output window to enter which puzzle you would 
 
 let maxYear = 2019
 let defaultYear = maxYear
-let defaultPuzzle = 21
+let defaultPuzzle = 22
 let defaultYearAndPuzzle = "\(maxYear) \(defaultPuzzle)"
 
 var quitApp = false
