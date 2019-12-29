@@ -173,4 +173,9 @@ class AdventOfCode2019Tests: XCTestCase {
         XCTAssertEqual(part2, 3920265924568)
     }
     
+    func test2019day23() {
+        // no tests for day 23 as the multithreading code still has something wrong with it
+        XCTAssertTrue(true)
+    }
+    
 }
