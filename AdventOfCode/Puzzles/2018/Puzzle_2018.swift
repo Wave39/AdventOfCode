@@ -16,18 +16,18 @@ class Puzzle_2018 {
             Puzzle_2018_01().solve()
         } else if puzzleNumber == 2 {
             Puzzle_2018_02().solve()
-//        } else if puzzleNumber == 3 {
-//            Puzzle_2019_03().solve()
-//        } else if puzzleNumber == 4 {
-//            Puzzle_2019_04().solve()
-//        } else if puzzleNumber == 5 {
-//            Puzzle_2019_05().solve()
-//        } else if puzzleNumber == 6 {
-//            Puzzle_2019_06().solve()
-//        } else if puzzleNumber == 7 {
-//            Puzzle_2019_07().solve()
-//        } else if puzzleNumber == 8 {
-//            Puzzle_2019_08().solve()
+        } else if puzzleNumber == 3 {
+            Puzzle_2018_03().solve()
+        } else if puzzleNumber == 4 {
+//            Puzzle_2018_04().solve()
+        } else if puzzleNumber == 5 {
+//            Puzzle_2018_05().solve()
+        } else if puzzleNumber == 6 {
+//            Puzzle_2018_06().solve()
+        } else if puzzleNumber == 7 {
+//            Puzzle_2018_07().solve()
+        } else if puzzleNumber == 8 {
+//            Puzzle_2018_08().solve()
         } else {
             print ("The puzzle number \(puzzleNumber) was not found.")
         }
