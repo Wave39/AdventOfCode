@@ -1,5 +1,5 @@
 //
-//  Puzle_2019_24.swift
+//  Puzzle_2019_24.swift
 //  AdventOfCode
 //
 //  Created by Brian Prescott on 12/29/19.
