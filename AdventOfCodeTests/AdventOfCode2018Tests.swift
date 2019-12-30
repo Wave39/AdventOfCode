@@ -19,17 +19,16 @@ class AdventOfCode2018Tests: XCTestCase {
     }
 
     func test2018day01() {
-        let part1 = Puzzle_2018_01().solvePart1(str: Puzzle_2018_01_Input.puzzleInput)
+        let part1 = Puzzle_2018_01().solvePart1()
         XCTAssertEqual(part1, 472)
-        let part2 = Puzzle_2018_01().solvePart2(str: Puzzle_2018_01_Input.puzzleInput)
+        let part2 = Puzzle_2018_01().solvePart2()
         XCTAssertEqual(part2, 66932)
     }
     
     func test2018day02() {
-        let array = Puzzle_2018_02_Input.puzzleInput.parseIntoStringArray()
-        let part1 = Puzzle_2018_02().solvePart1(arr: array)
+        let part1 = Puzzle_2018_02().solvePart1()
         XCTAssertEqual(part1, 6696)
-        let part2 = Puzzle_2018_02().solvePart2(arr: array)
+        let part2 = Puzzle_2018_02().solvePart2()
         XCTAssertEqual(part2, "bvnfawcnyoeyudzrpgslimtkj")
     }
 

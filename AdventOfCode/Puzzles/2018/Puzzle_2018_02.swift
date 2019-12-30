@@ -10,17 +10,26 @@ import Foundation
 
 class Puzzle_2018_02: NSObject {
 
-    public func solve() {
-        let puzzleInput = Puzzle_2018_02_Input.puzzleInput
-        let array = puzzleInput.parseIntoStringArray()
-        
-        let part1 = solvePart1(arr: array)
+    func solve() {
+        let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         
-        let part2 = solvePart2(arr: array)
+        let part2 = solvePart2()
         print ("Part 2 solution: \(part2)")
     }
 
+    func solvePart1() -> Int {
+        let puzzleInput = Puzzle_2018_02_Input.puzzleInput
+        let array = puzzleInput.parseIntoStringArray()
+        return solvePart1(arr: array)
+    }
+    
+    func solvePart2() -> String {
+        let puzzleInput = Puzzle_2018_02_Input.puzzleInput
+        let array = puzzleInput.parseIntoStringArray()
+        return solvePart2(arr: array)
+    }
+    
     func solvePart1(arr: [String]) -> Int {
         var counterOfTwos = 0
         var counterOfThrees = 0
@@ -58,7 +67,7 @@ class Puzzle_2018_02: NSObject {
     
 }
 
-public class Puzzle_2018_02_Input: NSObject {
+fileprivate class Puzzle_2018_02_Input: NSObject {
 
     static let puzzleInput_test = """
 abcdef

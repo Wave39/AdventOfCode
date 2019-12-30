@@ -10,7 +10,7 @@ import Foundation
 
 class Puzzle_2018_03: NSObject {
 
-    public func solve() {
+    func solve() {
         let (part1, part2) = solveBothParts()
         print ("Part 1 solution: \(part1)")
         print ("Part 2 solution: \(part2)")
@@ -117,7 +117,7 @@ class Claim {
     }
 }
 
-public class Puzzle_2018_03_Input: NSObject {
+fileprivate class Puzzle_2018_03_Input: NSObject {
 
     static let puzzleInput_test = """
 #1 @ 1,3: 4x4
