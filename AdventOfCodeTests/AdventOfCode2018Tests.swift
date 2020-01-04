@@ -120,4 +120,11 @@ class AdventOfCode2018Tests: XCTestCase {
         // no tests for day 15 as I ripped off someone else's code to get the solution
         XCTAssertTrue(true)
     }
+    
+    func test2018day16() {
+        let (part1, part2) = Puzzle_2018_16().solveBothParts()
+        XCTAssertEqual(part1, 588)
+        XCTAssertEqual(part2, 627)
+    }
+    
 }
