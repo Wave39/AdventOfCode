@@ -1,4 +1,7 @@
 # 2018 
+I must say that as of right now, Sunday January 5, 2020, I don't really remember back far enough to the 2018 Advent of Code.
+However, it must have been a rough time, as there are quite a few Hall of Shame entries.
+I guess my excuse can be that I was recovering from a major heel surgery and was not feeling quite like myself.
 ## Hall of Shame
 At a certain point of looking at a problem and banging one's head against a wall, you just have to give up and let someone smarter than you carry the mail.
 Here are some of those situations.
