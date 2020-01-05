@@ -157,4 +157,10 @@ class AdventOfCode2018Tests: XCTestCase {
         // do not test part 2, it takes way too long to run
     }
     
+    func test2018day22() {
+        let part1 = Puzzle_2018_22().solvePart1()
+        XCTAssertEqual(part1, 11972)
+        // do not test part 2, I borrowed someone else's solution
+    }
+    
 }
