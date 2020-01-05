@@ -13,3 +13,5 @@ This is why I do not have a test case for part 2.
 Part 2 was too complicated, so I ended up borrowing someone else's solution.
 ### Day 23
 See Day 22.
+### Day 24
+See Day 17.

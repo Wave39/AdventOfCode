@@ -169,4 +169,9 @@ class AdventOfCode2018Tests: XCTestCase {
         // do not test part 2, I borrowed someone else's solution
     }
     
+    func test2018day24() {
+        // no tests for day 24 as I ripped off someone else's code to get the solution
+        XCTAssertTrue(true)
+    }
+    
 }
