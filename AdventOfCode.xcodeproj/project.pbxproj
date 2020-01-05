@@ -105,6 +105,7 @@
 		E0A8501923C2645000947CA3 /* Puzzle_2018_22.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A8501723C2645000947CA3 /* Puzzle_2018_22.swift */; };
 		E0A8501B23C2656E00947CA3 /* Puzzle_2018_23.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A8501A23C2656E00947CA3 /* Puzzle_2018_23.swift */; };
 		E0A8501C23C2656E00947CA3 /* Puzzle_2018_23.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A8501A23C2656E00947CA3 /* Puzzle_2018_23.swift */; };
+		E0A8501F23C2672B00947CA3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E0A8501E23C2672B00947CA3 /* README.md */; };
 		E0AC2A2223AF088600CCC314 /* Puzzle_2019_20.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC2A2123AF088600CCC314 /* Puzzle_2019_20.swift */; };
 		E0AC2A2323AF088600CCC314 /* Puzzle_2019_20.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC2A2123AF088600CCC314 /* Puzzle_2019_20.swift */; };
 		E0B2FDD423AC721500581425 /* Puzzle_2019_18.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B2FDD323AC721500581425 /* Puzzle_2019_18.swift */; };
@@ -212,6 +213,8 @@
 		E0A8501423C2325300947CA3 /* Puzzle_2018_21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2018_21.swift; sourceTree = "<group>"; };
 		E0A8501723C2645000947CA3 /* Puzzle_2018_22.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2018_22.swift; sourceTree = "<group>"; };
 		E0A8501A23C2656E00947CA3 /* Puzzle_2018_23.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2018_23.swift; sourceTree = "<group>"; };
+		E0A8501D23C266F400947CA3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E0A8501E23C2672B00947CA3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0AC2A2123AF088600CCC314 /* Puzzle_2019_20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_20.swift; sourceTree = "<group>"; };
 		E0B2FDD323AC721500581425 /* Puzzle_2019_18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_18.swift; sourceTree = "<group>"; };
 		E0B2FDD623AEB5BB00581425 /* CharacterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
@@ -255,6 +258,7 @@
 		E021146E2397FEBD00F49FC1 = {
 			isa = PBXGroup;
 			children = (
+				E0A8501D23C266F400947CA3 /* README.md */,
 				E02114792397FEBD00F49FC1 /* AdventOfCode */,
 				E0F4FA5B239D9401002F51A8 /* AdventOfCodeTests */,
 				E02114782397FEBD00F49FC1 /* Products */,
@@ -373,6 +377,7 @@
 		E0F4FA73239DA24F002F51A8 /* 2018 */ = {
 			isa = PBXGroup;
 			children = (
+				E0A8501E23C2672B00947CA3 /* README.md */,
 				E0F4FA74239DA271002F51A8 /* Puzzle_2018.swift */,
 				E0F4FA76239DA281002F51A8 /* Puzzle_2018_01.swift */,
 				E0F4FA7C239DAB97002F51A8 /* Puzzle_2018_02.swift */,
@@ -480,6 +485,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0A8501F23C2672B00947CA3 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
