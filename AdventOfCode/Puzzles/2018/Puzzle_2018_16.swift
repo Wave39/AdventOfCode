@@ -62,7 +62,7 @@ class Puzzle_2018_16: NSObject {
         return (part1, part2)
     }
     
-    public func solvePart1(samples: [Sample]) -> Int {
+    func solvePart1(samples: [Sample]) -> Int {
         let opcodes = [ "addr", "addi", "mulr", "muli", "banr", "bani", "borr", "bori", "setr", "seti", "gtir", "gtri", "gtrr", "eqir", "eqri", "eqrr" ]
         
         var retval = 0
@@ -83,7 +83,7 @@ class Puzzle_2018_16: NSObject {
         return retval
     }
     
-    public func solvePart2(originalSamples: [Sample], testProgram: [Command]) -> Int {
+    func solvePart2(originalSamples: [Sample], testProgram: [Command]) -> Int {
         var newSamples = originalSamples
         var opcodes = [ "addr", "addi", "mulr", "muli", "banr", "bani", "borr", "bori", "setr", "seti", "gtir", "gtri", "gtrr", "eqir", "eqri", "eqrr" ]
         var mappingDict: Dictionary<Int, String> = [:]
@@ -121,7 +121,7 @@ class Puzzle_2018_16: NSObject {
         return registers[0]
     }
 
-    public func runCommandString(command: Command, registers: Registers, commandString: String) -> Registers {
+    func runCommandString(command: Command, registers: Registers, commandString: String) -> Registers {
         var newRegisters = registers
         let a = command[1]
         let b = command[2]

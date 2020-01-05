@@ -8,21 +8,29 @@
 
 import Foundation
 
-public class Puzzle_2019_01 : PuzzleBaseClass {
+class Puzzle_2019_01 : PuzzleBaseClass {
     
     func CalculateFuel(mass: Int) -> Int {
         return Int(floor(Double(mass) / 3.0) - 2)
     }
     
-    public func solve() {
-        let part1 = solvePart1(str: Puzzle_2019_01_Input.puzzleInput)
+    func solve() {
+        let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         
-        let part2 = solvePart2(str: Puzzle_2019_01_Input.puzzleInput)
+        let part2 = solvePart2()
         print ("Part 2 solution: \(part2)")
     }
     
-    public func solvePart1(str: String) -> Int {
+    func solvePart1() -> Int {
+        return solvePart1(str: Puzzle_2019_01_Input.puzzleInput)
+    }
+    
+    func solvePart2() -> Int {
+        return solvePart2(str: Puzzle_2019_01_Input.puzzleInput)
+    }
+    
+    func solvePart1(str: String) -> Int {
         let arr = str.parseIntoIntArray()
         
         var retval = 0
@@ -33,7 +41,7 @@ public class Puzzle_2019_01 : PuzzleBaseClass {
         return retval
     }
 
-    public func solvePart2(str: String) -> Int {
+    func solvePart2(str: String) -> Int {
         let arr = str.parseIntoIntArray()
 
         var retval = 0
@@ -49,7 +57,7 @@ public class Puzzle_2019_01 : PuzzleBaseClass {
     }
 }
 
-public class Puzzle_2019_01_Input: NSObject {
+fileprivate class Puzzle_2019_01_Input: NSObject {
 
     static let puzzleInput = """
 120333

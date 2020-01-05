@@ -99,7 +99,7 @@ class Puzzle_2018_18: NSObject {
         return retval
     }
     
-    public func solvePart1(forest: Forest) -> Int {
+    func solvePart1(forest: Forest) -> Int {
         var forest = forest
         var minutesElapsed = 0
 
@@ -114,7 +114,7 @@ class Puzzle_2018_18: NSObject {
         return woods * lumberyards
     }
 
-    public func solvePart2(forest: Forest) -> Int {
+    func solvePart2(forest: Forest) -> Int {
         var forest = forest
         var foundDuplicate = false
         var minutesElapsed = 0

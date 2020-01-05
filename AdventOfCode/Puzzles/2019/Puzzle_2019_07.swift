@@ -8,16 +8,24 @@
 
 import Foundation
 
-public class Puzzle_2019_07 : PuzzleBaseClass {
+class Puzzle_2019_07 : PuzzleBaseClass {
     
-    public func solve() {
-        let part1 = solvePart1(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
+    func solve() {
+        let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         
-        let part2 = solvePart2(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
+        let part2 = solvePart2()
         print ("Part 2 solution: \(part2)")
     }
     
+    func solvePart1() -> Int {
+        return solvePart1(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
+    }
+    
+    func solvePart2() -> Int {
+        return solvePart2(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
+    }
+
     func ProcessProgram(program: [Int], inputArray: [Int]) -> Int {
         var inputArr = inputArray
         var arr = program
@@ -129,7 +137,7 @@ public class Puzzle_2019_07 : PuzzleBaseClass {
         return (retval, true)
     }
     
-    public func solvePart1(str: String, inputSignal: Int) -> Int {
+    func solvePart1(str: String, inputSignal: Int) -> Int {
         let arr = str.parseIntoIntArray(separator: ",")
         let phaseCombinations = [0, 1, 2, 3, 4].generatePermutations()
         var largestOutput = 0
@@ -147,7 +155,7 @@ public class Puzzle_2019_07 : PuzzleBaseClass {
         return largestOutput
     }
 
-    public func solvePart2(str: String, inputSignal: Int) -> Int {
+    func solvePart2(str: String, inputSignal: Int) -> Int {
         let arr = str.parseIntoIntArray(separator: ",")
         let phaseCombinations = [9, 8, 7, 6, 5].generatePermutations()
         var largestOutput = 0
@@ -225,7 +233,7 @@ public class Puzzle_2019_07 : PuzzleBaseClass {
     }
 }
 
-public class Puzzle_2019_07_Input: NSObject {
+fileprivate class Puzzle_2019_07_Input: NSObject {
 
     static let puzzleInput_test1 = """
 3,15,3,16,1002,16,10,16,1,16,15,15,4,15,99,0,0

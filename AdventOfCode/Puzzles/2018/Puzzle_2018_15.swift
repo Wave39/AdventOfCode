@@ -153,7 +153,7 @@ class Puzzle_2018_15: NSObject {
         return false
     }
     
-    public func solve() {
+    func solve() {
         let str = Puzzle_2018_15_Input.puzzleInput
         
         var beings: [Being] = []
@@ -182,7 +182,7 @@ class Puzzle_2018_15: NSObject {
     //
     // ===================================================================================================
     
-    public class Unit : CustomStringConvertible {
+    class Unit : CustomStringConvertible {
         var unitType: Character = "?"
         var location: Point2D = Point2D()
         var attackPower: Int = 3
@@ -198,7 +198,7 @@ class Puzzle_2018_15: NSObject {
     var pointToPointShortestPath: [[Point2D]] = []
     var shortestPathLength = 0
 
-    public func solve_old() {
+    func solve_old() {
         let puzzleInput = Puzzle_2018_15_Input.puzzleInput
 
         let part1 = solvePart1(str: puzzleInput)

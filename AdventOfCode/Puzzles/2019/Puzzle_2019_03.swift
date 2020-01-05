@@ -8,16 +8,24 @@
 
 import Foundation
 
-public class Puzzle_2019_03 : PuzzleBaseClass {
+class Puzzle_2019_03 : PuzzleBaseClass {
 
     let originPoint = Point2D(x: 0, y: 0)
     
-    public func solve() {
-        let part1 = solvePart1(str: Puzzle_2019_03_Input.puzzleInput)
+    func solve() {
+        let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         
-        let part2 = solvePart2(str: Puzzle_2019_03_Input.puzzleInput)
+        let part2 = solvePart2()
         print ("Part 2 solution: \(part2)")
+    }
+
+    func solvePart1() -> Int {
+        return solvePart1(str: Puzzle_2019_03_Input.puzzleInput)
+    }
+    
+    func solvePart2() -> Int {
+        return solvePart2(str: Puzzle_2019_03_Input.puzzleInput)
     }
 
     func GetWireCoordinatesSet(str: String) -> Set<Point2D> {
@@ -75,7 +83,7 @@ public class Puzzle_2019_03 : PuzzleBaseClass {
         return retval
     }
 
-    public func solvePart1(str: String) -> Int {
+    func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         let wire1 = GetWireCoordinatesSet(str: arr[0])
         let wire2 = GetWireCoordinatesSet(str: arr[1])
@@ -93,7 +101,7 @@ public class Puzzle_2019_03 : PuzzleBaseClass {
         return retval
     }
     
-    public func solvePart2(str: String) -> Int {
+    func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         let wire1 = GetWireCoordinatesDictionary(str: arr[0])
         let wire1set = Set(wire1.keys)
@@ -115,7 +123,7 @@ public class Puzzle_2019_03 : PuzzleBaseClass {
     
 }
 
-public class Puzzle_2019_03_Input: NSObject {
+fileprivate class Puzzle_2019_03_Input: NSObject {
 
     static let puzzleInput_test1 = """
 R8,U5,L5,D3

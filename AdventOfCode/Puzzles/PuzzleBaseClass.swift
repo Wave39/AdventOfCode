@@ -8,6 +8,6 @@
 
 import Foundation
 
-public class PuzzleBaseClass {
+class PuzzleBaseClass {
 
 }

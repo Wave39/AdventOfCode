@@ -19,23 +19,23 @@ class AdventOfCode2019Tests: XCTestCase {
     }
 
     func test2019day01() {
-        let part1 = Puzzle_2019_01().solvePart1(str: Puzzle_2019_01_Input.puzzleInput)
+        let part1 = Puzzle_2019_01().solvePart1()
         XCTAssertEqual(part1, 3295424)
-        let part2 = Puzzle_2019_01().solvePart2(str: Puzzle_2019_01_Input.puzzleInput)
+        let part2 = Puzzle_2019_01().solvePart2()
         XCTAssertEqual(part2, 4940279)
     }
     
     func test2019day02() {
-        let part1 = Puzzle_2019_02().solvePart1(str: Puzzle_2019_02_Input.puzzleInput)
+        let part1 = Puzzle_2019_02().solvePart1()
         XCTAssertEqual(part1, 3895705)
-        let part2 = Puzzle_2019_02().solvePart2(str: Puzzle_2019_02_Input.puzzleInput)
+        let part2 = Puzzle_2019_02().solvePart2()
         XCTAssertEqual(part2, 6417)
     }
     
     func test2019day03() {
-        let part1 = Puzzle_2019_03().solvePart1(str: Puzzle_2019_03_Input.puzzleInput)
+        let part1 = Puzzle_2019_03().solvePart1()
         XCTAssertEqual(part1, 1225)
-        let part2 = Puzzle_2019_03().solvePart2(str: Puzzle_2019_03_Input.puzzleInput)
+        let part2 = Puzzle_2019_03().solvePart2()
         XCTAssertEqual(part2, 107036)
     }
     
@@ -47,30 +47,30 @@ class AdventOfCode2019Tests: XCTestCase {
     }
     
     func test2019day05() {
-        let part1 = Puzzle_2019_05().solvePart1(str: Puzzle_2019_05_Input.puzzleInput)
+        let part1 = Puzzle_2019_05().solvePart1()
         XCTAssertEqual(part1, 13346482)
-        let part2 = Puzzle_2019_05().solvePart2(str: Puzzle_2019_05_Input.puzzleInput)
+        let part2 = Puzzle_2019_05().solvePart2()
         XCTAssertEqual(part2, 12111395)
     }
     
     func test2019day06() {
-        let part1 = Puzzle_2019_06().solvePart1(str: Puzzle_2019_06_Input.puzzleInput)
+        let part1 = Puzzle_2019_06().solvePart1()
         XCTAssertEqual(part1, 261306)
-        let part2 = Puzzle_2019_06().solvePart2(str: Puzzle_2019_06_Input.puzzleInput)
+        let part2 = Puzzle_2019_06().solvePart2()
         XCTAssertEqual(part2, 382)
     }
     
     func test2019day07() {
-        let part1 = Puzzle_2019_07().solvePart1(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
+        let part1 = Puzzle_2019_07().solvePart1()
         XCTAssertEqual(part1, 914828)
-        let part2 = Puzzle_2019_07().solvePart2(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
+        let part2 = Puzzle_2019_07().solvePart2()
         XCTAssertEqual(part2, 17956613)
     }
     
     func test2019day08() {
-        let part1 = Puzzle_2019_08().solvePart1(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
+        let part1 = Puzzle_2019_08().solvePart1()
         XCTAssertEqual(part1, 1742)
-        let part2 = Puzzle_2019_08().solvePart2(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
+        let part2 = Puzzle_2019_08().solvePart2()
         XCTAssertEqual(String(part2), "011000011010001111100110010010000101000110000100101000000010010101110010010101100001000100100001111010010100100010010000100100111001100001001111010010")
     }
     

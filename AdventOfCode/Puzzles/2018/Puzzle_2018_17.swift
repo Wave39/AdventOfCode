@@ -192,7 +192,7 @@ class Puzzle_2018_17: NSObject {
 //        }
 //    }
 //
-//    public func solve() {
+//    func solve() {
 //        //let puzzleInput = Day17PuzzleInput.puzzleInput_test
 //        let puzzleInput = Day17PuzzleInput.puzzleInput
 //
@@ -399,7 +399,7 @@ class Puzzle_2018_17: NSObject {
 //        //print(groundToString(ground))
 //    }
 //
-//    public func solvePart1() -> Int {
+//    func solvePart1() -> Int {
 //        processWaterFlow(springLocation)
 //        print("Final ground configuration:")
 //        print(groundToString(ground))

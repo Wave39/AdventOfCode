@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Puzzle_2019_04 : PuzzleBaseClass {
+class Puzzle_2019_04 : PuzzleBaseClass {
 
-    public func solve() {
+    func solve() {
         let startingValue = 134564
         let endingValue = 585159
         
@@ -62,7 +62,7 @@ public class Puzzle_2019_04 : PuzzleBaseClass {
         return adjacentCharacters && ascendingCharacters
     }
     
-    public func solvePart1(from: Int, to: Int) -> Int {
+    func solvePart1(from: Int, to: Int) -> Int {
         var retval = 0
         for i in from...to {
             if IsValidPassword(password: i, isPart2: false) {
@@ -73,7 +73,7 @@ public class Puzzle_2019_04 : PuzzleBaseClass {
         return retval
     }
     
-    public func solvePart2(from: Int, to: Int) -> Int {
+    func solvePart2(from: Int, to: Int) -> Int {
         var retval = 0
         for i in from...to {
             if IsValidPassword(password: i, isPart2: true) {

@@ -47,7 +47,7 @@ class Puzzle_2018_19: NSObject {
         return program
     }
     
-    public func solve() {
+    func solve() {
         let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         let part2 = solvePart2()
@@ -64,7 +64,7 @@ class Puzzle_2018_19: NSObject {
         return solvePart2(puzzleInput: puzzleInput)
     }
     
-    public func solvePart1(puzzleInput: String) -> Int {
+    func solvePart1(puzzleInput: String) -> Int {
         let program = parseIntoProgram(str: puzzleInput)
         
         repeat {
@@ -79,7 +79,7 @@ class Puzzle_2018_19: NSObject {
         return program.registers[0]
     }
     
-    public func solvePart2(puzzleInput: String) -> Int {
+    func solvePart2(puzzleInput: String) -> Int {
         let program = parseIntoProgram(str: puzzleInput)
         program.registers[0] = 1
         var searchValue = -1
@@ -111,7 +111,7 @@ class Puzzle_2018_19: NSObject {
         return total
     }
     
-    public func runCommandString(command: Command, registers: Registers) -> Registers {
+    func runCommandString(command: Command, registers: Registers) -> Registers {
         var newRegisters = registers
         if command.opcode == "addr" {
             newRegisters[command.c] = registers[command.a] + registers[command.b]

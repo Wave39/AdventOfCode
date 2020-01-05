@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Puzzle_2019_06 : PuzzleBaseClass {
+class Puzzle_2019_06 : PuzzleBaseClass {
 
     class OrbitalRelationship : CustomStringConvertible {
         var center: String
@@ -36,15 +36,23 @@ public class Puzzle_2019_06 : PuzzleBaseClass {
         }
     }
     
-    public func solve() {
-        let part1 = solvePart1(str: Puzzle_2019_06_Input.puzzleInput)
+    func solve() {
+        let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         
-        let part2 = solvePart2(str: Puzzle_2019_06_Input.puzzleInput)
+        let part2 = solvePart2()
         print ("Part 2 solution: \(part2)")
     }
 
-    public func solvePart1(str: String) -> Int {
+    func solvePart1() -> Int {
+        return solvePart1(str: Puzzle_2019_06_Input.puzzleInput)
+    }
+    
+    func solvePart2() -> Int {
+        return solvePart2(str: Puzzle_2019_06_Input.puzzleInput)
+    }
+
+    func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var orbitalRelationships: [OrbitalRelationship] = []
         for line in arr {
@@ -70,7 +78,7 @@ public class Puzzle_2019_06 : PuzzleBaseClass {
         return orbitCount
     }
     
-    public func solvePart2(str: String) -> Int {
+    func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var orbitalRelationships: [OrbitalRelationship] = []
         for line in lines {
@@ -118,7 +126,7 @@ public class Puzzle_2019_06 : PuzzleBaseClass {
     }
 }
 
-public class Puzzle_2019_06_Input: NSObject {
+fileprivate class Puzzle_2019_06_Input: NSObject {
 
     static let puzzleInput_test1 = """
 COM)B
