@@ -225,6 +225,7 @@
 		E0B2FDD323AC721500581425 /* Puzzle_2019_18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_18.swift; sourceTree = "<group>"; };
 		E0B2FDD623AEB5BB00581425 /* CharacterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
 		E0B2FDD923AEB7EC00581425 /* Puzzle_2019_19.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_19.swift; sourceTree = "<group>"; };
+		E0D7122E23C27006007B3E9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0F4FA54239D2DA8002F51A8 /* Puzzle_2019_08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_08.swift; sourceTree = "<group>"; };
 		E0F4FA5A239D9401002F51A8 /* AdventOfCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdventOfCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F4FA5C239D9401002F51A8 /* AdventOfCode2019Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode2019Tests.swift; sourceTree = "<group>"; };
@@ -317,6 +318,7 @@
 		E02114852398085F00F49FC1 /* 2019 */ = {
 			isa = PBXGroup;
 			children = (
+				E0D7122E23C27006007B3E9C /* README.md */,
 				E021148A23982DF500F49FC1 /* Puzzle_2019.swift */,
 				E02114862398089D00F49FC1 /* Puzzle_2019_01.swift */,
 				E021148C23987F9F00F49FC1 /* Puzzle_2019_02.swift */,
