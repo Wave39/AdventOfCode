@@ -121,11 +121,11 @@ class Puzzle_2018_24: NSObject {
         return retval
     }
     
-    public func solve() {
+    func solve() {
         print ("My solution is not working, so :P")
     }
     
-    public func solve_notworking() {
+    func solve_notworking() {
         let puzzleInput = Puzzle_2018_24_Input.puzzleInput
 
         let groups = parseGroups(str: puzzleInput)

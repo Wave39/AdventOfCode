@@ -19,7 +19,7 @@ import Foundation
                     algorithm is used.
  - Returns: The natural gcd of m and n.
  */
-public func gcd(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) -> Int {
+func gcd(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) -> Int {
     return gcdAlgorithm(m, n)
 }
 
@@ -32,7 +32,7 @@ public func gcd(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gc
  - Parameter n: Second natural number
  - Returns: The natural gcd of m and n.
  */
-public func gcdIterativeEuklid(_ m: Int, _ n: Int) -> Int {
+func gcdIterativeEuklid(_ m: Int, _ n: Int) -> Int {
     var a: Int = 0
     var b: Int = max(m, n)
     var r: Int = min(m, n)
@@ -58,7 +58,7 @@ public func gcdIterativeEuklid(_ m: Int, _ n: Int) -> Int {
  up to be the same in terms of complexity. That said, tail call
  elimination is not mutually exclusive to recursion.
  */
-public func gcdRecursiveEuklid(_ m: Int, _ n: Int) -> Int {
+func gcdRecursiveEuklid(_ m: Int, _ n: Int) -> Int {
     let r: Int = m % n
     if r != 0 {
         return gcdRecursiveEuklid(n, r)
@@ -83,7 +83,7 @@ public func gcdRecursiveEuklid(_ m: Int, _ n: Int) -> Int {
  the subtract and shift operations take linear time for very
  large integers
  */
-public func gcdBinaryRecursiveStein(_ m: Int, _ n: Int) -> Int {
+func gcdBinaryRecursiveStein(_ m: Int, _ n: Int) -> Int {
     if let easySolution = findEasySolution(m, n) { return easySolution }
     
     if (m & 1) == 0 {
@@ -130,7 +130,7 @@ func findEasySolution(_ m: Int, _ n: Int) -> Int? {
 }
 
 
-public enum LCMError: Error {
+enum LCMError: Error {
     case divisionByZero
 }
 
@@ -147,7 +147,7 @@ public enum LCMError: Error {
  - Returns: The least common multiplier of the two attributes as
  an unsigned integer
  */
-public func lcm(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) throws -> Int {
+func lcm(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) throws -> Int {
     guard m & n != 0 else { throw LCMError.divisionByZero }
     return m / gcdAlgorithm(m, n) * n
 }

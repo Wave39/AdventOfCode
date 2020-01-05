@@ -10,19 +10,19 @@ import Foundation
 
 class Puzzle_2018_22: NSObject {
 
-    public func solve() {
+    func solve() {
         let part1 = solvePart1()
         print ("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print ("Part 2 solution: \(part2)")
     }
     
-    public func solvePart1() -> Int {
+    func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_22_Input.puzzleInput
         return solvePart1(puzzleInput: puzzleInput)
     }
     
-    public func solvePart2() -> Int {
+    func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_22_Input.puzzleInput
         return solvePart2(puzzleInput: puzzleInput)
     }
@@ -48,7 +48,7 @@ class Puzzle_2018_22: NSObject {
         return retval
     }
     
-    public func solvePart1(puzzleInput: (Int, Int, Int)) -> Int {
+    func solvePart1(puzzleInput: (Int, Int, Int)) -> Int {
         var regionTypeMap: [[Int]] = Array(repeating: (Array(repeating: 0, count: puzzleInput.1 + 1)), count: puzzleInput.2 + 1)
         var erosionMap: [[Int]] = Array(repeating: (Array(repeating: 0, count: puzzleInput.1 + 1)), count: puzzleInput.2 + 1)
         for y in 0...puzzleInput.2 {
@@ -61,7 +61,7 @@ class Puzzle_2018_22: NSObject {
         return regionTypeMap.flatMap { $0 }.reduce(0, +)
     }
 
-    public func solvePart2(puzzleInput: (Int, Int, Int)) -> Int {
+    func solvePart2(puzzleInput: (Int, Int, Int)) -> Int {
         // Great shame, this one was too complicated, I borrowed someone else's C# solution
         return 1092
     }
