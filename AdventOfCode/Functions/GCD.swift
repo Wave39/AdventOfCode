@@ -148,6 +148,6 @@ enum LCMError: Error {
  an unsigned integer
  */
 func lcm(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) throws -> Int {
-    guard m & n != 0 else { throw LCMError.divisionByZero }
+    //guard m & n != 0 else { throw LCMError.divisionByZero }
     return m / gcdAlgorithm(m, n) * n
 }
