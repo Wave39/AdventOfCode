@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E0014C6623C425A900651C57 /* GCDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0014C6523C425A900651C57 /* GCDTests.swift */; };
 		E015CD2D23B9016D00986637 /* Puzzle_2019_24.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015CD2C23B9016D00986637 /* Puzzle_2019_24.swift */; };
 		E015CD2E23B9016D00986637 /* Puzzle_2019_24.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015CD2C23B9016D00986637 /* Puzzle_2019_24.swift */; };
 		E015CD3023B912D100986637 /* Puzzle_2019_25.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015CD2F23B912D100986637 /* Puzzle_2019_25.swift */; };
@@ -163,6 +164,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E0014C6523C425A900651C57 /* GCDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDTests.swift; sourceTree = "<group>"; };
 		E015CD2C23B9016D00986637 /* Puzzle_2019_24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_24.swift; sourceTree = "<group>"; };
 		E015CD2F23B912D100986637 /* Puzzle_2019_25.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_25.swift; sourceTree = "<group>"; };
 		E01DA9EE23A27C3900656E6E /* Puzzle_2019_12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_12.swift; sourceTree = "<group>"; };
@@ -263,6 +265,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E0014C6423C4259400651C57 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				E0014C6523C425A900651C57 /* GCDTests.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
 		E01DA9F723A2B84500656E6E /* Functions */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +405,7 @@
 		E0F4FA5B239D9401002F51A8 /* AdventOfCodeTests */ = {
 			isa = PBXGroup;
 			children = (
+				E0014C6423C4259400651C57 /* Functions */,
 				E0F4FA5C239D9401002F51A8 /* AdventOfCode2019Tests.swift */,
 				E0F4FA78239DA3B0002F51A8 /* AdventOfCode2018Tests.swift */,
 				E0D7123723C2756D007B3E9C /* AdventOfCode2017Tests.swift */,
@@ -637,6 +648,7 @@
 				E090D8A323B6CA5A0050111E /* Puzzle_2019_23.swift in Sources */,
 				E03FD4FA23BD1D960090A8B5 /* Puzzle_2018_10.swift in Sources */,
 				E0B2FDDB23AEB7EC00581425 /* Puzzle_2019_19.swift in Sources */,
+				E0014C6623C425A900651C57 /* GCDTests.swift in Sources */,
 				E026B4E623A1556700FDDABD /* Puzzle_2019_11.swift in Sources */,
 				E0A1B46523A031710067C582 /* Puzzle_2019_10.swift in Sources */,
 				E0F4FA6C239D970C002F51A8 /* Puzzle_2019_02.swift in Sources */,
