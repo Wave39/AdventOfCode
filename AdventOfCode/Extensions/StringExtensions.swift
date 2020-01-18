@@ -144,6 +144,22 @@ extension String {
         return substring(from: range.lowerBound, to: range.upperBound)
     }
     
+    func parseIntoMatrix() -> [[String]] {
+        var allLines : [[String]] = []
+        let lineArray = self.split(separator: "\n")
+        for line in lineArray {
+            var thisLine : [String] = []
+            let elementArray = line.split(separator: " ")
+            for element in elementArray {
+                thisLine.append(String(element))
+            }
+            
+            allLines.append(thisLine)
+        }
+        
+        return allLines
+    }
+    
 }
 
 extension StringProtocol {

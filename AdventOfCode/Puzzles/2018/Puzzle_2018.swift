@@ -69,3 +69,44 @@ class Puzzle_2018 {
     }
     
 }
+
+// template for new puzzle classes
+
+class Puzzle_2018_XX : PuzzleBaseClass {
+
+    func solve() {
+        let part1 = solvePart1()
+        print ("Part 1 solution: \(part1)")
+        
+        let part2 = solvePart2()
+        print ("Part 2 solution: \(part2)")
+    }
+
+    func solvePart1() -> Int {
+        return solvePart1(str: Puzzle_2018_XX_Input.puzzleInput)
+    }
+    
+    func solvePart2() -> Int {
+        return solvePart2(str: Puzzle_2018_XX_Input.puzzleInput)
+    }
+    
+    func solvePart1(str: String) -> Int {
+        let arr = str.parseIntoStringArray()
+        return arr.count
+    }
+    
+    func solvePart2(str: String) -> Int {
+        let arr = str.parseIntoStringArray()
+        return arr.count
+    }
+    
+}
+
+fileprivate class Puzzle_2018_XX_Input: NSObject {
+
+    static let puzzleInput = """
+Line 1
+Line 2
+"""
+
+}
