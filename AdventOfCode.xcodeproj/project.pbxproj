@@ -155,6 +155,8 @@
 		E0D3EF2C23D3C02C0064413A /* Puzzle_2017_18.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3EF2A23D3C02C0064413A /* Puzzle_2017_18.swift */; };
 		E0D3EF2E23D3C22F0064413A /* Puzzle_2017_19.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3EF2D23D3C22F0064413A /* Puzzle_2017_19.swift */; };
 		E0D3EF2F23D3C22F0064413A /* Puzzle_2017_19.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3EF2D23D3C22F0064413A /* Puzzle_2017_19.swift */; };
+		E0D3EF3123D3C38F0064413A /* Puzzle_2017_20.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3EF3023D3C38F0064413A /* Puzzle_2017_20.swift */; };
+		E0D3EF3223D3C38F0064413A /* Puzzle_2017_20.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3EF3023D3C38F0064413A /* Puzzle_2017_20.swift */; };
 		E0D7123223C2741E007B3E9C /* Puzzle_2017.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123123C2741E007B3E9C /* Puzzle_2017.swift */; };
 		E0D7123323C2741E007B3E9C /* Puzzle_2017.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123123C2741E007B3E9C /* Puzzle_2017.swift */; };
 		E0D7123523C2747E007B3E9C /* Puzzle_2017_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123423C2747E007B3E9C /* Puzzle_2017_01.swift */; };
@@ -286,6 +288,7 @@
 		E0D3EF2723D3BEBE0064413A /* Puzzle_2017_17.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_17.swift; sourceTree = "<group>"; };
 		E0D3EF2A23D3C02C0064413A /* Puzzle_2017_18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_18.swift; sourceTree = "<group>"; };
 		E0D3EF2D23D3C22F0064413A /* Puzzle_2017_19.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_19.swift; sourceTree = "<group>"; };
+		E0D3EF3023D3C38F0064413A /* Puzzle_2017_20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_20.swift; sourceTree = "<group>"; };
 		E0D7122E23C27006007B3E9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0D7123023C273FE007B3E9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0D7123123C2741E007B3E9C /* Puzzle_2017.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017.swift; sourceTree = "<group>"; };
@@ -370,10 +373,10 @@
 		E02114812398008900F49FC1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E0211482239800A300F49FC1 /* StringExtensions.swift */,
 				E04119A5239BDE900031AD8B /* ArrayExtensions.swift */,
-				E0A1B46623A135FE0067C582 /* DoubleExtensions.swift */,
 				E0B2FDD623AEB5BB00581425 /* CharacterExtensions.swift */,
+				E0A1B46623A135FE0067C582 /* DoubleExtensions.swift */,
+				E0211482239800A300F49FC1 /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				E0D3EF2723D3BEBE0064413A /* Puzzle_2017_17.swift */,
 				E0D3EF2A23D3C02C0064413A /* Puzzle_2017_18.swift */,
 				E0D3EF2D23D3C22F0064413A /* Puzzle_2017_19.swift */,
+				E0D3EF3023D3C38F0064413A /* Puzzle_2017_20.swift */,
 			);
 			path = 2017;
 			sourceTree = "<group>";
@@ -651,6 +655,7 @@
 				E02114A02399621400F49FC1 /* Puzzle_2019_05.swift in Sources */,
 				E0708E5123B9725B00C7125A /* Puzzle_2018_03.swift in Sources */,
 				E0A1B46723A135FE0067C582 /* DoubleExtensions.swift in Sources */,
+				E0D3EF3123D3C38F0064413A /* Puzzle_2017_20.swift in Sources */,
 				E04119A2239B16830031AD8B /* Puzzle_2019_06.swift in Sources */,
 				E0F4FA7D239DAB97002F51A8 /* Puzzle_2018_02.swift in Sources */,
 				E03FD50223BD25990090A8B5 /* Puzzle_2018_13.swift in Sources */,
@@ -788,6 +793,7 @@
 				E0D3EF2323D3BAD10064413A /* Puzzle_2017_15.swift in Sources */,
 				E0D3EF0223D38D3B0064413A /* Puzzle_2017_04.swift in Sources */,
 				E0D3EF0823D38FCB0064413A /* Puzzle_2017_06.swift in Sources */,
+				E0D3EF3223D3C38F0064413A /* Puzzle_2017_20.swift in Sources */,
 				E053277123B3B428005793B2 /* Puzzle_2019_21.swift in Sources */,
 				E0F4FA6E239D9713002F51A8 /* Puzzle_2019_04.swift in Sources */,
 				E0A8500D23C229C200947CA3 /* Puzzle_2018_18.swift in Sources */,
