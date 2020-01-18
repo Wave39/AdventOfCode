@@ -22,4 +22,17 @@ extension Character {
     static var orangeSquare: Character { return "🟧" }
     static var purpleSquare: Character { return "🟪" }
     
+    var asciiValue: UInt32? {
+        return String(self).unicodeScalars.filter{$0.isASCII}.first?.value
+    }
+
+    static func asciiChar(v: Int) -> Character {
+        return Character(UnicodeScalar(v)!)
+    }
+    
+    static func asciiValue(c: Character) -> Int {
+        let s = String(c).unicodeScalars
+        return Int(s[s.startIndex].value)
+    }
+
 }
