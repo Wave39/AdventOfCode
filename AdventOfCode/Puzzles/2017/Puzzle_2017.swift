@@ -33,7 +33,7 @@ class Puzzle_2017 {
         } else if puzzleNumber == 10 {
             Puzzle_2017_10().solve()
         } else if puzzleNumber == 11 {
-            //Puzzle_2017_11().solve()
+            Puzzle_2017_11().solve()
         } else if puzzleNumber == 12 {
             //Puzzle_2017_12().solve()
         } else if puzzleNumber == 13 {
