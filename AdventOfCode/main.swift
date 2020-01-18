@@ -49,15 +49,15 @@ while !quitApp {
         print ("Solving \(year) puzzle \(puzzle), please stand by...")
         
         let start = DispatchTime.now()
-        if year == 2019 {
+        if year == 2019 || year == 19 {
             Puzzle_2019().solve(puzzleNumber: puzzle)
-        } else if year == 2018 {
+        } else if year == 2018 || year == 18 {
             Puzzle_2018().solve(puzzleNumber: puzzle)
-        } else if year == 2017 {
+        } else if year == 2017 || year == 17 {
             Puzzle_2017().solve(puzzleNumber: puzzle)
-        } else if year == 2016 {
+        } else if year == 2016 || year == 16 {
             //Puzzle_2016().solve(puzzleNumber: puzzle)
-        } else if year == 2015 {
+        } else if year == 2015 || year == 15 {
             //Puzzle_2015().solve(puzzleNumber: puzzle)
         }
         

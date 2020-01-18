@@ -10,13 +10,13 @@ import Foundation
 
 class Puzzle_2017_05 : PuzzleBaseClass {
 
-    public func solve() {
+    func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print ("Part 1 solution: \(part1Solution)")
         print ("Part 2 solution: \(part2Solution)")
     }
 
-    public func solveBothParts() -> (Int, Int) {
+    func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_05_Input.puzzleInput
         
         let part1Solution = solveInput(str: puzzleInput, testForStrangeJump: false)
