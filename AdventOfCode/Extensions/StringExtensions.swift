@@ -174,6 +174,42 @@ extension String {
         return unicodeScalars.filter{$0.isASCII}.map{$0.value}
     }
     
+    func replace(index: Int, newChar: Character) -> String {
+        var chars = Array(self)     // gets an array of characters
+        chars[index] = newChar
+        let modifiedString = String(chars)
+        return modifiedString
+    }
+    
+    func convertHexToBinary() -> String {
+        var retval = ""
+        
+        for c in self {
+            var b = String(Int(String(c), radix: 16)!, radix: 2)
+            while b.count < 4 {
+                b = "0" + b
+            }
+            
+            retval = retval + b
+        }
+        
+        return retval
+    }
+    
+    func convertBinaryToHashesAndDots() -> String {
+        var retval = ""
+        
+        for c in self {
+            if c == "0" {
+                retval += "."
+            } else {
+                retval += "#"
+            }
+        }
+        
+        return retval
+    }
+    
 }
 
 extension StringProtocol {
