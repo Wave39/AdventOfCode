@@ -29,7 +29,7 @@ class Puzzle_2017 {
         } else if puzzleNumber == 8 {
             Puzzle_2017_08().solve()
         } else if puzzleNumber == 9 {
-            //Puzzle_2017_09().solve()
+            Puzzle_2017_09().solve()
         } else if puzzleNumber == 10 {
             //Puzzle_2017_10().solve()
         } else if puzzleNumber == 11 {

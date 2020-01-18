@@ -160,6 +160,16 @@ extension String {
         return allLines
     }
     
+    func removeCharacters(startIdx: Int, charLength: Int) -> String {
+        var newStr = self
+        for _ in 0..<charLength {
+            let idx0 = newStr.index(newStr.startIndex, offsetBy: startIdx)
+            newStr.remove(at: idx0)
+        }
+
+        return newStr
+    }
+
 }
 
 extension StringProtocol {
