@@ -41,7 +41,7 @@ class Puzzle_2017 {
         } else if puzzleNumber == 14 {
             Puzzle_2017_14().solve()
         } else if puzzleNumber == 15 {
-            //Puzzle_2017_15().solve()
+            Puzzle_2017_15().solve()
         } else if puzzleNumber == 16 {
             //Puzzle_2017_16().solve()
         } else if puzzleNumber == 17 {
