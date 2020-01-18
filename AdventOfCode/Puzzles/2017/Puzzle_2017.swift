@@ -47,7 +47,7 @@ class Puzzle_2017 {
         } else if puzzleNumber == 17 {
             Puzzle_2017_17().solve()
         } else if puzzleNumber == 18 {
-            //Puzzle_2017_18().solve()
+            Puzzle_2017_18().solve()
         } else if puzzleNumber == 19 {
             //Puzzle_2017_19().solve()
         } else if puzzleNumber == 20 {
@@ -83,11 +83,11 @@ class Puzzle_2017_XX : PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2017_XX_Input.puzzleInput)
+        return solvePart1(str: PuzzleInput.final)
     }
     
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2017_XX_Input.puzzleInput)
+        return solvePart2(str: PuzzleInput.final)
     }
     
     func solvePart1(str: String) -> Int {
@@ -102,9 +102,9 @@ class Puzzle_2017_XX : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_2017_XX_Input: NSObject {
+fileprivate class PuzzleInput: NSObject {
 
-    static let puzzleInput = """
+    static let final = """
 Line 1
 Line 2
 """

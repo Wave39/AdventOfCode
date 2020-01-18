@@ -210,6 +210,16 @@ extension String {
         return retval
     }
     
+    func isStringNumeric() -> Bool {
+        if !self.isEmpty {
+            var numberCharacters = NSCharacterSet.decimalDigits.inverted
+            numberCharacters.remove(charactersIn: "-")
+            return !self.isEmpty && self.rangeOfCharacter(from: numberCharacters) == nil
+        }
+        
+        return false
+    }
+
 }
 
 extension StringProtocol {
