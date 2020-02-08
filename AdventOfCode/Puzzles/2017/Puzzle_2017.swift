@@ -59,7 +59,7 @@ class Puzzle_2017 {
         } else if puzzleNumber == 23 {
             Puzzle_2017_23().solve()
         } else if puzzleNumber == 24 {
-            //Puzzle_2017_24().solve()
+            Puzzle_2017_24().solve()
         } else if puzzleNumber == 25 {
             //Puzzle_2017_25().solve()
         } else {
