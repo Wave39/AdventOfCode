@@ -118,6 +118,10 @@ extension String {
         return false
     }
     
+    func indexOf(char: Character) -> Int? {
+        return firstIndex(of: char)?.utf16Offset(in: self)
+    }
+    
     func isStringNumeric() -> Bool {
         if !self.isEmpty {
             var numberCharacters = NSCharacterSet.decimalDigits.inverted

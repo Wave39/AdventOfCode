@@ -11,9 +11,9 @@ import Foundation
 class Puzzle_2016_03 : PuzzleBaseClass {
 
     func solve() {
-        let (part1Ctr, part2Ctr) = solveBothParts()
-        print (part1Ctr)
-        print (part2Ctr)
+        let (part1, part2) = solveBothParts()
+        print ("Part 1 solution: \(part1)")
+        print ("Part 2 solution: \(part2)")
     }
     
     func solveBothParts() -> (Int, Int) {
