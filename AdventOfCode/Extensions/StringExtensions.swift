@@ -107,6 +107,10 @@ extension String {
         return retval
     }
     
+    func hasBracket() -> Bool {
+        return self.contains("[") || self.contains("]")
+    }
+    
     func hasConsecutiveCharacters(num: Int) -> Bool {
         let uniqueSelf = self.uniqueCharacters
         for c in uniqueSelf {

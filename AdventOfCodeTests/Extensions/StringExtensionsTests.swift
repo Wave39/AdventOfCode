@@ -22,4 +22,11 @@ class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("1   2".condenseWhitespace(), "1 2")
     }
 
+    func test_hasBracket() {
+        XCTAssertEqual("123456".hasBracket(), false)
+        XCTAssertEqual("123[456".hasBracket(), true)
+        XCTAssertEqual("1234]56".hasBracket(), true)
+        XCTAssertEqual("123[4]56".hasBracket(), true)
+    }
+
 }
