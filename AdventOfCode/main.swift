@@ -60,7 +60,7 @@ while !quitApp {
         } else if year == 2017 {
             Puzzle_2017().solve(puzzleNumber: puzzle)
         } else if year == 2016 {
-            //Puzzle_2016().solve(puzzleNumber: puzzle)
+            Puzzle_2016().solve(puzzleNumber: puzzle)
         } else if year == 2015 {
             //Puzzle_2015().solve(puzzleNumber: puzzle)
         }
