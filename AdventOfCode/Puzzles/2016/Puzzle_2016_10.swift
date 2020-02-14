@@ -112,7 +112,7 @@ class Puzzle_2016_10 : PuzzleBaseClass {
             if foundBot == -1 {
                 continueLooping = false
             } else {
-                var thisBot = part1Bots[foundBot]
+                let thisBot = part1Bots[foundBot]
                 let lowChipNumber = min(Int((thisBot?.chips[0])!), Int((thisBot?.chips[1])!))
                 let highChipNumber = max(Int((thisBot?.chips[0])!), Int((thisBot?.chips[1])!))
                 
