@@ -15,7 +15,7 @@ class Puzzle_2015 {
         if puzzleNumber == 1 {
             Puzzle_2015_01().solve()
         } else if puzzleNumber == 2 {
-            //Puzzle_2015_02().solve()
+            Puzzle_2015_02().solve()
         } else if puzzleNumber == 3 {
             //Puzzle_2015_03().solve()
         } else if puzzleNumber == 4 {
