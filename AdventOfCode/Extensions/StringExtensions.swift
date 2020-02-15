@@ -277,6 +277,12 @@ extension String {
         return String(filter{ set.insert($0).inserted })
     }
     
+    func words(with charset: CharacterSet = .alphanumerics) -> [String] {
+        return self.unicodeScalars.split {
+            !charset.contains($0)
+            }.map(String.init)
+    }
+    
 }
 
 extension StringProtocol {
