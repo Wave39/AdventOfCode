@@ -232,6 +232,21 @@ extension String {
         return modifiedString
     }
     
+    mutating func rotate(amount: Int, left: Bool) {
+        let strLen = self.count
+        if left {
+            for _ in 1...amount {
+                let c = self[0]
+                self = self.substring(from: 1) + String(c)
+            }
+        } else {
+            for _ in 1...amount {
+                let c = self[strLen - 1]
+                self = String(c) + self.substring(from: 0, to: strLen - 1)
+            }
+        }
+    }
+
     func substring(from: Int, to: Int) -> String {
         let start = index(startIndex, offsetBy: from)
         let end = index(start, offsetBy: to - from)
