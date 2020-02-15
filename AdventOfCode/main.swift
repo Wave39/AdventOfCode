@@ -62,7 +62,7 @@ while !quitApp {
         } else if year == 2016 {
             Puzzle_2016().solve(puzzleNumber: puzzle)
         } else if year == 2015 {
-            //Puzzle_2015().solve(puzzleNumber: puzzle)
+            Puzzle_2015().solve(puzzleNumber: puzzle)
         }
         
         let end = DispatchTime.now()
