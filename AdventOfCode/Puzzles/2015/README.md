@@ -1,7 +1,7 @@
 # 2015
 ## Status
 
-| Day | Time | Hall of Shame |
+| Day | Execution Time | Hall of Shame |
 | :---: | :---: | :--- |
 | 1 | <1s |
 | 2 | <1s |
