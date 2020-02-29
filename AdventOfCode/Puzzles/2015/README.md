@@ -20,3 +20,4 @@
 | 15 | :smile: | 1s |
 | 16 | :smile: | <1s |
 | 17 | :eyes: | 16s |
+| 18 | :warning: | 21s |
