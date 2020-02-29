@@ -126,4 +126,10 @@ class AdventOfCode2015Tests: XCTestCase {
         XCTAssertEqual(part2, 1006)
     }
 
+    func test2015day19() {
+        let (part1, part2) = Puzzle_2015_19().solveBothParts()
+        XCTAssertEqual(part1, 509)
+        XCTAssertEqual(part2, 195)
+    }
+
 }
