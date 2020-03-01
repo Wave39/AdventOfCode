@@ -24,3 +24,4 @@
 | 19 | :smile: | 4s |
 | 20 | :eyes: | 16s | The original solution that I had for this day was wildly inefficient, and when I tried to get it working here in Swift 5, I let it run for like 8 hours and it still did not finish day 1. As a result, I decided to seek a better solution, which I found on the internet. The algorithm I found has been implemented here and credit for the URL given at the top of the code. |
 | 21 | :smile: | <1s |
+| 22 | :smile: | <1s |
