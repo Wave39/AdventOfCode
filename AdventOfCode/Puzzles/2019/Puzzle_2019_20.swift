@@ -216,7 +216,7 @@ class Puzzle_2019_20 : PuzzleBaseClass {
     
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray().map { $0.map { String($0) } }
-        var board = parseBoard(arr)
+        let board = parseBoard(arr)
         //printBoard(board)
         
 //        print ("optimize:")

@@ -843,7 +843,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Wave 39 LLC";
 				TargetAttributes = {
 					E02114762397FEBD00F49FC1 = {

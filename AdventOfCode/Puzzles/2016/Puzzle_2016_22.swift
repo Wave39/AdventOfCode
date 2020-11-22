@@ -34,7 +34,6 @@ class Puzzle_2016_22 : PuzzleBaseClass {
         var clusterLineArray: [Cluster] = []
         for line in lineArray {
             let arr = line.words()
-            let x = Int(arr[3].replacingOccurrences(of: "x", with: ""))!
             let y = Int(arr[4].replacingOccurrences(of: "y", with: ""))!
             let size = Int(arr[5].replacingOccurrences(of: "T", with: ""))!
             let used = Int(arr[6].replacingOccurrences(of: "T", with: ""))!

@@ -28,7 +28,6 @@ class Puzzle_2019_23 : PuzzleBaseClass {
     
     func solveBothParts(str: String) -> (Int, Int) {
         var computers: [IntcodeComputer] = []
-        var packets: [[Int]] = []
         var inputQueues = (0 ..< 50).map { [$0] }
         var retval = (0, 0)
         

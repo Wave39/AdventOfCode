@@ -314,10 +314,9 @@ class Puzzle_2019_15 : PuzzleBaseClass {
         var relativeBase = 0
         var expandedMemory: [ Int : Int ] = [:]
         
-        var robotPosition = Point2D(x: 0, y: 0)
+        let robotPosition = Point2D(x: 0, y: 0)
         var tileDict: [ Point2D : TileType ] = [:]
         tileDict[robotPosition] = .StartingLocation
-        var oxygenPosition: Point2D
         var moveSteps: [MoveInformation] = []
 
         func checkPosition(_ position: Point2D) -> [MovementDirection] {

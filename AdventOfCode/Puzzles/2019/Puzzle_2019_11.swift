@@ -68,7 +68,6 @@ class Puzzle_2019_11 : PuzzleBaseClass {
         }
         
         var outputArray: [Int] = []
-        var halt = false
         while program[programCounter] != 99 {
             let opcode = program[programCounter] % 100
             var cParameterMode: ParameterMode
@@ -207,7 +206,6 @@ class Puzzle_2019_11 : PuzzleBaseClass {
         }
         
         var outputArray: [Int] = []
-        var halt = false
         while program[programCounter] != 99 {
             let opcode = program[programCounter] % 100
             var cParameterMode: ParameterMode
