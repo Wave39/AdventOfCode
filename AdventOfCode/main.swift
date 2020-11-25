@@ -12,9 +12,9 @@ print ("")
 print ("Welcome to BP's Advent Of Code Solution Machine.")
 print ("Make sure to click in the Output window to enter which puzzle you would like to solve.")
 
-let maxYear = 2019
+let maxYear = 2020
 let defaultYear = maxYear
-let defaultPuzzle = 25
+let defaultPuzzle = 1
 let defaultYearAndPuzzle = "\(maxYear) \(defaultPuzzle)"
 
 var quitApp = false
@@ -23,7 +23,7 @@ while !quitApp {
     var year = maxYear
     while !quitApp && (puzzle < 1 || puzzle > 25) {
         print ("")
-        print ("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to 2019 and a number from 1 to 25, default of \(defaultYearAndPuzzle), or Q to quit)")
+        print ("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to 2020 and a number from 1 to 25, default of \(defaultYearAndPuzzle), or Q to quit)")
         let response = readLine()
         if response == "q" || response == "Q" {
             quitApp = true
@@ -53,7 +53,9 @@ while !quitApp {
         print ("Solving \(year) puzzle \(puzzle), please stand by...")
         
         let start = DispatchTime.now()
-        if year == 2019 {
+        if year == 2020 {
+            Puzzle_2020().solve(puzzleNumber: puzzle)
+        } else if year == 2019 {
             Puzzle_2019().solve(puzzleNumber: puzzle)
         } else if year == 2018 {
             Puzzle_2018().solve(puzzleNumber: puzzle)
