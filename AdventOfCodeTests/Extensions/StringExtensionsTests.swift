@@ -29,4 +29,13 @@ class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("123[4]56".hasBracket(), true)
     }
 
+    func test_isStringHexadecimal() {
+        XCTAssertEqual("".isStringHexadecimal(), false)
+        XCTAssertEqual("1234567890".isStringHexadecimal(), true)
+        XCTAssertEqual("abcdef".isStringHexadecimal(), true)
+        XCTAssertEqual("abcdefg".isStringHexadecimal(), false)
+        XCTAssertEqual("ABCDEF".isStringHexadecimal(), true)
+        XCTAssertEqual("ABCDEFG".isStringHexadecimal(), false)
+    }
+    
 }

@@ -152,6 +152,20 @@ extension String {
         return false
     }
     
+    func isStringHexadecimal() -> Bool {
+        if !self.isEmpty {
+            for c in self {
+                if !c.isHexDigit {
+                    return false
+                }
+            }
+            
+            return true
+        }
+        
+        return false
+    }
+    
     func matchesForRegexInText(regex: String!) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
@@ -218,12 +232,12 @@ extension String {
         return allLines
     }
     
-    func parseIntoStringArray() -> [String] {
-        return parseIntoStringArray(separator: "\n")
+    func parseIntoStringArray(omitBlankLines: Bool = true) -> [String] {
+        return parseIntoStringArray(separator: "\n", omitEmptyStrings: omitBlankLines)
     }
     
-    func parseIntoStringArray(separator: Character) -> [String] {
-        let arr = self.split(separator: separator)
+    func parseIntoStringArray(separator: Character, omitEmptyStrings: Bool = true) -> [String] {
+        let arr = self.split(separator: separator, omittingEmptySubsequences: omitEmptyStrings)
         var retval: [String] = []
         for s in arr {
             retval.append(String(s))

@@ -19,7 +19,7 @@ class Puzzle_2020 {
         } else if puzzleNumber == 3 {
              Puzzle_2020_03().solve()
         } else if puzzleNumber == 4 {
-            //Puzzle_2020_04().solve()
+            Puzzle_2020_04().solve()
         } else if puzzleNumber == 5 {
             //Puzzle_2020_05().solve()
         } else if puzzleNumber == 6 {
@@ -103,6 +103,11 @@ class Puzzle_2020_XX : PuzzleBaseClass {
 }
 
 fileprivate class Puzzle_2020_XX_Input: NSObject {
+
+    static let puzzleInput_test = """
+Line 1
+Line 2
+"""
 
     static let puzzleInput = """
 Line 1
