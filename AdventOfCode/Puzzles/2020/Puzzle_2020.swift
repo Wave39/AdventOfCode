@@ -25,7 +25,7 @@ class Puzzle_2020 {
         } else if puzzleNumber == 6 {
             Puzzle_2020_06().solve()
         } else if puzzleNumber == 7 {
-            //Puzzle_2020_07().solve()
+            Puzzle_2020_07().solve()
         } else if puzzleNumber == 8 {
             //Puzzle_2020_08().solve()
         } else if puzzleNumber == 9 {
