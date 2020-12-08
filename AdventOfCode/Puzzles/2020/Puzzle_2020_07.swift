@@ -57,19 +57,9 @@ class Puzzle_2020_07 : PuzzleBaseClass {
         return bagRules
     }
     
-    func getDependenciesForBag(bagRules: [BagRule], bag: BagDescription) -> [BagDescription] {
-        let matchingBag = bagRules.filter({$0.bag.color == bag.color}).first!
-        return matchingBag.contents
-    }
-    
     func getDependenciesForBag(bagRules: [BagRule], bagColor: String) -> [BagDescription] {
         let matchingBag = bagRules.filter({$0.bag.color == bagColor}).first!
         return matchingBag.contents
-    }
-    
-    func findMatchingBag(bagRules: [BagRule], bagColor: String) -> BagDescription {
-        let matchingBag = bagRules.filter({$0.bag.color == bagColor}).first!
-        return matchingBag.bag
     }
     
     func bagCountInsideBag(bagRules: [BagRule], bagColor: String) -> Int {
@@ -82,28 +72,27 @@ class Puzzle_2020_07 : PuzzleBaseClass {
         return bagCount
     }
     
-    var bagColorArray: [String] = []
-    
-    func buildBagColorArray(bagRules: [BagRule], bag: BagDescription) {
-        bagColorArray.append(bag.color)
-        let dependencies = getDependenciesForBag(bagRules: bagRules, bag: bag)
-        for d in dependencies {
-            buildBagColorArray(bagRules: bagRules, bag: d)
+    func findBagsContainingBagColor(bagRules: [BagRule], bagColor: String) -> Set<String> {
+        var bagColorSet: Set<String> = []
+
+        func recursiveFindBagsContainingBagColor(bagRules: [BagRule], bagColor: String) {
+            for bagRule in bagRules {
+                if bagRule.contents.filter({ $0.color == bagColor }).count > 0 {
+                    bagColorSet.insert(bagRule.bag.color)
+                    recursiveFindBagsContainingBagColor(bagRules: bagRules, bagColor: bagRule.bag.color)
+                }
+            }
         }
+        
+        recursiveFindBagsContainingBagColor(bagRules: bagRules, bagColor: bagColor)
+        
+        return bagColorSet
     }
     
     func solvePart1(str: String) -> Int {
         let bagRules = parseBagRules(str: str)
-        var canContainGoldBag = 0
-        for bagRule in bagRules {
-            bagColorArray = []
-            buildBagColorArray(bagRules: bagRules, bag: bagRule.bag)
-            bagColorArray.remove(at: 0) // take away the original bag color
-            if bagColorArray.contains("shiny gold") {
-                canContainGoldBag += 1
-            }
-        }
-        return canContainGoldBag
+        let bagColorSet = findBagsContainingBagColor(bagRules: bagRules, bagColor: "shiny gold")
+        return bagColorSet.count
     }
     
     func solvePart2(str: String) -> Int {
