@@ -27,7 +27,7 @@ class Puzzle_2020 {
         } else if puzzleNumber == 7 {
             Puzzle_2020_07().solve()
         } else if puzzleNumber == 8 {
-            //Puzzle_2020_08().solve()
+            Puzzle_2020_08().solve()
         } else if puzzleNumber == 9 {
             //Puzzle_2020_09().solve()
         } else if puzzleNumber == 10 {
@@ -83,11 +83,11 @@ class Puzzle_2020_XX : PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2020_XX_Input.puzzleInput)
+        return solvePart1(str: Puzzle_Input.puzzleInput)
     }
     
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2020_XX_Input.puzzleInput)
+        return solvePart2(str: Puzzle_Input.puzzleInput)
     }
     
     func solvePart1(str: String) -> Int {
@@ -102,7 +102,7 @@ class Puzzle_2020_XX : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_2020_XX_Input: NSObject {
+fileprivate class Puzzle_Input: NSObject {
 
     static let puzzleInput_test = """
 Line 1
