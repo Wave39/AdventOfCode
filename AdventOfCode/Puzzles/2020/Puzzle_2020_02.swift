@@ -19,11 +19,11 @@ class Puzzle_2020_02 : PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2020_02_Input.puzzleInput)
+        return solvePart1(str: Puzzle_Input.puzzleInput)
     }
     
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2020_02_Input.puzzleInput)
+        return solvePart2(str: Puzzle_Input.puzzleInput)
     }
     
     func solvePart1(str: String) -> Int {
@@ -68,7 +68,7 @@ class Puzzle_2020_02 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_2020_02_Input: NSObject {
+fileprivate class Puzzle_Input: NSObject {
 
     static let puzzleInput_test = """
 1-3 a: abcde

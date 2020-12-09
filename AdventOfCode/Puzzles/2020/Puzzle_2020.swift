@@ -29,7 +29,7 @@ class Puzzle_2020 {
         } else if puzzleNumber == 8 {
             Puzzle_2020_08().solve()
         } else if puzzleNumber == 9 {
-            //Puzzle_2020_09().solve()
+            Puzzle_2020_09().solve()
         } else if puzzleNumber == 10 {
             //Puzzle_2020_10().solve()
         } else if puzzleNumber == 11 {

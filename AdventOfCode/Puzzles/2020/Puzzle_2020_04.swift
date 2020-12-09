@@ -19,11 +19,11 @@ class Puzzle_2020_04 : PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2020_04_Input.puzzleInput)
+        return solvePart1(str: Puzzle_Input.puzzleInput)
     }
     
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2020_04_Input.puzzleInput)
+        return solvePart2(str: Puzzle_Input.puzzleInput)
     }
     
     func parsePassports(str: String) -> [[String]] {
@@ -131,7 +131,7 @@ class Puzzle_2020_04 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_2020_04_Input: NSObject {
+fileprivate class Puzzle_Input: NSObject {
 
     static let puzzleInput0 = """
 ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
