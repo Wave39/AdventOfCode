@@ -210,6 +210,8 @@ class Puzzle_2019_17 : PuzzleBaseClass {
                 return newDirection == .South ? .Left : .Right
             case .East:
                 return newDirection == .South ? .Right : .Left
+            default:
+                return .Left
             }
         }
         
@@ -223,6 +225,8 @@ class Puzzle_2019_17 : PuzzleBaseClass {
                 return Point2D(x: oldPosition.x - 1, y: oldPosition.y)
             case .East:
                 return Point2D(x: oldPosition.x + 1, y: oldPosition.y)
+            default:
+                return Point2D()
             }
         }
         

@@ -48,12 +48,19 @@ struct Point2D: Hashable, CustomStringConvertible {
         return abs(self.x - pt.x) + abs(self.y - pt.y)
     }
     
-    func adjacentLocations() -> [Point2D] {
+    func adjacentLocations(includeDiagonals: Bool = false) -> [Point2D] {
         var retval: [Point2D] = []
         retval.append(Point2D(x: self.x, y: self.y - 1))
         retval.append(Point2D(x: self.x - 1, y: self.y))
         retval.append(Point2D(x: self.x + 1, y: self.y))
         retval.append(Point2D(x: self.x, y: self.y + 1))
+        if includeDiagonals {
+            retval.append(Point2D(x: self.x - 1, y: self.y - 1))
+            retval.append(Point2D(x: self.x + 1, y: self.y - 1))
+            retval.append(Point2D(x: self.x - 1, y: self.y + 1))
+            retval.append(Point2D(x: self.x + 1, y: self.y + 1))
+        }
+        
         return retval
     }
     
