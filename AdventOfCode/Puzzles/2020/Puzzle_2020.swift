@@ -39,7 +39,7 @@ class Puzzle_2020 {
         } else if puzzleNumber == 13 {
             Puzzle_2020_13().solve()
         } else if puzzleNumber == 14 {
-            //Puzzle_2020_14().solve()
+            Puzzle_2020_14().solve()
         } else if puzzleNumber == 15 {
             //Puzzle_2020_15().solve()
         } else if puzzleNumber == 16 {
