@@ -232,6 +232,22 @@ extension String {
         return allLines
     }
     
+    func parseIntoCharacterMatrix() -> [[Character]] {
+        var allLines : [[Character]] = []
+        let lineArray = self.split(separator: "\n")
+        for line in lineArray {
+            var thisLine : [String] = []
+            let elementArray = line.split(separator: " ")
+            for element in elementArray {
+                thisLine.append(String(element))
+            }
+            
+            allLines.append(line.map({$0}))
+        }
+        
+        return allLines
+    }
+    
     func parseIntoStringArray(omitBlankLines: Bool = true) -> [String] {
         return parseIntoStringArray(separator: "\n", omitEmptyStrings: omitBlankLines)
     }

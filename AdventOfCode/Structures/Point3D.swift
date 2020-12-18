@@ -83,4 +83,19 @@ struct Point3D: Hashable, CustomStringConvertible {
         return retval
     }
     
+    func adjacentLocationsWithDiagonals() -> [Point3D] {
+        var retval: [Point3D] = []
+        for deltaX in -1...1 {
+            for deltaY in -1...1 {
+                for deltaZ in -1...1 {
+                    if deltaX != 0 || deltaY != 0 || deltaZ != 0 {
+                        retval.append(Point3D(x: self.x + deltaX, y: self.y + deltaY, z: self.z + deltaZ))
+                    }
+                }
+            }
+        }
+        
+        return retval
+    }
+    
 }

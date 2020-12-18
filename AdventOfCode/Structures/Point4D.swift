@@ -37,4 +37,21 @@ struct Point4D: Hashable, CustomStringConvertible {
         return retval
     }
     
+    func adjacentLocationsWithDiagonals() -> [Point4D] {
+        var retval: [Point4D] = []
+        for deltaX in -1...1 {
+            for deltaY in -1...1 {
+                for deltaZ in -1...1 {
+                    for deltaT in -1...1 {
+                        if deltaX != 0 || deltaY != 0 || deltaZ != 0 || deltaT != 0 {
+                            retval.append(Point4D(x: self.x + deltaX, y: self.y + deltaY, z: self.z + deltaZ, t: self.t + deltaT))
+                        }
+                    }
+                }
+            }
+        }
+        
+        return retval
+    }
+    
 }
