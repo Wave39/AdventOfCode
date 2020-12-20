@@ -102,3 +102,52 @@ func directionalCharacters(grid: CharacterGrid, row: Int, col: Int, direction: C
     
     return retval
 }
+
+func getCharacterGridEdge(grid: CharacterGrid, direction: CompassDirection) -> String {
+    if direction == .North {
+        return String(grid.first!)
+    } else if direction == .South {
+        return String(grid.last!)
+    } else {
+        var retval = ""
+        for line in grid {
+            let c = line[(direction == .West ? 0 : line.count - 1)]
+            retval += String(c)
+        }
+        
+        return retval
+    }
+}
+
+func rotateCharacterGrid(grid: CharacterGrid, rotateRight: Bool) -> CharacterGrid {
+    let height = grid.count
+    let width = grid[0].count
+    var newGrid = initializeEmptyCharacterGrid(height: width, width: height)
+    for y in 0..<height {
+        for x in 0..<width {
+            if rotateRight {
+                newGrid[y][x] = grid[width - x - 1][y]
+            } else {
+                newGrid[y][x] = grid[x][height - y - 1]
+            }
+        }
+    }
+    
+    return newGrid
+}
+
+func flipCharacterGrid(grid: CharacterGrid, flipHorizontally: Bool, flipVertically: Bool) -> CharacterGrid {
+    let height = grid.count
+    let width = grid[0].count
+    var newGrid = initializeEmptyCharacterGrid(height: height, width: width)
+    for y in 0..<height {
+        for x in 0..<width {
+            let newX = flipHorizontally ? (width - x - 1) : x
+            let newY = flipVertically ? (height - y - 1) : y
+            newGrid[y][x] = grid[newY][newX]
+        }
+    }
+    
+    return newGrid
+}
+

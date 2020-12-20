@@ -51,7 +51,7 @@ class Puzzle_2020 {
         } else if puzzleNumber == 19 {
             Puzzle_2020_19().solve()
         } else if puzzleNumber == 20 {
-            //Puzzle_2020_20().solve()
+            Puzzle_2020_20().solve()
         } else if puzzleNumber == 21 {
             //Puzzle_2020_21().solve()
         } else if puzzleNumber == 22 {
