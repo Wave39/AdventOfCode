@@ -53,7 +53,7 @@ class Puzzle_2020 {
         } else if puzzleNumber == 20 {
             Puzzle_2020_20().solve()
         } else if puzzleNumber == 21 {
-            //Puzzle_2020_21().solve()
+            Puzzle_2020_21().solve()
         } else if puzzleNumber == 22 {
             //Puzzle_2020_22().solve()
         } else if puzzleNumber == 23 {
@@ -91,13 +91,13 @@ class Puzzle_2020_XX : PuzzleBaseClass {
     }
     
     func solvePart1(str: String) -> Int {
-        let arr = str.parseIntoStringArray()
-        return arr.count
+        let lines = str.parseIntoStringArray()
+        return lines.count
     }
     
     func solvePart2(str: String) -> Int {
-        let arr = str.parseIntoStringArray()
-        return arr.count
+        let lines = str.parseIntoStringArray()
+        return lines.count
     }
     
 }
