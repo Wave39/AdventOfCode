@@ -8,3 +8,5 @@ His solution comes at it from the correct way, checking the strings against the 
 The first part was relatively easy, but it became clear to me that there was no way I was going to be able to solve part 2 in a timely fashion.
 As a result, I found a python solution out there and faked my way through it.
 It's not called the "Hall of Shame" for nothing.
+### Day 23
+Ditto from day 20, but I once again used Felix Larson's swift code as a guide to solve part 2.
