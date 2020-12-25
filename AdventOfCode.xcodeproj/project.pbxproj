@@ -53,6 +53,8 @@
 		E02114A02399621400F49FC1 /* Puzzle_2019_05.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */; };
 		E02156D82577D9C50020219A /* Puzzle_2020_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02156D72577D9C50020219A /* Puzzle_2020_02.swift */; };
 		E02156DB2577D9C80020219A /* Puzzle_2020_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02156D72577D9C50020219A /* Puzzle_2020_02.swift */; };
+		E023A69B259623D8006C1A0E /* Puzzle_2020_25.swift in Sources */ = {isa = PBXBuildFile; fileRef = E023A69A259623D8006C1A0E /* Puzzle_2020_25.swift */; };
+		E023A69C259623D8006C1A0E /* Puzzle_2020_25.swift in Sources */ = {isa = PBXBuildFile; fileRef = E023A69A259623D8006C1A0E /* Puzzle_2020_25.swift */; };
 		E02404EF257C19B400C2C9A0 /* Puzzle_2020_05.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02404EE257C19B400C2C9A0 /* Puzzle_2020_05.swift */; };
 		E02404F0257C19B400C2C9A0 /* Puzzle_2020_05.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02404EE257C19B400C2C9A0 /* Puzzle_2020_05.swift */; };
 		E026B4E523A1556300FDDABD /* Puzzle_2019_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026B4E423A1556300FDDABD /* Puzzle_2019_11.swift */; };
@@ -405,6 +407,7 @@
 		E021149D2398B16C00F49FC1 /* Puzzle_2019_04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_04.swift; sourceTree = "<group>"; };
 		E021149F2399621400F49FC1 /* Puzzle_2019_05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_05.swift; sourceTree = "<group>"; };
 		E02156D72577D9C50020219A /* Puzzle_2020_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_02.swift; sourceTree = "<group>"; };
+		E023A69A259623D8006C1A0E /* Puzzle_2020_25.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_25.swift; sourceTree = "<group>"; };
 		E02404EE257C19B400C2C9A0 /* Puzzle_2020_05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_05.swift; sourceTree = "<group>"; };
 		E026B4E423A1556300FDDABD /* Puzzle_2019_11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_11.swift; sourceTree = "<group>"; };
 		E026B4E823A17C9100FDDABD /* CompassEnumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassEnumerations.swift; sourceTree = "<group>"; };
@@ -819,6 +822,7 @@
 				E084F37B2592259A0053B318 /* Puzzle_2020_22.swift */,
 				E08C95022593771800DD5399 /* Puzzle_2020_23.swift */,
 				E0578B122594BFA700E38F01 /* Puzzle_2020_24.swift */,
+				E023A69A259623D8006C1A0E /* Puzzle_2020_25.swift */,
 			);
 			path = 2020;
 			sourceTree = "<group>";
@@ -1079,6 +1083,7 @@
 				E04119A2239B16830031AD8B /* Puzzle_2019_06.swift in Sources */,
 				E0BE570523F766130076E4D9 /* Puzzle_2016_16.swift in Sources */,
 				E0EB01612590DC090055C4BB /* Puzzle_2020_21.swift in Sources */,
+				E023A69B259623D8006C1A0E /* Puzzle_2020_25.swift in Sources */,
 				E020200B23F78A5C00217780 /* Puzzle_2015.swift in Sources */,
 				E04ADE3124007463006BD59C /* Puzzle_2015_08.swift in Sources */,
 				E04ADE3A24007AE2006BD59C /* Puzzle_2015_11.swift in Sources */,
@@ -1267,6 +1272,7 @@
 				E0F4FA64239D95EA002F51A8 /* Particle2D.swift in Sources */,
 				E090D8A323B6CA5A0050111E /* Puzzle_2019_23.swift in Sources */,
 				E0CBC89523EF3AC10002B5EA /* Puzzle_2017_25.swift in Sources */,
+				E023A69C259623D8006C1A0E /* Puzzle_2020_25.swift in Sources */,
 				E00998CB258791EA00DAF97D /* Puzzle_2020_14.swift in Sources */,
 				E0D3EF1423D396260064413A /* Puzzle_2017_10.swift in Sources */,
 				E0D3EF0523D38E910064413A /* Puzzle_2017_05.swift in Sources */,
