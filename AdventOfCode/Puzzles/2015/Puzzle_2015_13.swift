@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_13 : PuzzleBaseClass {
-    
+class Puzzle_2015_13: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -18,18 +17,18 @@ class Puzzle_2015_13 : PuzzleBaseClass {
 
     func solveBothParts() -> (Int, Int) {
         let puzzleInputLineArray = PuzzleInput.final.parseIntoStringArray()
-        
+
         class HappinessPair {
             var person1: String = ""
             var person2: String = ""
             var happiness: Int = 0
         }
-        
+
         class Tree {
             var progress: Array<String> = []
             var branches: Array<Tree> = []
         }
-        
+
         var happinessPairArray = Array<HappinessPair>()
         for puzzleLine in puzzleInputLineArray {
             let arr = puzzleLine.split {$0 == " "}.map(String.init)
@@ -40,21 +39,21 @@ class Puzzle_2015_13 : PuzzleBaseClass {
             if arr[2] == "lose" {
                 hp.happiness = -hp.happiness
             }
-            
+
             happinessPairArray.append(hp)
         }
-        
+
         var personArray = Array<String>()
         for hp in happinessPairArray {
             if !personArray.contains(hp.person1) {
                 personArray.append(hp.person1)
             }
-            
+
             if !personArray.contains(hp.person2) {
                 personArray.append(hp.person2)
             }
         }
-        
+
         func populateBranches(node: Tree) {
             // figure out which people have not been seated yet
             var unseatedPeopleArray = Array<String>()
@@ -63,13 +62,13 @@ class Puzzle_2015_13 : PuzzleBaseClass {
                     unseatedPeopleArray.append(p)
                 }
             }
-            
+
             if unseatedPeopleArray.count == 0 {
                 // no new people to seat, just add in the first person again and leave
                 node.progress.append(node.progress.first!)
                 return
             }
-            
+
             // create new branches for unvisited places
             for p in unseatedPeopleArray {
                 let newNode = Tree()
@@ -77,12 +76,12 @@ class Puzzle_2015_13 : PuzzleBaseClass {
                 newNode.progress.append(p)
                 node.branches.append(newNode)
             }
-            
+
             for b in node.branches {
                 populateBranches(node: b)
             }
         }
-        
+
         func calculateHappinessBetweenPeople(person1: String, person2: String) -> Int {
             var happiness = 0
             for happinessPair in happinessPairArray {
@@ -91,10 +90,10 @@ class Puzzle_2015_13 : PuzzleBaseClass {
                     happiness += happinessPair.happiness
                 }
             }
-            
+
             return happiness
         }
-        
+
         func calculateMaxHappiness(tree: Tree) -> Int {
             var maxHappiness: Int = 0
             func walkToBranchTips(node: Tree) {
@@ -103,7 +102,7 @@ class Puzzle_2015_13 : PuzzleBaseClass {
                     for idx in 0...(node.progress.count - 2) {
                         happiness = happiness + calculateHappinessBetweenPeople(person1: node.progress[idx], person2: node.progress[idx + 1])
                     }
-                    
+
                     if happiness > maxHappiness {
                         maxHappiness = happiness
                     }
@@ -113,17 +112,17 @@ class Puzzle_2015_13 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             walkToBranchTips(node: tree)
-            
+
             return maxHappiness
         }
-        
+
         let rootNode1 = Tree()
         rootNode1.progress = []
         populateBranches(node: rootNode1)
         let maxHappiness1 = calculateMaxHappiness(tree: rootNode1)
-        
+
         let me = "Me"
         for person in personArray {
             let hp = HappinessPair()
@@ -132,21 +131,19 @@ class Puzzle_2015_13 : PuzzleBaseClass {
             hp.happiness = 0
             happinessPairArray.append(hp)
         }
-        
+
         personArray.append(me)
-        
+
         let rootNode2 = Tree()
         rootNode2.progress = []
         populateBranches(node: rootNode2)
         let maxHappiness2 = calculateMaxHappiness(tree: rootNode2)
-        
+
         return (maxHappiness1, maxHappiness2)
     }
-    
 }
 
-fileprivate class PuzzleInput: NSObject {
-    
+private class PuzzleInput: NSObject {
     static let final = """
 Alice would gain 54 happiness units by sitting next to Bob.
 Alice would lose 81 happiness units by sitting next to Carol.
@@ -205,6 +202,4 @@ Mallory would gain 40 happiness units by sitting next to Eric.
 Mallory would gain 18 happiness units by sitting next to Frank.
 Mallory would gain 7 happiness units by sitting next to George.
 """
-    
 }
-

@@ -45,28 +45,28 @@ class AdventOfCode2019Tests: XCTestCase {
         let part2 = Puzzle_2019_04().solvePart2(from: 134564, to: 585159)
         XCTAssertEqual(part2, 1306)
     }
-    
+
     func test2019day05() {
         let part1 = Puzzle_2019_05().solvePart1()
         XCTAssertEqual(part1, 13346482)
         let part2 = Puzzle_2019_05().solvePart2()
         XCTAssertEqual(part2, 12111395)
     }
-    
+
     func test2019day06() {
         let part1 = Puzzle_2019_06().solvePart1()
         XCTAssertEqual(part1, 261306)
         let part2 = Puzzle_2019_06().solvePart2()
         XCTAssertEqual(part2, 382)
     }
-    
+
     func test2019day07() {
         let part1 = Puzzle_2019_07().solvePart1()
         XCTAssertEqual(part1, 914828)
         let part2 = Puzzle_2019_07().solvePart2()
         XCTAssertEqual(part2, 17956613)
     }
-    
+
     func test2019day08() {
         let part1 = Puzzle_2019_08().solvePart1()
         XCTAssertEqual(part1, 1742)
@@ -144,7 +144,7 @@ class AdventOfCode2019Tests: XCTestCase {
         let part2 = Puzzle_2019_18().solvePart2()
         XCTAssertEqual(part2, 1564)
     }
-    
+
     func test2019day19() {
         let part1 = Puzzle_2019_19().solvePart1()
         XCTAssertEqual(part1, 171)
@@ -158,36 +158,36 @@ class AdventOfCode2019Tests: XCTestCase {
         let part2 = Puzzle_2019_20().solvePart2()
         XCTAssertEqual(part2, 5966)
     }
-    
+
     func test2019day21() {
         let part1 = Puzzle_2019_21().solvePart1()
         XCTAssertEqual(part1, 19356971)
         let part2 = Puzzle_2019_21().solvePart2()
         XCTAssertEqual(part2, 1142600034)
     }
-    
+
     func test2019day22() {
         let part1 = Puzzle_2019_22().solvePart1()
         XCTAssertEqual(part1, 3143)
         let part2 = Puzzle_2019_22().solvePart2()
         XCTAssertEqual(part2, 3920265924568)
     }
-    
+
     func test2019day23() {
         // no tests for day 23 as the multithreading code still has something wrong with it
         XCTAssertTrue(true)
     }
-    
+
     func test2019day24() {
         let part1 = Puzzle_2019_24().solvePart1()
         XCTAssertEqual(part1, 14539258)
         let part2 = Puzzle_2019_24().solvePart2()
         XCTAssertEqual(part2, 1977)
     }
-    
+
     func test2019day25() {
         let part1 = Puzzle_2019_25().solvePart1()
         XCTAssertEqual(part1, "20483")
     }
-    
+
 }

@@ -36,7 +36,7 @@ func gcdIterativeEuklid(_ m: Int, _ n: Int) -> Int {
     var a: Int = 0
     var b: Int = max(m, n)
     var r: Int = min(m, n)
-    
+
     while r != 0 {
         a = b
         b = r
@@ -85,7 +85,7 @@ func gcdRecursiveEuklid(_ m: Int, _ n: Int) -> Int {
  */
 func gcdBinaryRecursiveStein(_ m: Int, _ n: Int) -> Int {
     if let easySolution = findEasySolution(m, n) { return easySolution }
-    
+
     if (m & 1) == 0 {
         // m is even
         if (n & 1) == 1 {
@@ -98,7 +98,7 @@ func gcdBinaryRecursiveStein(_ m: Int, _ n: Int) -> Int {
     } else if (n & 1) == 0 {
         // m is odd, n is even
         return gcdBinaryRecursiveStein(m, n >> 1)
-    } else if (m > n) {
+    } else if m > n {
         // reduce larger argument
         return gcdBinaryRecursiveStein((m - n) >> 1, n)
     } else {
@@ -129,7 +129,6 @@ func findEasySolution(_ m: Int, _ n: Int) -> Int? {
     return nil
 }
 
-
 enum LCMError: Error {
     case divisionByZero
 }
@@ -148,6 +147,6 @@ enum LCMError: Error {
  an unsigned integer
  */
 func lcm(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) throws -> Int {
-    //guard m & n != 0 else { throw LCMError.divisionByZero }
+    // guard m & n != 0 else { throw LCMError.divisionByZero }
     return m / gcdAlgorithm(m, n) * n
 }

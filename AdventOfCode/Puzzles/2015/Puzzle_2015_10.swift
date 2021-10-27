@@ -8,14 +8,13 @@
 
 import Foundation
 
-class Puzzle_2015_10 : PuzzleBaseClass {
-
+class Puzzle_2015_10: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let numberOfIterations = 50
 
@@ -32,7 +31,7 @@ class Puzzle_2015_10 : PuzzleBaseClass {
                     currentCount = 1
                 }
             }
-            
+
             newStr += "\(currentCount)\(currentCharacter)"
             return newStr
         }
@@ -49,15 +48,11 @@ class Puzzle_2015_10 : PuzzleBaseClass {
                 part2 = currentSequence.count
             }
         }
-        
+
         return (part1, part2)
     }
-    
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = "1321131112"
-
 }
-

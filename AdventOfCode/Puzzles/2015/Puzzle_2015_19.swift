@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_19 : PuzzleBaseClass {
+class Puzzle_2015_19: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
@@ -19,7 +19,7 @@ class Puzzle_2015_19 : PuzzleBaseClass {
     func solveBothParts() -> (Int, Int) {
         let replacementLineArray = PuzzleInput.final.parseIntoStringArray()
         let targetMolecule = PuzzleInput.targetMolecule
-        
+
         struct Molecule {
             var moleculeString: String = ""
             var generation: Int = 0
@@ -58,13 +58,13 @@ class Puzzle_2015_19 : PuzzleBaseClass {
                 var r = nsString.range(of: replacement.replaceWith)
                 let c = nsString.length
 
-                while (r.length > 0) {
+                while r.length > 0 {
                     let x = r.location + r.length
                     moleculeSet.insert(nsString.replacingCharacters(in: r, with: replacement.searchFor))
                     r = nsString.range(of: replacement.replaceWith, options: .literal, range: NSMakeRange(x, c - x))
                 }
             }
-            
+
             var moleculeArray: [Molecule] = []
             for m in moleculeSet {
                 var newMolecule = Molecule()
@@ -72,7 +72,7 @@ class Puzzle_2015_19 : PuzzleBaseClass {
                 newMolecule.generation = originalMolecule.generation + 1
                 moleculeArray.append(newMolecule)
             }
-            
+
             if trim {
                 moleculeArray.sort(by: { $0.moleculeString.count < $1.moleculeString.count })
                 if moleculeArray.count > moleculeTrimCount {
@@ -80,7 +80,7 @@ class Puzzle_2015_19 : PuzzleBaseClass {
                     moleculeArray = Array(slice)
                 }
             }
-            
+
             return moleculeArray
         }
 
@@ -90,13 +90,13 @@ class Puzzle_2015_19 : PuzzleBaseClass {
                 let reverseMolecules = getReverseReplacements(originalMolecule: molecule, trim: true)
                 moleculeArray.append(contentsOf: reverseMolecules)
             }
-            
+
             moleculeArray.sort(by: { $0.moleculeString.count < $1.moleculeString.count })
             if moleculeArray.count > moleculeTrimCount {
                 let slice = moleculeArray[0..<moleculeTrimCount]
                 moleculeArray = Array(slice)
             }
-            
+
             return moleculeArray
         }
 
@@ -118,10 +118,10 @@ class Puzzle_2015_19 : PuzzleBaseClass {
 
         return (part1, part2)
     }
-    
+
 }
 
-fileprivate class PuzzleInput: NSObject {
+private class PuzzleInput: NSObject {
 
     static let final = """
 Al => ThF
@@ -170,6 +170,5 @@ e => OMg
 """
 
     static let targetMolecule = "CRnCaSiRnBSiRnFArTiBPTiTiBFArPBCaSiThSiRnTiBPBPMgArCaSiRnTiMgArCaSiThCaSiRnFArRnSiRnFArTiTiBFArCaCaSiRnSiThCaCaSiRnMgArFYSiRnFYCaFArSiThCaSiThPBPTiMgArCaPRnSiAlArPBCaCaSiRnFYSiThCaRnFArArCaCaSiRnPBSiRnFArMgYCaCaCaCaSiThCaCaSiAlArCaCaSiRnPBSiAlArBCaCaCaCaSiThCaPBSiThPBPBCaSiRnFYFArSiThCaSiRnFArBCaCaSiRnFYFArSiThCaPBSiThCaSiRnPMgArRnFArPTiBCaPRnFArCaCaCaCaSiRnCaCaSiRnFYFArFArBCaSiThFArThSiThSiRnTiRnPMgArFArCaSiThCaPBCaSiRnBFArCaCaPRnCaCaPMgArSiRnFYFArCaSiThRnPBPMgAr"
-    
-}
 
+}

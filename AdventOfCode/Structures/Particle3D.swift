@@ -15,7 +15,7 @@ struct Particle3D: Hashable {
     var deltaX: Int = 0
     var deltaY: Int = 0
     var deltaZ: Int = 0
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(x)
         hasher.combine(y)
@@ -24,7 +24,7 @@ struct Particle3D: Hashable {
         hasher.combine(deltaY)
         hasher.combine(deltaZ)
     }
-    
+
     var description: String {
         return "(\(x),\(y),\(z)) -> (\(deltaX),\(deltaY),\(deltaZ))"
     }
@@ -41,34 +41,34 @@ struct Particle3D: Hashable {
         retval.x2 = Int.min
         retval.y2 = Int.min
         retval.z2 = Int.min
-        
+
         for p in arr {
             if p.x < retval.x1 {
                 retval.x1 = p.x
             }
-            
+
             if p.y < retval.y1 {
                 retval.y1 = p.y
             }
-            
+
             if p.z < retval.z1 {
                 retval.z1 = p.z
             }
-            
+
             if p.x > retval.x2 {
                 retval.x2 = p.x
             }
-            
+
             if p.y > retval.y2 {
                 retval.y2 = p.y
             }
-            
+
             if p.z > retval.z2 {
                 retval.z2 = p.z
             }
         }
-        
+
         return retval
     }
-    
+
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_14 : PuzzleBaseClass {
+class Puzzle_2015_14: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
@@ -80,12 +80,12 @@ class Puzzle_2015_14 : PuzzleBaseClass {
                         reindeerStatus.restTimeRemaining = reindeerStatus.reindeer.restTime
                     }
                 }
-                
+
                 if reindeerStatus.distanceTraveled > leadingDistance {
                     leadingDistance = reindeerStatus.distanceTraveled
                 }
             }
-            
+
             for reindeerStatus in reindeerStatusArray {
                 if reindeerStatus.distanceTraveled == leadingDistance {
                     reindeerStatus.points += 1
@@ -102,11 +102,10 @@ class Puzzle_2015_14 : PuzzleBaseClass {
 
         return (maxDistance, highestScore)
     }
-    
+
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 Vixen can fly 8 km/s for 8 seconds, but then must rest for 53 seconds.
 Blitzen can fly 13 km/s for 4 seconds, but then must rest for 49 seconds.
@@ -118,6 +117,4 @@ Comet can fly 3 km/s for 37 seconds, but then must rest for 76 seconds.
 Prancer can fly 9 km/s for 12 seconds, but then must rest for 97 seconds.
 Dancer can fly 37 km/s for 1 seconds, but then must rest for 36 seconds.
 """
-
 }
-

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_21 : PuzzleBaseClass {
+class Puzzle_2015_21: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
@@ -74,10 +74,10 @@ class Puzzle_2015_21 : PuzzleBaseClass {
                     let damage = max(them.damage - me.armor, 1)
                     me.hitPoints -= damage
                 }
-                
+
                 playerHits = !playerHits
             } while me.hitPoints > 0 && them.hitPoints > 0
-            
+
             return me.hitPoints > 0
         }
 
@@ -96,7 +96,7 @@ class Puzzle_2015_21 : PuzzleBaseClass {
                     ring.armor += ringArray[i].armor
                 }
             }
-            
+
             return ring
         }
 
@@ -134,5 +134,4 @@ class Puzzle_2015_21 : PuzzleBaseClass {
 
         return (leastGold, mostGold)
     }
-    
 }

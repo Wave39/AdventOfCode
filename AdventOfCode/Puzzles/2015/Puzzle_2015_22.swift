@@ -8,13 +8,13 @@
 
 import Foundation
 
-fileprivate enum EffectType {
+private enum EffectType {
     case Shield
     case Poison
     case Recharge
 }
 
-fileprivate class Effect {
+private class Effect {
     var type: EffectType
     var turns: Int = 0
     init (type: EffectType, turns: Int) {
@@ -23,13 +23,13 @@ fileprivate class Effect {
     }
 }
 
-fileprivate enum EffectResultType {
+private enum EffectResultType {
     case Armor
     case Damage
     case Mana
 }
 
-fileprivate class EffectResult {
+private class EffectResult {
     var type: EffectResultType
     var amount: Int = 0
     init (type: EffectResultType, amount: Int) {
@@ -38,7 +38,7 @@ fileprivate class EffectResult {
     }
 }
 
-fileprivate enum SpellType {
+private enum SpellType {
     case None
     case MagicMissile
     case Drain
@@ -47,7 +47,7 @@ fileprivate enum SpellType {
     case Recharge
 }
 
-fileprivate class Spell {
+private class Spell {
     var type: SpellType
     var manaCost: Int = 0
     var damage: Int = 0
@@ -64,9 +64,9 @@ fileprivate class Spell {
     }
 }
 
-fileprivate class GameState {
+private class GameState {
     var iteration: Int = 0
-    var nextSpell: Spell? = nil
+    var nextSpell: Spell?
     var playerHitPoints: Int = 0
     var playerCurrentMana: Int = 0
     var playerSpentMana: Int = 0
@@ -84,15 +84,15 @@ fileprivate class GameState {
         self.bossDamage = bossDamage
         self.difficultyHard = difficultyHard
     }
-    
+
     func playerLoses() -> Bool {
         return self.playerHitPoints <= 0
     }
-    
+
     func bossLoses() -> Bool {
         return self.bossHitPoints <= 0
     }
-    
+
     func copy() -> GameState {
         let c = GameState(playerHitPoints: self.playerHitPoints, playerCurrentMana: self.playerCurrentMana, bossHitPoints: self.bossHitPoints, bossDamage: self.bossDamage, difficultyHard: self.difficultyHard)
         c.iteration = self.iteration
@@ -103,7 +103,7 @@ fileprivate class GameState {
         c.rechargeTimer = self.rechargeTimer
         return c
     }
-    
+
     func checkGameEndMana(part1LeastAmountOfMana: inout Int, part2LeastAmountOfMana: inout Int) {
         if bossLoses() {
             if difficultyHard {
@@ -119,7 +119,7 @@ fileprivate class GameState {
     }
 }
 
-class Puzzle_2015_22 : PuzzleBaseClass {
+class Puzzle_2015_22: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
@@ -141,34 +141,34 @@ class Puzzle_2015_22 : PuzzleBaseClass {
 
         func getSpellOptions(gameState: GameState) -> [Spell] {
             var spellOptions: [Spell] = []
-            
+
             if gameState.playerCurrentMana >= magicMissileSpell.manaCost {
                 spellOptions.append(magicMissileSpell)
             }
-            
+
             if gameState.playerCurrentMana >= drainSpell.manaCost {
                 spellOptions.append(drainSpell)
             }
-            
+
             if gameState.playerCurrentMana >= shieldSpell.manaCost && gameState.shieldTimer <= 1 {
                 spellOptions.append(shieldSpell)
             }
-            
+
             if gameState.playerCurrentMana >= poisonSpell.manaCost && gameState.poisonTimer <= 1 {
                 spellOptions.append(poisonSpell)
             }
-            
+
             if gameState.playerCurrentMana >= rechargeSpell.manaCost && gameState.rechargeTimer <= 1 {
                 spellOptions.append(rechargeSpell)
             }
-            
+
             return spellOptions
         }
 
         func applySpell(gameState: GameState) {
             gameState.playerCurrentMana -= gameState.nextSpell!.manaCost
             gameState.playerSpentMana += gameState.nextSpell!.manaCost
-            
+
             if gameState.nextSpell!.type == .MagicMissile {
                 gameState.bossHitPoints -= 4
             } else if gameState.nextSpell!.type == .Drain {
@@ -189,12 +189,12 @@ class Puzzle_2015_22 : PuzzleBaseClass {
                 gameState.shieldTimer -= 1
                 gameState.playerArmor = gameState.shieldTimer == 0 ? 0 : (shieldSpell.effectResult?.amount)!
             }
-            
+
             if gameState.poisonTimer > 0 {
                 gameState.poisonTimer -= 1
                 gameState.bossHitPoints -= (poisonSpell.effectResult?.amount)!
             }
-            
+
             if gameState.rechargeTimer > 0 {
                 gameState.rechargeTimer -= 1
                 gameState.playerCurrentMana += (rechargeSpell.effectResult?.amount)!
@@ -205,12 +205,12 @@ class Puzzle_2015_22 : PuzzleBaseClass {
             if gameState.nextSpell == nil {
                 return
             }
-            
+
             if gameState.playerLoses() || gameState.bossLoses() {
                 gameState.checkGameEndMana(part1LeastAmountOfMana: &part1LeastAmountOfMana, part2LeastAmountOfMana: &part2LeastAmountOfMana)
                 return
             }
-            
+
             if difficultyHard {
                 gameState.playerHitPoints -= 1
                 if gameState.playerLoses() {
@@ -218,23 +218,23 @@ class Puzzle_2015_22 : PuzzleBaseClass {
                     return
                 }
             }
-            
+
             // player turn
             checkTimers(gameState: gameState)
-            
+
             if gameState.playerLoses() || gameState.bossLoses() {
                 gameState.checkGameEndMana(part1LeastAmountOfMana: &part1LeastAmountOfMana, part2LeastAmountOfMana: &part2LeastAmountOfMana)
                 return
             }
-            
+
             // apply spell
             applySpell(gameState: gameState)
-            
+
             if gameState.playerLoses() || gameState.bossLoses() {
                 gameState.checkGameEndMana(part1LeastAmountOfMana: &part1LeastAmountOfMana, part2LeastAmountOfMana: &part2LeastAmountOfMana)
                 return
             }
-            
+
             if difficultyHard {
                 if gameState.playerSpentMana > part2LeastAmountOfMana {
                     gameState.playerHitPoints = 0
@@ -246,18 +246,18 @@ class Puzzle_2015_22 : PuzzleBaseClass {
                     return
                 }
             }
-            
+
             // boss turn
             checkTimers(gameState: gameState)
-            
+
             if gameState.playerLoses() || gameState.bossLoses() {
                 gameState.checkGameEndMana(part1LeastAmountOfMana: &part1LeastAmountOfMana, part2LeastAmountOfMana: &part2LeastAmountOfMana)
                 return
             }
-            
+
             let bossDamage = max(1, (gameState.bossDamage - gameState.playerArmor))
             gameState.playerHitPoints -= bossDamage
-            
+
             if gameState.playerLoses() || gameState.bossLoses() {
                 gameState.checkGameEndMana(part1LeastAmountOfMana: &part1LeastAmountOfMana, part2LeastAmountOfMana: &part2LeastAmountOfMana)
                 return
@@ -272,10 +272,10 @@ class Puzzle_2015_22 : PuzzleBaseClass {
                     newGameState.nextSpell = spell
                     processGameState(gameState: newGameState)
                 }
-                
+
                 return
             }
-            
+
             beginPlayerTurn(gameState: gameState)
             if gameState.playerLoses() || gameState.bossLoses() {
                 return
@@ -302,8 +302,8 @@ class Puzzle_2015_22 : PuzzleBaseClass {
         difficultyHard = true
         initialGameState.difficultyHard = true
         processGameState(gameState: initialGameState)
-        
+
         return (part1LeastAmountOfMana, part2LeastAmountOfMana)
     }
-    
+
 }

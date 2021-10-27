@@ -18,10 +18,10 @@ func getCharacterGrid(str: String, separator: Character = "\n") -> CharacterGrid
         for c in line {
             lineArray.append(c)
         }
-        
+
         grid.append(lineArray)
     }
-    
+
     return grid
 }
 
@@ -32,10 +32,10 @@ func initializeEmptyCharacterGrid(height: Int, width: Int) -> CharacterGrid {
         for _ in 0..<width {
             lineArray.append(".")
         }
-        
+
         grid.append(lineArray)
     }
-    
+
     return grid
 }
 
@@ -45,8 +45,8 @@ func printCharacterGrid(grid: CharacterGrid) {
         for c in line {
             s += String(c)
         }
-        
-        print (s)
+
+        print(s)
     }
 }
 
@@ -67,7 +67,7 @@ func getCharacterCount(grid: CharacterGrid, character: Character) -> Int {
             }
         }
     }
-    
+
     return retval
 }
 
@@ -80,7 +80,7 @@ func adjacentCharacters(grid: CharacterGrid, row: Int, col: Int) -> [Character] 
             retval.append(grid[point.y][point.x])
         }
     }
-    
+
     return retval
 }
 
@@ -99,7 +99,7 @@ func directionalCharacters(grid: CharacterGrid, row: Int, col: Int, direction: C
             }
         }
     }
-    
+
     return retval
 }
 
@@ -114,7 +114,7 @@ func getCharacterGridEdge(grid: CharacterGrid, direction: CompassDirection) -> S
             let c = line[(direction == .West ? 0 : line.count - 1)]
             retval += String(c)
         }
-        
+
         return retval
     }
 }
@@ -132,7 +132,7 @@ func rotateCharacterGrid(grid: CharacterGrid, rotateRight: Bool) -> CharacterGri
             }
         }
     }
-    
+
     return newGrid
 }
 
@@ -147,7 +147,6 @@ func flipCharacterGrid(grid: CharacterGrid, flipHorizontally: Bool, flipVertical
             newGrid[y][x] = grid[newY][newX]
         }
     }
-    
+
     return newGrid
 }
-

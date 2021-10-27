@@ -9,10 +9,10 @@
 import Foundation
 
 extension Character {
-    
+
     // For these color squares, visit this site and search for something like "fuchsia square":
     // https://emojipedia.org/
-    
+
     static var blackSquare: Character { return "⬛️" }
     static var redSquare: Character { return "🟥" }
     static var yellowSquare: Character { return "🟨" }
@@ -21,15 +21,15 @@ extension Character {
     static var greenSquare: Character { return "🟩" }
     static var orangeSquare: Character { return "🟧" }
     static var purpleSquare: Character { return "🟪" }
-    
+
     var asciiValue: UInt32? {
-        return String(self).unicodeScalars.filter{$0.isASCII}.first?.value
+        return String(self).unicodeScalars.filter { $0.isASCII }.first?.value
     }
 
     static func asciiChar(v: Int) -> Character {
         return Character(UnicodeScalar(v)!)
     }
-    
+
     static func asciiValue(c: Character) -> Int {
         let s = String(c).unicodeScalars
         return Int(s[s.startIndex].value)

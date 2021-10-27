@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_18 : PuzzleBaseClass {
+class Puzzle_2015_18: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
@@ -25,7 +25,7 @@ class Puzzle_2015_18 : PuzzleBaseClass {
 
         func getInitialConfiguration() -> [[Bool]] {
             var config = Array(repeating: Array(repeating: false, count: columns), count: rows)
-            
+
             for r in 0..<rows {
                 let line = puzzleInputLineArray[r]
                 for c in 0..<columns {
@@ -34,7 +34,7 @@ class Puzzle_2015_18 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             return config
         }
 
@@ -47,7 +47,7 @@ class Puzzle_2015_18 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             return ctr
         }
 
@@ -57,11 +57,11 @@ class Puzzle_2015_18 : PuzzleBaseClass {
                 for c in 0..<columns {
                     s = s + (arr[r][c] ? "#" : ".")
                 }
-                
+
                 s = s + "\n"
             }
-            
-            print (s)
+
+            print(s)
         }
 
         func isCorner(x: Int, y: Int) -> Bool {
@@ -84,7 +84,7 @@ class Puzzle_2015_18 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             return ctr
         }
 
@@ -108,14 +108,14 @@ class Puzzle_2015_18 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             if cornerLightsStuckOn {
                 nextConfiguration[0][0] = true
                 nextConfiguration[0][columns - 1] = true
                 nextConfiguration[rows - 1][0] = true
                 nextConfiguration[rows - 1][columns - 1] = true
             }
-            
+
             return nextConfiguration
         }
 
@@ -135,10 +135,10 @@ class Puzzle_2015_18 : PuzzleBaseClass {
 
         return (part1, part2)
     }
-    
+
 }
 
-fileprivate class PuzzleInput: NSObject {
+private class PuzzleInput: NSObject {
 
     static let final = """
 #..####.##..#...#..#...#...###.#.#.#..#....#.##..#...##...#..#.....##..#####....#.##..##....##.#....
@@ -244,4 +244,3 @@ fileprivate class PuzzleInput: NSObject {
 """
 
 }
-

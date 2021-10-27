@@ -24,7 +24,7 @@ class GCDTests: XCTestCase {
         XCTAssertEqual(gcd(20, 100), 20)
         XCTAssertEqual(gcd(624129, 2061517), 18913)
     }
-    
+
     func test_gcdIterativeEuklid() {
         XCTAssertEqual(gcdIterativeEuklid(13, 13), 13)
         XCTAssertEqual(gcdIterativeEuklid(37, 600), 1)
@@ -46,14 +46,14 @@ class GCDTests: XCTestCase {
         XCTAssertEqual(gcdBinaryRecursiveStein(20, 100), 20)
         XCTAssertEqual(gcdBinaryRecursiveStein(624129, 2061517), 18913)
     }
-    
+
     func test_findEasySolution() {
         XCTAssertEqual(findEasySolution(13, 13), 13)
         XCTAssertEqual(findEasySolution(5, 0), 5)
         XCTAssertEqual(findEasySolution(0, 6), 6)
         XCTAssertEqual(findEasySolution(12, 13), nil)
     }
-    
+
     func test_lcm() {
         var retval = 0
         do {
@@ -69,5 +69,5 @@ class GCDTests: XCTestCase {
             print("Error: \(error)")
         }
     }
-    
+
 }

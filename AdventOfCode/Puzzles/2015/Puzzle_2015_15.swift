@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_15 : PuzzleBaseClass {
-
+class Puzzle_2015_15: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -61,17 +60,17 @@ class Puzzle_2015_15 : PuzzleBaseClass {
                 texture += measurements[idx] * ingredientArray[idx].texture
                 calories += measurements[idx] * ingredientArray[idx].calories
             }
-            
+
             capacity = max(capacity, 0)
             durability = max(durability, 0)
             flavor = max(flavor, 0)
             texture = max(texture, 0)
-            
+
             let cookieScore = capacity * durability * flavor * texture
             if cookieScore > highestCookieScorePart1 {
                 highestCookieScorePart1 = cookieScore
             }
-            
+
             if calories == part2CalorieCount && cookieScore > highestCookieScorePart2 {
                 highestCookieScorePart2 = cookieScore
             }
@@ -85,7 +84,7 @@ class Puzzle_2015_15 : PuzzleBaseClass {
                 processCookie(measurements: newNode)
                 return
             }
-            
+
             let sumSoFar = node.reduce(0, +)
             for i in 0...(teaspoonCount - sumSoFar) {
                 var newNode = node
@@ -101,14 +100,11 @@ class Puzzle_2015_15 : PuzzleBaseClass {
     }
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 Sprinkles: capacity 5, durability -1, flavor 0, texture 0, calories 5
 PeanutButter: capacity -1, durability 3, flavor 0, texture 0, calories 1
 Frosting: capacity 0, durability -1, flavor 4, texture 0, calories 6
 Sugar: capacity -1, durability 0, flavor 0, texture 2, calories 8
 """
-
 }
-

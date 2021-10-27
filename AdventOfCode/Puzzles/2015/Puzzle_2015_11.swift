@@ -8,14 +8,13 @@
 
 import Foundation
 
-class Puzzle_2015_11 : PuzzleBaseClass {
-
+class Puzzle_2015_11: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (String, String) {
         let asciiA = "a".asciiValue
         let asciiI = "i".asciiValue
@@ -27,11 +26,11 @@ class Puzzle_2015_11 : PuzzleBaseClass {
             var idx = 7
             while idx >= 0 {
                 characterArray[idx] = characterArray[idx] + 1
-                
+
                 if characterArray[idx] == asciiI || characterArray[idx] == asciiO || characterArray[idx] == asciiL {
                     characterArray[idx] = characterArray[idx] + 1
                 }
-                
+
                 if characterArray[idx] > 25 {
                     characterArray[idx] = 0
                     idx = idx - 1
@@ -39,12 +38,12 @@ class Puzzle_2015_11 : PuzzleBaseClass {
                     idx = -1
                 }
             }
-            
+
             var newPassword = ""
             for i in characterArray {
                 newPassword += String(UnicodeScalar(i + asciiA)!)
             }
-            
+
             return newPassword
         }
 
@@ -52,7 +51,7 @@ class Puzzle_2015_11 : PuzzleBaseClass {
             if password.contains("i") || password.contains("o") || password.contains("l") {
                 return false
             }
-            
+
             let characterArray = password.map({ String($0).asciiValue - asciiA })
             var increasingSequenceFound = false
             for i in 0...5 {
@@ -63,11 +62,11 @@ class Puzzle_2015_11 : PuzzleBaseClass {
                     increasingSequenceFound = true
                 }
             }
-            
+
             if !increasingSequenceFound {
                 return false
             }
-            
+
             var duplicatePositionArray: [Int] = []
             for i in 0...6 {
                 let c0 = characterArray[i]
@@ -76,17 +75,17 @@ class Puzzle_2015_11 : PuzzleBaseClass {
                     duplicatePositionArray.append(i)
                 }
             }
-            
+
             if duplicatePositionArray.count < 2 {
                 return false
             }
-            
+
             let firstEntry = duplicatePositionArray.first!
             let lastEntry = duplicatePositionArray.last!
             if lastEntry - firstEntry == 1 {
                 return false
             }
-            
+
             return true
         }
 
@@ -95,7 +94,7 @@ class Puzzle_2015_11 : PuzzleBaseClass {
             repeat {
                 pw = nextPassword(pw)
             } while !isPasswordValid(pw)
-            
+
             return pw
         }
 
@@ -103,12 +102,8 @@ class Puzzle_2015_11 : PuzzleBaseClass {
         let part2Password = getNextValidPassword(part1Password)
         return (part1Password, part2Password)
     }
-    
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = "hepxcrrq"
-
 }
-

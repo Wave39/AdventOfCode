@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_17 : PuzzleBaseClass {
+class Puzzle_2015_17: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
@@ -45,9 +45,9 @@ class Puzzle_2015_17 : PuzzleBaseClass {
                 // we have reached the maximum depth, just return
                 return
             }
-            
-            let lastIdx = node.progress.last ?? -1;
-            
+
+            let lastIdx = node.progress.last ?? -1
+
             // figure out which indices have not been used yet
             var unusedContainersArray = Array<Int>()
             for idx in (lastIdx + 1)..<sortedArray.count {
@@ -55,7 +55,7 @@ class Puzzle_2015_17 : PuzzleBaseClass {
                     unusedContainersArray.append(idx)
                 }
             }
-            
+
             // create new branches for unvisited indices
             for c in unusedContainersArray {
                 let newNode = Tree()
@@ -91,9 +91,9 @@ class Puzzle_2015_17 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             walkToBranchTips(node: tree)
-            
+
             return ctr
         }
 
@@ -112,11 +112,9 @@ class Puzzle_2015_17 : PuzzleBaseClass {
 
         return (part1MatchingCount, part2MatchingCount)
     }
-    
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 43
 3
@@ -139,6 +137,4 @@ fileprivate class PuzzleInput: NSObject {
 27
 38
 """
-
 }
-

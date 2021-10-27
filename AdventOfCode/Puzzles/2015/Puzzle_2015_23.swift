@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_23 : PuzzleBaseClass {
+class Puzzle_2015_23: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
@@ -26,7 +26,7 @@ class Puzzle_2015_23 : PuzzleBaseClass {
         func runProgram(lineArray: [String], a: Int) -> Processor {
             var processor = Processor()
             processor.a = a
-            
+
             while processor.programCounter >= 0 && processor.programCounter < lineArray.count {
                 let components = lineArray[processor.programCounter].split {$0 == " "}.map(String.init)
                 let opcode = components[0]
@@ -40,13 +40,13 @@ class Puzzle_2015_23 : PuzzleBaseClass {
                     } else if opcode == "inc" {
                         register += 1
                     }
-                    
+
                     if aRegisterMode {
                         processor.a = register
                     } else {
                         processor.b = register
                     }
-                    
+
                     processor.programCounter += 1
                 } else if opcode == "jmp" {
                     processor.programCounter += Int(components[1])!
@@ -57,11 +57,11 @@ class Puzzle_2015_23 : PuzzleBaseClass {
                     if (opcode == "jie" && register % 2 == 0) || (opcode == "jio" && register == 1) {
                         offset = Int(components[2])!
                     }
-                    
+
                     processor.programCounter += offset
                 }
             }
-            
+
             return processor
         }
 
@@ -70,10 +70,10 @@ class Puzzle_2015_23 : PuzzleBaseClass {
         let part2Processor = runProgram(lineArray: puzzleInputLineArray, a: 1)
         return (part1Processor.b, part2Processor.b)
     }
-    
+
 }
 
-fileprivate class PuzzleInput: NSObject {
+private class PuzzleInput: NSObject {
 
     static let final = """
 jio a, +18
@@ -126,4 +126,3 @@ jmp -7
 """
 
 }
-

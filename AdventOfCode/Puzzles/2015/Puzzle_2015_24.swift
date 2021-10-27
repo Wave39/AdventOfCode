@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_24 : PuzzleBaseClass {
+class Puzzle_2015_24: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
@@ -17,30 +17,30 @@ class Puzzle_2015_24 : PuzzleBaseClass {
     }
 
     func solveBothParts() -> (Int, Int) {
-        var solution: Array<Set<Int>> = []
+        var solution: [Set<Int>] = []
 
-        func getSubsets(superSet: Array<Int>, k: Int, idx: Int, current: inout Set<Int>) {
+        func getSubsets(superSet: [Int], k: Int, idx: Int, current: inout Set<Int>) {
             // courtesy of http://stackoverflow.com/questions/12548312/find-all-subsets-of-length-k-in-an-array
-            if (current.count == k) {
-                solution.append(current);
+            if current.count == k {
+                solution.append(current)
                 return
             }
 
-            if (idx == superSet.count) {
+            if idx == superSet.count {
                 return
             }
-            
+
             let x = superSet[idx]
-            current.insert(x);
-            getSubsets(superSet: superSet, k: k, idx: idx+1, current: &current);
-            current.remove(x);
-            getSubsets(superSet: superSet, k: k, idx: idx+1, current: &current);
+            current.insert(x)
+            getSubsets(superSet: superSet, k: k, idx: idx+1, current: &current)
+            current.remove(x)
+            getSubsets(superSet: superSet, k: k, idx: idx+1, current: &current)
         }
 
-        func getAllSubsets(superSet: Array<Int>, subsetLength: Int) {
+        func getAllSubsets(superSet: [Int], subsetLength: Int) {
             solution = []
             var newSet: Set<Int> = Set()
-            getSubsets(superSet: superSet, k: subsetLength, idx: 0, current: &newSet);
+            getSubsets(superSet: superSet, k: subsetLength, idx: 0, current: &newSet)
         }
 
         let puzzleInputString = "1 3 5 11 13 17 19 23 29 31 37 41 43 47 53 59 67 71 73 79 83 89 97 101 103 107 109 113"
@@ -58,7 +58,7 @@ class Puzzle_2015_24 : PuzzleBaseClass {
             var lowestQuantumEntanglement = Int.max
             while !foundASolution {
                 getAllSubsets(superSet: sortedArray, subsetLength: lengthToCheck)
-                var validSolutions: Array<Set<Int>> = []
+                var validSolutions: [Set<Int>] = []
                 for subset in solution {
                     let weight = subset.reduce(0, +)
                     if weight == targetWeight {
@@ -66,7 +66,7 @@ class Puzzle_2015_24 : PuzzleBaseClass {
                         validSolutions.append(subset)
                     }
                 }
-                
+
                 if foundASolution {
                     for subset in validSolutions {
                         let qe = subset.reduce(1, *)
@@ -75,10 +75,10 @@ class Puzzle_2015_24 : PuzzleBaseClass {
                         }
                     }
                 }
-                
+
                 lengthToCheck += 1
             }
-            
+
             return lowestQuantumEntanglement
         }
 
@@ -86,5 +86,4 @@ class Puzzle_2015_24 : PuzzleBaseClass {
         let part2LowestQuantumEntanglement = findLowestQuantumEntanglement(targetWeight: part2TargetWeight)
         return (part1LowestQuantumEntanglement, part2LowestQuantumEntanglement)
     }
-    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_16 : PuzzleBaseClass {
+class Puzzle_2015_16: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
@@ -63,7 +63,7 @@ class Puzzle_2015_16 : PuzzleBaseClass {
                     sueInfo.perfumes = Int(components[index + 1])!
                 }
             }
-            
+
             return sueInfo
         }
 
@@ -74,7 +74,7 @@ class Puzzle_2015_16 : PuzzleBaseClass {
             if (sueInfo.children == nil || sueInfo.children == 3) && (sueInfo.cats == nil || sueInfo.cats == 7) && (sueInfo.samoyeds == nil || sueInfo.samoyeds == 2) && (sueInfo.pomeranians == nil || sueInfo.pomeranians == 3) && (sueInfo.akitas == nil || sueInfo.akitas == 0) && (sueInfo.vizslas == nil || sueInfo.vizslas == 0) && (sueInfo.goldfish == nil || sueInfo.goldfish == 5) && (sueInfo.trees == nil || sueInfo.trees == 3) && (sueInfo.cars == nil || sueInfo.cars == 2) && (sueInfo.perfumes == nil || sueInfo.perfumes == 1) {
                 part1MatchArray.append(sueInfo.number!)
             }
-            
+
             if (sueInfo.children == nil || sueInfo.children == 3) && (sueInfo.cats == nil || sueInfo.cats! > 7) && (sueInfo.samoyeds == nil || sueInfo.samoyeds == 2) && (sueInfo.pomeranians == nil || sueInfo.pomeranians! < 3) && (sueInfo.akitas == nil || sueInfo.akitas == 0) && (sueInfo.vizslas == nil || sueInfo.vizslas == 0) && (sueInfo.goldfish == nil || sueInfo.goldfish! < 5) && (sueInfo.trees == nil || sueInfo.trees! > 3) && (sueInfo.cars == nil || sueInfo.cars == 2) && (sueInfo.perfumes == nil || sueInfo.perfumes == 1) {
                 part2MatchArray.append(sueInfo.number!)
             }
@@ -82,10 +82,9 @@ class Puzzle_2015_16 : PuzzleBaseClass {
 
         return (part1MatchArray[0], part2MatchArray[0])
     }
-
 }
 
-fileprivate class PuzzleInput: NSObject {
+private class PuzzleInput: NSObject {
 
     static let final = """
 Sue 1: goldfish: 6, trees: 9, akitas: 0
@@ -591,4 +590,3 @@ Sue 500: perfumes: 4, cars: 9, trees: 4
 """
 
 }
-

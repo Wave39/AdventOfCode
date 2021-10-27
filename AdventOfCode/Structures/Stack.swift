@@ -24,7 +24,7 @@ struct Stack<T> {
             return nil
         }
     }
-    
+
     func peek() -> T? {
         if !array.isEmpty {
             return array.last
@@ -32,5 +32,5 @@ struct Stack<T> {
             return nil
         }
     }
-    
+
 }

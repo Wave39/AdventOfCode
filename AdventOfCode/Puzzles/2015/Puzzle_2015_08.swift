@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2015_08 : PuzzleBaseClass {
+class Puzzle_2015_08: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInputLineArray = PuzzleInput.final.split {$0 == "\n"}.map(String.init)
 
@@ -39,7 +39,7 @@ class Puzzle_2015_08 : PuzzleBaseClass {
                     lineWithoutQuotes = lineWithoutQuotes.substring(from: 1)
                 }
             }
-            
+
             totalCharacters = totalCharacters + escapedLine.count
         }
 
@@ -57,20 +57,19 @@ class Puzzle_2015_08 : PuzzleBaseClass {
                     encodedString = encodedString + String(c)
                 }
             }
-            
+
             encodedString = "\"" + encodedString + "\""
             part2EncodedCharacters = part2EncodedCharacters + encodedString.count
         }
 
         let part2 = part2EncodedCharacters - part2Characters
-        
+
         return (part1, part2)
     }
-    
+
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = #"""
 "sjdivfriyaaqa\xd2v\"k\"mpcu\"yyu\"en"
 "vcqc"
@@ -373,6 +372,4 @@ fileprivate class PuzzleInput: NSObject {
 "ccxjgiocmuhf\"ycnh"
 "lltj\"kbbxi"
 """#
-
 }
-

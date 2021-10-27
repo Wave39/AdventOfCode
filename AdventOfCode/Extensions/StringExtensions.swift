@@ -11,33 +11,32 @@ import CommonCrypto
 import CryptoKit
 
 extension String {
-    
     var asciiArray: [UInt32] {
-        return unicodeScalars.filter{$0.isASCII}.map{$0.value}
+        return unicodeScalars.filter { $0.isASCII }.map { $0.value }
     }
-    
+
     var asciiValue: UInt32 {
         let c = self.unicodeScalars.first
         return c?.value ?? 0
     }
-    
+
     func capturedGroups(withRegex pattern: String, trimResults: Bool = false) -> [String] {
         var results = [String]()
-        
+
         var regex: NSRegularExpression
         do {
             regex = try NSRegularExpression(pattern: pattern, options: [])
         } catch {
             return results
         }
-        
-        let matches = regex.matches(in: self, options: [], range: NSRange(location:0, length: self.count))
-        
+
+        let matches = regex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
+
         guard let match = matches.first else { return results }
-        
+
         let lastRangeIndex = match.numberOfRanges - 1
         guard lastRangeIndex >= 1 else { return results }
-        
+
         for i in 1...lastRangeIndex {
             let capturedGroupIndex = match.range(at: i)
             let matchedString = (self as NSString).substring(with: capturedGroupIndex)
@@ -47,10 +46,10 @@ extension String {
                 results.append(matchedString)
             }
         }
-        
+
         return results
     }
-    
+
     func charactersDifferentFrom(str: String) -> Int {
         var retval = 0
         for idx in 0..<self.count {
@@ -58,12 +57,12 @@ extension String {
                 retval += 1
             }
         }
-        
+
         return retval
     }
-    
+
     static var clearConsole: String { return "\u{001b}[H" }
-    
+
     func commonCharactersWith(str: String) -> String {
         var retval = ""
         for idx in 0..<self.count {
@@ -73,15 +72,15 @@ extension String {
         }
         return retval
     }
-    
+
     func condenseWhitespace() -> String {
         let components = self.components(separatedBy: NSCharacterSet.whitespacesAndNewlines)
         return components.filter { !$0.isEmpty }.joined(separator: " ")
     }
-    
+
     func convertBinaryToHashesAndDots() -> String {
         var retval = ""
-        
+
         for c in self {
             if c == "0" {
                 retval += "."
@@ -89,29 +88,29 @@ extension String {
                 retval += "#"
             }
         }
-        
+
         return retval
     }
-    
+
     func convertHexToBinary() -> String {
         var retval = ""
-        
+
         for c in self {
             var b = String(Int(String(c), radix: 16)!, radix: 2)
             while b.count < 4 {
                 b = "0" + b
             }
-            
+
             retval = retval + b
         }
-        
+
         return retval
     }
-    
+
     func hasBracket() -> Bool {
         return self.contains("[") || self.contains("]")
     }
-    
+
     func hasConsecutiveCharacters(num: Int) -> Bool {
         let uniqueSelf = self.uniqueCharacters
         for c in uniqueSelf {
@@ -120,14 +119,14 @@ extension String {
                 return true
             }
         }
-        
+
         return false
     }
-    
+
     func indexOf(char: Character) -> Int? {
         return firstIndex(of: char)?.utf16Offset(in: self)
     }
-    
+
     func indices(of occurrence: String) -> [Int] {
         var indices = [Int]()
         var position = startIndex
@@ -138,7 +137,7 @@ extension String {
             guard let after = index(range.lowerBound, offsetBy: offset, limitedBy: endIndex) else { break }
             position = index(after: after)
         }
-        
+
         return indices
     }
 
@@ -148,10 +147,10 @@ extension String {
             numberCharacters.remove(charactersIn: "-")
             return !self.isEmpty && self.rangeOfCharacter(from: numberCharacters) == nil
         }
-        
+
         return false
     }
-    
+
     func isStringHexadecimal() -> Bool {
         if !self.isEmpty {
             for c in self {
@@ -159,13 +158,13 @@ extension String {
                     return false
                 }
             }
-            
+
             return true
         }
-        
+
         return false
     }
-    
+
     func matchesForRegexInText(regex: String!) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
@@ -178,16 +177,16 @@ extension String {
             return []
         }
     }
-    
+
     func matchesInCapturingGroups(pattern: String) -> [String] {
         var results = [String]()
-        
+
         let textRange = NSMakeRange(0, self.lengthOfBytes(using: String.Encoding.utf8))
-        
+
         do {
             let regex = try NSRegularExpression(pattern: pattern, options: [])
             let matches = regex.matches(in: self, options: NSRegularExpression.MatchingOptions.reportCompletion, range: textRange)
-            
+
             for index in 1..<matches[0].numberOfRanges {
                 results.append((self as NSString).substring(with: matches[0].range(at: index)))
             }
@@ -196,7 +195,7 @@ extension String {
             return []
         }
     }
-    
+
     var md5: String {
         let computed = Insecure.MD5.hash(data: self.data(using: .utf8)!)
         return computed.map { String(format: "%02hhx", $0) }.joined()
@@ -205,92 +204,92 @@ extension String {
     func parseIntoIntArray() -> [Int] {
         return parseIntoIntArray(separator: "\n")
     }
-    
+
     func parseIntoIntArray(separator: Character) -> [Int] {
         let arr = self.split(separator: separator)
         var retval: [Int] = []
         for s in arr {
             retval.append(Int(String(s))!)
         }
-        
+
         return retval
     }
-    
+
     func parseIntoMatrix() -> [[String]] {
-        var allLines : [[String]] = []
+        var allLines: [[String]] = []
         let lineArray = self.split(separator: "\n")
         for line in lineArray {
-            var thisLine : [String] = []
+            var thisLine: [String] = []
             let elementArray = line.split(separator: " ")
             for element in elementArray {
                 thisLine.append(String(element))
             }
-            
+
             allLines.append(thisLine)
         }
-        
+
         return allLines
     }
-    
+
     func parseIntoCharacterMatrix() -> [[Character]] {
-        var allLines : [[Character]] = []
+        var allLines: [[Character]] = []
         let lineArray = self.split(separator: "\n")
         for line in lineArray {
-            var thisLine : [String] = []
+            var thisLine: [String] = []
             let elementArray = line.split(separator: " ")
             for element in elementArray {
                 thisLine.append(String(element))
             }
-            
+
             allLines.append(line.map({$0}))
         }
-        
+
         return allLines
     }
-    
+
     func parseIntoStringArray(omitBlankLines: Bool = true) -> [String] {
         return parseIntoStringArray(separator: "\n", omitEmptyStrings: omitBlankLines)
     }
-    
+
     func parseIntoStringArray(separator: Character, omitEmptyStrings: Bool = true) -> [String] {
         let arr = self.split(separator: separator, omittingEmptySubsequences: omitEmptyStrings)
         var retval: [String] = []
         for s in arr {
             retval.append(String(s))
         }
-        
+
         return retval
     }
-    
+
     func rangesOfString(searchString: String) -> [Range<String.Index>] {
         let _indices = indices(of: searchString)
         let count = searchString.count
         return _indices.map({ index(startIndex, offsetBy: $0)..<index(startIndex, offsetBy: $0+count) })
     }
-    
+
     mutating func removeAtIndex(idx: Int) {
         if let index = self.index(self.startIndex, offsetBy: idx, limitedBy: self.endIndex) {
             self.remove(at: index)
         }
     }
-    
+
     func removeCharacters(startIdx: Int, charLength: Int) -> String {
         var newStr = self
         for _ in 0..<charLength {
             let idx0 = newStr.index(newStr.startIndex, offsetBy: startIdx)
             newStr.remove(at: idx0)
         }
-        
+
         return newStr
     }
-    
+
     func replace(index: Int, newChar: Character) -> String {
         var chars = Array(self)     // gets an array of characters
         chars[index] = newChar
         let modifiedString = String(chars)
         return modifiedString
     }
-    
+
     mutating func rotate(amount: Int, left: Bool) {
         let strLen = self.count
         if left {
@@ -311,73 +310,69 @@ extension String {
         let end = index(start, offsetBy: to - from)
         return String(self[start ..< end])
     }
-    
+
     func substring(from: Int) -> String {
         let start = index(startIndex, offsetBy: from)
         let end = index(start, offsetBy: self.count - from)
         return String(self[start ..< end])
     }
-    
+
     func substring(range: NSRange) -> String {
         return substring(from: range.lowerBound, to: range.upperBound)
     }
-    
+
     func toInt() -> Int {
         guard let retval = Int(self.trim()) else { return 0 }
         return retval
     }
-    
+
     func trim() -> String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
-    
+
     var uniqueCharacters: String {
         var set = Set<Character>()
-        return String(filter{ set.insert($0).inserted })
+        return String(filter { set.insert($0).inserted })
     }
-    
+
     func words(with charset: CharacterSet = .alphanumerics) -> [String] {
         return self.unicodeScalars.split {
             !charset.contains($0)
             }.map(String.init)
     }
-    
+
 }
 
 extension StringProtocol {
-    
     var string: String { return String(self) }
-    
+
     subscript(offset: Int) -> Element {
         return self[index(startIndex, offsetBy: offset)]
     }
-    
+
     subscript(_ range: CountableRange<Int>) -> SubSequence {
         return prefix(range.lowerBound + range.count)
             .suffix(range.count)
     }
-    
+
     subscript(range: CountableClosedRange<Int>) -> SubSequence {
         return prefix(range.lowerBound + range.count)
             .suffix(range.count)
     }
-    
+
     subscript(range: PartialRangeThrough<Int>) -> SubSequence {
         return prefix(range.upperBound.advanced(by: 1))
     }
-    
+
     subscript(range: PartialRangeUpTo<Int>) -> SubSequence {
         return prefix(range.upperBound)
     }
-    
+
     subscript(range: PartialRangeFrom<Int>) -> SubSequence {
         return suffix(Swift.max(0, count - range.lowerBound))
     }
-    
 }
 
 extension Substring {
-    
     var string: String { return String(self) }
-    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2015_25 : PuzzleBaseClass {
+class Puzzle_2015_25: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
@@ -20,7 +20,7 @@ class Puzzle_2015_25 : PuzzleBaseClass {
             if row == 1 && column == 1 {
                 return 0
             }
-            
+
             var idx = 0
             var r = 1
             var c = 1
@@ -34,23 +34,23 @@ class Puzzle_2015_25 : PuzzleBaseClass {
                     r -= 1
                     c += 1
                 }
-                
+
                 idx += 1
             }
-            
+
             return idx
         }
 
         func valueAtPosition(row: Int, column: Int) -> Int {
             let idx = indexAtPosition(row: row, column: column)
-            
+
             var v = 20151125
             if idx >= 1 {
                 for _ in 1...idx {
                     v = ((v * 252533) % 33554393)
                 }
             }
-            
+
             return v
         }
 
@@ -58,5 +58,4 @@ class Puzzle_2015_25 : PuzzleBaseClass {
         let column = 3075
         return valueAtPosition(row: row, column: column)
     }
-    
 }
