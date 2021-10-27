@@ -9,12 +9,12 @@
 import Foundation
 
 struct Particle3D: Hashable {
-    var x : Int = 0
-    var y : Int = 0
-    var z : Int = 0
-    var deltaX : Int = 0
-    var deltaY : Int = 0
-    var deltaZ : Int = 0
+    var x: Int = 0
+    var y: Int = 0
+    var z: Int = 0
+    var deltaX: Int = 0
+    var deltaY: Int = 0
+    var deltaZ: Int = 0
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(x)
@@ -28,7 +28,7 @@ struct Particle3D: Hashable {
     var description: String {
         return "(\(x),\(y),\(z)) -> (\(deltaX),\(deltaY),\(deltaZ))"
     }
-    
+
     static func == (lhs: Particle3D, rhs: Particle3D) -> Bool {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.deltaX == rhs.deltaX && lhs.deltaY == rhs.deltaY && lhs.deltaZ == rhs.deltaZ
     }
