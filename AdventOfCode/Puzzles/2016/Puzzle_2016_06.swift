@@ -8,14 +8,13 @@
 
 import Foundation
 
-class Puzzle_2016_06 : PuzzleBaseClass {
-
+class Puzzle_2016_06: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (String, String) {
         let puzzleInputLineArray = PuzzleInput.final.parseIntoStringArray()
 
@@ -26,7 +25,7 @@ class Puzzle_2016_06 : PuzzleBaseClass {
                     part1Array.append("")
                 }
             }
-            
+
             var idx = 0
             for c in line {
                 part1Array[idx] += "\(c)"
@@ -46,7 +45,7 @@ class Puzzle_2016_06 : PuzzleBaseClass {
                     dict[c] = dict[c]! + 1
                 }
             }
-            
+
             let maxValue = dict.values.max()
             let minValue = dict.values.min()
             for k in dict.keys {
@@ -62,11 +61,9 @@ class Puzzle_2016_06 : PuzzleBaseClass {
 
         return (part1Message, part2Message)
     }
-
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 vhrvabtc
 rzzdexux
@@ -693,6 +690,4 @@ omcsclgb
 zhjrucwj
 zloeydhr
 """
-
 }
-

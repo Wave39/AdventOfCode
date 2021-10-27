@@ -8,18 +8,17 @@
 
 import Foundation
 
-class Puzzle_2016_13 : PuzzleBaseClass {
-
+class Puzzle_2016_13: PuzzleBaseClass {
     struct MoveState {
         var currentCoordinate: Point2D
         var previousCoordinate: Point2D
         var numberOfMoves: Int
     }
-    
+
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
     
     func solveBothParts() -> (Int, Int) {
@@ -41,7 +40,7 @@ class Puzzle_2016_13 : PuzzleBaseClass {
         }
 
         func getValidMoveCoordinates(moveState: MoveState) -> [Point2D] {
-            var arr : [Point2D] = []
+            var arr: [Point2D] = []
             
             for xDelta in [ -1, 1] {
                 let newCoordinate = Point2D(x: moveState.currentCoordinate.x + xDelta, y: moveState.currentCoordinate.y)
@@ -62,7 +61,7 @@ class Puzzle_2016_13 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             return arr
         }
 
@@ -72,12 +71,12 @@ class Puzzle_2016_13 : PuzzleBaseClass {
             var ctr = 0
             coordinatesSeen = Set()
             coordinatesSeen.insert(moveState.currentCoordinate.description)
-            
+
             while goalFound == 0 {
                 if ctr == 50 {
                     part2Solution = coordinatesSeen.count
                 }
-                
+
                 var nextStates: [ MoveState ] = []
                 for state in currentStates {
                     let validMoves = getValidMoveCoordinates(moveState: state)
@@ -89,11 +88,11 @@ class Puzzle_2016_13 : PuzzleBaseClass {
                         }
                     }
                 }
-                
+
                 currentStates = nextStates
                 ctr += 1
             }
-            
+
             return goalFound
         }
 
@@ -103,5 +102,4 @@ class Puzzle_2016_13 : PuzzleBaseClass {
         let part1Solution = processMoveState(moveState: part1, goal: goal)
         return (part1Solution, part2Solution)
     }
-
 }

@@ -206,7 +206,7 @@ class Puzzle_2016_21 : PuzzleBaseClass {
 
 }
 
-fileprivate class PuzzleInput: NSObject {
+private class PuzzleInput: NSObject {
 
     static let final = """
 reverse positions 1 through 6

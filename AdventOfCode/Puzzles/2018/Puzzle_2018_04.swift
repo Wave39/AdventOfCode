@@ -174,7 +174,7 @@ class Puzzle_2018_04: NSObject {
     }
 }
 
-fileprivate class Puzzle_2018_04_Input: NSObject {
+private class Puzzle_2018_04_Input: NSObject {
 
     static let puzzleInput_test = """
 [1518-11-01 00:00] Guard #10 begins shift

@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2016_01 : PuzzleBaseClass {
+class Puzzle_2016_01: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInputLineArray = PuzzleInput.final.components(separatedBy: ",")
 
@@ -32,7 +32,7 @@ class Puzzle_2016_01 : PuzzleBaseClass {
             case East = 1
             case South = 2
             case West = 3
-            
+
             func nextHeading(turnTo: String) -> Direction {
                 var newDirection: Int
                 if turnTo == "R" {
@@ -46,7 +46,7 @@ class Puzzle_2016_01 : PuzzleBaseClass {
                         newDirection = Direction.West.rawValue
                     }
                 }
-                
+
                 return Direction(rawValue: newDirection)!
             }
         }
@@ -64,7 +64,7 @@ class Puzzle_2016_01 : PuzzleBaseClass {
             currentHeading = currentHeading.nextHeading(turnTo: s.0)
             let travelAmount: Int = s.1!
             let inc = (currentHeading == .South || currentHeading == .West) ? -1 : 1
-            
+
             for _ in 0..<travelAmount {
                 if currentHeading == .North || currentHeading == .South {
                     currentNSPosition += inc
@@ -90,11 +90,8 @@ class Puzzle_2016_01 : PuzzleBaseClass {
 
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 R5, L2, L1, R1, R3, R3, L3, R3, R4, L2, R4, L4, R4, R3, L2, L1, L1, R2, R4, R4, L4, R3, L2, R1, L4, R1, R3, L5, L4, L5, R3, L3, L1, L1, R4, R2, R2, L1, L4, R191, R5, L2, R46, R3, L1, R74, L2, R2, R187, R3, R4, R1, L4, L4, L2, R4, L5, R4, R3, L2, L1, R3, R3, R3, R1, R1, L4, R4, R1, R5, R2, R1, R3, L4, L2, L2, R1, L3, R1, R3, L5, L3, R5, R3, R4, L1, R3, R2, R1, R2, L4, L1, L1, R3, L3, R4, L2, L4, L5, L5, L4, R2, R5, L4, R4, L2, R3, L4, L3, L5, R5, L4, L2, R3, R5, R5, L1, L4, R3, L1, R2, L5, L1, R4, L1, R5, R1, L4, L4, L4, R4, R3, L5, R1, L3, R4, R3, L2, L1, R1, R2, R2, R2, L1, L1, L2, L5, L3, L1
 """
-
 }
-

@@ -158,7 +158,7 @@ class Puzzle_2020_18 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_Input: NSObject {
+private class Puzzle_Input: NSObject {
 
     static let puzzleInput_test = """
 5 + (8 * 3 + 9 + 3 * 4 * 3)

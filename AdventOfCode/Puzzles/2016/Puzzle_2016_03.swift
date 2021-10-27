@@ -8,14 +8,13 @@
 
 import Foundation
 
-class Puzzle_2016_03 : PuzzleBaseClass {
-
+class Puzzle_2016_03: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInputLineArray = PuzzleInput.final.components(separatedBy: "\n").filter { $0.count > 0 }
 
@@ -49,11 +48,9 @@ class Puzzle_2016_03 : PuzzleBaseClass {
 
         return (part1Ctr, part2Ctr)
     }
-
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 330  143  338
 769  547   83
@@ -1790,6 +1787,4 @@ fileprivate class PuzzleInput: NSObject {
 48  263  586
 356  902  922
 """
-
 }
-

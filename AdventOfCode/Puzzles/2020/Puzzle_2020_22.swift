@@ -139,7 +139,7 @@ class Puzzle_2020_22 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_Input: NSObject {
+private class Puzzle_Input: NSObject {
 
     static let puzzleInput_test = """
 Player 1:

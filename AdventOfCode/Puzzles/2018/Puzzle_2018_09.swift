@@ -178,7 +178,7 @@ class Puzzle_2018_09: NSObject {
     
 }
 
-fileprivate class Puzzle_2018_09_Input: NSObject {
+private class Puzzle_2018_09_Input: NSObject {
 
     static let puzzleInput_test1 = [ (9, 25), (10, 1618) ]
     static let puzzleInput_test2 = [ (13, 7999), (17, 1104) ]

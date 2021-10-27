@@ -202,7 +202,7 @@ class Puzzle_2019_21 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_2019_21_Input: NSObject {
+private class Puzzle_2019_21_Input: NSObject {
 
     static let part1Commands = """
 NOT A J

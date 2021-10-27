@@ -68,7 +68,7 @@ class Puzzle_2020_02 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_Input: NSObject {
+private class Puzzle_Input: NSObject {
 
     static let puzzleInput_test = """
 1-3 a: abcde

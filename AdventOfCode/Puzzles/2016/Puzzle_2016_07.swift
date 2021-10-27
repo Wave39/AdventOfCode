@@ -8,14 +8,13 @@
 
 import Foundation
 
-class Puzzle_2016_07 : PuzzleBaseClass {
-
+class Puzzle_2016_07: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInputLineArray = PuzzleInput.final.parseIntoStringArray()
 
@@ -40,7 +39,7 @@ class Puzzle_2016_07 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             if hasMatchOutsideBrackets && !hasMatchInsideBrackets {
                 part1Total += 1
             }
@@ -54,7 +53,7 @@ class Puzzle_2016_07 : PuzzleBaseClass {
                 let chars = String(line[i ..< i + 3])
                 arr.append(chars)
             }
-            
+
             var inside1 = false
             for i in 0..<arr.count {
                 let iChars = arr[i]
@@ -82,19 +81,17 @@ class Puzzle_2016_07 : PuzzleBaseClass {
                     }
                 }
             }
-            
-            if (match) {
+
+            if match {
                 part2Total += 1
             }
         }
 
         return (part1Total, part2Total)
     }
-    
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 wysextplwqpvipxdv[srzvtwbfzqtspxnethm]syqbzgtboxxzpwr[kljvjjkjyojzrstfgrw]obdhcczonzvbfby[svotajtpttohxsh]cooktbyumlpxostt
 emzopymywhhxulxuctj[dwwvkzhoigmbmnf]nxgbgfwqvrypqxppyq[qozsihnhpztcrpbdc]rnhnakmrdcowatw[rhvchmzmyfxlolwe]uysecbspabtauvmixa
@@ -2097,6 +2094,4 @@ iwzncixpjxypnmykke[wlhvfjbumhmtachoab]wtftbolwhpwnropnzv[zhfcmkbwizknymev]twrumq
 dkodbaotlfdaphwzbcc[ldzeemqiovyqjgs]qxibabdusgaistkru[usglloxgycyynmp]aaocvclsocababbzxeg[liaacgfxytuqudp]jvvqsypuoduyhvraak
 bwzsacxgqkbjycgfw[dbnligvrmqscasutn]rbgybqqsgjvlonkut
 """
-
 }
-

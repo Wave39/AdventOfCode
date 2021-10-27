@@ -90,7 +90,7 @@ class Puzzle_2020_09 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_Input: NSObject {
+private class Puzzle_Input: NSObject {
 
     static let preamble_test = 5
     static let puzzleInput_test = """

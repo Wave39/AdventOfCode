@@ -70,7 +70,7 @@ class Puzzle_2018_20: NSObject {
     
 }
 
-fileprivate class Puzzle_2018_20_Input: NSObject {
+private class Puzzle_2018_20_Input: NSObject {
     
     static let puzzleInput_test1 = "^WNE$"
     static let puzzleInput_test2 = "^ENWWW(NEEE|SSE(EE|N))$"

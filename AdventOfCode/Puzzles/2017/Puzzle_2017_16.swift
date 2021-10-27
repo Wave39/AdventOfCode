@@ -117,7 +117,7 @@ class Puzzle_2017_16 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_2017_16_Input: NSObject {
+private class Puzzle_2017_16_Input: NSObject {
 
     static let puzzleInput_test1 = ( 5,
         

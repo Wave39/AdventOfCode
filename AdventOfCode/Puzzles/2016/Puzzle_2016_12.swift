@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Puzzle_2016_12 : PuzzleBaseClass {
-
+class Puzzle_2016_12: PuzzleBaseClass {
     func processInstructions(arr: [String], registerToRetrieve: String, registers: Dictionary<String, Int>) -> Int {
         var registers = registers
         var programCounter = 0
@@ -24,7 +23,7 @@ class Puzzle_2016_12 : PuzzleBaseClass {
                 } else {
                     registerValue = registers[arr[1]]!
                 }
-                
+
                 registers[reg] = registerValue
                 programCounter += 1
             } else if arr[0] == "inc" {
@@ -52,7 +51,7 @@ class Puzzle_2016_12 : PuzzleBaseClass {
                     programCounter += 1
                 }
             } else {
-                print ("Unknown command: \(arr[0])")
+                print("Unknown command: \(arr[0])")
             }
         }
         
@@ -61,8 +60,8 @@ class Puzzle_2016_12 : PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
     
     func solveBothParts() -> (Int, Int) {
@@ -75,11 +74,9 @@ class Puzzle_2016_12 : PuzzleBaseClass {
         let part2Solution = processInstructions(arr: part2, registerToRetrieve: "a", registers: part2Registers)
         return (part1Solution, part2Solution)
     }
-
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 cpy 1 a
 cpy 1 b
@@ -105,6 +102,4 @@ jnz d -2
 dec c
 jnz c -5
 """
-
 }
-

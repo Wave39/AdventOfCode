@@ -80,7 +80,7 @@ class Puzzle_2018_23: NSObject {
     
 }
 
-fileprivate class Puzzle_2018_23_Input: NSObject {
+private class Puzzle_2018_23_Input: NSObject {
 
     static let puzzleInput_test =
     """

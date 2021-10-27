@@ -209,7 +209,7 @@ fileprivate class GridLocation {
     var closestPointIndex: [Point2D] = []
 }
 
-fileprivate class Puzzle_2018_06_Input: NSObject {
+private class Puzzle_2018_06_Input: NSObject {
 
     static let puzzleInput_test = """
 1, 1

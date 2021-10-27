@@ -71,7 +71,7 @@ class Puzzle_2020_15 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_Input: NSObject {
+private class Puzzle_Input: NSObject {
 
     static let puzzleInput_test = """
 0,3,6

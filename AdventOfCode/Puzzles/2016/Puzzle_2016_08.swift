@@ -8,20 +8,19 @@
 
 import Foundation
 
-class Puzzle_2016_08 : PuzzleBaseClass {
-
+class Puzzle_2016_08: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution:\n\(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution:\n\(part2)")
     }
-    
+
     func solveBothParts() -> (Int, String) {
         class Display {
             var rows: Int
             var columns: Int
-            private var lightArray:[[String]]
-            
+            private var lightArray: [[String]]
+
             init(r: Int, c: Int) {
                 rows = r
                 columns = c
@@ -34,7 +33,7 @@ class Puzzle_2016_08 : PuzzleBaseClass {
                     lightArray.append(rowArray)
                 }
             }
-            
+
             func displayString() -> String {
                 var retVal = ""
                 for r in 0..<rows {
@@ -45,7 +44,7 @@ class Puzzle_2016_08 : PuzzleBaseClass {
                     
                     retVal = retVal + rowString + "\n"
                 }
-                
+
                 return retVal
             }
             
@@ -64,14 +63,14 @@ class Puzzle_2016_08 : PuzzleBaseClass {
                         for idx in (1...columns - 1).reversed() {
                             lightArray[rcIndex][idx] = lightArray[rcIndex][idx - 1]
                         }
-                        
+
                         lightArray[rcIndex][0] = save
                     } else {
                         let save = lightArray[rows - 1][rcIndex]
                         for idx in (1...rows - 1).reversed() {
                             lightArray[idx][rcIndex] = lightArray[idx - 1][rcIndex]
                         }
-                        
+
                         lightArray[0][rcIndex] = save
                     }
                 }
@@ -86,7 +85,7 @@ class Puzzle_2016_08 : PuzzleBaseClass {
                         }
                     }
                 }
-                
+
                 return ctr
             }
         }
@@ -113,11 +112,9 @@ class Puzzle_2016_08 : PuzzleBaseClass {
 
         return (part1Display.lightCounter(), part1Display.displayString())
     }
-
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 rect 1x1
 rotate row y=0 by 20
@@ -293,6 +290,4 @@ rotate column x=11 by 5
 rotate column x=3 by 1
 rotate column x=0 by 1
 """
-
 }
-

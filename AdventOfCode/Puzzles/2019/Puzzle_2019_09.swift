@@ -172,7 +172,7 @@ class Puzzle_2019_09 : PuzzleBaseClass {
     }
 }
 
-fileprivate class Puzzle_2019_09_Input: NSObject {
+private class Puzzle_2019_09_Input: NSObject {
 
     static let puzzleInput_test1 = """
 109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99

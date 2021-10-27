@@ -56,7 +56,7 @@ class Puzzle_2018_14: NSObject {
     
 }
 
-fileprivate class Puzzle_2018_14_Input: NSObject {
+private class Puzzle_2018_14_Input: NSObject {
 
     static let puzzleInput_test = 5
     

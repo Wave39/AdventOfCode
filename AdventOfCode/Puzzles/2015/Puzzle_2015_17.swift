@@ -63,7 +63,7 @@ class Puzzle_2015_17: PuzzleBaseClass {
                 newNode.progress.append(c)
                 node.branches.append(newNode)
             }
-            
+
             for b in node.branches {
                 populateBranches(node: b, maxDepth: maxDepth)
             }
@@ -74,7 +74,7 @@ class Puzzle_2015_17: PuzzleBaseClass {
             for idx in indexArray {
                 sum += sortedArray[idx]
             }
-            
+
             return sum
         }
 

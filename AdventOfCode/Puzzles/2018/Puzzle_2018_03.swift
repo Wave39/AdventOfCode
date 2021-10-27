@@ -117,7 +117,7 @@ class Claim {
     }
 }
 
-fileprivate class Puzzle_2018_03_Input: NSObject {
+private class Puzzle_2018_03_Input: NSObject {
 
     static let puzzleInput_test = """
 #1 @ 1,3: 4x4

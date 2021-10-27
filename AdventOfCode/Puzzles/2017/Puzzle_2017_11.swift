@@ -104,7 +104,7 @@ class Puzzle_2017_11 : PuzzleBaseClass {
 
 }
 
-fileprivate class Puzzle_2017_11_Input: NSObject {
+private class Puzzle_2017_11_Input: NSObject {
 
     static let puzzleInput_test1 = "ne,ne,ne"
     static let puzzleInput_test2 = "ne,ne,sw,sw"

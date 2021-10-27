@@ -158,7 +158,7 @@ class Puzzle_2018_07: NSObject {
     }
 }
 
-fileprivate class Puzzle_2018_07_Input: NSObject {
+private class Puzzle_2018_07_Input: NSObject {
 
     static let puzzleInput_test = """
 Step C must be finished before step A can begin.

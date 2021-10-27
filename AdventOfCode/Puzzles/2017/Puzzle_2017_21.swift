@@ -232,7 +232,7 @@ class Puzzle_2017_21 : PuzzleBaseClass {
 
 }
 
-fileprivate class PuzzleInput: NSObject {
+private class PuzzleInput: NSObject {
 
     static let startingPattern =
     

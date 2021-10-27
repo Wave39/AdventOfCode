@@ -126,7 +126,7 @@ class Puzzle_2019_06 : PuzzleBaseClass {
     }
 }
 
-fileprivate class Puzzle_2019_06_Input: NSObject {
+private class Puzzle_2019_06_Input: NSObject {
 
     static let puzzleInput_test1 = """
 COM)B

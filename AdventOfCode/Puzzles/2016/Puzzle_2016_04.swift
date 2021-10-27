@@ -8,14 +8,13 @@
 
 import Foundation
 
-class Puzzle_2016_04 : PuzzleBaseClass {
-
+class Puzzle_2016_04: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInputLineArray = PuzzleInput.final.components(separatedBy: "\n").filter { $0.count > 0 }
 
@@ -26,7 +25,7 @@ class Puzzle_2016_04 : PuzzleBaseClass {
             if index == nil {
                 return c
             }
-            
+
             let r = rotations % 26
             let rFinal: Int = (r + index!) % 26
             let x = alphabet[rFinal]
@@ -56,11 +55,11 @@ class Puzzle_2016_04 : PuzzleBaseClass {
                         dict[cString] = dict[cString]! + 1
                     }
                 }
-                
+
                 let newC = rotateCharacter(c: c, rotations: sectorID)
                 decryptedName += "\(newC)"
             }
-            
+
             var arr: Array<CharacterCounter> = Array()
             for k in dict.keys {
                 var x = CharacterCounter()
@@ -68,7 +67,7 @@ class Puzzle_2016_04 : PuzzleBaseClass {
                 x.theCount = dict[k]!
                 arr.append(x)
             }
-            
+
             arr.sort { (lhs: CharacterCounter, rhs: CharacterCounter) -> Bool in
                 if lhs.theCount == rhs.theCount {
                     return lhs.theCharacter < rhs.theCharacter
@@ -76,7 +75,7 @@ class Puzzle_2016_04 : PuzzleBaseClass {
                     return lhs.theCount > rhs.theCount
                 }
             }
-            
+
             var idx = 0
             var matchingCharacters = 0
             for c in checksum {
@@ -84,10 +83,10 @@ class Puzzle_2016_04 : PuzzleBaseClass {
                 if cString == arr[idx].theCharacter {
                     matchingCharacters += 1
                 }
-                
+
                 idx += 1
             }
-            
+
             if matchingCharacters == 5 {
                 part1Sum += sectorID
                 if decryptedName == "northpole-object-storage-" {
@@ -98,11 +97,9 @@ class Puzzle_2016_04 : PuzzleBaseClass {
 
         return (part1Sum, part2SectorIDFound)
     }
-
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 aczupnetwp-dnlgpyrpc-sfye-dstaatyr-561[patyc]
 jsehsyafy-vqw-ljsafafy-866[nymla]
@@ -1096,6 +1093,4 @@ nwlddtqtpo-mldvpe-fdpc-epdetyr-509[dpetl]
 wfintfhynaj-idj-qfgtwfytwd-229[efudw]
 yhwooebeaz-nwilwcejc-ydkykhwpa-owhao-160[skuyi]
 """
-
 }
-

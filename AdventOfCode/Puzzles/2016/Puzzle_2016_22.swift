@@ -95,7 +95,7 @@ class Puzzle_2016_22 : PuzzleBaseClass {
 
 }
 
-fileprivate class PuzzleInput: NSObject {
+private class PuzzleInput: NSObject {
 
     static let final = """
 /dev/grid/node-x0-y0     94T   72T    22T   76%

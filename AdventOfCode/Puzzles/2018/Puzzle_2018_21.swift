@@ -170,7 +170,7 @@ class Puzzle_2018_21: NSObject {
     
 }
 
-fileprivate class Puzzle_2018_21_Input: NSObject {
+private class Puzzle_2018_21_Input: NSObject {
 
     static let puzzleInput = """
 #ip 1

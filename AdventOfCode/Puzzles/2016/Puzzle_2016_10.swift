@@ -8,25 +8,24 @@
 
 import Foundation
 
-class Puzzle_2016_10 : PuzzleBaseClass {
-
+class Puzzle_2016_10: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInputLineArray = PuzzleInput.final.parseIntoStringArray()
 
-        class BotInfo : CustomStringConvertible {
+        class BotInfo: CustomStringConvertible {
             var chips: [Int]
             var lastComparison: [Int]
             init() {
                 chips = []
                 lastComparison = []
             }
-            
+
             var description: String {
                 return "Chips: \(chips); Last comparison: \(lastComparison)"
             }
@@ -50,7 +49,7 @@ class Puzzle_2016_10 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             return -1
         }
 
@@ -88,7 +87,7 @@ class Puzzle_2016_10 : PuzzleBaseClass {
             if part1Bots[botNumber] == nil {
                 part1Bots[botNumber] = BotInfo()
             }
-            
+
             let giveBot = part1Bots[botNumber]
             giveBot?.chips.append(chipNumber)
         }
@@ -102,7 +101,7 @@ class Puzzle_2016_10 : PuzzleBaseClass {
             bin?.chips.append(chipNumber)
         }
 
-        //let searchValues = (2, 5)
+        // let searchValues = (2, 5)
         let searchValues = (61, 17)
 
         var part1Answer = -1
@@ -115,7 +114,7 @@ class Puzzle_2016_10 : PuzzleBaseClass {
                 let thisBot = part1Bots[foundBot]
                 let lowChipNumber = min(Int((thisBot?.chips[0])!), Int((thisBot?.chips[1])!))
                 let highChipNumber = max(Int((thisBot?.chips[0])!), Int((thisBot?.chips[1])!))
-                
+
                 let arr = findBotInstructions(botNumber: foundBot)
                 let lowDest = arr[5]
                 let lowNumber = Int(arr[6])
@@ -124,9 +123,9 @@ class Puzzle_2016_10 : PuzzleBaseClass {
                 } else if lowDest == "output" {
                     moveChipToOutputBin(outputBinNumber: lowNumber!, chipNumber: lowChipNumber)
                 } else {
-                    print ("Unknown low destination: \(lowDest)")
+                    print("Unknown low destination: \(lowDest)")
                 }
-                
+
                 let highDest = arr[10]
                 let highNumber = Int(arr[11])
                 if highDest == "bot" {
@@ -134,13 +133,13 @@ class Puzzle_2016_10 : PuzzleBaseClass {
                 } else if highDest == "output" {
                     moveChipToOutputBin(outputBinNumber: highNumber!, chipNumber: highChipNumber)
                 } else {
-                    print ("Unknown high destination: \(highDest)")
+                    print("Unknown high destination: \(highDest)")
                 }
-                
+
                 thisBot?.chips = []
                 thisBot?.lastComparison = [lowChipNumber, highChipNumber]
             }
-            
+
             let p = findBotWithLastComparison(botArray: part1Bots, i1: searchValues.0, i2: searchValues.1)
             if p != -1 && part1Answer == -1 {
                 part1Answer = p
@@ -149,11 +148,9 @@ class Puzzle_2016_10 : PuzzleBaseClass {
 
         return (part1Answer, (part1OutputBins[0]?.chips[0])! * (part1OutputBins[1]?.chips[0])! * (part1OutputBins[2]?.chips[0])!)
     }
-    
 }
 
-fileprivate class PuzzleInput: NSObject {
-
+private class PuzzleInput: NSObject {
     static let final = """
 bot 49 gives low to bot 118 and high to bot 182
 bot 192 gives low to bot 40 and high to bot 177
@@ -387,6 +384,4 @@ bot 25 gives low to bot 68 and high to bot 184
 bot 193 gives low to bot 82 and high to bot 206
 bot 96 gives low to bot 10 and high to bot 152
 """
-
 }
-

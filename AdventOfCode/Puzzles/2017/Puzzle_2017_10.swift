@@ -95,7 +95,7 @@ class Puzzle_2017_10 : PuzzleBaseClass {
 
 }
 
-fileprivate class Puzzle_2017_10_Input: NSObject {
+private class Puzzle_2017_10_Input: NSObject {
 
     static let puzzleInput_test1 = [ 5, "3,4,1,5" ] as [Any]
     

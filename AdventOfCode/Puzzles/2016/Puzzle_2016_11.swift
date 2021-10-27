@@ -25,39 +25,38 @@ let elementDict: Dictionary<ElementType, String> = [
     .Curium: "Cm",
     .Dilithium: "Di",
     .Elerium: "El",
-    .Hydrogen : "H",
-    .Lithium : "L",     // yes, it's not the elemental symbol, but it looks better formatted into the diagram
+    .Hydrogen: "H",
+    .Lithium: "L",     // yes, it's not the elemental symbol, but it looks better formatted into the diagram
     .Promethium: "Pm",
     .Plutonium: "Pu",
-    .Ruthenium: "Ru",
+    .Ruthenium: "Ru"
 ]
 
-enum DeviceType : Int {
+enum DeviceType: Int {
     case Microchip = 1
     case Generator
 }
 
 let deviceDict: Dictionary<DeviceType, String> = [
-    .Microchip : "M",
-    .Generator : "G"
+    .Microchip: "M",
+    .Generator: "G"
 ]
 
-class Puzzle_2016_11 : PuzzleBaseClass {
-
-    enum ElevatorDirection : Int {
+class Puzzle_2016_11: PuzzleBaseClass {
+    enum ElevatorDirection: Int {
         case Up = 1
         case Down
     }
-    
+
     struct Device {
         var elementType: ElementType
         var deviceType: DeviceType
-        
+
         func description() -> String {
             return "\(elementDict[self.elementType]!)\(deviceDict[self.deviceType]!) "
         }
-        
-        static func ==(lhs: Device, rhs: Device) -> Bool {
+
+        static func == (lhs: Device, rhs: Device) -> Bool {
             return lhs.elementType == rhs.elementType && lhs.deviceType == rhs.deviceType
         }
     }
@@ -67,15 +66,15 @@ class Puzzle_2016_11 : PuzzleBaseClass {
         var elevatorFloor: Int
         var floorArray: [[Device]]
         var history: String
-        
+
         func devicesDescription(devices: [Device]) -> String {
             var s = ""
-            let sorted = devices.sorted() { [$0.elementType.rawValue, $0.deviceType.rawValue].lexicographicallyPrecedes([$1.elementType.rawValue, $1.deviceType.rawValue]) }
-            
+            let sorted = devices.sorted { [$0.elementType.rawValue, $0.deviceType.rawValue].lexicographicallyPrecedes([$1.elementType.rawValue, $1.deviceType.rawValue]) }
+
             for d in sorted {
                 s += d.description()
             }
-            
+
             return s
         }
 
@@ -88,15 +87,15 @@ class Puzzle_2016_11 : PuzzleBaseClass {
                 } else {
                     s += "- "
                 }
-                
+
                 s += devicesDescription(devices: floorArray[i])
                 s += "\n"
             }
-            
+
             if includeMoveCounter {
                 s += "Moves so far: \(movesSoFar)\n"
             }
-            
+
             return s
         }
     }
@@ -104,29 +103,29 @@ class Puzzle_2016_11 : PuzzleBaseClass {
     struct Move {
         var elevatorDirection: ElevatorDirection
         var devicesToCarry: [Device]
-        
+
         func description() -> String {
             var s = (elevatorDirection == .Up ? "Up " : "Down ")
-            let sorted = devicesToCarry.sorted() { [$0.elementType.rawValue, $0.deviceType.rawValue].lexicographicallyPrecedes([$1.elementType.rawValue, $1.deviceType.rawValue]) }
-            
+            let sorted = devicesToCarry.sorted { [$0.elementType.rawValue, $0.deviceType.rawValue].lexicographicallyPrecedes([$1.elementType.rawValue, $1.deviceType.rawValue]) }
+
             for d in sorted {
                 s += d.description()
             }
-            
-            return s;
+
+            return s
         }
     }
 
     struct BuildingState {
         var floorArray: [[Int]]
         var elevatorFloor: Int
-        
+
         func description() -> String {
             return "\(floorArray) \(elevatorFloor)"
         }
-        
+
         static func getBuildingState(building: BuildingStatus) -> String {
-            var buildingState = BuildingState(floorArray: [[0,0,0],[0,0,0],[0,0,0],[0,0,0]], elevatorFloor: 0)
+            var buildingState = BuildingState(floorArray: [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]], elevatorFloor: 0)
             for i in 0...3 {
                 for j in building.floorArray[i] {
                     if j.deviceType == .Microchip {
@@ -144,34 +143,34 @@ class Puzzle_2016_11 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             buildingState.elevatorFloor = building.elevatorFloor
-            
+
             return buildingState.description()
         }
     }
 
-    //The first floor contains a promethium generator and a promethium-compatible microchip.
-    //The second floor contains a cobalt generator, a curium generator, a ruthenium generator, and a plutonium generator.
-    //The third floor contains a cobalt-compatible microchip, a curium-compatible microchip, a ruthenium-compatible microchip, and a plutonium-compatible microchip.
-    //The fourth floor contains nothing relevant.
+    // The first floor contains a promethium generator and a promethium-compatible microchip.
+    // The second floor contains a cobalt generator, a curium generator, a ruthenium generator, and a plutonium generator.
+    // The third floor contains a cobalt-compatible microchip, a curium-compatible microchip, a ruthenium-compatible microchip, and a plutonium-compatible microchip.
+    // The fourth floor contains nothing relevant.
     let puzzleInputPart1: [[Device]] = [
         [ Device(elementType: .Promethium, deviceType: .Generator), Device(elementType: .Promethium, deviceType: .Microchip) ],
-        [ Device(elementType: .Cobalt, deviceType: .Generator), Device(elementType: .Curium, deviceType: .Generator) , Device(elementType: .Ruthenium, deviceType: .Generator), Device(elementType: .Plutonium, deviceType: .Generator) ],
-        [ Device(elementType: .Cobalt, deviceType: .Microchip), Device(elementType: .Curium, deviceType: .Microchip) , Device(elementType: .Ruthenium, deviceType: .Microchip), Device(elementType: .Plutonium, deviceType: .Microchip) ],
+        [ Device(elementType: .Cobalt, deviceType: .Generator), Device(elementType: .Curium, deviceType: .Generator), Device(elementType: .Ruthenium, deviceType: .Generator), Device(elementType: .Plutonium, deviceType: .Generator) ],
+        [ Device(elementType: .Cobalt, deviceType: .Microchip), Device(elementType: .Curium, deviceType: .Microchip), Device(elementType: .Ruthenium, deviceType: .Microchip), Device(elementType: .Plutonium, deviceType: .Microchip) ],
         [ ]
     ]
 
-    //Upon entering the isolated containment area, however, you notice some extra parts on the first floor that weren't listed on the record outside:
-    //An elerium generator.
-    //An elerium-compatible microchip.
-    //A dilithium generator.
-    //A dilithium-compatible microchip.
+    // Upon entering the isolated containment area, however, you notice some extra parts on the first floor that weren't listed on the record outside:
+    // An elerium generator.
+    // An elerium-compatible microchip.
+    // A dilithium generator.
+    // A dilithium-compatible microchip.
 
     let puzzleInputPart2: [[Device]] = [
         [ Device(elementType: .Promethium, deviceType: .Generator), Device(elementType: .Promethium, deviceType: .Microchip), Device(elementType: .Elerium, deviceType: .Generator), Device(elementType: .Elerium, deviceType: .Microchip), Device(elementType: .Dilithium, deviceType: .Generator), Device(elementType: .Dilithium, deviceType: .Microchip) ],
-        [ Device(elementType: .Cobalt, deviceType: .Generator), Device(elementType: .Curium, deviceType: .Generator) , Device(elementType: .Ruthenium, deviceType: .Generator), Device(elementType: .Plutonium, deviceType: .Generator) ],
-        [ Device(elementType: .Cobalt, deviceType: .Microchip), Device(elementType: .Curium, deviceType: .Microchip) , Device(elementType: .Ruthenium, deviceType: .Microchip), Device(elementType: .Plutonium, deviceType: .Microchip) ],
+        [ Device(elementType: .Cobalt, deviceType: .Generator), Device(elementType: .Curium, deviceType: .Generator), Device(elementType: .Ruthenium, deviceType: .Generator), Device(elementType: .Plutonium, deviceType: .Generator) ],
+        [ Device(elementType: .Cobalt, deviceType: .Microchip), Device(elementType: .Curium, deviceType: .Microchip), Device(elementType: .Ruthenium, deviceType: .Microchip), Device(elementType: .Plutonium, deviceType: .Microchip) ],
         [ ]
     ]
 
@@ -189,12 +188,12 @@ class Puzzle_2016_11 : PuzzleBaseClass {
                     otherGenerator = true
                 }
             }
-            
+
             if otherGenerator && !matchingGenerator {
                 ok = false
             }
         }
-        
+
         return ok
     }
 
@@ -205,17 +204,17 @@ class Puzzle_2016_11 : PuzzleBaseClass {
             let idx = remainingDevices.firstIndex { $0 == d }
             remainingDevices.remove(at: idx!)
         }
-        
+
         if !microchipsAndGeneratorsAreSafe(devices: remainingDevices) {
             return false
         }
-        
+
         // check the next floor devices
         let nextFloor = building.elevatorFloor + (move.elevatorDirection == .Up ? 1 : -1)
         var nextFloorDevices = building.floorArray[nextFloor]
         nextFloorDevices.append(contentsOf: move.devicesToCarry)
         let ok = microchipsAndGeneratorsAreSafe(devices: nextFloorDevices)
-        
+
         let nextBuilding = findNextBuilding(building: building, move: move)
         let nextBuildingString = BuildingState.getBuildingState(building: nextBuilding)
         if buildingsAlreadySeen.contains(nextBuildingString) {
@@ -229,7 +228,7 @@ class Puzzle_2016_11 : PuzzleBaseClass {
 
     func findValidMoves(building: BuildingStatus) -> [Move] {
         var v = Array<Move>()
-        
+
         var elevatorDirections: [ElevatorDirection] = []
         if building.elevatorFloor == 0 {
             elevatorDirections.append(.Up)
@@ -246,7 +245,7 @@ class Puzzle_2016_11 : PuzzleBaseClass {
         } else {
             elevatorDirections.append(.Down)
         }
-        
+
         // do the one at a time moves first
         let deviceArray = building.floorArray[building.elevatorFloor]
         for device in deviceArray {
@@ -257,7 +256,7 @@ class Puzzle_2016_11 : PuzzleBaseClass {
                 }
             }
         }
-        
+
         // now consider moving 2 devices at a time
         if deviceArray.count >= 2 {
             for i in 0...deviceArray.count - 2 {
@@ -274,27 +273,27 @@ class Puzzle_2016_11 : PuzzleBaseClass {
                 }
             }
         }
-        
+
         return v
     }
 
     func findNextBuilding(building: BuildingStatus, move: Move) -> BuildingStatus {
         var nextBuilding = building
         nextBuilding.history += "Move: \(move.description())\n"
-        
+
         nextBuilding.movesSoFar += 1
         let previousFloor = building.elevatorFloor
         let nextFloor = building.elevatorFloor + (move.elevatorDirection == .Up ? 1 : -1)
-        
+
         for d in move.devicesToCarry {
             let idx = nextBuilding.floorArray[previousFloor].firstIndex { $0 == d }
             nextBuilding.floorArray[previousFloor].remove(at: idx!)
             nextBuilding.floorArray[nextFloor].append(d)
         }
-        
+
         nextBuilding.elevatorFloor = nextFloor
         nextBuilding.history += nextBuilding.diagram(includeMoveCounter: true)
-        
+
         return nextBuilding
     }
 
@@ -316,10 +315,10 @@ class Puzzle_2016_11 : PuzzleBaseClass {
                     }
                 }
             }
-            
+
             currentBuildingArray = nextBuildingArray
         }
-        
+
         return foundSolutionAtMove
     }
 
@@ -327,8 +326,8 @@ class Puzzle_2016_11 : PuzzleBaseClass {
 
     func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
-        print ("Part 1 solution: \(part1Solution)")
-        print ("Part 2 solution: \(part2Solution)")
+        print("Part 1 solution: \(part1Solution)")
+        print("Part 2 solution: \(part2Solution)")
     }
 
     func solveBothParts() -> (Int, Int) {

@@ -131,7 +131,7 @@ class Puzzle_2020_04 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_Input: NSObject {
+private class Puzzle_Input: NSObject {
 
     static let puzzleInput0 = """
 ecl:gry pid:860033327 eyr:2020 hcl:#fffffd

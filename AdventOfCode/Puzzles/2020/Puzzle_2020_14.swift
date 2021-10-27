@@ -140,7 +140,7 @@ class Puzzle_2020_14 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_Input: NSObject {
+private class Puzzle_Input: NSObject {
 
     static let puzzleInput_test = """
 mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X

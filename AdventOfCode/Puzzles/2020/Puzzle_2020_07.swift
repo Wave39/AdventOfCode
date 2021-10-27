@@ -103,7 +103,7 @@ class Puzzle_2020_07 : PuzzleBaseClass {
     
 }
 
-fileprivate class Puzzle_Input: NSObject {
+private class Puzzle_Input: NSObject {
 
     static let puzzleInput_test1 = """
 light red bags contain 1 bright white bag, 2 muted yellow bags.

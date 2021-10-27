@@ -111,7 +111,7 @@ class Puzzle_2017_19 : PuzzleBaseClass {
     
 }
 
-fileprivate class PuzzleInput: NSObject {
+private class PuzzleInput: NSObject {
 
     // I had to replace the new line characters with tildes in the strings below, as they were crossing
     // up the multi-line string parser
