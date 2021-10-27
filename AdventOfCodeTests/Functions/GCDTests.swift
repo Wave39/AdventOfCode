@@ -39,7 +39,7 @@ class GCDTests: XCTestCase {
         XCTAssertEqual(gcdRecursiveEuklid(624129, 2061517), 18913)
         XCTAssertEqual(gcdRecursiveEuklid(10, 5), 5)
     }
-    
+
     func test_gcdBinaryRecursiveStein() {
         XCTAssertEqual(gcdBinaryRecursiveStein(13, 13), 13)
         XCTAssertEqual(gcdBinaryRecursiveStein(37, 600), 1)
@@ -66,7 +66,7 @@ class GCDTests: XCTestCase {
             retval = try lcm(4, 10)
             XCTAssertEqual(retval, 20)
         } catch {
-            print ("Error: \(error)")
+            print("Error: \(error)")
         }
     }
     

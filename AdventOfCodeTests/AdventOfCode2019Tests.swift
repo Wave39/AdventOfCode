@@ -24,21 +24,21 @@ class AdventOfCode2019Tests: XCTestCase {
         let part2 = Puzzle_2019_01().solvePart2()
         XCTAssertEqual(part2, 4940279)
     }
-    
+
     func test2019day02() {
         let part1 = Puzzle_2019_02().solvePart1()
         XCTAssertEqual(part1, 3895705)
         let part2 = Puzzle_2019_02().solvePart2()
         XCTAssertEqual(part2, 6417)
     }
-    
+
     func test2019day03() {
         let part1 = Puzzle_2019_03().solvePart1()
         XCTAssertEqual(part1, 1225)
         let part2 = Puzzle_2019_03().solvePart2()
         XCTAssertEqual(part2, 107036)
     }
-    
+
     func test2019day04() {
         let part1 = Puzzle_2019_04().solvePart1(from: 134564, to: 585159)
         XCTAssertEqual(part1, 1929)
@@ -73,7 +73,7 @@ class AdventOfCode2019Tests: XCTestCase {
         let part2 = Puzzle_2019_08().solvePart2()
         XCTAssertEqual(String(part2), "011000011010001111100110010010000101000110000100101000000010010101110010010101100001000100100001111010010100100010010000100100111001100001001111010010")
     }
-    
+
     func test2019day09() {
         let part1 = Puzzle_2019_09().solvePart1()
         XCTAssertEqual(part1, 3409270027)

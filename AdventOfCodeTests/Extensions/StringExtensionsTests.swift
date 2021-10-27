@@ -37,5 +37,5 @@ class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("ABCDEF".isStringHexadecimal(), true)
         XCTAssertEqual("ABCDEFG".isStringHexadecimal(), false)
     }
-    
+
 }

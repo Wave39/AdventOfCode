@@ -41,7 +41,7 @@ enum CompassDirection {
             return .North
         }
     }
-    
+
     func OffsetFromOrigin() -> Point2D {
         if self == .North {
             return Point2D(x: 0, y: -1)

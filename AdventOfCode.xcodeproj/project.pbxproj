@@ -530,6 +530,7 @@
 		E0CBC88D23EF35F60002B5EA /* Puzzle_2017_23.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_23.swift; sourceTree = "<group>"; };
 		E0CBC89023EF373C0002B5EA /* Puzzle_2017_24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_24.swift; sourceTree = "<group>"; };
 		E0CBC89323EF3AC10002B5EA /* Puzzle_2017_25.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_25.swift; sourceTree = "<group>"; };
+		E0CD1FF72728F798002E2914 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E0D3EEFA23D37CAE0064413A /* Puzzle_2017_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_02.swift; sourceTree = "<group>"; };
 		E0D3EEFD23D38ADE0064413A /* Puzzle_2017_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_03.swift; sourceTree = "<group>"; };
 		E0D3EF0023D38D3B0064413A /* Puzzle_2017_04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_04.swift; sourceTree = "<group>"; };
@@ -639,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				E0A8501D23C266F400947CA3 /* README.md */,
+				E0CD1FF72728F798002E2914 /* .swiftlint.yml */,
 				E02114792397FEBD00F49FC1 /* AdventOfCode */,
 				E0F4FA5B239D9401002F51A8 /* AdventOfCodeTests */,
 				E02114782397FEBD00F49FC1 /* Products */,
@@ -929,6 +931,7 @@
 				E02114732397FEBD00F49FC1 /* Sources */,
 				E02114742397FEBD00F49FC1 /* Frameworks */,
 				E02114752397FEBD00F49FC1 /* CopyFiles */,
+				E0CD1FF62728F6E0002E2914 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -963,7 +966,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Wave 39 LLC";
 				TargetAttributes = {
 					E02114762397FEBD00F49FC1 = {
@@ -1003,6 +1006,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E0CD1FF62728F6E0002E2914 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E02114732397FEBD00F49FC1 /* Sources */ = {
@@ -1398,6 +1421,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1458,6 +1482,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

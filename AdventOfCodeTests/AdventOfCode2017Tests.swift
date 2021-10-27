@@ -30,7 +30,7 @@ class AdventOfCode2017Tests: XCTestCase {
         let part2 = Puzzle_2017_02().solvePart2()
         XCTAssertEqual(part2, 294)
     }
-  
+
     func test2017day03() {
         let (part1, part2) = Puzzle_2017_03().solveBothParts()
         XCTAssertEqual(part1, 475)
@@ -109,14 +109,14 @@ class AdventOfCode2017Tests: XCTestCase {
         let part2 = Puzzle_2017_15().solvePart2()
         XCTAssertEqual(part2, 306)
     }
-    
+
     func test2017day16() {
         let part1 = Puzzle_2017_16().solvePart1()
         XCTAssertEqual(part1, "cknmidebghlajpfo")
         let part2 = Puzzle_2017_16().solvePart2()
         XCTAssertEqual(part2, "cbolhmkgfpenidaj")
     }
- 
+
     func test2017day17() {
         let part1 = Puzzle_2017_17().solvePart1()
         XCTAssertEqual(part1, 1306)

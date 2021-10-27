@@ -9,22 +9,22 @@
 import Foundation
 
 struct Particle2D: Hashable {
-    var x : Int = 0
-    var y : Int = 0
-    var deltaX : Int = 0
-    var deltaY : Int = 0
-    
+    var x: Int = 0
+    var y: Int = 0
+    var deltaX: Int = 0
+    var deltaY: Int = 0
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(x)
         hasher.combine(y)
         hasher.combine(deltaX)
         hasher.combine(deltaY)
     }
-    
+
     var description: String {
         return "(\(x),\(y)) -> (\(deltaX),\(deltaY))"
     }
-    
+
     static func == (lhs: Particle2D, rhs: Particle2D) -> Bool {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.deltaX == rhs.deltaX && lhs.deltaY == rhs.deltaY
     }
