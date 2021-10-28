@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_05: PuzzleBaseClass {
-
     func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print("Part 1 solution: \(part1Solution)")
@@ -30,7 +29,7 @@ class Puzzle_2017_05: PuzzleBaseClass {
         for line in lineArray {
             retval.append(Int(line)!)
         }
-        
+
         return retval
     }
     
@@ -47,16 +46,13 @@ class Puzzle_2017_05: PuzzleBaseClass {
             instructionArray[previousProgramCounter] += ((testForStrangeJump && jumpValue >= 3) ? -1 : 1)
             total += 1
         }
-        
+
         return total
     }
-
 }
 
 private class Puzzle_2017_05_Input: NSObject {
-
     static let puzzleInput_test1 =
-        
 """
 0
 3
@@ -66,7 +62,6 @@ private class Puzzle_2017_05_Input: NSObject {
 """
     
     static let puzzleInput =
-    
 """
 2
 1
@@ -1127,5 +1122,4 @@ private class Puzzle_2017_05_Input: NSObject {
 -857
 -520
 """
-    
 }

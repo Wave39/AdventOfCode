@@ -189,7 +189,7 @@ class Puzzle_2016_21: PuzzleBaseClass {
                 } else {
                     print("Invalid command: \(lineArr[0])")
                 }
-                
+
                 lineCtr += 1
             }
         }

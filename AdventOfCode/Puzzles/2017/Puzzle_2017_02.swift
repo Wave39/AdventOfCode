@@ -9,23 +9,22 @@
 import Foundation
 
 class Puzzle_2017_02: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2017_02_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2017_02_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         var total = 0
         let matrix = str.parseIntoMatrix()
@@ -66,7 +65,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return (0, 0)
     }
 
@@ -77,7 +76,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
             let ints = findEvenlyDivisibleIntegers(arr: line)
             total = total + (ints.0 / ints.1)
         }
-        
+
         return total
     }
 }

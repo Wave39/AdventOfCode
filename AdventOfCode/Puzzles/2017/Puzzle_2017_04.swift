@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_04: PuzzleBaseClass {
-
     func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print("Part 1 solution: \(part1Solution)")
@@ -31,7 +30,7 @@ class Puzzle_2017_04: PuzzleBaseClass {
             var s = Set<String>()
             for element in line {
                 let theElement: String
-                if (checkForAnagrams) {
+                if checkForAnagrams {
                     theElement = String(element.sorted())
                 } else {
                     theElement = element
@@ -39,21 +38,19 @@ class Puzzle_2017_04: PuzzleBaseClass {
                 
                 s.insert(theElement)
             }
-            
+
             if s.count == line.count {
                 total = total + 1
             }
         }
-        
+
         return total
     }
-    
+
 }
 
 private class Puzzle_2017_04_Input: NSObject {
-
     static let puzzleInput_test1 =
-        
 """
 aa bb cc dd ee
 aa bb cc dd aa
@@ -61,7 +58,6 @@ aa bb cc dd aaa
 """
     
     static let puzzleInput =
-        
 """
 sayndz zfxlkl attjtww cti sokkmty brx fhh suelqbp
 xmuf znkhaes pggrlp zia znkhaes znkhaes
@@ -576,5 +572,4 @@ ydjhhf yeltadb lwi cjdcb ovaox xrdm vkxub
 zax xza admbc lvpzfeh auxn rwasj
 kebx eild nrskdr meja jxczomh gcne
 """
-    
 }

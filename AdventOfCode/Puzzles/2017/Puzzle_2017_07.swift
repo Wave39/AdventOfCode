@@ -8,7 +8,7 @@
 
 import Foundation
 
-fileprivate class Program {
+private class Program {
     var name: String = ""
     var weight = 0
     var towerWeight = 0
@@ -16,8 +16,7 @@ fileprivate class Program {
 }
 
 class Puzzle_2017_07: PuzzleBaseClass {
-
-    fileprivate var puzzleInput: [Program] = []
+    private var puzzleInput: [Program] = []
     
     func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
@@ -35,7 +34,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
         return (part1Solution, part2Solution)
     }
 
-    fileprivate func parseInput(str: String) -> [Program] {
+    private func parseInput(str: String) -> [Program] {
         var retval: [Program] = []
         let lineArray = str.split(separator: "\n")
         for line in lineArray {
@@ -65,7 +64,6 @@ class Puzzle_2017_07: PuzzleBaseClass {
     
     func parseAdditionalPrograms(str: String) -> [String] {
         var retval: [String] = []
-        
         var s = str.replacingOccurrences(of: "-> ", with: "")
         s = s.replacingOccurrences(of: ",", with: "")
         for x in s.split(separator: " ") {
@@ -108,7 +106,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
                 retval += towerWeight(program: op)
             }
         }
-        
+
         return retval
     }
     
@@ -124,7 +122,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
         
         return ""
     }
-    
+
     func findOddTowerWeight(programs: [String]) -> String {
         var dict: Dictionary<Int, [String]> = [:]
         for p in programs {
@@ -141,10 +139,10 @@ class Puzzle_2017_07: PuzzleBaseClass {
                 return (dict[k]?.first)!
             }
         }
-        
+
         return ""
     }
-    
+
     func solvePart2() -> Int {
         var retval = 0
         for p in puzzleInput {
@@ -175,13 +173,10 @@ class Puzzle_2017_07: PuzzleBaseClass {
 
         return retval
     }
-
 }
 
 private class Puzzle_2017_07_Input: NSObject {
-
     static let puzzleInput_test1 =
-        
 """
 pbga (66)
 xhth (57)
@@ -199,7 +194,6 @@ cntj (57)
 """
 
     static let puzzleInput =
-        
 """
 cfkcj (74)
 kmwhbm (32)
@@ -1239,5 +1233,4 @@ ddneaes (40) -> icdcn, gunuriu, whdgk, gkouyvq
 vqijdaj (68)
 ttvyvv (26)
 """
-
 }

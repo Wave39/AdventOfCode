@@ -44,7 +44,7 @@ class Puzzle_2016_23: PuzzleBaseClass {
             } else {
                 v = registers[p.registerIndex!]
             }
-            
+
             return v
         }
 
@@ -61,7 +61,7 @@ class Puzzle_2016_23: PuzzleBaseClass {
                         let value = getParamValue(p: p1, registers: registers)
                         registers[p2.registerIndex!] = value
                     }
-                    
+
                     programCounter += 1
                 } else if instruction.opcode == .inc {
                     let p1 = instruction.param1
@@ -102,7 +102,7 @@ class Puzzle_2016_23: PuzzleBaseClass {
                                 instructionToModify.opcode = .jnz
                             }
                         }
-                        
+
                         instructionArray[programCounterToModify] = instructionToModify
                     }
 
@@ -120,7 +120,7 @@ class Puzzle_2016_23: PuzzleBaseClass {
                     programCounter += 1
                 }
             }
-            
+
             return registers[registerToRetrieve]
         }
 
@@ -142,7 +142,7 @@ class Puzzle_2016_23: PuzzleBaseClass {
 
                 p = Param(numericValue: nil, registerIndex: idx)
             }
-            
+
             return p
         }
 
@@ -168,13 +168,13 @@ class Puzzle_2016_23: PuzzleBaseClass {
                 } else {
                     op = .tgl
                 }
-                
+
                 p1 = buildParam(inputString: c[1])
 
                 if c.count >= 3 {
                     p2 = buildParam(inputString: c[2])
                 }
-                
+
                 if c.count >= 4 {
                     p3 = buildParam(inputString: c[3])
                 }
@@ -182,7 +182,7 @@ class Puzzle_2016_23: PuzzleBaseClass {
                 let newInstruction = Instruction(opcode: op!, param1: p1!, param2: p2, param3: p3)
                 instructionSet.append(newInstruction)
             }
-            
+
             return instructionSet
         }
 
@@ -195,7 +195,7 @@ class Puzzle_2016_23: PuzzleBaseClass {
         let part2InstructionSet = buildInstructionSet(lineArray: part2)
         let part2RegisterArray = [ 12, 0, 0, 0 ]
         let part2Solution = processInstructionsFaster(instructionArray: part2InstructionSet, registerToRetrieve: 0, registers: part2RegisterArray)
-        
+
         return (part1Solution, part2Solution)
     }
 }

@@ -9,18 +9,17 @@
 import Foundation
 
 class Puzzle_2017_06: PuzzleBaseClass {
-
     func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_06_Input.puzzleInput
         return solveInput(str: puzzleInput)
     }
-    
+
     func parseInput(str: String) -> [Int] {
         var retval: [Int] = []
         let lineArray = str.split(separator: " ")
@@ -32,7 +31,6 @@ class Puzzle_2017_06: PuzzleBaseClass {
     }
 
     func findLargestIndex(arr: [Int]) -> Int {
-    
         let sortedArray = arr.sorted()
         let largestValue = sortedArray.last
         for idx in 0..<arr.count {
@@ -62,7 +60,7 @@ class Puzzle_2017_06: PuzzleBaseClass {
             arr[nextIdx] = arr[nextIdx] + 1
         }
     }
-    
+
     func solveInput(str: String) -> (Int, Int) {
         var processCounter = 0
         var loopCounter = 0
@@ -72,7 +70,7 @@ class Puzzle_2017_06: PuzzleBaseClass {
         while stayInLoop {
             processArray(arr: &memoryBanks)
             processCounter += 1
-            
+
             let memoryString = arrayToString(arr: memoryBanks)
             if dict[memoryString] == nil {
                 dict[memoryString] = processCounter
@@ -84,13 +82,10 @@ class Puzzle_2017_06: PuzzleBaseClass {
         
         return (processCounter, loopCounter)
     }
-
 }
 
 private class Puzzle_2017_06_Input: NSObject {
-
     static let puzzleInput_test = "0 2 7 0"
 
     static let puzzleInput = "14    0    15    12    11    11    3    5    1    6    8    4    9    1    8    4"
-
 }

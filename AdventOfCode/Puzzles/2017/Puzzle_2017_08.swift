@@ -9,9 +9,8 @@
 import Foundation
 
 class Puzzle_2017_08: PuzzleBaseClass {
-
     var puzzleInput: [[String]] = []
-    
+
     func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
@@ -34,7 +33,7 @@ class Puzzle_2017_08: PuzzleBaseClass {
         
         return retval
     }
-    
+
     func solvePuzzle() -> (Int, Int) {
         var highestValue = 0
         var dict: Dictionary<String, Int> = [:]
@@ -48,7 +47,7 @@ class Puzzle_2017_08: PuzzleBaseClass {
             if dict[register] == nil {
                 dict[register] = 0
             }
-            
+
             if dict[testRegister] == nil {
                 dict[testRegister] = 0
             }
@@ -75,7 +74,7 @@ class Puzzle_2017_08: PuzzleBaseClass {
             if doIncDec {
                 dict[register] = dict[register]! + incValue
             }
-            
+
             let highestValueNow = highValue(dict: dict)
             if highestValueNow > highestValue {
                 highestValue = highestValueNow
@@ -84,13 +83,10 @@ class Puzzle_2017_08: PuzzleBaseClass {
         
         return (highValue(dict: dict), highestValue)
     }
-
 }
 
 private class Puzzle_2017_08_Input: NSObject {
-
     static let puzzleInput_test1 =
-        
 """
 b inc 5 if a > 1
 a inc 1 if b < 5
@@ -99,7 +95,6 @@ c inc -20 if c == 10
 """
     
     static let puzzleInput =
-        
 """
 v inc 523 if t == 6
 qen dec -450 if lht != 10
@@ -1102,5 +1097,4 @@ v inc -547 if g < -538
 jyg dec -940 if ml == -5733
 ml inc 52 if lb > 1564
 """
-    
 }

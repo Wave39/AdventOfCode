@@ -8,19 +8,16 @@
 
 import Foundation
 
-// template for new puzzle classes
-
 class Puzzle_2017_03: PuzzleBaseClass {
-
     func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print("Part 1 solution: \(part1Solution)")
         print("Part 2 solution: \(part2Solution)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_03_Input.puzzleInput
-        
+
         let part1Array = buildPart1Spiral(limit: puzzleInput)
         let part1LastElement = part1Array.last
         let part1Solution = abs((part1LastElement?.x)!) + abs((part1LastElement?.y)!)
@@ -34,7 +31,7 @@ class Puzzle_2017_03: PuzzleBaseClass {
         case LEFT
         case RIGHT
     }
-    
+
     func buildPart1Spiral(limit: Int) -> Array<Point2D> {
         var leftExtreme = 0
         var rightExtreme = 0
@@ -76,10 +73,10 @@ class Puzzle_2017_03: PuzzleBaseClass {
                     advanceDirection = .RIGHT
                 }
             }
-            
+
             idx = idx + 1
         }
-        
+
         return arr
     }
 
@@ -91,7 +88,7 @@ class Puzzle_2017_03: PuzzleBaseClass {
             positions.append(Point2D(x: idx, y: origin.y - 1))
             positions.append(Point2D(x: idx, y: origin.y + 1))
         }
-        
+
         positions.append(Point2D(x: origin.x - 1, y: origin.y))
         positions.append(Point2D(x: origin.x + 1, y: origin.y))
 
@@ -100,7 +97,7 @@ class Puzzle_2017_03: PuzzleBaseClass {
                 total = total + dict[p]!
             }
         }
-        
+
         return total
     }
     
@@ -112,7 +109,7 @@ class Puzzle_2017_03: PuzzleBaseClass {
         var currentPosition = Point2D(x: 0, y: 0)
         
         var advanceDirection = ADVANCE_DIRECTION.RIGHT
-        
+
         var dict: Dictionary<Point2D, Int> = [:]
         var cellValue = 0
         while cellValue <= limit {
@@ -120,9 +117,9 @@ class Puzzle_2017_03: PuzzleBaseClass {
             if cellValue == 0 {
                 cellValue = 1
             }
-            
+
             dict[currentPosition] = cellValue
-            
+
             if advanceDirection == .RIGHT {
                 currentPosition.x = currentPosition.x + 1
                 if currentPosition.x > rightExtreme {
@@ -149,14 +146,11 @@ class Puzzle_2017_03: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return cellValue
     }
-
 }
 
 private class Puzzle_2017_03_Input: NSObject {
-
     static let puzzleInput = 277678
-
 }
