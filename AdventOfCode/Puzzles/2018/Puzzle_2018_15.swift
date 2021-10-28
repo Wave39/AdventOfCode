@@ -64,10 +64,11 @@ class Puzzle_2018_15: NSObject {
         case wall = "#", open = ".", elf = "E", goblin = "G"
     }
 
+    enum Race: Character {
+        case elf = "E", goblin = "G"
+    }
+
     class Being {
-        enum Race: Character {
-            case elf = "E", goblin = "G"
-        }
         var race: Race
         var coord: Point
         var attackPower = 3
@@ -159,7 +160,7 @@ class Puzzle_2018_15: NSObject {
 
         let input = str.split(separator: "\n").enumerated().map { y, line in
             line.enumerated().compactMap { x, space -> Space? in
-                if let race = Being.Race(rawValue: space) {
+                if let race = Race(rawValue: space) {
                     beings.append(Being(race: race, at: Point(x: x, y: y), attack: 3))
                 }
                 return Space(rawValue: space)

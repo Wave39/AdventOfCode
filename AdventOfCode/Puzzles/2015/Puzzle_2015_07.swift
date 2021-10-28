@@ -39,11 +39,7 @@ class Puzzle_2015_07: PuzzleBaseClass {
                 return true
             }
 
-            if let _ = wireDictionary[theString] {
-                return true
-            } else {
-                return false
-            }
+            return wireDictionary[theString] != nil
         }
 
         func wireValue(_ wireNameOrValue: String) -> UInt16 {
