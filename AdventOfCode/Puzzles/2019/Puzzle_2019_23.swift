@@ -14,12 +14,12 @@ import Foundation
 final class LockObject_2019_23 {}
 let lock_2019_23 = LockObject_2019_23()
 
-class Puzzle_2019_23 : PuzzleBaseClass {
+class Puzzle_2019_23: PuzzleBaseClass {
 
     func solve() {
         let part1and2 = solveBothParts()
-        print ("Part 1 solution: \(part1and2.0)")
-        print ("Part 2 solution: \(part1and2.1)")
+        print("Part 1 solution: \(part1and2.0)")
+        print("Part 2 solution: \(part1and2.1)")
     }
 
     func solveBothParts() -> (Int, Int) {
@@ -218,7 +218,7 @@ fileprivate class IntcodeComputer {
                 programCounter += 2
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
-                //print ("A\(address) Output: \(p1)")
+                //print("A\(address) Output: \(p1)")
                 outputArray.append(p1)
                 if outputArray.count == 3 {
                     //outputArray.append(address)
@@ -254,12 +254,12 @@ fileprivate class IntcodeComputer {
                 relativeBase += p1
                 programCounter += 2
             } else {
-                print ("A\(address) Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("A\(address) Unknown opcode \(opcode) at program counter \(programCounter)")
                 return false
             }
         }
         
-        print ("A\(address) computer has finished")
+        print("A\(address) computer has finished")
         return true
     }
 

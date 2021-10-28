@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2019_07 : PuzzleBaseClass {
+class Puzzle_2019_07: PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
     
     func solvePart1() -> Int {
@@ -55,7 +55,7 @@ class Puzzle_2019_07 : PuzzleBaseClass {
                 programCounter += 2
             } else if opcode == 4 {
                 retval = GetValue(immediateC, p1)
-                //print (retval)
+                //print(retval)
                 programCounter += 2
             } else if opcode == 5 {
                 if GetValue(immediateC, p1) != 0 {
@@ -76,7 +76,7 @@ class Puzzle_2019_07 : PuzzleBaseClass {
                 arr[p3] = (GetValue(immediateC, p1) == GetValue(immediateB, p2) ? 1 : 0)
                 programCounter += 4
             } else {
-                print ("Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("Unknown opcode \(opcode) at program counter \(programCounter)")
             }
         }
         
@@ -108,7 +108,7 @@ class Puzzle_2019_07 : PuzzleBaseClass {
                 programCounter += 2
             } else if opcode == 4 {
                 retval = GetValue(immediateC, p1)
-                //print (retval)
+                //print(retval)
                 programCounter += 2
                 return (retval, false)
             } else if opcode == 5 {
@@ -130,7 +130,7 @@ class Puzzle_2019_07 : PuzzleBaseClass {
                 program[p3] = (GetValue(immediateC, p1) == GetValue(immediateB, p2) ? 1 : 0)
                 programCounter += 4
             } else {
-                print ("Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("Unknown opcode \(opcode) at program counter \(programCounter)")
             }
         }
         

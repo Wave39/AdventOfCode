@@ -15,14 +15,14 @@ fileprivate class Program {
     var otherPrograms: [String] = []
 }
 
-class Puzzle_2017_07 : PuzzleBaseClass {
+class Puzzle_2017_07: PuzzleBaseClass {
 
     fileprivate var puzzleInput: [Program] = []
     
     func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
-        print ("Part 1 solution: \(part1Solution)")
-        print ("Part 2 solution: \(part2Solution)")
+        print("Part 1 solution: \(part1Solution)")
+        print("Part 2 solution: \(part2Solution)")
     }
 
     func solveBothParts() -> (String, Int) {

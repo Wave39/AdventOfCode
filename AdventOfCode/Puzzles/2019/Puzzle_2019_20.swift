@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2019_20 : PuzzleBaseClass {
+class Puzzle_2019_20: PuzzleBaseClass {
 
     enum Tile : Hashable, CustomStringConvertible, LosslessStringConvertible {
         init(_ value: String) {
@@ -51,10 +51,10 @@ class Puzzle_2019_20 : PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {
@@ -73,7 +73,7 @@ class Puzzle_2019_20 : PuzzleBaseClass {
                 str += tile.description
             }
             
-            print (str)
+            print(str)
         }
     }
     
@@ -219,7 +219,7 @@ class Puzzle_2019_20 : PuzzleBaseClass {
         let board = parseBoard(arr)
         //printBoard(board)
         
-//        print ("optimize:")
+//        print("optimize:")
 //        optimizeBoard(board: &board)
 //        printBoard(board)
   
@@ -276,7 +276,7 @@ class Puzzle_2019_20 : PuzzleBaseClass {
             
             locations = nextLocations
 
-//            print ("\(stepCount) steps puts you at next: \(nextLocations)")
+//            print("\(stepCount) steps puts you at next: \(nextLocations)")
 //            var newBoard = board
 //            for loc in locations {
 //                newBoard[loc.y][loc.x] = .visited
@@ -293,7 +293,7 @@ class Puzzle_2019_20 : PuzzleBaseClass {
         var board = parseBoard(arr)
         //printBoard(board)
         
-//        print ("optimize:")
+//        print("optimize:")
         optimizeBoard(board: &board)
 //        printBoard(board)
   
@@ -354,7 +354,7 @@ class Puzzle_2019_20 : PuzzleBaseClass {
             
             locations = nextLocations
 
-//            print ("\(stepCount) steps puts you at next: \(nextLocations)")
+//            print("\(stepCount) steps puts you at next: \(nextLocations)")
 //            var newBoard = board
 //            for loc in locations {
 //                newBoard[loc.y][loc.x] = .visited

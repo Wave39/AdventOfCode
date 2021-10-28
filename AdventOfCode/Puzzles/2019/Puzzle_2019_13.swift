@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2019_13 : PuzzleBaseClass {
+class Puzzle_2019_13: PuzzleBaseClass {
 
     enum TileType: Int {
         case Empty = 0
@@ -20,10 +20,10 @@ class Puzzle_2019_13 : PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {
@@ -136,7 +136,7 @@ class Puzzle_2019_13 : PuzzleBaseClass {
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
                 outputArray.append(p1)
-                //print (retval)
+                //print(retval)
                 programCounter += 2
                 if outputArray.count >= 3 && outputArray.count % 3 == 0 {
                     let c = outputArray.count
@@ -171,7 +171,7 @@ class Puzzle_2019_13 : PuzzleBaseClass {
                 relativeBase += p1
                 programCounter += 2
             } else {
-                print ("Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("Unknown opcode \(opcode) at program counter \(programCounter)")
                 return ([], false)
             }
         }
@@ -235,21 +235,21 @@ class Puzzle_2019_13 : PuzzleBaseClass {
                 } else if tileValues[idx] == 4 {
                     c = "O"
                 } else {
-                    print ("Invalid tile value")
+                    print("Invalid tile value")
                 }
                 
                 board[yValues[idx]][xValues[idx]] = c
             }
         }
         
-        print ("Score: \(score)")
+        print("Score: \(score)")
         for y in 0...25 {
             var lineString = ""
             for x in 0...39 {
                 lineString += String(board[y][x])
             }
             
-            print (lineString)
+            print(lineString)
         }
     }
     

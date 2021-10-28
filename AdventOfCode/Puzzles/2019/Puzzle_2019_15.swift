@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2019_15 : PuzzleBaseClass {
+class Puzzle_2019_15: PuzzleBaseClass {
 
     var globalRenderFlag = false
     
@@ -48,10 +48,10 @@ class Puzzle_2019_15 : PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
        
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func ProcessProgram(program: inout [Int], inputSignal: Int, programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> (Int, Bool) {
@@ -150,7 +150,7 @@ class Puzzle_2019_15 : PuzzleBaseClass {
                 programCounter += 2
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
-                //print (retval)
+                //print(retval)
                 programCounter += 2
                 return (p1, true)
             } else if opcode == 5 {
@@ -180,7 +180,7 @@ class Puzzle_2019_15 : PuzzleBaseClass {
                 relativeBase += p1
                 programCounter += 2
             } else {
-                print ("Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("Unknown opcode \(opcode) at program counter \(programCounter)")
                 return (-2, false)
             }
         }
@@ -201,7 +201,7 @@ class Puzzle_2019_15 : PuzzleBaseClass {
         let maxX = k.map { $0.x }.max()!
         let minY = k.map { $0.y }.min()!
         let maxY = k.map { $0.y }.max()!
-        print ("")
+        print("")
         
         let w = maxX - minX + 1
         let h = maxY - minY + 1
@@ -237,7 +237,7 @@ class Puzzle_2019_15 : PuzzleBaseClass {
         }
         
         for line in board {
-            print (String(line))
+            print(String(line))
         }
     }
     

@@ -8,17 +8,17 @@
 
 import Foundation
 
-class Puzzle_2019_04 : PuzzleBaseClass {
+class Puzzle_2019_04: PuzzleBaseClass {
 
     func solve() {
         let startingValue = 134564
         let endingValue = 585159
         
         let part1 = solvePart1(from: startingValue, to: endingValue)
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2(from: startingValue, to: endingValue)
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func IsValidPassword(password: Int, isPart2: Bool) -> Bool {

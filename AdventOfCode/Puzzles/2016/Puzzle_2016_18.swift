@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Puzzle_2016_18 : PuzzleBaseClass {
-
+class Puzzle_2016_18: PuzzleBaseClass {
     enum TileType {
         case Trap
         case Safe
@@ -17,8 +16,8 @@ class Puzzle_2016_18 : PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solveBothParts() -> (Int, Int) {
@@ -90,7 +89,7 @@ class Puzzle_2016_18 : PuzzleBaseClass {
                 lastRow = nextRow
                 rowsProcessed += 1
         //        if rowsProcessed % 1000 == 0 {    // put this back in if you want to see how fast it is going
-        //            print (rowsProcessed)
+        //            print(rowsProcessed)
         //        }
             }
             
@@ -102,5 +101,4 @@ class Puzzle_2016_18 : PuzzleBaseClass {
         let part2Solution = getSafeTileCount(startingRow: startingRow, numberOfRows: 400000)
         return (part1Solution, part2Solution)
     }
-
 }

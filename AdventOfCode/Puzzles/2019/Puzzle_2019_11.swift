@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2019_11 : PuzzleBaseClass {
+class Puzzle_2019_11: PuzzleBaseClass {
 
     enum PaintColor {
         case Black
@@ -17,15 +17,15 @@ class Puzzle_2019_11 : PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution:")
+        print("Part 2 solution:")
         var lineString = ""
         for c in part2.0 {
             lineString = lineString + String(c)
             if lineString.count == part2.1.x {
-                print (lineString)
+                print(lineString)
                 lineString = ""
             }
         }
@@ -128,7 +128,7 @@ class Puzzle_2019_11 : PuzzleBaseClass {
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
                 outputArray.append(p1)
-                //print (retval)
+                //print(retval)
                 programCounter += 2
                 if outputArray.count == 2 {
                     return (outputArray, false)
@@ -160,7 +160,7 @@ class Puzzle_2019_11 : PuzzleBaseClass {
                 relativeBase += p1
                 programCounter += 2
             } else {
-                print ("Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("Unknown opcode \(opcode) at program counter \(programCounter)")
                 return ([], true)
             }
         }
@@ -266,7 +266,7 @@ class Puzzle_2019_11 : PuzzleBaseClass {
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
                 outputArray.append(p1)
-                //print (retval)
+                //print(retval)
                 programCounter += 2
                 if outputArray.count == 2 {
                     return (outputArray, false)
@@ -298,7 +298,7 @@ class Puzzle_2019_11 : PuzzleBaseClass {
                 relativeBase += p1
                 programCounter += 2
             } else {
-                print ("Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("Unknown opcode \(opcode) at program counter \(programCounter)")
                 return ([], true)
             }
         }

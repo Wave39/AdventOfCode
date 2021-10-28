@@ -12,8 +12,8 @@ class Puzzle_2018_14: NSObject {
 
     func solve() {
         let solution = solveBothParts()
-        print ("Part 1 solution: \(solution.0)")
-        print ("Part 2 solution: \(solution.1)")
+        print("Part 1 solution: \(solution.0)")
+        print("Part 2 solution: \(solution.1)")
     }
 
     func solveBothParts() -> (String, Int) {

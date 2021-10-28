@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2017_14 : PuzzleBaseClass {
+class Puzzle_2017_14: PuzzleBaseClass {
 
     var elementArray: [Int] = []
 
     func solve() {
         let solution = solveBothParts()
-        print ("Part 1 solution: \(solution.0)")
-        print ("Part 2 solution: \(solution.1)")
+        print("Part 1 solution: \(solution.0)")
+        print("Part 2 solution: \(solution.1)")
     }
     
     func solveBothParts() -> (Int, Int) {
@@ -77,7 +77,7 @@ class Puzzle_2017_14 : PuzzleBaseClass {
     
     func printArray(arr: [String], rows: Int, cols: Int) {
         for idx in 0..<rows {
-            print (arr[idx].substring(from: 0, to: cols))
+            print(arr[idx].substring(from: 0, to: cols))
         }
     }
     

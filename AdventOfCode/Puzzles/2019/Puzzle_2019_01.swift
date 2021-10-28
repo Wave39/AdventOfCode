@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2019_01 : PuzzleBaseClass {
+class Puzzle_2019_01: PuzzleBaseClass {
     
     func CalculateFuel(mass: Int) -> Int {
         return Int(floor(Double(mass) / 3.0) - 2)
@@ -16,10 +16,10 @@ class Puzzle_2019_01 : PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
     
     func solvePart1() -> Int {

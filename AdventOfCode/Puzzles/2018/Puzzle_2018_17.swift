@@ -251,9 +251,9 @@ class Puzzle_2018_17: NSObject {
 //        //print(groundToString(ground))
 //
 //        let part1 = solvePart1()
-//        print ("Part 1 solution: \(part1)")
+//        print("Part 1 solution: \(part1)")
 //        //let part2 = solvePart2(originalSamples: samples, testProgram: testProgram)
-//        //print ("Part 2 solution: \(part2)")
+//        //print("Part 2 solution: \(part2)")
 //    }
 //
 //    func groundToString(_ ground: [[Character]]) -> String {

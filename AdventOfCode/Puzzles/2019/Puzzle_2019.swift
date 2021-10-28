@@ -63,7 +63,7 @@ class Puzzle_2019 {
         } else if puzzleNumber == 25 {
             Puzzle_2019_25().solve()
         } else {
-            print ("The puzzle number \(puzzleNumber) was not found.")
+            print("The puzzle number \(puzzleNumber) was not found.")
         }
         
     }
@@ -72,14 +72,14 @@ class Puzzle_2019 {
 
 // template for new puzzle classes
 
-class Puzzle_2019_XX : PuzzleBaseClass {
+class Puzzle_2019_XX: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {

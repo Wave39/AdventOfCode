@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2017_25 : PuzzleBaseClass {
+class Puzzle_2017_25: PuzzleBaseClass {
 
     struct Substep {
         var newValue: Int = 0
@@ -27,7 +27,7 @@ class Puzzle_2017_25 : PuzzleBaseClass {
 
     func solve() {
         let solution = solvePart1()
-        print ("Part 1 solution: \(solution)")
+        print("Part 1 solution: \(solution)")
     }
 
     func solvePart1() -> Int {

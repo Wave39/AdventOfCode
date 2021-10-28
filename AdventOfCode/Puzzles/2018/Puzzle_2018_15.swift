@@ -202,9 +202,9 @@ class Puzzle_2018_15: NSObject {
         let puzzleInput = Puzzle_2018_15_Input.puzzleInput
 
         let part1 = solvePart1(str: puzzleInput)
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         //let part2 = solvePart2(str: puzzleInput)
-        //print ("Part 2 solution: \(part2)")
+        //print("Part 2 solution: \(part2)")
     }
 
     func playfieldToString(_ playfield: [[Character]], _ units: [Unit]?) -> String {
@@ -390,7 +390,7 @@ class Puzzle_2018_15: NSObject {
                     if targetsInRange.count > 0 {
                         let minHitPoints = targetsInRange.map { $0.hitPoints }.min()
                         let attackTargets = targetsInRange.filter { $0.hitPoints == minHitPoints }.sorted(by: unitReadingOrder)
-                        //print ("Targets to attack: \(attackTargets)")
+                        //print("Targets to attack: \(attackTargets)")
                         attackTargets[0].hitPoints -= unit.attackPower
                     }
                 }
@@ -402,7 +402,7 @@ class Puzzle_2018_15: NSObject {
             print("After round: \(roundsCompleted)")
             print(playfieldToString(playfield, units))
             print("Units: \(units.sorted(by: unitReadingOrder))")
-            print ("====================================================================================")
+            print("====================================================================================")
 
             // remove dead units
         } while !gameOver

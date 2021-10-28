@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2017_02 : PuzzleBaseClass {
+class Puzzle_2017_02: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
     
     func solvePart1() -> Int {
@@ -46,7 +46,7 @@ class Puzzle_2017_02 : PuzzleBaseClass {
             
             total = total + (maxValue - minValue)
         }
-        
+
         return total
     }
 
@@ -61,7 +61,7 @@ class Puzzle_2017_02 : PuzzleBaseClass {
                     e2 = t
                 }
                 
-                if (e1 % e2 == 0) {
+                if e1 % e2 == 0 {
                     return (e1, e2)
                 }
             }
@@ -69,7 +69,7 @@ class Puzzle_2017_02 : PuzzleBaseClass {
         
         return (0, 0)
     }
-    
+
     func solvePart2(str: String) -> Int {
         var total = 0
         let matrix = str.parseIntoMatrix()
@@ -80,29 +80,24 @@ class Puzzle_2017_02 : PuzzleBaseClass {
         
         return total
     }
-
 }
 
 private class Puzzle_2017_02_Input: NSObject {
-
     static let puzzleInput_test1 =
-        
 """
 5 1 9 5
 7 5 3
 2 4 6 8
 """
-    
+
     static let puzzleInput_test2 =
-        
 """
 5 9 2 8
 9 4 7 3
 3 8 6 5
 """
-    
+
     static let puzzleInput =
-    
 """
 86    440    233    83    393    420    228    491    159    13    110    135    97    238    92    396
 3646    3952    3430    145    1574    2722    3565    125    3303    843    152    1095    3805    134    3873    3024
@@ -121,5 +116,4 @@ private class Puzzle_2017_02_Input: NSObject {
 286    2076    243    939    399    451    231    2187    2295    453    1206    2468    2183    230    714    681
 3111    2857    2312    3230    149    3082    408    1148    2428    134    147    620    128    157    492    2879
 """
-    
 }

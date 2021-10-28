@@ -32,7 +32,7 @@ class Puzzle_2018_25: NSObject {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
     }
     
     func solvePart1() -> Int {

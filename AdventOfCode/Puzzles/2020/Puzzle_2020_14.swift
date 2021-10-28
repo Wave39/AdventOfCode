@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2020_14 : PuzzleBaseClass {
+class Puzzle_2020_14: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {
@@ -65,7 +65,7 @@ class Puzzle_2020_14 : PuzzleBaseClass {
                 
                 memoryValues[addr] = Int(newBinaryValue, radix: 2)!
             } else {
-                print ("Unknown input: \(arr[0])")
+                print("Unknown input: \(arr[0])")
             }
         }
         
@@ -126,7 +126,7 @@ class Puzzle_2020_14 : PuzzleBaseClass {
                     memoryValues[addr] = value
                 }
             } else {
-                print ("Unknown input: \(arr[0])")
+                print("Unknown input: \(arr[0])")
             }
         }
         

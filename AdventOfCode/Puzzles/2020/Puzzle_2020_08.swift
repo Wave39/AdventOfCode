@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2020_08 : PuzzleBaseClass {
+class Puzzle_2020_08: PuzzleBaseClass {
 
     enum InstructionType {
         case NOP
@@ -23,7 +23,7 @@ class Puzzle_2020_08 : PuzzleBaseClass {
             } else if str == "jmp" {
                 return JMP
             } else {
-                print ("Parsing error: Unknown instruction type: \(str)")
+                print("Parsing error: Unknown instruction type: \(str)")
                 return NOP
             }
         }
@@ -38,10 +38,10 @@ class Puzzle_2020_08 : PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {
@@ -81,7 +81,7 @@ class Puzzle_2020_08 : PuzzleBaseClass {
             } else if instruction.opcode == .JMP {
                 programCounter += instruction.offset
             } else {
-                print ("Execution error: Unknown instruction opcode: \(instruction.opcode)")
+                print("Execution error: Unknown instruction opcode: \(instruction.opcode)")
                 programCounter += 1
             }
             
@@ -118,7 +118,7 @@ class Puzzle_2020_08 : PuzzleBaseClass {
             }
         }
         
-        print ("The matching condition was not found, something is wrong.")
+        print("The matching condition was not found, something is wrong.")
         return -1
     }
     

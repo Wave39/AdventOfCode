@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2020_22 : PuzzleBaseClass {
+class Puzzle_2020_22: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {
@@ -69,7 +69,7 @@ class Puzzle_2020_22 : PuzzleBaseClass {
                 player2.append(player2Card)
                 player2.append(player1Card)
             } else {
-                print ("Tie!")
+                print("Tie!")
             }
         }
         
@@ -116,7 +116,7 @@ class Puzzle_2020_22 : PuzzleBaseClass {
                     } else if player2Card > player1Card {
                         winningPlayer = 2
                     } else {
-                        print ("Tie!")
+                        print("Tie!")
                     }
                 }
                 

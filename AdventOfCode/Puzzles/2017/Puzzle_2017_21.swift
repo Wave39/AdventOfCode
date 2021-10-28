@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2017_21 : PuzzleBaseClass {
+class Puzzle_2017_21: PuzzleBaseClass {
 
     func getCharacterAt(arr: [[Character]], x: Int, y: Int) -> Character {
         return arr[y][x]
@@ -34,7 +34,7 @@ class Puzzle_2017_21 : PuzzleBaseClass {
                 s += String(c)
             }
             
-            print (s)
+            print(s)
         }
     }
     
@@ -143,8 +143,8 @@ class Puzzle_2017_21 : PuzzleBaseClass {
     
     func solve() {
         let solution = solveBothParts()
-        print ("Part 1 solution: \(solution.0)")
-        print ("Part 2 solution: \(solution.1)")
+        print("Part 1 solution: \(solution.0)")
+        print("Part 2 solution: \(solution.1)")
     }
     
     func solveBothParts() -> (Int, Int) {

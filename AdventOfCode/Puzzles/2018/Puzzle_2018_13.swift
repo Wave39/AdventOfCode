@@ -63,8 +63,8 @@ class Puzzle_2018_13: NSObject {
     
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
     
     func solveBothParts() -> ((Int, Int), (Int, Int)) {

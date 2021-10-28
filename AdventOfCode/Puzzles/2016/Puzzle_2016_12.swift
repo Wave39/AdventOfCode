@@ -44,7 +44,7 @@ class Puzzle_2016_12: PuzzleBaseClass {
                 } else {
                     registerValue = registers[reg]!
                 }
-                
+
                 if registerValue != 0 {
                     programCounter += Int(arr[2])!
                 } else {

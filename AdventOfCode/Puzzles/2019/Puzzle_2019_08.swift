@@ -8,19 +8,19 @@
 
 import Foundation
 
-class Puzzle_2019_08 : PuzzleBaseClass {
+class Puzzle_2019_08: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution:")
+        print("Part 2 solution:")
         var lineString = ""
         for c in part2 {
             lineString += (c == "0" ? "." : "#")
             if lineString.count == 25 {
-                print (lineString)
+                print(lineString)
                 lineString = ""
             }
         }

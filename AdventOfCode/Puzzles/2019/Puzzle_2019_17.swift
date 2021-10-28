@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2019_17 : PuzzleBaseClass {
+class Puzzle_2019_17: PuzzleBaseClass {
 
     enum TileType: Int {
         case Path = 35
@@ -26,10 +26,10 @@ class Puzzle_2019_17 : PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {
@@ -64,7 +64,7 @@ class Puzzle_2019_17 : PuzzleBaseClass {
         // these lines of code print out the representation of the world
 //        let resultsString = String(results.0.map { Character(UnicodeScalar($0)!) })
 //        let resultsLines = resultsString.components(separatedBy: "\n").filter { $0.count > 0 }
-//        print (resultsLines.joined(separator: "\n"))
+//        print(resultsLines.joined(separator: "\n"))
         
         let height = board.count
         let width = board[0].count
@@ -432,7 +432,7 @@ class Puzzle_2019_17 : PuzzleBaseClass {
                 programCounter += 4
             } else if opcode == 3 {
                 if inputSignal.count == 0 {
-                    print ("Ran out of input")
+                    print("Ran out of input")
                     return ([], false)
                 }
                 
@@ -442,7 +442,7 @@ class Puzzle_2019_17 : PuzzleBaseClass {
                 programCounter += 2
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
-                //print (p1)
+                //print(p1)
                 outputArray.append(p1)
                 programCounter += 2
             } else if opcode == 5 {
@@ -472,7 +472,7 @@ class Puzzle_2019_17 : PuzzleBaseClass {
                 relativeBase += p1
                 programCounter += 2
             } else {
-                print ("Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("Unknown opcode \(opcode) at program counter \(programCounter)")
                 return ([], false)
             }
         }

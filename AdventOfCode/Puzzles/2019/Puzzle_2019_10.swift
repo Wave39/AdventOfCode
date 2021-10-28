@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2019_10 : PuzzleBaseClass {
+class Puzzle_2019_10: PuzzleBaseClass {
 
     enum SectorType {
         case Asteroid
@@ -17,10 +17,10 @@ class Puzzle_2019_10 : PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1.0)")
+        print("Part 1 solution: \(part1.0)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> (Int, Point2D) {

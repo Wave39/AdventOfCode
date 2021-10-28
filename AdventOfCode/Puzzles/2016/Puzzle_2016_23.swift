@@ -8,12 +8,11 @@
 
 import Foundation
 
-class Puzzle_2016_23 : PuzzleBaseClass {
-
+class Puzzle_2016_23: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solveBothParts() -> (Int, Int) {
@@ -106,7 +105,7 @@ class Puzzle_2016_23 : PuzzleBaseClass {
                         
                         instructionArray[programCounterToModify] = instructionToModify
                     }
-                    
+
                     programCounter += 1
                 } else if instruction.opcode == .mul {
                     let p1 = instruction.param1
@@ -117,7 +116,7 @@ class Puzzle_2016_23 : PuzzleBaseClass {
                     registers[p3.registerIndex!] = p1Value * p2Value
                     programCounter += 1
                 } else {
-                    print ("Unknown instruction: \(instruction)")
+                    print("Unknown instruction: \(instruction)")
                     programCounter += 1
                 }
             }
@@ -126,7 +125,7 @@ class Puzzle_2016_23 : PuzzleBaseClass {
         }
 
         func buildParam(inputString: String) -> Param? {
-            var p: Param? = nil
+            var p: Param?
             if inputString.isStringNumeric() {
                 p = Param(numericValue: Int(inputString)!, registerIndex: nil)
             } else {
@@ -140,7 +139,7 @@ class Puzzle_2016_23 : PuzzleBaseClass {
                 } else {
                     idx = 3
                 }
-                
+
                 p = Param(numericValue: nil, registerIndex: idx)
             }
             
@@ -153,9 +152,9 @@ class Puzzle_2016_23 : PuzzleBaseClass {
             for line in lineArray {
                 let c = line.components(separatedBy: " ")
                 let op: Opcode?
-                var p1: Param? = nil
-                var p2: Param? = nil
-                var p3: Param? = nil
+                var p1: Param?
+                var p2: Param?
+                var p3: Param?
                 if c[0] == "cpy" {
                     op = .cpy
                 } else if c[0] == "inc" {
@@ -171,7 +170,7 @@ class Puzzle_2016_23 : PuzzleBaseClass {
                 }
                 
                 p1 = buildParam(inputString: c[1])
-                
+
                 if c.count >= 3 {
                     p2 = buildParam(inputString: c[2])
                 }
@@ -179,7 +178,7 @@ class Puzzle_2016_23 : PuzzleBaseClass {
                 if c.count >= 4 {
                     p3 = buildParam(inputString: c[3])
                 }
-                
+
                 let newInstruction = Instruction(opcode: op!, param1: p1!, param2: p2, param3: p3)
                 instructionSet.append(newInstruction)
             }
@@ -199,13 +198,10 @@ class Puzzle_2016_23 : PuzzleBaseClass {
         
         return (part1Solution, part2Solution)
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let final = "cpy a b~dec b~cpy a d~cpy 0 a~cpy b c~inc a~dec c~jnz c -2~dec d~jnz d -5~dec b~cpy b c~cpy c d~dec d~inc c~jnz d -2~tgl c~cpy -16 c~jnz 1 c~cpy 98 c~jnz 91 d~inc a~inc d~jnz d -2~inc c~jnz c -5"
 
     static let finalOptimized = "cpy a b~dec b~cpy a d~cpy 0 a~mul b d a~cpy 0 c~cpy 0 d~jnz 0 0~jnz 0 0~jnz 0 0~dec b~cpy b c~cpy c d~dec d~inc c~jnz d -2~tgl c~cpy -16 c~jnz 1 c~cpy 98 c~jnz 91 d~inc a~inc d~jnz d -2~inc c~jnz c -5"
-
 }

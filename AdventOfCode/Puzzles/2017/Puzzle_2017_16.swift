@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2017_16 : PuzzleBaseClass {
+class Puzzle_2017_16: PuzzleBaseClass {
 
     enum CommandType {
         case Spin
@@ -28,10 +28,10 @@ class Puzzle_2017_16 : PuzzleBaseClass {
     
     func solve() {
         let part1Solution = solvePart1()
-        print ("Part 1 solution: \(part1Solution)")
+        print("Part 1 solution: \(part1Solution)")
         
         let part2Solution = solvePart2()
-        print ("Part 2 solution: \(part2Solution)")
+        print("Part 2 solution: \(part2Solution)")
     }
 
     func solvePart1() -> String {

@@ -23,11 +23,11 @@ class Puzzle_2016_05: PuzzleBaseClass {
         while part1Password.count < 8 || part2Password.contains("-") {
             let md5String = "\(part1Prefix)\(idx)".md5
             if md5String.hasPrefix("00000") {
-                // print ("On index \(idx) the MD5 hash is \(md5String)")
+                // print("On index \(idx) the MD5 hash is \(md5String)")
                 let sixthChar = md5String[5]
                 if part1Password.count < 8 {
                     part1Password += "\(sixthChar)"
-                    // print ("Part 1 password becomes \(part1Password)")
+                    // print("Part 1 password becomes \(part1Password)")
                 }
 
                 if sixthChar >= "0" && sixthChar <= "7" {
@@ -35,7 +35,7 @@ class Puzzle_2016_05: PuzzleBaseClass {
                     if part2Password[pos!] == "-" {
                         let seventhChar = md5String[6]
                         part2Password = part2Password.replace(index: pos!, newChar: seventhChar)
-                        // print ("Part 2 password becomes \(part2Password)")
+                        // print("Part 2 password becomes \(part2Password)")
                     }
                 }
             }

@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2019_09 : PuzzleBaseClass {
+class Puzzle_2019_09: PuzzleBaseClass {
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
     
     func solvePart1() -> Int {
@@ -116,7 +116,7 @@ class Puzzle_2019_09 : PuzzleBaseClass {
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
                 retval = p1
-                //print (retval)
+                //print(retval)
                 programCounter += 2
             } else if opcode == 5 {
                 SetParameterValues(2, 0)
@@ -145,7 +145,7 @@ class Puzzle_2019_09 : PuzzleBaseClass {
                 relativeBase += p1
                 programCounter += 2
             } else {
-                print ("Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("Unknown opcode \(opcode) at program counter \(programCounter)")
                 return -1
             }
         }

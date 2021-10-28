@@ -122,7 +122,7 @@ class Puzzle_2018_24: NSObject {
     }
     
     func solve() {
-        print ("My solution is not working, so :P")
+        print("My solution is not working, so :P")
     }
     
     func solve_notworking() {
@@ -131,9 +131,9 @@ class Puzzle_2018_24: NSObject {
         let groups = parseGroups(str: puzzleInput)
         
         let part1 = solvePart1(groups: groups)
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         let part2 = solvePart2(groups: groups)
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
     
     func effectivePowerDescInitiativeDescOrder(left: Group, right: Group) -> Bool {

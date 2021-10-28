@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2016_14 : PuzzleBaseClass {
+class Puzzle_2016_14: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInput = "qzyelonm"
 
@@ -51,7 +51,7 @@ class Puzzle_2016_14 : PuzzleBaseClass {
                 if hashDictionary[index] == nil {
                     hashDictionary[index] = MD5ForIndex(inputString: inputString, index: index, stretch: stretch)
                 }
-                
+
                 return hashDictionary[index]!
             }
             
@@ -82,5 +82,4 @@ class Puzzle_2016_14 : PuzzleBaseClass {
         let part2Solution = findMatches(inputString: puzzleInput, stretch: true).last!
         return (part1Solution, part2Solution)
     }
-
 }

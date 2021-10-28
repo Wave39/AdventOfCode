@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2020_12 : PuzzleBaseClass {
+class Puzzle_2020_12: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {
@@ -99,7 +99,7 @@ class Puzzle_2020_12 : PuzzleBaseClass {
                 case "E":
                     movement = Point2D(x: amount, y: 0)
                 default:
-                    print ("Unknown opcode")
+                    print("Unknown opcode")
                     movement = Point2D()
                 }
                 
@@ -115,7 +115,7 @@ class Puzzle_2020_12 : PuzzleBaseClass {
                     }
                 }
             } else {
-                print ("Something bad happened")
+                print("Something bad happened")
             }
         }
         

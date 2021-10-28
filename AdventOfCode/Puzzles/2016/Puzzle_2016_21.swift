@@ -8,12 +8,11 @@
 
 import Foundation
 
-class Puzzle_2016_21 : PuzzleBaseClass {
-
+class Puzzle_2016_21: PuzzleBaseClass {
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solveBothParts() -> (String, String) {
@@ -49,7 +48,7 @@ class Puzzle_2016_21 : PuzzleBaseClass {
                         thePassword = thePassword.replace(index: p1!, newChar: c2)
                         thePassword = thePassword.replace(index: p2!, newChar: c1)
                     } else {
-                        print ("Invalid swap command: \(lineArr[1])")
+                        print("Invalid swap command: \(lineArr[1])")
                     }
                 } else if lineArr[0] == "reverse" {
                     let idx1 = Int(lineArr[2])!
@@ -80,7 +79,7 @@ class Puzzle_2016_21 : PuzzleBaseClass {
                         
                         thePassword.rotate(amount: amount, left: false)
                     } else {
-                        print ("Invalid rotate command: \(lineArr[1])")
+                        print("Invalid rotate command: \(lineArr[1])")
                     }
                 } else if lineArr[0] == "move" {
                     let idx1 = Int(lineArr[2])!
@@ -95,7 +94,7 @@ class Puzzle_2016_21 : PuzzleBaseClass {
                     }
                     thePassword = s1
                 } else {
-                    print ("Invalid command: \(lineArr[0])")
+                    print("Invalid command: \(lineArr[0])")
                 }
             }
         }
@@ -124,7 +123,7 @@ class Puzzle_2016_21 : PuzzleBaseClass {
                         thePassword = thePassword.replace(index: p1!, newChar: c2)
                         thePassword = thePassword.replace(index: p2!, newChar: c1)
                     } else {
-                        print ("Invalid swap command: \(lineArr[1])")
+                        print("Invalid swap command: \(lineArr[1])")
                     }
                 } else if lineArr[0] == "reverse" {
                     let idx1 = Int(lineArr[2])!
@@ -173,7 +172,7 @@ class Puzzle_2016_21 : PuzzleBaseClass {
                             thePassword.rotate(amount: amount, left: true)
                         }
                     } else {
-                        print ("Invalid rotate command: \(lineArr[1])")
+                        print("Invalid rotate command: \(lineArr[1])")
                     }
                 } else if lineArr[0] == "move" {
                     let idx1 = Int(lineArr[5])!
@@ -188,7 +187,7 @@ class Puzzle_2016_21 : PuzzleBaseClass {
                     }
                     thePassword = s1
                 } else {
-                    print ("Invalid command: \(lineArr[0])")
+                    print("Invalid command: \(lineArr[0])")
                 }
                 
                 lineCtr += 1
@@ -200,14 +199,12 @@ class Puzzle_2016_21 : PuzzleBaseClass {
         processArrayReverse(arr: arrReversed)
 
         let part2 = thePassword
-        
+
         return (part1, part2)
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let final = """
 reverse positions 1 through 6
 rotate based on position of letter a
@@ -310,6 +307,4 @@ rotate based on position of letter c
 rotate based on position of letter h
 move position 4 to position 7
 """
-
 }
-

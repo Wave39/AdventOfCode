@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Puzzle_2019_25 : PuzzleBaseClass {
+class Puzzle_2019_25: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
     }
 
     func solvePart1() -> String {
@@ -110,7 +110,7 @@ whirled peas
             let results = ProcessProgram(program: &arr, inputSignal: &inputSignal, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
             programFinished = results.0
             if programFinished {
-                //print (results.1)
+                //print(results.1)
                 let code = results.1.capturedGroups(withRegex: "You should be able to get in by typing (.*) on the keypad at the main airlock.", trimResults: true)
                 retval = code[0]
             } else {
@@ -140,7 +140,7 @@ whirled peas
 
                     bitmask += 1
                     if bitmask > 255 {
-                        print ("reached invalid bitmask")
+                        print("reached invalid bitmask")
                     }
                     
                     // this was code to allow for typing in of commands while experimenting
@@ -259,7 +259,7 @@ whirled peas
                 programCounter += 4
             } else if opcode == 3 {
                 if inputSignal.count == 0 {
-                    //print ("Ran out of input")
+                    //print("Ran out of input")
                     return (false, "")
                 }
                 
@@ -269,7 +269,7 @@ whirled peas
                 programCounter += 2
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
-                //print (Character(UnicodeScalar(p1)!), terminator:"")
+                //print(Character(UnicodeScalar(p1)!), terminator:"")
                 programCounter += 2
                 outputString += String(Character(UnicodeScalar(p1)!))
                 if outputString.hasSuffix("Command?") {
@@ -304,7 +304,7 @@ whirled peas
                 relativeBase += p1
                 programCounter += 2
             } else {
-                print ("Unknown opcode \(opcode) at program counter \(programCounter)")
+                print("Unknown opcode \(opcode) at program counter \(programCounter)")
                 return (false, "")
             }
         }

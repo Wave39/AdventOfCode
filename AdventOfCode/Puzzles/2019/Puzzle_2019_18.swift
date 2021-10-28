@@ -8,16 +8,16 @@
 
 import Foundation
 
-class Puzzle_2019_18 : PuzzleBaseClass {
+class Puzzle_2019_18: PuzzleBaseClass {
 
     // courtesy of https://github.com/gernb/AdventOfCode2019/tree/master/Day%2018
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {

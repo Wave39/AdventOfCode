@@ -8,16 +8,16 @@
 
 import Foundation
 
-class Puzzle_2019_03 : PuzzleBaseClass {
+class Puzzle_2019_03: PuzzleBaseClass {
 
     let originPoint = Point2D(x: 0, y: 0)
     
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {

@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Puzzle_2017_04 : PuzzleBaseClass {
+class Puzzle_2017_04: PuzzleBaseClass {
 
     func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
-        print ("Part 1 solution: \(part1Solution)")
-        print ("Part 2 solution: \(part2Solution)")
+        print("Part 1 solution: \(part1Solution)")
+        print("Part 2 solution: \(part2Solution)")
     }
 
     func solveBothParts() -> (Int, Int) {

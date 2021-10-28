@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2020_16 : PuzzleBaseClass {
+class Puzzle_2020_16: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
         
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {
@@ -80,7 +80,7 @@ class Puzzle_2020_16 : PuzzleBaseClass {
                 let rule = TicketRule(ruleName: arr[0], limit1: Int(arr[1])!, limit2: Int(arr[2])!, limit3: Int(arr[3])!, limit4: Int(arr[4])!)
                 ticketRules.append(rule)
             } else {
-                print ("Unknown line: \(line)")
+                print("Unknown line: \(line)")
             }
         }
         
@@ -137,7 +137,7 @@ class Puzzle_2020_16 : PuzzleBaseClass {
                 let rule = TicketRule(ruleName: arr[0], limit1: Int(arr[1])!, limit2: Int(arr[2])!, limit3: Int(arr[3])!, limit4: Int(arr[4])!)
                 ticketRules.append(rule)
             } else {
-                print ("Unknown line: \(line)")
+                print("Unknown line: \(line)")
             }
         }
         

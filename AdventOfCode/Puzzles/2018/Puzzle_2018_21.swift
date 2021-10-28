@@ -113,10 +113,10 @@ class Puzzle_2018_21: NSObject {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
-        print ("Please be patient, part 2 takes a very long time to run...")
+        print("Part 1 solution: \(part1)")
+        print("Please be patient, part 2 takes a very long time to run...")
         let part2 = solvePart2()
-        print ("Part 2 solution: \(part2)")
+        print("Part 2 solution: \(part2)")
     }
     
     func solvePart1() -> Int {

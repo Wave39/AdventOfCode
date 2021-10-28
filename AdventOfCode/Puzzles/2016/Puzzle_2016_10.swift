@@ -96,7 +96,7 @@ class Puzzle_2016_10: PuzzleBaseClass {
             if part1OutputBins[outputBinNumber] == nil {
                 part1OutputBins[outputBinNumber] = BotInfo()
             }
-            
+
             let bin = part1OutputBins[outputBinNumber]
             bin?.chips.append(chipNumber)
         }

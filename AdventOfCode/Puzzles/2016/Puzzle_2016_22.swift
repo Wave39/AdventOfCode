@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Puzzle_2016_22 : PuzzleBaseClass {
+class Puzzle_2016_22: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solveBothParts() -> (Int, Int) {
@@ -78,7 +78,7 @@ class Puzzle_2016_22 : PuzzleBaseClass {
                     }
                 }
                 
-                print (s)
+                print(s)
             }
         }
 
@@ -87,16 +87,14 @@ class Puzzle_2016_22 : PuzzleBaseClass {
             return 8 + 17 + 2 + 36 + 12 + (5 * 36) + 1
         }
 
-        //printArray(arr: clusterArray)
+        // printArray(arr: clusterArray)
 
         let part2Solution = findPart2Solution()
         return (part1Solution, part2Solution)
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let final = """
 /dev/grid/node-x0-y0     94T   72T    22T   76%
 /dev/grid/node-x0-y1     93T   72T    21T   77%
@@ -1087,6 +1085,4 @@ private class PuzzleInput: NSObject {
 /dev/grid/node-x37-y24   85T   65T    20T   76%
 /dev/grid/node-x37-y25   91T   66T    25T   72%
 """
-
 }
-

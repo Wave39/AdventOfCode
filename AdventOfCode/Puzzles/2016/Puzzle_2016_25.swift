@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Puzzle_2016_25 : PuzzleBaseClass {
+class Puzzle_2016_25: PuzzleBaseClass {
 
     func solve() {
         let part1 = solvePart1()
-        print ("Part 1 solution: \(part1)")
+        print("Part 1 solution: \(part1)")
     }
 
     func solvePart1() -> Int {
@@ -101,19 +101,19 @@ class Puzzle_2016_25 : PuzzleBaseClass {
                     if outputArray.count >= 100 {
                         leaveLoop = true
                     }
-                    
+
                     programCounter += 1
                 } else {
-                    print ("Unknown instruction: \(instruction)")
+                    print("Unknown instruction: \(instruction)")
                     programCounter += 1
                 }
             }
-            
+
             return outputArray
         }
 
         func buildParam(inputString: String) -> Param? {
-            var p: Param? = nil
+            var p: Param?
             if isStringNumeric(theString: inputString) {
                 p = Param(numericValue: Int(inputString)!, registerIndex: nil)
             } else {
@@ -127,21 +127,21 @@ class Puzzle_2016_25 : PuzzleBaseClass {
                 } else {
                     idx = 3
                 }
-                
+
                 p = Param(numericValue: nil, registerIndex: idx)
             }
-            
+
             return p
         }
 
         func buildInstructionSet(lineArray: [String]) -> [Instruction] {
             var instructionSet: [Instruction] = []
-            
+
             for line in lineArray {
                 let c = line.components(separatedBy: " ")
                 let op: Opcode?
-                var p1: Param? = nil
-                var p2: Param? = nil
+                var p1: Param?
+                var p2: Param?
                 if c[0] == "cpy" {
                     op = .cpy
                 } else if c[0] == "inc" {
@@ -153,17 +153,17 @@ class Puzzle_2016_25 : PuzzleBaseClass {
                 } else {
                     op = .out
                 }
-                
+
                 p1 = buildParam(inputString: c[1])
                 
                 if c.count >= 3 {
                     p2 = buildParam(inputString: c[2])
                 }
-                
+
                 let newInstruction = Instruction(opcode: op!, param1: p1!, param2: p2)
                 instructionSet.append(newInstruction)
             }
-            
+
             return instructionSet
         }
 
@@ -183,23 +183,19 @@ class Puzzle_2016_25 : PuzzleBaseClass {
                         ok = false
                     }
                 }
-                
+
                 if ok {
                     part1Solution = counter
                 }
             }
-            
+
             counter += 1
         }
 
         return part1Solution
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let final = "cpy a d~cpy 9 c~cpy 282 b~inc d~dec b~jnz b -2~dec c~jnz c -5~cpy d a~jnz 0 0~cpy a b~cpy 0 a~cpy 2 c~jnz b 2~jnz 1 6~dec b~dec c~jnz c -4~inc a~jnz 1 -7~cpy 2 b~jnz c 2~jnz 1 4~dec b~dec c~jnz 1 -4~jnz 0 0~out b~jnz a -19~jnz 1 -21"
-
 }
-

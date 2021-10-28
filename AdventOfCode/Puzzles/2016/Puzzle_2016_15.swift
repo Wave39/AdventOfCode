@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Puzzle_2016_15 : PuzzleBaseClass {
+class Puzzle_2016_15: PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
     
     func solveBothParts() -> (Int, Int) {
@@ -51,7 +51,7 @@ class Puzzle_2016_15 : PuzzleBaseClass {
                            DiscState(initialPosition: 17, size: 19),
                            DiscState(initialPosition: 1, size: 7),
                            DiscState(initialPosition: 0, size: 5),
-                           DiscState(initialPosition: 1, size: 3),
+                           DiscState(initialPosition: 1, size: 3)
         ]
         var part2Input = part1Input
         part2Input.append(DiscState(initialPosition: 0, size: 11))
@@ -60,5 +60,4 @@ class Puzzle_2016_15 : PuzzleBaseClass {
         let part2Solution = solve(discs: part2Input)
         return (part1Solution, part2Solution)
     }
-
 }

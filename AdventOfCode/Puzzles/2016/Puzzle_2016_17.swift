@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Puzzle_2016_17 : PuzzleBaseClass {
-
+class Puzzle_2016_17: PuzzleBaseClass {
     struct GameState {
         var currentX: Int
         var currentY: Int
@@ -18,8 +17,8 @@ class Puzzle_2016_17 : PuzzleBaseClass {
 
     func solve() {
         let (part1, part2) = solveBothParts()
-        print ("Part 1 solution: \(part1)")
-        print ("Part 2 solution: \(part2)")
+        print("Part 1 solution: \(part1)")
+        print("Part 2 solution: \(part2)")
     }
 
     func solveBothParts() -> (String, Int) {
@@ -91,6 +90,4 @@ class Puzzle_2016_17 : PuzzleBaseClass {
         let part2Solution = solveGameState(passcode: part1Passcode, state: part1GameState, findShortest: false)
         return (part1Solution, part2Solution.count)
     }
-
 }
-
