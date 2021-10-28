@@ -55,10 +55,10 @@ class Puzzle_2015_06: PuzzleBaseClass {
         for x in 0 ... 999 {
             for y in 0 ... 999 {
                 if lightArray[x][y] {
-                    lightsOn = lightsOn + 1
+                    lightsOn += 1
                 }
 
-                totalBrightness = totalBrightness + brightnessArray[x][y]
+                totalBrightness += brightnessArray[x][y]
             }
         }
 

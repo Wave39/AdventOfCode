@@ -23,7 +23,6 @@ extension Collection {
 }
 
 class Puzzle_2018_15: NSObject {
-
     struct Point: Hashable, Comparable {
         var x: Int
         var y: Int
@@ -32,9 +31,9 @@ class Puzzle_2018_15: NSObject {
             return Point(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
         }
 
-        static func += (lhs: inout Point, rhs: Point) {
-            lhs = lhs + rhs
-        }
+//        static func += (lhs: inout Point, rhs: Point) {
+//            lhs = lhs + rhs
+//        }
 
         static func < (lhs: Point, rhs: Point) -> Bool {
             return lhs.y != rhs.y ? lhs.y < rhs.y : lhs.x < rhs.x
@@ -81,8 +80,8 @@ class Puzzle_2018_15: NSObject {
         }
 
         func attackables(in field: [[Space]]) -> [Point] {
-            return coord.adjacent.filter {
-                let space = field.get($0.y)?.get($0.x)
+            return coord.adjacent.filter { point in
+                let space = field.get(point.y)?.get(point.x)
                 return race == .elf && space == .goblin || race == .goblin && space == .elf
             }
         }
@@ -303,8 +302,8 @@ class Puzzle_2018_15: NSObject {
                     }
 
                     // see if there are any target locations already adjacent to the unit
-                    var targetsInRange = enemies.filter {
-                        $0.location.manhattanDistanceTo(pt: unit.location) == 1
+                    var targetsInRange = enemies.filter { item in
+                        item.location.manhattanDistanceTo(pt: unit.location) == 1
                     }.sorted(by: unitReadingOrder)
 
                     if targetsInRange.count == 0 && targetLocations.count == 0 {
@@ -379,8 +378,8 @@ class Puzzle_2018_15: NSObject {
                             // print(playfieldToString(playfield, units))
 
                             // recalculate the targets in range as the unit has moved
-                            targetsInRange = enemies.filter {
-                                $0.location.manhattanDistanceTo(pt: unit.location) == 1
+                            targetsInRange = enemies.filter { item in
+                                item.location.manhattanDistanceTo(pt: unit.location) == 1
                                 }.sorted(by: unitReadingOrder)
                         }
                     }
@@ -467,7 +466,6 @@ class Puzzle_2018_15: NSObject {
             }
         }
     }
-
 }
 
 private class Puzzle_2018_15_Input: NSObject {

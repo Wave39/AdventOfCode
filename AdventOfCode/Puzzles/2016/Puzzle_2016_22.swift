@@ -70,11 +70,11 @@ class Puzzle_2016_22: PuzzleBaseClass {
                 for x in 0...37 {
                     let used = arr[x][y].used
                     if used == 0 {
-                        s = s + "[] "
+                        s += "[] "
                     } else if used > 99 {
-                        s = s + "== "
+                        s += "== "
                     } else {
-                        s = s + "\(used) "
+                        s += "\(used) "
                     }
                 }
 

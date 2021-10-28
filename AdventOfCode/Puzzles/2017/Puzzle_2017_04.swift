@@ -40,7 +40,7 @@ class Puzzle_2017_04: PuzzleBaseClass {
             }
 
             if s.count == line.count {
-                total = total + 1
+                total += 1
             }
         }
 

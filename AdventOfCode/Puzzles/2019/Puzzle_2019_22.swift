@@ -53,7 +53,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
                 if cardIndex < increment {
                     cardIndex = (numberOfCards - increment) + cardIndex
                 } else {
-                    cardIndex = cardIndex - increment
+                    cardIndex -= increment
                 }
             }
         }

@@ -81,7 +81,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         func diagram(includeMoveCounter: Bool) -> String {
             var s = ""
             for i in (0...3).reversed() {
-                s = s + "\(i + 1) "
+                s += "\(i + 1) "
                 if i == elevatorFloor {
                     s += "E "
                 } else {

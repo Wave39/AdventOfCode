@@ -30,13 +30,13 @@ class Puzzle_2015_03: PuzzleBaseClass {
         for c in PuzzleInput.final {
             var positionString: String
             if c == ">" {
-                santaX = santaX + 1
+                santaX += 1
             } else if c == "<" {
-                santaX = santaX - 1
+                santaX -= 1
             } else if c == "^" {
-                santaY = santaY + 1
+                santaY += 1
             } else if c == "v" {
-                santaY = santaY - 1
+                santaY -= 1
             }
 
             positionString = PositionString(x: santaX, y: santaY)
@@ -57,25 +57,25 @@ class Puzzle_2015_03: PuzzleBaseClass {
             var positionString: String
             if santaMoves {
                 if c == ">" {
-                    santaX = santaX + 1
+                    santaX += 1
                 } else if c == "<" {
-                    santaX = santaX - 1
+                    santaX -= 1
                 } else if c == "^" {
-                    santaY = santaY + 1
+                    santaY += 1
                 } else if c == "v" {
-                    santaY = santaY - 1
+                    santaY -= 1
                 }
 
                 positionString = PositionString(x: santaX, y: santaY)
             } else {
                 if c == ">" {
-                    roboSantaX = roboSantaX + 1
+                    roboSantaX += 1
                 } else if c == "<" {
-                    roboSantaX = roboSantaX - 1
+                    roboSantaX -= 1
                 } else if c == "^" {
-                    roboSantaY = roboSantaY + 1
+                    roboSantaY += 1
                 } else if c == "v" {
-                    roboSantaY = roboSantaY - 1
+                    roboSantaY -= 1
                 }
 
                 positionString = PositionString(x: roboSantaX, y: roboSantaY)

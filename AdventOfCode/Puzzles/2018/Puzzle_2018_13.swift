@@ -189,11 +189,11 @@ class Puzzle_2018_13: NSObject {
         var firstCollisionX = -1, firstCollisionY = -1
         repeat {
             // sort the carts
-            carts.sort {
-                if $0.location.y != $1.location.y {
-                    return $0.location.y < $1.location.y
+            carts.sort { cart0, cart1 in
+                if cart0.location.y != cart1.location.y {
+                    return cart0.location.y < cart1.location.y
                 } else {
-                    return $0.location.x < $1.location.x
+                    return cart0.location.x < cart1.location.x
                 }
             }
 

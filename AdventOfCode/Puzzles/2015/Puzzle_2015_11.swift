@@ -33,7 +33,7 @@ class Puzzle_2015_11: PuzzleBaseClass {
 
                 if characterArray[idx] > 25 {
                     characterArray[idx] = 0
-                    idx = idx - 1
+                    idx -= 1
                 } else {
                     idx = -1
                 }

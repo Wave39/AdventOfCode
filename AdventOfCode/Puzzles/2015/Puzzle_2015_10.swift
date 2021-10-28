@@ -24,7 +24,7 @@ class Puzzle_2015_10: PuzzleBaseClass {
             var currentCount = 0
             for c in originalString {
                 if c == currentCharacter {
-                    currentCount = currentCount + 1
+                    currentCount += 1
                 } else {
                     newStr += "\(currentCount)\(currentCharacter)"
                     currentCharacter = c

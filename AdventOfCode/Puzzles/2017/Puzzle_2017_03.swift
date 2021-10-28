@@ -49,32 +49,32 @@ class Puzzle_2017_03: PuzzleBaseClass {
             arr.append(currentPosition)
 
             if advanceDirection == .RIGHT {
-                currentPosition.x = currentPosition.x + 1
+                currentPosition.x += 1
                 if currentPosition.x > rightExtreme {
                     rightExtreme = currentPosition.x
                     advanceDirection = .UP
                 }
             } else if advanceDirection == .UP {
-                currentPosition.y = currentPosition.y - 1
+                currentPosition.y -= 1
                 if currentPosition.y < topExtreme {
                     topExtreme = currentPosition.y
                     advanceDirection = .LEFT
                 }
             } else if advanceDirection == .LEFT {
-                currentPosition.x = currentPosition.x - 1
+                currentPosition.x -= 1
                 if currentPosition.x < leftExtreme {
                     leftExtreme = currentPosition.x
                     advanceDirection = .DOWN
                 }
             } else if advanceDirection == .DOWN {
-                currentPosition.y = currentPosition.y + 1
+                currentPosition.y += 1
                 if currentPosition.y > bottomExtreme {
                     bottomExtreme = currentPosition.y
                     advanceDirection = .RIGHT
                 }
             }
 
-            idx = idx + 1
+            idx += 1
         }
 
         return arr
@@ -94,7 +94,7 @@ class Puzzle_2017_03: PuzzleBaseClass {
 
         for p in positions {
             if dict[p] != nil {
-                total = total + dict[p]!
+                total += dict[p]!
             }
         }
 
@@ -121,25 +121,25 @@ class Puzzle_2017_03: PuzzleBaseClass {
             dict[currentPosition] = cellValue
 
             if advanceDirection == .RIGHT {
-                currentPosition.x = currentPosition.x + 1
+                currentPosition.x += 1
                 if currentPosition.x > rightExtreme {
                     rightExtreme = currentPosition.x
                     advanceDirection = .UP
                 }
             } else if advanceDirection == .UP {
-                currentPosition.y = currentPosition.y - 1
+                currentPosition.y -= 1
                 if currentPosition.y < topExtreme {
                     topExtreme = currentPosition.y
                     advanceDirection = .LEFT
                 }
             } else if advanceDirection == .LEFT {
-                currentPosition.x = currentPosition.x - 1
+                currentPosition.x -= 1
                 if currentPosition.x < leftExtreme {
                     leftExtreme = currentPosition.x
                     advanceDirection = .DOWN
                 }
             } else if advanceDirection == .DOWN {
-                currentPosition.y = currentPosition.y + 1
+                currentPosition.y += 1
                 if currentPosition.y > bottomExtreme {
                     bottomExtreme = currentPosition.y
                     advanceDirection = .RIGHT

@@ -43,7 +43,7 @@ class Puzzle_2018_09: NSObject {
                 var retval = "[ \(self.value)"
                 var next = self.clockwise!
                 repeat {
-                    retval = retval + " \(next.value)"
+                    retval += " \(next.value)"
                     next = next.clockwise!
                 } while next.value != self.value
 

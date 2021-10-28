@@ -89,18 +89,18 @@ class Puzzle_2015_07: PuzzleBaseClass {
                         if partNumber == 2 && op.opResult == "b" {
                             wireDictionary["b"] = specialValue
                             op.processed = true
-                            operationsProcessed = operationsProcessed + 1
+                            operationsProcessed += 1
                         } else if op.opcode == "->" {
                             if isAvailable(op.op1) {
                                 wireDictionary[op.opResult] = wireValue(op.op1)
                                 op.processed = true
-                                operationsProcessed = operationsProcessed + 1
+                                operationsProcessed += 1
                             }
                         } else if op.opcode == "NOT" {
                             if isAvailable(op.op1) {
                                 wireDictionary[op.opResult] = ~wireValue(op.op1)
                                 op.processed = true
-                                operationsProcessed = operationsProcessed + 1
+                                operationsProcessed += 1
                             }
                         } else if op.opcode == "AND" || op.opcode == "OR" {
                             if isAvailable(op.op1) && isAvailable(op.op2) {
@@ -111,7 +111,7 @@ class Puzzle_2015_07: PuzzleBaseClass {
                                 }
 
                                 op.processed = true
-                                operationsProcessed = operationsProcessed + 1
+                                operationsProcessed += 1
                             }
                         } else if op.opcode == "LSHIFT" || op.opcode == "RSHIFT" {
                             if isAvailable(op.op1) && isAvailable(op.op2) {
@@ -122,7 +122,7 @@ class Puzzle_2015_07: PuzzleBaseClass {
                                 }
 
                                 op.processed = true
-                                operationsProcessed = operationsProcessed + 1
+                                operationsProcessed += 1
                             }
                         }
                     }

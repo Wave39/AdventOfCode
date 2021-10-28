@@ -28,13 +28,13 @@ class Puzzle_2017_01: NSObject {
             let c1 = str.substring(from: idx, to: idx+1)
             var idx2 = idx + jumpAhead
             if idx2 > (str.count - 1) {
-                idx2 = idx2 - str.count
+                idx2 -= str.count
             }
 
             let c2 = str.substring(from: idx2, to: idx2 + 1)
 
             if c1 == c2 {
-                total = total + Int(c1)!
+                total += Int(c1)!
             }
         }
 

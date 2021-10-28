@@ -33,8 +33,8 @@ class Puzzle_2015_02: PuzzleBaseClass {
             let minimumFaceArea = min(faceArea1, faceArea2, faceArea3)
             let smallestPerimeter = 2 * shortestSide + 2 * middleSide
             let boxVolume = shortestSide * middleSide * longestSide
-            squareFeetOfWrappingPaper = squareFeetOfWrappingPaper + 2 * faceArea1 + 2 * faceArea2 + 2 * faceArea3 + minimumFaceArea
-            feetOfRibbon = feetOfRibbon + smallestPerimeter + boxVolume
+            squareFeetOfWrappingPaper += 2 * faceArea1 + 2 * faceArea2 + 2 * faceArea3 + minimumFaceArea
+            feetOfRibbon += smallestPerimeter + boxVolume
         }
 
         return (squareFeetOfWrappingPaper, feetOfRibbon)

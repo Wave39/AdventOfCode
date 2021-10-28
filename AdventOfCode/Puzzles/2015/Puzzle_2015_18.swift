@@ -55,10 +55,10 @@ class Puzzle_2015_18: PuzzleBaseClass {
             var s = ""
             for r in 0..<rows {
                 for c in 0..<columns {
-                    s = s + (arr[r][c] ? "#" : ".")
+                    s += (arr[r][c] ? "#" : ".")
                 }
 
-                s = s + "\n"
+                s += "\n"
             }
 
             print(s)

@@ -35,7 +35,7 @@ class Puzzle_2015_04: PuzzleBaseClass {
                 }
             }
 
-            counter = counter + 1
+            counter += 1
         }
 
         return (fiveZeroCounter, sixZeroCounter)

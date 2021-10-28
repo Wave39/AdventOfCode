@@ -1,11 +1,9 @@
 disabled_rules: # rule identifiers turned on by default to exclude from running
+  # rules I may want to turn on again
   - cyclomatic_complexity
-  - file_length
   - force_cast
-  - function_body_length
   - identifier_name
-  - line_length
-  - shorthand_operator
+  #- shorthand_operator
   - type_body_length
   - type_name
   - for_where
@@ -16,9 +14,21 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - reduce_boolean
   - unused_enumerated
   - nesting
+
+  # rules I have no intention of every enabling
+  - file_length
+  - function_body_length
+  - line_length
   - orphaned_doc_comment
+
 opt_in_rules: # some rules are turned off by default, so you need to opt-in
-  
+  - anonymous_argument_in_multiline_closure
+  - anyobject_protocol
+  - array_init
+  - attributes
+  - balanced_xctest_lifecycle
+  - capture_variable
+
 # Alternatively, specify all rules explicitly by uncommenting this option:
 # only_rules: # delete `disabled_rules` & `opt_in_rules` if using this
 #   - empty_parameters

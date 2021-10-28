@@ -100,7 +100,7 @@ class Puzzle_2015_13: PuzzleBaseClass {
                 if node.branches.count == 0 {
                     var happiness = 0
                     for idx in 0...(node.progress.count - 2) {
-                        happiness = happiness + calculateHappinessBetweenPeople(person1: node.progress[idx], person2: node.progress[idx + 1])
+                        happiness += calculateHappinessBetweenPeople(person1: node.progress[idx], person2: node.progress[idx + 1])
                     }
 
                     if happiness > maxHappiness {

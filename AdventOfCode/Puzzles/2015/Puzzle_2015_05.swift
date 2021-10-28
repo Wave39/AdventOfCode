@@ -91,11 +91,11 @@ class Puzzle_2015_05: PuzzleBaseClass {
         var niceCounterPart1 = 0, niceCounterPart2 = 0
         for word in wordArray {
             if isWordNicePart1(word) {
-                niceCounterPart1 = niceCounterPart1 + 1
+                niceCounterPart1 += 1
             }
 
             if isWordNicePart2(word) {
-                niceCounterPart2 = niceCounterPart2 + 1
+                niceCounterPart2 += 1
             }
         }
 

@@ -43,7 +43,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
 
             }
 
-            total = total + (maxValue - minValue)
+            total += (maxValue - minValue)
         }
 
         return total
@@ -74,7 +74,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
         let matrix = str.parseIntoMatrix()
         for line in matrix {
             let ints = findEvenlyDivisibleIntegers(arr: line)
-            total = total + (ints.0 / ints.1)
+            total += (ints.0 / ints.1)
         }
 
         return total

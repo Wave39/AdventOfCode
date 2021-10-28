@@ -23,7 +23,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
         print("Part 2 solution:")
         var lineString = ""
         for c in part2.0 {
-            lineString = lineString + String(c)
+            lineString += String(c)
             if lineString.count == part2.1.x {
                 print(lineString)
                 lineString = ""

@@ -170,7 +170,8 @@ class Puzzle_2020_16: PuzzleBaseClass {
             }
         }
 
-        var columnMap = (0..<validTickets[0].count).map({$0})
+        // var columnMap = (0..<validTickets[0].count).map({$0})
+        var columnMap = Array((0..<validTickets[0].count))
         var soloSetIndex = findSoloSet(setArray: validColumns)
         while soloSetIndex != -1 {
             let v = validColumns[soloSetIndex].first!

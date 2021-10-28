@@ -22,25 +22,25 @@ class Puzzle_2015_08: PuzzleBaseClass {
         var totalUnescapedCharacters = 0
         var totalCharacters = 0
         for line in puzzleInputLineArray {
-            totalUnescapedCharacters = totalUnescapedCharacters + line.count
+            totalUnescapedCharacters += line.count
             var lineWithoutQuotes = String(line.substring(range: NSMakeRange(1, line.count - 2)))
             var escapedLine = ""
             while lineWithoutQuotes.count > 0 {
                 if lineWithoutQuotes[0] == "\\" {
                     if lineWithoutQuotes[1] == "\\" || lineWithoutQuotes[1] == "\"" {
-                        escapedLine = escapedLine + String(lineWithoutQuotes[0])
+                        escapedLine += String(lineWithoutQuotes[0])
                         lineWithoutQuotes = lineWithoutQuotes.substring(from: 2)
                     } else if lineWithoutQuotes[1] == "x" {
-                        escapedLine = escapedLine + "~"
+                        escapedLine += "~"
                         lineWithoutQuotes = lineWithoutQuotes.substring(from: 4)
                     }
                 } else {
-                    escapedLine = escapedLine + String(lineWithoutQuotes[0])
+                    escapedLine += String(lineWithoutQuotes[0])
                     lineWithoutQuotes = lineWithoutQuotes.substring(from: 1)
                 }
             }
 
-            totalCharacters = totalCharacters + escapedLine.count
+            totalCharacters += escapedLine.count
         }
 
         let part1 = totalUnescapedCharacters - totalCharacters
@@ -48,18 +48,18 @@ class Puzzle_2015_08: PuzzleBaseClass {
         var part2Characters = 0
         var part2EncodedCharacters = 0
         for line in puzzleInputLineArray {
-            part2Characters = part2Characters + line.count
+            part2Characters += line.count
             var encodedString = ""
             for c in line {
                 if c == "\"" || c == "\\" {
-                    encodedString = encodedString + "\\" + String(c)
+                    encodedString += "\\" + String(c)
                 } else {
-                    encodedString = encodedString + String(c)
+                    encodedString += String(c)
                 }
             }
 
             encodedString = "\"" + encodedString + "\""
-            part2EncodedCharacters = part2EncodedCharacters + encodedString.count
+            part2EncodedCharacters += encodedString.count
         }
 
         let part2 = part2EncodedCharacters - part2Characters

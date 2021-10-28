@@ -101,7 +101,7 @@ extension String {
                 b = "0" + b
             }
 
-            retval = retval + b
+            retval += b
         }
 
         return retval
@@ -241,7 +241,7 @@ extension String {
                 thisLine.append(String(element))
             }
 
-            allLines.append(line.map({$0}))
+            allLines.append(Array(line))
         }
 
         return allLines
@@ -336,8 +336,8 @@ extension String {
     }
 
     func words(with charset: CharacterSet = .alphanumerics) -> [String] {
-        return self.unicodeScalars.split {
-            !charset.contains($0)
+        return self.unicodeScalars.split { substring in
+            !charset.contains(substring)
             }.map(String.init)
     }
 

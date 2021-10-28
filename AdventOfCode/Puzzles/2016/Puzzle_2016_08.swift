@@ -42,7 +42,7 @@ class Puzzle_2016_08: PuzzleBaseClass {
                         rowString += lightArray[r][c]
                     }
 
-                    retVal = retVal + rowString + "\n"
+                    retVal += rowString + "\n"
                 }
 
                 return retVal

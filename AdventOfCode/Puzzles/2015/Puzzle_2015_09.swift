@@ -103,7 +103,7 @@ class Puzzle_2015_09: PuzzleBaseClass {
             if node.branches.count == 0 {
                 var theDistance = 0
                 for idx in 0...(node.progress.count - 2) {
-                    theDistance = theDistance + calculateDistanceBetweenPoints(point1: node.progress[idx], point2: node.progress[idx + 1])
+                    theDistance += calculateDistanceBetweenPoints(point1: node.progress[idx], point2: node.progress[idx + 1])
                 }
 
                 if theDistance < shortestDistance {
