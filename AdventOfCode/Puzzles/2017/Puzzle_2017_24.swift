@@ -11,7 +11,7 @@ import Foundation
 class Puzzle_2017_24: PuzzleBaseClass {
 
     typealias Bridge = [Int]
-    
+
     struct Component {
         var leftPort: Int = 0
         var rightPort: Int = 0
@@ -23,17 +23,17 @@ class Puzzle_2017_24: PuzzleBaseClass {
         }
 
     }
-    
+
     typealias Components = [Component]
-    
+
     var bridges: [Bridge] = []
-    
+
     func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInput = PuzzleInput.final
         let components = parsePuzzleInput(str: puzzleInput)
@@ -49,17 +49,17 @@ class Puzzle_2017_24: PuzzleBaseClass {
             comp.rightPort = Int(String(port[1]))!
             retval.append(comp)
         }
-        
+
         return retval
     }
-    
+
     func solvePuzzle(components: Components) -> (Int, Int) {
         bridges = []
         let startingComponents = components.filter { $0.leftPort == 0 || $0.rightPort == 0 }
         for c in startingComponents {
             buildBridge(oldBridge: [], components: components, component: c)
         }
-        
+
         var part1Strength = 0
         var part2Length = 0
         var part2Strength = 0
@@ -68,7 +68,7 @@ class Puzzle_2017_24: PuzzleBaseClass {
             if bridgeStrength > part1Strength {
                 part1Strength = bridgeStrength
             }
-            
+
             if b.count > part2Length {
                 part2Length = b.count
                 part2Strength = bridgeStrength
@@ -78,10 +78,10 @@ class Puzzle_2017_24: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return (part1Strength, part2Strength)
     }
-    
+
     func buildBridge(oldBridge: Bridge, components: Components, component: Component) {
         var newBridge = oldBridge
         let searchValue = newBridge.last ?? 0
@@ -92,7 +92,7 @@ class Puzzle_2017_24: PuzzleBaseClass {
             newBridge.append(component.rightPort)
             newBridge.append(component.leftPort)
         }
-        
+
         bridges.append(newBridge)
         let newComponents = components.filter { $0 != component }
         let nextComponents = newComponents.filter { $0.leftPort == newBridge.last! || $0.rightPort == newBridge.last! }
@@ -106,7 +106,7 @@ class Puzzle_2017_24: PuzzleBaseClass {
 private class PuzzleInput: NSObject {
 
     static let test1 =
-        
+
 """
 0/2
 2/2
@@ -117,9 +117,9 @@ private class PuzzleInput: NSObject {
 10/1
 9/10
 """
-    
+
     static let final =
-    
+
 """
 24/14
 30/24
@@ -179,5 +179,5 @@ private class PuzzleInput: NSObject {
 29/29
 45/50
 """
-    
+
 }

@@ -11,12 +11,12 @@ import Foundation
 class Puzzle_2019_24: PuzzleBaseClass {
 
     typealias Grid = [[Int]]
-    typealias Grid3D = [Int : Grid]
-    
+    typealias Grid3D = [Int: Grid]
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -24,11 +24,11 @@ class Puzzle_2019_24: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_24_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_24_Input.puzzleInput)
     }
-    
+
     func processGrid(grid: Grid) -> Grid {
         let height = grid.count
         let width = grid[0].count
@@ -46,7 +46,7 @@ class Puzzle_2019_24: PuzzleBaseClass {
                         }
                     }
                 }
-                
+
                 if currentBug == 1 {
                     if neighboringBugs == 1 {
                         lineArray.append(1)
@@ -61,13 +61,13 @@ class Puzzle_2019_24: PuzzleBaseClass {
                     }
                 }
             }
-            
+
             retval.append(lineArray)
         }
-        
+
         return retval
     }
-    
+
     func calculateBiodiversity(grid: Grid) -> Int {
         let height = grid.count
         let width = grid[0].count
@@ -78,14 +78,14 @@ class Puzzle_2019_24: PuzzleBaseClass {
                 if grid[y][x] == 1 {
                     retval += mult
                 }
-                
+
                 mult *= 2
             }
         }
-        
+
         return retval
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var grid = Grid()
@@ -98,26 +98,25 @@ class Puzzle_2019_24: PuzzleBaseClass {
                     lineArray.append(1)
                 }
             }
-            
+
             grid.append(lineArray)
         }
-        
+
         var gridSet: Set<Grid> = Set()
         gridSet.insert(grid)
         var leaveLoop = false
         while !leaveLoop {
             grid = processGrid(grid: grid)
-            if gridSet.contains(grid)
-            {
+            if gridSet.contains(grid) {
                 leaveLoop = true
             } else {
                 gridSet.insert(grid)
             }
         }
-        
+
         return calculateBiodiversity(grid: grid)
     }
-    
+
     func countBugs(dict: Grid3D) -> Int {
         var retval = 0
         for k in dict.keys {
@@ -132,21 +131,21 @@ class Puzzle_2019_24: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return retval
     }
-    
+
     func processGridDictionary(dict: Grid3D) -> Grid3D {
         var retval = Grid3D()
-        
+
         retval[201] = dict[201]!
         retval[-201] = dict[-201]!
-        
+
         for z in -200...200 {
             let grid = dict[z]!
             let gridInside = dict[z - 1]!
             let gridOutside = dict[z + 1]!
-            
+
             let height = grid.count
             let width = grid[0].count
             var newGrid = Grid()
@@ -189,7 +188,7 @@ class Puzzle_2019_24: PuzzleBaseClass {
                                 adjacent3D.append(Point3D(x: adj.x, y: adj.y, z: 0))
                             }
                         }
-                        
+
                         let currentBug = grid[y][x]
                         var neighboringBugs = 0
                         for adj in adjacent3D {
@@ -207,7 +206,7 @@ class Puzzle_2019_24: PuzzleBaseClass {
                                 }
                             }
                         }
-                        
+
                         if currentBug == 1 {
                             if neighboringBugs == 1 {
                                 lineArray.append(1)
@@ -223,16 +222,16 @@ class Puzzle_2019_24: PuzzleBaseClass {
                         }
                     }
                 }
-                
+
                 newGrid.append(lineArray)
             }
 
             retval[z] = newGrid
         }
-        
+
         return retval
     }
-    
+
     func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var gridDictionary = Grid3D()
@@ -251,20 +250,20 @@ class Puzzle_2019_24: PuzzleBaseClass {
                         lineArray.append(0)
                     }
                 }
-                
+
                 grid.append(lineArray)
             }
-            
+
             gridDictionary[z] = grid
         }
-        
+
         for _ in 1...200 {
             gridDictionary = processGridDictionary(dict: gridDictionary)
         }
-        
+
         return countBugs(dict: gridDictionary)
     }
-    
+
 }
 
 private class Puzzle_2019_24_Input: NSObject {
@@ -284,5 +283,5 @@ private class Puzzle_2019_24_Input: NSObject {
 .####
 ###..
 """
-    
+
 }

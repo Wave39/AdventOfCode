@@ -9,35 +9,35 @@
 import Foundation
 
 class Puzzle_2019_01: PuzzleBaseClass {
-    
+
     func CalculateFuel(mass: Int) -> Int {
         return Int(floor(Double(mass) / 3.0) - 2)
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_01_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_01_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoIntArray()
-        
+
         var retval = 0
         for s in arr {
             retval += CalculateFuel(mass: s)
         }
-        
+
         return retval
     }
 

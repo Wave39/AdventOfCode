@@ -78,7 +78,7 @@ class Puzzle_2016_10: PuzzleBaseClass {
                 if part1Bots[botNumber] == nil {
                     part1Bots[botNumber] = BotInfo()
                 }
-                
+
                 part1Bots[botNumber]?.chips.append(chipNumber)
             }
         }

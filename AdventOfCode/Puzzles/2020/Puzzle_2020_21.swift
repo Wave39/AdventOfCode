@@ -21,7 +21,7 @@ class Puzzle_2020_21: PuzzleBaseClass {
     func solveBothParts() -> (Int, String) {
         return solveBothParts(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solveBothParts(str: String) -> (Int, String) {
         let lines = str.parseIntoStringArray()
         var foodArray = [(Set<String>, Set<String>)]()
@@ -43,14 +43,14 @@ class Puzzle_2020_21: PuzzleBaseClass {
                     allIngredients.insert(item)
                 }
             }
-            
+
             foodArray.append((ingredients, allergens))
         }
-        
-        var allergensToIngredients = [String : Set<String>]()
+
+        var allergensToIngredients = [String: Set<String>]()
 
         for allergen in allAllergens {
-            var ingredients: Set<String>? = nil
+            var ingredients: Set<String>?
             for food in foodArray {
                 if food.1.contains(allergen) {
                     if ingredients == nil {
@@ -62,7 +62,7 @@ class Puzzle_2020_21: PuzzleBaseClass {
             }
             allergensToIngredients[allergen] = ingredients
         }
-        
+
         var allergenFreeIngredients = [String]()
         for ingredient in allIngredients {
             var foundIngredient = false
@@ -71,12 +71,12 @@ class Puzzle_2020_21: PuzzleBaseClass {
                     foundIngredient = true
                 }
             }
-            
+
             if !foundIngredient {
                 allergenFreeIngredients.append(ingredient)
             }
         }
-        
+
         var part1Answer = 0
         for food in foodArray {
             for ingredient in allergenFreeIngredients {
@@ -85,7 +85,7 @@ class Puzzle_2020_21: PuzzleBaseClass {
                 }
             }
         }
-        
+
         var removedAValue = true
         while removedAValue {
             removedAValue = false
@@ -108,12 +108,12 @@ class Puzzle_2020_21: PuzzleBaseClass {
         let sortedByAllergyNames = allergensToIngredients.sorted { (ele1, ele2) -> Bool in
             ele1.key < ele2.key
         }
-        
+
         let part2Answer = sortedByAllergyNames.map { $0.value.first!}.joined(separator: ",")
-        
+
         return (part1Answer, part2Answer)
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

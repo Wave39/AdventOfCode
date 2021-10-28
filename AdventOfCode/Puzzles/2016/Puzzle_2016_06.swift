@@ -52,7 +52,7 @@ class Puzzle_2016_06: PuzzleBaseClass {
                 if dict[k] == maxValue {
                     part1Message += "\(k)"
                 }
-                
+
                 if dict[k] == minValue {
                     part2Message += "\(k)"
                 }

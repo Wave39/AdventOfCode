@@ -13,7 +13,7 @@ class Puzzle_2020_24: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,13 +21,13 @@ class Puzzle_2020_24: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
-    let offsetDict: Dictionary<String, (Int, Int)> = [ "w" : (-2, 0), "e" : (2, 0), "nw" : (-1, 1), "sw" : (-1, -1), "ne" : (1, 1), "se" : (1, -1) ]
-    
+
+    let offsetDict: Dictionary<String, (Int, Int)> = [ "w": (-2, 0), "e": (2, 0), "nw": (-1, 1), "sw": (-1, -1), "ne": (1, 1), "se": (1, -1) ]
+
     func getBlackTileCount(_ tileDict: Dictionary<Point2D, Int>) -> Int {
         var retval = 0
         for (_, v) in tileDict {
@@ -35,14 +35,14 @@ class Puzzle_2020_24: PuzzleBaseClass {
                 retval += 1
             }
         }
-        
+
         return retval
    }
-    
+
     func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var tileDict = Dictionary<Point2D, Int>()
-        
+
         for var line in lines {
             var location = Point2D()
             while line.count > 0 {
@@ -50,21 +50,21 @@ class Puzzle_2020_24: PuzzleBaseClass {
                 if c == "s" || c == "n" {
                     c += String(line.removeFirst())
                 }
-                
+
                 let offset = offsetDict[c]!
                 location = Point2D(x: location.x + offset.0, y: location.y + offset.1)
             }
-            
+
             if tileDict[location] == nil {
                 tileDict[location] = 0
             }
-            
+
             tileDict[location] = 1 - tileDict[location]!
         }
-        
+
         return getBlackTileCount(tileDict)
     }
-    
+
     func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var tileDict = Dictionary<Point2D, Int>()
@@ -76,7 +76,7 @@ class Puzzle_2020_24: PuzzleBaseClass {
                 }
             }
         }
-        
+
         for day in 1...100 {
             if day == 1 {
                 for var line in lines {
@@ -86,15 +86,15 @@ class Puzzle_2020_24: PuzzleBaseClass {
                         if c == "s" || c == "n" {
                             c += String(line.removeFirst())
                         }
-                        
+
                         let offset = offsetDict[c]!
                         location = Point2D(x: location.x + offset.0, y: location.y + offset.1)
                     }
-                    
+
                     tileDict[location] = 1 - tileDict[location]!
                 }
             }
-            
+
             var newTileDict = tileDict
             for (k, _) in newTileDict {
                 var adjacentBlackTiles = 0
@@ -114,13 +114,12 @@ class Puzzle_2020_24: PuzzleBaseClass {
                     }
                 }
             }
-            
+
             tileDict = newTileDict
         }
-        
+
         return getBlackTileCount(tileDict)
     }
-    
 
 }
 

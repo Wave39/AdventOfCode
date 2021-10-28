@@ -13,7 +13,7 @@ class Puzzle_2020_06: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,16 +21,16 @@ class Puzzle_2020_06: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     struct Group {
         var yesAnswers: String = ""
         var peopleCount: Int = 0
     }
-    
+
     func parseGroups(str: String) -> [Group] {
         let lines = str.parseIntoStringArray(omitBlankLines: false)
         var groups: [Group] = []
@@ -44,24 +44,24 @@ class Puzzle_2020_06: PuzzleBaseClass {
                 currentGroup.yesAnswers += line
             }
         }
-        
+
         if currentGroup.peopleCount > 0 {
             groups.append(currentGroup)
         }
-        
+
         return groups
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = parseGroups(str: str)
         var count = 0
         for s in arr {
             count += s.yesAnswers.uniqueCharacters.count
         }
-        
+
         return count
     }
-    
+
     func solvePart2(str: String) -> Int {
         let arr = parseGroups(str: str)
         var count = 0
@@ -72,10 +72,10 @@ class Puzzle_2020_06: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return count
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

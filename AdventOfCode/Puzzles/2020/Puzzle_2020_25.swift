@@ -18,21 +18,21 @@ class Puzzle_2020_25: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func calculateTransform(key: Int, loopSize: Int) -> Int {
         var retval = 1
         for _ in 1...loopSize {
             retval = (retval * key) % 20201227
         }
-        
+
         return retval
     }
-    
+
     func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
-        
+
         let cardPublicKey = Int(lines[0])!
-        
+
         // I unrolled the calculateTransform above because it was taking to long to chug through all the loops
         var cardLoopSize = 1
         var x = 7
@@ -40,12 +40,12 @@ class Puzzle_2020_25: PuzzleBaseClass {
             cardLoopSize += 1
             x = (x * 7) % 20201227
         }
-        
+
         let doorPublicKey = Int(lines[1])!
 
         return calculateTransform(key: doorPublicKey, loopSize: cardLoopSize)
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

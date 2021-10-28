@@ -17,11 +17,11 @@ class Puzzle_2019_13: PuzzleBaseClass {
         case HorizontalPaddle = 3
         case Ball = 4
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -29,18 +29,18 @@ class Puzzle_2019_13: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_13_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_13_Input.puzzleInput)
     }
-    
+
     func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
         enum ParameterMode {
             case position
             case immediate
             case relative
         }
-        
+
         func GetMemory(_ pointer: Int) -> Int {
             if pointer < program.count {
                 return program[pointer]
@@ -48,11 +48,11 @@ class Puzzle_2019_13: PuzzleBaseClass {
                 if expandedMemory[pointer] == nil {
                     expandedMemory[pointer] = 0
                 }
-                
+
                 return expandedMemory[pointer]!
             }
         }
-        
+
         func SetMemory(_ pointer: Int, _ value: Int) {
             if pointer < program.count {
                 program[pointer] = value
@@ -60,7 +60,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
                 expandedMemory[pointer] = value
             }
         }
-        
+
         func GetValue(_ parameterMode: ParameterMode, _ value: Int, _ writeParameter: Bool) -> Int {
             if parameterMode == .relative {
                 return writeParameter ? value + relativeBase : GetMemory(value + relativeBase)
@@ -70,7 +70,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
                 return value
             }
         }
-        
+
         var outputArray: [Int] = []
         while program[programCounter] != 99 {
             let opcode = program[programCounter] % 100
@@ -82,7 +82,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
             } else {
                 cParameterMode = .position
             }
-              
+
             var bParameterMode: ParameterMode
             if program[programCounter] / 1000 % 10 == 1 {
                 bParameterMode = .immediate
@@ -91,7 +91,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
             } else {
                 bParameterMode = .position
             }
-            
+
             var aParameterMode: ParameterMode
             if program[programCounter] / 10000 % 10 == 1 {
                 aParameterMode = .immediate
@@ -100,23 +100,23 @@ class Puzzle_2019_13: PuzzleBaseClass {
             } else {
                 aParameterMode = .position
             }
-            
+
             var p1 = 0, p2 = 0, p3 = 0
-            
+
             func SetParameterValues(_ numberOfParameters: Int, _ writeParameter: Int) {
                 if numberOfParameters >= 1 {
                     p1 = GetValue(cParameterMode, program[programCounter + 1], writeParameter == 1)
                 }
-                
+
                 if numberOfParameters >= 2 {
                     p2 = GetValue(bParameterMode, program[programCounter + 2], writeParameter == 2)
                 }
-                
+
                 if numberOfParameters >= 3 {
                     p3 = GetValue(aParameterMode, program[programCounter + 3], writeParameter == 3)
                 }
             }
-            
+
             if opcode == 1 {
                 SetParameterValues(3, 3)
                 SetMemory(p3, p1 + p2)
@@ -136,12 +136,12 @@ class Puzzle_2019_13: PuzzleBaseClass {
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
                 outputArray.append(p1)
-                //print(retval)
+                // print(retval)
                 programCounter += 2
                 if outputArray.count >= 3 && outputArray.count % 3 == 0 {
                     let c = outputArray.count
                     if outputArray[c - 1] == -1 {
-                        //return (outputArray, true)
+                        // return (outputArray, true)
                     }
                 }
             } else if opcode == 5 {
@@ -175,7 +175,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
                 return ([], false)
             }
         }
-        
+
         return (outputArray, false)
     }
 
@@ -185,16 +185,16 @@ class Puzzle_2019_13: PuzzleBaseClass {
         var relativeBase = 0
         var expandedMemory: Dictionary<Int, Int> = [:]
         var inputSignals = [ 0 ]
-        
+
         let results = ProcessProgram(program: &arr, inputSignal: &inputSignals, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
-        
+
         let tileValues = results.0.enumerated().compactMap { index, element in index % 3 == 2 ? element : nil }
         return tileValues.filter { $0 == TileType.Block.rawValue }.count
     }
-    
+
     var board: [[Character]] = []
     var score: Int = 0
-    
+
     func initializeBoard() {
         score = 0
         for _ in 0...25 {
@@ -202,11 +202,11 @@ class Puzzle_2019_13: PuzzleBaseClass {
             for _ in 0...39 {
                 line.append(".")
             }
-            
+
             board.append(line)
         }
     }
-    
+
     func drawResults(input: [Int]) {
         var xValues: [Int] = []
         var yValues: [Int] = []
@@ -220,7 +220,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
                 tileValues.append(input[idx])
             }
         }
-        
+
         for idx in 0..<xValues.count {
             if xValues[idx] != -1 || yValues[idx] != 0 {
                 var c: Character = "?"
@@ -237,22 +237,22 @@ class Puzzle_2019_13: PuzzleBaseClass {
                 } else {
                     print("Invalid tile value")
                 }
-                
+
                 board[yValues[idx]][xValues[idx]] = c
             }
         }
-        
+
         print("Score: \(score)")
         for y in 0...25 {
             var lineString = ""
             for x in 0...39 {
                 lineString += String(board[y][x])
             }
-            
+
             print(lineString)
         }
     }
-    
+
     func solvePart2(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
@@ -260,13 +260,13 @@ class Puzzle_2019_13: PuzzleBaseClass {
         var expandedMemory: Dictionary<Int, Int> = [:]
         var inputSignals = [ 0 ]
         var results: ([Int], Bool)
-        
+
         arr[0] = 2
         initializeBoard()
-        
+
         repeat {
             results = ProcessProgram(program: &arr, inputSignal: &inputSignals, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
-            
+
             var x = 0, tile = 0, theBallX = 0, thePaddleX = 0
             var tileValues: [Int] = []
             for idx in 0..<results.0.count {
@@ -285,8 +285,8 @@ class Puzzle_2019_13: PuzzleBaseClass {
                     }
                 }
             }
-            
-            //drawResults(input: results.0)
+
+            // drawResults(input: results.0)
 
             if theBallX < thePaddleX {
                 inputSignals = [ -1 ]
@@ -296,10 +296,10 @@ class Puzzle_2019_13: PuzzleBaseClass {
                 inputSignals = [ 0 ]
             }
         } while results.1 == true
-        
+
         return score
     }
-        
+
 }
 
 private class Puzzle_2019_13_Input: NSObject {

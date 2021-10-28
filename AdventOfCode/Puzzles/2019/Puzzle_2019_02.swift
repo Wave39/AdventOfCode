@@ -9,23 +9,23 @@
 import Foundation
 
 class Puzzle_2019_02: PuzzleBaseClass {
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_02_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_02_Input.puzzleInput)
     }
-    
+
     func ProcessProgram(program: [Int]) -> Int {
         var arr = program
         var programCounter = 0
@@ -38,14 +38,14 @@ class Puzzle_2019_02: PuzzleBaseClass {
             } else {
                 v = v1 * v2
             }
-            
+
             arr[arr[programCounter + 3]] = v
             programCounter += 4
         }
-        
+
         return arr[0]
     }
-    
+
     func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         arr[1] = 12
@@ -65,7 +65,7 @@ class Puzzle_2019_02: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return -1
     }
 }

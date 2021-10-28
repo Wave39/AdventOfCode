@@ -26,7 +26,7 @@ class Puzzle_2016_19: PuzzleBaseClass {
                     idx = 0
                 }
             }
-            
+
             if idx == origin {
                 return -1
             } else {
@@ -44,10 +44,10 @@ class Puzzle_2016_19: PuzzleBaseClass {
                     if elves[elfPointer] == elfCount {
                         return elfPointer + 1
                     }
-                    
+
                     elves[nextElf] = 0
                 }
-                
+
                 elfPointer += 1
                 if elfPointer == elfCount {
                     elfPointer = 0
@@ -72,7 +72,7 @@ class Puzzle_2016_19: PuzzleBaseClass {
                     working += 2
                 }
             }
-            
+
             return working
         }
 

@@ -13,7 +13,7 @@ class Puzzle_2020_02: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_02: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var validPasswords = 0
@@ -33,15 +33,15 @@ class Puzzle_2020_02: PuzzleBaseClass {
             let arr = line.parseIntoStringArray(separator: " ")
             let limits = arr[0].parseIntoIntArray(separator: "-")
             let searchCharacter = arr[1].first
-            let matches = arr[2].filter{$0 == searchCharacter}.count
+            let matches = arr[2].filter {$0 == searchCharacter}.count
             if matches >= limits[0] && matches <= limits[1] {
                 validPasswords += 1
             }
         }
-        
+
         return validPasswords
     }
-    
+
     func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var validPasswords = 0
@@ -53,7 +53,7 @@ class Puzzle_2020_02: PuzzleBaseClass {
             if arr[2][limits[0] - 1] == searchCharacter {
                 matches += 1
             }
-            
+
             if arr[2][limits[1] - 1] == searchCharacter {
                 matches += 1
             }
@@ -62,10 +62,10 @@ class Puzzle_2020_02: PuzzleBaseClass {
                 validPasswords += 1
             }
         }
-        
+
         return validPasswords
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

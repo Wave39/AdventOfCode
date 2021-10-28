@@ -13,7 +13,7 @@ class Puzzle_2020_17: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_17: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let matrix = str.parseIntoCharacterMatrix()
         var dict: Dictionary<Point3D, Int> = [:]
@@ -34,14 +34,14 @@ class Puzzle_2020_17: PuzzleBaseClass {
                 dict[Point3D(x: col, y: -row, z: 0)] = (matrix[row][col] == "." ? 0 : 1)
             }
         }
-        
+
         var maxX = matrix[0].count
         var minX = 0
         var maxY = 0
         var minY = -matrix.count
         var maxZ = 0
         var minZ = 0
-        
+
         for _ in 1...6 {
             maxX += 1
             minX -= 1
@@ -61,7 +61,7 @@ class Puzzle_2020_17: PuzzleBaseClass {
                                 activeNeighbors += 1
                             }
                         }
-                        
+
                         if dict[location] == 1 {
                             if activeNeighbors != 2 && activeNeighbors != 3 {
                                 newCubes[location] = 0
@@ -74,22 +74,22 @@ class Puzzle_2020_17: PuzzleBaseClass {
                     }
                 }
             }
-            
+
             for (key, value) in newCubes {
                 dict[key] = value
             }
         }
-        
+
         var retval = 0
         for (_, value) in dict {
             if value == 1 {
                 retval += 1
             }
         }
-        
+
         return retval
     }
-    
+
     func solvePart2(str: String) -> Int {
         let matrix = str.parseIntoCharacterMatrix()
         var dict: Dictionary<Point4D, Int> = [:]
@@ -98,7 +98,7 @@ class Puzzle_2020_17: PuzzleBaseClass {
                 dict[Point4D(x: col, y: -row, z: 0, t: 0)] = (matrix[row][col] == "." ? 0 : 1)
             }
         }
-        
+
         var maxX = matrix[0].count
         var minX = 0
         var maxY = 0
@@ -107,7 +107,7 @@ class Puzzle_2020_17: PuzzleBaseClass {
         var maxZ = 0
         var minZ = 0
         var minT = 0
-        
+
         for _ in 1...6 {
             maxX += 1
             minX -= 1
@@ -130,7 +130,7 @@ class Puzzle_2020_17: PuzzleBaseClass {
                                     activeNeighbors += 1
                                 }
                             }
-                            
+
                             if dict[location] == 1 {
                                 if activeNeighbors != 2 && activeNeighbors != 3 {
                                     newCubes[location] = 0
@@ -144,22 +144,22 @@ class Puzzle_2020_17: PuzzleBaseClass {
                     }
                 }
             }
-            
+
             for (key, value) in newCubes {
                 dict[key] = value
             }
         }
-        
+
         var retval = 0
         for (_, value) in dict {
             if value == 1 {
                 retval += 1
             }
         }
-        
+
         return retval
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

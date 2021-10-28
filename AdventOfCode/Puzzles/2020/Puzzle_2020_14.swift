@@ -13,7 +13,7 @@ class Puzzle_2020_14: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,20 +21,20 @@ class Puzzle_2020_14: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func binaryString(_ v: Int, padLength: Int) -> String {
         var binaryValue = String(v, radix: 2)
         while binaryValue.count < padLength {
             binaryValue = "0" + binaryValue
         }
-        
+
         return binaryValue
     }
-    
+
     func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var bitmask = ""
@@ -52,7 +52,7 @@ class Puzzle_2020_14: PuzzleBaseClass {
                 if memoryValues[addr] == nil {
                     memoryValues[addr] = 0
                 }
-                
+
                 let binaryValue = binaryString(Int(mem[1])!, padLength: 36)
                 var newBinaryValue = ""
                 for idx in 0..<36 {
@@ -62,24 +62,24 @@ class Puzzle_2020_14: PuzzleBaseClass {
                         newBinaryValue += binaryValue.substring(from: idx, to: idx + 1)
                     }
                 }
-                
+
                 memoryValues[addr] = Int(newBinaryValue, radix: 2)!
             } else {
                 print("Unknown input: \(arr[0])")
             }
         }
-        
+
         var total = 0
         for (_, v) in memoryValues {
             total += v
         }
-        
+
         return total
     }
-    
+
     func getMemoryAddresses(originalAddress: Int, bitmask: String) -> [Int] {
         var retval: [Int] = []
-        
+
         let binaryValue = binaryString(originalAddress, padLength: 36)
         let xCount = bitmask.filter { $0 == "X" }.count
         if xCount > 0 {
@@ -97,14 +97,14 @@ class Puzzle_2020_14: PuzzleBaseClass {
                         powString.remove(at: powString.startIndex)
                     }
                 }
-                
+
                 retval.append(Int(newAddress, radix: 2)!)
             }
         }
-        
+
         return retval
     }
-    
+
     func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var bitmask = ""
@@ -120,7 +120,7 @@ class Puzzle_2020_14: PuzzleBaseClass {
                 let mem = line.matchesInCapturingGroups(pattern: memRegex)
                 let addr = Int(mem[0])!
                 let value = Int(mem[1])!
-                
+
                 let memoryAddresses = getMemoryAddresses(originalAddress: addr, bitmask: bitmask)
                 for addr in memoryAddresses {
                     memoryValues[addr] = value
@@ -129,15 +129,15 @@ class Puzzle_2020_14: PuzzleBaseClass {
                 print("Unknown input: \(arr[0])")
             }
         }
-        
+
         var total = 0
         for (_, v) in memoryValues {
             total += v
         }
-        
+
         return total
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {
@@ -155,7 +155,7 @@ mem[42] = 100
 mask = 00000000000000000000000000000000X0XX
 mem[26] = 1
 """
-    
+
     static let puzzleInput = """
 mask = 0111X10100100X1111X10010X000X1000001
 mem[50907] = 468673978

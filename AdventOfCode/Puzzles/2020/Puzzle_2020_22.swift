@@ -13,7 +13,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_22: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func parseIntoCardArrays(str: String) -> ([Int], [Int]) {
         let lines = str.parseIntoStringArray()
         var player1 = [Int]()
@@ -43,19 +43,19 @@ class Puzzle_2020_22: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return (player1, player2)
     }
-    
+
     func deckScore(_ deck: [Int]) -> Int {
         var retval = 0
         for multiplier in stride(from: deck.count, to: 0, by: -1) {
             retval += (multiplier * deck[deck.count - multiplier])
         }
-        
+
         return retval
     }
-    
+
     func solvePart1(str: String) -> Int {
         var (player1, player2) = parseIntoCardArrays(str: str)
 
@@ -72,16 +72,16 @@ class Puzzle_2020_22: PuzzleBaseClass {
                 print("Tie!")
             }
         }
-        
+
         let winningCards = (player1.count > 0 ? player1: player2)
         return deckScore(winningCards)
     }
-    
-    struct Decks : Hashable {
+
+    struct Decks: Hashable {
         var player1: [Int] = []
         var player2: [Int] = []
     }
-    
+
     func solvePart2(str: String) -> Int {
         func roundWinner(player1Cards: [Int], player2Cards: [Int]) -> (Int, [Int]) {
             var deckSet = Set<Decks>()
@@ -94,7 +94,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
                 } else {
                     deckSet.insert(decks)
                 }
-                
+
                 let player1Card = player1.removeFirst()
                 let player2Card = player2.removeFirst()
                 var winningPlayer = 0
@@ -103,12 +103,12 @@ class Puzzle_2020_22: PuzzleBaseClass {
                     for idx in 0..<player1Card {
                         newPlayer1.append(player1[idx])
                     }
-                    
+
                     var newPlayer2 = [Int]()
                     for idx in 0..<player2Card {
                         newPlayer2.append(player2[idx])
                     }
-                    
+
                     (winningPlayer, _) = roundWinner(player1Cards: newPlayer1, player2Cards: newPlayer2)
                 } else {
                     if player1Card > player2Card {
@@ -119,7 +119,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
                         print("Tie!")
                     }
                 }
-                
+
                 if winningPlayer == 1 {
                     player1.append(player1Card)
                     player1.append(player2Card)
@@ -128,15 +128,15 @@ class Puzzle_2020_22: PuzzleBaseClass {
                     player2.append(player1Card)
                 }
             }
-            
+
             return player1.count > 0 ? (1, player1) : (2, player2)
         }
-        
+
         let (player1, player2) = parseIntoCardArrays(str: str)
         let (_, winningCards) = roundWinner(player1Cards: player1, player2Cards: player2)
         return deckScore(winningCards)
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

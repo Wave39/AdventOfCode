@@ -16,7 +16,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -24,11 +24,11 @@ class Puzzle_2020_23: PuzzleBaseClass {
     func solvePart1() -> String {
         return solvePart1(str: Puzzle_Input.puzzleInput, moves: 100)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String, moves: Int) -> String {
         var cups = str.map { Int(String($0))! }
         for moveIndex in 0..<moves {
@@ -38,12 +38,12 @@ class Puzzle_2020_23: PuzzleBaseClass {
             for idx in 1...3 {
                 removedCups.append(cups[(currentIndex + idx) % cups.count])
             }
-            
+
             var otherCups = [Int]()
             for idx in 4..<cups.count {
                 otherCups.append(cups[(currentIndex + idx) % cups.count])
             }
-            
+
             let lesserCups = otherCups.filter { $0 < currentCup }.sorted()
             let searchValue: Int
             if lesserCups.count > 0 {
@@ -52,28 +52,28 @@ class Puzzle_2020_23: PuzzleBaseClass {
                 let greaterCups = otherCups.filter { $0 > currentCup }.sorted()
                 searchValue = greaterCups.last!
             }
-            
+
             let insertIndex = otherCups.firstIndex(of: searchValue)! + 1
             if insertIndex == otherCups.count {
                 otherCups.append(contentsOf: removedCups)
             } else {
                 otherCups.insert(contentsOf: removedCups, at: insertIndex)
             }
-            
+
             for idx in 1..<cups.count {
                 cups[(currentIndex + idx) % cups.count] = otherCups[idx - 1]
             }
         }
-        
+
         let startIndex = cups.firstIndex(of: 1)!
         var retval = ""
         for idx in 1..<cups.count {
             retval += String(cups[(startIndex + idx) % cups.count])
         }
-        
+
         return retval
     }
-    
+
     func solvePart2(str: String) -> Int {
         func runMove(_ currentCup: Node) -> Node {
             var iterator: Node = currentCup.next!
@@ -84,9 +84,9 @@ class Puzzle_2020_23: PuzzleBaseClass {
             }
             let nextCup = iterator
             var destination = currentCup.value - 1
-            var destinationNode: Node? = nil
+            var destinationNode: Node?
             while destinationNode == nil {
-                if pickUp.contains(where: { $0.value == destination })   {
+                if pickUp.contains(where: { $0.value == destination }) {
                     if destination == 1 {
                         destination = maxValue
                     } else {
@@ -110,7 +110,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
         class Node {
             let value: Int
             var next: Node?
-            
+
             init(value: Int, next: Node? = nil) {
                 self.value = value
                 self.next = next
@@ -123,7 +123,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
         cups.forEach { cup in
             cupsLinkedList[cup] = Node(value: cup)
         }
-        cups.enumerated().forEach { (i,cup) in
+        cups.enumerated().forEach { (i, cup) in
             if i == cups.count - 1 {
                 cupsLinkedList[cup]?.next = cupsLinkedList[cups[0]]
             } else {
@@ -135,7 +135,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
         for _ in 1...10_000_000 {
             (currentNode) = runMove(currentNode)
         }
-        
+
         let node1 = cupsLinkedList[1]!.next!
         let node2 = node1.next!
         return node1.value * node2.value

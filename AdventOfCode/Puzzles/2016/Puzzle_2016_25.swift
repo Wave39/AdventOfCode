@@ -41,7 +41,7 @@ class Puzzle_2016_25: PuzzleBaseClass {
                 numberCharacters.remove(charactersIn: "-")
                 return !theString.isEmpty && theString.rangeOfCharacter(from: numberCharacters) == nil
             }
-            
+
             return false
         }
 
@@ -52,7 +52,7 @@ class Puzzle_2016_25: PuzzleBaseClass {
             } else {
                 v = registers[p.registerIndex!]
             }
-            
+
             return v
         }
 
@@ -62,7 +62,7 @@ class Puzzle_2016_25: PuzzleBaseClass {
             var programCounter = 0
             var leaveLoop = false
             var outputArray: [Int] = []
-            
+
             while programCounter < instructionArray.count && leaveLoop == false {
                 let instruction = instructionArray[programCounter]
                 if instruction.opcode == .cpy {
@@ -72,7 +72,7 @@ class Puzzle_2016_25: PuzzleBaseClass {
                         let value = getParamValue(p: p1, registers: registers)
                         registers[p2.registerIndex!] = value
                     }
-                    
+
                     programCounter += 1
                 } else if instruction.opcode == .inc {
                     let p1 = instruction.param1
@@ -155,7 +155,7 @@ class Puzzle_2016_25: PuzzleBaseClass {
                 }
 
                 p1 = buildParam(inputString: c[1])
-                
+
                 if c.count >= 3 {
                     p2 = buildParam(inputString: c[2])
                 }

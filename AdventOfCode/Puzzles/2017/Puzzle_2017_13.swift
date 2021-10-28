@@ -15,9 +15,9 @@ class Puzzle_2017_13: PuzzleBaseClass {
         var currentDepth: Int = 0
         var currentDirection: Int = 1
     }
-    
+
     var layerDictArray: Array<Dictionary<Int, Layer>> = []
-    
+
     func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
@@ -38,16 +38,16 @@ class Puzzle_2017_13: PuzzleBaseClass {
             } else if v == (m! - 1) {
                 layerDict[k]?.currentDirection = -1
             }
-            
+
             let newValue = v! + (layerDict[k]?.currentDirection)!
             layerDict[k]?.currentDepth = newValue
         }
     }
-    
+
     func calculateSeverity(pLayerDict: Dictionary<Int, Layer>, maxLayer: Int, delay: Int) -> Int {
         var currentLayer = 0
         var severity = -1
-        
+
         while currentLayer <= maxLayer {
             let state = layerDictArray[currentLayer + delay]
             let layer = state[currentLayer]
@@ -56,17 +56,17 @@ class Puzzle_2017_13: PuzzleBaseClass {
                     if severity == -1 {
                         severity = 0
                     }
-                    
+
                     severity += (currentLayer * (layer?.maxDepth)!)
                 }
             }
-            
+
             currentLayer += 1
         }
-        
+
         return severity
     }
-    
+
     func solvePuzzle(str: String) -> (Int, Int) {
         let lineArray = str.split(separator: "\n")
         var layerDict: Dictionary<Int, Layer> = [:]
@@ -81,22 +81,22 @@ class Puzzle_2017_13: PuzzleBaseClass {
                 maxLayer = k
             }
         }
-        
+
         let upperLimit = 5000000
-        
+
         // build the layer dictionaries for the first N picoseconds
         for _ in 0...upperLimit {
             layerDictArray.append(layerDict)
             moveScanners(layerDict: &layerDict)
         }
-        
+
         let part1 = calculateSeverity(pLayerDict: layerDict, maxLayer: maxLayer, delay: 0)
-        
+
         var part2 = 0
         while calculateSeverity(pLayerDict: layerDict, maxLayer: maxLayer, delay: part2) != -1 && part2 < upperLimit {
             part2 += 1
         }
-        
+
         return (part1, part2)
     }
 
@@ -105,16 +105,16 @@ class Puzzle_2017_13: PuzzleBaseClass {
 private class Puzzle_2017_13_Input: NSObject {
 
     static let puzzleInput_test1 =
-        
+
 """
 0: 3
 1: 2
 4: 4
 6: 4
 """
-    
+
     static let puzzleInput =
-        
+
 """
 0: 4
 1: 2
@@ -160,5 +160,5 @@ private class Puzzle_2017_13_Input: NSObject {
 88: 18
 92: 17
 """
-    
+
 }

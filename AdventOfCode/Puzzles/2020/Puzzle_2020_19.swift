@@ -12,20 +12,20 @@
 import Foundation
 
 class Puzzle_2020_19: PuzzleBaseClass {
-    
+
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     struct Rule {
         let condition1: [Int]?
         let condition2: [Int]?
-        
+
         let char: Character?
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         func ruleMatches(_ exs: [String], ruleNumber: Int, rulesDict: [Int: Rule]) -> [String]? {
             let rule = rulesDict[ruleNumber]
@@ -48,7 +48,7 @@ class Puzzle_2020_19: PuzzleBaseClass {
                                 leftovers = ruleMatches(leftoversNN, ruleNumber: ruleNumber, rulesDict: rulesDict)
                             }
                         }
-                        
+
                         if let leftoversNN = leftovers {
                             condition1Matches.append(contentsOf: leftoversNN)
                         }
@@ -65,7 +65,7 @@ class Puzzle_2020_19: PuzzleBaseClass {
                                 leftovers = ruleMatches(leftoversNN, ruleNumber: ruleNumber, rulesDict: rulesDict)
                             }
                         }
-                        
+
                         if let leftoversNN = leftovers {
                             condition2Matches.append(contentsOf: leftoversNN)
                         }
@@ -76,14 +76,14 @@ class Puzzle_2020_19: PuzzleBaseClass {
         }
 
         let lines = Puzzle_Input.puzzleInput.components(separatedBy: CharacterSet.newlines).filter { !$0.isEmpty}
-        
+
         let rules = lines.filter { $0.contains(":") }.map { line -> (Int, Rule) in
             let parts = line.components(separatedBy: ": ")
             let ruleNumber = Int(parts[0])!
             let rule = parts[1]
-            var char: Character? = nil
-            var condition1: [Int]? = nil
-            var condition2: [Int]? = nil
+            var char: Character?
+            var condition1: [Int]?
+            var condition2: [Int]?
             if rule.contains("\"") {
                 char = rule[rule.index(rule.startIndex, offsetBy: 1)]
             } else if rule.contains("|") {
@@ -96,33 +96,33 @@ class Puzzle_2020_19: PuzzleBaseClass {
             }
             return (ruleNumber, Rule(condition1: condition1, condition2: condition2, char: char))
         }
-        
+
         var rulesDict = Dictionary(uniqueKeysWithValues: rules)
-        
+
         let expressions1 = lines
             .filter { !$0.contains(":") }
             .map { line in
                 ruleMatches([line], ruleNumber: 0, rulesDict: rulesDict)
             }
         let part1Solution = expressions1.filter { $0?.contains("") == true }.count
-        
+
         // part 2, switch out the 8 and 11 rules
         rulesDict[8] = Rule(condition1: [ 42 ], condition2: [ 42, 8 ], char: nil)
         rulesDict[11] = Rule(condition1: [ 42, 31 ], condition2: [ 42, 11, 31 ], char: nil)
-        
+
         let expressions2 = lines
             .filter { !$0.contains(":") }
             .map { line in
                 ruleMatches([line], ruleNumber: 0, rulesDict: rulesDict)
             }
         let part2Solution = expressions2.filter { $0?.contains("") == true }.count
-        
+
         return (part1Solution, part2Solution)
     }
 }
 
 private class Puzzle_Input: NSObject {
-    
+
     static let puzzleInput_test = """
 0: 1 2
 1: "a"
@@ -135,7 +135,7 @@ aba
 aaa
 aabb
 """
-    
+
     static let puzzleInput_test2 = """
 0: 4 1 5
 1: 2 3 | 3 2
@@ -150,7 +150,7 @@ abbbab
 aaabbb
 aaaabbb
 """
-    
+
     static let puzzleInput = """
 44: 91 71 | 77 109
 94: 15 77 | 129 91
@@ -718,5 +718,5 @@ abbabbaaaaabbbbababbbbba
 aabbabbababaabaabbabaababbbabaabaababbaa
 abbbbbabaaabbaaabbbaabaa
 """
-    
+
 }

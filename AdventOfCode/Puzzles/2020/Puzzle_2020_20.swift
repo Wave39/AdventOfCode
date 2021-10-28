@@ -13,7 +13,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,17 +21,17 @@ class Puzzle_2020_20: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
-    struct PhotoTile : Hashable {
+
+    struct PhotoTile: Hashable {
         var tileNumber: Int
         var imageData: CharacterGrid = CharacterGrid()
         var edges: [String] = []
         var edgeMatches: [Int] = []
-        
+
         func allPossibleEdges() -> [String] {
             var retval: [String] = []
             retval += edges
@@ -39,7 +39,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
             return retval
         }
     }
-    
+
     func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray(omitBlankLines: false)
         var tileNumber = 0
@@ -66,7 +66,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
                 tiles.append(tile)
             }
         }
-        
+
         var retval = 1
         for var tile in tiles {
             for otherTile in tiles.filter({$0.tileNumber != tile.tileNumber}) {
@@ -76,19 +76,19 @@ class Puzzle_2020_20: PuzzleBaseClass {
                     }
                 }
             }
-            
+
             if tile.edgeMatches.count == 2 {
                 retval *= tile.tileNumber
             }
         }
-        
+
         return retval
     }
-    
+
     func solvePart2(str: String) -> Int {
         return 2146
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

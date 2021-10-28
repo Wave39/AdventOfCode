@@ -15,44 +15,44 @@ class Puzzle_2018_03: NSObject {
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2018_03_Input.puzzleInput
         let claims = Claim.parse(str: puzzleInput)
-        
+
         return solveBothParts(claims: claims)
     }
-    
+
     func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_03_Input.puzzleInput
         let claims = Claim.parse(str: puzzleInput)
-        
+
         let (part1, _) = solveBothParts(claims: claims)
         return part1
     }
-    
+
     func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_03_Input.puzzleInput
         let claims = Claim.parse(str: puzzleInput)
-        
+
         let (_, part2) = solveBothParts(claims: claims)
         return part2
     }
 
     func solveBothParts(claims: [Claim]) -> (Int, Int) {
         var part1 = 0
-        
-        var fabric:[[Int]] = []
+
+        var fabric: [[Int]] = []
         let maxSize = 1000
         for _ in 0..<maxSize {
-            var rowArray:[Int] = []
+            var rowArray: [Int] = []
             for _ in 0..<maxSize {
                 rowArray.append(0)
             }
-            
+
             fabric.append(rowArray)
         }
-        
+
         for claim in claims {
             for row in claim.topEdge..<(claim.topEdge + claim.height) {
                 for col in claim.leftEdge..<(claim.leftEdge + claim.width) {
@@ -60,7 +60,7 @@ class Puzzle_2018_03: NSObject {
                 }
             }
         }
-        
+
         for row in 0..<maxSize {
             for col in 0..<maxSize {
                 if fabric[row][col] >= 2 {
@@ -68,7 +68,7 @@ class Puzzle_2018_03: NSObject {
                 }
             }
         }
-        
+
         var part2 = 0
         for claim in claims {
             var claimIsClean = true
@@ -79,12 +79,12 @@ class Puzzle_2018_03: NSObject {
                     }
                 }
             }
-            
+
             if claimIsClean {
                 part2 = claim.idNumber
             }
         }
-        
+
         return (part1, part2)
     }
 }
@@ -95,10 +95,10 @@ class Claim {
     var topEdge: Int = 0
     var width: Int = 0
     var height: Int = 0
-    
+
     static func parse(str: String) -> [Claim] {
         var retval: [Claim] = []
-        
+
         let arr = str.parseIntoStringArray()
         for line in arr {
             let items = line.parseIntoStringArray(separator: " ")
@@ -112,7 +112,7 @@ class Claim {
             claim.height = sizeArray[1].toInt()
             retval.append(claim)
         }
-        
+
         return retval
     }
 }
@@ -124,7 +124,7 @@ private class Puzzle_2018_03_Input: NSObject {
 #2 @ 3,1: 4x4
 #3 @ 5,5: 2x2
 """
-        
+
     static let puzzleInput = """
 #1 @ 704,926: 5x4
 #2 @ 272,413: 16x11

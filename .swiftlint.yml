@@ -13,7 +13,10 @@ disabled_rules: # rule identifiers turned on by default to exclude from running
   - syntactic_sugar
   - unused_optional_binding
   - large_tuple
-  
+  - reduce_boolean
+  - unused_enumerated
+  - nesting
+  - orphaned_doc_comment
 opt_in_rules: # some rules are turned off by default, so you need to opt-in
   
 # Alternatively, specify all rules explicitly by uncommenting this option:

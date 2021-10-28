@@ -13,7 +13,7 @@ class Puzzle_2020_15: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,7 +21,7 @@ class Puzzle_2020_15: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
@@ -32,7 +32,7 @@ class Puzzle_2020_15: PuzzleBaseClass {
         for idx in 0..<arr.count {
             dict[arr[idx]] = [ idx + 1 ]
         }
-        
+
         var lastNumber = arr.last!
         var lastNumberNew = true
         var turnNumber = arr.count + 1
@@ -45,7 +45,7 @@ class Puzzle_2020_15: PuzzleBaseClass {
                 let count = x.count
                 numberSpoken = x[count - 1] - x[count - 2]
             }
-            
+
             if dict[numberSpoken] == nil {
                 lastNumberNew = true
                 dict[numberSpoken] = []
@@ -57,18 +57,18 @@ class Puzzle_2020_15: PuzzleBaseClass {
             lastNumber = numberSpoken
             turnNumber += 1
         }
-        
+
         return lastNumber
     }
-    
+
     func solvePart1(str: String) -> Int {
         return solve(str: str, turns: 2020)
     }
-    
+
     func solvePart2(str: String) -> Int {
         return solve(str: str, turns: 30000000)
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

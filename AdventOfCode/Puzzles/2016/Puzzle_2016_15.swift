@@ -15,7 +15,7 @@ class Puzzle_2016_15: PuzzleBaseClass {
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         struct DiscState {
             var initialPosition: Int
@@ -35,14 +35,14 @@ class Puzzle_2016_15: PuzzleBaseClass {
                         found = false
                     }
                 }
-                
+
                 if found {
                     foundTime = startingTime - 1
                 }
-                
+
                 startingTime += 1
             }
-            
+
             return foundTime
         }
 

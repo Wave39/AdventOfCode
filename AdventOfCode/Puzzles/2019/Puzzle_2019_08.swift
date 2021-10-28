@@ -13,7 +13,7 @@ class Puzzle_2019_08: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution:")
         var lineString = ""
@@ -29,7 +29,7 @@ class Puzzle_2019_08: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
     }
-    
+
     func solvePart2() -> [Character] {
         return solvePart2(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
     }
@@ -44,7 +44,7 @@ class Puzzle_2019_08: PuzzleBaseClass {
                 layer = []
             }
         }
-        
+
         var fewestZeros = Int.max
         var retval = 0
         for layer in layers {
@@ -54,10 +54,10 @@ class Puzzle_2019_08: PuzzleBaseClass {
                 retval = layer.filter { $0 == "1" }.count * layer.filter { $0 == "2" }.count
             }
         }
-        
+
         return retval
     }
-    
+
     func solvePart2(str: String, imageWidth: Int, imageHeight: Int) -> [Character] {
         var layers: [[Character]] = []
         var layer: [Character] = []
@@ -68,7 +68,7 @@ class Puzzle_2019_08: PuzzleBaseClass {
                 layer = []
             }
         }
-        
+
         var resultingImage: [Character] = Array(repeating: "2", count: (imageWidth * imageHeight))
         for layer in layers {
             for idx in 0..<layer.count {
@@ -77,10 +77,10 @@ class Puzzle_2019_08: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return resultingImage
     }
-    
+
 }
 
 private class Puzzle_2019_08_Input: NSObject {

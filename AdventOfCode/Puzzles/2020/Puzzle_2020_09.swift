@@ -13,7 +13,7 @@ class Puzzle_2020_09: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_09: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput, preamble: Puzzle_Input.preamble)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput, preamble: Puzzle_Input.preamble)
     }
-    
+
     func checkArrayForSum(arr: [Int], sum: Int) -> Bool {
         for i in 0..<arr.count - 1 {
             for j in (i + 1)..<arr.count {
@@ -34,10 +34,10 @@ class Puzzle_2020_09: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return false
     }
-    
+
     func solvePart1(str: String, preamble: Int) -> Int {
         var arr = str.parseIntoIntArray()
         var numberArray: [Int] = []
@@ -45,22 +45,22 @@ class Puzzle_2020_09: PuzzleBaseClass {
             numberArray.append(arr.first!)
             arr.remove(at: 0)
         }
-        
+
         while checkArrayForSum(arr: numberArray, sum: arr.first!) {
             numberArray.remove(at: 0)
             numberArray.append(arr.first!)
             arr.remove(at: 0)
         }
-        
+
         return arr.first!
     }
-    
+
     func solvePart2(str: String, preamble: Int) -> Int {
         let searchValue = solvePart1(str: str, preamble: preamble)
         let arr = str.parseIntoIntArray()
         var minValue: Int
         var maxValue: Int
-        
+
         for arrLength in 2...arr.count {
             for startIdx in 0...(arr.count - arrLength) {
                 minValue = Int.max
@@ -70,24 +70,24 @@ class Puzzle_2020_09: PuzzleBaseClass {
                     if arr[i] > maxValue {
                         maxValue = arr[i]
                     }
-                    
+
                     if arr[i] < minValue {
                         minValue = arr[i]
                     }
-                    
+
                     sum += arr[i]
                 }
-                
+
                 if sum == searchValue {
                     return minValue + maxValue
                 }
             }
         }
-        
+
         print("Something really bad happened.")
         return -1
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

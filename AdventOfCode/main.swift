@@ -48,10 +48,10 @@ while !quitApp {
         if year >= 15 && year <= 99 {
             year += 2000
         }
-        
+
         print("")
         print("Solving \(year) puzzle \(puzzle), please stand by...")
-        
+
         let start = DispatchTime.now()
         if year == 2020 {
             Puzzle_2020().solve(puzzleNumber: puzzle)

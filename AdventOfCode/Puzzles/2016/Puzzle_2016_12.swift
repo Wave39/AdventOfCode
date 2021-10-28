@@ -54,7 +54,7 @@ class Puzzle_2016_12: PuzzleBaseClass {
                 print("Unknown command: \(arr[0])")
             }
         }
-        
+
         return registers[registerToRetrieve]!
     }
 
@@ -63,7 +63,7 @@ class Puzzle_2016_12: PuzzleBaseClass {
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let part1 = PuzzleInput.final.parseIntoStringArray()
         let part1Registers = [ "a": 0, "b": 0, "c": 0, "d": 0 ]

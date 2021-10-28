@@ -14,9 +14,9 @@ class Puzzle_2018_25: NSObject {
         var position: Point4D = Point4D()
         var constellationId: Int = 0
     }
-    
+
     typealias StarChart = [Star]
-    
+
     func parseStarChart(str: String) -> StarChart {
         var retval = StarChart()
         for line in str.parseIntoStringArray() {
@@ -26,20 +26,20 @@ class Puzzle_2018_25: NSObject {
             star.constellationId = retval.count + 1
             retval.append(star)
         }
-        
+
         return retval
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
     }
-    
+
     func solvePart1() -> Int {
         let starChart = parseStarChart(str: Puzzle_2018_25_Input.puzzleInput)
         return solvePart1(starChart: starChart)
     }
-    
+
     func solvePart1(starChart: StarChart) -> Int {
         var starSwap = true
         while starSwap {
@@ -58,7 +58,7 @@ class Puzzle_2018_25: NSObject {
                 }
             }
         }
-        
+
         let constellations = Set(starChart.map { $0.constellationId })
         return constellations.count
     }
@@ -80,7 +80,7 @@ class Puzzle_2018_25_Input: NSObject {
 1,2,2,0
 -1,-2,0,-2
 """
-    
+
     static let puzzleInput =
 """
 2,5,-4,-7
@@ -1131,5 +1131,5 @@ class Puzzle_2018_25_Input: NSObject {
 2,5,-5,1
 4,-6,-3,1
 """
-    
+
 }

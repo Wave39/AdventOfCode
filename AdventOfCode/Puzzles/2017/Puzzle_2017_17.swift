@@ -17,15 +17,15 @@ class Puzzle_2017_17: PuzzleBaseClass {
         let part2Solution = solvePart2()
         print("Part 2 solution: \(part2Solution)")
     }
-    
+
     func solvePart1() -> Int {
         return solvePart1(puzzleInput: Puzzle_2017_17_Input.puzzleInput_part1)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(puzzleInput: Puzzle_2017_17_Input.puzzleInput_part2)
     }
-    
+
     func createBuffer(step: Int, maxValue: Int) -> [Int] {
         var currentIndex = 0
         var buffer: [Int] = [ 0 ]
@@ -33,10 +33,10 @@ class Puzzle_2017_17: PuzzleBaseClass {
             currentIndex = (currentIndex + step) % idx + 1
             buffer.insert(idx, at: currentIndex)
         }
-        
+
         return buffer
     }
-    
+
     func solvePart1(puzzleInput: (Int, Int, Int)) -> Int {
         let step = puzzleInput.0
         let maxValue = puzzleInput.1
@@ -45,7 +45,7 @@ class Puzzle_2017_17: PuzzleBaseClass {
         let idx = buffer.firstIndex(of: searchValue)
         return buffer[idx! + 1]
     }
-    
+
     func solvePart2(puzzleInput: (Int, Int, Int)) -> Int {
         let step = puzzleInput.0
         let maxValue = puzzleInput.1
@@ -57,7 +57,7 @@ class Puzzle_2017_17: PuzzleBaseClass {
                 retval = idx
             }
         }
-        
+
         return retval
     }
 

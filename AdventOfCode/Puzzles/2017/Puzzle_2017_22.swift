@@ -15,7 +15,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
         case RIGHT = 1
         case DOWN = 2
         case LEFT = 3
-        
+
         func nextDirectionByTurningRight() -> Direction {
             return Direction(rawValue: (self.rawValue + 1) % 4)!
         }
@@ -23,46 +23,46 @@ class Puzzle_2017_22: PuzzleBaseClass {
         func nextDirectionByTurningLeft() -> Direction {
             return Direction(rawValue: (self.rawValue - 1 + 4) % 4)!
         }
-        
+
         func nextDirectionByReversing() -> Direction {
             return Direction(rawValue: (self.rawValue + 2) % 4)!
         }
     }
-    
+
     let gridSize = 20000
     let gridCenter: Point2D = Point2D(x: 10000, y: 10000)
-    
+
     func translatePoint(point: Point2D) -> Point2D {
         return Point2D(x: (point.x + gridCenter.x), y: (point.y + gridCenter.y))
     }
-    
+
     func getCharacterAtVirtualCoordinates(grid: CharacterGrid, point: Point2D) -> Character {
         let newPoint = Point2D(x: (point.x + gridCenter.x), y: (point.y + gridCenter.y))
         return getCharacterAtCharacterGridPoint(grid: grid, point: newPoint)
     }
-    
+
     func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
-        
+
         let part2Solution = solvePart2()
         print("Part 2 solution: \(part2Solution)")
     }
-    
+
     func solvePart1() -> Int {
         let puzzleInput = PuzzleInput.final
         return solvePart1(str: puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         let puzzleInput = PuzzleInput.final
         return solvePart2(str: puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let startingGrid = getCharacterGrid(str: str, separator: "\n")
         let startingOffset = Int(startingGrid.count / 2)
-        
+
         var theGrid = initializeEmptyCharacterGrid(height: gridSize, width: gridSize)
         for y in 0..<startingGrid.count {
             for x in 0..<startingGrid[0].count {
@@ -71,7 +71,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
                 theGrid[translatedPoint.y][translatedPoint.x] = getCharacterAtCharacterGridPoint(grid: startingGrid, point: pt)
             }
         }
-        
+
         var currentPoint = translatePoint(point: Point2D(x: 0, y: 0))
         var currentDirection = Direction.UP
         var infectionCount = 0
@@ -82,14 +82,14 @@ class Puzzle_2017_22: PuzzleBaseClass {
             } else {
                 currentDirection = currentDirection.nextDirectionByTurningLeft()
             }
-            
+
             if c == "#" {
                 theGrid[currentPoint.y][currentPoint.x] = "."
             } else {
                 theGrid[currentPoint.y][currentPoint.x] = "#"
                 infectionCount += 1
             }
-            
+
             if currentDirection == .UP {
                 currentPoint.y -= 1
             } else if currentDirection == .DOWN {
@@ -100,14 +100,14 @@ class Puzzle_2017_22: PuzzleBaseClass {
                 currentPoint.x += 1
             }
         }
-        
+
         return infectionCount
     }
-    
+
     func solvePart2(str: String) -> Int {
         let startingGrid = getCharacterGrid(str: str, separator: "\n")
         let startingOffset = Int(startingGrid.count / 2)
-        
+
         var theGrid = initializeEmptyCharacterGrid(height: gridSize, width: gridSize)
         for y in 0..<startingGrid.count {
             for x in 0..<startingGrid[0].count {
@@ -116,7 +116,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
                 theGrid[translatedPoint.y][translatedPoint.x] = getCharacterAtCharacterGridPoint(grid: startingGrid, point: pt)
             }
         }
-        
+
         var currentPoint = translatePoint(point: Point2D(x: 0, y: 0))
         var currentDirection = Direction.UP
         var infectionCount = 0
@@ -129,7 +129,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
             } else if c == "F" {
                 currentDirection = currentDirection.nextDirectionByReversing()
             }
-            
+
             if c == "." {
                 theGrid[currentPoint.y][currentPoint.x] = "W"
             } else if c == "W" {
@@ -140,7 +140,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
             } else if c == "F" {
                 theGrid[currentPoint.y][currentPoint.x] = "."
             }
-            
+
             if currentDirection == .UP {
                 currentPoint.y -= 1
             } else if currentDirection == .DOWN {
@@ -151,7 +151,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
                 currentPoint.x += 1
             }
         }
-        
+
         return infectionCount
     }
 
@@ -160,15 +160,15 @@ class Puzzle_2017_22: PuzzleBaseClass {
 private class PuzzleInput: NSObject {
 
     static let test1 =
-        
+
 """
 ..#
 #..
 ...
 """
-    
+
     static let final =
-    
+
 """
 ..#..##...##.######.##...
 ..#...#####..#.#####..#..
@@ -196,5 +196,5 @@ private class PuzzleInput: NSObject {
 ##.#.#..##.#.#.##....##.#
 .#.###..##..#....#...##.#
 """
-    
+
 }

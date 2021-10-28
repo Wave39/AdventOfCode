@@ -31,23 +31,23 @@ class Puzzle_2018_17: NSObject {
             case .flowingWater: return "|"
             }
         }
-        
+
         var isWater: Bool {
             return self == .water || self == .flowingWater
         }
     }
-    
+
     struct Grid<Element> {
         var xRange: ClosedRange<Int>
         var yRange: ClosedRange<Int>
         var storage: [Element]
-        
+
         init(repeating element: Element, x: ClosedRange<Int>, y: ClosedRange<Int>) {
             xRange = x
             yRange = y
             storage = [Element](repeating: element, count: xRange.count * yRange.count)
         }
-        
+
         subscript(x x: Int, y y: Int) -> Element {
             get {
                 precondition(xRange.contains(x) && yRange.contains(y))
@@ -62,18 +62,18 @@ class Puzzle_2018_17: NSObject {
                 storage[xRange.count * yIndex + xIndex] = newValue
             }
         }
-        
+
         func row(at y: Int) -> ArraySlice<Element> {
             precondition(yRange.contains(y))
             let yIndex = y - yRange.lowerBound
             return storage[(yIndex * xRange.count)..<((yIndex + 1) * xRange.count)]
         }
-        
+
         var rows: LazyMapCollection<ClosedRange<Int>, ArraySlice<Element>> {
             return yRange.lazy.map { self.row(at: $0) }
         }
     }
-    
+
     func aocD17(_ input: [(x: ClosedRange<Int>, y: ClosedRange<Int>)]) {
         let minX = input.lazy.map { $0.x.lowerBound }.min()! - 1
         let maxX = input.lazy.map { $0.x.upperBound }.max()! + 1
@@ -114,8 +114,7 @@ class Puzzle_2018_17: NSObject {
                     // print(map.lazy.map({ String($0.lazy.map { $0.char }) }).joined(separator: "\n"))
                     spilled = pourDown(x: lX, y: y) || spilled
                     break
-                }
-                else if below == .flowingWater {
+                } else if below == .flowingWater {
                     spilled = true
                     break
                 }
@@ -128,8 +127,7 @@ class Puzzle_2018_17: NSObject {
                     // print(map.lazy.map({ String($0.lazy.map { $0.char }) }).joined(separator: "\n"))
                     spilled = pourDown(x: rX, y: y) || spilled
                     break
-                }
-                else if below == .flowingWater {
+                } else if below == .flowingWater {
                     spilled = true
                     break
                 }
@@ -159,26 +157,25 @@ class Puzzle_2018_17: NSObject {
             Counting time: \(Double(endCounting.uptimeNanoseconds - end.uptimeNanoseconds) / 1_000)µs
             """)
     }
-    
+
     func solve() {
         let str = Puzzle_2018_17_Input.puzzleInput
-        
+
         let input = str.split(separator: "\n").map { line -> (x: ClosedRange<Int>, y: ClosedRange<Int>) in
             let (a, bstart, bend) = line.split(whereSeparator: { !"0123456789-".contains($0) }).map({ Int($0)! }).tuple3!
             if line.first == "x" {
                 return (x: a...a, y: bstart...bend)
-            }
-            else {
+            } else {
                 return (x: bstart...bend, y: a...a)
             }
         }
-        
+
         aocD17(input)
     }
-    
+
     // Once again, I am stumped while being so close to the solution
     // Maybe I will swing back around and revisit this later
-    
+
 //    var ground: [[Character]] = []
 //    var springLocation: Point2D = Point2D()
 //
@@ -425,7 +422,7 @@ x=498, y=10..13
 x=504, y=10..13
 y=13, x=498..504
 """
-    
+
     static let puzzleInput =
 """
 x=732, y=919..935

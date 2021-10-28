@@ -16,17 +16,17 @@ class Puzzle_2018_22: NSObject {
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_22_Input.puzzleInput
         return solvePart1(puzzleInput: puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_22_Input.puzzleInput
         return solvePart2(puzzleInput: puzzleInput)
     }
-    
+
     func geologicIndex(x: Int, y: Int, erosionMap: [[Int]]) -> Int {
         var retval: Int
         if (x == 0 && y == 0) || (x == (erosionMap[0].count - 1) && y == (erosionMap.count - 1)) {
@@ -38,16 +38,16 @@ class Puzzle_2018_22: NSObject {
         } else {
             retval = erosionMap[y][x - 1] * erosionMap[y - 1][x]
         }
-        
+
         return retval
     }
-    
+
     func erosionLevel(x: Int, y: Int, depth: Int, erosionMap: [[Int]]) -> Int {
         var retval = geologicIndex(x: x, y: y, erosionMap: erosionMap) + depth
         retval %= 20183
         return retval
     }
-    
+
     func solvePart1(puzzleInput: (Int, Int, Int)) -> Int {
         var regionTypeMap: [[Int]] = Array(repeating: (Array(repeating: 0, count: puzzleInput.1 + 1)), count: puzzleInput.2 + 1)
         var erosionMap: [[Int]] = Array(repeating: (Array(repeating: 0, count: puzzleInput.1 + 1)), count: puzzleInput.2 + 1)
@@ -57,7 +57,7 @@ class Puzzle_2018_22: NSObject {
                 regionTypeMap[y][x] = erosionMap[y][x] % 3
             }
         }
-        
+
         return regionTypeMap.flatMap { $0 }.reduce(0, +)
     }
 
@@ -65,11 +65,11 @@ class Puzzle_2018_22: NSObject {
         // Great shame, this one was too complicated, I borrowed someone else's C# solution
         return 1092
     }
-    
+
 }
 
 private class Puzzle_2018_22_Input: NSObject {
-    
+
     static let puzzleInput_test = (510, 10, 10)
 
     static let puzzleInput = (5355, 14, 796)

@@ -11,11 +11,11 @@ import Foundation
 class Puzzle_2019_18: PuzzleBaseClass {
 
     // courtesy of https://github.com/gernb/AdventOfCode2019/tree/master/Day%2018
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -23,9 +23,9 @@ class Puzzle_2019_18: PuzzleBaseClass {
     func solvePart1() -> Int {
         return 4620
     }
-    
+
     func solvePart2() -> Int {
         return 1564
     }
-    
+
 }

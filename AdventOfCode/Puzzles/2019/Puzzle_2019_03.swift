@@ -11,11 +11,11 @@ import Foundation
 class Puzzle_2019_03: PuzzleBaseClass {
 
     let originPoint = Point2D(x: 0, y: 0)
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -23,7 +23,7 @@ class Puzzle_2019_03: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_03_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_03_Input.puzzleInput)
     }
@@ -45,14 +45,14 @@ class Puzzle_2019_03: PuzzleBaseClass {
                 } else {
                     y += 1
                 }
-                
+
                 retval.insert(Point2D(x: x, y: y))
             }
         }
-        
+
         return retval
     }
-    
+
     func GetWireCoordinatesDictionary(str: String) -> Dictionary<Point2D, Int> {
         var retval: Dictionary<Point2D, Int> = [:]
         var x = 0
@@ -71,7 +71,7 @@ class Puzzle_2019_03: PuzzleBaseClass {
                 } else {
                     y += 1
                 }
-                
+
                 steps += 1
                 let pt = Point2D(x: x, y: y)
                 if retval[pt] == nil {
@@ -79,7 +79,7 @@ class Puzzle_2019_03: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return retval
     }
 
@@ -89,7 +89,7 @@ class Puzzle_2019_03: PuzzleBaseClass {
         let wire2 = GetWireCoordinatesSet(str: arr[1])
         var commonPoints = wire1.intersection(wire2)
         commonPoints.remove(originPoint)
-        
+
         var retval = Int.max
         for pt in commonPoints {
             let d = originPoint.manhattanDistanceTo(pt: pt)
@@ -97,10 +97,10 @@ class Puzzle_2019_03: PuzzleBaseClass {
                 retval = d
             }
         }
-        
+
         return retval
     }
-    
+
     func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         let wire1 = GetWireCoordinatesDictionary(str: arr[0])
@@ -109,7 +109,7 @@ class Puzzle_2019_03: PuzzleBaseClass {
         let wire2set = Set(wire2.keys)
         var commonPoints = wire1set.intersection(wire2set)
         commonPoints.remove(originPoint)
-        
+
         var retval = Int.max
         for pt in commonPoints {
             let t = wire1[pt]! + wire2[pt]!
@@ -117,10 +117,10 @@ class Puzzle_2019_03: PuzzleBaseClass {
                 retval = t
             }
         }
-        
+
         return retval
     }
-    
+
 }
 
 private class Puzzle_2019_03_Input: NSObject {
@@ -129,7 +129,7 @@ private class Puzzle_2019_03_Input: NSObject {
 R8,U5,L5,D3
 U7,R6,D4,L4
 """
-    
+
     static let puzzleInput_test2 = """
 R75,D30,R83,U83,L12,D49,R71,U7,L72
 U62,R66,U55,R34,D71,R55,D58,R83

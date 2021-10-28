@@ -13,7 +13,7 @@ class Puzzle_2020_10: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_10: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray().sorted()
         arr.insert(0, at: 0)
@@ -40,10 +40,10 @@ class Puzzle_2020_10: PuzzleBaseClass {
                 threes += 1
             }
         }
-        
+
         return ones * threes
     }
-    
+
     func getRunPermutationCount(arr: [Int]) -> Int {
         let combinations = arr.combinationsWithoutRepetition.filter { $0.contains(arr.first!) && $0.contains(arr.last!) }
         var valid = 0
@@ -54,19 +54,19 @@ class Puzzle_2020_10: PuzzleBaseClass {
                     combinationGood = false
                 }
             }
-            
+
             if combination.count == 2 && (arr.last! - arr.first!) > 3 {
                 combinationGood = false
             }
-            
+
             if combinationGood {
                 valid += 1
             }
         }
-        
+
         return valid
     }
-    
+
     func solvePart2(str: String) -> Int {
         var arr = str.parseIntoIntArray().sorted()
         arr.insert(0, at: 0)
@@ -85,19 +85,19 @@ class Puzzle_2020_10: PuzzleBaseClass {
                 }
             }
         }
-        
+
         if currentRun.count > 0 {
             runs.append(currentRun.unique().sorted())
         }
-        
+
         var count = 1
         for r in runs {
             count *= getRunPermutationCount(arr: r)
         }
-        
+
         return count
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

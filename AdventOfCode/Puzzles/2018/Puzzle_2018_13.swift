@@ -9,7 +9,7 @@
 import Foundation
 
 class Puzzle_2018_13: NSObject {
-    
+
     enum TrackType {
         case NoTrack
         case StraightHorizontal
@@ -18,7 +18,7 @@ class Puzzle_2018_13: NSObject {
         case CornerBackslash
         case Intersection
     }
-    
+
     enum TravelDirection: Int {
         case Up = 0
         case Right
@@ -35,7 +35,7 @@ class Puzzle_2018_13: NSObject {
             } else if self == .Left {
                 return .Down
             }
-            
+
             return .Straight
         }
 
@@ -49,29 +49,29 @@ class Puzzle_2018_13: NSObject {
             } else if self == .Left {
                 return .Up
             }
-            
+
             return .Straight
         }
     }
-    
+
     class Cart {
         var location: Point2D = Point2D()
         var travelDirection: TravelDirection = .Up
         var nextTurnDirection: TravelDirection = .Left
         var ghost: Bool = false
     }
-    
+
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> ((Int, Int), (Int, Int)) {
         let puzzleInput = Puzzle_2018_13_Input.puzzleInput
         return solveBothParts(puzzleInput: puzzleInput)
     }
-    
+
     func trackGridToString(trackGrid: [[TrackType]], carts: [Cart]) -> String {
         var characterArray: [[String]] = []
         for line in trackGrid {
@@ -91,13 +91,13 @@ class Puzzle_2018_13: NSObject {
                 } else if c == .Intersection {
                     s = "+"
                 }
-                
+
                 characterLine.append(s)
             }
-            
+
             characterArray.append(characterLine)
         }
-        
+
         for cart in carts {
             var c = "?"
             if cart.travelDirection == .Up {
@@ -109,18 +109,18 @@ class Puzzle_2018_13: NSObject {
             } else if cart.travelDirection == .Left {
                 c = "<"
             }
-            
+
             characterArray[cart.location.y][cart.location.x] = c
         }
-        
+
         var retval = ""
         for line in characterArray {
             retval += (line.joined() + "\n")
         }
-        
+
         return retval
     }
-    
+
     func solveBothParts(puzzleInput: String) -> ((Int, Int), (Int, Int)) {
         let lines = puzzleInput.parseIntoStringArray()
         var currentX = 0, currentY = 0
@@ -174,17 +174,17 @@ class Puzzle_2018_13: NSObject {
                 } else {
                     print("Unknown entry in input: \(c)")
                 }
-                
+
                 lineArray.append(t)
                 currentX += 1
             }
-            
+
             trackGrid.append(lineArray)
             currentY += 1
         }
-        
-        //print(trackGridToString(trackGrid: trackGrid, carts: carts))
-        
+
+        // print(trackGridToString(trackGrid: trackGrid, carts: carts))
+
         var tickCount = 0
         var firstCollisionX = -1, firstCollisionY = -1
         repeat {
@@ -196,7 +196,7 @@ class Puzzle_2018_13: NSObject {
                     return $0.location.x < $1.location.x
                 }
             }
-            
+
             for cart in carts {
                 if !cart.ghost {
                     // move the cart
@@ -209,7 +209,7 @@ class Puzzle_2018_13: NSObject {
                     } else if cart.travelDirection == .Left {
                         cart.location.x -= 1
                     }
-                    
+
                     // check for collisions
                     let collisionCheck = carts.filter { $0.location.x == cart.location.x && $0.location.y == cart.location.y }
                     if collisionCheck.count != 1 {
@@ -218,13 +218,13 @@ class Puzzle_2018_13: NSObject {
                                 c2.ghost = true
                             }
                         }
-                        
+
                         if firstCollisionX == -1 {
                             firstCollisionX = cart.location.x
                             firstCollisionY = cart.location.y
                         }
                     }
-                    
+
                     // get the next turn for the cart
                     let track = trackGrid[cart.location.y][cart.location.x]
                     if track == .CornerSlash {
@@ -252,15 +252,15 @@ class Puzzle_2018_13: NSObject {
                     }
                 }
             }
-            
+
             carts = carts.filter { $0.ghost == false }
 
             tickCount += 1
         } while carts.count > 1
-        
+
         return ((firstCollisionX, firstCollisionY), (carts[0].location.x, carts[0].location.y))
     }
-    
+
 }
 
 private class Puzzle_2018_13_Input: NSObject {
@@ -274,7 +274,7 @@ private class Puzzle_2018_13_Input: NSObject {
 `-+-/..`-+--/
 ..`------/...
 """
-    
+
     static let puzzleInput =
 """
 ....................................................../------------------------------------------------------------------------------------------`....
@@ -428,5 +428,5 @@ private class Puzzle_2018_13_Input: NSObject {
 .............|...............................................`-----------------------------------+-------/............................................
 .............`--------------------------------------------------------------------------------<--/....................................................
 """
-    
+
 }

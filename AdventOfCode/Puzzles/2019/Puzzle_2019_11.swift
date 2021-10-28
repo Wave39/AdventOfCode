@@ -14,11 +14,11 @@ class Puzzle_2019_11: PuzzleBaseClass {
         case Black
         case White
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution:")
         var lineString = ""
@@ -34,18 +34,18 @@ class Puzzle_2019_11: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_11_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> (String, Point2D) {
         return solvePart2(str: Puzzle_2019_11_Input.puzzleInput)
     }
-    
+
     func ProcessProgram(program: inout [Int], inputSignal: Int, programCounter: inout Int, relativeBase: inout Int) -> ([Int], Bool) {
         enum ParameterMode {
             case position
             case immediate
             case relative
         }
-        
+
         func CheckArraySize(_ newSize: Int) {
             if newSize > program.count {
                 while program.count <= newSize + 1 {
@@ -66,7 +66,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
                 return value
             }
         }
-        
+
         var outputArray: [Int] = []
         while program[programCounter] != 99 {
             let opcode = program[programCounter] % 100
@@ -78,7 +78,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
             } else {
                 cParameterMode = .position
             }
-              
+
             var bParameterMode: ParameterMode
             if program[programCounter] / 1000 % 10 == 1 {
                 bParameterMode = .immediate
@@ -87,7 +87,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
             } else {
                 bParameterMode = .position
             }
-            
+
             var aParameterMode: ParameterMode
             if program[programCounter] / 10000 % 10 == 1 {
                 aParameterMode = .immediate
@@ -96,23 +96,23 @@ class Puzzle_2019_11: PuzzleBaseClass {
             } else {
                 aParameterMode = .position
             }
-            
+
             var p1 = 0, p2 = 0, p3 = 0
-            
+
             func SetParameterValues(_ numberOfParameters: Int, _ writeParameter: Int) {
                 if numberOfParameters >= 1 {
                     p1 = GetValue(cParameterMode, program[programCounter + 1], writeParameter == 1)
                 }
-                
+
                 if numberOfParameters >= 2 {
                     p2 = GetValue(bParameterMode, program[programCounter + 2], writeParameter == 2)
                 }
-                
+
                 if numberOfParameters >= 3 {
                     p3 = GetValue(aParameterMode, program[programCounter + 3], writeParameter == 3)
                 }
             }
-            
+
             if opcode == 1 {
                 SetParameterValues(3, 3)
                 program[p3] = p1 + p2
@@ -128,7 +128,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
                 outputArray.append(p1)
-                //print(retval)
+                // print(retval)
                 programCounter += 2
                 if outputArray.count == 2 {
                     return (outputArray, false)
@@ -164,7 +164,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
                 return ([], true)
             }
         }
-        
+
         return (outputArray, true)
     }
 
@@ -174,7 +174,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
             case immediate
             case relative
         }
-        
+
         func GetMemory(_ pointer: Int) -> Int {
             if pointer < program.count {
                 return program[pointer]
@@ -182,11 +182,11 @@ class Puzzle_2019_11: PuzzleBaseClass {
                 if expandedMemory[pointer] == nil {
                     expandedMemory[pointer] = 0
                 }
-                
+
                 return expandedMemory[pointer]!
             }
         }
-        
+
         func SetMemory(_ pointer: Int, _ value: Int) {
             if pointer < program.count {
                 program[pointer] = value
@@ -194,7 +194,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
                 expandedMemory[pointer] = value
             }
         }
-        
+
         func GetValue(_ parameterMode: ParameterMode, _ value: Int, _ writeParameter: Bool) -> Int {
             if parameterMode == .relative {
                 return writeParameter ? value + relativeBase : GetMemory(value + relativeBase)
@@ -204,7 +204,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
                 return value
             }
         }
-        
+
         var outputArray: [Int] = []
         while program[programCounter] != 99 {
             let opcode = program[programCounter] % 100
@@ -216,7 +216,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
             } else {
                 cParameterMode = .position
             }
-              
+
             var bParameterMode: ParameterMode
             if program[programCounter] / 1000 % 10 == 1 {
                 bParameterMode = .immediate
@@ -225,7 +225,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
             } else {
                 bParameterMode = .position
             }
-            
+
             var aParameterMode: ParameterMode
             if program[programCounter] / 10000 % 10 == 1 {
                 aParameterMode = .immediate
@@ -234,23 +234,23 @@ class Puzzle_2019_11: PuzzleBaseClass {
             } else {
                 aParameterMode = .position
             }
-            
+
             var p1 = 0, p2 = 0, p3 = 0
-            
+
             func SetParameterValues(_ numberOfParameters: Int, _ writeParameter: Int) {
                 if numberOfParameters >= 1 {
                     p1 = GetValue(cParameterMode, program[programCounter + 1], writeParameter == 1)
                 }
-                
+
                 if numberOfParameters >= 2 {
                     p2 = GetValue(bParameterMode, program[programCounter + 2], writeParameter == 2)
                 }
-                
+
                 if numberOfParameters >= 3 {
                     p3 = GetValue(aParameterMode, program[programCounter + 3], writeParameter == 3)
                 }
             }
-            
+
             if opcode == 1 {
                 SetParameterValues(3, 3)
                 SetMemory(p3, p1 + p2)
@@ -266,7 +266,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
                 outputArray.append(p1)
-                //print(retval)
+                // print(retval)
                 programCounter += 2
                 if outputArray.count == 2 {
                     return (outputArray, false)
@@ -302,7 +302,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
                 return ([], true)
             }
         }
-        
+
         return (outputArray, true)
     }
 
@@ -321,7 +321,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
             } else {
                 inputSignal = paintDict[robotPosition] == .Black ? 0 : 1
             }
-            
+
             let results = ProcessProgram(program: &arr, inputSignal: inputSignal, programCounter: &programCounter, relativeBase: &relativeBase)
             if results.1 {
                 leaveLoop = true
@@ -332,14 +332,14 @@ class Puzzle_2019_11: PuzzleBaseClass {
                 } else {
                     robotDirection = robotDirection.TurnRight()
                 }
-                
+
                 robotPosition = robotPosition.moveForward(direction: robotDirection)
             }
         }
-        
+
         return paintDict.keys.count
     }
-    
+
     func solvePart2(str: String) -> (String, Point2D) {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
@@ -360,7 +360,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
                     inputSignal = paintDict[robotPosition] == .Black ? 0 : 1
                 }
             }
-            
+
             let results = ProcessProgramPart2(program: &arr, inputSignal: inputSignal, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
             if results.1 {
                 leaveLoop = true
@@ -371,11 +371,11 @@ class Puzzle_2019_11: PuzzleBaseClass {
                 } else {
                     robotDirection = robotDirection.TurnRight()
                 }
-                
+
                 robotPosition = robotPosition.moveForward(direction: robotDirection)
             }
         }
- 
+
         var whitePixels: Set<Point2D> = Set()
         for k in paintDict.keys {
             if paintDict[k] == .White {
@@ -389,7 +389,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
         for w in whitePixels {
             adjustedWhitePixels.insert(Point2D(x: w.x - minX, y: w.y - minY))
         }
-        
+
         let width = adjustedWhitePixels.map { $0.x }.max()! + 1
         let height = adjustedWhitePixels.map { $0.y }.max()! + 1
         var retval = ""
@@ -402,10 +402,10 @@ class Puzzle_2019_11: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return (retval, Point2D(x: width, y: height))
     }
-    
+
 }
 
 private class Puzzle_2019_11_Input: NSObject {

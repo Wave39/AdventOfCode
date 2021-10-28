@@ -13,7 +13,7 @@ class Puzzle_2020_04: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_04: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func parsePassports(str: String) -> [[String]] {
         let lines = str.parseIntoStringArray(omitBlankLines: false)
         var passports: [[String]] = []
@@ -38,54 +38,54 @@ class Puzzle_2020_04: PuzzleBaseClass {
                 currentPassport.append(contentsOf: line.parseIntoStringArray(separator: " "))
             }
         }
-        
+
         if currentPassport.count > 0 {
             passports.append(currentPassport)
         }
-        
+
         return passports
     }
-    
+
     func hasRequiredFields(passport: [String]) -> Bool {
         return passport.filter({$0.starts(with: "byr:")}).count > 0 && passport.filter({$0.starts(with: "iyr:")}).count > 0 && passport.filter({$0.starts(with: "eyr:")}).count > 0 && passport.filter({$0.starts(with: "hgt:")}).count > 0 && passport.filter({$0.starts(with: "hcl:")}).count > 0 && passport.filter({$0.starts(with: "ecl:")}).count > 0 && passport.filter({$0.starts(with: "pid:")}).count > 0
     }
-    
+
     func solvePart1(str: String) -> Int {
         let passports = parsePassports(str: str)
         var validPassports = 0
         for passport in passports {
-            if hasRequiredFields(passport: passport){
+            if hasRequiredFields(passport: passport) {
                 validPassports += 1
             }
         }
-        
+
         return validPassports
     }
-    
+
     func solvePart2(str: String) -> Int {
         let passports = parsePassports(str: str)
         var validPassports = 0
         for passport in passports {
             if hasRequiredFields(passport: passport) {
-                
+
                 // byr (Birth Year) - four digits; at least 1920 and at most 2002.
                 let birthYear = passport.filter({$0.starts(with: "byr:")}).first!.substring(from: 4)
                 if birthYear.count != 4 || Int(birthYear)! < 1920 || Int(birthYear)! > 2002 {
                     continue
                 }
-                
+
                 // iyr (Issue Year) - four digits; at least 2010 and at most 2020.
                 let issueYear = passport.filter({$0.starts(with: "iyr:")}).first!.substring(from: 4)
                 if issueYear.count != 4 || Int(issueYear)! < 2010 || Int(issueYear)! > 2020 {
                     continue
                 }
-                
+
                 // eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
                 let expirationYear = passport.filter({$0.starts(with: "eyr:")}).first!.substring(from: 4)
                 if expirationYear.count != 4 || Int(expirationYear)! < 2020 || Int(expirationYear)! > 2030 {
                     continue
                 }
-                
+
                 // hgt (Height) - a number followed by either cm or in:
                 //     If cm, the number must be at least 150 and at most 193.
                 //     If in, the number must be at least 59 and at most 76.
@@ -103,32 +103,32 @@ class Puzzle_2020_04: PuzzleBaseClass {
                 } else {
                     continue
                 }
-                      
+
                 // hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
                 let hairColor = passport.filter({$0.starts(with: "hcl:")}).first!.substring(from: 4)
                 if hairColor.count != 7 || !hairColor.starts(with: "#") || !hairColor.substring(from: 1).isStringHexadecimal() {
                     continue
                 }
-                
+
                 // ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
                 let eyeColor = passport.filter({$0.starts(with: "ecl:")}).first!.substring(from: 4)
                 if eyeColor != "amb" && eyeColor != "blu" && eyeColor != "brn" && eyeColor != "gry" && eyeColor != "grn" && eyeColor != "hzl" && eyeColor != "oth" {
                     continue
                 }
-                
+
                 // pid (Passport ID) - a nine-digit number, including leading zeroes.
                 let passportID = passport.filter({$0.starts(with: "pid:")}).first!.substring(from: 4)
                 if passportID.count != 9 || !passportID.isStringNumeric() {
                     continue
                 }
-                
+
                 validPassports += 1
             }
         }
-        
+
         return validPassports
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

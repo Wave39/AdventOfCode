@@ -12,8 +12,8 @@ class Puzzle_2018_16: NSObject {
 
     typealias Registers = [Int]
     typealias Command = [Int]
-    
-    class Sample : CustomStringConvertible {
+
+    class Sample: CustomStringConvertible {
         var beforeRegisters: Registers = Registers()
         var command: Command = Command()
         var afterRegisters: Registers = Registers()
@@ -21,16 +21,16 @@ class Puzzle_2018_16: NSObject {
             return "Before: \(beforeRegisters); Command: \(command); After: \(afterRegisters)"
         }
     }
-    
+
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2018_16_Input.puzzleInput
-        
+
         var samples: [Sample] = []
         var testProgram: [Command] = []
         let arr = puzzleInput.parseIntoStringArray()
@@ -61,10 +61,10 @@ class Puzzle_2018_16: NSObject {
         let part2 = solvePart2(originalSamples: samples, testProgram: testProgram)
         return (part1, part2)
     }
-    
+
     func solvePart1(samples: [Sample]) -> Int {
         let opcodes = [ "addr", "addi", "mulr", "muli", "banr", "bani", "borr", "bori", "setr", "seti", "gtir", "gtri", "gtrr", "eqir", "eqri", "eqrr" ]
-        
+
         var retval = 0
         for sample in samples {
             var candidateArray: [String] = []
@@ -74,20 +74,20 @@ class Puzzle_2018_16: NSObject {
                     candidateArray.append(opcode)
                 }
             }
-            
+
             if candidateArray.count >= 3 {
                 retval += 1
             }
         }
-        
+
         return retval
     }
-    
+
     func solvePart2(originalSamples: [Sample], testProgram: [Command]) -> Int {
         var newSamples = originalSamples
         var opcodes = [ "addr", "addi", "mulr", "muli", "banr", "bani", "borr", "bori", "setr", "seti", "gtir", "gtri", "gtrr", "eqir", "eqri", "eqrr" ]
         var mappingDict: Dictionary<Int, String> = [:]
-        
+
         // figure out which numbers match which opcodes by iterating through the samples
         // when only one candidate is found, that number must match that opcode
         while mappingDict.count < 16 {
@@ -100,24 +100,24 @@ class Puzzle_2018_16: NSObject {
                         candidateArray.append(opcode)
                     }
                 }
-                
+
                 if candidateArray.count == 1 {
                     mappingDict[sample.command[0]] = candidateArray[0]
                     itemsToRemove.insert(sample.command[0])
                     opcodes.removeAll { $0 == candidateArray[0] }
                 }
             }
-            
+
             for x in itemsToRemove {
                 newSamples = newSamples.filter { $0.command[0] != x }
             }
         }
-        
+
         var registers = [ 0, 0, 0, 0 ]
         for c in testProgram {
             registers = runCommandString(command: c, registers: registers, commandString: mappingDict[c[0]]!)
         }
-        
+
         return registers[0]
     }
 
@@ -159,10 +159,10 @@ class Puzzle_2018_16: NSObject {
         } else if commandString == "eqrr" {
             newRegisters[c] = (registers[a] == registers[b] ? 1 : 0)
         }
-        
+
         return newRegisters
     }
-    
+
 }
 
 private class Puzzle_2018_16_Input: NSObject {
@@ -4181,5 +4181,5 @@ After:  [0, 2, 1, 1]
 8 1 2 1
 14 1 1 0
 """
-    
+
 }

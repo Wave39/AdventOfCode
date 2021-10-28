@@ -35,7 +35,7 @@ class Puzzle_2017_25: PuzzleBaseClass {
         parsePuzzleInput(str: puzzleInput)
         return solvePuzzle()
     }
-    
+
     func parsePuzzleInput(str: String) {
         steps = []
         let lineArray = str.split(separator: "\n")
@@ -49,7 +49,7 @@ class Puzzle_2017_25: PuzzleBaseClass {
             lineIndex += 1
         }
     }
-    
+
     func solvePuzzle() -> Int {
         let arraySize = 2_000_000
         var cursorPosition = arraySize / 2
@@ -58,7 +58,7 @@ class Puzzle_2017_25: PuzzleBaseClass {
         for _ in 0..<arraySize {
             tapeArray.append(0)
         }
-        
+
         for _ in 0..<stepCount {
             let step = steps[state]
             if tapeArray[cursorPosition] == 1 {
@@ -71,7 +71,7 @@ class Puzzle_2017_25: PuzzleBaseClass {
                 state = step.ifZero.continueWith
             }
         }
-        
+
         let onesArray = tapeArray.filter { $0 == 1 }
         return onesArray.count
     }
@@ -86,12 +86,12 @@ private class PuzzleInput: NSObject {
 1,1,1,0,-1,1
 1,-1,0,1,1,0
 """
-    
-//"""
-//Begin in state A.
-//Perform a diagnostic checksum after 6 steps.
+
+// """
+// Begin in state A.
+// Perform a diagnostic checksum after 6 steps.
 //
-//In state A:
+// In state A:
 //  If the current value is 0:
 //    - Write the value 1.
 //    - Move one slot to the right.
@@ -101,7 +101,7 @@ private class PuzzleInput: NSObject {
 //    - Move one slot to the left.
 //    - Continue with state B.
 //
-//In state B:
+// In state B:
 //  If the current value is 0:
 //    - Write the value 1.
 //    - Move one slot to the left.
@@ -110,10 +110,10 @@ private class PuzzleInput: NSObject {
 //    - Write the value 1.
 //    - Move one slot to the right.
 //    - Continue with state A.
-//"""
-    
+// """
+
     static let final =
-    
+
 """
 12173597
 1,1,1,0,-1,2
@@ -123,12 +123,12 @@ private class PuzzleInput: NSObject {
 1,-1,5,1,-1,2
 1,1,3,1,1,0
 """
-    
-//"""
-//Begin in state A.
-//Perform a diagnostic checksum after 12173597 steps.
+
+// """
+// Begin in state A.
+// Perform a diagnostic checksum after 12173597 steps.
 //
-//In state A:
+// In state A:
 //  If the current value is 0:
 //    - Write the value 1.
 //    - Move one slot to the right.
@@ -138,7 +138,7 @@ private class PuzzleInput: NSObject {
 //    - Move one slot to the left.
 //    - Continue with state C.
 //
-//In state B:
+// In state B:
 //  If the current value is 0:
 //    - Write the value 1.
 //    - Move one slot to the left.
@@ -148,7 +148,7 @@ private class PuzzleInput: NSObject {
 //    - Move one slot to the right.
 //    - Continue with state D.
 //
-//In state C:
+// In state C:
 //  If the current value is 0:
 //    - Write the value 1.
 //    - Move one slot to the right.
@@ -158,7 +158,7 @@ private class PuzzleInput: NSObject {
 //    - Move one slot to the left.
 //    - Continue with state E.
 //
-//In state D:
+// In state D:
 //  If the current value is 0:
 //    - Write the value 1.
 //    - Move one slot to the right.
@@ -168,7 +168,7 @@ private class PuzzleInput: NSObject {
 //    - Move one slot to the right.
 //    - Continue with state B.
 //
-//In state E:
+// In state E:
 //  If the current value is 0:
 //    - Write the value 1.
 //    - Move one slot to the left.
@@ -178,7 +178,7 @@ private class PuzzleInput: NSObject {
 //    - Move one slot to the left.
 //    - Continue with state C.
 //
-//In state F:
+// In state F:
 //  If the current value is 0:
 //    - Write the value 1.
 //    - Move one slot to the right.
@@ -187,6 +187,6 @@ private class PuzzleInput: NSObject {
 //    - Write the value 1.
 //    - Move one slot to the right.
 //    - Continue with state A.
-//"""
-    
+// """
+
 }

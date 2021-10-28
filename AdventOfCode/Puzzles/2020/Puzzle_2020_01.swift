@@ -13,7 +13,7 @@ class Puzzle_2020_01: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_01: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoIntArray()
         for x in arr {
@@ -35,10 +35,10 @@ class Puzzle_2020_01: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return 0
     }
-    
+
     func solvePart2(str: String) -> Int {
         let arr = str.parseIntoIntArray()
         for x in arr {
@@ -50,10 +50,10 @@ class Puzzle_2020_01: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return 0
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

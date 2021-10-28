@@ -40,16 +40,16 @@ class Puzzle_2016_16: PuzzleBaseClass {
             while d.count < size {
                 d = createFillData(data: d)
             }
-            
+
             if d.count > size {
                 var d2: [Int] = []
                 for idx in 0..<size {
                     d2.append(d[idx])
                 }
-                
+
                 return d2
             }
-            
+
             return d
         }
 
@@ -65,7 +65,7 @@ class Puzzle_2016_16: PuzzleBaseClass {
                         s2.append(0)
                     }
                 }
-                
+
                 d = s2
                 dCount = d.count
             }
@@ -86,7 +86,7 @@ class Puzzle_2016_16: PuzzleBaseClass {
         let part2Input = part1Input
         let part2Length = 35651584
         let part2Solution = processInput(input: part2Input, length: part2Length)
-        
+
         return (part1Solution, part2Solution)
     }
 }

@@ -13,24 +13,24 @@ class Puzzle_2019_22: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
 
     func solvePart1() -> Int {
-        //return solvePart1_bruteforce(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 10007, cardIndex: 2019)
+        // return solvePart1_bruteforce(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 10007, cardIndex: 2019)
         return solvePart1(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 10007, cardIndex: 2019)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 119315717514047, cardIndex: 2020)
     }
-    
+
     func solvePart1(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
         let arr = str.parseIntoStringArray()
         var cardIndex = cardIndex
-        
+
         func setNextCardIndex(command: String) {
             if command == "deal into new stack" {
                 cardIndex = (numberOfCards - 1) - cardIndex
@@ -42,14 +42,14 @@ class Puzzle_2019_22: PuzzleBaseClass {
                     index += 1
                     incrementTotal = (incrementTotal + increment) % numberOfCards
                 }
-                
+
                 cardIndex = incrementTotal
             } else if command.hasPrefix("cut") {
                 var increment = Int(command.parseIntoStringArray(separator: " ").last!)!
                 if increment < 0 {
                     increment += numberOfCards
                 }
-                
+
                 if cardIndex < increment {
                     cardIndex = (numberOfCards - increment) + cardIndex
                 } else {
@@ -61,18 +61,18 @@ class Puzzle_2019_22: PuzzleBaseClass {
         for command in arr {
             setNextCardIndex(command: command)
         }
-        
+
         return cardIndex
     }
-    
+
     func solvePart1_bruteforce(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
         let arr = str.parseIntoStringArray()
-        
+
         var deck: [Int] = []
         for n in 0..<numberOfCards {
             deck.append(n)
         }
-        
+
         for command in arr {
             if command == "deal into new stack" {
                 deck = deck.reversed()
@@ -84,34 +84,34 @@ class Puzzle_2019_22: PuzzleBaseClass {
                     newDeck[index % numberOfCards] = card
                     index += increment
                 }
-                
+
                 deck = newDeck
             } else if command.hasPrefix("cut") {
                 var increment = Int(command.parseIntoStringArray(separator: " ").last!)!
                 if increment < 0 {
                     increment = numberOfCards - abs(increment)
                 }
-                
+
                 let d1 = deck[0..<increment]
                 let d2 = deck[increment...]
                 deck = Array(d2)
                 deck.append(contentsOf: d1)
             }
         }
-        
+
         let retval = deck.firstIndex(of: cardIndex)!
-        
+
         return retval
     }
 
     // part 2 solution courtesy of:
     // https://github.com/kbmacneal/adv_of_code_2019
     // the math is way too advanced for me...
-    
+
     func solvePart2(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
         return 3920265924568
     }
-    
+
 }
 
 private class Puzzle_2019_22_Input: NSObject {
@@ -121,7 +121,7 @@ cut 6
 deal with increment 7
 deal into new stack
 """
-    
+
     static let puzzleInput = """
 deal into new stack
 deal with increment 21

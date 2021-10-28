@@ -16,24 +16,24 @@ class Puzzle_2018_06: NSObject {
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_06_Input.puzzleInput
         return solvePart1(str: puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_06_Input.puzzleInput
         return solvePart2(str: puzzleInput)
     }
-    
+
     func parseIntoNormalizedCoordinates(str: String) -> [Point2D] {
         var retval: [Point2D] = []
         var minX = Int.max
         var minY = Int.max
         let arr = str.parseIntoStringArray()
         for s in arr {
-            let coords = s.parseIntoStringArray(separator:",")
+            let coords = s.parseIntoStringArray(separator: ",")
             let x = coords[0].toInt()
             let y = coords[1].toInt()
             let p = Point2D(x: x, y: y)
@@ -41,19 +41,19 @@ class Puzzle_2018_06: NSObject {
             if x < minX {
                 minX = x
             }
-            
+
             if y < minY {
                 minY = y
             }
         }
-        
+
         for idx in 0..<retval.count {
             retval[idx] = Point2D(x: retval[idx].x - minX, y: retval[idx].y - minY)
         }
-        
+
         return retval
     }
-    
+
     func solvePart1(str: String) -> Int {
         let points = parseIntoNormalizedCoordinates(str: str)
         let maxBounds = Point2D.maximumBounds(arr: points)
@@ -63,10 +63,10 @@ class Puzzle_2018_06: NSObject {
             for _ in 0...maxBounds.x {
                 lineArray.append(GridLocation())
             }
-            
+
             gridLocations.append(lineArray)
         }
-        
+
         for row in 0...maxBounds.y {
             for col in 0...maxBounds.x {
                 let gridLocation = gridLocations[row][col]
@@ -82,13 +82,13 @@ class Puzzle_2018_06: NSObject {
                 }
             }
         }
-        
+
         // accumulate set of points closest to the edges of the bounding box
         // this was what I missed the first time through
         var closestPointSet: Set<Point2D> = []
         for row in 0...maxBounds.y {
             var pointsToRemove: [Point2D] = []
-            
+
             let pt1 = Point2D(x: 0, y: row)
             var minimumDistance1 = Int.max
             for point in points {
@@ -100,7 +100,7 @@ class Puzzle_2018_06: NSObject {
                     pointsToRemove.append(point)
                 }
             }
-            
+
             let pt2 = Point2D(x: maxBounds.x, y: row)
             var minimumDistance2 = Int.max
             for point in points {
@@ -112,15 +112,15 @@ class Puzzle_2018_06: NSObject {
                     pointsToRemove.append(point)
                 }
             }
-            
+
             for point in pointsToRemove {
                 closestPointSet.insert(point)
             }
         }
-        
+
         for col in 0...maxBounds.x {
             var pointsToRemove: [Point2D] = []
-            
+
             let pt1 = Point2D(x: col, y: 0)
             var minimumDistance1 = Int.max
             for point in points {
@@ -132,7 +132,7 @@ class Puzzle_2018_06: NSObject {
                     pointsToRemove.append(point)
                 }
             }
-            
+
             let pt2 = Point2D(x: col, y: maxBounds.y)
             var minimumDistance2 = Int.max
             for point in points {
@@ -144,15 +144,15 @@ class Puzzle_2018_06: NSObject {
                     pointsToRemove.append(point)
                 }
             }
-            
+
             for point in pointsToRemove {
                 closestPointSet.insert(point)
             }
         }
-        
+
         var largestArea = 0
         for point in points {
-            if point.x > 0 && point.x < maxBounds.x && point.y > 0 && point.y < maxBounds.y && !closestPointSet.contains(point){
+            if point.x > 0 && point.x < maxBounds.x && point.y > 0 && point.y < maxBounds.y && !closestPointSet.contains(point) {
                 var areaForThisPoint = 0
                 for row in 0...maxBounds.y {
                     for col in 0...maxBounds.x {
@@ -162,7 +162,7 @@ class Puzzle_2018_06: NSObject {
                         }
                     }
                 }
-                
+
                 if areaForThisPoint > largestArea {
                     largestArea = areaForThisPoint
                 }
@@ -171,7 +171,7 @@ class Puzzle_2018_06: NSObject {
 
         return largestArea
     }
-    
+
     func solvePart2(str: String) -> Int {
         var retval = 0
         let points = parseIntoNormalizedCoordinates(str: str)
@@ -182,10 +182,10 @@ class Puzzle_2018_06: NSObject {
             for _ in 0...maxBounds.x {
                 lineArray.append(GridLocation())
             }
-            
+
             gridLocations.append(lineArray)
         }
-        
+
         for row in 0...maxBounds.y {
             for col in 0...maxBounds.x {
                 var totalDistance = 0
@@ -193,18 +193,18 @@ class Puzzle_2018_06: NSObject {
                 for point in points {
                     totalDistance += gl.manhattanDistanceTo(pt: point)
                 }
-                
+
                 if totalDistance < 10000 {
                     retval += 1
                 }
             }
         }
-        
+
         return retval
     }
 }
 
-fileprivate class GridLocation {
+private class GridLocation {
     var closestDistance = Int.max
     var closestPointIndex: [Point2D] = []
 }
@@ -219,7 +219,7 @@ private class Puzzle_2018_06_Input: NSObject {
 5, 5
 8, 9
 """
-    
+
     static let puzzleInput = """
 174, 356
 350, 245

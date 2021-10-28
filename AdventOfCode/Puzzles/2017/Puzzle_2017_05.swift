@@ -17,7 +17,7 @@ class Puzzle_2017_05: PuzzleBaseClass {
 
     func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_05_Input.puzzleInput
-        
+
         let part1Solution = solveInput(str: puzzleInput, testForStrangeJump: false)
         let part2Solution = solveInput(str: puzzleInput, testForStrangeJump: true)
         return (part1Solution, part2Solution)
@@ -32,11 +32,11 @@ class Puzzle_2017_05: PuzzleBaseClass {
 
         return retval
     }
-    
+
     func solveInput(str: String, testForStrangeJump: Bool) -> Int {
         var total = 0
         var programCounter = 0
-        
+
         var instructionArray = parseInput(str: str)
 
         while programCounter >= 0 && programCounter < instructionArray.count {
@@ -60,7 +60,7 @@ private class Puzzle_2017_05_Input: NSObject {
 1
 -3
 """
-    
+
     static let puzzleInput =
 """
 2

@@ -77,7 +77,7 @@ class Puzzle_2016_22: PuzzleBaseClass {
                         s = s + "\(used) "
                     }
                 }
-                
+
                 print(s)
             }
         }

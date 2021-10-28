@@ -9,26 +9,26 @@
 import Foundation
 
 class Puzzle_2019_05: PuzzleBaseClass {
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_05_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_05_Input.puzzleInput)
     }
 
     func ProcessProgram(program: [Int], input: Int) -> Int {
         var arr = program
-        
+
         func GetValue(_ immediate: Bool, _ value: Int) -> Int {
             return (immediate ? value : arr[value])
         }
@@ -77,10 +77,10 @@ class Puzzle_2019_05: PuzzleBaseClass {
                 print("Unknown opcode \(opcode) at program counter \(programCounter)")
             }
         }
-        
+
         return retval
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoIntArray(separator: ",")
         return ProcessProgram(program: arr, input: 1)

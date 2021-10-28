@@ -30,7 +30,7 @@ class Puzzle_2017_08: PuzzleBaseClass {
                 retval = dict[k]!
             }
         }
-        
+
         return retval
     }
 
@@ -51,7 +51,7 @@ class Puzzle_2017_08: PuzzleBaseClass {
             if dict[testRegister] == nil {
                 dict[testRegister] = 0
             }
-            
+
             let testRegisterValue = dict[testRegister]!
             var doIncDec: Bool
             switch condition {
@@ -70,7 +70,7 @@ class Puzzle_2017_08: PuzzleBaseClass {
             default:
                 doIncDec = false
             }
-            
+
             if doIncDec {
                 dict[register] = dict[register]! + incValue
             }
@@ -80,7 +80,7 @@ class Puzzle_2017_08: PuzzleBaseClass {
                 highestValue = highestValueNow
             }
         }
-        
+
         return (highValue(dict: dict), highestValue)
     }
 }
@@ -93,7 +93,7 @@ a inc 1 if b < 5
 c dec -10 if a >= 1
 c inc -20 if c == 10
 """
-    
+
     static let puzzleInput =
 """
 v inc 523 if t == 6

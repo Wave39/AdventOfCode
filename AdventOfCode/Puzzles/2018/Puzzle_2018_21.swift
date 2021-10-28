@@ -11,7 +11,7 @@ import Foundation
 class Puzzle_2018_21: NSObject {
 
     typealias Registers = [Int]
-    
+
     enum Opcode {
         case unknown
         case addr
@@ -31,26 +31,26 @@ class Puzzle_2018_21: NSObject {
         case eqri
         case eqrr
     }
-    
+
     let opcodeDict: Dictionary<String, Opcode> = [ "addr": .addr, "addi": .addi, "mulr": .mulr, "muli": .muli,
                                                    "banr": .banr, "bani": .bani, "borr": .borr, "bori": .bori,
                                                    "setr": .setr, "seti": .seti, "gtir": .gtir, "gtri": .gtri,
                                                    "gtrr": .gtrr, "eqir": .eqir, "eqri": .eqri, "eqrr": .eqrr ]
-    
+
     class Command {
         var opcode: Opcode = .unknown
         var a: Int = 0
         var b: Int = 0
         var c: Int = 0
     }
-    
+
     class Program {
         var instructionPointer: Int = 0
         var boundRegister: Int = 0
         var code: [Command] = []
         var registers: Registers = [ 0, 0, 0, 0, 0, 0 ]
     }
-    
+
     func parseIntoProgram(str: String) -> Program {
         let program = Program()
         let arr = str.parseIntoStringArray()
@@ -68,7 +68,7 @@ class Puzzle_2018_21: NSObject {
                 program.code.append(cmd)
             }
         }
-        
+
         return program
     }
 
@@ -118,12 +118,12 @@ class Puzzle_2018_21: NSObject {
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_21_Input.puzzleInput
         return solvePart1(puzzleInput: puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_21_Input.puzzleInput
         return solvePart2(puzzleInput: puzzleInput)
@@ -133,41 +133,41 @@ class Puzzle_2018_21: NSObject {
         let program = parseIntoProgram(str: puzzleInput)
         while true {
             program.registers[program.boundRegister] = program.instructionPointer
-            
+
             program.registers = runCommandString(command: program.code[program.instructionPointer], registers: program.registers)
             program.instructionPointer = program.registers[program.boundRegister]
-            
+
             program.instructionPointer += 1
             if program.instructionPointer == 28 {
                 return program.registers[2]
             }
         }
     }
-    
+
     func solvePart2(puzzleInput: String) -> Int {
         let program = parseIntoProgram(str: puzzleInput)
         var registerSet: [Int] = []
         var previous: Int = 0
         repeat {
             program.registers[program.boundRegister] = program.instructionPointer
-            
+
             program.registers = runCommandString(command: program.code[program.instructionPointer], registers: program.registers)
             program.instructionPointer = program.registers[program.boundRegister]
-            
+
             program.instructionPointer += 1
             if program.instructionPointer == 28 {
                 if registerSet.contains(program.registers[2]) {
                     return previous
                 }
-                
+
                 registerSet.append(program.registers[2])
                 previous = program.registers[2]
             }
         } while program.instructionPointer >= 0 && program.instructionPointer < program.code.count
-        
+
         return previous
     }
-    
+
 }
 
 private class Puzzle_2018_21_Input: NSObject {
@@ -206,5 +206,5 @@ eqrr 2 0 4
 addr 4 1 1
 seti 5 3 1
 """
-    
+
 }

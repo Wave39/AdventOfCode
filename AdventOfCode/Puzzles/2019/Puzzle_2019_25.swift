@@ -18,7 +18,7 @@ class Puzzle_2019_25: PuzzleBaseClass {
     func solvePart1() -> String {
         return solvePart1(str: Puzzle_2019_25_Input.puzzleInput)
     }
-        
+
     let commands = """
 // east of starting location
 east
@@ -73,7 +73,7 @@ drop whirled peas
 // now try combinations
 south
 """
-    
+
     let items = """
 antenna
 hologram
@@ -84,8 +84,8 @@ shell
 spool of cat6
 whirled peas
 """
-    
-    func pad(string : String, toSize: Int) -> String {
+
+    func pad(string: String, toSize: Int) -> String {
       var padded = string
       for _ in 0..<(toSize - string.count) {
         padded = "0" + padded
@@ -97,12 +97,12 @@ whirled peas
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0
-        var expandedMemory: [ Int : Int ] = [:]
+        var expandedMemory: [ Int: Int ] = [:]
         var inputSignal: [Int] = []
-        
+
         var commandArray = commands.parseIntoStringArray()
         let itemArray = items.parseIntoStringArray()
-        
+
         var programFinished = false
         var bitmask = 0
         var retval = ""
@@ -110,7 +110,7 @@ whirled peas
             let results = ProcessProgram(program: &arr, inputSignal: &inputSignal, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
             programFinished = results.0
             if programFinished {
-                //print(results.1)
+                // print(results.1)
                 let code = results.1.capturedGroups(withRegex: "You should be able to get in by typing (.*) on the keypad at the main airlock.", trimResults: true)
                 retval = code[0]
             } else {
@@ -119,7 +119,7 @@ whirled peas
                         commandArray.remove(at: 0)
                     }
                 }
-                
+
                 if commandArray.count > 0 {
                     inputSignal = getAsciiArray(commandArray.first!)
                     commandArray.remove(at: 0)
@@ -130,7 +130,7 @@ whirled peas
                             commandArray.append("take " + itemArray[idx])
                         }
                     }
-                    
+
                     commandArray.append("south")
                     for idx in 0..<8 {
                         if bitmaskBinary[idx] == "1" {
@@ -142,7 +142,7 @@ whirled peas
                     if bitmask > 255 {
                         print("reached invalid bitmask")
                     }
-                    
+
                     // this was code to allow for typing in of commands while experimenting
 //                let response = readLine()
 //                if response == "q" || response == "Q" {
@@ -153,26 +153,26 @@ whirled peas
                 }
             }
         }
-        
+
         return retval
     }
-    
+
     func getAsciiArray(_ str: String) -> [Int] {
         return Array(str + "\n").map { Int(String($0).asciiValue) }
     }
-    
+
     func getStringFromAsciiArray(_ arr: [Int]) -> String {
         let arr2 = arr.filter({ $0 < 256 })
         return String(arr2.map { Character(UnicodeScalar($0)!) })
     }
-    
+
     func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> (Bool, String) {
         enum ParameterMode {
             case position
             case immediate
             case relative
         }
-        
+
         func GetMemory(_ pointer: Int) -> Int {
             if pointer < program.count {
                 return program[pointer]
@@ -180,11 +180,11 @@ whirled peas
                 if expandedMemory[pointer] == nil {
                     expandedMemory[pointer] = 0
                 }
-                
+
                 return expandedMemory[pointer]!
             }
         }
-        
+
         func SetMemory(_ pointer: Int, _ value: Int) {
             if pointer < program.count {
                 program[pointer] = value
@@ -192,7 +192,7 @@ whirled peas
                 expandedMemory[pointer] = value
             }
         }
-        
+
         func GetValue(_ parameterMode: ParameterMode, _ value: Int, _ writeParameter: Bool) -> Int {
             if parameterMode == .relative {
                 return writeParameter ? value + relativeBase : GetMemory(value + relativeBase)
@@ -202,7 +202,7 @@ whirled peas
                 return value
             }
         }
-        
+
         var outputString = ""
         while program[programCounter] != 99 {
             let opcode = program[programCounter] % 100
@@ -214,7 +214,7 @@ whirled peas
             } else {
                 cParameterMode = .position
             }
-              
+
             var bParameterMode: ParameterMode
             if program[programCounter] / 1000 % 10 == 1 {
                 bParameterMode = .immediate
@@ -223,7 +223,7 @@ whirled peas
             } else {
                 bParameterMode = .position
             }
-            
+
             var aParameterMode: ParameterMode
             if program[programCounter] / 10000 % 10 == 1 {
                 aParameterMode = .immediate
@@ -232,23 +232,23 @@ whirled peas
             } else {
                 aParameterMode = .position
             }
-            
+
             var p1 = 0, p2 = 0, p3 = 0
-            
+
             func SetParameterValues(_ numberOfParameters: Int, _ writeParameter: Int) {
                 if numberOfParameters >= 1 {
                     p1 = GetValue(cParameterMode, program[programCounter + 1], writeParameter == 1)
                 }
-                
+
                 if numberOfParameters >= 2 {
                     p2 = GetValue(bParameterMode, program[programCounter + 2], writeParameter == 2)
                 }
-                
+
                 if numberOfParameters >= 3 {
                     p3 = GetValue(aParameterMode, program[programCounter + 3], writeParameter == 3)
                 }
             }
-            
+
             if opcode == 1 {
                 SetParameterValues(3, 3)
                 SetMemory(p3, p1 + p2)
@@ -259,17 +259,17 @@ whirled peas
                 programCounter += 4
             } else if opcode == 3 {
                 if inputSignal.count == 0 {
-                    //print("Ran out of input")
+                    // print("Ran out of input")
                     return (false, "")
                 }
-                
+
                 SetParameterValues(1, 1)
                 SetMemory(p1, inputSignal.first!)
                 inputSignal.remove(at: 0)
                 programCounter += 2
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
-                //print(Character(UnicodeScalar(p1)!), terminator:"")
+                // print(Character(UnicodeScalar(p1)!), terminator:"")
                 programCounter += 2
                 outputString += String(Character(UnicodeScalar(p1)!))
                 if outputString.hasSuffix("Command?") {
@@ -308,7 +308,7 @@ whirled peas
                 return (false, "")
             }
         }
-        
+
         return (false, "")
     }
 

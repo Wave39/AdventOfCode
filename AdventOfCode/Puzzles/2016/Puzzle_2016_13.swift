@@ -20,7 +20,7 @@ class Puzzle_2016_13: PuzzleBaseClass {
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solveBothParts() -> (Int, Int) {
         let origin = Point2D(x: 1, y: 1)
         let goal = Point2D(x: 31, y: 39)
@@ -32,7 +32,7 @@ class Puzzle_2016_13: PuzzleBaseClass {
             if c.x < 0 || c.y < 0 {
                 return true
             }
-            
+
             let n = (c.x * c.x) + (3 * c.x) + (2 * c.x * c.y) + (c.y) + (c.y * c.y) + favoriteNumber
             let str = String(n, radix: 2)
             let ones = str.filter({$0 == "1"}).count
@@ -41,7 +41,7 @@ class Puzzle_2016_13: PuzzleBaseClass {
 
         func getValidMoveCoordinates(moveState: MoveState) -> [Point2D] {
             var arr: [Point2D] = []
-            
+
             for xDelta in [ -1, 1] {
                 let newCoordinate = Point2D(x: moveState.currentCoordinate.x + xDelta, y: moveState.currentCoordinate.y)
                 if newCoordinate != moveState.previousCoordinate && !coordinateIsWall(c: newCoordinate) {
@@ -51,7 +51,7 @@ class Puzzle_2016_13: PuzzleBaseClass {
                     }
                 }
             }
-            
+
             for yDelta in [-1, 1] {
                 let newCoordinate = Point2D(x: moveState.currentCoordinate.x, y: moveState.currentCoordinate.y + yDelta)
                 if newCoordinate != moveState.previousCoordinate && !coordinateIsWall(c: newCoordinate) {

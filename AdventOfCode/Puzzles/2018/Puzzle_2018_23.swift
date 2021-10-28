@@ -16,7 +16,7 @@ class Puzzle_2018_23: NSObject {
         func inRangeOf(otherBot: Nanobot) -> Bool {
             return self.position.manhattanDistanceTo(pt: otherBot.position) <= self.range
         }
-        
+
         init(x: Int, y: Int, z: Int, r: Int) {
             position.x = x
             position.y = y
@@ -24,10 +24,10 @@ class Puzzle_2018_23: NSObject {
             range = r
         }
     }
-    
+
     func parseNanobots(str: String) -> [Nanobot] {
         var retval: [Nanobot] = []
-        
+
         for line in str.parseIntoStringArray() {
             let components = line.capturedGroups(withRegex: "pos=<(.*),(.*),(.*)>, r=(.*)", trimResults: true)
             let b = Nanobot(x: Int(components[0])!, y: Int(components[1])!, z: Int(components[2])!, r: Int(components[3])!)
@@ -37,29 +37,29 @@ class Puzzle_2018_23: NSObject {
             b.range = Int(components[3])!
             retval.append(b)
         }
-        
+
         return retval
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_23_Input.puzzleInput
         let nanobots = parseNanobots(str: puzzleInput)
         return solvePart1(bots: nanobots)
     }
-    
+
     func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_23_Input.puzzleInput
         let nanobots = parseNanobots(str: puzzleInput)
         return solvePart2(bots: nanobots)
     }
-    
+
     func solvePart1(bots: [Nanobot]) -> Int {
         let maxRange = bots.map { $0.range }.max()!
         let maxBot = bots.filter { $0.range == maxRange }.first!
@@ -69,15 +69,15 @@ class Puzzle_2018_23: NSObject {
                 botsInRange += 1
             }
         }
-        
+
         return botsInRange
     }
-    
+
     func solvePart2(bots: [Nanobot]) -> Int {
         // Yet moar shame, I once again borrowed someone else's solution
         return 97816347
     }
-    
+
 }
 
 private class Puzzle_2018_23_Input: NSObject {
@@ -94,7 +94,7 @@ pos=<1,1,1>, r=1
 pos=<1,1,2>, r=1
 pos=<1,3,1>, r=1
 """
-    
+
     static let puzzleInput =
 """
 pos=<77257099,50252980,47219056>, r=92361671
@@ -1098,5 +1098,5 @@ pos=<62560714,60729432,44622188>, r=70096101
 pos=<51261873,90926220,12535916>, r=83834975
 pos=<70597900,89863013,22934724>, r=91708987
 """
-    
+
 }

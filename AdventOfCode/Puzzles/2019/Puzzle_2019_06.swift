@@ -10,36 +10,36 @@ import Foundation
 
 class Puzzle_2019_06: PuzzleBaseClass {
 
-    class OrbitalRelationship : CustomStringConvertible {
+    class OrbitalRelationship: CustomStringConvertible {
         var center: String
         var orbiter: String
         init(_ c: String, _ o: String) {
             center = c
             orbiter = o
         }
-        
+
         var description: String {
             return "center: \(center); orbiter: \(orbiter)"
         }
     }
-    
-    class PlanetaryInfo : CustomStringConvertible {
+
+    class PlanetaryInfo: CustomStringConvertible {
         var name: String
         var stepCount: Int
         init(_ n: String, _ c: Int) {
             name = n
             stepCount = c
         }
-        
+
         var description: String {
             return "name: \(name); step count: \(stepCount)"
         }
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -47,7 +47,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_06_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_06_Input.puzzleInput)
     }
@@ -59,9 +59,9 @@ class Puzzle_2019_06: PuzzleBaseClass {
             let components = line.parseIntoStringArray(separator: ")")
             orbitalRelationships.append(OrbitalRelationship(components[0], components[1]))
         }
-        
+
         var orbitCount = 0
-        
+
         func WalkPlanets(_ p: String, _ stepCount: Int) {
             orbitCount += stepCount
             let orbiters = orbitalRelationships.filter { $0.center == p }
@@ -69,15 +69,15 @@ class Puzzle_2019_06: PuzzleBaseClass {
                 WalkPlanets(o.orbiter, stepCount + 1)
             }
         }
-        
+
         let mainOrbiters = orbitalRelationships.filter { $0.center == "COM" }
         for o in mainOrbiters {
             WalkPlanets(o.orbiter, 1)
         }
-        
+
         return orbitCount
     }
-    
+
     func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var orbitalRelationships: [OrbitalRelationship] = []
@@ -85,9 +85,9 @@ class Puzzle_2019_06: PuzzleBaseClass {
             let components = line.parseIntoStringArray(separator: ")")
             orbitalRelationships.append(OrbitalRelationship(components[0], components[1]))
         }
-        
+
         var planets: [PlanetaryInfo] = []
-        
+
         func WalkPlanets(_ p: String, _ stepCount: Int) {
             planets.append(PlanetaryInfo(p, stepCount))
             let orbiters = orbitalRelationships.filter { $0.center == p }
@@ -95,32 +95,32 @@ class Puzzle_2019_06: PuzzleBaseClass {
                 WalkPlanets(o.orbiter, stepCount + 1)
             }
         }
-        
+
         let mainOrbiters = orbitalRelationships.filter { $0.center == "COM" }
         for o in mainOrbiters {
             WalkPlanets(o.orbiter, 1)
         }
-        
+
         let you = planets.filter { $0.name == "YOU" }.first!
         let san = planets.filter { $0.name == "SAN" }.first!
         var youOrbits: [PlanetaryInfo] = []
-        
+
         var pName = orbitalRelationships.filter { $0.orbiter == "YOU" }.first!.center
         while pName != "COM" {
             youOrbits.append(planets.filter { $0.name == pName }.first!)
             pName = orbitalRelationships.filter { $0.orbiter == pName}.first!.center
         }
-        
+
         pName = orbitalRelationships.filter { $0.orbiter == "SAN" }.first!.center
         while pName != "COM" {
             let planetMatch = youOrbits.filter { $0.name == pName }.first
             if planetMatch != nil {
                 break
             }
-            
+
             pName = orbitalRelationships.filter { $0.orbiter == pName}.first!.center
         }
-        
+
         let commonPlanet = planets.filter { $0.name == pName }.first!
         return (you.stepCount - commonPlanet.stepCount - 1) + (san.stepCount - commonPlanet.stepCount - 1)
     }
@@ -141,7 +141,7 @@ E)J
 J)K
 K)L
 """
-    
+
     static let puzzleInput_test2 = """
 COM)B
 B)C
@@ -157,7 +157,7 @@ K)L
 K)YOU
 I)SAN
 """
-        
+
     static let puzzleInput = """
 XR3)N91
 YB5)2BZ

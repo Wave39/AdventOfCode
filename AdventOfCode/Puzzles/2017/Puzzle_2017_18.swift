@@ -21,7 +21,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
         case Jump
         case Receive
     }
-    
+
     struct Instruction {
         var instructionType: InstructionType = .Undefined
         var parameter1Int: Int?
@@ -32,11 +32,11 @@ class Puzzle_2017_18: PuzzleBaseClass {
 
     var instructionArray: [Instruction] = []
     var registerSet: Set<String> = Set()
-    
+
     func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
-        
+
         let part2Solution = solvePart2()
         print("Part 2 solution: \(part2Solution)")
     }
@@ -45,7 +45,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
         parsePuzzleInput(str: PuzzleInput.final)
         return processPart1()
     }
-    
+
     func solvePart2() -> Int {
         parsePuzzleInput(str: PuzzleInput.final)
         return processPart2()
@@ -72,14 +72,14 @@ class Puzzle_2017_18: PuzzleBaseClass {
             } else if line[0] == "jgz" {
                 newInstruction.instructionType = .Jump
             }
-            
+
             if line[1].isStringNumeric() {
                 newInstruction.parameter1Int = Int(line[1])
             } else {
                 newInstruction.parameter1String = line[1]
                 registerSet.insert(line[1])
             }
-            
+
             if line.count == 3 {
                 if line[2].isStringNumeric() {
                     newInstruction.parameter2Int = Int(line[2])
@@ -87,11 +87,11 @@ class Puzzle_2017_18: PuzzleBaseClass {
                     newInstruction.parameter2String = line[2]
                 }
             }
-            
+
             instructionArray.append(newInstruction)
         }
     }
-    
+
     func processPart1() -> Int {
         var lastSoundPlayed = 0
         var programCounter = 0
@@ -99,7 +99,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
         for reg in registerSet {
             registers[reg] = 0
         }
-        
+
         var firstReceive = false
         while !firstReceive && programCounter >= 0 && programCounter < instructionArray.count {
             let currentInstruction = instructionArray[programCounter]
@@ -111,7 +111,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
             } else {
                 parameter1 = nil
             }
-            
+
             let parameter2: Int?
             if currentInstruction.parameter2Int != nil {
                 parameter2 = currentInstruction.parameter2Int
@@ -120,7 +120,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
             } else {
                 parameter2 = nil
             }
-            
+
             if currentInstruction.instructionType == .SoundOrSend {
                 lastSoundPlayed = parameter1!
             } else if currentInstruction.instructionType == .Set {
@@ -141,13 +141,13 @@ class Puzzle_2017_18: PuzzleBaseClass {
                     programCounter += (parameter2! - 1)
                 }
             }
-            
+
             programCounter += 1
         }
-        
+
         return lastSoundPlayed
     }
-    
+
     func processPart2() -> Int {
         var program1Sends = 0
         var programCounter = [ 0, 0 ]
@@ -158,11 +158,11 @@ class Puzzle_2017_18: PuzzleBaseClass {
             registers[0][reg] = 0
             registers[1][reg] = 0
         }
-        
+
         var inputQueue: [[Int]] = [[], []]
         registers[1]["p"] = 1
         var waitingForInput: [Bool] = [ false, false ]
-        
+
         var terminateProgram = false
         while !terminateProgram {
             for pid in 0...1 {
@@ -176,7 +176,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
                     } else {
                         parameter1 = nil
                     }
-                    
+
                     let parameter2: Int?
                     if currentInstruction.parameter2Int != nil {
                         parameter2 = currentInstruction.parameter2Int
@@ -185,7 +185,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
                     } else {
                         parameter2 = nil
                     }
-                    
+
                     if currentInstruction.instructionType == .Set {
                         registers[pid][currentInstruction.parameter1String!] = parameter2
                     } else if currentInstruction.instructionType == .Add {
@@ -215,12 +215,12 @@ class Puzzle_2017_18: PuzzleBaseClass {
                             inputQueue[pid].removeFirst()
                             waitingForInput[pid] = false
                         }
-                        
+
                         if waitingForInput[0] && waitingForInput[1] {
                             terminateProgram = true
                         }
                     }
-                    
+
                     programCounter[pid] += 1
                 } else {
                     if pid == 1 {
@@ -229,7 +229,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return program1Sends
     }
 
@@ -238,7 +238,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
 private class PuzzleInput: NSObject {
 
     static let test1 =
-                                     
+
 """
 set a 1
 add a 2
@@ -251,9 +251,9 @@ jgz a -1
 set a 1
 jgz a -2
 """
-    
+
     static let final =
-                               
+
 """
 set i 31
 set a 1
@@ -297,5 +297,5 @@ snd a
 jgz f -16
 jgz a -19
 """
-    
+
 }

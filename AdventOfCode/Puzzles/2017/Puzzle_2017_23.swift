@@ -17,7 +17,7 @@ class Puzzle_2017_23: PuzzleBaseClass {
         case Multiply
         case JumpIfNotZero
     }
-    
+
     struct Instruction {
         var instructionType: InstructionType = .Undefined
         var parameter1Int: Int?
@@ -25,13 +25,13 @@ class Puzzle_2017_23: PuzzleBaseClass {
         var parameter2Int: Int?
         var parameter2String: String?
     }
-    
+
     var instructionArray: [Instruction] = []
-    
+
     func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
-        
+
         let part2Solution = solvePart2()
         print("Part 2 solution: \(part2Solution)")
     }
@@ -50,27 +50,27 @@ class Puzzle_2017_23: PuzzleBaseClass {
             } else if line[0] == "jnz" {
                 newInstruction.instructionType = .JumpIfNotZero
             }
-            
+
             if line[1].isStringNumeric() {
                 newInstruction.parameter1Int = Int(line[1])
             } else {
                 newInstruction.parameter1String = line[1]
             }
-            
+
             if line[2].isStringNumeric() {
                 newInstruction.parameter2Int = Int(line[2])
             } else {
                 newInstruction.parameter2String = line[2]
             }
-            
+
             instructionArray.append(newInstruction)
         }
     }
-    
+
     func solvePart1() -> Int {
         let puzzleInput = PuzzleInput.final
         parsePuzzleInput(str: puzzleInput)
-        
+
         var registers: Dictionary<String, Int> = [ "a": 0, "b": 0, "c": 0, "d": 0, "e": 0, "f": 0, "g": 0, "h": 0 ]
         var programCounter = 0
         var multiplyCounter = 0
@@ -84,7 +84,7 @@ class Puzzle_2017_23: PuzzleBaseClass {
             } else {
                 parameter1 = nil
             }
-            
+
             let parameter2: Int?
             if currentInstruction.parameter2Int != nil {
                 parameter2 = currentInstruction.parameter2Int
@@ -93,7 +93,7 @@ class Puzzle_2017_23: PuzzleBaseClass {
             } else {
                 parameter2 = nil
             }
-            
+
             if currentInstruction.instructionType == .Set {
                 registers[currentInstruction.parameter1String!] = parameter2
             } else if currentInstruction.instructionType == .Subtract {
@@ -108,26 +108,26 @@ class Puzzle_2017_23: PuzzleBaseClass {
                     programCounter += (parameter2! - 1)
                 }
             }
-            
+
             programCounter += 1
         }
-        
+
         return multiplyCounter
     }
-    
+
     // I found this function on Stack Overflow and liked it, as it seems concise and relatively fast.
     // https://stackoverflow.com/a/44413339/36984
     func isPrime(_ number: Int) -> Bool {
         let maxDivider = Int(sqrt(Double(number)))
         return number > 1 && !(2...maxDivider).contains { number % $0 == 0 }
     }
-    
+
     func solvePart2() -> Int {
         // Trying to run part 2 brute force is designed to not work by the devious Advent Of Code people.
         // I figured that the code input needed to be optimized, but was too lazy to do so myself.
         // As a result, the solution to part 2 is stolen from the following site:
         // https://github.com/dp1/AoC17/blob/master/day23.5.txt
-        
+
         let b = 109300
         let c = 126300
         var h = 0
@@ -145,7 +145,7 @@ class Puzzle_2017_23: PuzzleBaseClass {
 private class PuzzleInput: NSObject {
 
     static let final =
-    
+
 """
 set b 93
 set c b
@@ -180,5 +180,5 @@ jnz 1 3
 sub b -17
 jnz 1 -23
 """
-    
+
 }

@@ -13,7 +13,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_18: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func calculateExpressionResult(arr: [String]) -> Int {
         var retval = Int(arr[0])!
         var addMode = true
@@ -40,10 +40,10 @@ class Puzzle_2020_18: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return retval
     }
-    
+
     func calculateExpressionResultForPart2(arr: [String]) -> Int {
         var newArr = [ arr[0] ]
         for idx in stride(from: 1, to: arr.count - 1, by: 2) {
@@ -54,10 +54,10 @@ class Puzzle_2020_18: PuzzleBaseClass {
                 newArr.append(arr[idx + 1])
             }
         }
-        
+
         return calculateExpressionResult(arr: newArr)
     }
-    
+
     func parseParenthesis(line: String, originalIdx: Int, part2: Bool) -> (Int, Int) {
         var expressionArray: [String] = []
         var idx = originalIdx + 1
@@ -79,24 +79,24 @@ class Puzzle_2020_18: PuzzleBaseClass {
                 if s.count > 0 {
                     expressionArray.append(s)
                 }
-                
+
                 s = ""
             }
-            
+
             idx += 1
         }
-        
+
         if s.count > 0 {
             expressionArray.append(s)
         }
-        
+
         if part2 {
             return (calculateExpressionResultForPart2(arr: expressionArray), idx)
         } else {
             return (calculateExpressionResult(arr: expressionArray), idx)
         }
     }
-    
+
     func parseLine(line: String, part2: Bool) -> Int {
         var expressionArray: [String] = []
         var idx = 0
@@ -118,44 +118,44 @@ class Puzzle_2020_18: PuzzleBaseClass {
                 if s.count > 0 {
                     expressionArray.append(s)
                 }
-                
+
                 s = ""
             }
-            
+
             idx += 1
         }
-        
+
         if s.count > 0 {
             expressionArray.append(s)
         }
-        
+
         if part2 {
             return calculateExpressionResultForPart2(arr: expressionArray)
         } else {
             return calculateExpressionResult(arr: expressionArray)
         }
     }
-    
+
     func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var retval = 0
         for line in lines {
             retval += parseLine(line: line, part2: false)
         }
-        
+
         return retval
     }
-    
+
     func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var retval = 0
         for line in lines {
             retval += parseLine(line: line, part2: true)
         }
-        
+
         return retval
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {
@@ -172,7 +172,7 @@ private class Puzzle_Input: NSObject {
     static let puzzleInput_test2 = """
 1 + (2 * 3) + (4 * (5 + 6))
 """
-    
+
     static let puzzleInput = """
 6 * ((5 * 3 * 2 + 9 * 4) * (8 * 8 + 2 * 3) * 5 * 8) * 2 + (4 + 9 * 5 * 5 + 8) * 4
 2 + (3 + 3 + (9 + 3 * 4 * 9) + 2 + 5 * 7) * 7 * (3 * 6 * 5 * 9 + 6) + 6

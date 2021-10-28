@@ -13,7 +13,7 @@ class Puzzle_2020_05: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_05: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func getSeatLocation(str: String) -> (Int, Int, Int) {
         let row = str.substring(from: 0, to: 7).replacingOccurrences(of: "B", with: "1").replacingOccurrences(of: "F", with: "0")
         let rowInt = Int(row, radix: 2)!
@@ -34,12 +34,12 @@ class Puzzle_2020_05: PuzzleBaseClass {
         let seatID = rowInt * 8 + colInt
         return (rowInt, colInt, seatID)
     }
-    
+
     func getSeatID(str: String) -> Int {
         let (_, _, seatID) = getSeatLocation(str: str)
         return seatID
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var maxSeatID = 0
@@ -49,10 +49,10 @@ class Puzzle_2020_05: PuzzleBaseClass {
                 maxSeatID = seatID
             }
         }
-        
+
         return maxSeatID
     }
-    
+
     func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         let maxSeatId = solvePart1()
@@ -60,15 +60,15 @@ class Puzzle_2020_05: PuzzleBaseClass {
         for i in 0...maxSeatId {
             seatArr.append(i)
         }
-        
+
         for line in arr {
             let seatID = getSeatID(str: line)
             seatArr.removeAll { $0 == seatID }
         }
-        
+
         return seatArr.filter({ !seatArr.contains($0 - 1) && !seatArr.contains($0 + 1) }).first!
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

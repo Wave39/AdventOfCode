@@ -15,13 +15,13 @@ class Puzzle_2018_24: NSObject {
         case Weakness
         case Immunity
     }
-    
+
     enum UnitType {
         case Unknown
         case ImmuneSystem
         case Infection
     }
-    
+
     enum AttackType: String {
         case Unknown = ""
         case Bludgeoning = "bludgeoning"
@@ -30,8 +30,8 @@ class Puzzle_2018_24: NSObject {
         case Radiation = "radiation"
         case Slashing = "slashing"
     }
-    
-    class Group : CustomStringConvertible {
+
+    class Group: CustomStringConvertible {
         var groupId: String = ""
         var unitType: UnitType = .Unknown
         var unitCount: Int = 0
@@ -42,29 +42,29 @@ class Puzzle_2018_24: NSObject {
         var weakness: [AttackType] = []
         var immunity: [AttackType] = []
         var groupToAttack: String = ""
-        
-        var effectivePower : Int {
+
+        var effectivePower: Int {
             return unitCount * damageAmount
         }
-        
+
         var description: String {
             return "<\(groupId) \(unitType); Units: \(unitCount); HP: \(hitPointsEach); Dam: \(damageAmount) \(damageType): Init: \(initiative); Weak: \(weakness); Imm: \(immunity); EP: \(effectivePower); GTA: \(groupToAttack)>"
         }
-        
+
         func damageCausedBy(attackType: AttackType, amount: Int) -> Int {
             if immunity.contains(attackType) {
                 return 0
             }
-            
+
             if weakness.contains(attackType) {
                 return amount * 2
             }
-            
+
             return amount
         }
-        
+
     }
-    
+
     func parseGroups(str: String) -> [Group] {
         var retval: [Group] = []
         var currentUnitType = UnitType.Unknown
@@ -84,7 +84,7 @@ class Puzzle_2018_24: NSObject {
                     infectionCount += 1
                     g.groupId = "Infection \(infectionCount)"
                 }
-                
+
                 g.unitType = currentUnitType
                 g.unitCount = Int(components[0])!
                 g.hitPointsEach = Int(components[1])!
@@ -112,30 +112,30 @@ class Puzzle_2018_24: NSObject {
                         }
                     }
                 }
-                
+
                 retval.append(g)
             }
         }
-        
-        //print(retval)
+
+        // print(retval)
         return retval
     }
-    
+
     func solve() {
         print("My solution is not working, so :P")
     }
-    
+
     func solve_notworking() {
         let puzzleInput = Puzzle_2018_24_Input.puzzleInput
 
         let groups = parseGroups(str: puzzleInput)
-        
+
         let part1 = solvePart1(groups: groups)
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2(groups: groups)
         print("Part 2 solution: \(part2)")
     }
-    
+
     func effectivePowerDescInitiativeDescOrder(left: Group, right: Group) -> Bool {
         if left.effectivePower != right.effectivePower {
             return left.effectivePower > right.effectivePower
@@ -143,30 +143,30 @@ class Puzzle_2018_24: NSObject {
             return left.initiative > right.initiative
         }
     }
-    
+
     func initiativeDescOrder(left: Group, right: Group) -> Bool {
         return left.initiative > right.initiative
     }
-    
+
     func groupIdOrder(left: Group, right: Group) -> Bool {
         return left.groupId < right.groupId
     }
-    
+
     func solvePart1(groups: [Group]) -> Int {
         var groups = groups
-        
+
         repeat {
             groups.sort(by: groupIdOrder)
             for g in groups {
                 g.groupToAttack = ""
                 print("\(g.groupId) \(g.unitType) \(g.unitCount)")
             }
-            
+
             // target selection
             groups.sort(by: effectivePowerDescInitiativeDescOrder)
             var attackSet: Set<String> = Set()
-            
-            //print(groups)
+
+            // print(groups)
             for g in groups {
                 var damage = Int.min
                 var ids: [String] = []
@@ -182,7 +182,7 @@ class Puzzle_2018_24: NSObject {
                         }
                     }
                 }
-                
+
                 if ids.count == 1 {
                     g.groupToAttack = ids[0]
                 } else if ids.count > 1 {
@@ -191,13 +191,13 @@ class Puzzle_2018_24: NSObject {
                     choose.sort(by: effectivePowerDescInitiativeDescOrder)
                     g.groupToAttack = choose[0].groupId
                 }
-                
+
                 if g.groupToAttack.count > 0 {
                     attackSet.insert(g.groupToAttack)
                     print("Group \(g.groupId) will attack \(g.groupToAttack) with \(damage) damage")
                 }
             }
-            
+
             // attacks
             groups.sort(by: initiativeDescOrder)
             for g in groups {
@@ -209,21 +209,21 @@ class Puzzle_2018_24: NSObject {
                         if kills >= groupToAttack.unitCount {
                             kills = groupToAttack.unitCount
                         }
-                        
+
                         print("Group id \(g.groupId) attacks \(groupToAttack.groupId) and registers \(kills) kills")
                         groupToAttack.unitCount -= kills
                     }
                 }
             }
-            
+
             // remove groups with no units left
             groups = groups.filter { $0.unitCount > 0 }
             print("===========================================================")
         } while groups.filter { $0.unitType == .ImmuneSystem }.count > 0 && groups.filter { $0.unitType == .Infection }.count > 0
-        
+
         return groups.map { $0.unitCount }.reduce(0, +)
     }
-    
+
     func solvePart2(groups: [Group]) -> Int {
         return 2209
     }
@@ -242,7 +242,7 @@ Infection:
 801 units each with 4706 hit points (weak to radiation) with an attack that does 116 bludgeoning damage at initiative 1
 4485 units each with 2961 hit points (immune to radiation; weak to fire, cold) with an attack that does 12 slashing damage at initiative 4
 """
-    
+
     static let puzzleInput =
 """
 Immune System:
@@ -269,5 +269,5 @@ Infection:
 344 units each with 20830 hit points (immune to fire) with an attack that does 116 bludgeoning damage at initiative 12
 6848 units each with 50757 hit points with an attack that does 12 slashing damage at initiative 11
 """
-    
+
 }

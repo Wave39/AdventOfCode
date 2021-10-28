@@ -18,7 +18,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
 
     func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_12_Input.puzzleInput
-        
+
         return solvePuzzle(str: puzzleInput)
     }
 
@@ -28,10 +28,10 @@ class Puzzle_2017_12: PuzzleBaseClass {
                 return l
             }
         }
-        
+
         return []
     }
-    
+
     func addRow(set: Set<Int>, queue: inout Array<Int>, row: [String]) {
         for idx in 2..<(row.count) {
             let s = row[idx].replacingOccurrences(of: ",", with: "")
@@ -41,7 +41,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
             }
         }
     }
-    
+
     func findGroup(lineArray: [[String]], programNumber: Int) -> Set<Int> {
         var programSet: Set<Int> = Set()
         var programQueue: Array<Int> = []
@@ -50,17 +50,17 @@ class Puzzle_2017_12: PuzzleBaseClass {
         programSet.insert(firstElement)
         let row = findRow(lineArray: lineArray, rowNumber: firstElement)
         addRow(set: programSet, queue: &programQueue, row: row)
-        
+
         while programQueue.count > 0 {
             let element = programQueue.first!
             programSet.insert(element)
-            
+
             let row = findRow(lineArray: lineArray, rowNumber: element)
             addRow(set: programSet, queue: &programQueue, row: row)
-            
+
             programQueue.removeFirst()
         }
-        
+
         return programSet
     }
 
@@ -70,10 +70,10 @@ class Puzzle_2017_12: PuzzleBaseClass {
                 return g
             }
         }
-        
+
         return nil
     }
-    
+
     func findNextNumber(lineArray: [[String]], groups: [Set<Int>]) -> Int {
         for l in lineArray {
             let n = Int(l[0])!
@@ -81,25 +81,25 @@ class Puzzle_2017_12: PuzzleBaseClass {
                 return n
             }
         }
-        
+
         return NSNotFound
     }
-    
+
     func solvePuzzle(str: String) -> (Int, Int) {
         var lineArray: [[String]] = []
         var programGroups: [Set<Int>] = []
 
         lineArray = str.parseIntoMatrix()
-        
+
         var nextNumber = findNextNumber(lineArray: lineArray, groups: programGroups)
         while nextNumber != NSNotFound {
             let group = findGroup(lineArray: lineArray, programNumber: nextNumber)
             programGroups.append(group)
             nextNumber = findNextNumber(lineArray: lineArray, groups: programGroups)
         }
-        
+
         let group0 = findProgramInGroups(groups: programGroups, programNumber: 0)
-        
+
         return (group0!.count, programGroups.count)
     }
 }
@@ -107,7 +107,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
 private class Puzzle_2017_12_Input: NSObject {
 
     static let puzzleInput_test1 =
-        
+
 """
 0 <-> 2
 1 <-> 1
@@ -117,9 +117,9 @@ private class Puzzle_2017_12_Input: NSObject {
 5 <-> 6
 6 <-> 4, 5
 """
-    
+
     static let puzzleInput =
-    
+
 """
 0 <-> 82
 1 <-> 41, 1402
@@ -2122,5 +2122,5 @@ private class Puzzle_2017_12_Input: NSObject {
 1998 <-> 1522, 1577, 1790
 1999 <-> 308, 799, 1013
 """
-    
+
 }

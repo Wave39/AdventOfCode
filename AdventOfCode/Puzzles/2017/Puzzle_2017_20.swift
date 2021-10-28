@@ -15,7 +15,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
         var y = 0
         var z = 0
     }
-    
+
     struct Particle {
         var particleNumber: Int = -1
         var position: XYZ = XYZ()
@@ -25,30 +25,30 @@ class Puzzle_2017_20: PuzzleBaseClass {
         func manhattanDistance() -> Int {
             return abs(position.x) + abs(position.y) + abs(position.z)
         }
-        
+
         func positionString() -> String {
             return "\(position.x),\(position.y),\(position.z)"
         }
     }
-    
+
     var particles: [Particle] = []
-    
+
     func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
-        
+
         let part2Solution = solvePart2()
         print("Part 2 solution: \(part2Solution)")
     }
-    
+
     func solvePart1() -> Int {
         return solvePart1(str: PuzzleInput.final)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: PuzzleInput.final)
     }
-    
+
     func parseInput(str: String) {
         let itemRegex = "p=<(.\\d*),(.\\d*),(.\\d*)>, v=<(.\\d*),(.\\d*),(.\\d*)>, a=<(.\\d*),(.\\d*),(.\\d*)>"
         particles = []
@@ -71,7 +71,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
             ctr += 1
         }
     }
-    
+
     func findClosestParticle() -> (Int, Int) {
         var closestIndex = -1
         var closestDistance = Int.max
@@ -82,10 +82,10 @@ class Puzzle_2017_20: PuzzleBaseClass {
                 closestIndex = idx
             }
         }
-        
+
         return (closestIndex, closestDistance)
     }
-    
+
     func advanceParticles() {
         for idx in 0..<particles.count {
             particles[idx].velocity.x += particles[idx].acceleration.x
@@ -96,7 +96,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
             particles[idx].position.z += particles[idx].velocity.z
         }
     }
-    
+
     func removeCollidedParticles() {
         var particleDict: Dictionary<String, [Int]> = [:]
         var idx = 0
@@ -105,11 +105,11 @@ class Puzzle_2017_20: PuzzleBaseClass {
             if particleDict[k] == nil {
                 particleDict[k] = []
             }
-            
+
             particleDict[k]?.append(idx)
             idx += 1
         }
-        
+
         var removalArray: [Int] = []
         for k in particleDict.keys {
             if particleDict[k]!.count > 1 {
@@ -126,10 +126,10 @@ class Puzzle_2017_20: PuzzleBaseClass {
             }
         }
     }
-    
+
     func solvePart1(str: String) -> Int {
         parseInput(str: str)
-        
+
         var lastClosest = -1
         for _ in 0...1000 {
             advanceParticles()
@@ -138,12 +138,12 @@ class Puzzle_2017_20: PuzzleBaseClass {
                 lastClosest = c.0
             }
         }
-        
+
         let closest = findClosestParticle()
-        
+
         return closest.0
     }
-    
+
     func solvePart2(str: String) -> Int {
         parseInput(str: str)
         removeCollidedParticles()
@@ -152,7 +152,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
             advanceParticles()
             removeCollidedParticles()
         }
-        
+
         return particles.count
     }
 }
@@ -160,23 +160,23 @@ class Puzzle_2017_20: PuzzleBaseClass {
 private class PuzzleInput: NSObject {
 
     static let test1 =
-        
+
 """
 p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>
 p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>
 """
-    
+
     static let test2 =
-        
+
 """
 p=<-6,0,0>, v=< 3,0,0>, a=< 0,0,0>
 p=<-4,0,0>, v=< 2,0,0>, a=< 0,0,0>
 p=<-2,0,0>, v=< 1,0,0>, a=< 0,0,0>
 p=< 3,0,0>, v=<-1,0,0>, a=< 0,0,0>
 """
-    
+
     static let final =
-    
+
 """
 p=<-1724,-1700,5620>, v=<44,-10,-107>, a=<2,6,-9>
 p=<551,3425,4570>, v=<-21,-7,-182>, a=<0,-10,0>
@@ -1179,5 +1179,5 @@ p=<2382,-652,1487>, v=<343,-96,213>, a=<-23,3,-10>
 p=<-265,-2330,-2153>, v=<-32,-334,-305>, a=<1,20,18>
 p=<995,1767,1881>, v=<141,252,264>, a=<-9,-12,-14>
 """
-    
+
 }

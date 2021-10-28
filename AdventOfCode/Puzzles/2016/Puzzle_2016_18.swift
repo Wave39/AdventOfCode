@@ -26,13 +26,13 @@ class Puzzle_2016_18: PuzzleBaseClass {
             for idx in 0..<source.count {
                 types.append(source[idx] == "." ? .Safe : .Trap)
             }
-            
+
             return types
         }
 
         func getTileTypes(source: [TileType], index: Int) -> [TileType] {
             var types: [TileType] = []
-            
+
             if index == 0 {
                 types.append(.Safe)
                 types.append(source[0] == .Safe ? .Safe : .Trap)
@@ -46,7 +46,7 @@ class Puzzle_2016_18: PuzzleBaseClass {
                 types.append(source[index] == .Safe ? .Safe : .Trap)
                 types.append(source[index + 1] == .Safe ? .Safe : .Trap)
             }
-            
+
             return types
         }
 
@@ -54,19 +54,19 @@ class Puzzle_2016_18: PuzzleBaseClass {
             if types[0] == .Trap && types[1] == .Trap && types[2] == .Safe {
                 return .Trap
             }
-            
+
             if types[0] == .Safe && types[1] == .Trap && types[2] == .Trap {
                 return .Trap
             }
-            
+
             if types[0] == .Trap && types[1] == .Safe && types[2] == .Safe {
                 return .Trap
             }
-            
+
             if types[0] == .Safe && types[1] == .Safe && types[2] == .Trap {
                 return .Trap
             }
-            
+
             return .Safe
         }
 
@@ -84,7 +84,7 @@ class Puzzle_2016_18: PuzzleBaseClass {
                         nextRow.append(.Safe)
                     }
                 }
-                
+
                 count += nextRow.filter { $0 == .Safe }.count
                 lastRow = nextRow
                 rowsProcessed += 1
@@ -92,7 +92,7 @@ class Puzzle_2016_18: PuzzleBaseClass {
         //            print(rowsProcessed)
         //        }
             }
-            
+
             return count
         }
 

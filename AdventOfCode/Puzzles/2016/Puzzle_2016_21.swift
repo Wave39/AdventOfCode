@@ -76,7 +76,7 @@ class Puzzle_2016_21: PuzzleBaseClass {
                         if idx! >= 4 {
                             amount += 1
                         }
-                        
+
                         thePassword.rotate(amount: amount, left: false)
                     } else {
                         print("Invalid rotate command: \(lineArr[1])")
@@ -151,7 +151,7 @@ class Puzzle_2016_21: PuzzleBaseClass {
                         if idx! >= 4 {
                             amount += 1
                         }
-                        
+
                         if amount == 1 {
                             amount = 1
                         } else if amount == 2 {
@@ -167,7 +167,7 @@ class Puzzle_2016_21: PuzzleBaseClass {
                         } else if amount == 9 {
                             amount = 4
                         }
-                        
+
                         if amount > 0 {
                             thePassword.rotate(amount: amount, left: true)
                         }

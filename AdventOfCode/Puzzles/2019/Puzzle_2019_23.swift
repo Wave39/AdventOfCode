@@ -25,12 +25,12 @@ class Puzzle_2019_23: PuzzleBaseClass {
     func solveBothParts() -> (Int, Int) {
         return solveBothParts(str: Puzzle_2019_23_Input.puzzleInput)
     }
-    
+
     func solveBothParts(str: String) -> (Int, Int) {
         var computers: [IntcodeComputer] = []
         var inputQueues = (0 ..< 50).map { [$0] }
         var retval = (0, 0)
-        
+
         func processInput(id: Int) -> Int {
             objc_sync_enter(lock_2019_23)
             defer { objc_sync_exit(lock_2019_23) }
@@ -40,7 +40,7 @@ class Puzzle_2019_23: PuzzleBaseClass {
                 return inputQueues[id].removeFirst()
             }
         }
-        
+
         var natPacket = [ 0, 0 ]
         var firstNatPacket = true
 
@@ -50,7 +50,7 @@ class Puzzle_2019_23: PuzzleBaseClass {
                 if address == 255 {
                     objc_sync_enter(lock_2019_23)
                     if firstNatPacket {
-                        //print("first nat packet: \(xy)")
+                        // print("first nat packet: \(xy)")
                         retval.0 = xy[2]
                         firstNatPacket = false
                     }
@@ -65,7 +65,7 @@ class Puzzle_2019_23: PuzzleBaseClass {
             })
             computers.append(compy)
         }
-        
+
         let group = DispatchGroup()
         group.enter()
         var yValues = Set<Int>()
@@ -77,7 +77,7 @@ class Puzzle_2019_23: PuzzleBaseClass {
                 let isIdle = inputQueues.reduce(true) { $0 && $1.isEmpty }
                 if isIdle {
                     if yValues.contains(natPacket[1]) {
-                        //print("repeating packet: \(natPacket)")
+                        // print("repeating packet: \(natPacket)")
                         retval.1 = natPacket[1]
                         group.leave()
                     }
@@ -91,27 +91,27 @@ class Puzzle_2019_23: PuzzleBaseClass {
         for compy in computers {
             DispatchQueue.global().async {
                 usleep(5000)
-                let _ = compy.Run()
+                _ = compy.Run()
             }
         }
-        
+
         group.wait()
-        
+
         return retval
     }
-    
+
 }
 
-fileprivate class IntcodeComputer {
+private class IntcodeComputer {
     var address: Int
     var program: [Int]
     var programCounter: Int
     var relativeBase: Int
-    var expandedMemory: [ Int : Int ]
-    let outputHandler: (([Int]) -> ())
+    var expandedMemory: [ Int: Int ]
+    let outputHandler: (([Int]) -> Void)
     let inputHandler: (() -> Int)
-    
-    init(str: String, addr: Int, input: @escaping (() -> Int), output: @escaping (([Int]) -> ())) {
+
+    init(str: String, addr: Int, input: @escaping (() -> Int), output: @escaping (([Int]) -> Void)) {
         address = addr
         program = str.parseIntoIntArray(separator: ",")
         programCounter = 0
@@ -120,14 +120,14 @@ fileprivate class IntcodeComputer {
         inputHandler = input
         outputHandler = output
     }
-    
+
     func Run() -> Bool {
         enum ParameterMode {
             case position
             case immediate
             case relative
         }
-        
+
         func GetMemory(_ pointer: Int) -> Int {
             if pointer < program.count {
                 return program[pointer]
@@ -135,11 +135,11 @@ fileprivate class IntcodeComputer {
                 if expandedMemory[pointer] == nil {
                     expandedMemory[pointer] = 0
                 }
-                
+
                 return expandedMemory[pointer]!
             }
         }
-        
+
         func SetMemory(_ pointer: Int, _ value: Int) {
             if pointer < program.count {
                 program[pointer] = value
@@ -147,7 +147,7 @@ fileprivate class IntcodeComputer {
                 expandedMemory[pointer] = value
             }
         }
-        
+
         func GetValue(_ parameterMode: ParameterMode, _ value: Int, _ writeParameter: Bool) -> Int {
             if parameterMode == .relative {
                 return writeParameter ? value + relativeBase : GetMemory(value + relativeBase)
@@ -157,7 +157,7 @@ fileprivate class IntcodeComputer {
                 return value
             }
         }
-        
+
         var outputArray: [Int] = []
         while program[programCounter] != 99 {
             let opcode = program[programCounter] % 100
@@ -169,7 +169,7 @@ fileprivate class IntcodeComputer {
             } else {
                 cParameterMode = .position
             }
-              
+
             var bParameterMode: ParameterMode
             if program[programCounter] / 1000 % 10 == 1 {
                 bParameterMode = .immediate
@@ -178,7 +178,7 @@ fileprivate class IntcodeComputer {
             } else {
                 bParameterMode = .position
             }
-            
+
             var aParameterMode: ParameterMode
             if program[programCounter] / 10000 % 10 == 1 {
                 aParameterMode = .immediate
@@ -187,23 +187,23 @@ fileprivate class IntcodeComputer {
             } else {
                 aParameterMode = .position
             }
-            
+
             var p1 = 0, p2 = 0, p3 = 0
-            
+
             func SetParameterValues(_ numberOfParameters: Int, _ writeParameter: Int) {
                 if numberOfParameters >= 1 {
                     p1 = GetValue(cParameterMode, program[programCounter + 1], writeParameter == 1)
                 }
-                
+
                 if numberOfParameters >= 2 {
                     p2 = GetValue(bParameterMode, program[programCounter + 2], writeParameter == 2)
                 }
-                
+
                 if numberOfParameters >= 3 {
                     p3 = GetValue(aParameterMode, program[programCounter + 3], writeParameter == 3)
                 }
             }
-            
+
             if opcode == 1 {
                 SetParameterValues(3, 3)
                 SetMemory(p3, p1 + p2)
@@ -218,14 +218,14 @@ fileprivate class IntcodeComputer {
                 programCounter += 2
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
-                //print("A\(address) Output: \(p1)")
+                // print("A\(address) Output: \(p1)")
                 outputArray.append(p1)
                 if outputArray.count == 3 {
-                    //outputArray.append(address)
+                    // outputArray.append(address)
                     outputHandler(outputArray)
                     outputArray = []
                 }
-                
+
                 programCounter += 2
             } else if opcode == 5 {
                 SetParameterValues(2, 0)
@@ -258,7 +258,7 @@ fileprivate class IntcodeComputer {
                 return false
             }
         }
-        
+
         print("A\(address) computer has finished")
         return true
     }

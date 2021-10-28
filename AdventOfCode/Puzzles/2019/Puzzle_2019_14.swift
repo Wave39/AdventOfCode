@@ -13,31 +13,31 @@ class Puzzle_2019_14: PuzzleBaseClass {
     struct ChemicalComponent: CustomStringConvertible {
         var amount: Int = 0
         var compound: String = ""
-        
+
         static func Create(_ str: String) -> ChemicalComponent {
             let s = str.trim()
             let arr = s.parseIntoStringArray(separator: " ")
             return ChemicalComponent(amount: Int(arr[0])!, compound: arr[1])
         }
-        
+
         var description: String {
             return "\(amount) \(compound)"
         }
     }
-    
+
     struct ChemicalEquation: CustomStringConvertible {
         var reactants: [ChemicalComponent] = []
         var product: ChemicalComponent = ChemicalComponent()
-        
+
         var description: String {
             return "\(reactants) => \(product)"
         }
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -45,11 +45,11 @@ class Puzzle_2019_14: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solve(str: Puzzle_2019_14_Input.puzzleInput, part: 1)
     }
-    
+
     func solvePart2() -> Int {
         return solve(str: Puzzle_2019_14_Input.puzzleInput, part: 2)
     }
-    
+
     func solve(str: String, part: Int) -> Int {
         let lines = str.parseIntoStringArray()
         var equations: [ChemicalEquation] = []
@@ -60,30 +60,30 @@ class Puzzle_2019_14: PuzzleBaseClass {
             for r in arr2 {
                 equation.reactants.append(ChemicalComponent.Create(String(r)))
             }
-            
+
             equation.product = ChemicalComponent.Create(String(arr1[1]))
             equations.append(equation)
         }
-        
+
         var excessCompounds: Dictionary<String, Int> = [:]
-        
+
         func getOre(compound: String, amountNeeded: Int) -> Int {
             var amount = amountNeeded
             if compound == "ORE" {
                 return amount
             }
-            
+
             if excessCompounds[compound] != nil {
                 if amount <= excessCompounds[compound]! {
                     excessCompounds[compound]! -= amount
                     return 0
                 }
-                
+
                 amount -= excessCompounds[compound]!
             }
-            
+
             excessCompounds[compound] = 0
-            
+
             let equation = equations.filter { $0.product.compound == compound }.first!
             let multiple: Int
             if equation.product.amount > amount {
@@ -91,25 +91,25 @@ class Puzzle_2019_14: PuzzleBaseClass {
             } else {
                 multiple = Int(ceil(Double(amount) / Double(equation.product.amount)))
             }
-            
+
             let producedAmount = multiple * equation.product.amount
 
             var retval = 0
             for r in equation.reactants {
                 retval += getOre(compound: r.compound, amountNeeded: r.amount * multiple)
             }
-            
+
             if producedAmount > amount {
                 excessCompounds[compound]! += (producedAmount - amount)
             }
-            
+
             return retval
         }
-        
+
         if part == 1 {
             return getOre(compound: "FUEL", amountNeeded: 1)
         }
-        
+
         let availableOre = 1000000000000
 
         var step = Double(availableOre)
@@ -117,7 +117,7 @@ class Puzzle_2019_14: PuzzleBaseClass {
         var retval = 0
         var lastBelow = 0
         var lastAbove = 0
-        
+
         while true {
             excessCompounds = [:]
             let amountOfOreNeeded = getOre(compound: "FUEL", amountNeeded: Int(num))
@@ -126,19 +126,19 @@ class Puzzle_2019_14: PuzzleBaseClass {
             } else {
                 lastAbove = Int(num)
             }
-            
+
             step = (step / 2)
             if step < 1 {
                 break
             }
-            
+
             if amountOfOreNeeded > availableOre {
                 num -= step
             } else {
                 num += step
             }
         }
-        
+
         for x in (lastBelow - 1)...(lastAbove + 1) {
             excessCompounds = [:]
             let ore = getOre(compound: "FUEL", amountNeeded: x)
@@ -146,10 +146,10 @@ class Puzzle_2019_14: PuzzleBaseClass {
                 retval = x
             }
         }
-        
+
         return retval
     }
-    
+
 }
 
 private class Puzzle_2019_14_Input: NSObject {

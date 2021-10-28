@@ -13,7 +13,7 @@ class Puzzle_2020_12: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_12: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var shipDirection = CompassDirection.East
@@ -54,7 +54,7 @@ class Puzzle_2020_12: PuzzleBaseClass {
                         newOpcode = "E"
                     }
                 }
-                
+
                 let movement: Point2D
                 switch newOpcode {
                 case "N":
@@ -68,14 +68,14 @@ class Puzzle_2020_12: PuzzleBaseClass {
                 default:
                     movement = Point2D()
                 }
-                
+
                 shipLocation = Point2D(x: shipLocation.x + movement.x, y: shipLocation.y + movement.y)
             }
         }
-        
+
         return abs(shipLocation.x) + abs(shipLocation.y)
     }
-    
+
     func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var shipLocation = Point2D()
@@ -102,7 +102,7 @@ class Puzzle_2020_12: PuzzleBaseClass {
                     print("Unknown opcode")
                     movement = Point2D()
                 }
-                
+
                 waypoint = Point2D(x: waypoint.x + movement.x, y: waypoint.y + movement.y)
             } else if opcode == "L" || opcode == "R" {
                 for _ in 1...(amount / 90) {
@@ -118,10 +118,10 @@ class Puzzle_2020_12: PuzzleBaseClass {
                 print("Something bad happened")
             }
         }
-        
+
         return abs(shipLocation.x) + abs(shipLocation.y)
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

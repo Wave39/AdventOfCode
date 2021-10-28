@@ -9,42 +9,42 @@
 import Foundation
 
 class Puzzle_2018_01: NSObject {
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2018_01_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2018_01_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = str.split(separator: "\n")
-        
+
         var retval = 0
         for s in arr {
             retval += Int(String(s)) ?? 0
         }
-        
+
         return retval
     }
 
     func solvePart2(str: String) -> Int {
         let arr = str.split(separator: "\n")
-        
+
         var freq = 0
         var valueDictionary: Dictionary<Int, Int> = [:]
         valueDictionary[0] = 0
         var ctr = 0
-        
+
         while true {
             for s in arr {
                 ctr += 1

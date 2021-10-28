@@ -17,12 +17,12 @@ class Puzzle_2017_04: PuzzleBaseClass {
 
     func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_04_Input.puzzleInput
-        
+
         let part1Solution = solveString(str: puzzleInput, checkForAnagrams: false)
         let part2Solution = solveString(str: puzzleInput, checkForAnagrams: true)
         return (part1Solution, part2Solution)
     }
-    
+
     func solveString(str: String, checkForAnagrams: Bool) -> Int {
         var total = 0
         let matrix = str.parseIntoMatrix()
@@ -35,7 +35,7 @@ class Puzzle_2017_04: PuzzleBaseClass {
                 } else {
                     theElement = element
                 }
-                
+
                 s.insert(theElement)
             }
 
@@ -56,7 +56,7 @@ aa bb cc dd ee
 aa bb cc dd aa
 aa bb cc dd aaa
 """
-    
+
     static let puzzleInput =
 """
 sayndz zfxlkl attjtww cti sokkmty brx fhh suelqbp

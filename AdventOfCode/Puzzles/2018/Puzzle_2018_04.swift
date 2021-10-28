@@ -22,13 +22,13 @@ class Puzzle_2018_04: NSObject {
         let sleepRecords = SleepRecord.parse(str: puzzleInput)
         return solvePart1(sleepRecords: sleepRecords)
     }
-    
+
     func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_04_Input.puzzleInput
         let sleepRecords = SleepRecord.parse(str: puzzleInput)
         return solvePart2(sleepRecords: sleepRecords)
     }
-    
+
     func solvePart1(sleepRecords: [SleepRecord]) -> Int {
         var timeDictionary: Dictionary<Int, Int> = Dictionary()
         for rec in sleepRecords {
@@ -47,14 +47,14 @@ class Puzzle_2018_04: NSObject {
                 maxMinutesAsleep = v
             }
         }
-        
+
         let sleepTimes = MinuteArray()
         for rec in sleepRecords {
             if rec.idNumber == maxId {
                 sleepTimes.accumulate(minuteArray: rec.minuteArray)
             }
         }
-        
+
         var maxMinute = -1
         var maxMinuteValue = Int.min
         for idx in 0...59 {
@@ -63,20 +63,20 @@ class Puzzle_2018_04: NSObject {
                 maxMinuteValue = sleepTimes.minute[idx]
             }
         }
-        
+
         return maxId * maxMinute
     }
-    
+
     func solvePart2(sleepRecords: [SleepRecord]) -> Int {
         var guardDictionary: Dictionary<Int, MinuteArray> = Dictionary()
         for rec in sleepRecords {
             if guardDictionary[rec.idNumber] == nil {
-                guardDictionary[rec.idNumber] = rec.minuteArray;
+                guardDictionary[rec.idNumber] = rec.minuteArray
             } else {
                 guardDictionary[rec.idNumber]?.accumulate(minuteArray: rec.minuteArray)
             }
         }
-        
+
         var maxId = 0
         var maxMinuteValue = Int.min
         var maxIndex = 0
@@ -89,10 +89,10 @@ class Puzzle_2018_04: NSObject {
                 }
             }
         }
-        
+
         return maxId * maxIndex
     }
-    
+
     class MinuteArray {
         var minute: [Int]
         init() {
@@ -101,7 +101,7 @@ class Puzzle_2018_04: NSObject {
                 minute.append(0)
             }
         }
-        
+
         var minutesAsleep: Int {
             var retval = 0
             for b in minute {
@@ -109,22 +109,22 @@ class Puzzle_2018_04: NSObject {
                     retval += 1
                 }
             }
-            
+
             return retval
         }
-        
+
         func accumulate(minuteArray: MinuteArray) {
             for idx in 0...59 {
                 self.minute[idx] += minuteArray.minute[idx]
             }
         }
     }
-    
+
     class SleepRecord {
         var idNumber: Int = 0
         var date: String = ""
         var minuteArray: MinuteArray = MinuteArray()
-        
+
         static func parse(str: String) -> [SleepRecord] {
             let arr = str.parseIntoStringArray().sorted()
             var retval: [SleepRecord] = []
@@ -152,7 +152,7 @@ class Puzzle_2018_04: NSObject {
                             idx = i
                         }
                     }
-                    
+
                     if idx == -1 {
                         let rec = SleepRecord()
                         rec.idNumber = currentGuardId
@@ -160,7 +160,7 @@ class Puzzle_2018_04: NSObject {
                         retval.append(rec)
                         idx = retval.count - 1
                     }
-                    
+
                     for i in currentAsleepTime..<currentWakeTime {
                         retval[idx].minuteArray.minute[i] = 1
                     }
@@ -168,7 +168,7 @@ class Puzzle_2018_04: NSObject {
                     print("********************* Invalid line event *********************")
                 }
             }
-            
+
             return retval
         }
     }
@@ -195,7 +195,7 @@ private class Puzzle_2018_04_Input: NSObject {
 [1518-11-05 00:45] falls asleep
 [1518-11-05 00:55] wakes up
 """
-    
+
     static let puzzleInput = """
 [1518-10-03 00:47] falls asleep
 [1518-07-26 23:50] Guard #487 begins shift
@@ -1243,5 +1243,5 @@ private class Puzzle_2018_04_Input: NSObject {
 [1518-06-02 00:11] falls asleep
 [1518-05-10 00:59] wakes up
 """
-    
+
 }

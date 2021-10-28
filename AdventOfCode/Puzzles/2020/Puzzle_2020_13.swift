@@ -13,7 +13,7 @@ class Puzzle_2020_13: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,11 +21,11 @@ class Puzzle_2020_13: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         let earliestTimeStamp = Int(arr[0])!
@@ -35,7 +35,7 @@ class Puzzle_2020_13: PuzzleBaseClass {
                 busIDs.append(Int(arr2)!)
             }
         }
-        
+
         var earliestX = Int.max
         var retval = 0
         for busID in busIDs {
@@ -43,21 +43,21 @@ class Puzzle_2020_13: PuzzleBaseClass {
             while x < earliestTimeStamp {
                 x += busID
             }
-            
+
             if x < earliestX {
                 earliestX = x
                 retval = busID * (x - earliestTimeStamp)
             }
         }
-        
+
         return retval
     }
-    
+
     struct BusInfo {
         var busID: Int
         var minutesAfter: Int
     }
-    
+
     func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var buses: [BusInfo] = []
@@ -66,10 +66,10 @@ class Puzzle_2020_13: PuzzleBaseClass {
             if arr2 != "x" {
                 buses.append(BusInfo(busID: Int(arr2)!, minutesAfter: idx))
             }
-            
+
             idx += 1
         }
-        
+
         var time = 0
         var inc = 1
         for bus in buses {
@@ -82,10 +82,10 @@ class Puzzle_2020_13: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return time
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

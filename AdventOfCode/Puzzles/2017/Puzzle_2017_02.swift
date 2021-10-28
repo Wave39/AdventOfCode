@@ -36,13 +36,13 @@ class Puzzle_2017_02: PuzzleBaseClass {
                 if elementInt < minValue {
                     minValue = elementInt
                 }
-                
+
                 if elementInt > maxValue {
                     maxValue = elementInt
                 }
-                
+
             }
-            
+
             total = total + (maxValue - minValue)
         }
 
@@ -59,7 +59,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
                     e1 = e2
                     e2 = t
                 }
-                
+
                 if e1 % e2 == 0 {
                     return (e1, e2)
                 }

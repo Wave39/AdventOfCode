@@ -27,27 +27,27 @@ class Puzzle_2018_15: NSObject {
     struct Point: Hashable, Comparable {
         var x: Int
         var y: Int
-        
-        static func +(lhs: Point, rhs: Point) -> Point {
+
+        static func + (lhs: Point, rhs: Point) -> Point {
             return Point(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
         }
-        
-        static func +=(lhs: inout Point, rhs: Point) {
+
+        static func += (lhs: inout Point, rhs: Point) {
             lhs = lhs + rhs
         }
-        
-        static func <(lhs: Point, rhs: Point) -> Bool {
+
+        static func < (lhs: Point, rhs: Point) -> Bool {
             return lhs.y != rhs.y ? lhs.y < rhs.y : lhs.x < rhs.x
         }
-        
+
         var adjacent: [Point] {
             return [(0, -1), (-1, 0), (1, 0), (0, 1)].map({ Point(x: x + $0.0, y: y + $0.1) })
         }
-        
+
         func range(in field: [[Space]]) -> [Point] {
             return adjacent.filter { field.get($0.y)?.get($0.x) == .open }
         }
-        
+
         func distances(in field: [[Space]]) -> [Point: Int] {
             var queue = adjacent.map { ($0, 1) }
             var out: [Point: Int] = [self: 0]
@@ -60,11 +60,11 @@ class Puzzle_2018_15: NSObject {
             return out
         }
     }
-    
+
     enum Space: Character {
         case wall = "#", open = ".", elf = "E", goblin = "G"
     }
-    
+
     class Being {
         enum Race: Character {
             case elf = "E", goblin = "G"
@@ -73,13 +73,13 @@ class Puzzle_2018_15: NSObject {
         var coord: Point
         var attackPower = 3
         var hitpoints = 200
-        
+
         init(race: Race, at: Point, attack: Int) {
             self.race = race
             self.coord = at
             attackPower = attack
         }
-        
+
         func attackables(in field: [[Space]]) -> [Point] {
             return coord.adjacent.filter {
                 let space = field.get($0.y)?.get($0.x)
@@ -87,15 +87,15 @@ class Puzzle_2018_15: NSObject {
             }
         }
     }
-    
+
     func fieldString(_ field: [[Space]]) -> String {
         return field.lazy.map({ String($0.lazy.map({ $0.rawValue })) }).joined(separator: "\n")
     }
-    
+
     func aocD15(_ input: [[Space]], beings: [Being], printFields: Bool) -> Bool {
         var input = input
         var beings = beings
-        
+
         if printFields { print(fieldString(input)) }
         var rounds = 0
         outerWhile: while true {
@@ -130,7 +130,7 @@ class Puzzle_2018_15: NSObject {
                     }
                 }
                 input[being.coord.y][being.coord.x] = Space(rawValue: being.race.rawValue)!
-                
+
                 let possibleTargets = being.attackables(in: input).lazy.map { point in beings.lazy.filter({ $0.hitpoints > 0 && point == $0.coord }).first! }
                 if !possibleTargets.isEmpty {
                     action = true
@@ -152,12 +152,12 @@ class Puzzle_2018_15: NSObject {
         }
         return false
     }
-    
+
     func solve() {
         let str = Puzzle_2018_15_Input.puzzleInput
-        
+
         var beings: [Being] = []
-        
+
         let input = str.split(separator: "\n").enumerated().map { y, line in
             line.enumerated().compactMap { x, space -> Space? in
                 if let race = Being.Race(rawValue: space) {
@@ -166,7 +166,7 @@ class Puzzle_2018_15: NSObject {
                 return Space(rawValue: space)
             }
         }
-        
+
         for power in 3...200 {
             let newBeings = beings.map({ Being(race: $0.race, at: $0.coord, attack: $0.race == .goblin ? 3 : power) })
             print("Power: \(power)")
@@ -175,20 +175,20 @@ class Puzzle_2018_15: NSObject {
             }
         }
     }
-    
+
     // ===================================================================================================
     //
     // this solution was working on the test data, but on the larger playfield, it was too slow... :(
     //
     // ===================================================================================================
-    
-    class Unit : CustomStringConvertible {
+
+    class Unit: CustomStringConvertible {
         var unitType: Character = "?"
         var location: Point2D = Point2D()
         var attackPower: Int = 3
         var hitPoints: Int = 200
         var description: String {
-            //return "[\(unitType) (\(location.x),\(location.y)) (\(attackPower), \(hitPoints))"
+            // return "[\(unitType) (\(location.x),\(location.y)) (\(attackPower), \(hitPoints))"
             return "\(unitType)(\(hitPoints))"
         }
     }
@@ -203,8 +203,8 @@ class Puzzle_2018_15: NSObject {
 
         let part1 = solvePart1(str: puzzleInput)
         print("Part 1 solution: \(part1)")
-        //let part2 = solvePart2(str: puzzleInput)
-        //print("Part 2 solution: \(part2)")
+        // let part2 = solvePart2(str: puzzleInput)
+        // print("Part 2 solution: \(part2)")
     }
 
     func playfieldToString(_ playfield: [[Character]], _ units: [Unit]?) -> String {
@@ -278,9 +278,9 @@ class Puzzle_2018_15: NSObject {
 
             for unit in units {
                 if unit.hitPoints > 0 {
-                    //print("Current unit: \(unit)")
+                    // print("Current unit: \(unit)")
                     let enemies = units.filter { $0.unitType != unit.unitType && $0.hitPoints > 0 }
-                    //print("Enemies: \(enemies)")
+                    // print("Enemies: \(enemies)")
                     if enemies.count == 0 {
                         // there are no enemies, thy game is over
                         gameOver = true
@@ -305,7 +305,7 @@ class Puzzle_2018_15: NSObject {
                     // see if there are any target locations already adjacent to the unit
                     var targetsInRange = enemies.filter {
                         $0.location.manhattanDistanceTo(pt: unit.location) == 1
-                    }.sorted(by:unitReadingOrder)
+                    }.sorted(by: unitReadingOrder)
 
                     if targetsInRange.count == 0 && targetLocations.count == 0 {
                         continue
@@ -374,23 +374,23 @@ class Puzzle_2018_15: NSObject {
 
                         if movePositionSet.count > 0 {
                             let mp = Array(movePositionSet.sorted(by: point2DReadingOrder))
-                            //print("Move positions: \(mp)")
+                            // print("Move positions: \(mp)")
                             unit.location = mp[0]
-                            //print(playfieldToString(playfield, units))
+                            // print(playfieldToString(playfield, units))
 
                             // recalculate the targets in range as the unit has moved
                             targetsInRange = enemies.filter {
                                 $0.location.manhattanDistanceTo(pt: unit.location) == 1
-                                }.sorted(by:unitReadingOrder)
+                                }.sorted(by: unitReadingOrder)
                         }
                     }
 
                     // attack
-                    //print("Targets in range: \(targetsInRange)")
+                    // print("Targets in range: \(targetsInRange)")
                     if targetsInRange.count > 0 {
                         let minHitPoints = targetsInRange.map { $0.hitPoints }.min()
                         let attackTargets = targetsInRange.filter { $0.hitPoints == minHitPoints }.sorted(by: unitReadingOrder)
-                        //print("Targets to attack: \(attackTargets)")
+                        // print("Targets to attack: \(attackTargets)")
                         attackTargets[0].hitPoints -= unit.attackPower
                     }
                 }
@@ -435,7 +435,7 @@ class Puzzle_2018_15: NSObject {
         newPath.append(nextStep)
 
         if nextStep == dest {
-            //print("Destination reached with path \(newPath)")
+            // print("Destination reached with path \(newPath)")
             if pointToPointShortestPath.count == 0 {
                 pointToPointShortestPath = [ newPath ]
                 shortestPathLength = newPath.count
@@ -458,16 +458,16 @@ class Puzzle_2018_15: NSObject {
             return
         }
 
-        //print("findShortestPaths from \(nextStep) to \(dest)")
+        // print("findShortestPaths from \(nextStep) to \(dest)")
         let nextSteps = findAvailableSteps(location: nextStep)
-        //print("nextSteps: \(nextSteps)")
+        // print("nextSteps: \(nextSteps)")
         for n in nextSteps {
             if !newPath.contains(n) {
                 findShortestPaths(previousPath: newPath, nextStep: n, dest: dest)
             }
         }
     }
-    
+
 }
 
 private class Puzzle_2018_15_Input: NSObject {
@@ -482,7 +482,7 @@ private class Puzzle_2018_15_Input: NSObject {
 #.....#
 #######
 """
-    
+
     static let puzzleInput_test2 =
     """
 #######
@@ -493,7 +493,7 @@ private class Puzzle_2018_15_Input: NSObject {
 #...E.#
 #######
 """
-    
+
     static let puzzleInput_test3 =
     """
 #######
@@ -504,7 +504,7 @@ private class Puzzle_2018_15_Input: NSObject {
 #..E#.#
 #######
 """
-    
+
     static let puzzleInput_test4 =
     """
 #######
@@ -515,7 +515,7 @@ private class Puzzle_2018_15_Input: NSObject {
 #...E.#
 #######
 """
-    
+
     static let puzzleInput_test5 =
     """
 #######
@@ -526,7 +526,7 @@ private class Puzzle_2018_15_Input: NSObject {
 #...#G#
 #######
 """
-    
+
     static let puzzleInput_test6 =
     """
 #########
@@ -539,7 +539,7 @@ private class Puzzle_2018_15_Input: NSObject {
 #.....G.#
 #########
 """
-    
+
     static let puzzleInput =
 """
 ################################
@@ -575,5 +575,5 @@ private class Puzzle_2018_15_Input: NSObject {
 ####################.###########
 ################################
 """
-    
+
 }

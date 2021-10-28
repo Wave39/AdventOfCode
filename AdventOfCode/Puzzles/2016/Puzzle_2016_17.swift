@@ -31,7 +31,7 @@ class Puzzle_2016_17: PuzzleBaseClass {
                     arr.append(true)
                 }
             }
-            
+
             return arr
         }
 
@@ -56,12 +56,12 @@ class Puzzle_2016_17: PuzzleBaseClass {
                     if openDirections[2] && gs.currentX > 1 {
                         newGameStates.append(GameState(currentX: gs.currentX - 1, currentY: gs.currentY, moves: gs.moves + "L"))
                     }
-                    
+
                     if openDirections[3] && gs.currentX < 4 {
                         newGameStates.append(GameState(currentX: gs.currentX + 1, currentY: gs.currentY, moves: gs.moves + "R"))
                     }
                 }
-                
+
                 for newGS in newGameStates {
                     if newGS.currentX == 4 && newGS.currentY == 4 {
                         if findShortest {
@@ -74,13 +74,13 @@ class Puzzle_2016_17: PuzzleBaseClass {
                         }
                     }
                 }
-                
+
                 gameStates = newGameStates.filter { $0.currentX != 4 || $0.currentY != 4 }
                 if gameStates.count == 0 {
                     leaveLoop = true
                 }
             }
-            
+
             return foundString
         }
 

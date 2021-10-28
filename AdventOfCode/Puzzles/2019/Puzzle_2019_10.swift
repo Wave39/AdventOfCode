@@ -14,11 +14,11 @@ class Puzzle_2019_10: PuzzleBaseClass {
         case Asteroid
         case Empty
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1.0)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -26,11 +26,11 @@ class Puzzle_2019_10: PuzzleBaseClass {
     func solvePart1() -> (Int, Point2D) {
         return solvePart1(str: Puzzle_2019_10_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_10_Input.puzzleInput, base: Point2D(x: 30, y: 34))
     }
-    
+
     func solvePart1(str: String) -> (Int, Point2D) {
         let lines = str.parseIntoStringArray()
         var sectorGrid: [[SectorType]] = []
@@ -43,14 +43,14 @@ class Puzzle_2019_10: PuzzleBaseClass {
                     lineArray.append(.Asteroid)
                 }
             }
-            
+
             sectorGrid.append(lineArray)
         }
-        
+
         let gridWidth = sectorGrid[0].count
         let gridHeight = sectorGrid.count
         var asteroidCoordinates: [Point2D] = []
-        
+
         for y in 0..<gridHeight {
             for x in 0..<gridWidth {
                 if sectorGrid[y][x] == .Asteroid {
@@ -58,10 +58,10 @@ class Puzzle_2019_10: PuzzleBaseClass {
                 }
             }
         }
-        
+
         var retval = 0
         var baseLocation: Point2D = Point2D()
-        
+
         for base in asteroidCoordinates {
             var visibleAsteroids = 0
             for candidate in asteroidCoordinates {
@@ -73,7 +73,7 @@ class Puzzle_2019_10: PuzzleBaseClass {
                     let rise = y1 - y0
                     let run = x1 - x0
                     let ratio = run == 0 ? -1.0 : Double(rise) * 1.0 / Double(run)
-                    let ratioString = String(format:"%.5f", ratio)
+                    let ratioString = String(format: "%.5f", ratio)
                     let asteroidsToCheck = asteroidCoordinates.filter { $0.x >= x0 && $0.x <= x1 && $0.y >= y0 && $0.y <= y1 }
                     var asteroidIsVisible = true
                     for asteroid in asteroidsToCheck {
@@ -85,28 +85,28 @@ class Puzzle_2019_10: PuzzleBaseClass {
                             let thisRise = thisY1 - thisY0
                             let thisRun = thisX1 - thisX0
                             let thisRatio = thisRun == 0 ? -1.0 : Double(thisRise) * 1.0 / Double(thisRun)
-                            let thisRatioString = String(format:"%.5f", thisRatio)
+                            let thisRatioString = String(format: "%.5f", thisRatio)
                             if ratioString == thisRatioString {
                                 asteroidIsVisible = false
                             }
                         }
                     }
-                    
+
                     if asteroidIsVisible {
                         visibleAsteroids += 1
                     }
                 }
             }
-            
+
             if visibleAsteroids > retval {
                 retval = visibleAsteroids
                 baseLocation = base
             }
         }
-        
+
         return (retval, baseLocation)
     }
-    
+
     func solvePart2(str: String, base: Point2D) -> Int {
         let lines = str.parseIntoStringArray()
         var sectorGrid: [[SectorType]] = []
@@ -119,14 +119,14 @@ class Puzzle_2019_10: PuzzleBaseClass {
                     lineArray.append(.Asteroid)
                 }
             }
-            
+
             sectorGrid.append(lineArray)
         }
-        
+
         let gridWidth = sectorGrid[0].count
         let gridHeight = sectorGrid.count
         var asteroidCoordinates: [Point2D] = []
-        
+
         for y in 0..<gridHeight {
             for x in 0..<gridWidth {
                 if sectorGrid[y][x] == .Asteroid {
@@ -145,13 +145,13 @@ class Puzzle_2019_10: PuzzleBaseClass {
             case west
             case northwest
         }
-        
+
         struct AsteroidInfo {
             var position: Point2D
             var direction: DirectionFromBase
             var slope: Double
         }
-        
+
         var asteroidArray: [AsteroidInfo] = []
         for asteroid in asteroidCoordinates {
             if asteroid != base {
@@ -183,16 +183,16 @@ class Puzzle_2019_10: PuzzleBaseClass {
                         }
                     }
                 }
-                
+
                 let slope = Double(asteroid.y - base.y) / Double(asteroid.x - base.x)
-                
+
                 asteroidArray.append(AsteroidInfo(position: asteroid, direction: direction, slope: slope))
             }
         }
 
         var asteroidsRemoved = 0
         var retval = 0
-        
+
         func CheckPureDirection(_ direction: DirectionFromBase) {
             let arr = asteroidArray.filter { $0.direction == direction }.sorted(by: { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position)})
             if arr.count > 0 {
@@ -204,7 +204,7 @@ class Puzzle_2019_10: PuzzleBaseClass {
                 }
             }
         }
-        
+
         func CheckDiagonalDirection(_ direction: DirectionFromBase) {
             let arr = asteroidArray.filter { $0.direction == direction }
             if arr.count > 0 {
@@ -227,7 +227,7 @@ class Puzzle_2019_10: PuzzleBaseClass {
                 }
             }
         }
-        
+
         while asteroidArray.count > 0 {
             CheckPureDirection(.north)
             CheckDiagonalDirection(.northeast)
@@ -238,11 +238,11 @@ class Puzzle_2019_10: PuzzleBaseClass {
             CheckPureDirection(.west)
             CheckDiagonalDirection(.northwest)
         }
-        
+
         return retval
-        
+
     }
-    
+
 }
 
 private class Puzzle_2019_10_Input: NSObject {
@@ -267,7 +267,7 @@ private class Puzzle_2019_10_Input: NSObject {
 ##...#..#.
 .#....####
 """
-    
+
     static let puzzleInput_test3 = """
 #.#...#.#.
 .###....#.
@@ -280,7 +280,7 @@ private class Puzzle_2019_10_Input: NSObject {
 ......#...
 .####.###.
 """
-    
+
     static let puzzleInput_test4 = """
 .#..#..###
 ####.###.#
@@ -293,7 +293,7 @@ private class Puzzle_2019_10_Input: NSObject {
 .##...##.#
 .....#.#..
 """
-    
+
     static let puzzleInput_test5 = """
 .#..##.###...#######
 ##.############..##.
@@ -316,7 +316,7 @@ private class Puzzle_2019_10_Input: NSObject {
 #.#.#.#####.####.###
 ###.##.####.##.#..##
 """
-              
+
     static let puzzleInput = """
 ....#.....#.#...##..........#.......#......
 .....#...####..##...#......#.........#.....
@@ -362,5 +362,5 @@ private class Puzzle_2019_10_Input: NSObject {
 ...##..............#......#................
 ........................#....##..#........#
 """
-    
+
 }

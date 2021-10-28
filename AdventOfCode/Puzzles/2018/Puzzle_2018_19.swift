@@ -11,21 +11,21 @@ import Foundation
 class Puzzle_2018_19: NSObject {
 
     typealias Registers = [Int]
-    
+
     class Command {
         var opcode: String = ""
         var a: Int = 0
         var b: Int = 0
         var c: Int = 0
     }
-    
+
     class Program {
         var instructionPointer: Int = 0
         var boundRegister: Int = 0
         var code: [Command] = []
         var registers: Registers = [ 0, 0, 0, 0, 0, 0 ]
     }
-    
+
     func parseIntoProgram(str: String) -> Program {
         let program = Program()
         let arr = str.parseIntoStringArray()
@@ -43,61 +43,61 @@ class Puzzle_2018_19: NSObject {
                 program.code.append(cmd)
             }
         }
-        
+
         return program
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
-    
+
     func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_19_Input.puzzleInput
         return solvePart1(puzzleInput: puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_19_Input.puzzleInput
         return solvePart2(puzzleInput: puzzleInput)
     }
-    
+
     func solvePart1(puzzleInput: String) -> Int {
         let program = parseIntoProgram(str: puzzleInput)
-        
+
         repeat {
             program.registers[program.boundRegister] = program.instructionPointer
-            
+
             program.registers = runCommandString(command: program.code[program.instructionPointer], registers: program.registers)
             program.instructionPointer = program.registers[program.boundRegister]
-            
+
             program.instructionPointer += 1
         } while program.instructionPointer >= 0 && program.instructionPointer < program.code.count
-        
+
         return program.registers[0]
     }
-    
+
     func solvePart2(puzzleInput: String) -> Int {
         let program = parseIntoProgram(str: puzzleInput)
         program.registers[0] = 1
         var searchValue = -1
-        
+
         repeat {
             program.registers[program.boundRegister] = program.instructionPointer
-            
+
             program.registers = runCommandString(command: program.code[program.instructionPointer], registers: program.registers)
             program.instructionPointer = program.registers[program.boundRegister]
-            
+
             program.instructionPointer += 1
-            
+
             if program.instructionPointer == 1 {
                 // the inner loop beginning at IP 1 is a loop that just adds up factors of register 2
                 searchValue = program.registers[2]
             }
         } while searchValue == -1
-        
+
         var total = 0
         for i in 1...Int(Double(searchValue).squareRoot()) {
             if searchValue % i == 0 {
@@ -107,10 +107,10 @@ class Puzzle_2018_19: NSObject {
                 }
             }
         }
-        
+
         return total
     }
-    
+
     func runCommandString(command: Command, registers: Registers) -> Registers {
         var newRegisters = registers
         if command.opcode == "addr" {
@@ -146,7 +146,7 @@ class Puzzle_2018_19: NSObject {
         } else if command.opcode == "eqrr" {
             newRegisters[command.c] = (registers[command.a] == registers[command.b] ? 1 : 0)
         }
-        
+
         return newRegisters
     }
 
@@ -165,7 +165,7 @@ setr 1 0 0
 seti 8 0 4
 seti 9 0 5
 """
-    
+
     static let puzzleInput =
 """
 #ip 5
@@ -206,5 +206,5 @@ addr 2 3 2
 seti 0 1 0
 seti 0 0 5
 """
-    
+
 }

@@ -13,7 +13,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -21,18 +21,18 @@ class Puzzle_2020_16: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
-    struct TicketRule : Hashable {
+
+    struct TicketRule: Hashable {
         var ruleName: String
         var limit1: Int
         var limit2: Int
         var limit3: Int
         var limit4: Int
-        
+
         func hash(into hasher: inout Hasher) {
             hasher.combine(ruleName)
             hasher.combine(limit1)
@@ -40,12 +40,12 @@ class Puzzle_2020_16: PuzzleBaseClass {
             hasher.combine(limit3)
             hasher.combine(limit4)
         }
-        
+
         static func == (lhs: TicketRule, rhs: TicketRule) -> Bool {
             return lhs.ruleName == rhs.ruleName
         }
     }
-    
+
     func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var yourTicketMode = false
@@ -67,7 +67,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
                             matches += 1
                         }
                     }
-                    
+
                     if matches == 0 {
                         errorRate += value
                     }
@@ -83,20 +83,20 @@ class Puzzle_2020_16: PuzzleBaseClass {
                 print("Unknown line: \(line)")
             }
         }
-        
+
         return errorRate
     }
-    
+
     func findSoloSet(setArray: [Set<Int>]) -> Int {
         for idx in 0..<setArray.count {
             if setArray[idx].count == 1 {
                 return idx
             }
         }
-        
+
         return -1
     }
-    
+
     func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var yourTicketMode = false
@@ -120,12 +120,12 @@ class Puzzle_2020_16: PuzzleBaseClass {
                             matches += 1
                         }
                     }
-                    
+
                     if matches == 0 {
                         ticketIsGood = false
                     }
                 }
-                
+
                 if ticketIsGood {
                     validTickets.append(arr)
                 }
@@ -140,17 +140,17 @@ class Puzzle_2020_16: PuzzleBaseClass {
                 print("Unknown line: \(line)")
             }
         }
-        
+
         var validColumns: [Set<Int>] = []
         for _ in 0..<validTickets[0].count {
             var s: Set<Int> = Set()
             for idx in 0..<validTickets[0].count {
                 s.insert(idx)
             }
-            
+
             validColumns.append(s)
         }
-        
+
         for ticket in validTickets {
             for idx in 0..<ticket.count {
                 let value = ticket[idx]
@@ -161,7 +161,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
                         columnsToRemove.insert(ruleIndex)
                     }
                 }
-                
+
                 if columnsToRemove.count > 0 {
                     for x in columnsToRemove {
                         validColumns[idx].remove(x)
@@ -169,7 +169,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
                 }
             }
         }
-        
+
         var columnMap = (0..<validTickets[0].count).map({$0})
         var soloSetIndex = findSoloSet(setArray: validColumns)
         while soloSetIndex != -1 {
@@ -178,10 +178,10 @@ class Puzzle_2020_16: PuzzleBaseClass {
             for idx in 0..<validColumns.count {
                 validColumns[idx].remove(v)
             }
-            
+
             soloSetIndex = findSoloSet(setArray: validColumns)
         }
-        
+
         var retval = 1
         for idx in 0..<columnMap.count {
             let rule = ticketRules[columnMap[idx]]
@@ -189,10 +189,10 @@ class Puzzle_2020_16: PuzzleBaseClass {
                 retval *= myTicket[idx]
             }
         }
-        
+
         return retval
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

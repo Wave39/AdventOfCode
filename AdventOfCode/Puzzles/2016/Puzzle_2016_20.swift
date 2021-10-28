@@ -32,11 +32,11 @@ class Puzzle_2016_20: PuzzleBaseClass {
                         continue
                     }
                 }
-                
+
                 if addressPointer > 4294967295 && !addressFound {
                     return -1
                 }
-                
+
                 if !addressFound {
                     return addressPointer
                 }

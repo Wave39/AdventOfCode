@@ -13,7 +13,7 @@ class Puzzle_2018_02: NSObject {
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -23,13 +23,13 @@ class Puzzle_2018_02: NSObject {
         let array = puzzleInput.parseIntoStringArray()
         return solvePart1(arr: array)
     }
-    
+
     func solvePart2() -> String {
         let puzzleInput = Puzzle_2018_02_Input.puzzleInput
         let array = puzzleInput.parseIntoStringArray()
         return solvePart2(arr: array)
     }
-    
+
     func solvePart1(arr: [String]) -> Int {
         var counterOfTwos = 0
         var counterOfThrees = 0
@@ -37,20 +37,20 @@ class Puzzle_2018_02: NSObject {
             if s.hasConsecutiveCharacters(num: 2) {
                 counterOfTwos += 1
             }
-            
+
             if s.hasConsecutiveCharacters(num: 3) {
                 counterOfThrees += 1
             }
         }
-        
+
         return counterOfTwos * counterOfThrees
     }
-    
+
     func solvePart2(arr: [String]) -> String {
         var minDifference = Int.max
         var minI = 0
         var minJ = 0
-        
+
         for i in 0..<(arr.count - 1) {
             for j in (i + 1)..<arr.count {
                 let diff = arr[i].charactersDifferentFrom(str: arr[j])
@@ -61,10 +61,10 @@ class Puzzle_2018_02: NSObject {
                 }
             }
         }
-        
+
         return arr[minI].commonCharactersWith(str: arr[minJ])
     }
-    
+
 }
 
 private class Puzzle_2018_02_Input: NSObject {
@@ -88,7 +88,7 @@ fguij
 axcye
 wvxyz
 """
-    
+
     static let puzzleInput = """
 bvhfawknyoqsudzrpgslecmtkj
 bpufawcnyoqxldzrpgsleimtkj
@@ -341,5 +341,5 @@ bvhfkccnyoqxudzrpgzleimtkj
 bvhfawcnyoqzudzrpgslhimwkj
 bzhfawvnyooxudzrpgsleimtkj
 """
-    
+
 }

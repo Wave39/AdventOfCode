@@ -41,13 +41,13 @@ class Puzzle_2016_08: PuzzleBaseClass {
                     for c in 0..<columns {
                         rowString += lightArray[r][c]
                     }
-                    
+
                     retVal = retVal + rowString + "\n"
                 }
 
                 return retVal
             }
-            
+
             func rect(w: Int, h: Int) {
                 for r in 0..<h {
                     for c in 0..<w {
@@ -75,7 +75,7 @@ class Puzzle_2016_08: PuzzleBaseClass {
                     }
                 }
             }
-            
+
             func lightCounter() -> Int {
                 var ctr = 0
                 for r in 0..<rows {

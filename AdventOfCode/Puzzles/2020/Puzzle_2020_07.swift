@@ -14,16 +14,16 @@ class Puzzle_2020_07: PuzzleBaseClass {
         var color: String
         var count: Int
     }
-    
+
     struct BagRule {
         var bag: BagDescription
         var contents: [BagDescription]
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -31,11 +31,11 @@ class Puzzle_2020_07: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func parseBagRules(str: String) -> [BagRule] {
         let lines = str.parseIntoStringArray()
         var bagRules: [BagRule] = []
@@ -50,28 +50,28 @@ class Puzzle_2020_07: PuzzleBaseClass {
                     idx += 4
                 }
             }
-            
+
             bagRules.append(bagRule)
         }
-        
+
         return bagRules
     }
-    
+
     func getDependenciesForBag(bagRules: [BagRule], bagColor: String) -> [BagDescription] {
         let matchingBag = bagRules.filter({$0.bag.color == bagColor}).first!
         return matchingBag.contents
     }
-    
+
     func bagCountInsideBag(bagRules: [BagRule], bagColor: String) -> Int {
         let dependentBags = getDependenciesForBag(bagRules: bagRules, bagColor: bagColor)
         var bagCount = 0
         for bag in dependentBags {
             bagCount += (bag.count + bag.count * bagCountInsideBag(bagRules: bagRules, bagColor: bag.color))
         }
-        
+
         return bagCount
     }
-    
+
     func findBagsContainingBagColor(bagRules: [BagRule], bagColor: String) -> Set<String> {
         var bagColorSet: Set<String> = []
 
@@ -83,24 +83,24 @@ class Puzzle_2020_07: PuzzleBaseClass {
                 }
             }
         }
-        
+
         recursiveFindBagsContainingBagColor(bagRules: bagRules, bagColor: bagColor)
-        
+
         return bagColorSet
     }
-    
+
     func solvePart1(str: String) -> Int {
         let bagRules = parseBagRules(str: str)
         let bagColorSet = findBagsContainingBagColor(bagRules: bagRules, bagColor: "shiny gold")
         return bagColorSet.count
     }
-    
+
     func solvePart2(str: String) -> Int {
         let bagRules = parseBagRules(str: str)
         let bagCount = bagCountInsideBag(bagRules: bagRules, bagColor: "shiny gold")
         return bagCount
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

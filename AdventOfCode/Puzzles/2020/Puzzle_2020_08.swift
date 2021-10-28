@@ -14,7 +14,7 @@ class Puzzle_2020_08: PuzzleBaseClass {
         case NOP
         case ACC
         case JMP
-        
+
         static func lookup(str: String) -> InstructionType {
             if str == "nop" {
                 return NOP
@@ -28,18 +28,18 @@ class Puzzle_2020_08: PuzzleBaseClass {
             }
         }
     }
-    
+
     struct Instruction {
         var opcode: InstructionType
         var offset: Int
     }
-    
+
     typealias Program = [Instruction]
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -47,11 +47,11 @@ class Puzzle_2020_08: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_Input.puzzleInput)
     }
-    
+
     func parseProgram(str: String) -> Program {
         var program = Program()
         let lines = str.parseIntoStringArray()
@@ -60,10 +60,10 @@ class Puzzle_2020_08: PuzzleBaseClass {
             let instruction = Instruction(opcode: InstructionType.lookup(str: arr[0]), offset: Int(arr[1])!)
             program.append(instruction)
         }
-        
+
         return program
     }
-    
+
     func runProgram(program: Program) -> (Bool, Int) {
         var executionSet: Set<Int> = Set()
         var programCounter = 0
@@ -84,26 +84,26 @@ class Puzzle_2020_08: PuzzleBaseClass {
                 print("Execution error: Unknown instruction opcode: \(instruction.opcode)")
                 programCounter += 1
             }
-            
+
             if executionSet.contains(programCounter) {
                 finishExecution = true
             }
-            
+
             if programCounter >= program.count {
                 finishExecution = true
                 programDidFinish = true
             }
         }
-        
+
         return (programDidFinish, accumulator)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let program = parseProgram(str: str)
         let (_, accumulator) = runProgram(program: program)
         return accumulator
     }
-    
+
     func solvePart2(str: String) -> Int {
         let program = parseProgram(str: str)
         for idx in 0..<program.count {
@@ -117,11 +117,11 @@ class Puzzle_2020_08: PuzzleBaseClass {
                 }
             }
         }
-        
+
         print("The matching condition was not found, something is wrong.")
         return -1
     }
-    
+
 }
 
 private class Puzzle_Input: NSObject {

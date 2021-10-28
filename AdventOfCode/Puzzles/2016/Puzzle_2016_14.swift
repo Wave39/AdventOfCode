@@ -27,7 +27,7 @@ class Puzzle_2016_14: PuzzleBaseClass {
                     md5 = md5.md5
                 }
             }
-            
+
             return md5
         }
 
@@ -37,7 +37,7 @@ class Puzzle_2016_14: PuzzleBaseClass {
                     return String(string[i])
                 }
             }
-            
+
             return "?"
         }
 
@@ -46,7 +46,7 @@ class Puzzle_2016_14: PuzzleBaseClass {
             var index = 0
             var hashDictionary: Dictionary<Int, String> = [ : ]
             var validKeys: [ Int ] = []
-            
+
             func getIndexValue(index: Int) -> String {
                 if hashDictionary[index] == nil {
                     hashDictionary[index] = MD5ForIndex(inputString: inputString, index: index, stretch: stretch)
@@ -54,7 +54,7 @@ class Puzzle_2016_14: PuzzleBaseClass {
 
                 return hashDictionary[index]!
             }
-            
+
             while !hashFound {
                 let hashValue = getIndexValue(index: index)
                 let matchedCharacter = getTripleCharacter(string: hashValue)
@@ -68,13 +68,13 @@ class Puzzle_2016_14: PuzzleBaseClass {
                         }
                     }
                 }
-                
+
                 index += 1
                 if validKeys.count == 64 {
                     hashFound = true
                 }
             }
-            
+
             return validKeys
         }
 

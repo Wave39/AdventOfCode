@@ -68,7 +68,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
                         numberLocationArray.append(numberLocation)
                     }
                 }
-                
+
                 gridArray.append(arr)
             }
 
@@ -77,7 +77,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
 
         func getValidMoves(grid: Grid, from: GridPosition) -> [GridPosition] {
             var possibleMoves: [GridPosition] = []
-            
+
             if from.x > 0 {
                 possibleMoves.append(GridPosition(x: -1, y: 0))
             }
@@ -85,7 +85,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
             if from.x < (grid.maxX - 1) {
                 possibleMoves.append(GridPosition(x: 1, y: 0))
             }
-            
+
             if from.y > 0 {
                 possibleMoves.append(GridPosition(x: 0, y: -1))
             }
@@ -100,7 +100,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
                     validMoves.append(GridPosition(x: (from.x + m.x), y: (from.y + m.y)))
                 }
             }
-            
+
             return validMoves
         }
 
@@ -126,14 +126,14 @@ class Puzzle_2016_24: PuzzleBaseClass {
                         }
                     }
                 }
-                
+
                 positions = nextPositions
             }
         }
 
         func getPathPermutations(count: Int, returnToZero: Bool) -> [[Int]] {
             var permutations: [[Int]] = []
-            
+
             func pathPermutations(n: Int, _ a: inout Array<Int>) {
                 if n == 1 {
                     permutations.append(a)
@@ -151,11 +151,11 @@ class Puzzle_2016_24: PuzzleBaseClass {
             if returnToZero {
                 intArray.append(0)
             }
-            
+
             for idx in 1..<count {
                 intArray.append(idx)
             }
-            
+
             pathPermutations(n: intArray.count, &intArray)
             return permutations
         }
@@ -195,7 +195,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
                     shortestPath = p
                 }
             }
-            
+
             return (shortestLength, shortestPath)
         }
 

@@ -38,16 +38,16 @@ class Puzzle_2017_03: PuzzleBaseClass {
         var topExtreme = 0
         var bottomExtreme = 0
         var currentPosition = Point2D(x: 0, y: 0)
-        
+
         var advanceDirection = ADVANCE_DIRECTION.RIGHT
-        
+
         var dict: Dictionary<Int, Point2D> = [:]
         var arr: Array<Point2D> = []
         var idx = 1
         while idx <= limit {
             dict[idx] = currentPosition
             arr.append(currentPosition)
-            
+
             if advanceDirection == .RIGHT {
                 currentPosition.x = currentPosition.x + 1
                 if currentPosition.x > rightExtreme {
@@ -82,7 +82,7 @@ class Puzzle_2017_03: PuzzleBaseClass {
 
     func sumAdjacentEntries(dict: Dictionary<Point2D, Int>, origin: Point2D) -> Int {
         var total = 0
-        
+
         var positions: Array<Point2D> = []
         for idx in (origin.x - 1)...(origin.x + 1) {
             positions.append(Point2D(x: idx, y: origin.y - 1))
@@ -100,14 +100,14 @@ class Puzzle_2017_03: PuzzleBaseClass {
 
         return total
     }
-    
+
     func buildPart2Spiral(limit: Int) -> Int {
         var leftExtreme = 0
         var rightExtreme = 0
         var topExtreme = 0
         var bottomExtreme = 0
         var currentPosition = Point2D(x: 0, y: 0)
-        
+
         var advanceDirection = ADVANCE_DIRECTION.RIGHT
 
         var dict: Dictionary<Point2D, Int> = [:]

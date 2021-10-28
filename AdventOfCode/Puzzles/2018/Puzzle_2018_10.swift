@@ -11,17 +11,17 @@ import Foundation
 class Puzzle_2018_10: NSObject {
 
     func solve() {
-        let _ = solveBothParts()
+        _ = solveBothParts()
     }
 
     func solveBothParts() -> (String, Int) {
         let puzzleInput = Puzzle_2018_10_Input.puzzleInput
         return runSimulation(pointsOfLight: puzzleInput)
     }
-    
+
     func parsePointsOfLight(pointsOfLight: String) -> [Particle2D] {
         var retval: [Particle2D] = []
-        
+
         let arr = pointsOfLight.parseIntoStringArray()
         for line in arr {
             let components = line.capturedGroups(withRegex: "position=<(.*),(.*)> velocity=<(.*),(.*)>", trimResults: true)
@@ -32,10 +32,10 @@ class Puzzle_2018_10: NSObject {
             particle.deltaY = Int(components[3])!
             retval.append(particle)
         }
-        
+
         return retval
     }
-    
+
     func runSimulation(pointsOfLight: String) -> (String, Int) {
         var secondsElapsed = 0
         var particles = parsePointsOfLight(pointsOfLight: pointsOfLight)
@@ -50,18 +50,18 @@ class Puzzle_2018_10: NSObject {
                     return (particleString, secondsElapsed)
                 }
             }
-            
+
             secondsElapsed += 1
             for idx in 0..<particles.count {
                 particles[idx].x += particles[idx].deltaX
                 particles[idx].y += particles[idx].deltaY
             }
-            
+
         } while secondsElapsed < 20000
-        
+
         return ("", 0)
     }
-    
+
 }
 
 private class Puzzle_2018_10_Input: NSObject {
@@ -99,7 +99,7 @@ position=< 5,  9> velocity=< 1, -2>
 position=<14,  7> velocity=<-2,  0>
 position=<-3,  6> velocity=< 2, -1>
 """
-    
+
     static let puzzleInput = """
 position=<-52592,  31869> velocity=< 5, -3>
 position=<-20934,  52988> velocity=< 2, -5>
@@ -487,5 +487,5 @@ position=<-52612,  21312> velocity=< 5, -2>
 position=<-42053, -52592> velocity=< 4,  5>
 position=<-31490,  10750> velocity=< 3, -1>
 """
-    
+
 }

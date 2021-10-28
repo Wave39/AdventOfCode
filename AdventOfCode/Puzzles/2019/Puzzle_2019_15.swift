@@ -11,7 +11,7 @@ import Foundation
 class Puzzle_2019_15: PuzzleBaseClass {
 
     var globalRenderFlag = false
-    
+
     enum TileType: Int {
         case Hallway = 1
         case Wall = 0
@@ -20,14 +20,14 @@ class Puzzle_2019_15: PuzzleBaseClass {
         case CurrentLocation = 4
         case Unknown = -1
     }
-    
+
     enum MovementDirection: Int {
         case North = 1
         case South = 2
         case East = 4
         case West = 3
         case Unknown = 5
-        
+
         func reverse() -> MovementDirection {
             if self == .North {
                 return .South
@@ -40,16 +40,16 @@ class Puzzle_2019_15: PuzzleBaseClass {
             }
         }
     }
-    
+
     struct MoveInformation {
         var location: Point2D = Point2D()
         var direction: MovementDirection = .North
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-       
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -60,7 +60,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
             case immediate
             case relative
         }
-        
+
         func GetMemory(_ pointer: Int) -> Int {
             if pointer < program.count {
                 return program[pointer]
@@ -68,11 +68,11 @@ class Puzzle_2019_15: PuzzleBaseClass {
                 if expandedMemory[pointer] == nil {
                     expandedMemory[pointer] = 0
                 }
-                
+
                 return expandedMemory[pointer]!
             }
         }
-        
+
         func SetMemory(_ pointer: Int, _ value: Int) {
             if pointer < program.count {
                 program[pointer] = value
@@ -80,7 +80,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
                 expandedMemory[pointer] = value
             }
         }
-        
+
         func GetValue(_ parameterMode: ParameterMode, _ value: Int, _ writeParameter: Bool) -> Int {
             if parameterMode == .relative {
                 return writeParameter ? value + relativeBase : GetMemory(value + relativeBase)
@@ -90,7 +90,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
                 return value
             }
         }
-        
+
         while program[programCounter] != 99 {
             let opcode = program[programCounter] % 100
             var cParameterMode: ParameterMode
@@ -101,7 +101,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
             } else {
                 cParameterMode = .position
             }
-              
+
             var bParameterMode: ParameterMode
             if program[programCounter] / 1000 % 10 == 1 {
                 bParameterMode = .immediate
@@ -110,7 +110,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
             } else {
                 bParameterMode = .position
             }
-            
+
             var aParameterMode: ParameterMode
             if program[programCounter] / 10000 % 10 == 1 {
                 aParameterMode = .immediate
@@ -119,23 +119,23 @@ class Puzzle_2019_15: PuzzleBaseClass {
             } else {
                 aParameterMode = .position
             }
-            
+
             var p1 = 0, p2 = 0, p3 = 0
-            
+
             func SetParameterValues(_ numberOfParameters: Int, _ writeParameter: Int) {
                 if numberOfParameters >= 1 {
                     p1 = GetValue(cParameterMode, program[programCounter + 1], writeParameter == 1)
                 }
-                
+
                 if numberOfParameters >= 2 {
                     p2 = GetValue(bParameterMode, program[programCounter + 2], writeParameter == 2)
                 }
-                
+
                 if numberOfParameters >= 3 {
                     p3 = GetValue(aParameterMode, program[programCounter + 3], writeParameter == 3)
                 }
             }
-            
+
             if opcode == 1 {
                 SetParameterValues(3, 3)
                 SetMemory(p3, p1 + p2)
@@ -150,7 +150,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
                 programCounter += 2
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
-                //print(retval)
+                // print(retval)
                 programCounter += 2
                 return (p1, true)
             } else if opcode == 5 {
@@ -184,7 +184,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
                 return (-2, false)
             }
         }
-        
+
         return (-1, false)
     }
 
@@ -192,7 +192,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         if !globalRenderFlag {
             return
         }
-        
+
         var tileDict = originalTileDict
         tileDict[Point2D(x: 0, y: 0)] = .StartingLocation
 
@@ -202,20 +202,20 @@ class Puzzle_2019_15: PuzzleBaseClass {
         let minY = k.map { $0.y }.min()!
         let maxY = k.map { $0.y }.max()!
         print("")
-        
+
         let w = maxX - minX + 1
         let h = maxY - minY + 1
         var board: [[Character]] = []
-        
+
         for _ in 0..<h {
             var lineArray: [Character] = []
             for _ in 0..<w {
                 lineArray.append("⬜️")
             }
-            
+
             board.append(lineArray)
         }
-         
+
         for k in tileDict.keys {
             let x = k.x - minX
             let y = (h - 1) - (k.y - minY)
@@ -232,33 +232,33 @@ class Puzzle_2019_15: PuzzleBaseClass {
             } else {
                 c = "⬛️"
             }
-            
+
             board[y][x] = c
         }
-        
+
         for line in board {
             print(String(line))
         }
     }
-    
+
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_15_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
         return solvePart2(str: Puzzle_2019_15_Input.puzzleInput)
     }
-    
+
     func solvePart1(str: String) -> Int {
         let tileDict = createMap(str: str, render: false)
-        
+
         var movementDict = tileDict.filter { $0.value == .Hallway || $0.value == .StartingLocation }.map { $0.key }
         let oxygenPoint = tileDict.filter { $0.value == .Oxygen }.first!.key
-        
+
         var pathHeaders: [Point2D] = [ oxygenPoint ]
         var stepCount = 0
         var foundOxygen = false
-        
+
         while !foundOxygen && pathHeaders.count > 0 {
             var nextPathHeaders: [Point2D] = []
             for header in pathHeaders {
@@ -269,26 +269,26 @@ class Puzzle_2019_15: PuzzleBaseClass {
                     nextPathHeaders.append(contentsOf: nextMoves)
                 }
             }
-            
+
             pathHeaders = nextPathHeaders
             stepCount += 1
             if pathHeaders.contains(Point2D(x: 0, y: 0)) {
                 foundOxygen = true
             }
         }
-        
+
         return stepCount
     }
-    
+
     func solvePart2(str: String) -> Int {
         let tileDict = createMap(str: str, render: false)
-        
+
         var movementDict = tileDict.filter { $0.value == .Hallway || $0.value == .StartingLocation }.map { $0.key }
         let oxygenPoint = tileDict.filter { $0.value == .Oxygen }.first!.key
-        
+
         var pathHeaders: [Point2D] = [ oxygenPoint ]
         var stepCount = 0
-        
+
         while movementDict.count > 0 {
             var nextPathHeaders: [Point2D] = []
             for header in pathHeaders {
@@ -299,23 +299,23 @@ class Puzzle_2019_15: PuzzleBaseClass {
                     nextPathHeaders.append(contentsOf: nextMoves)
                 }
             }
-            
+
             pathHeaders = nextPathHeaders
             stepCount += 1
         }
-        
+
         return stepCount - 1
     }
-    
-    func createMap(str: String, render: Bool) -> [ Point2D : TileType ] {
+
+    func createMap(str: String, render: Bool) -> [ Point2D: TileType ] {
         globalRenderFlag = render
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0
-        var expandedMemory: [ Int : Int ] = [:]
-        
+        var expandedMemory: [ Int: Int ] = [:]
+
         let robotPosition = Point2D(x: 0, y: 0)
-        var tileDict: [ Point2D : TileType ] = [:]
+        var tileDict: [ Point2D: TileType ] = [:]
         tileDict[robotPosition] = .StartingLocation
         var moveSteps: [MoveInformation] = []
 
@@ -340,7 +340,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
                     }
 
                     drawBoard(tileDict)
-                    let _ = ProcessProgram(program: &arr, inputSignal: MovementDirection.South.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
+                    _ = ProcessProgram(program: &arr, inputSignal: MovementDirection.South.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
                 }
             }
 
@@ -361,7 +361,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
                     }
 
                     drawBoard(tileDict)
-                    let _ = ProcessProgram(program: &arr, inputSignal: MovementDirection.West.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
+                    _ = ProcessProgram(program: &arr, inputSignal: MovementDirection.West.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
                 }
             }
 
@@ -382,7 +382,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
                     }
 
                     drawBoard(tileDict)
-                    let _ = ProcessProgram(program: &arr, inputSignal: MovementDirection.East.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
+                    _ = ProcessProgram(program: &arr, inputSignal: MovementDirection.East.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
                 }
             }
 
@@ -403,7 +403,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
                     }
 
                     drawBoard(tileDict)
-                    let _ = ProcessProgram(program: &arr, inputSignal: MovementDirection.North.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
+                    _ = ProcessProgram(program: &arr, inputSignal: MovementDirection.North.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
                 }
             }
 
@@ -424,7 +424,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
 
             moveSteps.append(MoveInformation(location: position, direction: direction))
 
-            let _ = ProcessProgram(program: &arr, inputSignal: direction.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
+            _ = ProcessProgram(program: &arr, inputSignal: direction.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
 
             let newDirections = checkPosition(position)
             for dir in newDirections {
@@ -442,19 +442,19 @@ class Puzzle_2019_15: PuzzleBaseClass {
                 position.x += 1
             }
 
-            let _ = ProcessProgram(program: &arr, inputSignal: direction.reverse().rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
+            _ = ProcessProgram(program: &arr, inputSignal: direction.reverse().rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
         }
-        
+
         let directions = checkPosition(robotPosition)
         for dir in directions {
             moveToDirection(robotPosition, dir)
         }
 
         drawBoard(tileDict)
-        
+
         return tileDict
     }
-                
+
 }
 
 private class Puzzle_2019_15_Input: NSObject {

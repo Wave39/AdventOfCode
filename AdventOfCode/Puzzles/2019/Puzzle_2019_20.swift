@@ -10,7 +10,7 @@ import Foundation
 
 class Puzzle_2019_20: PuzzleBaseClass {
 
-    enum Tile : Hashable, CustomStringConvertible, LosslessStringConvertible {
+    enum Tile: Hashable, CustomStringConvertible, LosslessStringConvertible {
         init(_ value: String) {
             switch value {
             case ".": self = .path
@@ -27,13 +27,13 @@ class Puzzle_2019_20: PuzzleBaseClass {
         case startingPortal
         case endingPortal
         case visited
-        
+
         var description: String {
             switch self {
             case .unknown: return String(Character.orangeSquare)
             case .wall: return String(Character.blackSquare)
             case .path: return String(Character.whiteSquare)
-            case .portal(_): return String(Character.purpleSquare)
+            case .portal: return String(Character.purpleSquare)
             case .startingPortal: return String(Character.greenSquare)
             case .endingPortal: return String(Character.redSquare)
             case .visited: return String(Character.yellowSquare)
@@ -41,18 +41,18 @@ class Puzzle_2019_20: PuzzleBaseClass {
         }
 
     }
-    
+
     struct Portal {
         var location: Point2D
         var identifier: String
         var outer: Bool
         var inner: Bool
     }
-    
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
-        
+
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
@@ -60,23 +60,23 @@ class Puzzle_2019_20: PuzzleBaseClass {
     func solvePart1() -> Int {
         return solvePart1(str: Puzzle_2019_20_Input.puzzleInput)
     }
-    
+
     func solvePart2() -> Int {
-        //return solvePart2(str: Puzzle_2019_20_Input.puzzleInput_test3)
+        // return solvePart2(str: Puzzle_2019_20_Input.puzzleInput_test3)
         return solvePart2(str: Puzzle_2019_20_Input.puzzleInput)
     }
-    
+
     func printBoard(_ board: [[Tile]]) {
         for line in board {
             var str = ""
             for tile in line {
                 str += tile.description
             }
-            
+
             print(str)
         }
     }
-    
+
     func parseBoard(_ arr: [[String]]) -> [[Tile]] {
         var board: [[Tile]] = []
         let maxX = arr[2].count
@@ -93,12 +93,12 @@ class Puzzle_2019_20: PuzzleBaseClass {
                             lineArray.append(.unknown)
                         }
                     }
-                    
+
                     board.append(lineArray)
                 }
             }
         }
-        
+
         // look for portals
         let boardHeight = board.count
         let boardWidth = board[0].count
@@ -106,7 +106,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
             for x in 0..<boardWidth {
                 var portalString = ""
                 var portalPoint = Point2D.origin
-                
+
                 if board[y][x] == .path && (x == 0 || x == (boardWidth - 1) || y == 0 || y == boardHeight - 1) {
                     portalPoint = Point2D(x: x, y: y)
                     if y == 0 {
@@ -123,7 +123,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
                         portalString = String(arr[y + 2][x + 3]) + String(arr[y + 2][x + 4])
                     }
                 }
-                
+
                 if board[y][x] == .unknown {
                     if board[y - 1][x] == .path {
                         // portal is below
@@ -143,7 +143,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
                         portalPoint = Point2D(x: x + 1, y: y)
                     }
                 }
-                
+
                 if portalString != "" {
                     if portalString == "AA" {
                         board[portalPoint.y][portalPoint.x] = .startingPortal
@@ -157,7 +157,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         }
         return board
     }
-    
+
     func optimizeBoard(board: inout [[Tile]]) {
         let boardHeight = board.count
         let boardWidth = board[0].count
@@ -171,19 +171,19 @@ class Puzzle_2019_20: PuzzleBaseClass {
                         if board[y - 1][x] == .wall {
                             walls += 1
                         }
-                        
+
                         if board[y + 1][x] == .wall {
                             walls += 1
                         }
-                        
+
                         if board[y][x - 1] == .wall {
                             walls += 1
                         }
-                        
+
                         if board[y][x + 1] == .wall {
                             walls += 1
                         }
-                        
+
                         if walls >= 3 {
                             board[y][x] = .wall
                             replacements += 1
@@ -193,7 +193,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
             }
         } while replacements > 0
     }
-    
+
     func findPortals(board: [[Tile]]) -> [Portal] {
         var retval: [Portal] = []
         let boardHeight = board.count
@@ -210,27 +210,27 @@ class Puzzle_2019_20: PuzzleBaseClass {
                 }
             }
         }
-        
+
         return retval
     }
-    
+
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray().map { $0.map { String($0) } }
         let board = parseBoard(arr)
-        //printBoard(board)
-        
+        // printBoard(board)
+
 //        print("optimize:")
 //        optimizeBoard(board: &board)
 //        printBoard(board)
-  
+
         let portals = findPortals(board: board)
-        
+
         let boardHeight = board.count
         let boardWidth = board[0].count
 
         func findValidMoves(from: Point2D) -> [Point2D] {
             var retval: [Point2D] = []
-            
+
             let port = portals.filter({ $0.location == from })
             if port.count == 1 {
                 let otherPort = portals.filter { $0.identifier == port.first!.identifier && $0.location != port.first!.location}
@@ -238,21 +238,21 @@ class Puzzle_2019_20: PuzzleBaseClass {
                     retval.append(otherPort.first!.location)
                 }
             }
-            
+
             let adjacent = from.adjacentLocations()
             for a in adjacent {
                 if a.x >= 0 && a.x < boardWidth && a.y >= 0 && a.y < boardHeight {
                     if board[a.y][a.x] == .path || board[a.y][a.x] == .endingPortal {
                         retval.append(a)
-                    } else if case .portal(_) = board[a.y][a.x] {
+                    } else if case .portal = board[a.y][a.x] {
                         retval.append(a)
                     }
                 }
             }
-            
+
             return retval
         }
-        
+
         let startingPosition = portals.filter { $0.identifier == "AA" }.first!
         let endingPosition = portals.filter { $0.identifier == "ZZ" }.first!
         var visitedLocations: Set<Point2D> = Set()
@@ -273,7 +273,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
             if nextLocations.contains(endingPosition.location) {
                 break
             }
-            
+
             locations = nextLocations
 
 //            print("\(stepCount) steps puts you at next: \(nextLocations)")
@@ -284,27 +284,27 @@ class Puzzle_2019_20: PuzzleBaseClass {
 //
 //            printBoard(newBoard)
         }
-        
+
         return stepCount
     }
-    
+
     func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray().map { $0.map { String($0) } }
         var board = parseBoard(arr)
-        //printBoard(board)
-        
+        // printBoard(board)
+
 //        print("optimize:")
         optimizeBoard(board: &board)
 //        printBoard(board)
-  
+
         let portals = findPortals(board: board)
-        
+
         let boardHeight = board.count
         let boardWidth = board[0].count
 
         func findValid3DMoves(from: Point3D) -> [Point3D] {
             var retval: [Point3D] = []
-            
+
             let port = portals.filter({ $0.location == Point2D(x: from.x, y: from.y) })
             if port.count == 1 {
                 if from.z > 0 || port.first!.inner {
@@ -315,21 +315,21 @@ class Puzzle_2019_20: PuzzleBaseClass {
                     }
                 }
             }
-            
+
             let adjacent = from.adjacentLocations().filter { $0.z == from.z }
             for a in adjacent {
                 if a.x >= 0 && a.x < boardWidth && a.y >= 0 && a.y < boardHeight {
                     if board[a.y][a.x] == .path || (board[a.y][a.x] == .endingPortal && from.z == 0) {
                         retval.append(a)
-                    } else if case .portal(_) = board[a.y][a.x] {
+                    } else if case .portal = board[a.y][a.x] {
                         retval.append(a)
                     }
                 }
             }
-            
+
             return retval
         }
-        
+
         let startingPosition = portals.filter { $0.identifier == "AA" }.first!
         let endingPosition = portals.filter { $0.identifier == "ZZ" }.first!
         let endingPosition3D = Point3D(x: endingPosition.location.x, y: endingPosition.location.y, z: 0)
@@ -351,7 +351,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
             if nextLocations.contains(endingPosition3D) {
                 break
             }
-            
+
             locations = nextLocations
 
 //            print("\(stepCount) steps puts you at next: \(nextLocations)")
@@ -362,10 +362,10 @@ class Puzzle_2019_20: PuzzleBaseClass {
 //
 //            printBoard(newBoard)
         }
-        
+
         return stepCount
     }
-    
+
 }
 
 private class Puzzle_2019_20_Input: NSObject {
@@ -391,7 +391,7 @@ FG..#########.....#
              Z
              Z
 """
-    
+
     static let puzzleInput_test2 = """
                    A
                    A
@@ -431,7 +431,7 @@ YN......#               VT..#....QG
            B   J   C
            U   P   P
 """
-    
+
     static let puzzleInput_test3 = """
              Z L X W       C
              Z P Q B       K
@@ -471,7 +471,7 @@ RE....#.#                           #......RF
                A O F   N
                A A D   M
 """
-    
+
     static let puzzleInput = """
                                      K     Z   V           U     I F
                                      Q     T   Y           Y     E E

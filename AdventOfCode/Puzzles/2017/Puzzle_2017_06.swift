@@ -26,7 +26,7 @@ class Puzzle_2017_06: PuzzleBaseClass {
         for line in lineArray {
             retval.append(Int(line)!)
         }
-        
+
         return retval
     }
 
@@ -38,19 +38,19 @@ class Puzzle_2017_06: PuzzleBaseClass {
                 return idx
             }
         }
-        
+
         return NSNotFound
     }
-    
+
     func arrayToString(arr: [Int]) -> String {
         var retval = ""
         for i in arr {
             retval += (String(i) + " ")
         }
-        
+
         return retval
     }
-    
+
     func processArray(arr: inout [Int]) {
         let largeIdx = findLargestIndex(arr: arr)
         let v = arr[largeIdx]
@@ -79,7 +79,7 @@ class Puzzle_2017_06: PuzzleBaseClass {
                 loopCounter = processCounter - dict[memoryString]!
             }
         }
-        
+
         return (processCounter, loopCounter)
     }
 }
