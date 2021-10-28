@@ -16,7 +16,8 @@ If you change the puzzle input for your own puzzle input, the tests will most li
 Here are some links to the README files for the various years, along with my thoughts about the solutions.
 
 [2015](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2015/README.md)
-### Link
+
+## Advent of Code link
 Here is the link to the Advent Of Code web site, just in case you can't figure it out for yourself or in the 
 event that Google is down:
 
