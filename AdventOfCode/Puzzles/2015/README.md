@@ -28,3 +28,12 @@
 | 23 | :smile: | <1s |
 | 24 | :smile: | <1s |
 | 25 | :eyes: | 12s |
+
+### Legend
+
+| Status | Time for solution | Next steps |
+| :---: | :---: | :--- |
+| :smile: | 0..<10 seconds | All good here! |
+| :eyes: | 10..<20 seconds | Could use some tidying up... |
+| :warning: | 20..<60 seconds | Investigation is warranted. |
+| :fire: | 60... seconds | It was a bad call, Ripley. |
