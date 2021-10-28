@@ -11,6 +11,11 @@ to enter in which day of the challenge you want to solve, and to see the print o
 Also, keep in mind that the tests all have the puzzle input and solutions for my user ID.
 If you change the puzzle input for your own puzzle input, the tests will most likely fail to work.
 
+## Yearly recaps
+
+Here are some links to the README files for the various years, along with my thoughts about the solutions.
+
+[2015](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2015/README.md)
 ### Link
 Here is the link to the Advent Of Code web site, just in case you can't figure it out for yourself or in the 
 event that Google is down:
