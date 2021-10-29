@@ -32,7 +32,7 @@ class Puzzle_2015_09: PuzzleBaseClass {
 
         var distanceArray = Array<Distance>()
         for distanceLine in puzzleInputLineArray {
-            let arr = distanceLine.split {$0 == " "}.map(String.init)
+            let arr = distanceLine.split { $0 == " " }.map(String.init)
             let d = Distance()
             if arr[0] < arr[2] {
                 d.startAt = arr[0]

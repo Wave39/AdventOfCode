@@ -64,7 +64,7 @@ class Puzzle_2019_16: PuzzleBaseClass {
     // Part 2 code courtesy of https://github.com/XorZy/Aoc_2019_Day_16/blob/master/Program.cs
 
     func solvePart2(str: String, numberOfPhases: Int) -> String {
-        let arr0 = str.map({Int("\($0)")!})
+        let arr0 = str.map({ Int("\($0)")! })
         var arr: [Int] = []
         for _ in 0..<10000 {
             arr.append(contentsOf: arr0)

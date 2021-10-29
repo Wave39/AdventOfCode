@@ -28,7 +28,7 @@ class Puzzle_2015_14: PuzzleBaseClass {
 
         var reindeerArray: [ReindeerInfo] = []
         for puzzleLine in puzzleInputLineArray {
-            let components = puzzleLine.split {$0 == " "}.map(String.init)
+            let components = puzzleLine.split { $0 == " " }.map(String.init)
             let r = ReindeerInfo()
             r.name = components[0]
             r.speed = Int(components[3])!

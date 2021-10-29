@@ -36,7 +36,7 @@ class Puzzle_2015_16: PuzzleBaseClass {
         func processLine(_ originalLine: String) -> SueInfo {
             var theLine = originalLine.replacingOccurrences(of: ":", with: "")
             theLine = theLine.replacingOccurrences(of: ",", with: "")
-            let components = theLine.split {$0 == " "}.map(String.init)
+            let components = theLine.split { $0 == " " }.map(String.init)
 
             let sueInfo = SueInfo()
             sueInfo.number = Int(components[1])!

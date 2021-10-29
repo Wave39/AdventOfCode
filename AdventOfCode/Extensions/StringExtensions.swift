@@ -32,10 +32,14 @@ extension String {
 
         let matches = regex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
 
-        guard let match = matches.first else { return results }
+        guard let match = matches.first else {
+            return results
+        }
 
         let lastRangeIndex = match.numberOfRanges - 1
-        guard lastRangeIndex >= 1 else { return results }
+        guard lastRangeIndex >= 1 else {
+            return results
+        }
 
         for i in 1...lastRangeIndex {
             let capturedGroupIndex = match.range(at: i)
@@ -171,7 +175,7 @@ extension String {
             let nsString = self as NSString
             let results = regex.matches(in: self,
                 options: [], range: NSMakeRange(0, nsString.length))
-            return results.map { nsString.substring(with: $0.range)}
+            return results.map { nsString.substring(with: $0.range) }
         } catch let error as NSError {
             print("invalid regex: \(error.localizedDescription)")
             return []
@@ -322,7 +326,9 @@ extension String {
     }
 
     func toInt() -> Int {
-        guard let retval = Int(self.trim()) else { return 0 }
+        guard let retval = Int(self.trim()) else {
+            return 0
+        }
         return retval
     }
 
@@ -338,7 +344,7 @@ extension String {
     func words(with charset: CharacterSet = .alphanumerics) -> [String] {
         return self.unicodeScalars.split { substring in
             !charset.contains(substring)
-            }.map(String.init)
+        }.map(String.init)
     }
 
 }

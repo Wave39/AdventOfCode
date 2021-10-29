@@ -28,7 +28,7 @@ class Puzzle_2015_23: PuzzleBaseClass {
             processor.a = a
 
             while processor.programCounter >= 0 && processor.programCounter < lineArray.count {
-                let components = lineArray[processor.programCounter].split {$0 == " "}.map(String.init)
+                let components = lineArray[processor.programCounter].split { $0 == " " }.map(String.init)
                 let opcode = components[0]
                 if opcode == "hlf" || opcode == "tpl" || opcode == "inc" {
                     let aRegisterMode = (components[1] == "a")

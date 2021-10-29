@@ -33,7 +33,7 @@ class Puzzle_2020_02: PuzzleBaseClass {
             let arr = line.parseIntoStringArray(separator: " ")
             let limits = arr[0].parseIntoIntArray(separator: "-")
             let searchCharacter = arr[1].first
-            let matches = arr[2].filter {$0 == searchCharacter}.count
+            let matches = arr[2].filter { $0 == searchCharacter }.count
             if matches >= limits[0] && matches <= limits[1] {
                 validPasswords += 1
             }

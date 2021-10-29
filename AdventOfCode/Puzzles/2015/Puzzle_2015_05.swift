@@ -87,7 +87,7 @@ class Puzzle_2015_05: PuzzleBaseClass {
             return nonOverlappingPairs && oneLetterInBetween
         }
 
-        let wordArray = PuzzleInput.final.split {$0 == " "}.map(String.init)
+        let wordArray = PuzzleInput.final.split { $0 == " " }.map(String.init)
         var niceCounterPart1 = 0, niceCounterPart2 = 0
         for word in wordArray {
             if isWordNicePart1(word) {

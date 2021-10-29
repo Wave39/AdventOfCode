@@ -58,7 +58,7 @@ class Puzzle_2020_07: PuzzleBaseClass {
     }
 
     func getDependenciesForBag(bagRules: [BagRule], bagColor: String) -> [BagDescription] {
-        let matchingBag = bagRules.filter({$0.bag.color == bagColor}).first!
+        let matchingBag = bagRules.filter({ $0.bag.color == bagColor }).first!
         return matchingBag.contents
     }
 
@@ -77,7 +77,7 @@ class Puzzle_2020_07: PuzzleBaseClass {
 
         func recursiveFindBagsContainingBagColor(bagRules: [BagRule], bagColor: String) {
             for bagRule in bagRules {
-                if bagRule.contents.filter({ $0.color == bagColor }).count > 0 {
+                if bagRule.contents.contains(where: { $0.color == bagColor }) {
                     bagColorSet.insert(bagRule.bag.color)
                     recursiveFindBagsContainingBagColor(bagRules: bagRules, bagColor: bagRule.bag.color)
                 }

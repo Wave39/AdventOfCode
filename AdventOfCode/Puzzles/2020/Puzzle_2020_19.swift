@@ -75,7 +75,7 @@ class Puzzle_2020_19: PuzzleBaseClass {
             return condition1Matches + condition2Matches
         }
 
-        let lines = Puzzle_Input.puzzleInput.components(separatedBy: CharacterSet.newlines).filter { !$0.isEmpty}
+        let lines = Puzzle_Input.puzzleInput.components(separatedBy: CharacterSet.newlines).filter { !$0.isEmpty }
 
         let rules = lines.filter { $0.contains(":") }.map { line -> (Int, Rule) in
             let parts = line.components(separatedBy: ": ")

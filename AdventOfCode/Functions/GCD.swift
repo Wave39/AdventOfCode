@@ -84,7 +84,9 @@ func gcdRecursiveEuklid(_ m: Int, _ n: Int) -> Int {
  large integers
  */
 func gcdBinaryRecursiveStein(_ m: Int, _ n: Int) -> Int {
-    if let easySolution = findEasySolution(m, n) { return easySolution }
+    if let easySolution = findEasySolution(m, n) {
+        return easySolution
+    }
 
     if (m & 1) == 0 {
         // m is even

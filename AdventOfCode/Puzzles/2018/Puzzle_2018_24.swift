@@ -219,7 +219,7 @@ class Puzzle_2018_24: NSObject {
             // remove groups with no units left
             groups = groups.filter { $0.unitCount > 0 }
             print("===========================================================")
-        } while groups.filter { $0.unitType == .ImmuneSystem }.count > 0 && groups.filter { $0.unitType == .Infection }.count > 0
+        } while groups.contains { $0.unitType == .ImmuneSystem } && groups.contains { $0.unitType == .Infection }
 
         return groups.map { $0.unitCount }.reduce(0, +)
     }

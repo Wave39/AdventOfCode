@@ -130,14 +130,14 @@ class Puzzle_2016_11: PuzzleBaseClass {
                 for j in building.floorArray[i] {
                     if j.deviceType == .Microchip {
                         let d = Device(elementType: j.elementType, deviceType: .Generator)
-                        if !building.floorArray[i].contains(where: {$0 == d}) {
+                        if !building.floorArray[i].contains(where: { $0 == d }) {
                             buildingState.floorArray[i][0] += 1
                         } else {
                             buildingState.floorArray[i][2] += 1
                         }
                     } else {
                         let d = Device(elementType: j.elementType, deviceType: .Microchip)
-                        if !building.floorArray[i].contains(where: {$0 == d}) {
+                        if !building.floorArray[i].contains(where: { $0 == d }) {
                             buildingState.floorArray[i][1] += 1
                         }
                     }

@@ -94,7 +94,7 @@ class Puzzle_2020_21: PuzzleBaseClass {
                     for a in allergensToIngredients {
                         let countBefore = a.value.count
                         if a.value.count > 1 {
-                            let filteredIngredients = a.value.filter { $0 != ingredients.first!}
+                            let filteredIngredients = a.value.filter { $0 != ingredients.first! }
                             allergensToIngredients[a.key] = filteredIngredients
                             if countBefore != filteredIngredients.count {
                                 removedAValue = true
@@ -109,7 +109,7 @@ class Puzzle_2020_21: PuzzleBaseClass {
             ele1.key < ele2.key
         }
 
-        let part2Answer = sortedByAllergyNames.map { $0.value.first!}.joined(separator: ",")
+        let part2Answer = sortedByAllergyNames.map { $0.value.first! }.joined(separator: ",")
 
         return (part1Answer, part2Answer)
     }

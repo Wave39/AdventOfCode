@@ -47,7 +47,7 @@ class Puzzle_2020_04: PuzzleBaseClass {
     }
 
     func hasRequiredFields(passport: [String]) -> Bool {
-        return passport.filter({$0.starts(with: "byr:")}).count > 0 && passport.filter({$0.starts(with: "iyr:")}).count > 0 && passport.filter({$0.starts(with: "eyr:")}).count > 0 && passport.filter({$0.starts(with: "hgt:")}).count > 0 && passport.filter({$0.starts(with: "hcl:")}).count > 0 && passport.filter({$0.starts(with: "ecl:")}).count > 0 && passport.filter({$0.starts(with: "pid:")}).count > 0
+        return passport.contains { $0.starts(with: "byr:") } && passport.contains { $0.starts(with: "iyr:") } && passport.contains { $0.starts(with: "eyr:") } && passport.contains { $0.starts(with: "hgt:") } && passport.contains { $0.starts(with: "hcl:") } && passport.contains { $0.starts(with: "ecl:") } && passport.contains { $0.starts(with: "pid:") }
     }
 
     func solvePart1(str: String) -> Int {
@@ -69,19 +69,19 @@ class Puzzle_2020_04: PuzzleBaseClass {
             if hasRequiredFields(passport: passport) {
 
                 // byr (Birth Year) - four digits; at least 1920 and at most 2002.
-                let birthYear = passport.filter({$0.starts(with: "byr:")}).first!.substring(from: 4)
+                let birthYear = passport.filter({ $0.starts(with: "byr:") }).first!.substring(from: 4)
                 if birthYear.count != 4 || Int(birthYear)! < 1920 || Int(birthYear)! > 2002 {
                     continue
                 }
 
                 // iyr (Issue Year) - four digits; at least 2010 and at most 2020.
-                let issueYear = passport.filter({$0.starts(with: "iyr:")}).first!.substring(from: 4)
+                let issueYear = passport.filter({ $0.starts(with: "iyr:") }).first!.substring(from: 4)
                 if issueYear.count != 4 || Int(issueYear)! < 2010 || Int(issueYear)! > 2020 {
                     continue
                 }
 
                 // eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
-                let expirationYear = passport.filter({$0.starts(with: "eyr:")}).first!.substring(from: 4)
+                let expirationYear = passport.filter({ $0.starts(with: "eyr:") }).first!.substring(from: 4)
                 if expirationYear.count != 4 || Int(expirationYear)! < 2020 || Int(expirationYear)! > 2030 {
                     continue
                 }
@@ -89,7 +89,7 @@ class Puzzle_2020_04: PuzzleBaseClass {
                 // hgt (Height) - a number followed by either cm or in:
                 //     If cm, the number must be at least 150 and at most 193.
                 //     If in, the number must be at least 59 and at most 76.
-                var height = passport.filter({$0.starts(with: "hgt:")}).first!.substring(from: 4)
+                var height = passport.filter({ $0.starts(with: "hgt:") }).first!.substring(from: 4)
                 if height.hasSuffix("cm") {
                     height = height.substring(from: 0, to: height.count - 2)
                     if Int(height)! < 150 || Int(height)! > 193 {
@@ -105,19 +105,19 @@ class Puzzle_2020_04: PuzzleBaseClass {
                 }
 
                 // hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
-                let hairColor = passport.filter({$0.starts(with: "hcl:")}).first!.substring(from: 4)
+                let hairColor = passport.filter({ $0.starts(with: "hcl:") }).first!.substring(from: 4)
                 if hairColor.count != 7 || !hairColor.starts(with: "#") || !hairColor.substring(from: 1).isStringHexadecimal() {
                     continue
                 }
 
                 // ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
-                let eyeColor = passport.filter({$0.starts(with: "ecl:")}).first!.substring(from: 4)
+                let eyeColor = passport.filter({ $0.starts(with: "ecl:") }).first!.substring(from: 4)
                 if eyeColor != "amb" && eyeColor != "blu" && eyeColor != "brn" && eyeColor != "gry" && eyeColor != "grn" && eyeColor != "hzl" && eyeColor != "oth" {
                     continue
                 }
 
                 // pid (Passport ID) - a nine-digit number, including leading zeroes.
-                let passportID = passport.filter({$0.starts(with: "pid:")}).first!.substring(from: 4)
+                let passportID = passport.filter({ $0.starts(with: "pid:") }).first!.substring(from: 4)
                 if passportID.count != 9 || !passportID.isStringNumeric() {
                     continue
                 }

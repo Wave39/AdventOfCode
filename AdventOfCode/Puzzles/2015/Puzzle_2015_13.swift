@@ -31,7 +31,7 @@ class Puzzle_2015_13: PuzzleBaseClass {
 
         var happinessPairArray = Array<HappinessPair>()
         for puzzleLine in puzzleInputLineArray {
-            let arr = puzzleLine.split {$0 == " "}.map(String.init)
+            let arr = puzzleLine.split { $0 == " " }.map(String.init)
             let hp = HappinessPair()
             hp.person1 = arr[0]
             hp.person2 = arr[10].substring(from: 0, to: arr[10].count - 1)

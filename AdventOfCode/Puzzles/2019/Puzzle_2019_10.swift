@@ -194,7 +194,7 @@ class Puzzle_2019_10: PuzzleBaseClass {
         var retval = 0
 
         func CheckPureDirection(_ direction: DirectionFromBase) {
-            let arr = asteroidArray.filter { $0.direction == direction }.sorted(by: { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position)})
+            let arr = asteroidArray.filter { $0.direction == direction }.sorted(by: { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position) })
             if arr.count > 0 {
                 asteroidsRemoved += 1
                 let asteroidToRemove = arr.first!
@@ -215,7 +215,7 @@ class Puzzle_2019_10: PuzzleBaseClass {
 
                 let slopesArray = Array(slopesSet).sorted(by: { Double($0)! < Double($1)! })
                 for slope in slopesArray {
-                    let arr2 = arr.filter { $0.slope.toString() == slope }.sorted(by: { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position)})
+                    let arr2 = arr.filter { $0.slope.toString() == slope }.sorted(by: { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position) })
                     if arr2.count > 0 {
                         asteroidsRemoved += 1
                         let asteroidToRemove = arr2.first!

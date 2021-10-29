@@ -17,7 +17,7 @@ class Puzzle_2015_08: PuzzleBaseClass {
     }
 
     func solveBothParts() -> (Int, Int) {
-        let puzzleInputLineArray = PuzzleInput.final.split {$0 == "\n"}.map(String.init)
+        let puzzleInputLineArray = PuzzleInput.final.split { $0 == "\n" }.map(String.init)
 
         var totalUnescapedCharacters = 0
         var totalCharacters = 0

@@ -18,16 +18,16 @@ class Puzzle_2015_06: PuzzleBaseClass {
 
     func solveBothParts() -> (Int, Int) {
         func parseCoordinateString(_ coordinateString: String) -> (Int, Int) {
-            let arr = coordinateString.split {$0 == ","}.map(String.init)
+            let arr = coordinateString.split { $0 == "," }.map(String.init)
             return (Int(arr.first!)!, Int(arr.last!)!)
         }
 
         var lightArray = Array(repeating: Array(repeating: false, count: 1000), count: 1000)
         var brightnessArray = Array(repeating: Array(repeating: 0, count: 1000), count: 1000)
-        let commandArray = PuzzleInput.final.split {$0 == "-"}.map(String.init)
+        let commandArray = PuzzleInput.final.split { $0 == "-" }.map(String.init)
 
         for command in commandArray {
-            let tokenArray = command.split {$0 == " "}.map(String.init)
+            let tokenArray = command.split { $0 == " " }.map(String.init)
             let coordinateIndex = (tokenArray[0] == "turn" ? 2 : 1)
             let startingCoordinates = parseCoordinateString(tokenArray[coordinateIndex])
             let endingCoordinates = parseCoordinateString(tokenArray[coordinateIndex + 2])

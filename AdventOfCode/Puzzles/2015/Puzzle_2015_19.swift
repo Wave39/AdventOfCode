@@ -27,7 +27,7 @@ class Puzzle_2015_19: PuzzleBaseClass {
 
         var replacementArray: [(searchFor: String, replaceWith: String)] = []
         for replacementLine in replacementLineArray {
-            let components = replacementLine.split {$0 == " "}.map(String.init)
+            let components = replacementLine.split { $0 == " " }.map(String.init)
             replacementArray.append((components[0], components[2]))
         }
 

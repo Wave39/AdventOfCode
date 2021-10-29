@@ -108,7 +108,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
         var pName = orbitalRelationships.filter { $0.orbiter == "YOU" }.first!.center
         while pName != "COM" {
             youOrbits.append(planets.filter { $0.name == pName }.first!)
-            pName = orbitalRelationships.filter { $0.orbiter == pName}.first!.center
+            pName = orbitalRelationships.filter { $0.orbiter == pName }.first!.center
         }
 
         pName = orbitalRelationships.filter { $0.orbiter == "SAN" }.first!.center
@@ -118,7 +118,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
                 break
             }
 
-            pName = orbitalRelationships.filter { $0.orbiter == pName}.first!.center
+            pName = orbitalRelationships.filter { $0.orbiter == pName }.first!.center
         }
 
         let commonPlanet = planets.filter { $0.name == pName }.first!

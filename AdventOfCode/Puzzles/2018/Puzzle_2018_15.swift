@@ -17,7 +17,9 @@ import Foundation
 
 extension Collection {
     func get(_ index: Index) -> Element? {
-        guard indices.contains(index) else { return nil }
+        guard indices.contains(index) else {
+            return nil
+        }
         return self[index]
     }
 }
@@ -146,7 +148,7 @@ class Puzzle_2018_15: NSObject {
         }
         let remainingHealth = beings.map({ $0.hitpoints }).filter({ $0 > 0 }).reduce(0, +)
         print("\(rounds) rounds, \(remainingHealth) health, \(rounds * remainingHealth)")
-        if beings.lazy.filter({ $0.race == .elf && $0.hitpoints <= 0 }).isEmpty {
+        if !beings.lazy.contains(where: { $0.race == .elf && $0.hitpoints <= 0 }) {
             print("No dead elves")
             return true
         }
@@ -381,7 +383,7 @@ class Puzzle_2018_15: NSObject {
                             // recalculate the targets in range as the unit has moved
                             targetsInRange = enemies.filter { item in
                                 item.location.manhattanDistanceTo(pt: unit.location) == 1
-                                }.sorted(by: unitReadingOrder)
+                            }.sorted(by: unitReadingOrder)
                         }
                     }
 

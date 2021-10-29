@@ -67,7 +67,7 @@ class Puzzle_2020_06: PuzzleBaseClass {
         var count = 0
         for s in arr {
             for c in s.yesAnswers.uniqueCharacters {
-                if s.yesAnswers.filter({$0 == c}).count == s.peopleCount {
+                if s.yesAnswers.filter({ $0 == c }).count == s.peopleCount {
                     count += 1
                 }
             }

@@ -31,7 +31,7 @@ class Puzzle_2015_15: PuzzleBaseClass {
         for originalPuzzleLine in puzzleInputLineArray {
             var puzzleLine = originalPuzzleLine.replacingOccurrences(of: ",", with: "")
             puzzleLine = puzzleLine.replacingOccurrences(of: ":", with: "")
-            let components = puzzleLine.split {$0 == " "}.map(String.init)
+            let components = puzzleLine.split { $0 == " " }.map(String.init)
             let i = Ingredient()
             i.name = components[0]
             i.capacity = Int(components[2])!

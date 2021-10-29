@@ -233,7 +233,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
 
             let port = portals.filter({ $0.location == from })
             if port.count == 1 {
-                let otherPort = portals.filter { $0.identifier == port.first!.identifier && $0.location != port.first!.location}
+                let otherPort = portals.filter { $0.identifier == port.first!.identifier && $0.location != port.first!.location }
                 if otherPort.count == 1 {
                     retval.append(otherPort.first!.location)
                 }
@@ -308,7 +308,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
             let port = portals.filter({ $0.location == Point2D(x: from.x, y: from.y) })
             if port.count == 1 {
                 if from.z > 0 || port.first!.inner {
-                    let otherPort = portals.filter { $0.identifier == port.first!.identifier && $0.location != port.first!.location}
+                    let otherPort = portals.filter { $0.identifier == port.first!.identifier && $0.location != port.first!.location }
                     if otherPort.count == 1 {
                         let otherPortLocation = otherPort.first!.location
                         retval.append(Point3D(x: otherPortLocation.x, y: otherPortLocation.y, z: from.z + (port.first!.inner ? +1 : -1)))

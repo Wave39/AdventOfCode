@@ -56,9 +56,9 @@ class Puzzle_2015_07: PuzzleBaseClass {
 
         func processPart(partNumber: Int, specialValue: UInt16) {
             var operationArray = [Operation]()
-            let partsArray = PuzzleInput.final.split {$0 == "|"}.map(String.init)
+            let partsArray = PuzzleInput.final.split { $0 == "|" }.map(String.init)
             for part in partsArray {
-                let componentsArray = part.split {$0 == " "}.map(String.init)
+                let componentsArray = part.split { $0 == " " }.map(String.init)
                 let op = Operation()
                 if componentsArray[1] == "->" {
                     op.opcode = "->"

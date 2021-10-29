@@ -35,7 +35,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
         func allPossibleEdges() -> [String] {
             var retval: [String] = []
             retval += edges
-            retval += edges.map {String($0.reversed())}
+            retval += edges.map { String($0.reversed()) }
             return retval
         }
     }
@@ -69,7 +69,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
 
         var retval = 1
         for var tile in tiles {
-            for otherTile in tiles.filter({$0.tileNumber != tile.tileNumber}) {
+            for otherTile in tiles.filter({ $0.tileNumber != tile.tileNumber }) {
                 for edge in tile.edges {
                     if otherTile.allPossibleEdges().contains(edge) {
                         tile.edgeMatches.append(otherTile.tileNumber)
