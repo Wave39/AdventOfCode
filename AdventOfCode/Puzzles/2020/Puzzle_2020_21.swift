@@ -50,13 +50,13 @@ class Puzzle_2020_21: PuzzleBaseClass {
         var allergensToIngredients = [String: Set<String>]()
 
         for allergen in allAllergens {
-            var ingredients: Set<String>?
+            var ingredients: Set<String> = []
             for food in foodArray {
                 if food.1.contains(allergen) {
-                    if ingredients == nil {
+                    if ingredients.isEmpty {
                         ingredients = food.0
                     } else {
-                        ingredients = ingredients?.intersection(food.0)
+                        ingredients = ingredients.intersection(food.0)
                     }
                 }
             }

@@ -9,6 +9,8 @@
 // This code was lifted from Felix Larsen and his Mobile App Development web site
 // https://www.felixlarsen.com/blog/advent-of-code-2020-solutions-in-swift
 
+// swiftlint:disable all
+
 import Foundation
 
 class Puzzle_2020_19: PuzzleBaseClass {

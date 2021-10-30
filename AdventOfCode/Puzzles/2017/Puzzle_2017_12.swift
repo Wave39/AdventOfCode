@@ -64,20 +64,20 @@ class Puzzle_2017_12: PuzzleBaseClass {
         return programSet
     }
 
-    func findProgramInGroups(groups: [Set<Int>], programNumber: Int) -> Set<Int>? {
+    func findProgramInGroups(groups: [Set<Int>], programNumber: Int) -> Set<Int> {
         for g in groups {
             if g.contains(programNumber) {
                 return g
             }
         }
 
-        return nil
+        return []
     }
 
     func findNextNumber(lineArray: [[String]], groups: [Set<Int>]) -> Int {
         for l in lineArray {
             let n = Int(l[0])!
-            if findProgramInGroups(groups: groups, programNumber: n) == nil {
+            if findProgramInGroups(groups: groups, programNumber: n).isEmpty {
                 return n
             }
         }
@@ -100,7 +100,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
 
         let group0 = findProgramInGroups(groups: programGroups, programNumber: 0)
 
-        return (group0!.count, programGroups.count)
+        return (group0.count, programGroups.count)
     }
 }
 

@@ -209,11 +209,11 @@ class Puzzle_2018_15: NSObject {
         // print("Part 2 solution: \(part2)")
     }
 
-    func playfieldToString(_ playfield: [[Character]], _ units: [Unit]?) -> String {
+    func playfieldToString(_ playfield: [[Character]], _ units: [Unit]) -> String {
         var playfieldCopy = playfield
 
-        if units != nil {
-            for unit in units! {
+        if !units.isEmpty {
+            for unit in units {
                 playfieldCopy[unit.location.y][unit.location.x] = unit.unitType
             }
         }

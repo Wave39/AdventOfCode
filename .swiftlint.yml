@@ -32,8 +32,15 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - contains_over_filter_count
   - contains_over_filter_is_empty
   - contains_over_first_not_nil
-  # - contains_over_range_nil_comparison
-  
+  - contains_over_range_nil_comparison
+  - convenience_type
+  - discarded_notification_center_observer
+  - discouraged_assert
+  - discouraged_none_name
+  - discouraged_object_literal
+  - discouraged_optional_boolean
+  - discouraged_optional_collection
+
 type_name:
   allowed_symbols: ["_"] # these are allowed in type names
 

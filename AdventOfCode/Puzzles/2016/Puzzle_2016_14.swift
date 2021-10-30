@@ -62,7 +62,7 @@ class Puzzle_2016_14: PuzzleBaseClass {
                     let searchFor = String(repeating: matchedCharacter, count: 5)
                     for nextIndex in (index + 1)...(index + 1000) {
                         let nextHashValue = getIndexValue(index: nextIndex)
-                        if nextHashValue.range(of: searchFor) != nil {
+                        if nextHashValue.contains(searchFor) {
                             validKeys.append(index)
                             break
                         }

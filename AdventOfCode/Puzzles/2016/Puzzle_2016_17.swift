@@ -25,7 +25,7 @@ class Puzzle_2016_17: PuzzleBaseClass {
         func getOpenDirections(string: String) -> [Bool] {
             var arr: [Bool] = []
             for idx in 0...3 {
-                if "0123456789a".range(of: String(string[idx])) != nil {
+                if "0123456789a".contains(String(string[idx])) {
                     arr.append(false)
                 } else {
                     arr.append(true)
