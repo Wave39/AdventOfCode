@@ -39,7 +39,7 @@ class Puzzle_2020_11: PuzzleBaseClass {
                         let adjacent = adjacentCharacters(grid: savedGridState, row: row, col: col)
                         let occupied = adjacent.filter { $0 == "#" }
                         if c == "L" {
-                            if occupied.count == 0 {
+                            if occupied.isEmpty {
                                 grid[row][col] = "#"
                                 changes += 1
                             }
@@ -77,7 +77,7 @@ class Puzzle_2020_11: PuzzleBaseClass {
                         }
                         let occupied = adjacent.filter { $0 == "#" }
                         if c == "L" {
-                            if occupied.count == 0 {
+                            if occupied.isEmpty {
                                 grid[row][col] = "#"
                                 changes += 1
                             }

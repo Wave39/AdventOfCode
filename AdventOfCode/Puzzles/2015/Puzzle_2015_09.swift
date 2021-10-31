@@ -68,7 +68,7 @@ class Puzzle_2015_09: PuzzleBaseClass {
                 }
             }
 
-            if unvisitedPlacesArray.count == 0 {
+            if unvisitedPlacesArray.isEmpty {
                 // no new places to visit, just leave
                 return
             }
@@ -100,7 +100,7 @@ class Puzzle_2015_09: PuzzleBaseClass {
         var shortestDistance: Int = 9999999999
         var longestDistance: Int = 0
         func walkToBranchTips(node: Tree) {
-            if node.branches.count == 0 {
+            if node.branches.isEmpty {
                 var theDistance = 0
                 for idx in 0...(node.progress.count - 2) {
                     theDistance += calculateDistanceBetweenPoints(point1: node.progress[idx], point2: node.progress[idx + 1])

@@ -64,7 +64,7 @@ class Puzzle_2015_12: PuzzleBaseClass {
                 objectCountStack.removeLast()
                 objectStringStack.removeLast()
             } else {
-                if objectStringStack.count > 0 {
+                if !objectStringStack.isEmpty {
                     objectStringStack[objectStringStack.count - 1].append(c)
                 }
 
@@ -78,7 +78,7 @@ class Puzzle_2015_12: PuzzleBaseClass {
                 } else {
                     if numericMode {
                         numericMode = false
-                        if objectCountStack.count == 0 {
+                        if objectCountStack.isEmpty {
                             part2Total += Int(numericString)!
                         } else {
                             objectCountStack[objectCountStack.count - 1] += Int(numericString)!

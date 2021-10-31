@@ -95,7 +95,7 @@ class Puzzle_2016_08: PuzzleBaseClass {
         let part1Display = Display(r: 6, c: 50)
         for line in puzzleInputLineArray {
             let arr = line.components(separatedBy: " ")
-            if arr.count > 0 {
+            if !arr.isEmpty {
                 if arr[0] == "rect" {
                     let rectArr = arr[1].components(separatedBy: "x")
                     let rectWidth = Int(rectArr[0])

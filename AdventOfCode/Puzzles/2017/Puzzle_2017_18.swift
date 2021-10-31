@@ -207,7 +207,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
                             program1Sends += 1
                         }
                     } else if currentInstruction.instructionType == .RecoverOrReceive {
-                        if inputQueue[pid].count == 0 {
+                        if inputQueue[pid].isEmpty {
                             programCounter[pid] -= 1
                             waitingForInput[pid] = true
                         } else {

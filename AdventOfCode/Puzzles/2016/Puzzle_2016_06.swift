@@ -20,7 +20,7 @@ class Puzzle_2016_06: PuzzleBaseClass {
 
         var part1Array: [String] = []
         for line in puzzleInputLineArray {
-            if part1Array.count == 0 {
+            if part1Array.isEmpty {
                 for _ in 0..<line.count {
                     part1Array.append("")
                 }

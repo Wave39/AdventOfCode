@@ -162,7 +162,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
                     }
                 }
 
-                if columnsToRemove.count > 0 {
+                if !columnsToRemove.isEmpty {
                     for x in columnsToRemove {
                         validColumns[idx].remove(x)
                     }

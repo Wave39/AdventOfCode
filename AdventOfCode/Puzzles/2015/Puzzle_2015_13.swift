@@ -63,7 +63,7 @@ class Puzzle_2015_13: PuzzleBaseClass {
                 }
             }
 
-            if unseatedPeopleArray.count == 0 {
+            if unseatedPeopleArray.isEmpty {
                 // no new people to seat, just add in the first person again and leave
                 node.progress.append(node.progress.first!)
                 return
@@ -97,7 +97,7 @@ class Puzzle_2015_13: PuzzleBaseClass {
         func calculateMaxHappiness(tree: Tree) -> Int {
             var maxHappiness: Int = 0
             func walkToBranchTips(node: Tree) {
-                if node.branches.count == 0 {
+                if node.branches.isEmpty {
                     var happiness = 0
                     for idx in 0...(node.progress.count - 2) {
                         happiness += calculateHappinessBetweenPeople(person1: node.progress[idx], person2: node.progress[idx + 1])

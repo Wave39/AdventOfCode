@@ -31,7 +31,7 @@ class Puzzle_2020_04: PuzzleBaseClass {
         var passports: [[String]] = []
         var currentPassport: [String] = []
         for line in lines {
-            if line.trim().count == 0 {
+            if line.trim().isEmpty {
                 passports.append(currentPassport)
                 currentPassport = []
             } else {
@@ -39,7 +39,7 @@ class Puzzle_2020_04: PuzzleBaseClass {
             }
         }
 
-        if currentPassport.count > 0 {
+        if !currentPassport.isEmpty {
             passports.append(currentPassport)
         }
 

@@ -25,7 +25,7 @@ class Puzzle_2015_08: PuzzleBaseClass {
             totalUnescapedCharacters += line.count
             var lineWithoutQuotes = String(line.substring(range: NSMakeRange(1, line.count - 2)))
             var escapedLine = ""
-            while lineWithoutQuotes.count > 0 {
+            while !lineWithoutQuotes.isEmpty {
                 if lineWithoutQuotes[0] == "\\" {
                     if lineWithoutQuotes[1] == "\\" || lineWithoutQuotes[1] == "\"" {
                         escapedLine += String(lineWithoutQuotes[0])

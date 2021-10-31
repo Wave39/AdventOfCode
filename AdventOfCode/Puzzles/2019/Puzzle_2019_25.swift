@@ -114,13 +114,13 @@ whirled peas
                 let code = results.1.capturedGroups(withRegex: "You should be able to get in by typing (.*) on the keypad at the main airlock.", trimResults: true)
                 retval = code[0]
             } else {
-                if commandArray.count > 0 {
+                if !commandArray.isEmpty {
                     while commandArray.first!.hasPrefix("//") {
                         commandArray.remove(at: 0)
                     }
                 }
 
-                if commandArray.count > 0 {
+                if !commandArray.isEmpty {
                     inputSignal = getAsciiArray(commandArray.first!)
                     commandArray.remove(at: 0)
                 } else {
@@ -258,7 +258,7 @@ whirled peas
                 SetMemory(p3, p1 * p2)
                 programCounter += 4
             } else if opcode == 3 {
-                if inputSignal.count == 0 {
+                if inputSignal.isEmpty {
                     // print("Ran out of input")
                     return (false, "")
                 }

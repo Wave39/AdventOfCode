@@ -51,7 +51,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
         let row = findRow(lineArray: lineArray, rowNumber: firstElement)
         addRow(set: programSet, queue: &programQueue, row: row)
 
-        while programQueue.count > 0 {
+        while !programQueue.isEmpty {
             let element = programQueue.first!
             programSet.insert(element)
 

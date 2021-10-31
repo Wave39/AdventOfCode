@@ -258,7 +258,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         var visitedLocations: Set<Point2D> = Set()
         var locations = [ startingPosition.location ]
         var stepCount = 0
-        while locations.count > 0 {
+        while !locations.isEmpty {
             var nextLocations: [Point2D] = []
             for loc in locations {
                 let moves = findValidMoves(from: loc)
@@ -336,7 +336,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         var visitedLocations: Set<Point3D> = Set()
         var locations = [ Point3D(x: startingPosition.location.x, y: startingPosition.location.y, z: 0) ]
         var stepCount = 0
-        while locations.count > 0 {
+        while !locations.isEmpty {
             var nextLocations: [Point3D] = []
             for loc in locations {
                 let moves = findValid3DMoves(from: loc)

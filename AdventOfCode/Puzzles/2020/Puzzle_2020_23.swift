@@ -46,7 +46,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
 
             let lesserCups = otherCups.filter { $0 < currentCup }.sorted()
             let searchValue: Int
-            if lesserCups.count > 0 {
+            if !lesserCups.isEmpty {
                 searchValue = lesserCups.last!
             } else {
                 let greaterCups = otherCups.filter { $0 > currentCup }.sorted()

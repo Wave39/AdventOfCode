@@ -36,7 +36,7 @@ class Puzzle_2020_06: PuzzleBaseClass {
         var groups: [Group] = []
         var currentGroup: Group = Group()
         for line in lines {
-            if line.trim().count == 0 {
+            if line.trim().isEmpty {
                 groups.append(currentGroup)
                 currentGroup = Group()
             } else {

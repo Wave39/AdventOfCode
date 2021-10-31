@@ -16,7 +16,7 @@ class Puzzle_2016_02: PuzzleBaseClass {
     }
 
     func solveBothParts() -> (String, String) {
-        let puzzleInputLineArray = PuzzleInput.final.components(separatedBy: "\n").filter { $0.count > 0 }
+        let puzzleInputLineArray = PuzzleInput.final.components(separatedBy: "\n").filter { !$0.isEmpty }
 
         var part1Key = 5
         var part1Code = ""

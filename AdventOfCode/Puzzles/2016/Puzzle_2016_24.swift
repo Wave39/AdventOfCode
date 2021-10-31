@@ -48,7 +48,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
         }
 
         func buildGrid(inputString: String) -> Grid {
-            let lineArray = inputString.components(separatedBy: "~").filter { $0.count > 0 }
+            let lineArray = inputString.components(separatedBy: "~").filter { !$0.isEmpty }
             var gridArray: [[Character]] = []
             var numberLocationArray: [NumberLocation] = []
             let maxY = lineArray.count - 2

@@ -76,7 +76,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
             } else if c >= "0" && c <= "9" {
                 s += String(c)
             } else {
-                if s.count > 0 {
+                if !s.isEmpty {
                     expressionArray.append(s)
                 }
 
@@ -86,7 +86,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
             idx += 1
         }
 
-        if s.count > 0 {
+        if !s.isEmpty {
             expressionArray.append(s)
         }
 
@@ -115,7 +115,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
             } else if c >= "0" && c <= "9" {
                 s += String(c)
             } else {
-                if s.count > 0 {
+                if !s.isEmpty {
                     expressionArray.append(s)
                 }
 
@@ -125,7 +125,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
             idx += 1
         }
 
-        if s.count > 0 {
+        if !s.isEmpty {
             expressionArray.append(s)
         }
 

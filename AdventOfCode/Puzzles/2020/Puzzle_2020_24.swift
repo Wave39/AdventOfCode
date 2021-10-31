@@ -45,7 +45,7 @@ class Puzzle_2020_24: PuzzleBaseClass {
 
         for var line in lines {
             var location = Point2D()
-            while line.count > 0 {
+            while !line.isEmpty {
                 var c = String(line.removeFirst())
                 if c == "s" || c == "n" {
                     c += String(line.removeFirst())
@@ -81,7 +81,7 @@ class Puzzle_2020_24: PuzzleBaseClass {
             if day == 1 {
                 for var line in lines {
                     var location = Point2D()
-                    while line.count > 0 {
+                    while !line.isEmpty {
                         var c = String(line.removeFirst())
                         if c == "s" || c == "n" {
                             c += String(line.removeFirst())

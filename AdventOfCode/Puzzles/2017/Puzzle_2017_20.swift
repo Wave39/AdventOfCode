@@ -119,7 +119,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
             }
         }
 
-        if removalArray.count > 0 {
+        if !removalArray.isEmpty {
             removalArray = removalArray.sorted { $0 > $1 }
             for idx in removalArray {
                 particles.remove(at: idx)

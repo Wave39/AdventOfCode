@@ -351,7 +351,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
         var expandedMemory: Dictionary<Int, Int> = [:]
         while !leaveLoop {
             let inputSignal: Int
-            if paintDict.keys.count == 0 {
+            if paintDict.keys.isEmpty {
                 inputSignal = 1
             } else {
                 if paintDict[robotPosition] == nil {

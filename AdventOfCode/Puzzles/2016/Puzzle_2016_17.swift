@@ -76,7 +76,7 @@ class Puzzle_2016_17: PuzzleBaseClass {
                 }
 
                 gameStates = newGameStates.filter { $0.currentX != 4 || $0.currentY != 4 }
-                if gameStates.count == 0 {
+                if gameStates.isEmpty {
                     leaveLoop = true
                 }
             }

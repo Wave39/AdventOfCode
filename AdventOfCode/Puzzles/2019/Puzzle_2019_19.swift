@@ -162,7 +162,7 @@ class Puzzle_2019_19: PuzzleBaseClass {
                 SetMemory(p3, p1 * p2)
                 programCounter += 4
             } else if opcode == 3 {
-                if inputSignal.count == 0 {
+                if inputSignal.isEmpty {
                     print("Ran out of input")
                     return (-1, false)
                 }

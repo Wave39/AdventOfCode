@@ -168,7 +168,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
             var leaveLoop = false
             var eOutput = 0
             while !leaveLoop {
-                if aProgram.count == 0 {
+                if aProgram.isEmpty {
                     aProgram = arr
                     aProgramCounter = 0
                     aInputValues = [ phase[0], inputSignal ]
@@ -178,7 +178,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
 
                 let aResults = ProcessProgramPart2(program: &aProgram, inputArray: &aInputValues, programCounter: &aProgramCounter)
 
-                if bProgram.count == 0 {
+                if bProgram.isEmpty {
                     bProgram = arr
                     bProgramCounter = 0
                     bInputValues = [ phase[1], aResults.0 ]
@@ -188,7 +188,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
 
                 let bResults = ProcessProgramPart2(program: &bProgram, inputArray: &bInputValues, programCounter: &bProgramCounter)
 
-                if cProgram.count == 0 {
+                if cProgram.isEmpty {
                     cProgram = arr
                     cProgramCounter = 0
                     cInputValues = [ phase[2], bResults.0 ]
@@ -198,7 +198,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
 
                 let cResults = ProcessProgramPart2(program: &cProgram, inputArray: &cInputValues, programCounter: &cProgramCounter)
 
-                if dProgram.count == 0 {
+                if dProgram.isEmpty {
                     dProgram = arr
                     dProgramCounter = 0
                     dInputValues = [ phase[3], cResults.0 ]
@@ -208,7 +208,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
 
                 let dResults = ProcessProgramPart2(program: &dProgram, inputArray: &dInputValues, programCounter: &dProgramCounter)
 
-                if eProgram.count == 0 {
+                if eProgram.isEmpty {
                     eProgram = arr
                     eProgramCounter = 0
                     eInputValues = [ phase[4], dResults.0 ]

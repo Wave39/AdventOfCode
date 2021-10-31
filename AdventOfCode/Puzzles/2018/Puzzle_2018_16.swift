@@ -47,7 +47,7 @@ class Puzzle_2018_16: NSObject {
                 singleSample.afterRegisters = [ Int(components[0])!, Int(components[1])!, Int(components[2])!, Int(components[3])! ]
                 samples.append(singleSample)
                 buildingSample = false
-            } else if line.count > 0 {
+            } else if !line.isEmpty {
                 let components = line.capturedGroups(withRegex: "(.*) (.*) (.*) (.*)", trimResults: true)
                 if buildingSample {
                     singleSample.command = [ Int(components[0])!, Int(components[1])!, Int(components[2])!, Int(components[3])! ]

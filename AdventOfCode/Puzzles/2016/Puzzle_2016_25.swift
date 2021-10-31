@@ -167,7 +167,7 @@ class Puzzle_2016_25: PuzzleBaseClass {
             return instructionSet
         }
 
-        let part1 = PuzzleInput.final.components(separatedBy: "~").filter { $0.count > 0 }
+        let part1 = PuzzleInput.final.components(separatedBy: "~").filter { !$0.isEmpty }
         let part1InstructionSet = buildInstructionSet(lineArray: part1)
         var counter = 0
         var part1Solution = -1

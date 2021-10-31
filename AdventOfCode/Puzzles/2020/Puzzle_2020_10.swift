@@ -79,14 +79,14 @@ class Puzzle_2020_10: PuzzleBaseClass {
                 currentRun.append(arr[idx])
                 currentRun.append(arr[idx + 1])
             } else if diff == 3 {
-                if currentRun.count > 0 {
+                if !currentRun.isEmpty {
                     runs.append(currentRun.unique().sorted())
                     currentRun = []
                 }
             }
         }
 
-        if currentRun.count > 0 {
+        if !currentRun.isEmpty {
             runs.append(currentRun.unique().sorted())
         }
 

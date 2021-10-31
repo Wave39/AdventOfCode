@@ -74,7 +74,7 @@ class Puzzle_2018_24: NSObject {
                 currentUnitType = .ImmuneSystem
             } else if line == "Infection:" {
                 currentUnitType = .Infection
-            } else if line.count > 0 {
+            } else if !line.isEmpty {
                 let components = line.capturedGroups(withRegex: "(.*) units each with (.*) hit points (.*)with an attack that does (.*) (.*) damage at initiative (.*)", trimResults: true)
                 let g = Group()
                 if currentUnitType == .ImmuneSystem {
@@ -91,7 +91,7 @@ class Puzzle_2018_24: NSObject {
                 g.damageAmount = Int(components[3])!
                 g.damageType = AttackType(rawValue: components[4])!
                 g.initiative = Int(components[5])!
-                if components[2].count > 0 {
+                if !components[2].isEmpty {
                     let s = components[2].replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: ";", with: "").replacingOccurrences(of: ",", with: "")
                     let arr = s.parseIntoStringArray(separator: " ")
                     var qualifierMode = QualifierMode.Unknown
@@ -192,7 +192,7 @@ class Puzzle_2018_24: NSObject {
                     g.groupToAttack = choose[0].groupId
                 }
 
-                if g.groupToAttack.count > 0 {
+                if !g.groupToAttack.isEmpty {
                     attackSet.insert(g.groupToAttack)
                     print("Group \(g.groupId) will attack \(g.groupToAttack) with \(damage) damage")
                 }
@@ -201,7 +201,7 @@ class Puzzle_2018_24: NSObject {
             // attacks
             groups.sort(by: initiativeDescOrder)
             for g in groups {
-                if g.unitCount > 0 && g.groupToAttack.count > 0 {
+                if g.unitCount > 0 && !g.groupToAttack.isEmpty {
                     let groupToAttack = groups.filter { $0.groupId == g.groupToAttack }.first!
                     let damageToGroup = groupToAttack.damageCausedBy(attackType: g.damageType, amount: g.effectivePower)
                     if damageToGroup > 0 && groupToAttack.unitCount > 0 {

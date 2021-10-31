@@ -52,7 +52,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
         var lineArray: [TileType] = []
         for r in results.0 {
             if r == 10 {
-                if lineArray.count > 0 {
+                if !lineArray.isEmpty {
                     board.append(lineArray)
                     lineArray = []
                 }
@@ -94,7 +94,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
         var lineArray: [TileType] = []
         for r in results.0 {
             if r == 10 {
-                if lineArray.count > 0 {
+                if !lineArray.isEmpty {
                     board.append(lineArray)
                     lineArray = []
                 }
@@ -239,7 +239,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
                 robotLocation = getNextPosition(oldPosition: robotLocation, direction: robotDirection)
             } else {
                 let next = findPossibleMoves(from: robotLocation, previousDirection: robotDirection)
-                if next.count == 0 {
+                if next.isEmpty {
                     stayInLoop = false
                 } else {
                     let turn = getNextDirection(oldDirection: robotDirection, newDirection: next.first!)
@@ -431,7 +431,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
                 SetMemory(p3, p1 * p2)
                 programCounter += 4
             } else if opcode == 3 {
-                if inputSignal.count == 0 {
+                if inputSignal.isEmpty {
                     print("Ran out of input")
                     return ([], false)
                 }

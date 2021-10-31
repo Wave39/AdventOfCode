@@ -282,7 +282,7 @@ class Puzzle_2015_22: PuzzleBaseClass {
             }
 
             let spellOptions = getSpellOptions(gameState: gameState)
-            if spellOptions.count == 0 {
+            if spellOptions.isEmpty {
                 gameState.playerHitPoints = 0
             } else {
                 for spell in spellOptions {

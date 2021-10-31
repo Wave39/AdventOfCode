@@ -51,8 +51,10 @@ class Puzzle_2018_07: NSObject {
 
     func findFirstAvailableStep(dict: Dictionary<String, String>) -> String {
         for k in dict.keys.sorted() {
-            if dict[k]?.count == 0 {
-                return k
+            if let value = dict[k] {
+                if value.isEmpty {
+                    return k
+                }
             }
         }
 
@@ -77,7 +79,7 @@ class Puzzle_2018_07: NSObject {
             let available = findFirstAvailableStep(dict: dict)
             retval += available
             dict = removeStepFromDictionary(dict: dict, stepToRemove: available)
-        } while dict.count > 0
+        } while !dict.isEmpty
 
         return retval
     }
@@ -90,8 +92,10 @@ class Puzzle_2018_07: NSObject {
     func findAvailableSteps(dict: Dictionary<String, String>) -> [String] {
         var retval: [String] = []
         for k in dict.keys.sorted() {
-            if dict[k]?.count == 0 {
-                retval.append(k)
+            if let value = dict[k] {
+                if value.isEmpty {
+                    retval.append(k)
+                }
             }
         }
 
@@ -140,19 +144,19 @@ class Puzzle_2018_07: NSObject {
 
             // subtract a second from each elf's work
             for idx in 0..<elves.count {
-                if elves[idx].0.count > 0 {
+                if !elves[idx].0.isEmpty {
                     elves[idx].1 = elves[idx].1 - 1
                 }
             }
 
             // check for elves that are done
             for idx in 0..<elves.count {
-                if elves[idx].0.count > 0 && elves[idx].1 == 0 {
+                if !elves[idx].0.isEmpty && elves[idx].1 == 0 {
                     dict = removeStepFromDictionary(dict: dict, stepToRemove: elves[idx].0)
                     elves[idx] = ("", 0)
                 }
             }
-        } while dict.count > 0
+        } while !dict.isEmpty
 
         return second
     }

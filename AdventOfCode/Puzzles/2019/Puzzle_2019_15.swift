@@ -259,7 +259,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         var stepCount = 0
         var foundOxygen = false
 
-        while !foundOxygen && pathHeaders.count > 0 {
+        while !foundOxygen && !pathHeaders.isEmpty {
             var nextPathHeaders: [Point2D] = []
             for header in pathHeaders {
                 let neighbors = header.adjacentLocations()
@@ -289,7 +289,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         var pathHeaders: [Point2D] = [ oxygenPoint ]
         var stepCount = 0
 
-        while movementDict.count > 0 {
+        while !movementDict.isEmpty {
             var nextPathHeaders: [Point2D] = []
             for header in pathHeaders {
                 let neighbors = header.adjacentLocations()

@@ -45,7 +45,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
             program.weight = Int(a2[0])!
             if a2.count > 1 {
                 let otherPrograms = String(a2[1]).trim()
-                if otherPrograms.count > 0 {
+                if !otherPrograms.isEmpty {
                     program.otherPrograms = parseAdditionalPrograms(str: otherPrograms)
                 }
             }
@@ -75,7 +75,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
 
     func findProgramInOtherPrograms(programToFind: String) -> String {
         for p in puzzleInput {
-            if p.otherPrograms.count > 0 {
+            if !p.otherPrograms.isEmpty {
                 for op in p.otherPrograms {
                     if programToFind == op {
                         return p.name
@@ -101,7 +101,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
         let parent = findProgram(programToFind: program)!
 
         var retval = parent.weight
-        if parent.otherPrograms.count > 0 {
+        if !parent.otherPrograms.isEmpty {
             for op in parent.otherPrograms {
                 retval += towerWeight(program: op)
             }
@@ -112,9 +112,9 @@ class Puzzle_2017_07: PuzzleBaseClass {
 
     func solvePart1() -> String {
         for p in puzzleInput {
-            if p.otherPrograms.count > 0 {
+            if !p.otherPrograms.isEmpty {
                 let parent = findProgramInOtherPrograms(programToFind: p.name)
-                if parent.count == 0 {
+                if parent.isEmpty {
                     return p.name
                 }
             }
@@ -146,7 +146,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
     func solvePart2() -> Int {
         var retval = 0
         for p in puzzleInput {
-            if p.otherPrograms.count > 0 {
+            if !p.otherPrograms.isEmpty {
                 var firstWeight = 0
                 for op in p.otherPrograms {
                     let subprogram = findProgram(programToFind: op)

@@ -35,7 +35,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
             if line == "Player 1:" {
             } else if line == "Player 2:" {
                 player2Mode = true
-            } else if line.count > 0 {
+            } else if !line.isEmpty {
                 if player2Mode {
                     player2.append(Int(line)!)
                 } else {
@@ -59,7 +59,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
     func solvePart1(str: String) -> Int {
         var (player1, player2) = parseIntoCardArrays(str: str)
 
-        while player1.count > 0 && player2.count > 0 {
+        while !player1.isEmpty && !player2.isEmpty {
             let player1Card = player1.removeFirst()
             let player2Card = player2.removeFirst()
             if player1Card > player2Card {
@@ -73,7 +73,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
             }
         }
 
-        let winningCards = (player1.count > 0 ? player1: player2)
+        let winningCards = (!player1.isEmpty ? player1: player2)
         return deckScore(winningCards)
     }
 
@@ -87,7 +87,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
             var deckSet = Set<Decks>()
             var player1 = player1Cards
             var player2 = player2Cards
-            while player1.count > 0 && player2.count > 0 {
+            while !player1.isEmpty && !player2.isEmpty {
                 let decks = Decks(player1: player1, player2: player2)
                 if deckSet.contains(decks) {
                     return (1, player1)
@@ -129,7 +129,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
                 }
             }
 
-            return player1.count > 0 ? (1, player1) : (2, player2)
+            return !player1.isEmpty ? (1, player1) : (2, player2)
         }
 
         let (player1, player2) = parseIntoCardArrays(str: str)

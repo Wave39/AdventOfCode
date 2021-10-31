@@ -186,12 +186,12 @@ class Puzzle_2016_23: PuzzleBaseClass {
             return instructionSet
         }
 
-        let part1 = PuzzleInput.finalOptimized.components(separatedBy: "~").filter { $0.count > 0 }
+        let part1 = PuzzleInput.finalOptimized.components(separatedBy: "~").filter { !$0.isEmpty }
         let part1InstructionSet = buildInstructionSet(lineArray: part1)
         let part1RegisterArray = [ 7, 0, 0, 0 ]
         let part1Solution = processInstructionsFaster(instructionArray: part1InstructionSet, registerToRetrieve: 0, registers: part1RegisterArray)
 
-        let part2 = PuzzleInput.finalOptimized.components(separatedBy: "~").filter { $0.count > 0 }
+        let part2 = PuzzleInput.finalOptimized.components(separatedBy: "~").filter { !$0.isEmpty }
         let part2InstructionSet = buildInstructionSet(lineArray: part2)
         let part2RegisterArray = [ 12, 0, 0, 0 ]
         let part2Solution = processInstructionsFaster(instructionArray: part2InstructionSet, registerToRetrieve: 0, registers: part2RegisterArray)

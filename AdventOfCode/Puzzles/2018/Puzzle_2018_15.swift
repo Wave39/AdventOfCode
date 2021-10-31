@@ -283,7 +283,7 @@ class Puzzle_2018_15: NSObject {
                     // print("Current unit: \(unit)")
                     let enemies = units.filter { $0.unitType != unit.unitType && $0.hitPoints > 0 }
                     // print("Enemies: \(enemies)")
-                    if enemies.count == 0 {
+                    if enemies.isEmpty {
                         // there are no enemies, thy game is over
                         gameOver = true
                         return roundsCompleted * units.filter { $0.hitPoints > 0 }.map { $0.hitPoints } .reduce(0, +)
@@ -309,11 +309,11 @@ class Puzzle_2018_15: NSObject {
                         item.location.manhattanDistanceTo(pt: unit.location) == 1
                     }.sorted(by: unitReadingOrder)
 
-                    if targetsInRange.count == 0 && targetLocations.count == 0 {
+                    if targetsInRange.isEmpty && targetLocations.isEmpty {
                         continue
                     }
 
-                    if targetsInRange.count == 0 {
+                    if targetsInRange.isEmpty {
                         // move
                         var allPaths: [[Point2D]] = []
                         allPaths.append([ unit.location ])
@@ -333,7 +333,7 @@ class Puzzle_2018_15: NSObject {
                                 }
                             }
 
-                            if newPaths.count == 0 {
+                            if newPaths.isEmpty {
                                 print("No new paths")
                                 completeLoops = []
                                 leaveLoop = true
@@ -349,7 +349,7 @@ class Puzzle_2018_15: NSObject {
                                     }
                                 }
 
-                                if completeLoops.count > 0 {
+                                if !completeLoops.isEmpty {
                                     print("Found complete loops in \(completeLoops[0].count) steps")
                                     leaveLoop = true
                                 }
@@ -374,7 +374,7 @@ class Puzzle_2018_15: NSObject {
 //                            movePositionSet.insert(p[1])
 //                        }
 
-                        if movePositionSet.count > 0 {
+                        if !movePositionSet.isEmpty {
                             let mp = Array(movePositionSet.sorted(by: point2DReadingOrder))
                             // print("Move positions: \(mp)")
                             unit.location = mp[0]
@@ -389,7 +389,7 @@ class Puzzle_2018_15: NSObject {
 
                     // attack
                     // print("Targets in range: \(targetsInRange)")
-                    if targetsInRange.count > 0 {
+                    if !targetsInRange.isEmpty {
                         let minHitPoints = targetsInRange.map { $0.hitPoints }.min()
                         let attackTargets = targetsInRange.filter { $0.hitPoints == minHitPoints }.sorted(by: unitReadingOrder)
                         // print("Targets to attack: \(attackTargets)")
@@ -438,7 +438,7 @@ class Puzzle_2018_15: NSObject {
 
         if nextStep == dest {
             // print("Destination reached with path \(newPath)")
-            if pointToPointShortestPath.count == 0 {
+            if pointToPointShortestPath.isEmpty {
                 pointToPointShortestPath = [ newPath ]
                 shortestPathLength = newPath.count
                 print("New shortest path length of \(shortestPathLength)")

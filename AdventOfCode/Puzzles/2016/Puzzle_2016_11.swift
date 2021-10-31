@@ -234,12 +234,12 @@ class Puzzle_2016_11: PuzzleBaseClass {
             elevatorDirections.append(.Up)
         } else if building.elevatorFloor == 1 {
             elevatorDirections.append(.Up)
-            if building.floorArray[0].count > 0 {
+            if !building.floorArray[0].isEmpty {
                 elevatorDirections.append(.Down)
             }
         } else if building.elevatorFloor == 2 {
             elevatorDirections.append(.Up)
-            if building.floorArray[0].count > 0 || building.floorArray[1].count > 0 {
+            if !building.floorArray[0].isEmpty || !building.floorArray[1].isEmpty {
                 elevatorDirections.append(.Down)
             }
         } else {

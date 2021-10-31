@@ -93,7 +93,7 @@ func directionalCharacters(grid: CharacterGrid, row: Int, col: Int, direction: C
         let gridPoint = grid[point.y][point.x]
         retval.append(gridPoint)
         point = Point2D(x: point.x + offsetFromOrigin.x, y: point.y + offsetFromOrigin.y)
-        if terminateWhenFound.count > 0 {
+        if !terminateWhenFound.isEmpty {
             if terminateWhenFound.contains(gridPoint) {
                 point = Point2D(x: -1, y: -1)
             }

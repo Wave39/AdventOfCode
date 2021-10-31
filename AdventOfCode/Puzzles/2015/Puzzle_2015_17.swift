@@ -81,7 +81,7 @@ class Puzzle_2015_17: PuzzleBaseClass {
         func calculateMatchingCount(tree: Tree, atDepth: Int) -> Int {
             var ctr: Int = 0
             func walkToBranchTips(node: Tree) {
-                if node.branches.count == 0 {
+                if node.branches.isEmpty {
                     if calculateSumFromIndices(indexArray: node.progress) == storageAmount && node.progress.count == atDepth {
                         ctr += 1
                     }
