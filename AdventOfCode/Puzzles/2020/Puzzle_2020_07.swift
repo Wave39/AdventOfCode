@@ -58,7 +58,7 @@ class Puzzle_2020_07: PuzzleBaseClass {
     }
 
     func getDependenciesForBag(bagRules: [BagRule], bagColor: String) -> [BagDescription] {
-        let matchingBag = bagRules.filter({ $0.bag.color == bagColor }).first!
+        let matchingBag = bagRules.first(where: { $0.bag.color == bagColor })!
         return matchingBag.contents
     }
 

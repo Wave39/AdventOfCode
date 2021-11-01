@@ -23,7 +23,7 @@ extension Character {
     static var purpleSquare: Character { return "🟪" }
 
     var asciiValue: UInt32? {
-        return String(self).unicodeScalars.filter { $0.isASCII }.first?.value
+        return String(self).unicodeScalars.first(where: { $0.isASCII })?.value
     }
 
     static func asciiChar(v: Int) -> Character {

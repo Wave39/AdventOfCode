@@ -84,7 +84,7 @@ class Puzzle_2019_14: PuzzleBaseClass {
 
             excessCompounds[compound] = 0
 
-            let equation = equations.filter { $0.product.compound == compound }.first!
+            let equation = equations.first(where: { $0.product.compound == compound })!
             let multiple: Int
             if equation.product.amount > amount {
                 multiple = 1

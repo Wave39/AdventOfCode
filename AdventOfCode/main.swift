@@ -24,11 +24,11 @@ while !quitApp {
     while !quitApp && (puzzle < 1 || puzzle > 25) {
         print("")
         print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to 2020 and a number from 1 to 25, default of \(defaultYearAndPuzzle), or Q to quit)")
-        let response = readLine()
+        guard let response = readLine() else { continue }
         if response == "q" || response == "Q" {
             quitApp = true
-        } else if response != "" {
-            let arr = response!.parseIntoStringArray(separator: " ")
+        } else if !response.isEmpty {
+            let arr = response.parseIntoStringArray(separator: " ")
             if arr.count == 2 {
                 year = arr[0].toInt()
                 puzzle = arr[1].toInt()

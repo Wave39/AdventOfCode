@@ -133,7 +133,7 @@ class Puzzle_2018_15: NSObject {
                 }
                 input[being.coord.y][being.coord.x] = Space(rawValue: being.race.rawValue)!
 
-                let possibleTargets = being.attackables(in: input).lazy.map { point in beings.lazy.filter({ $0.hitpoints > 0 && point == $0.coord }).first! }
+                let possibleTargets = being.attackables(in: input).lazy.map { point in beings.lazy.first(where: { $0.hitpoints > 0 && point == $0.coord })! }
                 if !possibleTargets.isEmpty {
                     action = true
                     let target = possibleTargets.min(by: { $0.hitpoints < $1.hitpoints })!

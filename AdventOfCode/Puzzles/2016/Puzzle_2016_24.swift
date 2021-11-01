@@ -186,7 +186,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
                 for idx in 0..<p.count - 1 {
                     let from = p[idx]
                     let to = p[idx + 1]
-                    let path = pathArray.filter({ $0.startingNumber == from && $0.endingNumber == to }).first!
+                    let path = pathArray.first(where: { $0.startingNumber == from && $0.endingNumber == to })!
                     moveCount += path.length
                 }
 

@@ -66,7 +66,7 @@ class Puzzle_2020_05: PuzzleBaseClass {
             seatArr.removeAll { $0 == seatID }
         }
 
-        return seatArr.filter({ !seatArr.contains($0 - 1) && !seatArr.contains($0 + 1) }).first!
+        return seatArr.first(where: { !seatArr.contains($0 - 1) && !seatArr.contains($0 + 1) })!
     }
 
 }

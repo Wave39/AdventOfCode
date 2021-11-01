@@ -10,13 +10,11 @@ import XCTest
 
 class StringExtensionsTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+//    override func setUp() {
+//    }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+//    override func tearDown() {
+//    }
 
     func test_condenseWhitespace() {
         XCTAssertEqual("1   2".condenseWhitespace(), "1 2")

@@ -144,7 +144,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
                     }
                 }
 
-                if portalString != "" {
+                if !portalString.isEmpty {
                     if portalString == "AA" {
                         board[portalPoint.y][portalPoint.x] = .startingPortal
                     } else if portalString == "ZZ" {
@@ -253,8 +253,8 @@ class Puzzle_2019_20: PuzzleBaseClass {
             return retval
         }
 
-        let startingPosition = portals.filter { $0.identifier == "AA" }.first!
-        let endingPosition = portals.filter { $0.identifier == "ZZ" }.first!
+        let startingPosition = portals.first(where: { $0.identifier == "AA" })!
+        let endingPosition = portals.first(where: { $0.identifier == "ZZ" })!
         var visitedLocations: Set<Point2D> = Set()
         var locations = [ startingPosition.location ]
         var stepCount = 0
@@ -330,8 +330,8 @@ class Puzzle_2019_20: PuzzleBaseClass {
             return retval
         }
 
-        let startingPosition = portals.filter { $0.identifier == "AA" }.first!
-        let endingPosition = portals.filter { $0.identifier == "ZZ" }.first!
+        let startingPosition = portals.first(where: { $0.identifier == "AA" })!
+        let endingPosition = portals.first(where: { $0.identifier == "ZZ" })!
         let endingPosition3D = Point3D(x: endingPosition.location.x, y: endingPosition.location.y, z: 0)
         var visitedLocations: Set<Point3D> = Set()
         var locations = [ Point3D(x: startingPosition.location.x, y: startingPosition.location.y, z: 0) ]

@@ -69,7 +69,7 @@ class Puzzle_2016_02: PuzzleBaseClass {
                     }
                 }
                 let nextKeyChar = part2Keypad[nextKey.0][nextKey.1]
-                if nextKeyChar != "" {
+                if !nextKeyChar.isEmpty {
                     part2Key = nextKey
                 }
             }

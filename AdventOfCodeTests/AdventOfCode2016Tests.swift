@@ -10,13 +10,11 @@ import XCTest
 
 class AdventOfCode2016Tests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+//    override func setUp() {
+//    }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+//    override func tearDown() {
+//    }
 
     func test2016day01() {
         let (part1, part2) = Puzzle_2016_01().solveBothParts()

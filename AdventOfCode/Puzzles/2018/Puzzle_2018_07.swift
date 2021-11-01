@@ -104,7 +104,7 @@ class Puzzle_2018_07: NSObject {
 
     func findAvailableElf(elves: Array<(String, Int)>) -> Int {
         for idx in 0..<elves.count {
-            if elves[idx].0 == "" {
+            if elves[idx].0.isEmpty {
                 return idx
             }
         }

@@ -253,7 +253,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         let tileDict = createMap(str: str, render: false)
 
         var movementDict = tileDict.filter { $0.value == .Hallway || $0.value == .StartingLocation }.map { $0.key }
-        let oxygenPoint = tileDict.filter { $0.value == .Oxygen }.first!.key
+        let oxygenPoint = tileDict.first(where: { $0.value == .Oxygen })!.key
 
         var pathHeaders: [Point2D] = [ oxygenPoint ]
         var stepCount = 0
@@ -284,7 +284,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         let tileDict = createMap(str: str, render: false)
 
         var movementDict = tileDict.filter { $0.value == .Hallway || $0.value == .StartingLocation }.map { $0.key }
-        let oxygenPoint = tileDict.filter { $0.value == .Oxygen }.first!.key
+        let oxygenPoint = tileDict.first(where: { $0.value == .Oxygen })!.key
 
         var pathHeaders: [Point2D] = [ oxygenPoint ]
         var stepCount = 0

@@ -202,7 +202,7 @@ class Puzzle_2018_24: NSObject {
             groups.sort(by: initiativeDescOrder)
             for g in groups {
                 if g.unitCount > 0 && !g.groupToAttack.isEmpty {
-                    let groupToAttack = groups.filter { $0.groupId == g.groupToAttack }.first!
+                    let groupToAttack = groups.first(where: { $0.groupId == g.groupToAttack })!
                     let damageToGroup = groupToAttack.damageCausedBy(attackType: g.damageType, amount: g.effectivePower)
                     if damageToGroup > 0 && groupToAttack.unitCount > 0 {
                         var kills = damageToGroup / groupToAttack.hitPointsEach
