@@ -36,8 +36,8 @@ class Puzzle_2015_19: PuzzleBaseClass {
             let ranges = targetMolecule.rangesOfString(searchString: replacement.searchFor)
             for r in ranges {
                 let newMolecule = targetMolecule.replacingCharacters(in: r, with: replacement.replaceWith)
-                if moleculeDict.keys.contains(newMolecule) {
-                    moleculeDict[newMolecule] = moleculeDict[newMolecule]! + 1
+                if moleculeDict.keys.contains(newMolecule), let moleculeCount = moleculeDict[newMolecule] {
+                    moleculeDict[newMolecule] = moleculeCount + 1
                 } else {
                     moleculeDict[newMolecule] = 1
                 }

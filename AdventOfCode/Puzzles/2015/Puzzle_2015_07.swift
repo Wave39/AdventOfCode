@@ -44,7 +44,7 @@ class Puzzle_2015_07: PuzzleBaseClass {
 
         func wireValue(_ wireNameOrValue: String) -> UInt16 {
             if wireNameOrValue.isStringNumeric() {
-                return UInt16(wireNameOrValue)!
+                return UInt16(wireNameOrValue) ?? 0
             } else {
                 if let v = wireDictionary[wireNameOrValue] {
                     return v
@@ -127,12 +127,12 @@ class Puzzle_2015_07: PuzzleBaseClass {
         }
 
         processPart(partNumber: 1, specialValue: 0)
-        let wireA = wireDictionary["a"]!
+        let wireA = wireDictionary["a"] ?? 0
         let part1 = wireA
 
         wireDictionary = Dictionary<String, UInt16>()
         processPart(partNumber: 2, specialValue: wireA)
-        let part2 = wireDictionary["a"]!
+        let part2 = wireDictionary["a"] ?? 0
 
         return (Int(part1), Int(part2))
     }

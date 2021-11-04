@@ -19,7 +19,11 @@ class Puzzle_2015_06: PuzzleBaseClass {
     func solveBothParts() -> (Int, Int) {
         func parseCoordinateString(_ coordinateString: String) -> (Int, Int) {
             let arr = coordinateString.split { $0 == "," }.map(String.init)
-            return (Int(arr.first!)!, Int(arr.last!)!)
+            if let first = arr.first, let last = arr.last, let firstInt = Int(first), let lastInt = Int(last) {
+                return (firstInt, lastInt)
+            }
+
+            return (0, 0)
         }
 
         var lightArray = Array(repeating: Array(repeating: false, count: 1000), count: 1000)

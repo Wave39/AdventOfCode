@@ -100,7 +100,7 @@ extension String {
         var retval = ""
 
         for c in self {
-            var b = String(Int(String(c), radix: 16)!, radix: 2)
+            var b = String(Int(String(c), radix: 16) ?? 0, radix: 2)
             while b.count < 4 {
                 b = "0" + b
             }
@@ -201,7 +201,7 @@ extension String {
     }
 
     var md5: String {
-        let computed = Insecure.MD5.hash(data: self.data(using: .utf8)!)
+        let computed = Insecure.MD5.hash(data: self.data(using: .utf8) ?? Data())
         return computed.map { String(format: "%02hhx", $0) }.joined()
     }
 
@@ -213,7 +213,7 @@ extension String {
         let arr = self.split(separator: separator)
         var retval: [Int] = []
         for s in arr {
-            retval.append(Int(String(s))!)
+            retval.append(Int(String(s)) ?? 0)
         }
 
         return retval

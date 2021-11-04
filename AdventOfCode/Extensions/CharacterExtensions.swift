@@ -27,7 +27,7 @@ extension Character {
     }
 
     static func asciiChar(v: Int) -> Character {
-        return Character(UnicodeScalar(v)!)
+        return Character(UnicodeScalar(v) ?? Unicode.Scalar(0))
     }
 
     static func asciiValue(c: Character) -> Int {

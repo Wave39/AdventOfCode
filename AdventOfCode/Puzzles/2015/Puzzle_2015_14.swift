@@ -31,9 +31,9 @@ class Puzzle_2015_14: PuzzleBaseClass {
             let components = puzzleLine.split { $0 == " " }.map(String.init)
             let r = ReindeerInfo()
             r.name = components[0]
-            r.speed = Int(components[3])!
-            r.flightTime = Int(components[6])!
-            r.restTime = Int(components[13])!
+            r.speed = Int(components[3]) ?? 0
+            r.flightTime = Int(components[6]) ?? 0
+            r.restTime = Int(components[13]) ?? 0
             reindeerArray.append(r)
         }
 

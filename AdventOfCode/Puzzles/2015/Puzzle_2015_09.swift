@@ -42,7 +42,7 @@ class Puzzle_2015_09: PuzzleBaseClass {
                 d.endAt = arr[0]
             }
 
-            d.distance = Int(arr[4])!
+            d.distance = Int(arr[4]) ?? 0
             distanceArray.append(d)
         }
 

@@ -39,28 +39,28 @@ class Puzzle_2015_16: PuzzleBaseClass {
             let components = theLine.split { $0 == " " }.map(String.init)
 
             let sueInfo = SueInfo()
-            sueInfo.number = Int(components[1])!
+            sueInfo.number = Int(components[1]) ?? 0
             for index in stride(from: 2, through: 6, by: 2) {
                 if components[index] == "children" {
-                    sueInfo.children = Int(components[index + 1])!
+                    sueInfo.children = Int(components[index + 1]) ?? 0
                 } else if components[index] == "cats" {
-                    sueInfo.cats = Int(components[index + 1])!
+                    sueInfo.cats = Int(components[index + 1]) ?? 0
                 } else if components[index] == "samoyeds" {
-                    sueInfo.samoyeds = Int(components[index + 1])!
+                    sueInfo.samoyeds = Int(components[index + 1]) ?? 0
                 } else if components[index] == "pomeranians" {
-                    sueInfo.pomeranians = Int(components[index + 1])!
+                    sueInfo.pomeranians = Int(components[index + 1]) ?? 0
                 } else if components[index] == "akitas" {
-                    sueInfo.akitas = Int(components[index + 1])!
+                    sueInfo.akitas = Int(components[index + 1]) ?? 0
                 } else if components[index] == "vizslas" {
-                    sueInfo.vizslas = Int(components[index + 1])!
+                    sueInfo.vizslas = Int(components[index + 1]) ?? 0
                 } else if components[index] == "goldfish" {
-                    sueInfo.goldfish = Int(components[index + 1])!
+                    sueInfo.goldfish = Int(components[index + 1]) ?? 0
                 } else if components[index] == "trees" {
-                    sueInfo.trees = Int(components[index + 1])!
+                    sueInfo.trees = Int(components[index + 1]) ?? 0
                 } else if components[index] == "cars" {
-                    sueInfo.cars = Int(components[index + 1])!
+                    sueInfo.cars = Int(components[index + 1]) ?? 0
                 } else if components[index] == "perfumes" {
-                    sueInfo.perfumes = Int(components[index + 1])!
+                    sueInfo.perfumes = Int(components[index + 1]) ?? 0
                 }
             }
 
@@ -72,11 +72,15 @@ class Puzzle_2015_16: PuzzleBaseClass {
         for theLine in puzzleInputLineArray {
             let sueInfo = processLine(theLine)
             if (sueInfo.children == nil || sueInfo.children == 3) && (sueInfo.cats == nil || sueInfo.cats == 7) && (sueInfo.samoyeds == nil || sueInfo.samoyeds == 2) && (sueInfo.pomeranians == nil || sueInfo.pomeranians == 3) && (sueInfo.akitas == nil || sueInfo.akitas == 0) && (sueInfo.vizslas == nil || sueInfo.vizslas == 0) && (sueInfo.goldfish == nil || sueInfo.goldfish == 5) && (sueInfo.trees == nil || sueInfo.trees == 3) && (sueInfo.cars == nil || sueInfo.cars == 2) && (sueInfo.perfumes == nil || sueInfo.perfumes == 1) {
-                part1MatchArray.append(sueInfo.number!)
+                if let sueNumber = sueInfo.number {
+                    part1MatchArray.append(sueNumber)
+                }
             }
 
-            if (sueInfo.children == nil || sueInfo.children == 3) && (sueInfo.cats == nil || sueInfo.cats! > 7) && (sueInfo.samoyeds == nil || sueInfo.samoyeds == 2) && (sueInfo.pomeranians == nil || sueInfo.pomeranians! < 3) && (sueInfo.akitas == nil || sueInfo.akitas == 0) && (sueInfo.vizslas == nil || sueInfo.vizslas == 0) && (sueInfo.goldfish == nil || sueInfo.goldfish! < 5) && (sueInfo.trees == nil || sueInfo.trees! > 3) && (sueInfo.cars == nil || sueInfo.cars == 2) && (sueInfo.perfumes == nil || sueInfo.perfumes == 1) {
-                part2MatchArray.append(sueInfo.number!)
+            if (sueInfo.children == nil || sueInfo.children == 3) && (sueInfo.cats == nil || (sueInfo.cats ?? 0) > 7) && (sueInfo.samoyeds == nil || sueInfo.samoyeds == 2) && (sueInfo.pomeranians == nil || (sueInfo.pomeranians ?? 0) < 3) && (sueInfo.akitas == nil || sueInfo.akitas == 0) && (sueInfo.vizslas == nil || sueInfo.vizslas == 0) && (sueInfo.goldfish == nil || (sueInfo.goldfish ?? 0) < 5) && (sueInfo.trees == nil || (sueInfo.trees ?? 0) > 3) && (sueInfo.cars == nil || sueInfo.cars == 2) && (sueInfo.perfumes == nil || sueInfo.perfumes == 1) {
+                if let sueNumber = sueInfo.number {
+                    part2MatchArray.append(sueNumber)
+                }
             }
         }
 

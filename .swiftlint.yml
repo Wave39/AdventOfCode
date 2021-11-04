@@ -60,6 +60,8 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - file_name_no_space
   # - file_types_order # ???
   - first_where
+  - flatmap_over_map_reduce
+  - force_unwrapping
 
 type_name:
   allowed_symbols: ["_"] # these are allowed in type names

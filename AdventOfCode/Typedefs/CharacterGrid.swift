@@ -105,9 +105,9 @@ func directionalCharacters(grid: CharacterGrid, row: Int, col: Int, direction: C
 
 func getCharacterGridEdge(grid: CharacterGrid, direction: CompassDirection) -> String {
     if direction == .North {
-        return String(grid.first!)
+        return String(grid.first ?? [])
     } else if direction == .South {
-        return String(grid.last!)
+        return String(grid.last ?? [])
     } else {
         var retval = ""
         for line in grid {

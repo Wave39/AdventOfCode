@@ -32,7 +32,7 @@ class Puzzle_2015_12: PuzzleBaseClass {
             } else {
                 if numericMode {
                     numericMode = false
-                    part1Total += Int(numericString)!
+                    part1Total += Int(numericString) ?? 0
                 }
             }
         }
@@ -49,15 +49,16 @@ class Puzzle_2015_12: PuzzleBaseClass {
             } else if c == "}" {
                 if numericMode {
                     numericMode = false
-                    objectCountStack[objectCountStack.count - 1] += Int(numericString)!
+                    objectCountStack[objectCountStack.count - 1] += Int(numericString) ?? 0
                 }
 
                 if objectCountStack.count == 1 {
-                    part2Total += objectCountStack.last!
+                    part2Total += objectCountStack.last ?? 0
                 } else {
-                    let lastString = objectStringStack.last!
-                    if !lastString.contains(":\"red\"") {
-                        objectCountStack[objectCountStack.count - 2] += objectCountStack.last!
+                    if let lastString = objectStringStack.last {
+                        if !lastString.contains(":\"red\"") {
+                            objectCountStack[objectCountStack.count - 2] += objectCountStack.last ?? 0
+                        }
                     }
                 }
 
@@ -79,9 +80,9 @@ class Puzzle_2015_12: PuzzleBaseClass {
                     if numericMode {
                         numericMode = false
                         if objectCountStack.isEmpty {
-                            part2Total += Int(numericString)!
+                            part2Total += Int(numericString) ?? 0
                         } else {
-                            objectCountStack[objectCountStack.count - 1] += Int(numericString)!
+                            objectCountStack[objectCountStack.count - 1] += Int(numericString) ?? 0
                         }
                     }
                 }

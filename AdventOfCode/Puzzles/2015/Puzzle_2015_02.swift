@@ -22,7 +22,7 @@ class Puzzle_2015_02: PuzzleBaseClass {
         var feetOfRibbon = 0
         for box in boxArray {
             let boxSplit = box.split { $0 == "x" }
-            let dimArray0 = boxSplit.map { Int(String($0))! }
+            let dimArray0 = boxSplit.map { Int(String($0)) ?? 0 }
             let dimArraySorted = dimArray0.sorted { $0 < $1 }
             let shortestSide = Int(dimArraySorted[0])
             let middleSide = Int(dimArraySorted[1])

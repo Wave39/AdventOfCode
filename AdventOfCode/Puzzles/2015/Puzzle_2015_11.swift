@@ -41,7 +41,7 @@ class Puzzle_2015_11: PuzzleBaseClass {
 
             var newPassword = ""
             for i in characterArray {
-                newPassword += String(UnicodeScalar(i + asciiA)!)
+                newPassword += String(UnicodeScalar(i + asciiA) ?? Unicode.Scalar(0))
             }
 
             return newPassword
@@ -80,10 +80,10 @@ class Puzzle_2015_11: PuzzleBaseClass {
                 return false
             }
 
-            let firstEntry = duplicatePositionArray.first!
-            let lastEntry = duplicatePositionArray.last!
-            if lastEntry - firstEntry == 1 {
-                return false
+            if let firstEntry = duplicatePositionArray.first, let lastEntry = duplicatePositionArray.last {
+                if lastEntry - firstEntry == 1 {
+                    return false
+                }
             }
 
             return true

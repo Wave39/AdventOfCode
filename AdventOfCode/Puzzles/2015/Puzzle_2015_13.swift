@@ -35,7 +35,7 @@ class Puzzle_2015_13: PuzzleBaseClass {
             let hp = HappinessPair()
             hp.person1 = arr[0]
             hp.person2 = arr[10].substring(from: 0, to: arr[10].count - 1)
-            hp.happiness = Int(arr[3])!
+            hp.happiness = Int(arr[3]) ?? 0
             if arr[2] == "lose" {
                 hp.happiness = -hp.happiness
             }
@@ -65,8 +65,10 @@ class Puzzle_2015_13: PuzzleBaseClass {
 
             if unseatedPeopleArray.isEmpty {
                 // no new people to seat, just add in the first person again and leave
-                node.progress.append(node.progress.first!)
-                return
+                if let firstPerson = node.progress.first {
+                    node.progress.append(firstPerson)
+                    return
+                }
             }
 
             // create new branches for unvisited places

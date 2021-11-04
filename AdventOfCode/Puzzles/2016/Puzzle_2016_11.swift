@@ -286,9 +286,10 @@ class Puzzle_2016_11: PuzzleBaseClass {
         let nextFloor = building.elevatorFloor + (move.elevatorDirection == .Up ? 1 : -1)
 
         for d in move.devicesToCarry {
-            let idx = nextBuilding.floorArray[previousFloor].firstIndex { $0 == d }
-            nextBuilding.floorArray[previousFloor].remove(at: idx!)
-            nextBuilding.floorArray[nextFloor].append(d)
+            if let idx = nextBuilding.floorArray[previousFloor].firstIndex(where: { $0 == d }) {
+                nextBuilding.floorArray[previousFloor].remove(at: idx)
+                nextBuilding.floorArray[nextFloor].append(d)
+            }
         }
 
         nextBuilding.elevatorFloor = nextFloor

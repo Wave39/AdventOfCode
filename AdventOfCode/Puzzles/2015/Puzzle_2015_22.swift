@@ -166,38 +166,42 @@ class Puzzle_2015_22: PuzzleBaseClass {
         }
 
         func applySpell(gameState: GameState) {
-            gameState.playerCurrentMana -= gameState.nextSpell!.manaCost
-            gameState.playerSpentMana += gameState.nextSpell!.manaCost
+            guard let nextSpell = gameState.nextSpell else {
+                return
+            }
 
-            if gameState.nextSpell!.type == .MagicMissile {
+            gameState.playerCurrentMana -= nextSpell.manaCost
+            gameState.playerSpentMana += nextSpell.manaCost
+
+            if nextSpell.type == .MagicMissile {
                 gameState.bossHitPoints -= 4
-            } else if gameState.nextSpell!.type == .Drain {
+            } else if nextSpell.type == .Drain {
                 gameState.playerHitPoints += 2
                 gameState.bossHitPoints -= 2
-            } else if gameState.nextSpell!.type == .Shield {
-                gameState.shieldTimer = (gameState.nextSpell!.effect?.turns)!
-                gameState.playerArmor = (gameState.nextSpell!.effectResult?.amount)!
-            } else if gameState.nextSpell!.type == .Poison {
-                gameState.poisonTimer = (gameState.nextSpell!.effect?.turns)!
-            } else if gameState.nextSpell!.type == .Recharge {
-                gameState.rechargeTimer = (gameState.nextSpell!.effect?.turns)!
+            } else if nextSpell.type == .Shield {
+                gameState.shieldTimer = nextSpell.effect?.turns ?? 0
+                gameState.playerArmor = nextSpell.effectResult?.amount ?? 0
+            } else if nextSpell.type == .Poison {
+                gameState.poisonTimer = nextSpell.effect?.turns ?? 0
+            } else if nextSpell.type == .Recharge {
+                gameState.rechargeTimer = nextSpell.effect?.turns ?? 0
             }
         }
 
         func checkTimers(gameState: GameState) {
             if gameState.shieldTimer > 0 {
                 gameState.shieldTimer -= 1
-                gameState.playerArmor = gameState.shieldTimer == 0 ? 0 : (shieldSpell.effectResult?.amount)!
+                gameState.playerArmor = gameState.shieldTimer == 0 ? 0 : (shieldSpell.effectResult?.amount ?? 0)
             }
 
             if gameState.poisonTimer > 0 {
                 gameState.poisonTimer -= 1
-                gameState.bossHitPoints -= (poisonSpell.effectResult?.amount)!
+                gameState.bossHitPoints -= (poisonSpell.effectResult?.amount) ?? 0
             }
 
             if gameState.rechargeTimer > 0 {
                 gameState.rechargeTimer -= 1
-                gameState.playerCurrentMana += (rechargeSpell.effectResult?.amount)!
+                gameState.playerCurrentMana += rechargeSpell.effectResult?.amount ?? 0
             }
         }
 
@@ -265,15 +269,17 @@ class Puzzle_2015_22: PuzzleBaseClass {
         }
 
         func processGameState(gameState: GameState) {
-            if gameState.nextSpell!.type == .None {
-                let initialSpells = getSpellOptions(gameState: gameState)
-                for spell in initialSpells {
-                    let newGameState = gameState.copy()
-                    newGameState.nextSpell = spell
-                    processGameState(gameState: newGameState)
-                }
+            if let nextSpell = gameState.nextSpell {
+                if nextSpell.type == .None {
+                    let initialSpells = getSpellOptions(gameState: gameState)
+                    for spell in initialSpells {
+                        let newGameState = gameState.copy()
+                        newGameState.nextSpell = spell
+                        processGameState(gameState: newGameState)
+                    }
 
-                return
+                    return
+                }
             }
 
             beginPlayerTurn(gameState: gameState)
