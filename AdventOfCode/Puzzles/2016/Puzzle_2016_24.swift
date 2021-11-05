@@ -166,7 +166,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
                 for j in grid.numberLocations {
                     if i.number != j.number {
                         let d = findShortestDistance(grid: grid, from: i.gridPosition, to: j.gridPosition)
-                        pathArray.append(Path(startingNumber: Int(String(i.number))!, endingNumber: Int(String(j.number))!, length: d))
+                        pathArray.append(Path(startingNumber: Int(String(i.number)) ?? 0, endingNumber: Int(String(j.number)) ?? 0, length: d))
                     }
                 }
             }
@@ -186,8 +186,9 @@ class Puzzle_2016_24: PuzzleBaseClass {
                 for idx in 0..<p.count - 1 {
                     let from = p[idx]
                     let to = p[idx + 1]
-                    let path = pathArray.first(where: { $0.startingNumber == from && $0.endingNumber == to })!
-                    moveCount += path.length
+                    if let path = pathArray.first(where: { $0.startingNumber == from && $0.endingNumber == to }) {
+                        moveCount += path.length
+                    }
                 }
 
                 if moveCount < shortestLength {

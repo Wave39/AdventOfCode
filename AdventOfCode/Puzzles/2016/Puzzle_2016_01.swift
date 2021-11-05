@@ -47,7 +47,7 @@ class Puzzle_2016_01: PuzzleBaseClass {
                     }
                 }
 
-                return Direction(rawValue: newDirection)!
+                return Direction(rawValue: newDirection) ?? .North
             }
         }
 

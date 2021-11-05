@@ -73,8 +73,8 @@ class Puzzle_2016_10: PuzzleBaseClass {
         for line in puzzleInputLineArray {
             let arr = line.components(separatedBy: " ")
             if arr[0] == "value" {
-                let chipNumber = Int(arr[1])!
-                let botNumber = Int(arr[5])!
+                let chipNumber = arr[1].toInt()
+                let botNumber = arr[5].toInt()
                 if part1Bots[botNumber] == nil {
                     part1Bots[botNumber] = BotInfo()
                 }
@@ -111,33 +111,34 @@ class Puzzle_2016_10: PuzzleBaseClass {
             if foundBot == -1 {
                 continueLooping = false
             } else {
-                let thisBot = part1Bots[foundBot]
-                let lowChipNumber = min(Int((thisBot?.chips[0])!), Int((thisBot?.chips[1])!))
-                let highChipNumber = max(Int((thisBot?.chips[0])!), Int((thisBot?.chips[1])!))
+                if let thisBot = part1Bots[foundBot] {
+                    let lowChipNumber = min(thisBot.chips[0], thisBot.chips[1])
+                    let highChipNumber = max(thisBot.chips[0], thisBot.chips[1])
 
-                let arr = findBotInstructions(botNumber: foundBot)
-                let lowDest = arr[5]
-                let lowNumber = Int(arr[6])
-                if lowDest == "bot" {
-                    moveChipToBot(botNumber: lowNumber!, chipNumber: lowChipNumber)
-                } else if lowDest == "output" {
-                    moveChipToOutputBin(outputBinNumber: lowNumber!, chipNumber: lowChipNumber)
-                } else {
-                    print("Unknown low destination: \(lowDest)")
+                    let arr = findBotInstructions(botNumber: foundBot)
+                    let lowDest = arr[5]
+                    let lowNumber = Int(arr[6]) ?? 0
+                    if lowDest == "bot" {
+                        moveChipToBot(botNumber: lowNumber, chipNumber: lowChipNumber)
+                    } else if lowDest == "output" {
+                        moveChipToOutputBin(outputBinNumber: lowNumber, chipNumber: lowChipNumber)
+                    } else {
+                        print("Unknown low destination: \(lowDest)")
+                    }
+
+                    let highDest = arr[10]
+                    let highNumber = Int(arr[11]) ?? 0
+                    if highDest == "bot" {
+                        moveChipToBot(botNumber: highNumber, chipNumber: highChipNumber)
+                    } else if highDest == "output" {
+                        moveChipToOutputBin(outputBinNumber: highNumber, chipNumber: highChipNumber)
+                    } else {
+                        print("Unknown high destination: \(highDest)")
+                    }
+
+                    thisBot.chips = []
+                    thisBot.lastComparison = [lowChipNumber, highChipNumber]
                 }
-
-                let highDest = arr[10]
-                let highNumber = Int(arr[11])
-                if highDest == "bot" {
-                    moveChipToBot(botNumber: highNumber!, chipNumber: highChipNumber)
-                } else if highDest == "output" {
-                    moveChipToOutputBin(outputBinNumber: highNumber!, chipNumber: highChipNumber)
-                } else {
-                    print("Unknown high destination: \(highDest)")
-                }
-
-                thisBot?.chips = []
-                thisBot?.lastComparison = [lowChipNumber, highChipNumber]
             }
 
             let p = findBotWithLastComparison(botArray: part1Bots, i1: searchValues.0, i2: searchValues.1)
@@ -146,7 +147,11 @@ class Puzzle_2016_10: PuzzleBaseClass {
             }
         }
 
-        return (part1Answer, (part1OutputBins[0]?.chips[0])! * (part1OutputBins[1]?.chips[0])! * (part1OutputBins[2]?.chips[0])!)
+        guard let bin0 = part1OutputBins[0], let bin1 = part1OutputBins[1], let bin2 = part1OutputBins[2] else {
+            return (0, 0)
+        }
+
+        return (part1Answer, bin0.chips[0] * bin1.chips[0] * bin2.chips[0])
     }
 }
 

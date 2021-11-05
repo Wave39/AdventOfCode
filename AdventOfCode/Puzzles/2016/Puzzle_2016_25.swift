@@ -67,10 +67,11 @@ class Puzzle_2016_25: PuzzleBaseClass {
                 let instruction = instructionArray[programCounter]
                 if instruction.opcode == .cpy {
                     let p1 = instruction.param1
-                    let p2 = instruction.param2!
-                    if p2.registerIndex != nil {
-                        let value = getParamValue(p: p1, registers: registers)
-                        registers[p2.registerIndex!] = value
+                    if let p2 = instruction.param2 {
+                        if let p2RegisterIndex = p2.registerIndex {
+                            let value = getParamValue(p: p1, registers: registers)
+                            registers[p2RegisterIndex] = value
+                        }
                     }
 
                     programCounter += 1
@@ -112,8 +113,8 @@ class Puzzle_2016_25: PuzzleBaseClass {
             return outputArray
         }
 
-        func buildParam(inputString: String) -> Param? {
-            var p: Param?
+        func buildParam(inputString: String) -> Param {
+            var p: Param
             if isStringNumeric(theString: inputString) {
                 p = Param(numericValue: Int(inputString)!, registerIndex: nil)
             } else {
@@ -139,8 +140,7 @@ class Puzzle_2016_25: PuzzleBaseClass {
 
             for line in lineArray {
                 let c = line.components(separatedBy: " ")
-                let op: Opcode?
-                var p1: Param?
+                var op: Opcode = .out
                 var p2: Param?
                 if c[0] == "cpy" {
                     op = .cpy
@@ -150,17 +150,15 @@ class Puzzle_2016_25: PuzzleBaseClass {
                     op = .dec
                 } else if c[0] == "jnz" {
                     op = .jnz
-                } else {
-                    op = .out
                 }
 
-                p1 = buildParam(inputString: c[1])
+                let p1 = buildParam(inputString: c[1])
 
                 if c.count >= 3 {
                     p2 = buildParam(inputString: c[2])
                 }
 
-                let newInstruction = Instruction(opcode: op!, param1: p1!, param2: p2)
+                let newInstruction = Instruction(opcode: op, param1: p1, param2: p2)
                 instructionSet.append(newInstruction)
             }
 

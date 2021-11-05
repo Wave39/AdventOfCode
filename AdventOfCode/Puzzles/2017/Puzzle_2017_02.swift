@@ -32,7 +32,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
             var minValue = Int.max
             var maxValue = 0
             for element in line {
-                let elementInt = Int(element)!
+                let elementInt = Int(element) ?? 0
                 if elementInt < minValue {
                     minValue = elementInt
                 }
@@ -52,8 +52,8 @@ class Puzzle_2017_02: PuzzleBaseClass {
     func findEvenlyDivisibleIntegers(arr: [String]) -> (Int, Int) {
         for i in 0...(arr.count - 2) {
             for j in (i + 1)...(arr.count - 1) {
-                var e1 = Int(arr[i])!
-                var e2 = Int(arr[j])!
+                var e1 = arr[i].toInt()
+                var e2 = arr[j].toInt()
                 if e1 < e2 {
                     let t = e1
                     e1 = e2

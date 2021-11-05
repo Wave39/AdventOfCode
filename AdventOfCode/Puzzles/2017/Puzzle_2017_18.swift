@@ -103,42 +103,42 @@ class Puzzle_2017_18: PuzzleBaseClass {
         var firstReceive = false
         while !firstReceive && programCounter >= 0 && programCounter < instructionArray.count {
             let currentInstruction = instructionArray[programCounter]
-            let parameter1: Int?
-            if currentInstruction.parameter1Int != nil {
-                parameter1 = currentInstruction.parameter1Int
-            } else if currentInstruction.parameter1String != nil {
-                parameter1 = registers[currentInstruction.parameter1String!]
-            } else {
-                parameter1 = nil
+            guard let parameter1String = currentInstruction.parameter1String else {
+                return 0
             }
 
-            let parameter2: Int?
+            var parameter1 = 0
+            if currentInstruction.parameter1Int != nil {
+                parameter1 = currentInstruction.parameter1Int ?? 0
+            } else if currentInstruction.parameter1String != nil {
+                parameter1 = registers[parameter1String] ?? 0
+            }
+
+            var parameter2 = 0
             if currentInstruction.parameter2Int != nil {
-                parameter2 = currentInstruction.parameter2Int
+                parameter2 = currentInstruction.parameter2Int ?? 0
             } else if currentInstruction.parameter2String != nil {
-                parameter2 = registers[currentInstruction.parameter2String!]
-            } else {
-                parameter2 = nil
+                parameter2 = registers[currentInstruction.parameter2String!] ?? 0
             }
 
             if currentInstruction.instructionType == .SoundOrSend {
-                lastSoundPlayed = parameter1!
+                lastSoundPlayed = parameter1
             } else if currentInstruction.instructionType == .Set {
-                registers[currentInstruction.parameter1String!] = parameter2
+                registers[parameter1String] = parameter2
             } else if currentInstruction.instructionType == .Add {
-                let previousValue = registers[currentInstruction.parameter1String!]
-                registers[currentInstruction.parameter1String!] = previousValue! + parameter2!
+                let previousValue = registers[parameter1String]
+                registers[parameter1String] = previousValue! + parameter2
             } else if currentInstruction.instructionType == .Multiply {
-                let previousValue = registers[currentInstruction.parameter1String!]
-                registers[currentInstruction.parameter1String!] = previousValue! * parameter2!
+                let previousValue = registers[parameter1String]
+                registers[parameter1String] = previousValue! * parameter2
             } else if currentInstruction.instructionType == .Modulo {
-                let previousValue = registers[currentInstruction.parameter1String!]
-                registers[currentInstruction.parameter1String!] = previousValue! % parameter2!
+                let previousValue = registers[parameter1String]
+                registers[parameter1String] = previousValue! % parameter2
             } else if currentInstruction.instructionType == .RecoverOrReceive {
                 firstReceive = true
             } else if currentInstruction.instructionType == .Jump {
-                if parameter1! > 0 {
-                    programCounter += (parameter2! - 1)
+                if parameter1 > 0 {
+                    programCounter += (parameter2 - 1)
                 }
             }
 

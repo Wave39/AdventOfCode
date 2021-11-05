@@ -24,7 +24,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
 
     func findRow(lineArray: [[String]], rowNumber: Int) -> [String] {
         for l in lineArray {
-            if Int(l[0])! == rowNumber {
+            if l[0].toInt() == rowNumber {
                 return l
             }
         }
@@ -35,7 +35,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
     func addRow(set: Set<Int>, queue: inout Array<Int>, row: [String]) {
         for idx in 2..<(row.count) {
             let s = row[idx].replacingOccurrences(of: ",", with: "")
-            let i = Int(s)!
+            let i = s.toInt()
             if !set.contains(i) {
                 queue.append(i)
             }
@@ -46,17 +46,18 @@ class Puzzle_2017_12: PuzzleBaseClass {
         var programSet: Set<Int> = Set()
         var programQueue: Array<Int> = []
         let firstRow = findRow(lineArray: lineArray, rowNumber: programNumber)
-        let firstElement = Int(firstRow[0])!
+        let firstElement = firstRow[0].toInt()
         programSet.insert(firstElement)
         let row = findRow(lineArray: lineArray, rowNumber: firstElement)
         addRow(set: programSet, queue: &programQueue, row: row)
 
         while !programQueue.isEmpty {
-            let element = programQueue.first!
-            programSet.insert(element)
+            if let element = programQueue.first {
+                programSet.insert(element)
 
-            let row = findRow(lineArray: lineArray, rowNumber: element)
-            addRow(set: programSet, queue: &programQueue, row: row)
+                let row = findRow(lineArray: lineArray, rowNumber: element)
+                addRow(set: programSet, queue: &programQueue, row: row)
+            }
 
             programQueue.removeFirst()
         }
@@ -76,7 +77,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
 
     func findNextNumber(lineArray: [[String]], groups: [Set<Int>]) -> Int {
         for l in lineArray {
-            let n = Int(l[0])!
+            let n = l[0].toInt()
             if findProgramInGroups(groups: groups, programNumber: n).isEmpty {
                 return n
             }

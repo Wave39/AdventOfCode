@@ -43,7 +43,7 @@ class Puzzle_2016_04: PuzzleBaseClass {
             var dict: Dictionary<String, Int> = Dictionary()
             let n = line.matchesInCapturingGroups(pattern: "([a-z-]+)([0-9]+)\\[([a-z]+)\\]")
             let encryptedName = n[0]
-            let sectorID = Int(n[1])!
+            let sectorID = n[1].toInt()
             let checksum = n[2]
             var decryptedName = ""
             for c in encryptedName {

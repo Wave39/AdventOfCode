@@ -31,16 +31,16 @@ class Puzzle_2016_09: PuzzleBaseClass {
                     let parenEnd = ctr
                     let parenString = s[Range((parenStart + 1)...(parenEnd - 1))]
                     let parenArr = parenString.components(separatedBy: "x")
-                    let charLen = Int((parenArr[0]))
-                    let repeatCount = Int((parenArr[1]))
-                    let repeatString = String(s[Range((parenEnd + 1)...(parenEnd + charLen!))])
+                    let charLen = parenArr[0].toInt()
+                    let repeatCount = parenArr[1].toInt()
+                    let repeatString = String(s[Range((parenEnd + 1)...(parenEnd + charLen))])
                     if part1 {
-                        theLength += repeatString.count * repeatCount!
+                        theLength += repeatString.count * repeatCount
                     } else {
-                        theLength += getStringLength(s: repeatString, part1: false) * repeatCount!
+                        theLength += getStringLength(s: repeatString, part1: false) * repeatCount
                     }
 
-                    ctr += (charLen! + 1)
+                    ctr += (charLen + 1)
                 } else {
                     theLength += 1
                     ctr += 1

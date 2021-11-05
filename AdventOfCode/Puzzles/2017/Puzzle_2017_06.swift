@@ -24,7 +24,7 @@ class Puzzle_2017_06: PuzzleBaseClass {
         var retval: [Int] = []
         let lineArray = str.split(separator: " ")
         for line in lineArray {
-            retval.append(Int(line)!)
+            retval.append(line.toInt())
         }
 
         return retval
@@ -76,7 +76,7 @@ class Puzzle_2017_06: PuzzleBaseClass {
                 dict[memoryString] = processCounter
             } else {
                 stayInLoop = false
-                loopCounter = processCounter - dict[memoryString]!
+                loopCounter = processCounter - (dict[memoryString] ?? 0)
             }
         }
 

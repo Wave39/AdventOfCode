@@ -54,16 +54,19 @@ class Puzzle_2017_16: PuzzleBaseClass {
         var danceMoves: [DanceMove] = []
         for move in arr {
             var danceMove = DanceMove()
-            let command = move.first!
+            guard let command = move.first else {
+                continue
+            }
+
             let parameters = String(move).substring(from: 1)
             if command == "s" {
                 danceMove.command = .Spin
-                danceMove.spinCount = Int(parameters)!
+                danceMove.spinCount = parameters.toInt()
             } else if command == "x" {
                 danceMove.command = .Exchange
                 let values = parameters.split(separator: "/")
-                danceMove.exchangeFrom = Int(values[0])!
-                danceMove.exchangeTo = Int(values[1])!
+                danceMove.exchangeFrom = values[0].toInt()
+                danceMove.exchangeTo = values[1].toInt()
             } else if command == "p" {
                 danceMove.command = .Partner
                 let values = parameters.split(separator: "/")
@@ -87,16 +90,20 @@ class Puzzle_2017_16: PuzzleBaseClass {
             for move in danceMoves {
                 if move.command == .Spin {
                     for _ in 0..<move.spinCount {
-                        let t = sequence.last!
+                        guard let t = sequence.last else {
+                            continue
+                        }
+
                         sequence.insert(t, at: 0)
                         sequence.removeLast()
                     }
                 } else if move.command == .Exchange {
                     swapCharacters(arr: &sequence, from: move.exchangeFrom, to: move.exchangeTo)
                 } else if move.command == .Partner {
-                    let idxFrom = sequence.firstIndex(of: move.partnerFrom)
-                    let idxTo = sequence.firstIndex(of: move.partnerTo)
-                    swapCharacters(arr: &sequence, from: idxFrom!, to: idxTo!)
+                    if let idxFrom = sequence.firstIndex(of: move.partnerFrom),
+                       let idxTo = sequence.firstIndex(of: move.partnerTo) {
+                        swapCharacters(arr: &sequence, from: idxFrom, to: idxTo)
+                    }
                 }
             }
 

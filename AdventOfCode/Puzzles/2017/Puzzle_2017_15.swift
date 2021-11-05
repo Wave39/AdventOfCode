@@ -22,7 +22,7 @@ class Puzzle_2017_15: PuzzleBaseClass {
         let puzzleInput = Puzzle_2017_15_Input.puzzleInput
 
         let puzzleInputMatrix = puzzleInput.parseIntoMatrix()
-        let initialGenerators = (Int(puzzleInputMatrix[0][4])!, Int(puzzleInputMatrix[1][4])!)
+        let initialGenerators = (puzzleInputMatrix[0][4].toInt(), puzzleInputMatrix[1][4].toInt())
 
         return solvePart1(initialGenerators: initialGenerators)
     }
@@ -31,7 +31,7 @@ class Puzzle_2017_15: PuzzleBaseClass {
         let puzzleInput = Puzzle_2017_15_Input.puzzleInput
 
         let puzzleInputMatrix = puzzleInput.parseIntoMatrix()
-        let initialGenerators = (Int(puzzleInputMatrix[0][4])!, Int(puzzleInputMatrix[1][4])!)
+        let initialGenerators = (puzzleInputMatrix[0][4].toInt(), puzzleInputMatrix[1][4].toInt())
 
         return solvePart2(initialGenerators: initialGenerators)
     }

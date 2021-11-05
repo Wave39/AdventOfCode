@@ -60,13 +60,11 @@ class Puzzle_2017_09: PuzzleBaseClass {
     }
 
     func findGarbage(str: String) -> (Int?, Int?, Int?) {
-        var startIndex: Int?
-        startIndex = str.firstIndex(of: "<")?.utf16Offset(in: str)
-        if startIndex == nil {
+        guard let startIndex = str.firstIndex(of: "<")?.utf16Offset(in: str) else {
             return (nil, nil, nil)
         }
 
-        var endIndex = startIndex! + 1
+        var endIndex = startIndex + 1
         var found = false
         var ignoreMode = false
         var ignoreCounter = 0
@@ -77,7 +75,7 @@ class Puzzle_2017_09: PuzzleBaseClass {
             } else {
                 if c == ">" {
                     found = true
-                    return (startIndex, (endIndex - startIndex! + 1), ignoreCounter)
+                    return (startIndex, (endIndex - startIndex + 1), ignoreCounter)
                 } else if c == "!" {
                     ignoreMode = true
                     ignoreCounter += 1

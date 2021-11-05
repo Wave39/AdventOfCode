@@ -42,8 +42,11 @@ class Puzzle_2017_17: PuzzleBaseClass {
         let maxValue = puzzleInput.1
         let searchValue = puzzleInput.2
         let buffer = createBuffer(step: step, maxValue: maxValue)
-        let idx = buffer.firstIndex(of: searchValue)
-        return buffer[idx! + 1]
+        guard let idx = buffer.firstIndex(of: searchValue) else {
+            return 0
+        }
+
+        return buffer[idx + 1]
     }
 
     func solvePart2(puzzleInput: (Int, Int, Int)) -> Int {

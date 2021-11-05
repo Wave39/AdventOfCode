@@ -19,34 +19,34 @@ class Puzzle_2016_12: PuzzleBaseClass {
                 let reg = arr[2]
                 var registerValue: Int
                 if arr[1].isStringNumeric() {
-                    registerValue = Int(arr[1])!
+                    registerValue = Int(arr[1]) ?? 0
                 } else {
-                    registerValue = registers[arr[1]]!
+                    registerValue = registers[arr[1]] ?? 0
                 }
 
                 registers[reg] = registerValue
                 programCounter += 1
             } else if arr[0] == "inc" {
                 let reg = arr[1]
-                let registerValue = registers[reg]!
+                let registerValue = registers[reg] ?? 0
                 registers[reg] = registerValue + 1
                 programCounter += 1
             } else if arr[0] == "dec" {
                 let reg = arr[1]
-                let registerValue = registers[reg]!
+                let registerValue = registers[reg] ?? 0
                 registers[reg] = registerValue - 1
                 programCounter += 1
             } else if arr[0] == "jnz" {
                 let reg = arr[1]
                 var registerValue: Int
                 if reg.isStringNumeric() {
-                    registerValue = Int(reg)!
+                    registerValue = Int(reg) ?? 0
                 } else {
-                    registerValue = registers[reg]!
+                    registerValue = registers[reg] ?? 0
                 }
 
                 if registerValue != 0 {
-                    programCounter += Int(arr[2])!
+                    programCounter += Int(arr[2]) ?? 0
                 } else {
                     programCounter += 1
                 }
@@ -55,7 +55,7 @@ class Puzzle_2016_12: PuzzleBaseClass {
             }
         }
 
-        return registers[registerToRetrieve]!
+        return registers[registerToRetrieve] ?? 0
     }
 
     func solve() {

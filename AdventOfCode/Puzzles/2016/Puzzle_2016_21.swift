@@ -71,9 +71,9 @@ class Puzzle_2016_21: PuzzleBaseClass {
                         }
                     } else if lineArr[1] == "based" {
                         let c = lineArr[6]
-                        let idx = thePassword.indexOf(char: Character(c))
-                        var amount = 1 + idx!
-                        if idx! >= 4 {
+                        let idx = thePassword.indexOf(char: Character(c)) ?? 0
+                        var amount = 1 + idx
+                        if idx >= 4 {
                             amount += 1
                         }
 
@@ -135,20 +135,20 @@ class Puzzle_2016_21: PuzzleBaseClass {
                     thePassword = reversedString
                 } else if lineArr[0] == "rotate" {
                     if lineArr[1] == "left" {
-                        let ctr = Int(lineArr[2])!
+                        let ctr = Int(lineArr[2]) ?? 0
                         if ctr > 0 {
                             thePassword.rotate(amount: ctr, left: false)
                         }
                     } else if lineArr[1] == "right" {
-                        let ctr = Int(lineArr[2])!
+                        let ctr = Int(lineArr[2]) ?? 0
                         if ctr > 0 {
                             thePassword.rotate(amount: ctr, left: true)
                         }
                     } else if lineArr[1] == "based" {
                         let c = lineArr[6]
-                        let idx = thePassword.indexOf(char: Character(c))
-                        var amount = 1 + idx!
-                        if idx! >= 4 {
+                        let idx = thePassword.indexOf(char: Character(c)) ?? 0
+                        var amount = 1 + idx
+                        if idx >= 4 {
                             amount += 1
                         }
 
@@ -175,8 +175,8 @@ class Puzzle_2016_21: PuzzleBaseClass {
                         print("Invalid rotate command: \(lineArr[1])")
                     }
                 } else if lineArr[0] == "move" {
-                    let idx1 = Int(lineArr[5])!
-                    let idx2 = Int(lineArr[2])!
+                    let idx1 = Int(lineArr[5]) ?? 0
+                    let idx2 = Int(lineArr[2]) ?? 0
                     let c = thePassword[idx1]
                     let s0 = thePassword.substring(from: 0, to: idx1) + thePassword.substring(from: idx1 + 1)
                     let s1: String

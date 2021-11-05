@@ -23,11 +23,11 @@ class Puzzle_2017_08: PuzzleBaseClass {
         return solvePuzzle()
     }
 
-    func highValue(dict: Dictionary<String, Int>) -> Int {
+    func highValue(dict: [String: Int]) -> Int {
         var retval = 0
-        for k in dict.keys {
-            if dict[k]! > retval {
-                retval = dict[k]!
+        for (_, v) in dict {
+            if v > retval {
+                retval = v
             }
         }
 
@@ -36,14 +36,14 @@ class Puzzle_2017_08: PuzzleBaseClass {
 
     func solvePuzzle() -> (Int, Int) {
         var highestValue = 0
-        var dict: Dictionary<String, Int> = [:]
+        var dict: [String: Int] = [:]
         for line in puzzleInput {
             let register = line[0]
             let opcode = line[1]
-            let incValue = (opcode == "inc" ? Int(line[2]) : -(Int(line[2])!))!
+            let incValue = (opcode == "inc" ? line[2].toInt() : -(line[2].toInt()))
             let testRegister = line[4]
             let condition = line[5]
-            let conditionValue = Int(line[6])!
+            let conditionValue = line[6].toInt()
             if dict[register] == nil {
                 dict[register] = 0
             }
@@ -52,27 +52,30 @@ class Puzzle_2017_08: PuzzleBaseClass {
                 dict[testRegister] = 0
             }
 
-            let testRegisterValue = dict[testRegister]!
-            var doIncDec: Bool
-            switch condition {
-            case "==":
-                doIncDec = (testRegisterValue == conditionValue)
-            case "!=":
-                doIncDec = (testRegisterValue != conditionValue)
-            case "<":
-                doIncDec = (testRegisterValue < conditionValue)
-            case "<=":
-                doIncDec = (testRegisterValue <= conditionValue)
-            case ">":
-                doIncDec = (testRegisterValue > conditionValue)
-            case ">=":
-                doIncDec = (testRegisterValue >= conditionValue)
-            default:
-                doIncDec = false
-            }
+            if let testRegisterValue = dict[testRegister] {
+                var doIncDec: Bool
+                switch condition {
+                case "==":
+                    doIncDec = (testRegisterValue == conditionValue)
+                case "!=":
+                    doIncDec = (testRegisterValue != conditionValue)
+                case "<":
+                    doIncDec = (testRegisterValue < conditionValue)
+                case "<=":
+                    doIncDec = (testRegisterValue <= conditionValue)
+                case ">":
+                    doIncDec = (testRegisterValue > conditionValue)
+                case ">=":
+                    doIncDec = (testRegisterValue >= conditionValue)
+                default:
+                    doIncDec = false
+                }
 
-            if doIncDec {
-                dict[register] = dict[register]! + incValue
+                if doIncDec {
+                    if let reg = dict[register] {
+                        dict[register] = reg + incValue
+                    }
+                }
             }
 
             let highestValueNow = highValue(dict: dict)

@@ -34,7 +34,7 @@ class Puzzle_2017_01: NSObject {
             let c2 = str.substring(from: idx2, to: idx2 + 1)
 
             if c1 == c2 {
-                total += Int(c1)!
+                total += Int(c1) ?? 0
             }
         }
 

@@ -381,4 +381,11 @@ extension StringProtocol {
 
 extension Substring {
     var string: String { return String(self) }
+
+    func toInt() -> Int {
+        guard let retval = Int(self) else {
+            return 0
+        }
+        return retval
+    }
 }

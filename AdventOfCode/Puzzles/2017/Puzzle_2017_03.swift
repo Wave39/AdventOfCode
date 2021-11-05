@@ -19,8 +19,11 @@ class Puzzle_2017_03: PuzzleBaseClass {
         let puzzleInput = Puzzle_2017_03_Input.puzzleInput
 
         let part1Array = buildPart1Spiral(limit: puzzleInput)
-        let part1LastElement = part1Array.last
-        let part1Solution = abs((part1LastElement?.x)!) + abs((part1LastElement?.y)!)
+        guard let part1LastElement = part1Array.last else {
+            return (0, 0)
+        }
+
+        let part1Solution = abs(part1LastElement.x) + abs(part1LastElement.y)
         let part2Solution = buildPart2Spiral(limit: puzzleInput)
         return (part1Solution, part2Solution)
     }
@@ -93,8 +96,8 @@ class Puzzle_2017_03: PuzzleBaseClass {
         positions.append(Point2D(x: origin.x + 1, y: origin.y))
 
         for p in positions {
-            if dict[p] != nil {
-                total += dict[p]!
+            if let d = dict[p] {
+                total += d
             }
         }
 

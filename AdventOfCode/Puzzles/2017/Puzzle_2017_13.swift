@@ -31,15 +31,18 @@ class Puzzle_2017_13: PuzzleBaseClass {
 
     func moveScanners(layerDict: inout Dictionary<Int, Layer>) {
         for k in layerDict.keys {
-            let v = layerDict[k]?.currentDepth
-            let m = layerDict[k]?.maxDepth
+            guard let v = layerDict[k]?.currentDepth,
+                  let m = layerDict[k]?.maxDepth else {
+                      continue
+                  }
+
             if v == 0 {
                 layerDict[k]?.currentDirection = 1
-            } else if v == (m! - 1) {
+            } else if v == (m - 1) {
                 layerDict[k]?.currentDirection = -1
             }
 
-            let newValue = v! + (layerDict[k]?.currentDirection)!
+            let newValue = v + (layerDict[k]?.currentDirection ?? 0)
             layerDict[k]?.currentDepth = newValue
         }
     }
@@ -50,14 +53,13 @@ class Puzzle_2017_13: PuzzleBaseClass {
 
         while currentLayer <= maxLayer {
             let state = layerDictArray[currentLayer + delay]
-            let layer = state[currentLayer]
-            if layer != nil {
-                if layer?.currentDepth == 0 {
+            if let layer = state[currentLayer] {
+                if layer.currentDepth == 0 {
                     if severity == -1 {
                         severity = 0
                     }
 
-                    severity += (currentLayer * (layer?.maxDepth)!)
+                    severity += (currentLayer * layer.maxDepth)
                 }
             }
 
@@ -73,9 +75,9 @@ class Puzzle_2017_13: PuzzleBaseClass {
         var maxLayer = 0
         for line in lineArray {
             let elementArray = line.split(separator: ":")
-            let k = Int(elementArray[0])!
+            let k = elementArray[0].toInt()
             var layer = Layer()
-            layer.maxDepth = Int(String(elementArray[1]).trim())!
+            layer.maxDepth = String(elementArray[1]).trim().toInt()
             layerDict[k] = layer
             if k > maxLayer {
                 maxLayer = k
