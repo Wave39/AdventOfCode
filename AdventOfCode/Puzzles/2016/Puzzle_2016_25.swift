@@ -47,10 +47,12 @@ class Puzzle_2016_25: PuzzleBaseClass {
 
         func getParamValue(p: Param, registers: [Int]) -> Int {
             var v: Int
-            if p.numericValue != nil {
-                v = p.numericValue!
+            if let pNumericValue = p.numericValue {
+                v = pNumericValue
+            } else if let pRegisterIndex = p.registerIndex {
+                v = registers[pRegisterIndex]
             } else {
-                v = registers[p.registerIndex!]
+                v = 0
             }
 
             return v
@@ -77,19 +79,25 @@ class Puzzle_2016_25: PuzzleBaseClass {
                     programCounter += 1
                 } else if instruction.opcode == .inc {
                     let p1 = instruction.param1
-                    let registerValue = registers[p1.registerIndex!]
-                    registers[p1.registerIndex!] = registerValue + 1
+                    if let p1RegisterIndex = p1.registerIndex {
+                        let registerValue = registers[p1RegisterIndex]
+                        registers[p1RegisterIndex] = registerValue + 1
+                    }
+
                     programCounter += 1
                 } else if instruction.opcode == .dec {
                     let p1 = instruction.param1
-                    let registerValue = registers[p1.registerIndex!]
-                    registers[p1.registerIndex!] = registerValue - 1
+                    if let p1RegisterIndex = p1.registerIndex {
+                        let registerValue = registers[p1RegisterIndex]
+                        registers[p1RegisterIndex] = registerValue - 1
+                    }
+
                     programCounter += 1
                 } else if instruction.opcode == .jnz {
                     let p1 = instruction.param1
                     let p1Value = getParamValue(p: p1, registers: registers)
                     if p1Value != 0 {
-                        let p2 = instruction.param2!
+                        let p2 = instruction.param2 ?? Param()
                         let p2Value = getParamValue(p: p2, registers: registers)
                         programCounter += p2Value
                     } else {
@@ -116,7 +124,7 @@ class Puzzle_2016_25: PuzzleBaseClass {
         func buildParam(inputString: String) -> Param {
             var p: Param
             if isStringNumeric(theString: inputString) {
-                p = Param(numericValue: inputString.toInt(), registerIndex: nil)
+                p = Param(numericValue: inputString.int, registerIndex: nil)
             } else {
                 let idx: Int
                 if inputString == "a" {

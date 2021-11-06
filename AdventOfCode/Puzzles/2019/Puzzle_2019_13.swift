@@ -49,7 +49,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
                     expandedMemory[pointer] = 0
                 }
 
-                return expandedMemory[pointer]!
+                return expandedMemory[pointer] ?? 0
             }
         }
 
@@ -130,8 +130,10 @@ class Puzzle_2019_13: PuzzleBaseClass {
                     return (outputArray, true)
                 }
                 SetParameterValues(1, 1)
-                SetMemory(p1, inputSignal.first!)
-                inputSignal.remove(at: 0)
+                if let firstInputSignal = inputSignal.first {
+                    SetMemory(p1, firstInputSignal)
+                    inputSignal.remove(at: 0)
+                }
                 programCounter += 2
             } else if opcode == 4 {
                 SetParameterValues(1, 0)

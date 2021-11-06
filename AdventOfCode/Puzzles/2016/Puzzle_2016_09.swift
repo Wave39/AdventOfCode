@@ -31,8 +31,8 @@ class Puzzle_2016_09: PuzzleBaseClass {
                     let parenEnd = ctr
                     let parenString = s[Range((parenStart + 1)...(parenEnd - 1))]
                     let parenArr = parenString.components(separatedBy: "x")
-                    let charLen = parenArr[0].toInt()
-                    let repeatCount = parenArr[1].toInt()
+                    let charLen = parenArr[0].int
+                    let repeatCount = parenArr[1].int
                     let repeatString = String(s[Range((parenEnd + 1)...(parenEnd + charLen))])
                     if part1 {
                         theLength += repeatString.count * repeatCount

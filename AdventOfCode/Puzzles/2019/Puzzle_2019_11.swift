@@ -183,7 +183,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
                     expandedMemory[pointer] = 0
                 }
 
-                return expandedMemory[pointer]!
+                return expandedMemory[pointer] ?? 0
             }
         }
 
@@ -384,14 +384,14 @@ class Puzzle_2019_11: PuzzleBaseClass {
         }
 
         var adjustedWhitePixels: Set<Point2D> = Set()
-        let minX = whitePixels.map { $0.x }.min()!
-        let minY = whitePixels.map { $0.y }.min()!
+        let minX = whitePixels.map { $0.x }.min() ?? 0
+        let minY = whitePixels.map { $0.y }.min() ?? 0
         for w in whitePixels {
             adjustedWhitePixels.insert(Point2D(x: w.x - minX, y: w.y - minY))
         }
 
-        let width = adjustedWhitePixels.map { $0.x }.max()! + 1
-        let height = adjustedWhitePixels.map { $0.y }.max()! + 1
+        let width = (adjustedWhitePixels.map { $0.x }.max() ?? 0) + 1
+        let height = (adjustedWhitePixels.map { $0.y }.max() ?? 0) + 1
         var retval = ""
         for y in stride(from: height - 1, through: 0, by: -1) {
             for x in 0..<width {

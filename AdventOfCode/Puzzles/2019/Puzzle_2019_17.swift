@@ -57,7 +57,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
                     lineArray = []
                 }
             } else {
-                lineArray.append(TileType(rawValue: r)!)
+                lineArray.append(TileType(rawValue: r) ?? .RobotUp)
             }
         }
 
@@ -99,7 +99,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
                     lineArray = []
                 }
             } else {
-                lineArray.append(TileType(rawValue: r)!)
+                lineArray.append(TileType(rawValue: r) ?? .RobotUp)
             }
         }
 
@@ -242,9 +242,9 @@ class Puzzle_2019_17: PuzzleBaseClass {
                 if next.isEmpty {
                     stayInLoop = false
                 } else {
-                    let turn = getNextDirection(oldDirection: robotDirection, newDirection: next.first!)
+                    let turn = getNextDirection(oldDirection: robotDirection, newDirection: next.first ?? .North)
                     movementString.append(turn == .Left ? "L" : "R")
-                    robotDirection = next.first!
+                    robotDirection = next.first ?? .North
                 }
             }
         }
@@ -336,7 +336,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
         expandedMemory = [:]
         let finalResults = ProcessProgram(program: &arr, inputSignal: &inputArray, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
 
-        return finalResults.0.last!
+        return finalResults.0.last ?? 0
     }
 
     func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
@@ -354,7 +354,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
                     expandedMemory[pointer] = 0
                 }
 
-                return expandedMemory[pointer]!
+                return expandedMemory[pointer] ?? 0
             }
         }
 
@@ -437,7 +437,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
                 }
 
                 SetParameterValues(1, 1)
-                SetMemory(p1, inputSignal.first!)
+                SetMemory(p1, inputSignal.first ?? 0)
                 inputSignal.remove(at: 0)
                 programCounter += 2
             } else if opcode == 4 {

@@ -31,10 +31,10 @@ class Puzzle_2016_05: PuzzleBaseClass {
                 }
 
                 if sixthChar >= "0" && sixthChar <= "7" {
-                    let pos = Int(String(sixthChar))
-                    if part2Password[pos!] == "-" {
+                    let pos = sixthChar.int
+                    if part2Password[pos] == "-" {
                         let seventhChar = md5String[6]
-                        part2Password = part2Password.replace(index: pos!, newChar: seventhChar)
+                        part2Password = part2Password.replace(index: pos, newChar: seventhChar)
                         // print("Part 2 password becomes \(part2Password)")
                     }
                 }

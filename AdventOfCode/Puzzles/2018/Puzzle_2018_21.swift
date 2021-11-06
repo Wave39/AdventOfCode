@@ -57,14 +57,14 @@ class Puzzle_2018_21: NSObject {
         for line in arr {
             if line.starts(with: "#") {
                 let components = line.parseIntoStringArray(separator: " ")
-                program.boundRegister = Int(components[1])!
+                program.boundRegister = components[1].int
             } else {
                 let components = line.capturedGroups(withRegex: "(.*) (.*) (.*) (.*)", trimResults: true)
                 let cmd = Command()
-                cmd.opcode = opcodeDict[components[0]]!
-                cmd.a = Int(components[1])!
-                cmd.b = Int(components[2])!
-                cmd.c = Int(components[3])!
+                cmd.opcode = opcodeDict[components[0]] ?? .unknown
+                cmd.a = components[1].int
+                cmd.b = components[2].int
+                cmd.c = components[3].int
                 program.code.append(cmd)
             }
         }

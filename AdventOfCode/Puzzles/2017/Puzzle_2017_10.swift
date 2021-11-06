@@ -47,7 +47,7 @@ class Puzzle_2017_10: PuzzleBaseClass {
         setUpElementArray(ctr: arr[0] as! Int)
         var currentPosition = 0
         var skipSize = 0
-        let inputLengthArray = (arr[1] as! String).split(separator: ",").map { $0.toInt() }
+        let inputLengthArray = (arr[1] as! String).split(separator: ",").map { $0.int }
         for inputLength in inputLengthArray {
             reverseElementArray(pos: currentPosition, len: inputLength)
             currentPosition += (inputLength + skipSize)

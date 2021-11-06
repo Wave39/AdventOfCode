@@ -115,13 +115,13 @@ whirled peas
                 retval = code[0]
             } else {
                 if !commandArray.isEmpty {
-                    while commandArray.first!.hasPrefix("//") {
+                    while commandArray[0].hasPrefix("//") {
                         commandArray.remove(at: 0)
                     }
                 }
 
                 if !commandArray.isEmpty {
-                    inputSignal = getAsciiArray(commandArray.first!)
+                    inputSignal = getAsciiArray(commandArray.first ?? "")
                     commandArray.remove(at: 0)
                 } else {
                     let bitmaskBinary = pad(string: String(bitmask, radix: 2), toSize: 8)
@@ -163,7 +163,7 @@ whirled peas
 
     func getStringFromAsciiArray(_ arr: [Int]) -> String {
         let arr2 = arr.filter({ $0 < 256 })
-        return String(arr2.map { Character(UnicodeScalar($0)!) })
+        return String(arr2.map { Character(UnicodeScalar($0) ?? Unicode.Scalar(0)) })
     }
 
     func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> (Bool, String) {
@@ -181,7 +181,7 @@ whirled peas
                     expandedMemory[pointer] = 0
                 }
 
-                return expandedMemory[pointer]!
+                return expandedMemory[pointer] ?? 0
             }
         }
 
@@ -264,14 +264,14 @@ whirled peas
                 }
 
                 SetParameterValues(1, 1)
-                SetMemory(p1, inputSignal.first!)
+                SetMemory(p1, inputSignal.first ?? 0)
                 inputSignal.remove(at: 0)
                 programCounter += 2
             } else if opcode == 4 {
                 SetParameterValues(1, 0)
                 // print(Character(UnicodeScalar(p1)!), terminator:"")
                 programCounter += 2
-                outputString += String(Character(UnicodeScalar(p1)!))
+                outputString += String(Character(UnicodeScalar(p1) ?? Unicode.Scalar(0)))
                 if outputString.hasSuffix("Command?") {
                     return (false, "")
                 } else if outputString.hasSuffix("airlock.\"") {

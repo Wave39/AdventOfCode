@@ -98,13 +98,13 @@ class Puzzle_2016_08: PuzzleBaseClass {
             if !arr.isEmpty {
                 if arr[0] == "rect" {
                     let rectArr = arr[1].components(separatedBy: "x")
-                    let rectWidth = rectArr[0].toInt()
-                    let rectHeight = rectArr[1].toInt()
+                    let rectWidth = rectArr[0].int
+                    let rectHeight = rectArr[1].int
                     part1Display.rect(w: rectWidth, h: rectHeight)
                 } else if arr[0] == "rotate" {
                     let rotateRow = (arr[1] == "row")
-                    let index = arr[2].replacingOccurrences(of: "x=", with: "").replacingOccurrences(of: "y=", with: "").toInt()
-                    let amount = arr[4].toInt()
+                    let index = arr[2].replacingOccurrences(of: "x=", with: "").replacingOccurrences(of: "y=", with: "").int
+                    let amount = arr[4].int
                     part1Display.rotate(isRow: rotateRow, rcIndex: index, rcAmount: amount)
                 }
             }

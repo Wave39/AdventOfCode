@@ -22,7 +22,7 @@ class Puzzle_2018_25: NSObject {
         for line in str.parseIntoStringArray() {
             let components = line.capturedGroups(withRegex: "(.*),(.*),(.*),(.*)", trimResults: true)
             let star = Star()
-            star.position = Point4D(x: Int(components[0])!, y: Int(components[1])!, z: Int(components[2])!, t: Int(components[3])!)
+            star.position = Point4D(x: components[0].int, y: components[1].int, z: components[2].int, t: components[3].int)
             star.constellationId = retval.count + 1
             retval.append(star)
         }

@@ -42,7 +42,7 @@ class Puzzle_2016_06: PuzzleBaseClass {
                 if dict[c] == nil {
                     dict[c] = 1
                 } else {
-                    dict[c] = dict[c]! + 1
+                    dict[c] = (dict[c] ?? 0) + 1
                 }
             }
 

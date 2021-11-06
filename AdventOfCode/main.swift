@@ -30,16 +30,16 @@ while !quitApp {
         } else if !response.isEmpty {
             let arr = response.parseIntoStringArray(separator: " ")
             if arr.count == 2 {
-                year = arr[0].toInt()
-                puzzle = arr[1].toInt()
+                year = arr[0].int
+                puzzle = arr[1].int
             } else if arr.count == 1 {
                 year = defaultYear
-                puzzle = arr[0].toInt()
+                puzzle = arr[0].int
             }
         } else {
             let arr = defaultYearAndPuzzle.parseIntoStringArray(separator: " ")
-            year = arr[0].toInt()
-            puzzle = arr[1].toInt()
+            year = arr[0].int
+            puzzle = arr[1].int
             print("Defaulting to puzzle \(defaultYearAndPuzzle)")
         }
     }

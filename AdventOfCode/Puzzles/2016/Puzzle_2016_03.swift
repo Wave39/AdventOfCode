@@ -27,9 +27,9 @@ class Puzzle_2016_03: PuzzleBaseClass {
         var part2Array: [Int] = []
         for part1Step in puzzleInputLineArray {
             let arr = part1Step.condenseWhitespace().components(separatedBy: " ")
-            let a = arr[0].toInt()
-            let b = arr[1].toInt()
-            let c = arr[2].toInt()
+            let a = arr[0].int
+            let b = arr[1].int
+            let c = arr[2].int
             if validTriangle(a: a, b: b, c: c) {
                 part1Ctr += 1
             }

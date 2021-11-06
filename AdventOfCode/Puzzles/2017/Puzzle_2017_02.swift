@@ -52,8 +52,8 @@ class Puzzle_2017_02: PuzzleBaseClass {
     func findEvenlyDivisibleIntegers(arr: [String]) -> (Int, Int) {
         for i in 0...(arr.count - 2) {
             for j in (i + 1)...(arr.count - 1) {
-                var e1 = arr[i].toInt()
-                var e2 = arr[j].toInt()
+                var e1 = arr[i].int
+                var e2 = arr[j].int
                 if e1 < e2 {
                     let t = e1
                     e1 = e2

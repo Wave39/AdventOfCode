@@ -201,8 +201,9 @@ class Puzzle_2016_11: PuzzleBaseClass {
         // check the devices being left on the current floor when the elevator leaves
         var remainingDevices = building.floorArray[building.elevatorFloor]
         for d in move.devicesToCarry {
-            let idx = remainingDevices.firstIndex { $0 == d }
-            remainingDevices.remove(at: idx!)
+            if let idx = remainingDevices.firstIndex(where: { $0 == d }) {
+                remainingDevices.remove(at: idx)
+            }
         }
 
         if !microchipsAndGeneratorsAreSafe(devices: remainingDevices) {

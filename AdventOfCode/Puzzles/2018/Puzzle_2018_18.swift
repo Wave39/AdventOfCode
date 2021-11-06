@@ -128,7 +128,7 @@ class Puzzle_2018_18: NSObject {
             let s = forestToString(forest)
             if forestArray.contains(s) {
                 foundDuplicate = true
-                advance = minutesElapsed - 1 - forestArray.firstIndex(of: s)!
+                advance = minutesElapsed - 1 - (forestArray.firstIndex(of: s) ?? 0)
             } else {
                 forestArray.append(s)
             }

@@ -38,17 +38,6 @@ class Puzzle_2018_09: NSObject {
             var toString: String {
                 return "\(self.value)"
             }
-
-            var toStringChain: String {
-                var retval = "[ \(self.value)"
-                var next = self.clockwise!
-                repeat {
-                    retval += " \(next.value)"
-                    next = next.clockwise!
-                } while next.value != self.value
-
-                return retval + " ]"
-            }
         }
 
         let playerCount = game.0
@@ -60,7 +49,7 @@ class Puzzle_2018_09: NSObject {
         marbleLinkedList.counterclockwise = marbleLinkedList
 
         var playerIndex = 0
-        var scoringDictionary: Dictionary<Int, Int> = [:]
+        var scoringDictionary: [Int: Int] = [:]
         var currentNode = marbleLinkedList
         for marble in 1...marbleCount {
             playerIndex += 1
@@ -83,7 +72,7 @@ class Puzzle_2018_09: NSObject {
 
                 var scoringNode = currentNode
                 for _ in 1...7 {
-                    scoringNode = scoringNode.counterclockwise!
+                    scoringNode = scoringNode.counterclockwise ?? Node()
                 }
 
                 scoringDictionary[playerIndex] = scoringDictionary[playerIndex]! + marble + scoringNode.value
@@ -104,8 +93,6 @@ class Puzzle_2018_09: NSObject {
                 previousToTargetNode?.clockwise = newNode
                 currentNode = newNode
             }
-
-            // print("\(playerIndex) \(currentNode.toString) \(zeroNode.toStringChain)")
         }
 
         var retval = 0
@@ -146,7 +133,7 @@ class Puzzle_2018_09: NSObject {
                     scoringIndex += marbleArray.count
                 }
 
-                scoringDictionary[playerIndex] = scoringDictionary[playerIndex]! + marble + marbleArray[scoringIndex]
+                scoringDictionary[playerIndex] = (scoringDictionary[playerIndex] ?? 0) + marble + marbleArray[scoringIndex]
                 marbleArray.remove(at: scoringIndex)
                 currentMarbleIndex = scoringIndex
             } else {
@@ -162,8 +149,6 @@ class Puzzle_2018_09: NSObject {
                     marbleArray.insert(marble, at: currentMarbleIndex)
                 }
             }
-
-            // print("\(playerIndex) \(marbleArray[currentMarbleIndex]) \(marbleArray)")
         }
 
         var retval = 0

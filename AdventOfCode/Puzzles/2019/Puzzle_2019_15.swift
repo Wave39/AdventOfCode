@@ -69,7 +69,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
                     expandedMemory[pointer] = 0
                 }
 
-                return expandedMemory[pointer]!
+                return expandedMemory[pointer] ?? 0
             }
         }
 
@@ -197,10 +197,10 @@ class Puzzle_2019_15: PuzzleBaseClass {
         tileDict[Point2D(x: 0, y: 0)] = .StartingLocation
 
         let k = tileDict.keys
-        let minX = k.map { $0.x }.min()!
-        let maxX = k.map { $0.x }.max()!
-        let minY = k.map { $0.y }.min()!
-        let maxY = k.map { $0.y }.max()!
+        let minX = k.map { $0.x }.min() ?? 0
+        let maxX = k.map { $0.x }.max() ?? 0
+        let minY = k.map { $0.y }.min() ?? 0
+        let maxY = k.map { $0.y }.max() ?? 0
         print("")
 
         let w = maxX - minX + 1
@@ -219,7 +219,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         for k in tileDict.keys {
             let x = k.x - minX
             let y = (h - 1) - (k.y - minY)
-            let tile = tileDict[k]!
+            let tile = tileDict[k] ?? .Unknown
             let c: Character
             if tile == .Wall {
                 c = "⬜️"
@@ -253,7 +253,9 @@ class Puzzle_2019_15: PuzzleBaseClass {
         let tileDict = createMap(str: str, render: false)
 
         var movementDict = tileDict.filter { $0.value == .Hallway || $0.value == .StartingLocation }.map { $0.key }
-        let oxygenPoint = tileDict.first(where: { $0.value == .Oxygen })!.key
+        guard let oxygenPoint = tileDict.first(where: { $0.value == .Oxygen })?.key else {
+            return 0
+        }
 
         var pathHeaders: [Point2D] = [ oxygenPoint ]
         var stepCount = 0
@@ -284,7 +286,9 @@ class Puzzle_2019_15: PuzzleBaseClass {
         let tileDict = createMap(str: str, render: false)
 
         var movementDict = tileDict.filter { $0.value == .Hallway || $0.value == .StartingLocation }.map { $0.key }
-        let oxygenPoint = tileDict.first(where: { $0.value == .Oxygen })!.key
+        guard let oxygenPoint = tileDict.first(where: { $0.value == .Oxygen })?.key else {
+            return 0
+        }
 
         var pathHeaders: [Point2D] = [ oxygenPoint ]
         var stepCount = 0
@@ -327,7 +331,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
             let northPoint = Point2D(x: position.x, y: position.y + 1)
             if tileDict[northPoint] == nil {
                 let r = ProcessProgram(program: &arr, inputSignal: MovementDirection.North.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
-                results = TileType(rawValue: r.0)!
+                results = TileType(rawValue: r.0) ?? .Unknown
                 if results == .Wall {
                     tileDict[northPoint] = .Wall
                     drawBoard(tileDict)
@@ -348,7 +352,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
             let eastPoint = Point2D(x: position.x + 1, y: position.y)
             if tileDict[eastPoint] == nil {
                 let r = ProcessProgram(program: &arr, inputSignal: MovementDirection.East.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
-                results = TileType(rawValue: r.0)!
+                results = TileType(rawValue: r.0) ?? .Unknown
                 if results == .Wall {
                     tileDict[eastPoint] = .Wall
                     drawBoard(tileDict)
@@ -369,7 +373,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
             let westPoint = Point2D(x: position.x - 1, y: position.y)
             if tileDict[westPoint] == nil {
                 let r = ProcessProgram(program: &arr, inputSignal: MovementDirection.West.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
-                results = TileType(rawValue: r.0)!
+                results = TileType(rawValue: r.0) ?? .Unknown
                 if results == .Wall {
                     tileDict[westPoint] = .Wall
                     drawBoard(tileDict)
@@ -390,7 +394,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
             let southPoint = Point2D(x: position.x, y: position.y - 1)
             if tileDict[southPoint] == nil {
                 let r = ProcessProgram(program: &arr, inputSignal: MovementDirection.South.rawValue, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
-                results = TileType(rawValue: r.0)!
+                results = TileType(rawValue: r.0) ?? .Unknown
                 if results == .Wall {
                     tileDict[southPoint] = .Wall
                     drawBoard(tileDict)

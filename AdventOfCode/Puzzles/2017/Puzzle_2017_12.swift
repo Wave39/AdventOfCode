@@ -24,7 +24,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
 
     func findRow(lineArray: [[String]], rowNumber: Int) -> [String] {
         for l in lineArray {
-            if l[0].toInt() == rowNumber {
+            if l[0].int == rowNumber {
                 return l
             }
         }
@@ -35,7 +35,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
     func addRow(set: Set<Int>, queue: inout Array<Int>, row: [String]) {
         for idx in 2..<(row.count) {
             let s = row[idx].replacingOccurrences(of: ",", with: "")
-            let i = s.toInt()
+            let i = s.int
             if !set.contains(i) {
                 queue.append(i)
             }
@@ -46,7 +46,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
         var programSet: Set<Int> = Set()
         var programQueue: Array<Int> = []
         let firstRow = findRow(lineArray: lineArray, rowNumber: programNumber)
-        let firstElement = firstRow[0].toInt()
+        let firstElement = firstRow[0].int
         programSet.insert(firstElement)
         let row = findRow(lineArray: lineArray, rowNumber: firstElement)
         addRow(set: programSet, queue: &programQueue, row: row)
@@ -77,7 +77,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
 
     func findNextNumber(lineArray: [[String]], groups: [Set<Int>]) -> Int {
         for l in lineArray {
-            let n = l[0].toInt()
+            let n = l[0].int
             if findProgramInGroups(groups: groups, programNumber: n).isEmpty {
                 return n
             }

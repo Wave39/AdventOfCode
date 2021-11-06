@@ -75,9 +75,9 @@ class Puzzle_2017_13: PuzzleBaseClass {
         var maxLayer = 0
         for line in lineArray {
             let elementArray = line.split(separator: ":")
-            let k = elementArray[0].toInt()
+            let k = elementArray[0].int
             var layer = Layer()
-            layer.maxDepth = String(elementArray[1]).trim().toInt()
+            layer.maxDepth = String(elementArray[1]).trim().int
             layerDict[k] = layer
             if k > maxLayer {
                 maxLayer = k

@@ -34,11 +34,11 @@ class Puzzle_2016_22: PuzzleBaseClass {
         var clusterLineArray: [Cluster] = []
         for line in lineArray {
             let arr = line.words()
-            let y = Int(arr[4].replacingOccurrences(of: "y", with: ""))!
-            let size = Int(arr[5].replacingOccurrences(of: "T", with: ""))!
-            let used = Int(arr[6].replacingOccurrences(of: "T", with: ""))!
-            let available = Int(arr[7].replacingOccurrences(of: "T", with: ""))!
-            let usePercent = Int(arr[8])!
+            let y = arr[4].replacingOccurrences(of: "y", with: "").int
+            let size = arr[5].replacingOccurrences(of: "T", with: "").int
+            let used = arr[6].replacingOccurrences(of: "T", with: "").int
+            let available = arr[7].replacingOccurrences(of: "T", with: "").int
+            let usePercent = arr[8].int
             let cluster = Cluster(size: size, used: used, available: available, usePercent: usePercent)
             clusterLineArray.append(cluster)
             if y == 25 {

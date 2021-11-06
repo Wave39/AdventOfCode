@@ -78,8 +78,8 @@ class Puzzle_2016_14: PuzzleBaseClass {
             return validKeys
         }
 
-        let part1Solution = findMatches(inputString: puzzleInput, stretch: false).last!
-        let part2Solution = findMatches(inputString: puzzleInput, stretch: true).last!
+        let part1Solution = findMatches(inputString: puzzleInput, stretch: false).last ?? 0
+        let part2Solution = findMatches(inputString: puzzleInput, stretch: true).last ?? 0
         return (part1Solution, part2Solution)
     }
 }

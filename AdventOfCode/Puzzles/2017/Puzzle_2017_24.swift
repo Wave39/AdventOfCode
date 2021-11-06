@@ -45,8 +45,8 @@ class Puzzle_2017_24: PuzzleBaseClass {
         for line in str.split(separator: "\n") {
             let port = line.split(separator: "/")
             var comp = Component()
-            comp.leftPort = Int(String(port[0]))!
-            comp.rightPort = Int(String(port[1]))!
+            comp.leftPort = port[0].int
+            comp.rightPort = port[1].int
             retval.append(comp)
         }
 
@@ -95,9 +95,11 @@ class Puzzle_2017_24: PuzzleBaseClass {
 
         bridges.append(newBridge)
         let newComponents = components.filter { $0 != component }
-        let nextComponents = newComponents.filter { $0.leftPort == newBridge.last! || $0.rightPort == newBridge.last! }
-        for c in nextComponents {
-            buildBridge(oldBridge: newBridge, components: newComponents, component: c)
+        if let last = newBridge.last {
+            let nextComponents = newComponents.filter { $0.leftPort == last || $0.rightPort == last }
+            for c in nextComponents {
+                buildBridge(oldBridge: newBridge, components: newComponents, component: c)
+            }
         }
     }
 

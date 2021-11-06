@@ -101,27 +101,30 @@ class Puzzle_2019_06: PuzzleBaseClass {
             WalkPlanets(o.orbiter, 1)
         }
 
-        let you = planets.first(where: { $0.name == "YOU" })!
-        let san = planets.first(where: { $0.name == "SAN" })!
+        guard let you = planets.first(where: { $0.name == "YOU" }),
+              let san = planets.first(where: { $0.name == "SAN" }) else {
+            return 0
+        }
         var youOrbits: [PlanetaryInfo] = []
 
-        var pName = orbitalRelationships.first(where: { $0.orbiter == "YOU" })!.center
+        let firstYou = orbitalRelationships.first(where: { $0.orbiter == "YOU" }) ?? OrbitalRelationship("", "")
+        var pName = firstYou.center
         while pName != "COM" {
-            youOrbits.append(planets.first(where: { $0.name == pName })!)
-            pName = orbitalRelationships.first(where: { $0.orbiter == pName })!.center
+            youOrbits.append(planets.first(where: { $0.name == pName }) ?? PlanetaryInfo("", 0))
+            pName = (orbitalRelationships.first(where: { $0.orbiter == pName }) ?? OrbitalRelationship("", "")).center
         }
 
-        pName = orbitalRelationships.first(where: { $0.orbiter == "SAN" })!.center
+        pName = (orbitalRelationships.first(where: { $0.orbiter == "SAN" }) ?? OrbitalRelationship("", "")).center
         while pName != "COM" {
             let planetMatch = youOrbits.first(where: { $0.name == pName })
             if planetMatch != nil {
                 break
             }
 
-            pName = orbitalRelationships.first(where: { $0.orbiter == pName })!.center
+            pName = (orbitalRelationships.first(where: { $0.orbiter == pName }) ?? OrbitalRelationship("", "")).center
         }
 
-        let commonPlanet = planets.first(where: { $0.name == pName })!
+        let commonPlanet = planets.first(where: { $0.name == pName }) ?? PlanetaryInfo("", 0)
         return (you.stepCount - commonPlanet.stepCount - 1) + (san.stepCount - commonPlanet.stepCount - 1)
     }
 }

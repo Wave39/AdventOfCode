@@ -42,7 +42,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
             let a1 = line.split(separator: "(")
             program.name = String(a1[0]).trim()
             let a2 = a1[1].split(separator: ")")
-            program.weight = a2[0].toInt()
+            program.weight = a2[0].int
             if a2.count > 1 {
                 let otherPrograms = String(a2[1]).trim()
                 if !otherPrograms.isEmpty {

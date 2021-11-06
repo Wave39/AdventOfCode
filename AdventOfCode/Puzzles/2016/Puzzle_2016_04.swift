@@ -21,13 +21,12 @@ class Puzzle_2016_04: PuzzleBaseClass {
         let alphabet = "abcdefghijklmnopqrstuvwxyz"
 
         func rotateCharacter(c: Character, rotations: Int) -> Character {
-            let index = alphabet.indexOf(char: c)
-            if index == nil {
+            guard let index = alphabet.indexOf(char: c) else {
                 return c
             }
 
             let r = rotations % 26
-            let rFinal: Int = (r + index!) % 26
+            let rFinal: Int = (r + index) % 26
             let x = alphabet[rFinal]
             return Character(String(x))
         }
@@ -43,7 +42,7 @@ class Puzzle_2016_04: PuzzleBaseClass {
             var dict: Dictionary<String, Int> = Dictionary()
             let n = line.matchesInCapturingGroups(pattern: "([a-z-]+)([0-9]+)\\[([a-z]+)\\]")
             let encryptedName = n[0]
-            let sectorID = n[1].toInt()
+            let sectorID = n[1].int
             let checksum = n[2]
             var decryptedName = ""
             for c in encryptedName {
@@ -52,7 +51,7 @@ class Puzzle_2016_04: PuzzleBaseClass {
                     if dict[cString] == nil {
                         dict[cString] = 1
                     } else {
-                        dict[cString] = dict[cString]! + 1
+                        dict[cString] = (dict[cString] ?? 0) + 1
                     }
                 }
 
@@ -64,7 +63,7 @@ class Puzzle_2016_04: PuzzleBaseClass {
             for k in dict.keys {
                 var x = CharacterCounter()
                 x.theCharacter = k
-                x.theCount = dict[k]!
+                x.theCount = dict[k] ?? 0
                 arr.append(x)
             }
 

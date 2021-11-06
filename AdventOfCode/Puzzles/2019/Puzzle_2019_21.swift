@@ -41,7 +41,7 @@ class Puzzle_2019_21: PuzzleBaseClass {
                     expandedMemory[pointer] = 0
                 }
 
-                return expandedMemory[pointer]!
+                return expandedMemory[pointer] ?? 0
             }
         }
 
@@ -124,7 +124,7 @@ class Puzzle_2019_21: PuzzleBaseClass {
                 }
 
                 SetParameterValues(1, 1)
-                SetMemory(p1, inputSignal.first!)
+                SetMemory(p1, inputSignal.first ?? 0)
                 inputSignal.remove(at: 0)
                 programCounter += 2
             } else if opcode == 4 {
@@ -173,7 +173,7 @@ class Puzzle_2019_21: PuzzleBaseClass {
 
     func getStringFromAsciiArray(_ arr: [Int]) -> String {
         let arr2 = arr.filter({ $0 < 256 })
-        return String(arr2.map { Character(UnicodeScalar($0)!) })
+        return String(arr2.map { Character(UnicodeScalar($0) ?? Unicode.Scalar(0)) })
     }
 
     func solvePart1(str: String) -> Int {
@@ -197,7 +197,7 @@ class Puzzle_2019_21: PuzzleBaseClass {
 
         let results = ProcessProgram(program: &arr, inputSignal: &inputSignal, programCounter: &programCounter, relativeBase: &relativeBase, expandedMemory: &expandedMemory)
 
-        return results.0.last!
+        return results.0.last ?? 0
     }
 
 }

@@ -34,8 +34,8 @@ class Puzzle_2016_21: PuzzleBaseClass {
                 let lineArr = line.components(separatedBy: " ")
                 if lineArr[0] == "swap" {
                     if lineArr[1] == "position" {
-                        let p1 = Int(lineArr[2])!
-                        let p2 = Int(lineArr[5])!
+                        let p1 = lineArr[2].int
+                        let p2 = lineArr[5].int
                         let c1 = Character(String(thePassword[p1]))
                         let c2 = Character(String(thePassword[p2]))
                         thePassword = thePassword.replace(index: p1, newChar: c2)
@@ -43,16 +43,16 @@ class Puzzle_2016_21: PuzzleBaseClass {
                     } else if lineArr[1] == "letter" {
                         let c1 = Character(lineArr[2])
                         let c2 = Character(lineArr[5])
-                        let p1 = thePassword.indexOf(char: c1)
-                        let p2 = thePassword.indexOf(char: c2)
-                        thePassword = thePassword.replace(index: p1!, newChar: c2)
-                        thePassword = thePassword.replace(index: p2!, newChar: c1)
+                        let p1 = thePassword.indexOf(char: c1) ?? 0
+                        let p2 = thePassword.indexOf(char: c2) ?? 0
+                        thePassword = thePassword.replace(index: p1, newChar: c2)
+                        thePassword = thePassword.replace(index: p2, newChar: c1)
                     } else {
                         print("Invalid swap command: \(lineArr[1])")
                     }
                 } else if lineArr[0] == "reverse" {
-                    let idx1 = Int(lineArr[2])!
-                    let idx2 = Int(lineArr[4])!
+                    let idx1 = lineArr[2].int
+                    let idx2 = lineArr[4].int
                     let stringToReverse = thePassword[Range(idx1...idx2)]
                     var reversedString = String(stringToReverse.reversed())
                     reversedString = thePassword.substring(from: 0, to: idx1) + reversedString
@@ -60,12 +60,12 @@ class Puzzle_2016_21: PuzzleBaseClass {
                     thePassword = reversedString
                 } else if lineArr[0] == "rotate" {
                     if lineArr[1] == "left" {
-                        let ctr = Int(lineArr[2])!
+                        let ctr = lineArr[2].int
                         if ctr > 0 {
                             thePassword.rotate(amount: ctr, left: true)
                         }
                     } else if lineArr[1] == "right" {
-                        let ctr = Int(lineArr[2])!
+                        let ctr = lineArr[2].int
                         if ctr > 0 {
                             thePassword.rotate(amount: ctr, left: false)
                         }
@@ -82,8 +82,8 @@ class Puzzle_2016_21: PuzzleBaseClass {
                         print("Invalid rotate command: \(lineArr[1])")
                     }
                 } else if lineArr[0] == "move" {
-                    let idx1 = Int(lineArr[2])!
-                    let idx2 = Int(lineArr[5])!
+                    let idx1 = lineArr[2].int
+                    let idx2 = lineArr[5].int
                     let c = thePassword[idx1]
                     let s0 = thePassword.substring(from: 0, to: idx1) + thePassword.substring(from: idx1 + 1)
                     let s1: String
@@ -109,8 +109,8 @@ class Puzzle_2016_21: PuzzleBaseClass {
                 let lineArr = line.components(separatedBy: " ")
                 if lineArr[0] == "swap" {
                     if lineArr[1] == "position" {
-                        let p1 = Int(lineArr[5])!
-                        let p2 = Int(lineArr[2])!
+                        let p1 = lineArr[5].int
+                        let p2 = lineArr[2].int
                         let c1 = Character(String(thePassword[p1]))
                         let c2 = Character(String(thePassword[p2]))
                         thePassword = thePassword.replace(index: p1, newChar: c2)
@@ -118,16 +118,16 @@ class Puzzle_2016_21: PuzzleBaseClass {
                     } else if lineArr[1] == "letter" {
                         let c1 = Character(lineArr[5])
                         let c2 = Character(lineArr[2])
-                        let p1 = thePassword.indexOf(char: c1)
-                        let p2 = thePassword.indexOf(char: c2)
-                        thePassword = thePassword.replace(index: p1!, newChar: c2)
-                        thePassword = thePassword.replace(index: p2!, newChar: c1)
+                        let p1 = thePassword.indexOf(char: c1) ?? 0
+                        let p2 = thePassword.indexOf(char: c2) ?? 0
+                        thePassword = thePassword.replace(index: p1, newChar: c2)
+                        thePassword = thePassword.replace(index: p2, newChar: c1)
                     } else {
                         print("Invalid swap command: \(lineArr[1])")
                     }
                 } else if lineArr[0] == "reverse" {
-                    let idx1 = Int(lineArr[2])!
-                    let idx2 = Int(lineArr[4])!
+                    let idx1 = lineArr[2].int
+                    let idx2 = lineArr[4].int
                     let stringToReverse = thePassword[Range(idx1...idx2)]
                     var reversedString = String(stringToReverse.reversed())
                     reversedString = thePassword.substring(from: 0, to: idx1) + reversedString
@@ -175,8 +175,8 @@ class Puzzle_2016_21: PuzzleBaseClass {
                         print("Invalid rotate command: \(lineArr[1])")
                     }
                 } else if lineArr[0] == "move" {
-                    let idx1 = Int(lineArr[5]) ?? 0
-                    let idx2 = Int(lineArr[2]) ?? 0
+                    let idx1 = lineArr[5].int
+                    let idx2 = lineArr[2].int
                     let c = thePassword[idx1]
                     let s0 = thePassword.substring(from: 0, to: idx1) + thePassword.substring(from: idx1 + 1)
                     let s1: String

@@ -35,7 +35,7 @@ class Puzzle_2018_04: NSObject {
             if timeDictionary[rec.idNumber] == nil {
                 timeDictionary[rec.idNumber] = rec.minuteArray.minutesAsleep
             } else {
-                timeDictionary[rec.idNumber] = timeDictionary[rec.idNumber]! + rec.minuteArray.minutesAsleep
+                timeDictionary[rec.idNumber] = (timeDictionary[rec.idNumber] ?? 0) + rec.minuteArray.minutesAsleep
             }
         }
 
@@ -140,12 +140,12 @@ class Puzzle_2018_04: NSObject {
                 let lineEvent = split1[1].trim()
                 if lineEvent.starts(with: "Guard") {
                     let split3 = lineEvent.parseIntoStringArray(separator: " ")
-                    currentGuardId = split3[1].replacingOccurrences(of: "#", with: "").toInt()
+                    currentGuardId = split3[1].replacingOccurrences(of: "#", with: "").int
                 } else if lineEvent.starts(with: "falls") {
                     currentDate = lineDate
-                    currentAsleepTime = lineTime.replacingOccurrences(of: ":", with: "").toInt()
+                    currentAsleepTime = lineTime.replacingOccurrences(of: ":", with: "").int
                 } else if lineEvent.starts(with: "wakes") {
-                    currentWakeTime = lineTime.replacingOccurrences(of: ":", with: "").toInt()
+                    currentWakeTime = lineTime.replacingOccurrences(of: ":", with: "").int
                     var idx = -1
                     for i in 0..<retval.count {
                         if retval[i].idNumber == currentGuardId && retval[i].date == currentDate {

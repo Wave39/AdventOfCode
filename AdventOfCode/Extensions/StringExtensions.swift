@@ -111,6 +111,13 @@ extension String {
         return retval
     }
 
+    var double: Double {
+        guard let retval = Double(self.trim()) else {
+            return 0.0
+        }
+        return retval
+    }
+
     func hasBracket() -> Bool {
         return self.contains("[") || self.contains("]")
     }
@@ -143,6 +150,13 @@ extension String {
         }
 
         return indices
+    }
+
+    var int: Int {
+        guard let retval = Int(self.trim()) else {
+            return 0
+        }
+        return retval
     }
 
     func isStringNumeric() -> Bool {
@@ -325,13 +339,6 @@ extension String {
         return substring(from: range.lowerBound, to: range.upperBound)
     }
 
-    func toInt() -> Int {
-        guard let retval = Int(self.trim()) else {
-            return 0
-        }
-        return retval
-    }
-
     func trim() -> String {
         return self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
@@ -380,12 +387,19 @@ extension StringProtocol {
 }
 
 extension Substring {
-    var string: String { return String(self) }
+    var double: Double {
+        guard let retval = Double(self) else {
+            return 0.0
+        }
+        return retval
+    }
 
-    func toInt() -> Int {
+    var int: Int {
         guard let retval = Int(self) else {
             return 0
         }
         return retval
     }
+
+    var string: String { return String(self) }
 }

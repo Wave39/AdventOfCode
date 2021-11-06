@@ -76,36 +76,35 @@ class Puzzle_2017_23: PuzzleBaseClass {
         var multiplyCounter = 0
         while programCounter >= 0 && programCounter < instructionArray.count {
             let currentInstruction = instructionArray[programCounter]
-            let parameter1: Int?
+            var parameter1 = 0
+            let parameter1String = currentInstruction.parameter1String ?? ""
+            let parameter2String = currentInstruction.parameter2String ?? ""
+
             if currentInstruction.parameter1Int != nil {
-                parameter1 = currentInstruction.parameter1Int
+                parameter1 = currentInstruction.parameter1Int ?? 0
             } else if currentInstruction.parameter1String != nil {
-                parameter1 = registers[currentInstruction.parameter1String!]
-            } else {
-                parameter1 = nil
+                parameter1 = registers[parameter1String] ?? 0
             }
 
-            let parameter2: Int?
+            var parameter2 = 0
             if currentInstruction.parameter2Int != nil {
-                parameter2 = currentInstruction.parameter2Int
+                parameter2 = currentInstruction.parameter2Int ?? 0
             } else if currentInstruction.parameter2String != nil {
-                parameter2 = registers[currentInstruction.parameter2String!]
-            } else {
-                parameter2 = nil
+                parameter2 = registers[parameter2String] ?? 0
             }
 
             if currentInstruction.instructionType == .Set {
-                registers[currentInstruction.parameter1String!] = parameter2
+                registers[parameter1String] = parameter2
             } else if currentInstruction.instructionType == .Subtract {
-                let previousValue = registers[currentInstruction.parameter1String!]
-                registers[currentInstruction.parameter1String!] = previousValue! - parameter2!
+                let previousValue = registers[parameter1String] ?? 0
+                registers[parameter1String] = previousValue - parameter2
             } else if currentInstruction.instructionType == .Multiply {
                 multiplyCounter += 1
-                let previousValue = registers[currentInstruction.parameter1String!]
-                registers[currentInstruction.parameter1String!] = previousValue! * parameter2!
+                let previousValue = registers[parameter1String] ?? 0
+                registers[parameter1String] = previousValue * parameter2
             } else if currentInstruction.instructionType == .JumpIfNotZero {
-                if parameter1! != 0 {
-                    programCounter += (parameter2! - 1)
+                if parameter1 != 0 {
+                    programCounter += (parameter2 - 1)
                 }
             }
 

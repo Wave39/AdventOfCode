@@ -110,7 +110,7 @@ class Puzzle_2019_09: PuzzleBaseClass {
                 programCounter += 4
             } else if opcode == 3 {
                 SetParameterValues(1, 1)
-                program[p1] = inputArray.first!
+                program[p1] = inputArray.first ?? 0
                 inputArray.removeFirst()
                 programCounter += 2
             } else if opcode == 4 {

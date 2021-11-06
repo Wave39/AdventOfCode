@@ -34,8 +34,8 @@ class Puzzle_2018_06: NSObject {
         let arr = str.parseIntoStringArray()
         for s in arr {
             let coords = s.parseIntoStringArray(separator: ",")
-            let x = coords[0].toInt()
-            let y = coords[1].toInt()
+            let x = coords[0].int
+            let y = coords[1].int
             let p = Point2D(x: x, y: y)
             retval.append(p)
             if x < minX {

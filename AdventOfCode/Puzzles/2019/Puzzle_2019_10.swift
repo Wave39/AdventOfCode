@@ -197,10 +197,11 @@ class Puzzle_2019_10: PuzzleBaseClass {
             let arr = asteroidArray.filter { $0.direction == direction }.sorted(by: { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position) })
             if !arr.isEmpty {
                 asteroidsRemoved += 1
-                let asteroidToRemove = arr.first!
-                asteroidArray.removeAll(where: { $0.position == asteroidToRemove.position })
-                if asteroidsRemoved == 200 {
-                    retval = asteroidToRemove.position.x * 100 + asteroidToRemove.position.y
+                if let asteroidToRemove = arr.first {
+                    asteroidArray.removeAll(where: { $0.position == asteroidToRemove.position })
+                    if asteroidsRemoved == 200 {
+                        retval = asteroidToRemove.position.x * 100 + asteroidToRemove.position.y
+                    }
                 }
             }
         }
@@ -213,15 +214,16 @@ class Puzzle_2019_10: PuzzleBaseClass {
                     slopesSet.insert(a.slope.toString())
                 }
 
-                let slopesArray = Array(slopesSet).sorted(by: { Double($0)! < Double($1)! })
+                let slopesArray = Array(slopesSet).sorted(by: { $0.double < $1.double })
                 for slope in slopesArray {
                     let arr2 = arr.filter { $0.slope.toString() == slope }.sorted(by: { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position) })
                     if !arr2.isEmpty {
                         asteroidsRemoved += 1
-                        let asteroidToRemove = arr2.first!
-                        asteroidArray.removeAll(where: { $0.position == asteroidToRemove.position })
-                        if asteroidsRemoved == 200 {
-                            retval = asteroidToRemove.position.x * 100 + asteroidToRemove.position.y
+                        if let asteroidToRemove = arr2.first {
+                            asteroidArray.removeAll(where: { $0.position == asteroidToRemove.position })
+                            if asteroidsRemoved == 200 {
+                                retval = asteroidToRemove.position.x * 100 + asteroidToRemove.position.y
+                            }
                         }
                     }
                 }

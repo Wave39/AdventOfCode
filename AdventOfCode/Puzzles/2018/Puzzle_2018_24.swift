@@ -86,11 +86,11 @@ class Puzzle_2018_24: NSObject {
                 }
 
                 g.unitType = currentUnitType
-                g.unitCount = Int(components[0])!
-                g.hitPointsEach = Int(components[1])!
-                g.damageAmount = Int(components[3])!
-                g.damageType = AttackType(rawValue: components[4])!
-                g.initiative = Int(components[5])!
+                g.unitCount = components[0].int
+                g.hitPointsEach = components[1].int
+                g.damageAmount = components[3].int
+                g.damageType = AttackType(rawValue: components[4]) ?? .Unknown
+                g.initiative = components[5].int
                 if !components[2].isEmpty {
                     let s = components[2].replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: ";", with: "").replacingOccurrences(of: ",", with: "")
                     let arr = s.parseIntoStringArray(separator: " ")
@@ -103,11 +103,12 @@ class Puzzle_2018_24: NSObject {
                         } else if word == "to" {
                             // ignore
                         } else {
-                            let a = AttackType(rawValue: word)!
-                            if qualifierMode == .Weakness {
-                                g.weakness.append(a)
-                            } else {
-                                g.immunity.append(a)
+                            if let a = AttackType(rawValue: word) {
+                                if qualifierMode == .Weakness {
+                                    g.weakness.append(a)
+                                } else {
+                                    g.immunity.append(a)
+                                }
                             }
                         }
                     }
@@ -202,16 +203,17 @@ class Puzzle_2018_24: NSObject {
             groups.sort(by: initiativeDescOrder)
             for g in groups {
                 if g.unitCount > 0 && !g.groupToAttack.isEmpty {
-                    let groupToAttack = groups.first(where: { $0.groupId == g.groupToAttack })!
-                    let damageToGroup = groupToAttack.damageCausedBy(attackType: g.damageType, amount: g.effectivePower)
-                    if damageToGroup > 0 && groupToAttack.unitCount > 0 {
-                        var kills = damageToGroup / groupToAttack.hitPointsEach
-                        if kills >= groupToAttack.unitCount {
-                            kills = groupToAttack.unitCount
-                        }
+                    if let groupToAttack = groups.first(where: { $0.groupId == g.groupToAttack }) {
+                        let damageToGroup = groupToAttack.damageCausedBy(attackType: g.damageType, amount: g.effectivePower)
+                        if damageToGroup > 0 && groupToAttack.unitCount > 0 {
+                            var kills = damageToGroup / groupToAttack.hitPointsEach
+                            if kills >= groupToAttack.unitCount {
+                                kills = groupToAttack.unitCount
+                            }
 
-                        print("Group id \(g.groupId) attacks \(groupToAttack.groupId) and registers \(kills) kills")
-                        groupToAttack.unitCount -= kills
+                            print("Group id \(g.groupId) attacks \(groupToAttack.groupId) and registers \(kills) kills")
+                            groupToAttack.unitCount -= kills
+                        }
                     }
                 }
             }

@@ -34,7 +34,7 @@ class Puzzle_2019_03: PuzzleBaseClass {
         var y = 0
         let arr = str.parseIntoStringArray(separator: ",")
         for instruction in arr {
-            let ctr = Int(String(instruction.dropFirst()))!
+            let ctr = instruction.dropFirst().int
             for _ in 1...ctr {
                 if instruction[0] == "L" {
                     x -= 1
@@ -54,13 +54,13 @@ class Puzzle_2019_03: PuzzleBaseClass {
     }
 
     func GetWireCoordinatesDictionary(str: String) -> Dictionary<Point2D, Int> {
-        var retval: Dictionary<Point2D, Int> = [:]
+        var retval: [Point2D: Int] = [:]
         var x = 0
         var y = 0
         var steps = 0
         let arr = str.parseIntoStringArray(separator: ",")
         for instruction in arr {
-            let ctr = Int(String(instruction.dropFirst()))!
+            let ctr = instruction.dropFirst().int
             for _ in 1...ctr {
                 if instruction[0] == "L" {
                     x -= 1
@@ -103,18 +103,19 @@ class Puzzle_2019_03: PuzzleBaseClass {
 
     func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
+        var retval = Int.max
         let wire1 = GetWireCoordinatesDictionary(str: arr[0])
         let wire1set = Set(wire1.keys)
         let wire2 = GetWireCoordinatesDictionary(str: arr[1])
         let wire2set = Set(wire2.keys)
         var commonPoints = wire1set.intersection(wire2set)
         commonPoints.remove(originPoint)
-
-        var retval = Int.max
         for pt in commonPoints {
-            let t = wire1[pt]! + wire2[pt]!
-            if t < retval {
-                retval = t
+            if let wire1Point = wire1[pt], let wire2Point = wire2[pt] {
+                let t = wire1Point + wire2Point
+                if t < retval {
+                    retval = t
+                }
             }
         }
 

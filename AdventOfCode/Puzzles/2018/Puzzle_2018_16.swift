@@ -41,18 +41,18 @@ class Puzzle_2018_16: NSObject {
                 buildingSample = true
                 singleSample = Sample()
                 let components = line.capturedGroups(withRegex: "Before: \\[(.*), (.*), (.*), (.*)\\]", trimResults: true)
-                singleSample.beforeRegisters = [ Int(components[0])!, Int(components[1])!, Int(components[2])!, Int(components[3])! ]
+                singleSample.beforeRegisters = [ components[0].int, components[1].int, components[2].int, components[3].int ]
             } else if line.starts(with: "After") {
                 let components = line.capturedGroups(withRegex: "After:  \\[(.*), (.*), (.*), (.*)\\]", trimResults: true)
-                singleSample.afterRegisters = [ Int(components[0])!, Int(components[1])!, Int(components[2])!, Int(components[3])! ]
+                singleSample.afterRegisters = [ components[0].int, components[1].int, components[2].int, components[3].int ]
                 samples.append(singleSample)
                 buildingSample = false
             } else if !line.isEmpty {
                 let components = line.capturedGroups(withRegex: "(.*) (.*) (.*) (.*)", trimResults: true)
                 if buildingSample {
-                    singleSample.command = [ Int(components[0])!, Int(components[1])!, Int(components[2])!, Int(components[3])! ]
+                    singleSample.command = [ components[0].int, components[1].int, components[2].int, components[3].int ]
                 } else {
-                    testProgram.append([ Int(components[0])!, Int(components[1])!, Int(components[2])!, Int(components[3])! ])
+                    testProgram.append([ components[0].int, components[1].int, components[2].int, components[3].int ])
                 }
             }
         }
@@ -115,7 +115,7 @@ class Puzzle_2018_16: NSObject {
 
         var registers = [ 0, 0, 0, 0 ]
         for c in testProgram {
-            registers = runCommandString(command: c, registers: registers, commandString: mappingDict[c[0]]!)
+            registers = runCommandString(command: c, registers: registers, commandString: mappingDict[c[0]] ?? "")
         }
 
         return registers[0]

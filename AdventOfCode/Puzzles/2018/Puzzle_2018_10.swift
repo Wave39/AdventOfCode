@@ -26,10 +26,10 @@ class Puzzle_2018_10: NSObject {
         for line in arr {
             let components = line.capturedGroups(withRegex: "position=<(.*),(.*)> velocity=<(.*),(.*)>", trimResults: true)
             var particle = Particle2D()
-            particle.x = Int(components[0])!
-            particle.y = Int(components[1])!
-            particle.deltaX = Int(components[2])!
-            particle.deltaY = Int(components[3])!
+            particle.x = components[0].int
+            particle.y = components[1].int
+            particle.deltaX = components[2].int
+            particle.deltaY = components[3].int
             retval.append(particle)
         }
 

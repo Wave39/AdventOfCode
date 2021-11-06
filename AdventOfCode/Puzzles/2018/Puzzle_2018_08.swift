@@ -60,7 +60,7 @@ class Puzzle_2018_08: NSObject {
         inputArray = []
         let arr = str.parseIntoStringArray(separator: " ")
         for n in arr {
-            inputArray.append(Int(n)!)
+            inputArray.append(n.int)
         }
     }
 

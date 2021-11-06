@@ -6,6 +6,8 @@
 //  Copyright © 2020 Wave 39 LLC. All rights reserved.
 //
 
+// swiftlint:disable all
+
 import Foundation
 
 // ===================================================================================================
@@ -121,8 +123,8 @@ class Puzzle_2018_15: NSObject {
                 if !inRange.contains(being.coord) {
                     let distances = being.coord.distances(in: input)
                     let inRangeDistances = inRange.compactMap({ spot in distances[spot].map({ (spot, $0) }) })
-                    if let nearestDistance = inRangeDistances.min(by: { $0.1 < $1.1 })?.1 {
-                        let best = inRangeDistances.filter({ $0.1 == nearestDistance }).min(by: { $0.0 < $1.0 })!
+                    if let nearestDistance = inRangeDistances.min(by: { $0.1 < $1.1 })?.1,
+                       let best = inRangeDistances.filter({ $0.1 == nearestDistance }).min(by: { $0.0 < $1.0 }) {
                         let targetDistances = best.0.distances(in: input)
                         let step = being.coord.adjacent
                             .compactMap({ point in targetDistances[point].flatMap({ $0 < targetDistances[being.coord]! ? point : nil }) })

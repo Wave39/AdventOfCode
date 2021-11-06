@@ -35,4 +35,10 @@ extension Character {
         return Int(s[s.startIndex].value)
     }
 
+    var int: Int {
+        guard let retval = Int(String(self)) else {
+            return 0
+        }
+        return retval
+    }
 }

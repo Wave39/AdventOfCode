@@ -61,12 +61,14 @@ class Puzzle_2018_23: NSObject {
     }
 
     func solvePart1(bots: [Nanobot]) -> Int {
-        let maxRange = bots.map { $0.range }.max()!
-        let maxBot = bots.first(where: { $0.range == maxRange })!
         var botsInRange = 0
-        for b in bots {
-            if maxBot.inRangeOf(otherBot: b) {
-                botsInRange += 1
+        if let maxRange = bots.map({ $0.range }).max() {
+            if let maxBot = bots.first(where: { $0.range == maxRange }) {
+                for b in bots {
+                    if maxBot.inRangeOf(otherBot: b) {
+                        botsInRange += 1
+                    }
+                }
             }
         }
 

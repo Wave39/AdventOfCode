@@ -120,7 +120,7 @@ class Puzzle_2019_24: PuzzleBaseClass {
     func countBugs(dict: Grid3D) -> Int {
         var retval = 0
         for k in dict.keys {
-            let grid = dict[k]!
+            let grid = dict[k] ?? []
             let height = grid.count
             let width = grid[0].count
             for y in 0..<height {
@@ -138,13 +138,13 @@ class Puzzle_2019_24: PuzzleBaseClass {
     func processGridDictionary(dict: Grid3D) -> Grid3D {
         var retval = Grid3D()
 
-        retval[201] = dict[201]!
-        retval[-201] = dict[-201]!
+        retval[201] = dict[201] ?? []
+        retval[-201] = dict[-201] ?? []
 
         for z in -200...200 {
-            let grid = dict[z]!
-            let gridInside = dict[z - 1]!
-            let gridOutside = dict[z + 1]!
+            let grid = dict[z] ?? []
+            let gridInside = dict[z - 1] ?? []
+            let gridOutside = dict[z + 1] ?? []
 
             let height = grid.count
             let width = grid[0].count

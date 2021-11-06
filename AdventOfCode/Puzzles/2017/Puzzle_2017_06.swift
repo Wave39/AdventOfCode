@@ -24,7 +24,7 @@ class Puzzle_2017_06: PuzzleBaseClass {
         var retval: [Int] = []
         let lineArray = str.split(separator: " ")
         for line in lineArray {
-            retval.append(line.toInt())
+            retval.append(line.int)
         }
 
         return retval

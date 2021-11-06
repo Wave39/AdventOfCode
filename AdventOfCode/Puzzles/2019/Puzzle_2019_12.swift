@@ -30,7 +30,7 @@ class Puzzle_2019_12: PuzzleBaseClass {
         let arr = str.parseIntoStringArray()
         var moons: [Particle3D] = []
         for line in arr {
-            let components = line.capturedGroups(withRegex: "<x=(.*), y=(.*), z=(.*)>", trimResults: true).map { Int($0)! }
+            let components = line.capturedGroups(withRegex: "<x=(.*), y=(.*), z=(.*)>", trimResults: true).map { $0.int }
             moons.append(Particle3D(x: components[0], y: components[1], z: components[2], deltaX: 0, deltaY: 0, deltaZ: 0))
         }
 
@@ -80,7 +80,7 @@ class Puzzle_2019_12: PuzzleBaseClass {
         let arr = str.parseIntoStringArray()
         var moons: [Particle3D] = []
         for line in arr {
-            let components = line.capturedGroups(withRegex: "<x=(.*), y=(.*), z=(.*)>", trimResults: true).map { Int($0)! }
+            let components = line.capturedGroups(withRegex: "<x=(.*), y=(.*), z=(.*)>", trimResults: true).map { $0.int }
             moons.append(Particle3D(x: components[0], y: components[1], z: components[2], deltaX: 0, deltaY: 0, deltaZ: 0))
         }
 

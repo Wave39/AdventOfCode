@@ -58,15 +58,15 @@ class Puzzle_2017_20: PuzzleBaseClass {
             let arr = String(line).matchesInCapturingGroups(pattern: itemRegex)
             var p = Particle()
             p.particleNumber = ctr
-            p.position.x = arr[0].toInt()
-            p.position.y = arr[1].toInt()
-            p.position.z = arr[2].toInt()
-            p.velocity.x = arr[3].toInt()
-            p.velocity.y = arr[4].toInt()
-            p.velocity.z = arr[5].toInt()
-            p.acceleration.x = arr[6].toInt()
-            p.acceleration.y = arr[7].toInt()
-            p.acceleration.z = arr[8].toInt()
+            p.position.x = arr[0].int
+            p.position.y = arr[1].int
+            p.position.z = arr[2].int
+            p.velocity.x = arr[3].int
+            p.velocity.y = arr[4].int
+            p.velocity.z = arr[5].int
+            p.acceleration.x = arr[6].int
+            p.acceleration.y = arr[7].int
+            p.acceleration.z = arr[8].int
             particles.append(p)
             ctr += 1
         }

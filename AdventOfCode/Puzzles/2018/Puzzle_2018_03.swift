@@ -103,13 +103,13 @@ class Claim {
         for line in arr {
             let items = line.parseIntoStringArray(separator: " ")
             let claim = Claim()
-            claim.idNumber = items[0].replacingOccurrences(of: "#", with: "").toInt()
+            claim.idNumber = items[0].replacingOccurrences(of: "#", with: "").int
             let edgeArray = items[2].replacingOccurrences(of: ":", with: "").parseIntoStringArray(separator: ",")
-            claim.leftEdge = edgeArray[0].toInt()
-            claim.topEdge = edgeArray[1].toInt()
+            claim.leftEdge = edgeArray[0].int
+            claim.topEdge = edgeArray[1].int
             let sizeArray = items[3].parseIntoStringArray(separator: "x")
-            claim.width = sizeArray[0].toInt()
-            claim.height = sizeArray[1].toInt()
+            claim.width = sizeArray[0].int
+            claim.height = sizeArray[1].int
             retval.append(claim)
         }
 

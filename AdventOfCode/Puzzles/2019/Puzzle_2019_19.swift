@@ -61,7 +61,7 @@ class Puzzle_2019_19: PuzzleBaseClass {
         // I arrived at the starting y value below through some rough trial and error
         for y in 1240...1500 {
             let xCoordinates = getXCoordinates(y: y)
-            let xRight = xCoordinates.max()!
+            let xRight = xCoordinates.max() ?? 0
             let x2Coordinates = getXCoordinates(y: y + 99)
             if x2Coordinates.contains(xRight - 99) {
                 return (xRight - 99) * 10000 + y
@@ -86,7 +86,7 @@ class Puzzle_2019_19: PuzzleBaseClass {
                     expandedMemory[pointer] = 0
                 }
 
-                return expandedMemory[pointer]!
+                return expandedMemory[pointer] ?? 0
             }
         }
 
@@ -168,7 +168,7 @@ class Puzzle_2019_19: PuzzleBaseClass {
                 }
 
                 SetParameterValues(1, 1)
-                SetMemory(p1, inputSignal.first!)
+                SetMemory(p1, inputSignal.first ?? 0)
                 inputSignal.remove(at: 0)
                 programCounter += 2
             } else if opcode == 4 {

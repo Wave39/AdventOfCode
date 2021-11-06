@@ -17,7 +17,7 @@ class Puzzle_2019_14: PuzzleBaseClass {
         static func Create(_ str: String) -> ChemicalComponent {
             let s = str.trim()
             let arr = s.parseIntoStringArray(separator: " ")
-            return ChemicalComponent(amount: Int(arr[0])!, compound: arr[1])
+            return ChemicalComponent(amount: arr[0].int, compound: arr[1])
         }
 
         var description: String {
@@ -73,18 +73,21 @@ class Puzzle_2019_14: PuzzleBaseClass {
                 return amount
             }
 
-            if excessCompounds[compound] != nil {
-                if amount <= excessCompounds[compound]! {
-                    excessCompounds[compound]! -= amount
+            if let excessCompound = excessCompounds[compound] {
+                if amount <= excessCompound {
+                    excessCompounds[compound]? -= amount
                     return 0
                 }
 
-                amount -= excessCompounds[compound]!
+                amount -= excessCompound
             }
 
             excessCompounds[compound] = 0
 
-            let equation = equations.first(where: { $0.product.compound == compound })!
+            guard let equation = equations.first(where: { $0.product.compound == compound }) else {
+                return 0
+            }
+
             let multiple: Int
             if equation.product.amount > amount {
                 multiple = 1
@@ -100,7 +103,7 @@ class Puzzle_2019_14: PuzzleBaseClass {
             }
 
             if producedAmount > amount {
-                excessCompounds[compound]! += (producedAmount - amount)
+                excessCompounds[compound]? += (producedAmount - amount)
             }
 
             return retval

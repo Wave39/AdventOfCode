@@ -40,10 +40,10 @@ class Puzzle_2017_08: PuzzleBaseClass {
         for line in puzzleInput {
             let register = line[0]
             let opcode = line[1]
-            let incValue = (opcode == "inc" ? line[2].toInt() : -(line[2].toInt()))
+            let incValue = (opcode == "inc" ? line[2].int : -(line[2].int))
             let testRegister = line[4]
             let condition = line[5]
-            let conditionValue = line[6].toInt()
+            let conditionValue = line[6].int
             if dict[register] == nil {
                 dict[register] = 0
             }

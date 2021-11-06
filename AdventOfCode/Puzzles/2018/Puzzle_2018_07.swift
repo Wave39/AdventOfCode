@@ -27,8 +27,8 @@ class Puzzle_2018_07: NSObject {
         return solvePart2(str: puzzleInput.0, numberOfElves: puzzleInput.1, additionalSecondsPerStep: puzzleInput.2)
     }
 
-    func parseInstructionsIntoDictionary(str: String) -> Dictionary<String, String> {
-        var retval: Dictionary<String, String> = [:]
+    func parseInstructionsIntoDictionary(str: String) -> [String: String] {
+        var retval: [String: String] = [:]
 
         let arr = str.parseIntoStringArray()
         for line in arr {
@@ -38,7 +38,7 @@ class Puzzle_2018_07: NSObject {
             if retval[secondStep] == nil {
                 retval[secondStep] = firstStep
             } else {
-                retval[secondStep] = retval[secondStep]! + firstStep
+                retval[secondStep]? += firstStep
             }
 
             if retval[firstStep] == nil {
@@ -49,7 +49,7 @@ class Puzzle_2018_07: NSObject {
         return retval
     }
 
-    func findFirstAvailableStep(dict: Dictionary<String, String>) -> String {
+    func findFirstAvailableStep(dict: [String: String]) -> String {
         for k in dict.keys.sorted() {
             if let value = dict[k] {
                 if value.isEmpty {
@@ -61,8 +61,8 @@ class Puzzle_2018_07: NSObject {
         return ""
     }
 
-    func removeStepFromDictionary(dict: Dictionary<String, String>, stepToRemove: String) -> Dictionary<String, String> {
-        var retval: Dictionary<String, String> = [:]
+    func removeStepFromDictionary(dict: [String: String], stepToRemove: String) -> [String: String] {
+        var retval: [String: String] = [:]
         for (k, v) in dict {
             if k != stepToRemove {
                 retval[k] = v.replacingOccurrences(of: stepToRemove, with: "")
@@ -89,7 +89,7 @@ class Puzzle_2018_07: NSObject {
         return Int(asciiTime) + additionalSecondsPerStep
     }
 
-    func findAvailableSteps(dict: Dictionary<String, String>) -> [String] {
+    func findAvailableSteps(dict: [String: String]) -> [String] {
         var retval: [String] = []
         for k in dict.keys.sorted() {
             if let value = dict[k] {

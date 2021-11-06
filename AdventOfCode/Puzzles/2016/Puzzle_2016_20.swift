@@ -47,8 +47,8 @@ class Puzzle_2016_20: PuzzleBaseClass {
         var part1Array: [(Int, Int)] = []
         for line in lineArray {
             let arr = line.components(separatedBy: "-")
-            let lowerBound = Int(arr[0])!
-            let upperBound = Int(arr[1])!
+            let lowerBound = arr[0].int
+            let upperBound = arr[1].int
             let pair = (lowerBound, upperBound)
             part1Array.append(pair)
         }

@@ -57,7 +57,7 @@ class Puzzle_2016_10: PuzzleBaseClass {
             for line in puzzleInputLineArray {
                 let arr = line.components(separatedBy: " ")
                 if arr[0] == "bot" {
-                    let b = Int(arr[1])!
+                    let b = arr[1].int
                     if b == botNumber {
                         return arr
                     }
@@ -73,8 +73,8 @@ class Puzzle_2016_10: PuzzleBaseClass {
         for line in puzzleInputLineArray {
             let arr = line.components(separatedBy: " ")
             if arr[0] == "value" {
-                let chipNumber = arr[1].toInt()
-                let botNumber = arr[5].toInt()
+                let chipNumber = arr[1].int
+                let botNumber = arr[5].int
                 if part1Bots[botNumber] == nil {
                     part1Bots[botNumber] = BotInfo()
                 }

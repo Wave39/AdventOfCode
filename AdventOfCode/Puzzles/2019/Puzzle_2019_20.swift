@@ -233,9 +233,9 @@ class Puzzle_2019_20: PuzzleBaseClass {
 
             let port = portals.filter({ $0.location == from })
             if port.count == 1 {
-                let otherPort = portals.filter { $0.identifier == port.first!.identifier && $0.location != port.first!.location }
+                let otherPort = portals.filter { $0.identifier == port[0].identifier && $0.location != port[0].location }
                 if otherPort.count == 1 {
-                    retval.append(otherPort.first!.location)
+                    retval.append(otherPort[0].location)
                 }
             }
 
@@ -253,8 +253,10 @@ class Puzzle_2019_20: PuzzleBaseClass {
             return retval
         }
 
-        let startingPosition = portals.first(where: { $0.identifier == "AA" })!
-        let endingPosition = portals.first(where: { $0.identifier == "ZZ" })!
+        guard let startingPosition = portals.first(where: { $0.identifier == "AA" }),
+              let endingPosition = portals.first(where: { $0.identifier == "ZZ" }) else {
+                  return 0
+              }
         var visitedLocations: Set<Point2D> = Set()
         var locations = [ startingPosition.location ]
         var stepCount = 0
@@ -307,11 +309,11 @@ class Puzzle_2019_20: PuzzleBaseClass {
 
             let port = portals.filter({ $0.location == Point2D(x: from.x, y: from.y) })
             if port.count == 1 {
-                if from.z > 0 || port.first!.inner {
-                    let otherPort = portals.filter { $0.identifier == port.first!.identifier && $0.location != port.first!.location }
+                if from.z > 0 || port[0].inner {
+                    let otherPort = portals.filter { $0.identifier == port[0].identifier && $0.location != port[0].location }
                     if otherPort.count == 1 {
-                        let otherPortLocation = otherPort.first!.location
-                        retval.append(Point3D(x: otherPortLocation.x, y: otherPortLocation.y, z: from.z + (port.first!.inner ? +1 : -1)))
+                        let otherPortLocation = otherPort[0].location
+                        retval.append(Point3D(x: otherPortLocation.x, y: otherPortLocation.y, z: from.z + (port[0].inner ? +1 : -1)))
                     }
                 }
             }
@@ -330,8 +332,10 @@ class Puzzle_2019_20: PuzzleBaseClass {
             return retval
         }
 
-        let startingPosition = portals.first(where: { $0.identifier == "AA" })!
-        let endingPosition = portals.first(where: { $0.identifier == "ZZ" })!
+        guard let startingPosition = portals.first(where: { $0.identifier == "AA" }),
+              let endingPosition = portals.first(where: { $0.identifier == "ZZ" }) else {
+                  return 0
+              }
         let endingPosition3D = Point3D(x: endingPosition.location.x, y: endingPosition.location.y, z: 0)
         var visitedLocations: Set<Point3D> = Set()
         var locations = [ Point3D(x: startingPosition.location.x, y: startingPosition.location.y, z: 0) ]

@@ -50,7 +50,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
                 arr[p3] = GetValue(immediateC, p1) * GetValue(immediateB, p2)
                 programCounter += 4
             } else if opcode == 3 {
-                arr[p1] = inputArr.first!
+                arr[p1] = inputArr.first ?? 0
                 inputArr.removeFirst()
                 programCounter += 2
             } else if opcode == 4 {
@@ -103,7 +103,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
                 program[p3] = GetValue(immediateC, p1) * GetValue(immediateB, p2)
                 programCounter += 4
             } else if opcode == 3 {
-                program[p1] = inputArray.first!
+                program[p1] = inputArray.first ?? 0
                 inputArray.removeFirst()
                 programCounter += 2
             } else if opcode == 4 {

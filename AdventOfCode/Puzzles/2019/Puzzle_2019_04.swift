@@ -25,7 +25,7 @@ class Puzzle_2019_04: PuzzleBaseClass {
         let passwordAsString = "\(password)"
         var arr: [Int] = []
         for idx in 0...5 {
-            arr.append(Int(String(passwordAsString[idx]))!)
+            arr.append(String(passwordAsString[idx]).int)
         }
 
         var ascendingCharacters = false
@@ -45,7 +45,7 @@ class Puzzle_2019_04: PuzzleBaseClass {
                     letterDictionary[arr[idx]] = 0
                 }
 
-                letterDictionary[arr[idx]]! += 1
+                letterDictionary[arr[idx]]? += 1
             }
 
             for k in letterDictionary.keys {

@@ -35,7 +35,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
             if command == "deal into new stack" {
                 cardIndex = (numberOfCards - 1) - cardIndex
             } else if command.hasPrefix("deal with increment") {
-                let increment = Int(command.parseIntoStringArray(separator: " ").last!)!
+                let increment = command.parseIntoStringArray(separator: " ").last?.int ?? 0
                 var incrementTotal = 0
                 var index = 0
                 while index != cardIndex {
@@ -45,7 +45,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
 
                 cardIndex = incrementTotal
             } else if command.hasPrefix("cut") {
-                var increment = Int(command.parseIntoStringArray(separator: " ").last!)!
+                var increment = command.parseIntoStringArray(separator: " ").last?.int ?? 0
                 if increment < 0 {
                     increment += numberOfCards
                 }
@@ -77,7 +77,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
             if command == "deal into new stack" {
                 deck = deck.reversed()
             } else if command.hasPrefix("deal with increment") {
-                let increment = Int(command.parseIntoStringArray(separator: " ").last!)!
+                let increment = command.parseIntoStringArray(separator: " ").last?.int ?? 0
                 var newDeck = deck
                 var index = 0
                 for card in deck {
@@ -87,7 +87,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
 
                 deck = newDeck
             } else if command.hasPrefix("cut") {
-                var increment = Int(command.parseIntoStringArray(separator: " ").last!)!
+                var increment = command.parseIntoStringArray(separator: " ").last?.int ?? 0
                 if increment < 0 {
                     increment = numberOfCards - abs(increment)
                 }
@@ -99,7 +99,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
             }
         }
 
-        let retval = deck.firstIndex(of: cardIndex)!
+        let retval = deck.firstIndex(of: cardIndex) ?? 0
 
         return retval
     }

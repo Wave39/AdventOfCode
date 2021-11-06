@@ -39,12 +39,12 @@ class Puzzle_2017_25: PuzzleBaseClass {
     func parsePuzzleInput(str: String) {
         steps = []
         let lineArray = str.split(separator: "\n")
-        stepCount = Int(String(lineArray[0]))!
+        stepCount = lineArray[0].int
         var lineIndex = 1
         while lineIndex < lineArray.count {
             let components = lineArray[lineIndex].split(separator: ",")
-            let substep0 = Substep(newValue: Int(String(components[0]))!, newDirection: Int(String(components[1]))!, continueWith: Int(String(components[2]))!)
-            let substep1 = Substep(newValue: Int(String(components[3]))!, newDirection: Int(String(components[4]))!, continueWith: Int(String(components[5]))!)
+            let substep0 = Substep(newValue: components[0].int, newDirection: components[1].int, continueWith: components[2].int)
+            let substep1 = Substep(newValue: components[3].int, newDirection: components[4].int, continueWith: components[5].int)
             steps.append(Step(ifZero: substep0, ifOne: substep1))
             lineIndex += 1
         }

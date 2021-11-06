@@ -37,9 +37,9 @@ class Puzzle_2018_19: NSObject {
                 let components = line.capturedGroups(withRegex: "(.*) (.*) (.*) (.*)", trimResults: true)
                 let cmd = Command()
                 cmd.opcode = components[0]
-                cmd.a = Int(components[1])!
-                cmd.b = Int(components[2])!
-                cmd.c = Int(components[3])!
+                cmd.a = components[1].int
+                cmd.b = components[2].int
+                cmd.c = components[3].int
                 program.code.append(cmd)
             }
         }

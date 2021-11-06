@@ -61,12 +61,12 @@ class Puzzle_2017_16: PuzzleBaseClass {
             let parameters = String(move).substring(from: 1)
             if command == "s" {
                 danceMove.command = .Spin
-                danceMove.spinCount = parameters.toInt()
+                danceMove.spinCount = parameters.int
             } else if command == "x" {
                 danceMove.command = .Exchange
                 let values = parameters.split(separator: "/")
-                danceMove.exchangeFrom = values[0].toInt()
-                danceMove.exchangeTo = values[1].toInt()
+                danceMove.exchangeFrom = values[0].int
+                danceMove.exchangeTo = values[1].int
             } else if command == "p" {
                 danceMove.command = .Partner
                 let values = parameters.split(separator: "/")
