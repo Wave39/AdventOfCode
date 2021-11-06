@@ -112,9 +112,11 @@ class Puzzle_2017_20: PuzzleBaseClass {
 
         var removalArray: [Int] = []
         for k in particleDict.keys {
-            if particleDict[k]!.count > 1 {
-                for p in particleDict[k]! {
-                    removalArray.append(p)
+            if let particleArr = particleDict[k] {
+                if particleArr.count > 1 {
+                    for p in particleArr {
+                        removalArray.append(p)
+                    }
                 }
             }
         }

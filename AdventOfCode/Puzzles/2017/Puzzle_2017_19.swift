@@ -65,7 +65,7 @@ class Puzzle_2017_19: PuzzleBaseClass {
     }
 
     func solvePuzzle() -> (String, Int) {
-        var currentX = routingDiagram[0].firstIndex(of: "|")!
+        var currentX = routingDiagram[0].firstIndex(of: "|") ?? 0
         var currentY = 0
         var currentDirection = Direction.DOWN
         var leaveLoop = false

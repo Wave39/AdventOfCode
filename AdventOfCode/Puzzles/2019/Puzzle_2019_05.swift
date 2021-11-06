@@ -53,7 +53,6 @@ class Puzzle_2019_05: PuzzleBaseClass {
                 programCounter += 2
             } else if opcode == 4 {
                 retval = GetValue(immediateC, p1)
-                print(retval)
                 programCounter += 2
             } else if opcode == 5 {
                 if GetValue(immediateC, p1) != 0 {

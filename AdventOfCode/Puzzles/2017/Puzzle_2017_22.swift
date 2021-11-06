@@ -17,15 +17,15 @@ class Puzzle_2017_22: PuzzleBaseClass {
         case LEFT = 3
 
         func nextDirectionByTurningRight() -> Direction {
-            return Direction(rawValue: (self.rawValue + 1) % 4)!
+            return Direction(rawValue: (self.rawValue + 1) % 4) ?? .UP
         }
 
         func nextDirectionByTurningLeft() -> Direction {
-            return Direction(rawValue: (self.rawValue - 1 + 4) % 4)!
+            return Direction(rawValue: (self.rawValue - 1 + 4) % 4) ?? .UP
         }
 
         func nextDirectionByReversing() -> Direction {
-            return Direction(rawValue: (self.rawValue + 2) % 4)!
+            return Direction(rawValue: (self.rawValue + 2) % 4) ?? .UP
         }
     }
 

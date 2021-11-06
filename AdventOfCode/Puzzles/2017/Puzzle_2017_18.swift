@@ -107,10 +107,15 @@ class Puzzle_2017_18: PuzzleBaseClass {
                 return 0
             }
 
+            var parameter2String = ""
+            if let str2 = currentInstruction.parameter2String {
+                parameter2String = str2
+            }
+
             var parameter1 = 0
             if currentInstruction.parameter1Int != nil {
                 parameter1 = currentInstruction.parameter1Int ?? 0
-            } else if currentInstruction.parameter1String != nil {
+            } else {
                 parameter1 = registers[parameter1String] ?? 0
             }
 
@@ -118,7 +123,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
             if currentInstruction.parameter2Int != nil {
                 parameter2 = currentInstruction.parameter2Int ?? 0
             } else if currentInstruction.parameter2String != nil {
-                parameter2 = registers[currentInstruction.parameter2String!] ?? 0
+                parameter2 = registers[parameter2String] ?? 0
             }
 
             if currentInstruction.instructionType == .SoundOrSend {
@@ -127,13 +132,13 @@ class Puzzle_2017_18: PuzzleBaseClass {
                 registers[parameter1String] = parameter2
             } else if currentInstruction.instructionType == .Add {
                 let previousValue = registers[parameter1String]
-                registers[parameter1String] = previousValue! + parameter2
+                registers[parameter1String] = (previousValue ?? 0) + parameter2
             } else if currentInstruction.instructionType == .Multiply {
                 let previousValue = registers[parameter1String]
-                registers[parameter1String] = previousValue! * parameter2
+                registers[parameter1String] = (previousValue ?? 0) * parameter2
             } else if currentInstruction.instructionType == .Modulo {
                 let previousValue = registers[parameter1String]
-                registers[parameter1String] = previousValue! % parameter2
+                registers[parameter1String] = (previousValue ?? 0) % parameter2
             } else if currentInstruction.instructionType == .RecoverOrReceive {
                 firstReceive = true
             } else if currentInstruction.instructionType == .Jump {
@@ -168,41 +173,48 @@ class Puzzle_2017_18: PuzzleBaseClass {
             for pid in 0...1 {
                 if programCounter[pid] >= 0 && programCounter[pid] < instructionArray.count {
                     let currentInstruction = instructionArray[programCounter[pid]]
-                    let parameter1: Int?
-                    if currentInstruction.parameter1Int != nil {
-                        parameter1 = currentInstruction.parameter1Int
-                    } else if currentInstruction.parameter1String != nil {
-                        parameter1 = registers[pid][currentInstruction.parameter1String!]
-                    } else {
-                        parameter1 = nil
+
+                    var parameter1String = ""
+                    if let str1 = currentInstruction.parameter1String {
+                        parameter1String = str1
                     }
 
-                    let parameter2: Int?
+                    var parameter2String = ""
+                    if let str2 = currentInstruction.parameter2String {
+                        parameter2String = str2
+                    }
+
+                    var parameter1 = 0
+                    if currentInstruction.parameter1Int != nil {
+                        parameter1 = currentInstruction.parameter1Int ?? 0
+                    } else if currentInstruction.parameter1String != nil {
+                        parameter1 = registers[pid][parameter1String] ?? 0
+                    }
+
+                    var parameter2 = 0
                     if currentInstruction.parameter2Int != nil {
-                        parameter2 = currentInstruction.parameter2Int
+                        parameter2 = currentInstruction.parameter2Int ?? 0
                     } else if currentInstruction.parameter2String != nil {
-                        parameter2 = registers[pid][currentInstruction.parameter2String!]
-                    } else {
-                        parameter2 = nil
+                        parameter2 = registers[pid][parameter2String] ?? 0
                     }
 
                     if currentInstruction.instructionType == .Set {
-                        registers[pid][currentInstruction.parameter1String!] = parameter2
+                        registers[pid][parameter1String] = parameter2
                     } else if currentInstruction.instructionType == .Add {
-                        let previousValue = registers[pid][currentInstruction.parameter1String!]
-                        registers[pid][currentInstruction.parameter1String!] = previousValue! + parameter2!
+                        let previousValue = registers[pid][parameter1String]
+                        registers[pid][parameter1String] = (previousValue ?? 0) + parameter2
                     } else if currentInstruction.instructionType == .Multiply {
-                        let previousValue = registers[pid][currentInstruction.parameter1String!]
-                        registers[pid][currentInstruction.parameter1String!] = previousValue! * parameter2!
+                        let previousValue = registers[pid][parameter1String]
+                        registers[pid][parameter1String] = (previousValue ?? 0) * parameter2
                     } else if currentInstruction.instructionType == .Modulo {
-                        let previousValue = registers[pid][currentInstruction.parameter1String!]
-                        registers[pid][currentInstruction.parameter1String!] = previousValue! % parameter2!
+                        let previousValue = registers[pid][parameter1String]
+                        registers[pid][parameter1String] = (previousValue ?? 0) % parameter2
                     } else if currentInstruction.instructionType == .Jump {
-                        if parameter1! > 0 {
-                            programCounter[pid] += (parameter2! - 1)
+                        if parameter1 > 0 {
+                            programCounter[pid] += (parameter2 - 1)
                         }
                     } else if currentInstruction.instructionType == .SoundOrSend {
-                        inputQueue[1 - pid].append(parameter1!)
+                        inputQueue[1 - pid].append(parameter1)
                         if pid == 1 {
                             program1Sends += 1
                         }
@@ -211,7 +223,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
                             programCounter[pid] -= 1
                             waitingForInput[pid] = true
                         } else {
-                            registers[pid][currentInstruction.parameter1String!] = inputQueue[pid].first!
+                            registers[pid][parameter1String] = inputQueue[pid].first ?? 0
                             inputQueue[pid].removeFirst()
                             waitingForInput[pid] = false
                         }

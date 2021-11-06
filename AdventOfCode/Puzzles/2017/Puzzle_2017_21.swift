@@ -179,8 +179,10 @@ class Puzzle_2017_21: PuzzleBaseClass {
                         }
                     }
 
-                    let replacementString = rules[replacementKey]!
-                    replacementStrings.append(replacementString)
+                    if let replacementString = rules[replacementKey] {
+                        replacementStrings.append(replacementString)
+                    }
+
                     x += patternStep
                 }
 

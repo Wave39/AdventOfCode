@@ -116,7 +116,7 @@ class Puzzle_2016_25: PuzzleBaseClass {
         func buildParam(inputString: String) -> Param {
             var p: Param
             if isStringNumeric(theString: inputString) {
-                p = Param(numericValue: Int(inputString)!, registerIndex: nil)
+                p = Param(numericValue: inputString.toInt(), registerIndex: nil)
             } else {
                 let idx: Int
                 if inputString == "a" {
