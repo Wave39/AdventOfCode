@@ -62,11 +62,11 @@ class Puzzle_2020_15: PuzzleBaseClass {
     }
 
     func solvePart1(str: String) -> Int {
-        solve(str: str, turns: 2020)
+        solve(str: str, turns: 2_020)
     }
 
     func solvePart2(str: String) -> Int {
-        solve(str: str, turns: 30000000)
+        solve(str: str, turns: 30_000_000)
     }
 
 }

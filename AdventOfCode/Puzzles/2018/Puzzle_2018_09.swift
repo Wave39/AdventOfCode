@@ -65,7 +65,7 @@ class Puzzle_2018_09: NSObject {
                 currentNode.clockwise = newNode
                 currentNode.counterclockwise = newNode
                 currentNode = newNode
-            } else if marble % 23 == 0 {
+            } else if marble.isMultiple(of: 23) {
                 if scoringDictionary[playerIndex] == nil {
                     scoringDictionary[playerIndex] = 0
                 }
@@ -123,7 +123,7 @@ class Puzzle_2018_09: NSObject {
             if marble == 1 {
                 marbleArray.append(1)
                 currentMarbleIndex = 1
-            } else if marble % 23 == 0 {
+            } else if marble.isMultiple(of: 23) {
                 if scoringDictionary[playerIndex] == nil {
                     scoringDictionary[playerIndex] = 0
                 }
@@ -165,10 +165,10 @@ class Puzzle_2018_09: NSObject {
 
 private class Puzzle_2018_09_Input: NSObject {
 
-    static let puzzleInput_test1 = [ (9, 25), (10, 1618) ]
-    static let puzzleInput_test2 = [ (13, 7999), (17, 1104) ]
-    static let puzzleInput_test3 = [ (21, 6111), (30, 5807) ]
+    static let puzzleInput_test1 = [ (9, 25), (10, 1_618) ]
+    static let puzzleInput_test2 = [ (13, 7_999), (17, 1_104) ]
+    static let puzzleInput_test3 = [ (21, 6_111), (30, 5_807) ]
 
-    static let puzzleInput = [ (479, 71035), (479, 71035 * 100) ]
+    static let puzzleInput = [ (479, 71_035), (479, 71_035 * 100) ]
 
 }

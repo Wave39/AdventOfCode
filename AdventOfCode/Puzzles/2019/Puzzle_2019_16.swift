@@ -66,7 +66,7 @@ class Puzzle_2019_16: PuzzleBaseClass {
     func solvePart2(str: String, numberOfPhases: Int) -> String {
         let arr0 = str.map({ $0.int })
         var arr: [Int] = []
-        for _ in 0..<10000 {
+        for _ in 0..<10_000 {
             arr.append(contentsOf: arr0)
         }
 

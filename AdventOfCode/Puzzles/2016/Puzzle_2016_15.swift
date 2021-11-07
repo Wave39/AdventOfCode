@@ -20,6 +20,7 @@ class Puzzle_2016_15: PuzzleBaseClass {
         struct DiscState {
             var initialPosition: Int
             var size: Int
+
             func positionAtTime(time: Int) -> Int {
                 (initialPosition + time) % size
             }
@@ -46,12 +47,13 @@ class Puzzle_2016_15: PuzzleBaseClass {
             return foundTime
         }
 
-        let part1Input = [ DiscState(initialPosition: 10, size: 13),
-                           DiscState(initialPosition: 15, size: 17),
-                           DiscState(initialPosition: 17, size: 19),
-                           DiscState(initialPosition: 1, size: 7),
-                           DiscState(initialPosition: 0, size: 5),
-                           DiscState(initialPosition: 1, size: 3)
+        let part1Input = [
+            DiscState(initialPosition: 10, size: 13),
+            DiscState(initialPosition: 15, size: 17),
+            DiscState(initialPosition: 17, size: 19),
+            DiscState(initialPosition: 1, size: 7),
+            DiscState(initialPosition: 0, size: 5),
+            DiscState(initialPosition: 1, size: 3)
         ]
         var part2Input = part1Input
         part2Input.append(DiscState(initialPosition: 0, size: 11))

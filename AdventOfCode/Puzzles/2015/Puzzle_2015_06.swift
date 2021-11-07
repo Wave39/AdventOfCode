@@ -26,8 +26,8 @@ class Puzzle_2015_06: PuzzleBaseClass {
             return (0, 0)
         }
 
-        var lightArray = Array(repeating: Array(repeating: false, count: 1000), count: 1000)
-        var brightnessArray = Array(repeating: Array(repeating: 0, count: 1000), count: 1000)
+        var lightArray = Array(repeating: Array(repeating: false, count: 1_000), count: 1_000)
+        var brightnessArray = Array(repeating: Array(repeating: 0, count: 1_000), count: 1_000)
         let commandArray = PuzzleInput.final.split { $0 == "-" }.map(String.init)
 
         for command in commandArray {

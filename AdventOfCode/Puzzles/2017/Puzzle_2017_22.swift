@@ -29,8 +29,8 @@ class Puzzle_2017_22: PuzzleBaseClass {
         }
     }
 
-    let gridSize = 20000
-    let gridCenter: Point2D = Point2D(x: 10000, y: 10000)
+    let gridSize = 20_000
+    let gridCenter: Point2D = Point2D(x: 10_000, y: 10_000)
 
     func translatePoint(point: Point2D) -> Point2D {
         Point2D(x: (point.x + gridCenter.x), y: (point.y + gridCenter.y))
@@ -75,7 +75,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
         var currentPoint = translatePoint(point: Point2D(x: 0, y: 0))
         var currentDirection = Direction.UP
         var infectionCount = 0
-        for _ in 0..<10000 {
+        for _ in 0..<10_000 {
             let c = getCharacterAtCharacterGridPoint(grid: theGrid, point: currentPoint)
             if c == "#" {
                 currentDirection = currentDirection.nextDirectionByTurningRight()

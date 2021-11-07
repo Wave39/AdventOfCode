@@ -17,6 +17,7 @@ private enum EffectType {
 private class Effect {
     var type: EffectType
     var turns: Int = 0
+
     init (type: EffectType, turns: Int) {
         self.type = type
         self.turns = turns
@@ -32,6 +33,7 @@ private enum EffectResultType {
 private class EffectResult {
     var type: EffectResultType
     var amount: Int = 0
+
     init (type: EffectResultType, amount: Int) {
         self.type = type
         self.amount = amount
@@ -54,6 +56,7 @@ private class Spell {
     var healing: Int = 0
     var effect: Effect?
     var effectResult: EffectResult?
+
     init (type: SpellType, manaCost: Int, damage: Int, healing: Int, effect: Effect?, effectResult: EffectResult?) {
         self.type = type
         self.manaCost = manaCost
@@ -77,6 +80,7 @@ private class GameState {
     var poisonTimer: Int = 0
     var rechargeTimer: Int = 0
     var difficultyHard: Bool = false
+
     init (playerHitPoints: Int, playerCurrentMana: Int, bossHitPoints: Int, bossDamage: Int, difficultyHard: Bool) {
         self.playerHitPoints = playerHitPoints
         self.playerCurrentMana = playerCurrentMana

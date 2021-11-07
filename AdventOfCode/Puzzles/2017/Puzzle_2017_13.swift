@@ -84,7 +84,7 @@ class Puzzle_2017_13: PuzzleBaseClass {
             }
         }
 
-        let upperLimit = 5000000
+        let upperLimit = 5_000_000
 
         // build the layer dictionaries for the first N picoseconds
         for _ in 0...upperLimit {

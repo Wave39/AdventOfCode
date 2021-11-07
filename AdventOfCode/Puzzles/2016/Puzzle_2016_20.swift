@@ -18,7 +18,7 @@ class Puzzle_2016_20: PuzzleBaseClass {
 
     func solveBothParts() -> (Int, Int) {
         func findSolution(addressPairArray: [(Int, Int)], startingAt: Int) -> Int {
-            if startingAt > 4294967295 {
+            if startingAt > 4_294_967_295 {
                 return -1
             }
 
@@ -33,7 +33,7 @@ class Puzzle_2016_20: PuzzleBaseClass {
                     }
                 }
 
-                if addressPointer > 4294967295 && !addressFound {
+                if addressPointer > 4_294_967_295 && !addressFound {
                     return -1
                 }
 

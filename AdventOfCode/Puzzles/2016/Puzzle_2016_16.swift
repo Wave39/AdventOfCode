@@ -56,7 +56,7 @@ class Puzzle_2016_16: PuzzleBaseClass {
         func generateChecksum(data: [Int]) -> [Int] {
             var d = data
             var dCount = d.count
-            while dCount % 2 == 0 {
+            while dCount.isMultiple(of: 2) {
                 var s2: [Int]  = []
                 for idx in stride(from: 0, to: dCount - 1, by: 2) {
                     if d[idx] == d[idx + 1] {
@@ -84,7 +84,7 @@ class Puzzle_2016_16: PuzzleBaseClass {
         let part1Solution = processInput(input: part1Input, length: part1Length)
 
         let part2Input = part1Input
-        let part2Length = 35651584
+        let part2Length = 35_651_584
         let part2Solution = processInput(input: part2Input, length: part2Length)
 
         return (part1Solution, part2Solution)

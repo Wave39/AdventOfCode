@@ -21,6 +21,7 @@ class Puzzle_2015_21: PuzzleBaseClass {
             var hitPoints: Int = 0
             var damage: Int = 0
             var armor: Int = 0
+
             init (hitPoints: Int, damage: Int, armor: Int) {
                 self.hitPoints = hitPoints
                 self.damage = damage
@@ -33,6 +34,7 @@ class Puzzle_2015_21: PuzzleBaseClass {
             var cost: Int = 0
             var damage: Int = 0
             var armor: Int = 0
+
             init (name: String, cost: Int, damage: Int, armor: Int) {
                 self.name = name
                 self.cost = cost

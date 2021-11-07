@@ -97,7 +97,7 @@ class Puzzle_2015_09: PuzzleBaseClass {
             return 0
         }
 
-        var shortestDistance: Int = 9999999999
+        var shortestDistance: Int = 9_999_999_999
         var longestDistance: Int = 0
         func walkToBranchTips(node: Tree) {
             if node.branches.isEmpty {

@@ -54,7 +54,7 @@ class Puzzle_2015_23: PuzzleBaseClass {
                     let aRegisterMode = (components[1] == "a,")
                     let register = (aRegisterMode ? processor.a : processor.b)
                     var offset = 1
-                    if (opcode == "jie" && register % 2 == 0) || (opcode == "jio" && register == 1) {
+                    if (opcode == "jie" && register.isMultiple(of: 2)) || (opcode == "jio" && register == 1) {
                         offset = components[2].int
                     }
 

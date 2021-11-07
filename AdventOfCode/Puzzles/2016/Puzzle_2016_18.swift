@@ -98,7 +98,7 @@ class Puzzle_2016_18: PuzzleBaseClass {
 
         let startingRow = "...^^^^^..^...^...^^^^^^...^.^^^.^.^.^^.^^^.....^.^^^...^^^^^^.....^.^^...^^^^^...^.^^^.^^......^^^^"
         let part1Solution = getSafeTileCount(startingRow: startingRow, numberOfRows: 40)
-        let part2Solution = getSafeTileCount(startingRow: startingRow, numberOfRows: 400000)
+        let part2Solution = getSafeTileCount(startingRow: startingRow, numberOfRows: 400_000)
         return (part1Solution, part2Solution)
     }
 }

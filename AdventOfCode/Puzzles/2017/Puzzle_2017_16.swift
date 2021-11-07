@@ -39,7 +39,7 @@ class Puzzle_2017_16: PuzzleBaseClass {
     }
 
     func solvePart2() -> String {
-        solvePuzzle(puzzleInput: Puzzle_2017_16_Input.puzzleInput, iterations: 1000000000)
+        solvePuzzle(puzzleInput: Puzzle_2017_16_Input.puzzleInput, iterations: 1_000_000_000)
     }
 
     func swapCharacters(arr: inout [Character], from: Int, to: Int) {

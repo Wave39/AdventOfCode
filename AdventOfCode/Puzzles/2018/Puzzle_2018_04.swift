@@ -95,6 +95,7 @@ class Puzzle_2018_04: NSObject {
 
     class MinuteArray {
         var minute: [Int]
+
         init() {
             minute = []
             for _ in 0...59 {

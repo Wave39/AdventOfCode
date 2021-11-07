@@ -160,7 +160,7 @@ class Puzzle_2017_21: PuzzleBaseClass {
         for iteration in 0..<18 {
             let patternSize = pattern.count
             var patternStep = 3
-            if patternSize % 2 == 0 {
+            if patternSize.isMultiple(of: 2) {
                 patternStep = 2
             }
 

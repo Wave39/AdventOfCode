@@ -183,12 +183,15 @@ extension String {
         return false
     }
 
-    func matchesForRegexInText(regex: String!) -> [String] {
+    func matchesForRegexInText(regex: String) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = self as NSString
-            let results = regex.matches(in: self,
-                options: [], range: NSMakeRange(0, nsString.length))
+            let results = regex.matches(
+                in: self,
+                options: [],
+                range: NSMakeRange(0, nsString.length)
+            )
             return results.map { nsString.substring(with: $0.range) }
         } catch let error as NSError {
             print("invalid regex: \(error.localizedDescription)")
@@ -351,7 +354,8 @@ extension String {
     func words(with charset: CharacterSet = .alphanumerics) -> [String] {
         self.unicodeScalars.split { substring in
             !charset.contains(substring)
-        }.map(String.init)
+        }
+        .map(String.init)
     }
 
 }

@@ -13,6 +13,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
     class OrbitalRelationship: CustomStringConvertible {
         var center: String
         var orbiter: String
+
         init(_ c: String, _ o: String) {
             center = c
             orbiter = o
@@ -26,6 +27,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
     class PlanetaryInfo: CustomStringConvertible {
         var name: String
         var stepCount: Int
+
         init(_ n: String, _ c: Int) {
             name = n
             stepCount = c

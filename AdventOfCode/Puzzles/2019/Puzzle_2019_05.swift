@@ -38,7 +38,7 @@ class Puzzle_2019_05: PuzzleBaseClass {
         while arr[programCounter] != 99 {
             let opcode = arr[programCounter] % 100
             let immediateC = (arr[programCounter] / 100 % 10 > 0)
-            let immediateB = (arr[programCounter] / 1000 % 10 > 0)
+            let immediateB = (arr[programCounter] / 1_000 % 10 > 0)
             let p1 = arr[programCounter + 1]
             let p2 = arr[programCounter + 2]
             let p3 = arr[programCounter + 3]

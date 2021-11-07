@@ -84,18 +84,18 @@ class Puzzle_2019_13: PuzzleBaseClass {
             }
 
             var bParameterMode: ParameterMode
-            if program[programCounter] / 1000 % 10 == 1 {
+            if program[programCounter] / 1_000 % 10 == 1 {
                 bParameterMode = .immediate
-            } else if program[programCounter] / 1000 % 10 == 2 {
+            } else if program[programCounter] / 1_000 % 10 == 2 {
                 bParameterMode = .relative
             } else {
                 bParameterMode = .position
             }
 
             var aParameterMode: ParameterMode
-            if program[programCounter] / 10000 % 10 == 1 {
+            if program[programCounter] / 10_000 % 10 == 1 {
                 aParameterMode = .immediate
-            } else if program[programCounter] / 10000 % 10 == 2 {
+            } else if program[programCounter] / 10_000 % 10 == 2 {
                 aParameterMode = .relative
             } else {
                 aParameterMode = .position
@@ -140,7 +140,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
                 outputArray.append(p1)
                 // print(retval)
                 programCounter += 2
-                if outputArray.count >= 3 && outputArray.count % 3 == 0 {
+                if outputArray.count >= 3 && outputArray.count.isMultiple(of: 3) {
                     let c = outputArray.count
                     if outputArray[c - 1] == -1 {
                         // return (outputArray, true)
@@ -214,7 +214,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
         var yValues: [Int] = []
         var tileValues: [Int] = []
         for idx in 0..<input.count {
-            if idx % 3 == 0 {
+            if idx.isMultiple(of: 3) {
                 xValues.append(input[idx])
             } else if idx % 3 == 1 {
                 yValues.append(input[idx])
@@ -272,7 +272,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
             var x = 0, tile = 0, theBallX = 0, thePaddleX = 0
             var tileValues: [Int] = []
             for idx in 0..<results.0.count {
-                if idx % 3 == 0 {
+                if idx.isMultiple(of: 3) {
                     x = results.0[idx]
                     if x == -1 {
                         score = results.0[idx + 2]

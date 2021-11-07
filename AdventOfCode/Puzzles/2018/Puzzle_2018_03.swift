@@ -43,7 +43,7 @@ class Puzzle_2018_03: NSObject {
         var part1 = 0
 
         var fabric: [[Int]] = []
-        let maxSize = 1000
+        let maxSize = 1_000
         for _ in 0..<maxSize {
             var rowArray: [Int] = []
             for _ in 0..<maxSize {

@@ -27,7 +27,7 @@ class Puzzle_2016_02: PuzzleBaseClass {
                         part1Key -= 1
                     }
                 } else if c == "R" {
-                    if part1Key % 3 != 0 {
+                    if !part1Key.isMultiple(of: 3) {
                         part1Key += 1
                     }
                 } else if c == "U" {

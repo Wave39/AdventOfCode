@@ -20,21 +20,21 @@ class GCDTests: XCTestCase {
         XCTAssertEqual(gcd(13, 13), 13)
         XCTAssertEqual(gcd(37, 600), 1)
         XCTAssertEqual(gcd(20, 100), 20)
-        XCTAssertEqual(gcd(624129, 2061517), 18913)
+        XCTAssertEqual(gcd(624_129, 2_061_517), 18_913)
     }
 
     func test_gcdIterativeEuklid() {
         XCTAssertEqual(gcdIterativeEuklid(13, 13), 13)
         XCTAssertEqual(gcdIterativeEuklid(37, 600), 1)
         XCTAssertEqual(gcdIterativeEuklid(20, 100), 20)
-        XCTAssertEqual(gcdIterativeEuklid(624129, 2061517), 18913)
+        XCTAssertEqual(gcdIterativeEuklid(624_129, 2_061_517), 18_913)
     }
 
     func test_gcdRecursiveEuklid() {
         XCTAssertEqual(gcdRecursiveEuklid(13, 13), 13)
         XCTAssertEqual(gcdRecursiveEuklid(37, 600), 1)
         XCTAssertEqual(gcdRecursiveEuklid(20, 100), 20)
-        XCTAssertEqual(gcdRecursiveEuklid(624129, 2061517), 18913)
+        XCTAssertEqual(gcdRecursiveEuklid(624_129, 2_061_517), 18_913)
         XCTAssertEqual(gcdRecursiveEuklid(10, 5), 5)
     }
 
@@ -42,7 +42,7 @@ class GCDTests: XCTestCase {
         XCTAssertEqual(gcdBinaryRecursiveStein(13, 13), 13)
         XCTAssertEqual(gcdBinaryRecursiveStein(37, 600), 1)
         XCTAssertEqual(gcdBinaryRecursiveStein(20, 100), 20)
-        XCTAssertEqual(gcdBinaryRecursiveStein(624129, 2061517), 18913)
+        XCTAssertEqual(gcdBinaryRecursiveStein(624_129, 2_061_517), 18_913)
     }
 
     func test_findEasySolution() {

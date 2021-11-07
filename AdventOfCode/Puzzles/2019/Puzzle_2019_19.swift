@@ -59,12 +59,12 @@ class Puzzle_2019_19: PuzzleBaseClass {
     func solvePart2(str: String) -> Int {
         originalProgram = str.parseIntoIntArray(separator: ",")
         // I arrived at the starting y value below through some rough trial and error
-        for y in 1240...1500 {
+        for y in 1_240...1_500 {
             let xCoordinates = getXCoordinates(y: y)
             let xRight = xCoordinates.max() ?? 0
             let x2Coordinates = getXCoordinates(y: y + 99)
             if x2Coordinates.contains(xRight - 99) {
-                return (xRight - 99) * 10000 + y
+                return (xRight - 99) * 10_000 + y
             }
         }
 
@@ -120,18 +120,18 @@ class Puzzle_2019_19: PuzzleBaseClass {
             }
 
             var bParameterMode: ParameterMode
-            if program[programCounter] / 1000 % 10 == 1 {
+            if program[programCounter] / 1_000 % 10 == 1 {
                 bParameterMode = .immediate
-            } else if program[programCounter] / 1000 % 10 == 2 {
+            } else if program[programCounter] / 1_000 % 10 == 2 {
                 bParameterMode = .relative
             } else {
                 bParameterMode = .position
             }
 
             var aParameterMode: ParameterMode
-            if program[programCounter] / 10000 % 10 == 1 {
+            if program[programCounter] / 10_000 % 10 == 1 {
                 aParameterMode = .immediate
-            } else if program[programCounter] / 10000 % 10 == 2 {
+            } else if program[programCounter] / 10_000 % 10 == 2 {
                 aParameterMode = .relative
             } else {
                 aParameterMode = .position

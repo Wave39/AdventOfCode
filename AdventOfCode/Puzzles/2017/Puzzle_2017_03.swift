@@ -155,5 +155,5 @@ class Puzzle_2017_03: PuzzleBaseClass {
 }
 
 private class Puzzle_2017_03_Input: NSObject {
-    static let puzzleInput = 277678
+    static let puzzleInput = 277_678
 }

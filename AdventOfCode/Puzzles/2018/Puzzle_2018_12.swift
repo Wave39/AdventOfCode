@@ -95,7 +95,7 @@ class Puzzle_2018_12: NSObject {
         // it just moved to the right by one pot number
         // so at generation 100, we can just move everything over by 50 billion - 100 pots, and calculate the total from there
 
-        let arrayExtension = 1500
+        let arrayExtension = 1_500
         var plantArray = getPlantArray(inputString: puzzleInput.0, arrayExtension: arrayExtension)
         let plantSet = getPlantGrowthSet(entries: puzzleInput.1)
 

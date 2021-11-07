@@ -37,14 +37,14 @@ class Puzzle_2017_15: PuzzleBaseClass {
     }
 
     func getNextGenerators(generators: (Int, Int)) -> (Int, Int) {
-        let a = (generators.0 * 16807) % 2147483647
-        let b = (generators.1 * 48271) % 2147483647
+        let a = (generators.0 * 16_807) % 2_147_483_647
+        let b = (generators.1 * 48_271) % 2_147_483_647
         return (a, b)
     }
 
     func generatorsMatch(generatorA: Int, generatorB: Int) -> Bool {
-        let matchA = generatorA & 65535
-        let matchB = generatorB & 65535
+        let matchA = generatorA & 65_535
+        let matchB = generatorB & 65_535
         return matchA == matchB
     }
 
@@ -53,7 +53,7 @@ class Puzzle_2017_15: PuzzleBaseClass {
     }
 
     func solvePart1(initialGenerators: (Int, Int)) -> Int {
-        let iterations = 40000000
+        let iterations = 40_000_000
         var matchCount = 0
         var generators = initialGenerators
 
@@ -68,17 +68,17 @@ class Puzzle_2017_15: PuzzleBaseClass {
     }
 
     func solvePart2(initialGenerators: (Int, Int)) -> Int {
-        let iterations = 5000000
+        let iterations = 5_000_000
         var generators = initialGenerators
         var aGenerators: [Int] = []
         var bGenerators: [Int] = []
         while aGenerators.count < iterations || bGenerators.count < iterations {
             generators = getNextGenerators(generators: generators)
-            if generators.0 % 4 == 0 {
+            if generators.0.isMultiple(of: 4) {
                 aGenerators.append(generators.0)
             }
 
-            if generators.1 % 8 == 0 {
+            if generators.1.isMultiple(of: 8) {
                 bGenerators.append(generators.1)
             }
         }

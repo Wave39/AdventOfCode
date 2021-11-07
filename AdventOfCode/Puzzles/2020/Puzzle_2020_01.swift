@@ -30,7 +30,7 @@ class Puzzle_2020_01: PuzzleBaseClass {
         let arr = str.parseIntoIntArray()
         for x in arr {
             for y in arr.filter({ $0 != x }) {
-                if x + y == 2020 {
+                if x + y == 2_020 {
                     return x * y
                 }
             }
@@ -44,7 +44,7 @@ class Puzzle_2020_01: PuzzleBaseClass {
         for x in arr {
             for y in arr.filter({ $0 != x }) {
                 for z in arr.filter({ $0 != x && $0 != y }) {
-                    if x + y + z == 2020 {
+                    if x + y + z == 2_020 {
                         return x * y * z
                     }
                 }

@@ -103,18 +103,18 @@ class Puzzle_2019_15: PuzzleBaseClass {
             }
 
             var bParameterMode: ParameterMode
-            if program[programCounter] / 1000 % 10 == 1 {
+            if program[programCounter] / 1_000 % 10 == 1 {
                 bParameterMode = .immediate
-            } else if program[programCounter] / 1000 % 10 == 2 {
+            } else if program[programCounter] / 1_000 % 10 == 2 {
                 bParameterMode = .relative
             } else {
                 bParameterMode = .position
             }
 
             var aParameterMode: ParameterMode
-            if program[programCounter] / 10000 % 10 == 1 {
+            if program[programCounter] / 10_000 % 10 == 1 {
                 aParameterMode = .immediate
-            } else if program[programCounter] / 10000 % 10 == 2 {
+            } else if program[programCounter] / 10_000 % 10 == 2 {
                 aParameterMode = .relative
             } else {
                 aParameterMode = .position

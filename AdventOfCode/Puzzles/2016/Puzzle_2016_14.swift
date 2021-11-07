@@ -23,7 +23,7 @@ class Puzzle_2016_14: PuzzleBaseClass {
             let key = "\(inputString)\(index)"
             var md5 = key.md5
             if stretch {
-                for _ in 1...2016 {
+                for _ in 1...2_016 {
                     md5 = md5.md5
                 }
             }
@@ -60,7 +60,7 @@ class Puzzle_2016_14: PuzzleBaseClass {
                 let matchedCharacter = getTripleCharacter(string: hashValue)
                 if matchedCharacter != "?" {
                     let searchFor = String(repeating: matchedCharacter, count: 5)
-                    for nextIndex in (index + 1)...(index + 1000) {
+                    for nextIndex in (index + 1)...(index + 1_000) {
                         let nextHashValue = getIndexValue(index: nextIndex)
                         if nextHashValue.contains(searchFor) {
                             validKeys.append(index)

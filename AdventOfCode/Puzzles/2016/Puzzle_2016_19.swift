@@ -76,7 +76,7 @@ class Puzzle_2016_19: PuzzleBaseClass {
             return working
         }
 
-        let elfCount = 3004953
+        let elfCount = 3_004_953
         let part1Solution = findPart1Solution(elfCount: elfCount)
         let part2Solution = findPart2Solution(elfCount: elfCount)
         return (part1Solution, part2Solution)

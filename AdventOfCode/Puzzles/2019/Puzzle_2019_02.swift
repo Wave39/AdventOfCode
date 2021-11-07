@@ -60,7 +60,7 @@ class Puzzle_2019_02: PuzzleBaseClass {
                 var arr = originalArray
                 arr[1] = noun
                 arr[2] = verb
-                if ProcessProgram(program: arr) == 19690720 {
+                if ProcessProgram(program: arr) == 19_690_720 {
                     return noun * 100 + verb
                 }
             }

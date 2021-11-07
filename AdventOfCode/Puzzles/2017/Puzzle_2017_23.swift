@@ -127,8 +127,8 @@ class Puzzle_2017_23: PuzzleBaseClass {
         // As a result, the solution to part 2 is stolen from the following site:
         // https://github.com/dp1/AoC17/blob/master/day23.5.txt
 
-        let b = 109300
-        let c = 126300
+        let b = 109_300
+        let c = 126_300
         var h = 0
         for idx in stride(from: b, to: (c + 1), by: 17) {
             if !isPrime(idx) {

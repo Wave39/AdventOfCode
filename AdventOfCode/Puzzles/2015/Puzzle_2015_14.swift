@@ -37,7 +37,7 @@ class Puzzle_2015_14: PuzzleBaseClass {
             reindeerArray.append(r)
         }
 
-        let seconds = 2503
+        let seconds = 2_503
         var maxDistance = 0
         for reindeer in reindeerArray {
             let flightAndRestTime = reindeer.flightTime + reindeer.restTime

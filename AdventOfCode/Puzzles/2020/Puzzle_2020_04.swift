@@ -70,21 +70,21 @@ class Puzzle_2020_04: PuzzleBaseClass {
 
                 // byr (Birth Year) - four digits; at least 1920 and at most 2002.
                 if let birthYear = passport.first(where: { $0.starts(with: "byr:") })?.substring(from: 4) {
-                    if birthYear.count != 4 || birthYear.int < 1920 || birthYear.int > 2002 {
+                    if birthYear.count != 4 || birthYear.int < 1_920 || birthYear.int > 2_002 {
                         continue
                     }
                 }
 
                 // iyr (Issue Year) - four digits; at least 2010 and at most 2020.
                 if let issueYear = passport.first(where: { $0.starts(with: "iyr:") })?.substring(from: 4) {
-                    if issueYear.count != 4 || issueYear.int < 2010 || issueYear.int > 2020 {
+                    if issueYear.count != 4 || issueYear.int < 2_010 || issueYear.int > 2_020 {
                         continue
                     }
                 }
 
                 // eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
                 if let expirationYear = passport.first(where: { $0.starts(with: "eyr:") })?.substring(from: 4) {
-                    if expirationYear.count != 4 || expirationYear.int < 2020 || expirationYear.int > 2030 {
+                    if expirationYear.count != 4 || expirationYear.int < 2_020 || expirationYear.int > 2_030 {
                         continue
                     }
                 }

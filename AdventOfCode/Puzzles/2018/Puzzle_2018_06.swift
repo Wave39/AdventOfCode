@@ -194,7 +194,7 @@ class Puzzle_2018_06: NSObject {
                     totalDistance += gl.manhattanDistanceTo(pt: point)
                 }
 
-                if totalDistance < 10000 {
+                if totalDistance < 10_000 {
                     retval += 1
                 }
             }

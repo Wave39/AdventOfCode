@@ -13,6 +13,7 @@ class Puzzle_2018_23: NSObject {
     class Nanobot {
         var position: Point3D = Point3D()
         var range: Int = 0
+
         func inRangeOf(otherBot: Nanobot) -> Bool {
             self.position.manhattanDistanceTo(pt: otherBot.position) <= self.range
         }
@@ -77,7 +78,7 @@ class Puzzle_2018_23: NSObject {
 
     func solvePart2(bots: [Nanobot]) -> Int {
         // Yet moar shame, I once again borrowed someone else's solution
-        return 97816347
+        return 97_816_347
     }
 
 }

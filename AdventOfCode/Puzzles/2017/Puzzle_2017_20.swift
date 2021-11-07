@@ -133,7 +133,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
         parseInput(str: str)
 
         var lastClosest = -1
-        for _ in 0...1000 {
+        for _ in 0...1_000 {
             advanceParticles()
             let c = findClosestParticle()
             if c.0 != lastClosest {
@@ -150,7 +150,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
         parseInput(str: str)
         removeCollidedParticles()
 
-        for _ in 0...1000 {
+        for _ in 0...1_000 {
             advanceParticles()
             removeCollidedParticles()
         }

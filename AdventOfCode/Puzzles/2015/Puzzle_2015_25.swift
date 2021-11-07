@@ -44,18 +44,18 @@ class Puzzle_2015_25: PuzzleBaseClass {
         func valueAtPosition(row: Int, column: Int) -> Int {
             let idx = indexAtPosition(row: row, column: column)
 
-            var v = 20151125
+            var v = 20_151_125
             if idx >= 1 {
                 for _ in 1...idx {
-                    v = ((v * 252533) % 33554393)
+                    v = ((v * 252_533) % 33_554_393)
                 }
             }
 
             return v
         }
 
-        let row = 2981
-        let column = 3075
+        let row = 2_981
+        let column = 3_075
         return valueAtPosition(row: row, column: column)
     }
 }

@@ -22,7 +22,7 @@ class Puzzle_2020_25: PuzzleBaseClass {
     func calculateTransform(key: Int, loopSize: Int) -> Int {
         var retval = 1
         for _ in 1...loopSize {
-            retval = (retval * key) % 20201227
+            retval = (retval * key) % 20_201_227
         }
 
         return retval
@@ -38,7 +38,7 @@ class Puzzle_2020_25: PuzzleBaseClass {
         var x = 7
         while x != cardPublicKey {
             cardLoopSize += 1
-            x = (x * 7) % 20201227
+            x = (x * 7) % 20_201_227
         }
 
         let doorPublicKey = lines[1].int

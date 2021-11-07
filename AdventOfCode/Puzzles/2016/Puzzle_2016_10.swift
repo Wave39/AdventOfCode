@@ -21,6 +21,7 @@ class Puzzle_2016_10: PuzzleBaseClass {
         class BotInfo: CustomStringConvertible {
             var chips: [Int]
             var lastComparison: [Int]
+
             init() {
                 chips = []
                 lastComparison = []

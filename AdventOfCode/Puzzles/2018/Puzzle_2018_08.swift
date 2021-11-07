@@ -30,6 +30,7 @@ class Puzzle_2018_08: NSObject {
     var inputArray: [Int] = []
     var nodeIndex: Int = 0
     var part1MetadataArray: [Int] = []
+
     func getElement() -> Int {
         let retval = inputArray[nodeIndex]
         nodeIndex += 1

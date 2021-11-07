@@ -76,7 +76,7 @@ class Puzzle_2020_13: PuzzleBaseClass {
             let newTime = bus.busID
             while true {
                 time += inc
-                if (time + bus.minutesAfter) % newTime == 0 {
+                if (time + bus.minutesAfter).isMultiple(of: newTime) {
                     inc *= newTime
                     break
                 }

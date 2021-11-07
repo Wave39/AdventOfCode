@@ -227,7 +227,7 @@ class Puzzle_2018_24: NSObject {
     }
 
     func solvePart2(groups: [Group]) -> Int {
-        2209
+        2_209
     }
 
 }

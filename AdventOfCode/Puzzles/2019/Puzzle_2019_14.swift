@@ -113,7 +113,7 @@ class Puzzle_2019_14: PuzzleBaseClass {
             return getOre(compound: "FUEL", amountNeeded: 1)
         }
 
-        let availableOre = 1000000000000
+        let availableOre = 1_000_000_000_000
 
         var step = Double(availableOre)
         var num = 1.0

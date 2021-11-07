@@ -60,7 +60,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
                     e2 = t
                 }
 
-                if e1 % e2 == 0 {
+                if e1.isMultiple(of: e2) {
                     return (e1, e2)
                 }
             }

@@ -63,7 +63,7 @@ class Puzzle_2018_20: NSObject {
         }
 
         let furthestRoom = roomDictionary.values.max() ?? 0
-        let farAwayRooms = roomDictionary.values.filter { $0 >= 1000 }.count
+        let farAwayRooms = roomDictionary.values.filter { $0 >= 1_000 }.count
 
         return (furthestRoom, farAwayRooms)
     }

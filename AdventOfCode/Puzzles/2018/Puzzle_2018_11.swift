@@ -76,7 +76,7 @@ class Puzzle_2018_11: NSObject {
         if powerLevel < 100 {
             powerLevel = 0
         } else {
-            powerLevel %= 1000  // strips away all but 0-999
+            powerLevel %= 1_000  // strips away all but 0-999
             powerLevel -= (powerLevel % 100) // strips away all but the hundreds
             powerLevel /= 100
         }
@@ -138,6 +138,6 @@ private class Puzzle_2018_11_Input: NSObject {
 
     static let puzzleInput_test = 42
 
-    static let puzzleInput = 5093
+    static let puzzleInput = 5_093
 
 }

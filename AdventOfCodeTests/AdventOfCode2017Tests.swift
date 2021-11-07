@@ -18,13 +18,13 @@ class AdventOfCode2017Tests: XCTestCase {
 
     func test2017day01() {
         let (part1, part2) = Puzzle_2017_01().solveBothParts()
-        XCTAssertEqual(part1, 1343)
-        XCTAssertEqual(part2, 1274)
+        XCTAssertEqual(part1, 1_343)
+        XCTAssertEqual(part2, 1_274)
     }
 
     func test2017day02() {
         let part1 = Puzzle_2017_02().solvePart1()
-        XCTAssertEqual(part1, 45158)
+        XCTAssertEqual(part1, 45_158)
         let part2 = Puzzle_2017_02().solvePart2()
         XCTAssertEqual(part2, 294)
     }
@@ -32,7 +32,7 @@ class AdventOfCode2017Tests: XCTestCase {
     func test2017day03() {
         let (part1, part2) = Puzzle_2017_03().solveBothParts()
         XCTAssertEqual(part1, 475)
-        XCTAssertEqual(part2, 279138)
+        XCTAssertEqual(part2, 279_138)
     }
 
     func test2017day04() {
@@ -43,14 +43,14 @@ class AdventOfCode2017Tests: XCTestCase {
 
     func test2017day05() {
         let (part1, part2) = Puzzle_2017_05().solveBothParts()
-        XCTAssertEqual(part1, 356945)
-        XCTAssertEqual(part2, 28372145)
+        XCTAssertEqual(part1, 356_945)
+        XCTAssertEqual(part2, 28_372_145)
     }
 
     func test2017day06() {
         let (part1, part2) = Puzzle_2017_06().solveBothParts()
-        XCTAssertEqual(part1, 11137)
-        XCTAssertEqual(part2, 1037)
+        XCTAssertEqual(part1, 11_137)
+        XCTAssertEqual(part2, 1_037)
     }
 
     func test2017day07() {
@@ -61,14 +61,14 @@ class AdventOfCode2017Tests: XCTestCase {
 
     func test2017day08() {
         let (part1, part2) = Puzzle_2017_08().solveBothParts()
-        XCTAssertEqual(part1, 3612)
-        XCTAssertEqual(part2, 3818)
+        XCTAssertEqual(part1, 3_612)
+        XCTAssertEqual(part2, 3_818)
     }
 
     func test2017day09() {
         let (part1, part2) = Puzzle_2017_09().solveBothParts()
-        XCTAssertEqual(part1, 16689)
-        XCTAssertEqual(part2, 7982)
+        XCTAssertEqual(part1, 16_689)
+        XCTAssertEqual(part2, 7_982)
     }
 
     func test2017day10() {
@@ -80,7 +80,7 @@ class AdventOfCode2017Tests: XCTestCase {
     func test2017day11() {
         let (part1, part2) = Puzzle_2017_11().solveBothParts()
         XCTAssertEqual(part1, 747)
-        XCTAssertEqual(part2, 1544)
+        XCTAssertEqual(part2, 1_544)
     }
 
     func test2017day12() {
@@ -91,14 +91,14 @@ class AdventOfCode2017Tests: XCTestCase {
 
     func test2017day13() {
         let (part1, part2) = Puzzle_2017_13().solveBothParts()
-        XCTAssertEqual(part1, 1580)
-        XCTAssertEqual(part2, 3943252)
+        XCTAssertEqual(part1, 1_580)
+        XCTAssertEqual(part2, 3_943_252)
     }
 
     func test2017day14() {
         let (part1, part2) = Puzzle_2017_14().solveBothParts()
-        XCTAssertEqual(part1, 8216)
-        XCTAssertEqual(part2, 1139)
+        XCTAssertEqual(part1, 8_216)
+        XCTAssertEqual(part2, 1_139)
     }
 
     func test2017day15() {
@@ -117,22 +117,22 @@ class AdventOfCode2017Tests: XCTestCase {
 
     func test2017day17() {
         let part1 = Puzzle_2017_17().solvePart1()
-        XCTAssertEqual(part1, 1306)
+        XCTAssertEqual(part1, 1_306)
         let part2 = Puzzle_2017_17().solvePart2()
-        XCTAssertEqual(part2, 20430489)
+        XCTAssertEqual(part2, 20_430_489)
     }
 
     func test2017day18() {
         let part1 = Puzzle_2017_18().solvePart1()
-        XCTAssertEqual(part1, 4601)
+        XCTAssertEqual(part1, 4_601)
         let part2 = Puzzle_2017_18().solvePart2()
-        XCTAssertEqual(part2, 6858)
+        XCTAssertEqual(part2, 6_858)
     }
 
     func test2017day19() {
         let (part1, part2) = Puzzle_2017_19().solveBothParts()
         XCTAssertEqual(part1, "VEBTPXCHLI")
-        XCTAssertEqual(part2, 18702)
+        XCTAssertEqual(part2, 18_702)
     }
 
     func test2017day20() {
@@ -145,32 +145,32 @@ class AdventOfCode2017Tests: XCTestCase {
     func test2017day21() {
         let (part1, part2) = Puzzle_2017_21().solveBothParts()
         XCTAssertEqual(part1, 125)
-        XCTAssertEqual(part2, 1782917)
+        XCTAssertEqual(part2, 1_782_917)
     }
 
     func test2017day22() {
         let part1 = Puzzle_2017_22().solvePart1()
-        XCTAssertEqual(part1, 5433)
+        XCTAssertEqual(part1, 5_433)
         let part2 = Puzzle_2017_22().solvePart2()
-        XCTAssertEqual(part2, 2512599)
+        XCTAssertEqual(part2, 2_512_599)
     }
 
     func test2017day23() {
         let part1 = Puzzle_2017_23().solvePart1()
-        XCTAssertEqual(part1, 8281)
+        XCTAssertEqual(part1, 8_281)
         let part2 = Puzzle_2017_23().solvePart2()
         XCTAssertEqual(part2, 911)
     }
 
     func test2017day24() {
         let (part1, part2) = Puzzle_2017_24().solveBothParts()
-        XCTAssertEqual(part1, 2006)
-        XCTAssertEqual(part2, 1994)
+        XCTAssertEqual(part1, 2_006)
+        XCTAssertEqual(part2, 1_994)
     }
 
     func test2017day25() {
         let part1 = Puzzle_2017_25().solvePart1()
-        XCTAssertEqual(part1, 2870)
+        XCTAssertEqual(part1, 2_870)
     }
 
 }

@@ -60,6 +60,6 @@ private class Puzzle_2018_14_Input: NSObject {
 
     static let puzzleInput_test = 5
 
-    static let puzzleInput = 190221
+    static let puzzleInput = 190_221
 
 }

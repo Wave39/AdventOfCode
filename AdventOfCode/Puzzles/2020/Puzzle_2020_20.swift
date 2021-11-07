@@ -86,7 +86,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
     }
 
     func solvePart2(str: String) -> Int {
-        2146
+        2_146
     }
 
 }

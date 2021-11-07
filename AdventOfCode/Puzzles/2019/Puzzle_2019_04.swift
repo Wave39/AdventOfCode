@@ -11,8 +11,8 @@ import Foundation
 class Puzzle_2019_04: PuzzleBaseClass {
 
     func solve() {
-        let startingValue = 134564
-        let endingValue = 585159
+        let startingValue = 134_564
+        let endingValue = 585_159
 
         let part1 = solvePart1(from: startingValue, to: endingValue)
         print("Part 1 solution: \(part1)")

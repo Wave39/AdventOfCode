@@ -20,11 +20,11 @@ class Puzzle_2019_22: PuzzleBaseClass {
 
     func solvePart1() -> Int {
         // return solvePart1_bruteforce(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 10007, cardIndex: 2019)
-        return solvePart1(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 10007, cardIndex: 2019)
+        return solvePart1(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 10_007, cardIndex: 2_019)
     }
 
     func solvePart2() -> Int {
-        solvePart2(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 119315717514047, cardIndex: 2020)
+        solvePart2(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 119_315_717_514_047, cardIndex: 2_020)
     }
 
     func solvePart1(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
@@ -109,7 +109,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
     // the math is way too advanced for me...
 
     func solvePart2(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
-        3920265924568
+        3_920_265_924_568
     }
 
 }

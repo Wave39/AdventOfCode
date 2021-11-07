@@ -57,7 +57,7 @@ class Puzzle_2018_10: NSObject {
                 particles[idx].y += particles[idx].deltaY
             }
 
-        } while secondsElapsed < 20000
+        } while secondsElapsed < 20_000
 
         return ("", 0)
     }

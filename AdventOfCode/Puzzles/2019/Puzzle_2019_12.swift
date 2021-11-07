@@ -19,7 +19,7 @@ class Puzzle_2019_12: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        solvePart1(str: Puzzle_2019_12_Input.puzzleInput, stepCount: 1000)
+        solvePart1(str: Puzzle_2019_12_Input.puzzleInput, stepCount: 1_000)
     }
 
     func solvePart2() -> Int {

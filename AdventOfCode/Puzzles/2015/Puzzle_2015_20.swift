@@ -63,6 +63,6 @@ class Puzzle_2015_20: PuzzleBaseClass {
 
 private class PuzzleInput: NSObject {
 
-    static let final = 33100000
+    static let final = 33_100_000
 
 }

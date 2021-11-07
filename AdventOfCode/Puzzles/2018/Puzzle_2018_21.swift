@@ -32,10 +32,12 @@ class Puzzle_2018_21: NSObject {
         case eqrr
     }
 
-    let opcodeDict: Dictionary<String, Opcode> = [ "addr": .addr, "addi": .addi, "mulr": .mulr, "muli": .muli,
-                                                   "banr": .banr, "bani": .bani, "borr": .borr, "bori": .bori,
-                                                   "setr": .setr, "seti": .seti, "gtir": .gtir, "gtri": .gtri,
-                                                   "gtrr": .gtrr, "eqir": .eqir, "eqri": .eqri, "eqrr": .eqrr ]
+    let opcodeDict: [String: Opcode] = [
+        "addr": .addr, "addi": .addi, "mulr": .mulr, "muli": .muli,
+        "banr": .banr, "bani": .bani, "borr": .borr, "bori": .bori,
+        "setr": .setr, "seti": .seti, "gtir": .gtir, "gtri": .gtri,
+        "gtrr": .gtrr, "eqir": .eqir, "eqri": .eqri, "eqrr": .eqrr
+    ]
 
     class Command {
         var opcode: Opcode = .unknown

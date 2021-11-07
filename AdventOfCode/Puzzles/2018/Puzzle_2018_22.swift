@@ -32,9 +32,9 @@ class Puzzle_2018_22: NSObject {
         if (x == 0 && y == 0) || (x == (erosionMap[0].count - 1) && y == (erosionMap.count - 1)) {
             retval = 0
         } else if x == 0 {
-            retval = y * 48271
+            retval = y * 48_271
         } else if y == 0 {
-            retval = x * 16807
+            retval = x * 16_807
         } else {
             retval = erosionMap[y][x - 1] * erosionMap[y - 1][x]
         }
@@ -44,7 +44,7 @@ class Puzzle_2018_22: NSObject {
 
     func erosionLevel(x: Int, y: Int, depth: Int, erosionMap: [[Int]]) -> Int {
         var retval = geologicIndex(x: x, y: y, erosionMap: erosionMap) + depth
-        retval %= 20183
+        retval %= 20_183
         return retval
     }
 
@@ -63,7 +63,7 @@ class Puzzle_2018_22: NSObject {
 
     func solvePart2(puzzleInput: (Int, Int, Int)) -> Int {
         // Great shame, this one was too complicated, I borrowed someone else's C# solution
-        return 1092
+        return 1_092
     }
 
 }
@@ -72,6 +72,6 @@ private class Puzzle_2018_22_Input: NSObject {
 
     static let puzzleInput_test = (510, 10, 10)
 
-    static let puzzleInput = (5355, 14, 796)
+    static let puzzleInput = (5_355, 14, 796)
 
 }

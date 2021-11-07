@@ -23,6 +23,7 @@ class Puzzle_2015_07: PuzzleBaseClass {
             var op2: String
             var opResult: String
             var processed: Bool
+
             init() {
                 opcode = ""
                 op1 = ""

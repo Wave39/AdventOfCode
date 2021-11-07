@@ -68,9 +68,9 @@ class Puzzle_2017_17: PuzzleBaseClass {
 
 private class Puzzle_2017_17_Input: NSObject {
 
-    static let puzzleInput_test1 = ( 3, 2017, 2017 )
+    static let puzzleInput_test1 = ( 3, 2_017, 2_017 )
 
-    static let puzzleInput_part1 = ( 324, 2017, 2017 )
-    static let puzzleInput_part2 = ( 324, 50000000, 0 )
+    static let puzzleInput_part1 = ( 324, 2_017, 2_017 )
+    static let puzzleInput_part2 = ( 324, 50_000_000, 0 )
 
 }

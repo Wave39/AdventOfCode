@@ -24,7 +24,7 @@ class Puzzle_2016_13: PuzzleBaseClass {
     func solveBothParts() -> (Int, Int) {
         let origin = Point2D(x: 1, y: 1)
         let goal = Point2D(x: 31, y: 39)
-        let favoriteNumber = 1364
+        let favoriteNumber = 1_364
         var coordinatesSeen: Set<String> = Set()
         var part2Solution = 0
 
