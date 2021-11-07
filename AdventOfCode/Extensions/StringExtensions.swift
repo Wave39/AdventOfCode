@@ -285,7 +285,7 @@ extension String {
     func rangesOfString(searchString: String) -> [Range<String.Index>] {
         let _indices = indices(of: searchString)
         let count = searchString.count
-        return _indices.map({ index(startIndex, offsetBy: $0)..<index(startIndex, offsetBy: $0+count) })
+        return _indices.map({ index(startIndex, offsetBy: $0)..<index(startIndex, offsetBy: $0 + count) })
     }
 
     mutating func removeAtIndex(idx: Int) {

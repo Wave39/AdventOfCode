@@ -55,10 +55,10 @@ class Puzzle_2018_13: NSObject {
     }
 
     class Cart {
-        var location: Point2D = Point2D()
+        var location = Point2D()
         var travelDirection: TravelDirection = .Up
         var nextTurnDirection: TravelDirection = .Left
-        var ghost: Bool = false
+        var ghost = false
     }
 
     func solve() {

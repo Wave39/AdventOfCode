@@ -25,7 +25,7 @@ class Puzzle_2017_01: NSObject {
     func solveString(str: String, jumpAhead: Int) -> Int {
         var total = 0
         for idx in 0..<str.count {
-            let c1 = str.substring(from: idx, to: idx+1)
+            let c1 = str.substring(from: idx, to: idx + 1)
             var idx2 = idx + jumpAhead
             if idx2 > (str.count - 1) {
                 idx2 -= str.count

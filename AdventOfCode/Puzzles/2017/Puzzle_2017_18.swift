@@ -56,7 +56,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
         registerSet = Set()
         let matrix = str.parseIntoMatrix()
         for line in matrix {
-            var newInstruction: Instruction = Instruction()
+            var newInstruction = Instruction()
             if line[0] == "snd" {
                 newInstruction.instructionType = .SoundOrSend
             } else if line[0] == "set" {

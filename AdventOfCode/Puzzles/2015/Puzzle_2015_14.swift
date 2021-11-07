@@ -51,7 +51,7 @@ class Puzzle_2015_14: PuzzleBaseClass {
         }
 
         class ReindeerStatus {
-            var reindeer: ReindeerInfo = ReindeerInfo()
+            var reindeer = ReindeerInfo()
             var points: Int = 0
             var distanceTraveled: Int = 0
             var flightTimeRemaining: Int = 0

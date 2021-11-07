@@ -58,7 +58,7 @@ class Puzzle_2015_11: PuzzleBaseClass {
                 let c0 = Int(characterArray[i])
                 let c1 = Int(characterArray[i + 1])
                 let c2 = Int(characterArray[i + 2])
-                if (c0 + 1) == c1  && (c1 + 1) == c2 {
+                if (c0 + 1) == c1 && (c1 + 1) == c2 {
                     increasingSequenceFound = true
                 }
             }

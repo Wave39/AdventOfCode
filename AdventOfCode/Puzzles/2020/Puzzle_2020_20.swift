@@ -28,7 +28,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
 
     struct PhotoTile: Hashable {
         var tileNumber: Int
-        var imageData: CharacterGrid = CharacterGrid()
+        var imageData = CharacterGrid()
         var edges: [String] = []
         var edgeMatches: [Int] = []
 

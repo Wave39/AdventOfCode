@@ -127,7 +127,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
             if i == cups.count - 1 {
                 cupsLinkedList[cup]?.next = cupsLinkedList[cups[0]]
             } else {
-                cupsLinkedList[cup]?.next = cupsLinkedList[cups[i+1]]
+                cupsLinkedList[cup]?.next = cupsLinkedList[cups[i + 1]]
             }
         }
         var currentNode = cupsLinkedList[cups[0]] ?? Node(value: 0, next: nil)

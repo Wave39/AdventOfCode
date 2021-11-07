@@ -20,7 +20,7 @@ enum ElementType: Int {
     case Ruthenium
 }
 
-let elementDict: Dictionary<ElementType, String> = [
+let kElementDict: Dictionary<ElementType, String> = [
     .Cobalt: "Co",
     .Curium: "Cm",
     .Dilithium: "Di",
@@ -37,7 +37,7 @@ enum DeviceType: Int {
     case Generator
 }
 
-let deviceDict: Dictionary<DeviceType, String> = [
+let kDeviceDict: Dictionary<DeviceType, String> = [
     .Microchip: "M",
     .Generator: "G"
 ]
@@ -53,7 +53,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         var deviceType: DeviceType
 
         func description() -> String {
-            "\(elementDict[self.elementType] ?? "")\(deviceDict[self.deviceType] ?? "") "
+            "\(kElementDict[self.elementType] ?? "")\(kDeviceDict[self.deviceType] ?? "") "
         }
 
         static func == (lhs: Device, rhs: Device) -> Bool {

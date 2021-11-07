@@ -32,9 +32,9 @@ class Puzzle_2015_24: PuzzleBaseClass {
 
             let x = superSet[idx]
             current.insert(x)
-            getSubsets(superSet: superSet, k: k, idx: idx+1, current: &current)
+            getSubsets(superSet: superSet, k: k, idx: idx + 1, current: &current)
             current.remove(x)
-            getSubsets(superSet: superSet, k: k, idx: idx+1, current: &current)
+            getSubsets(superSet: superSet, k: k, idx: idx + 1, current: &current)
         }
 
         func getAllSubsets(superSet: [Int], subsetLength: Int) {

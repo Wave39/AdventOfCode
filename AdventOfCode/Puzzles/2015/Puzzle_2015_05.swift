@@ -48,7 +48,7 @@ class Puzzle_2015_05: PuzzleBaseClass {
             var foundMatch = false
             var matchDictionary = [ "": [0] ]
             for idx in 0 ..< theWord.count - 1 {
-                let subString = String(theWord[idx...(idx+1)])
+                let subString = String(theWord[idx...(idx + 1)])
                 let keyExists = (matchDictionary[subString] != nil)
                 if keyExists {
                     matchDictionary[subString]?.append(idx)

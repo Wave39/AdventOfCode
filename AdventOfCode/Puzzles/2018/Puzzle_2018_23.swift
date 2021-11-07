@@ -11,7 +11,7 @@ import Foundation
 class Puzzle_2018_23: NSObject {
 
     class Nanobot {
-        var position: Point3D = Point3D()
+        var position = Point3D()
         var range: Int = 0
 
         func inRangeOf(otherBot: Nanobot) -> Bool {

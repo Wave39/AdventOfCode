@@ -30,7 +30,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
     }
 
     let gridSize = 20_000
-    let gridCenter: Point2D = Point2D(x: 10_000, y: 10_000)
+    let gridCenter = Point2D(x: 10_000, y: 10_000)
 
     func translatePoint(point: Point2D) -> Point2D {
         Point2D(x: (point.x + gridCenter.x), y: (point.y + gridCenter.y))

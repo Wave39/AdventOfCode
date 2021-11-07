@@ -12,19 +12,19 @@ print("")
 print("Welcome to BP's Advent Of Code Solution Machine.")
 print("Make sure to click in the Output window to enter which puzzle you would like to solve.")
 
-let maxYear = 2_020
-let defaultYear = maxYear
-let defaultPuzzle = 25
-let defaultYearAndPuzzle = "\(maxYear) \(defaultPuzzle)"
+let kMaxYear = 2_020
+let kDefaultYear = kMaxYear
+let kDefaultPuzzle = 25
+let kDefaultYearAndPuzzle = "\(kMaxYear) \(kDefaultPuzzle)"
 
 var quitApp = false
 
 while !quitApp {
     var puzzle = 0
-    var year = maxYear
+    var year = kMaxYear
     while !quitApp && (puzzle < 1 || puzzle > 25) {
         print("")
-        print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to 2020 and a number from 1 to 25, default of \(defaultYearAndPuzzle), or Q to quit)")
+        print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to 2020 and a number from 1 to 25, default of \(kDefaultYearAndPuzzle), or Q to quit)")
         guard let response = readLine() else { continue }
         if response == "q" || response == "Q" {
             quitApp = true
@@ -34,20 +34,20 @@ while !quitApp {
                 year = arr[0].int
                 puzzle = arr[1].int
             } else if arr.count == 1 {
-                year = defaultYear
+                year = kDefaultYear
                 puzzle = arr[0].int
             }
         } else {
-            let arr = defaultYearAndPuzzle.parseIntoStringArray(separator: " ")
+            let arr = kDefaultYearAndPuzzle.parseIntoStringArray(separator: " ")
             year = arr[0].int
             puzzle = arr[1].int
-            print("Defaulting to puzzle \(defaultYearAndPuzzle)")
+            print("Defaulting to puzzle \(kDefaultYearAndPuzzle)")
         }
     }
 
     if !quitApp {
         if year >= 15 && year <= 99 {
-            year += 2+000
+            year += 2_000
         }
 
         print("")

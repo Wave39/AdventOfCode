@@ -103,7 +103,7 @@ class Puzzle_2018_19: NSObject {
             if searchValue % i == 0 {
                 total += i
                 if searchValue / i != i {
-                    total += searchValue/i
+                    total += searchValue / i
                 }
             }
         }

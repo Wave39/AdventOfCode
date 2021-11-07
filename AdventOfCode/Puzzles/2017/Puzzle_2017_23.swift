@@ -40,7 +40,7 @@ class Puzzle_2017_23: PuzzleBaseClass {
         instructionArray = []
         let matrix = str.parseIntoMatrix()
         for line in matrix {
-            var newInstruction: Instruction = Instruction()
+            var newInstruction = Instruction()
             if line[0] == "set" {
                 newInstruction.instructionType = .Set
             } else if line[0] == "sub" {

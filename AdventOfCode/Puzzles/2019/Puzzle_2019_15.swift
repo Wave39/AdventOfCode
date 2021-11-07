@@ -42,7 +42,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
     }
 
     struct MoveInformation {
-        var location: Point2D = Point2D()
+        var location = Point2D()
         var direction: MovementDirection = .North
     }
 

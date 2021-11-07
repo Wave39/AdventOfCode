@@ -34,7 +34,7 @@ class Puzzle_2020_06: PuzzleBaseClass {
     func parseGroups(str: String) -> [Group] {
         let lines = str.parseIntoStringArray(omitBlankLines: false)
         var groups: [Group] = []
-        var currentGroup: Group = Group()
+        var currentGroup = Group()
         for line in lines {
             if line.trim().isEmpty {
                 groups.append(currentGroup)

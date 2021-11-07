@@ -60,7 +60,7 @@ class Puzzle_2019_10: PuzzleBaseClass {
         }
 
         var retval = 0
-        var baseLocation: Point2D = Point2D()
+        var baseLocation = Point2D()
 
         for base in asteroidCoordinates {
             var visibleAsteroids = 0

@@ -14,9 +14,9 @@ class Puzzle_2018_16: NSObject {
     typealias Command = [Int]
 
     class Sample: CustomStringConvertible {
-        var beforeRegisters: Registers = Registers()
-        var command: Command = Command()
-        var afterRegisters: Registers = Registers()
+        var beforeRegisters = Registers()
+        var command = Command()
+        var afterRegisters = Registers()
         var description: String {
             "Before: \(beforeRegisters); Command: \(command); After: \(afterRegisters)"
         }
@@ -35,7 +35,7 @@ class Puzzle_2018_16: NSObject {
         var testProgram: [Command] = []
         let arr = puzzleInput.parseIntoStringArray()
         var buildingSample = false
-        var singleSample: Sample = Sample()
+        var singleSample = Sample()
         for line in arr {
             if line.starts(with: "Before") {
                 buildingSample = true

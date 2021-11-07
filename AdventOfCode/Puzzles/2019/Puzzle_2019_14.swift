@@ -27,7 +27,7 @@ class Puzzle_2019_14: PuzzleBaseClass {
 
     struct ChemicalEquation: CustomStringConvertible {
         var reactants: [ChemicalComponent] = []
-        var product: ChemicalComponent = ChemicalComponent()
+        var product = ChemicalComponent()
 
         var description: String {
             "\(reactants) => \(product)"

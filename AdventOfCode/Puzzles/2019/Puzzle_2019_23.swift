@@ -13,7 +13,7 @@ import Foundation
 
 final class LockObject_2019_23 {}
 
-let lock_2019_23 = LockObject_2019_23()
+let kLock_2019_23 = LockObject_2019_23()
 
 class Puzzle_2019_23: PuzzleBaseClass {
 
@@ -33,8 +33,8 @@ class Puzzle_2019_23: PuzzleBaseClass {
         var retval = (0, 0)
 
         func processInput(id: Int) -> Int {
-            objc_sync_enter(lock_2019_23)
-            defer { objc_sync_exit(lock_2019_23) }
+            objc_sync_enter(kLock_2019_23)
+            defer { objc_sync_exit(kLock_2019_23) }
             if inputQueues[id].isEmpty {
                 return -1
             } else {
@@ -49,18 +49,18 @@ class Puzzle_2019_23: PuzzleBaseClass {
             let compy = IntcodeComputer(str: str, addr: addr, input: { processInput(id: addr) }, output: {value in let address = value[0]
                 let xy = value.dropFirst()
                 if address == 255 {
-                    objc_sync_enter(lock_2019_23)
+                    objc_sync_enter(kLock_2019_23)
                     if firstNatPacket {
                         // print("first nat packet: \(xy)")
                         retval.0 = xy[2]
                         firstNatPacket = false
                     }
                     natPacket = Array(xy)
-                    objc_sync_exit(lock_2019_23)
+                    objc_sync_exit(kLock_2019_23)
                 } else {
-                    objc_sync_enter(lock_2019_23)
+                    objc_sync_enter(kLock_2019_23)
                     inputQueues[address].append(contentsOf: xy)
-                    objc_sync_exit(lock_2019_23)
+                    objc_sync_exit(kLock_2019_23)
                 }
 
             })
@@ -74,7 +74,7 @@ class Puzzle_2019_23: PuzzleBaseClass {
         DispatchQueue.global().async {
             repeat {
                 usleep(50_000)
-                objc_sync_enter(lock_2019_23)
+                objc_sync_enter(kLock_2019_23)
                 let isIdle = inputQueues.reduce(true) { $0 && $1.isEmpty }
                 if isIdle {
                     if yValues.contains(natPacket[1]) {
@@ -85,7 +85,7 @@ class Puzzle_2019_23: PuzzleBaseClass {
                     yValues.insert(natPacket[1])
                     inputQueues[0].append(contentsOf: natPacket)
                 }
-                objc_sync_exit(lock_2019_23)
+                objc_sync_exit(kLock_2019_23)
             } while true
         }
 

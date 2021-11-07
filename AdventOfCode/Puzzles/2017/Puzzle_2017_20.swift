@@ -18,9 +18,9 @@ class Puzzle_2017_20: PuzzleBaseClass {
 
     struct Particle {
         var particleNumber: Int = -1
-        var position: XYZ = XYZ()
-        var velocity: XYZ = XYZ()
-        var acceleration: XYZ = XYZ()
+        var position = XYZ()
+        var velocity = XYZ()
+        var acceleration = XYZ()
 
         func manhattanDistance() -> Int {
             abs(position.x) + abs(position.y) + abs(position.z)

@@ -79,7 +79,7 @@ private class GameState {
     var shieldTimer: Int = 0
     var poisonTimer: Int = 0
     var rechargeTimer: Int = 0
-    var difficultyHard: Bool = false
+    var difficultyHard = false
 
     init (playerHitPoints: Int, playerCurrentMana: Int, bossHitPoints: Int, bossDamage: Int, difficultyHard: Bool) {
         self.playerHitPoints = playerHitPoints

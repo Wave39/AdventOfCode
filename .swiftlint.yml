@@ -91,6 +91,30 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - nslocalizedstring_key
   - nslocalizedstring_require_bundle
   - number_separator
+  - object_literal
+  - operator_usage_whitespace
+  - optional_enum_case_matching
+  - orphaned_doc_comment
+  - overridden_super_call
+  - override_in_extension
+  - pattern_matching_keywords
+  # - prefer_nimble
+  - prefer_self_type_over_type_of_self
+  - prefer_zero_over_explicit_init
+  - prefixed_toplevel_constant
+  - private_action
+  - private_outlet
+  - private_subject
+  - prohibited_interface_builder
+  - prohibited_super_call
+  - quick_discouraged_call
+  - quick_discouraged_focused_test
+  - quick_discouraged_pending_test
+  - raw_value_for_camel_cased_codable_enum
+  - reduce_boolean
+  - reduce_into
+  - redundant_nil_coalescing
+  - redundant_type_annotation
 
 type_name:
   allowed_symbols: ["_"] # these are allowed in type names

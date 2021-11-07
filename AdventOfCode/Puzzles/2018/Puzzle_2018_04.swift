@@ -124,7 +124,7 @@ class Puzzle_2018_04: NSObject {
     class SleepRecord {
         var idNumber: Int = 0
         var date: String = ""
-        var minuteArray: MinuteArray = MinuteArray()
+        var minuteArray = MinuteArray()
 
         static func parse(str: String) -> [SleepRecord] {
             let arr = str.parseIntoStringArray().sorted()

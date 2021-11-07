@@ -11,7 +11,7 @@ import Foundation
 class Puzzle_2018_25: NSObject {
 
     class Star {
-        var position: Point4D = Point4D()
+        var position = Point4D()
         var constellationId: Int = 0
     }
 
