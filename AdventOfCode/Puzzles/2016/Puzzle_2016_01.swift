@@ -23,7 +23,7 @@ class Puzzle_2016_01: PuzzleBaseClass {
             let trimString = step.trimmingCharacters(in: .whitespaces).replacingOccurrences(of: "\n", with: "")
             let direction = trimString.substring(from: 0, to: 1)
             let amount = trimString.substring(from: 1)
-            let amountInt = Int(amount)
+            let amountInt = amount.int
             return (direction, amountInt)
         }
 

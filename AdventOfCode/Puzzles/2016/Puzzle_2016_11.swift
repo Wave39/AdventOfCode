@@ -53,7 +53,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         var deviceType: DeviceType
 
         func description() -> String {
-            return "\(elementDict[self.elementType]!)\(deviceDict[self.deviceType]!) "
+            return "\(elementDict[self.elementType] ?? "")\(deviceDict[self.deviceType] ?? "") "
         }
 
         static func == (lhs: Device, rhs: Device) -> Bool {

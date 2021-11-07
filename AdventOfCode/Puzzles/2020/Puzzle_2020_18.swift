@@ -27,16 +27,16 @@ class Puzzle_2020_18: PuzzleBaseClass {
     }
 
     func calculateExpressionResult(arr: [String]) -> Int {
-        var retval = Int(arr[0])!
+        var retval = arr[0].int
         var addMode = true
         for idx in 1..<arr.count {
             if idx % 2 == 1 {
                 addMode = arr[idx] == "+"
             } else {
                 if addMode {
-                    retval += Int(arr[idx])!
+                    retval += arr[idx].int
                 } else {
-                    retval *= Int(arr[idx])!
+                    retval *= arr[idx].int
                 }
             }
         }
@@ -48,7 +48,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
         var newArr = [ arr[0] ]
         for idx in stride(from: 1, to: arr.count - 1, by: 2) {
             if arr[idx] == "+" {
-                newArr[newArr.count - 1] = String(Int(newArr.last!)! + Int(arr[idx + 1])!)
+                newArr[newArr.count - 1] = String((newArr.last ?? "").int + arr[idx + 1].int)
             } else {
                 newArr.append(arr[idx])
                 newArr.append(arr[idx + 1])

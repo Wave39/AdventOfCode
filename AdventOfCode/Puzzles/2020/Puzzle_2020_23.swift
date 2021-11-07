@@ -30,7 +30,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
     }
 
     func solvePart1(str: String, moves: Int) -> String {
-        var cups = str.map { Int(String($0))! }
+        var cups = str.map { $0.int }
         for moveIndex in 0..<moves {
             let currentIndex = moveIndex % cups.count
             let currentCup = cups[currentIndex]
@@ -47,13 +47,13 @@ class Puzzle_2020_23: PuzzleBaseClass {
             let lesserCups = otherCups.filter { $0 < currentCup }.sorted()
             let searchValue: Int
             if !lesserCups.isEmpty {
-                searchValue = lesserCups.last!
+                searchValue = lesserCups.last ?? 0
             } else {
                 let greaterCups = otherCups.filter { $0 > currentCup }.sorted()
-                searchValue = greaterCups.last!
+                searchValue = greaterCups.last ?? 0
             }
 
-            let insertIndex = otherCups.firstIndex(of: searchValue)! + 1
+            let insertIndex = (otherCups.firstIndex(of: searchValue) ?? 0) + 1
             if insertIndex == otherCups.count {
                 otherCups.append(contentsOf: removedCups)
             } else {
@@ -65,7 +65,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
             }
         }
 
-        let startIndex = cups.firstIndex(of: 1)!
+        let startIndex = cups.firstIndex(of: 1) ?? 0
         var retval = ""
         for idx in 1..<cups.count {
             retval += String(cups[(startIndex + idx) % cups.count])
@@ -76,11 +76,11 @@ class Puzzle_2020_23: PuzzleBaseClass {
 
     func solvePart2(str: String) -> Int {
         func runMove(_ currentCup: Node) -> Node {
-            var iterator: Node = currentCup.next!
+            var iterator: Node = currentCup.next ?? Node(value: 0, next: nil)
             var pickUp = [Node]()
             for _ in 1...3 {
                 pickUp.append(iterator)
-                iterator = iterator.next!
+                iterator = iterator.next ?? Node(value: 0, next: nil)
             }
             let nextCup = iterator
             var destination = currentCup.value - 1
@@ -98,14 +98,14 @@ class Puzzle_2020_23: PuzzleBaseClass {
                 }
                 destinationNode = cupsLinkedList[destination]
             }
-            let afterNode = destinationNode!.next
-            destinationNode!.next = pickUp.first!
-            pickUp.last!.next = afterNode
+            let afterNode = destinationNode?.next ?? Node(value: 0, next: nil)
+            destinationNode?.next = pickUp.first ?? Node(value: 0, next: nil)
+            pickUp.last?.next = afterNode
             currentCup.next = nextCup
             return nextCup
         }
 
-        var cups = str.map { Int(String($0))! }
+        var cups = str.map { $0.int }
 
         class Node {
             let value: Int
@@ -130,14 +130,14 @@ class Puzzle_2020_23: PuzzleBaseClass {
                 cupsLinkedList[cup]?.next = cupsLinkedList[cups[i+1]]
             }
         }
-        var currentNode = cupsLinkedList[cups[0]]!
+        var currentNode = cupsLinkedList[cups[0]] ?? Node(value: 0, next: nil)
 
         for _ in 1...10_000_000 {
             (currentNode) = runMove(currentNode)
         }
 
-        let node1 = cupsLinkedList[1]!.next!
-        let node2 = node1.next!
+        let node1 = cupsLinkedList[1]?.next ?? Node(value: 0, next: nil)
+        let node2 = node1.next ?? Node(value: 0, next: nil)
         return node1.value * node2.value
     }
 }

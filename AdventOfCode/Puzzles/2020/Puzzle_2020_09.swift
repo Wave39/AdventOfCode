@@ -42,17 +42,17 @@ class Puzzle_2020_09: PuzzleBaseClass {
         var arr = str.parseIntoIntArray()
         var numberArray: [Int] = []
         for _ in 0..<preamble {
-            numberArray.append(arr.first!)
+            numberArray.append(arr.first ?? 0)
             arr.remove(at: 0)
         }
 
-        while checkArrayForSum(arr: numberArray, sum: arr.first!) {
+        while checkArrayForSum(arr: numberArray, sum: arr.first ?? 0) {
             numberArray.remove(at: 0)
-            numberArray.append(arr.first!)
+            numberArray.append(arr.first ?? 0)
             arr.remove(at: 0)
         }
 
-        return arr.first!
+        return arr.first ?? 0
     }
 
     func solvePart2(str: String, preamble: Int) -> Int {

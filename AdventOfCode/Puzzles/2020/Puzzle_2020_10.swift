@@ -29,7 +29,7 @@ class Puzzle_2020_10: PuzzleBaseClass {
     func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray().sorted()
         arr.insert(0, at: 0)
-        arr.append(arr.max()! + 3)
+        arr.append((arr.max() ?? 0) + 3)
         var ones = 0
         var threes = 0
         for idx in 0..<(arr.count - 1) {
@@ -45,7 +45,7 @@ class Puzzle_2020_10: PuzzleBaseClass {
     }
 
     func getRunPermutationCount(arr: [Int]) -> Int {
-        let combinations = arr.combinationsWithoutRepetition.filter { $0.contains(arr.first!) && $0.contains(arr.last!) }
+        let combinations = arr.combinationsWithoutRepetition.filter { $0.contains(arr.first ?? 0) && $0.contains(arr.last ?? 0) }
         var valid = 0
         for combination in combinations {
             var combinationGood = true
@@ -55,7 +55,7 @@ class Puzzle_2020_10: PuzzleBaseClass {
                 }
             }
 
-            if combination.count == 2 && (arr.last! - arr.first!) > 3 {
+            if combination.count == 2 && ((arr.last ?? 0) - (arr.first ?? 0)) > 3 {
                 combinationGood = false
             }
 
@@ -70,7 +70,7 @@ class Puzzle_2020_10: PuzzleBaseClass {
     func solvePart2(str: String) -> Int {
         var arr = str.parseIntoIntArray().sorted()
         arr.insert(0, at: 0)
-        arr.append(arr.max()! + 3)
+        arr.append(arr.max() ?? 0 + 3)
         var runs: [[Int]] = []
         var currentRun: [Int] = []
         for idx in 0..<(arr.count - 1) {

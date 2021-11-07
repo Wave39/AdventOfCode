@@ -31,7 +31,7 @@ class Puzzle_2018_01: NSObject {
 
         var retval = 0
         for s in arr {
-            retval += Int(String(s)) ?? 0
+            retval += s.int
         }
 
         return retval
@@ -48,7 +48,7 @@ class Puzzle_2018_01: NSObject {
         while true {
             for s in arr {
                 ctr += 1
-                freq += Int(String(s)) ?? 0
+                freq += s.int
                 if valueDictionary[freq] != nil {
                     return freq
                 } else {

@@ -31,7 +31,7 @@ class Puzzle_2020_25: PuzzleBaseClass {
     func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
 
-        let cardPublicKey = Int(lines[0])!
+        let cardPublicKey = lines[0].int
 
         // I unrolled the calculateTransform above because it was taking to long to chug through all the loops
         var cardLoopSize = 1
@@ -41,7 +41,7 @@ class Puzzle_2020_25: PuzzleBaseClass {
             x = (x * 7) % 20201227
         }
 
-        let doorPublicKey = Int(lines[1])!
+        let doorPublicKey = lines[1].int
 
         return calculateTransform(key: doorPublicKey, loopSize: cardLoopSize)
     }

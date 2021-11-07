@@ -28,9 +28,9 @@ class Puzzle_2020_05: PuzzleBaseClass {
 
     func getSeatLocation(str: String) -> (Int, Int, Int) {
         let row = str.substring(from: 0, to: 7).replacingOccurrences(of: "B", with: "1").replacingOccurrences(of: "F", with: "0")
-        let rowInt = Int(row, radix: 2)!
+        let rowInt = Int(row, radix: 2) ?? 0
         let col = str.substring(from: 7).replacingOccurrences(of: "R", with: "1").replacingOccurrences(of: "L", with: "0")
-        let colInt = Int(col, radix: 2)!
+        let colInt = Int(col, radix: 2) ?? 0
         let seatID = rowInt * 8 + colInt
         return (rowInt, colInt, seatID)
     }
@@ -66,7 +66,7 @@ class Puzzle_2020_05: PuzzleBaseClass {
             seatArr.removeAll { $0 == seatID }
         }
 
-        return seatArr.first(where: { !seatArr.contains($0 - 1) && !seatArr.contains($0 + 1) })!
+        return seatArr.first(where: { !seatArr.contains($0 - 1) && !seatArr.contains($0 + 1) }) ?? 0
     }
 
 }

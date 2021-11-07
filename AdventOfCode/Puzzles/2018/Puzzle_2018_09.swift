@@ -75,13 +75,13 @@ class Puzzle_2018_09: NSObject {
                     scoringNode = scoringNode.counterclockwise ?? Node()
                 }
 
-                scoringDictionary[playerIndex] = scoringDictionary[playerIndex]! + marble + scoringNode.value
+                scoringDictionary[playerIndex] = (scoringDictionary[playerIndex] ?? 0) + marble + scoringNode.value
 
                 let previousNode = scoringNode.counterclockwise
                 let nextNode = scoringNode.clockwise
                 previousNode?.clockwise = nextNode
                 nextNode?.counterclockwise = previousNode
-                currentNode = nextNode!
+                currentNode = nextNode ?? Node()
             } else {
                 let targetNode = currentNode.clockwise?.clockwise
                 let previousToTargetNode = targetNode?.counterclockwise

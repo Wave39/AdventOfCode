@@ -77,7 +77,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
             } else if line.contains(" or ") {
                 let regex = "(.*): (.\\d*)-(.\\d*) or (.\\d*)-(.\\d*)"
                 let arr = line.matchesInCapturingGroups(pattern: regex)
-                let rule = TicketRule(ruleName: arr[0], limit1: Int(arr[1])!, limit2: Int(arr[2])!, limit3: Int(arr[3])!, limit4: Int(arr[4])!)
+                let rule = TicketRule(ruleName: arr[0], limit1: arr[1].int, limit2: arr[2].int, limit3: arr[3].int, limit4: arr[4].int)
                 ticketRules.append(rule)
             } else {
                 print("Unknown line: \(line)")
@@ -134,7 +134,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
             } else if line.contains(" or ") {
                 let regex = "(.*): (.\\d*)-(.\\d*) or (.\\d*)-(.\\d*)"
                 let arr = line.matchesInCapturingGroups(pattern: regex)
-                let rule = TicketRule(ruleName: arr[0], limit1: Int(arr[1])!, limit2: Int(arr[2])!, limit3: Int(arr[3])!, limit4: Int(arr[4])!)
+                let rule = TicketRule(ruleName: arr[0], limit1: arr[1].int, limit2: arr[2].int, limit3: arr[3].int, limit4: arr[4].int)
                 ticketRules.append(rule)
             } else {
                 print("Unknown line: \(line)")
@@ -174,7 +174,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
         var columnMap = Array((0..<validTickets[0].count))
         var soloSetIndex = findSoloSet(setArray: validColumns)
         while soloSetIndex != -1 {
-            let v = validColumns[soloSetIndex].first!
+            let v = validColumns[soloSetIndex].first ?? 0
             columnMap[soloSetIndex] = v
             for idx in 0..<validColumns.count {
                 validColumns[idx].remove(v)

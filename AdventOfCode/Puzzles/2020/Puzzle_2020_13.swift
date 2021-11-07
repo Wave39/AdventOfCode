@@ -28,11 +28,11 @@ class Puzzle_2020_13: PuzzleBaseClass {
 
     func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
-        let earliestTimeStamp = Int(arr[0])!
+        let earliestTimeStamp = arr[0].int
         var busIDs: [Int] = []
         for arr2 in arr[1].parseIntoStringArray(separator: ",") {
             if arr2 != "x" {
-                busIDs.append(Int(arr2)!)
+                busIDs.append(arr2.int)
             }
         }
 
@@ -64,7 +64,7 @@ class Puzzle_2020_13: PuzzleBaseClass {
         var idx = 0
         for arr2 in arr[1].parseIntoStringArray(separator: ",") {
             if arr2 != "x" {
-                buses.append(BusInfo(busID: Int(arr2)!, minutesAfter: idx))
+                buses.append(BusInfo(busID: arr2.int, minutesAfter: idx))
             }
 
             idx += 1

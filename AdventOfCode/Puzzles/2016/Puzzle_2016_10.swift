@@ -117,7 +117,7 @@ class Puzzle_2016_10: PuzzleBaseClass {
 
                     let arr = findBotInstructions(botNumber: foundBot)
                     let lowDest = arr[5]
-                    let lowNumber = Int(arr[6]) ?? 0
+                    let lowNumber = arr[6].int
                     if lowDest == "bot" {
                         moveChipToBot(botNumber: lowNumber, chipNumber: lowChipNumber)
                     } else if lowDest == "output" {
@@ -127,7 +127,7 @@ class Puzzle_2016_10: PuzzleBaseClass {
                     }
 
                     let highDest = arr[10]
-                    let highNumber = Int(arr[11]) ?? 0
+                    let highNumber = arr[11].int
                     if highDest == "bot" {
                         moveChipToBot(botNumber: highNumber, chipNumber: highChipNumber)
                     } else if highDest == "output" {

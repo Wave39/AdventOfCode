@@ -32,7 +32,7 @@ class Puzzle_2015_12: PuzzleBaseClass {
             } else {
                 if numericMode {
                     numericMode = false
-                    part1Total += Int(numericString) ?? 0
+                    part1Total += numericString.int
                 }
             }
         }
@@ -80,9 +80,9 @@ class Puzzle_2015_12: PuzzleBaseClass {
                     if numericMode {
                         numericMode = false
                         if objectCountStack.isEmpty {
-                            part2Total += Int(numericString) ?? 0
+                            part2Total += numericString.int
                         } else {
-                            objectCountStack[objectCountStack.count - 1] += Int(numericString) ?? 0
+                            objectCountStack[objectCountStack.count - 1] += numericString.int
                         }
                     }
                 }

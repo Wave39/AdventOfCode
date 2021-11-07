@@ -45,7 +45,7 @@ class Puzzle_2020_07: PuzzleBaseClass {
             if arr[4] != "no" {
                 var idx = 4
                 while idx < arr.count {
-                    let bagDescription = BagDescription(color: arr[idx + 1] + " " + arr[idx + 2], count: Int(arr[idx])!)
+                    let bagDescription = BagDescription(color: arr[idx + 1] + " " + arr[idx + 2], count: arr[idx].int)
                     bagRule.contents.append(bagDescription)
                     idx += 4
                 }
@@ -58,7 +58,9 @@ class Puzzle_2020_07: PuzzleBaseClass {
     }
 
     func getDependenciesForBag(bagRules: [BagRule], bagColor: String) -> [BagDescription] {
-        let matchingBag = bagRules.first(where: { $0.bag.color == bagColor })!
+        guard let matchingBag = bagRules.first(where: { $0.bag.color == bagColor }) else {
+            return []
+        }
         return matchingBag.contents
     }
 

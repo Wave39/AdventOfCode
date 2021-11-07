@@ -32,7 +32,7 @@ class Puzzle_2018_19: NSObject {
         for line in arr {
             if line.starts(with: "#") {
                 let components = line.parseIntoStringArray(separator: " ")
-                program.boundRegister = Int(components[1])!
+                program.boundRegister = components[1].int
             } else {
                 let components = line.capturedGroups(withRegex: "(.*) (.*) (.*) (.*)", trimResults: true)
                 let cmd = Command()

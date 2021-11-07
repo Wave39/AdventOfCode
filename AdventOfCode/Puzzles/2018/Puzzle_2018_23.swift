@@ -30,11 +30,11 @@ class Puzzle_2018_23: NSObject {
 
         for line in str.parseIntoStringArray() {
             let components = line.capturedGroups(withRegex: "pos=<(.*),(.*),(.*)>, r=(.*)", trimResults: true)
-            let b = Nanobot(x: Int(components[0])!, y: Int(components[1])!, z: Int(components[2])!, r: Int(components[3])!)
-            b.position.x = Int(components[0])!
-            b.position.y = Int(components[1])!
-            b.position.z = Int(components[2])!
-            b.range = Int(components[3])!
+            let b = Nanobot(x: components[0].int, y: components[1].int, z: components[2].int, r: components[3].int)
+            b.position.x = components[0].int
+            b.position.y = components[1].int
+            b.position.z = components[2].int
+            b.range = components[3].int
             retval.append(b)
         }
 

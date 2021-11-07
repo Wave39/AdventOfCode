@@ -45,7 +45,7 @@ class Puzzle_2018_18: NSObject {
         for line in arr {
             var forestLine: [Acre] = []
             for c in line {
-                forestLine.append(Acre(rawValue: c)!)
+                forestLine.append(Acre(rawValue: c) ?? .Open)
             }
 
             forest.append(forestLine)

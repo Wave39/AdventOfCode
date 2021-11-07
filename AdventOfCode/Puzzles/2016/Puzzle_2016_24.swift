@@ -57,7 +57,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
                 let theLine = lineArray[y + 1]
                 var arr: [Character] = []
                 for x in 0..<maxX {
-                    let theChar = String(theLine[x + 1]).first!
+                    let theChar = String(theLine[x + 1]).first ?? " "
                     if theChar == "#" {
                         arr.append("#")
                     } else if theChar == "." {
@@ -166,7 +166,7 @@ class Puzzle_2016_24: PuzzleBaseClass {
                 for j in grid.numberLocations {
                     if i.number != j.number {
                         let d = findShortestDistance(grid: grid, from: i.gridPosition, to: j.gridPosition)
-                        pathArray.append(Path(startingNumber: Int(String(i.number)) ?? 0, endingNumber: Int(String(j.number)) ?? 0, length: d))
+                        pathArray.append(Path(startingNumber: i.number.int, endingNumber: j.number.int, length: d))
                     }
                 }
             }

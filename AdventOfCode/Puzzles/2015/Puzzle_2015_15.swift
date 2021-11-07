@@ -34,11 +34,11 @@ class Puzzle_2015_15: PuzzleBaseClass {
             let components = puzzleLine.split { $0 == " " }.map(String.init)
             let i = Ingredient()
             i.name = components[0]
-            i.capacity = Int(components[2]) ?? 0
-            i.durability = Int(components[4]) ?? 0
-            i.flavor = Int(components[6]) ?? 0
-            i.texture = Int(components[8]) ?? 0
-            i.calories = Int(components[10]) ?? 0
+            i.capacity = components[2].int
+            i.durability = components[4].int
+            i.flavor = components[6].int
+            i.texture = components[8].int
+            i.calories = components[10].int
             ingredientArray.append(i)
         }
 

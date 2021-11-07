@@ -37,9 +37,9 @@ class Puzzle_2020_22: PuzzleBaseClass {
                 player2Mode = true
             } else if !line.isEmpty {
                 if player2Mode {
-                    player2.append(Int(line)!)
+                    player2.append(line.int)
                 } else {
-                    player1.append(Int(line)!)
+                    player1.append(line.int)
                 }
             }
         }

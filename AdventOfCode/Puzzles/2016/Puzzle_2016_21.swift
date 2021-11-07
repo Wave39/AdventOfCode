@@ -135,12 +135,12 @@ class Puzzle_2016_21: PuzzleBaseClass {
                     thePassword = reversedString
                 } else if lineArr[0] == "rotate" {
                     if lineArr[1] == "left" {
-                        let ctr = Int(lineArr[2]) ?? 0
+                        let ctr = lineArr[2].int
                         if ctr > 0 {
                             thePassword.rotate(amount: ctr, left: false)
                         }
                     } else if lineArr[1] == "right" {
-                        let ctr = Int(lineArr[2]) ?? 0
+                        let ctr = lineArr[2].int
                         if ctr > 0 {
                             thePassword.rotate(amount: ctr, left: true)
                         }

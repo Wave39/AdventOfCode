@@ -52,13 +52,13 @@ class Puzzle_2017_23: PuzzleBaseClass {
             }
 
             if line[1].isStringNumeric() {
-                newInstruction.parameter1Int = Int(line[1])
+                newInstruction.parameter1Int = line[1].int
             } else {
                 newInstruction.parameter1String = line[1]
             }
 
             if line[2].isStringNumeric() {
-                newInstruction.parameter2Int = Int(line[2])
+                newInstruction.parameter2Int = line[2].int
             } else {
                 newInstruction.parameter2String = line[2]
             }

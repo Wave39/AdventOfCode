@@ -51,7 +51,7 @@ class Puzzle_2020_24: PuzzleBaseClass {
                     c += String(line.removeFirst())
                 }
 
-                let offset = offsetDict[c]!
+                let offset = offsetDict[c] ?? (0, 0)
                 location = Point2D(x: location.x + offset.0, y: location.y + offset.1)
             }
 
@@ -59,7 +59,9 @@ class Puzzle_2020_24: PuzzleBaseClass {
                 tileDict[location] = 0
             }
 
-            tileDict[location] = 1 - tileDict[location]!
+            if let tileDictLocation = tileDict[location] {
+                tileDict[location] = 1 - tileDictLocation
+            }
         }
 
         return getBlackTileCount(tileDict)
@@ -87,11 +89,13 @@ class Puzzle_2020_24: PuzzleBaseClass {
                             c += String(line.removeFirst())
                         }
 
-                        let offset = offsetDict[c]!
+                        let offset = offsetDict[c] ?? (0, 0)
                         location = Point2D(x: location.x + offset.0, y: location.y + offset.1)
                     }
 
-                    tileDict[location] = 1 - tileDict[location]!
+                    if let tileDictLocation = tileDict[location] {
+                        tileDict[location] = 1 - tileDictLocation
+                    }
                 }
             }
 

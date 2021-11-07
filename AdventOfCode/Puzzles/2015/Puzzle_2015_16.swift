@@ -39,28 +39,28 @@ class Puzzle_2015_16: PuzzleBaseClass {
             let components = theLine.split { $0 == " " }.map(String.init)
 
             let sueInfo = SueInfo()
-            sueInfo.number = Int(components[1]) ?? 0
+            sueInfo.number = components[1].int
             for index in stride(from: 2, through: 6, by: 2) {
                 if components[index] == "children" {
-                    sueInfo.children = Int(components[index + 1]) ?? 0
+                    sueInfo.children = components[index + 1].int
                 } else if components[index] == "cats" {
-                    sueInfo.cats = Int(components[index + 1]) ?? 0
+                    sueInfo.cats = components[index + 1].int
                 } else if components[index] == "samoyeds" {
-                    sueInfo.samoyeds = Int(components[index + 1]) ?? 0
+                    sueInfo.samoyeds = components[index + 1].int
                 } else if components[index] == "pomeranians" {
-                    sueInfo.pomeranians = Int(components[index + 1]) ?? 0
+                    sueInfo.pomeranians = components[index + 1].int
                 } else if components[index] == "akitas" {
-                    sueInfo.akitas = Int(components[index + 1]) ?? 0
+                    sueInfo.akitas = components[index + 1].int
                 } else if components[index] == "vizslas" {
-                    sueInfo.vizslas = Int(components[index + 1]) ?? 0
+                    sueInfo.vizslas = components[index + 1].int
                 } else if components[index] == "goldfish" {
-                    sueInfo.goldfish = Int(components[index + 1]) ?? 0
+                    sueInfo.goldfish = components[index + 1].int
                 } else if components[index] == "trees" {
-                    sueInfo.trees = Int(components[index + 1]) ?? 0
+                    sueInfo.trees = components[index + 1].int
                 } else if components[index] == "cars" {
-                    sueInfo.cars = Int(components[index + 1]) ?? 0
+                    sueInfo.cars = components[index + 1].int
                 } else if components[index] == "perfumes" {
-                    sueInfo.perfumes = Int(components[index + 1]) ?? 0
+                    sueInfo.perfumes = components[index + 1].int
                 }
             }
 

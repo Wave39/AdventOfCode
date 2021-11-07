@@ -31,8 +31,8 @@ class Puzzle_2020_12: PuzzleBaseClass {
         var shipDirection = CompassDirection.East
         var shipLocation = Point2D()
         for line in arr {
-            let opcode = line.first!
-            let amount = Int(line.substring(from: 1))!
+            let opcode = line.first
+            let amount = line.substring(from: 1).int
             if opcode == "L" || opcode == "R" {
                 for _ in 1...(amount / 90) {
                     if opcode == "L" {
@@ -81,8 +81,8 @@ class Puzzle_2020_12: PuzzleBaseClass {
         var shipLocation = Point2D()
         var waypoint = Point2D(x: 10, y: 1)
         for line in arr {
-            let opcode = line.first!
-            let amount = Int(line.substring(from: 1))!
+            let opcode = line.first
+            let amount = line.substring(from: 1).int
             if opcode == "F" {
                 for _ in 1...amount {
                     shipLocation = Point2D(x: shipLocation.x + waypoint.x, y: shipLocation.y + waypoint.y)

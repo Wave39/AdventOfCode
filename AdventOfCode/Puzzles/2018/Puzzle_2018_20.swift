@@ -52,8 +52,8 @@ class Puzzle_2018_20: NSObject {
                 ptStack.push(pt)
                 stepCountStack.push(stepCount)
             } else if c == "|" {
-                pt = ptStack.peek()!
-                stepCount = stepCountStack.peek()!
+                pt = ptStack.peek() ?? Point2D()
+                stepCount = stepCountStack.peek() ?? 0
             } else if c == ")" {
                 _ = ptStack.pop()
                 _ = stepCountStack.pop()

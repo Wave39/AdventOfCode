@@ -19,7 +19,7 @@ class Puzzle_2016_12: PuzzleBaseClass {
                 let reg = arr[2]
                 var registerValue: Int
                 if arr[1].isStringNumeric() {
-                    registerValue = Int(arr[1]) ?? 0
+                    registerValue = arr[1].int
                 } else {
                     registerValue = registers[arr[1]] ?? 0
                 }
@@ -40,13 +40,13 @@ class Puzzle_2016_12: PuzzleBaseClass {
                 let reg = arr[1]
                 var registerValue: Int
                 if reg.isStringNumeric() {
-                    registerValue = Int(reg) ?? 0
+                    registerValue = reg.int
                 } else {
                     registerValue = registers[reg] ?? 0
                 }
 
                 if registerValue != 0 {
-                    programCounter += Int(arr[2]) ?? 0
+                    programCounter += arr[2].int
                 } else {
                     programCounter += 1
                 }

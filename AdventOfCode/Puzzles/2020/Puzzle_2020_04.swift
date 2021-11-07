@@ -69,57 +69,64 @@ class Puzzle_2020_04: PuzzleBaseClass {
             if hasRequiredFields(passport: passport) {
 
                 // byr (Birth Year) - four digits; at least 1920 and at most 2002.
-                let birthYear = passport.first(where: { $0.starts(with: "byr:") })!.substring(from: 4)
-                if birthYear.count != 4 || Int(birthYear)! < 1920 || Int(birthYear)! > 2002 {
-                    continue
+                if let birthYear = passport.first(where: { $0.starts(with: "byr:") })?.substring(from: 4) {
+                    if birthYear.count != 4 || birthYear.int < 1920 || birthYear.int > 2002 {
+                        continue
+                    }
                 }
 
                 // iyr (Issue Year) - four digits; at least 2010 and at most 2020.
-                let issueYear = passport.first(where: { $0.starts(with: "iyr:") })!.substring(from: 4)
-                if issueYear.count != 4 || Int(issueYear)! < 2010 || Int(issueYear)! > 2020 {
-                    continue
+                if let issueYear = passport.first(where: { $0.starts(with: "iyr:") })?.substring(from: 4) {
+                    if issueYear.count != 4 || issueYear.int < 2010 || issueYear.int > 2020 {
+                        continue
+                    }
                 }
 
                 // eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
-                let expirationYear = passport.first(where: { $0.starts(with: "eyr:") })!.substring(from: 4)
-                if expirationYear.count != 4 || Int(expirationYear)! < 2020 || Int(expirationYear)! > 2030 {
-                    continue
+                if let expirationYear = passport.first(where: { $0.starts(with: "eyr:") })?.substring(from: 4) {
+                    if expirationYear.count != 4 || expirationYear.int < 2020 || expirationYear.int > 2030 {
+                        continue
+                    }
                 }
 
                 // hgt (Height) - a number followed by either cm or in:
                 //     If cm, the number must be at least 150 and at most 193.
                 //     If in, the number must be at least 59 and at most 76.
-                var height = passport.first(where: { $0.starts(with: "hgt:") })!.substring(from: 4)
-                if height.hasSuffix("cm") {
-                    height = height.substring(from: 0, to: height.count - 2)
-                    if Int(height)! < 150 || Int(height)! > 193 {
+                if var height = passport.first(where: { $0.starts(with: "hgt:") })?.substring(from: 4) {
+                    if height.hasSuffix("cm") {
+                        height = height.substring(from: 0, to: height.count - 2)
+                        if height.int < 150 || height.int > 193 {
+                            continue
+                        }
+                    } else if height.hasSuffix("in") {
+                        height = height.substring(from: 0, to: height.count - 2)
+                        if height.int < 59 || height.int > 76 {
+                            continue
+                        }
+                    } else {
                         continue
                     }
-                } else if height.hasSuffix("in") {
-                    height = height.substring(from: 0, to: height.count - 2)
-                    if Int(height)! < 59 || Int(height)! > 76 {
-                        continue
-                    }
-                } else {
-                    continue
                 }
 
                 // hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
-                let hairColor = passport.first(where: { $0.starts(with: "hcl:") })!.substring(from: 4)
-                if hairColor.count != 7 || !hairColor.starts(with: "#") || !hairColor.substring(from: 1).isStringHexadecimal() {
-                    continue
+                if let hairColor = passport.first(where: { $0.starts(with: "hcl:") })?.substring(from: 4) {
+                    if hairColor.count != 7 || !hairColor.starts(with: "#") || !hairColor.substring(from: 1).isStringHexadecimal() {
+                        continue
+                    }
                 }
 
                 // ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth.
-                let eyeColor = passport.first(where: { $0.starts(with: "ecl:") })!.substring(from: 4)
-                if eyeColor != "amb" && eyeColor != "blu" && eyeColor != "brn" && eyeColor != "gry" && eyeColor != "grn" && eyeColor != "hzl" && eyeColor != "oth" {
-                    continue
+                if let eyeColor = passport.first(where: { $0.starts(with: "ecl:") })?.substring(from: 4) {
+                    if eyeColor != "amb" && eyeColor != "blu" && eyeColor != "brn" && eyeColor != "gry" && eyeColor != "grn" && eyeColor != "hzl" && eyeColor != "oth" {
+                        continue
+                    }
                 }
 
                 // pid (Passport ID) - a nine-digit number, including leading zeroes.
-                let passportID = passport.first(where: { $0.starts(with: "pid:") })!.substring(from: 4)
-                if passportID.count != 9 || !passportID.isStringNumeric() {
-                    continue
+                if let passportID = passport.first(where: { $0.starts(with: "pid:") })?.substring(from: 4) {
+                    if passportID.count != 9 || !passportID.isStringNumeric() {
+                        continue
+                    }
                 }
 
                 validPassports += 1

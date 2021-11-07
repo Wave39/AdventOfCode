@@ -52,7 +52,7 @@ class Puzzle_2016_14: PuzzleBaseClass {
                     hashDictionary[index] = MD5ForIndex(inputString: inputString, index: index, stretch: stretch)
                 }
 
-                return hashDictionary[index]!
+                return hashDictionary[index] ?? ""
             }
 
             while !hashFound {

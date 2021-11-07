@@ -227,7 +227,7 @@ extension String {
         let arr = self.split(separator: separator)
         var retval: [Int] = []
         for s in arr {
-            retval.append(Int(String(s)) ?? 0)
+            retval.append(s.int)
         }
 
         return retval

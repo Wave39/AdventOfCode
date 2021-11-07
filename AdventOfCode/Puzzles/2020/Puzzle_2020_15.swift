@@ -33,7 +33,7 @@ class Puzzle_2020_15: PuzzleBaseClass {
             dict[arr[idx]] = [ idx + 1 ]
         }
 
-        var lastNumber = arr.last!
+        var lastNumber = arr.last ?? 0
         var lastNumberNew = true
         var turnNumber = arr.count + 1
         while turnNumber <= turns {
@@ -41,7 +41,7 @@ class Puzzle_2020_15: PuzzleBaseClass {
             if lastNumberNew {
                 numberSpoken = 0
             } else {
-                let x = dict[lastNumber]!
+                let x = dict[lastNumber] ?? []
                 let count = x.count
                 numberSpoken = x[count - 1] - x[count - 2]
             }

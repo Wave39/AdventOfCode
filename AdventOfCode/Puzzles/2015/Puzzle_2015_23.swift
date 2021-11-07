@@ -49,13 +49,13 @@ class Puzzle_2015_23: PuzzleBaseClass {
 
                     processor.programCounter += 1
                 } else if opcode == "jmp" {
-                    processor.programCounter += Int(components[1]) ?? 0
+                    processor.programCounter += components[1].int
                 } else if opcode == "jie" || opcode == "jio" {
                     let aRegisterMode = (components[1] == "a,")
                     let register = (aRegisterMode ? processor.a : processor.b)
                     var offset = 1
                     if (opcode == "jie" && register % 2 == 0) || (opcode == "jio" && register == 1) {
-                        offset = Int(components[2]) ?? 0
+                        offset = components[2].int
                     }
 
                     processor.programCounter += offset

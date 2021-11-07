@@ -32,7 +32,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
             var minValue = Int.max
             var maxValue = 0
             for element in line {
-                let elementInt = Int(element) ?? 0
+                let elementInt = element.int
                 if elementInt < minValue {
                     minValue = elementInt
                 }

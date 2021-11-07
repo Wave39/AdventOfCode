@@ -49,7 +49,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
             if line.starts(with: "Tile") {
                 let regex = "Tile (.\\d*):"
                 let arr = line.matchesInCapturingGroups(pattern: regex)
-                tileNumber = Int(arr[0])!
+                tileNumber = arr[0].int
                 tileString = ""
             } else if line.starts(with: ".") || line.starts(with: "#") {
                 tileString += line

@@ -48,12 +48,12 @@ class Puzzle_2020_14: PuzzleBaseClass {
                 bitmask = mask[0]
             } else if line.starts(with: "mem") {
                 let mem = line.matchesInCapturingGroups(pattern: memRegex)
-                let addr = Int(mem[0])!
+                let addr = mem[0].int
                 if memoryValues[addr] == nil {
                     memoryValues[addr] = 0
                 }
 
-                let binaryValue = binaryString(Int(mem[1])!, padLength: 36)
+                let binaryValue = binaryString(mem[1].int, padLength: 36)
                 var newBinaryValue = ""
                 for idx in 0..<36 {
                     if bitmask[idx] == "0" || bitmask[idx] == "1" {
@@ -63,7 +63,7 @@ class Puzzle_2020_14: PuzzleBaseClass {
                     }
                 }
 
-                memoryValues[addr] = Int(newBinaryValue, radix: 2)!
+                memoryValues[addr] = Int(newBinaryValue, radix: 2) ?? 0
             } else {
                 print("Unknown input: \(arr[0])")
             }
@@ -93,12 +93,12 @@ class Puzzle_2020_14: PuzzleBaseClass {
                     } else if bitmask[idx] == "1" {
                         newAddress += "1"
                     } else {
-                        newAddress += String(powString.first!)
+                        newAddress += String(powString.first ?? " ")
                         powString.remove(at: powString.startIndex)
                     }
                 }
 
-                retval.append(Int(newAddress, radix: 2)!)
+                retval.append(Int(newAddress, radix: 2) ?? 0)
             }
         }
 
@@ -118,8 +118,8 @@ class Puzzle_2020_14: PuzzleBaseClass {
                 bitmask = mask[0]
             } else if line.starts(with: "mem") {
                 let mem = line.matchesInCapturingGroups(pattern: memRegex)
-                let addr = Int(mem[0])!
-                let value = Int(mem[1])!
+                let addr = mem[0].int
+                let value = mem[1].int
 
                 let memoryAddresses = getMemoryAddresses(originalAddress: addr, bitmask: bitmask)
                 for addr in memoryAddresses {

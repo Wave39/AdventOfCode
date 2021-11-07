@@ -57,7 +57,7 @@ class Puzzle_2020_08: PuzzleBaseClass {
         let lines = str.parseIntoStringArray()
         for line in lines {
             let arr = line.parseIntoStringArray(separator: " ")
-            let instruction = Instruction(opcode: InstructionType.lookup(str: arr[0]), offset: Int(arr[1])!)
+            let instruction = Instruction(opcode: InstructionType.lookup(str: arr[0]), offset: arr[1].int)
             program.append(instruction)
         }
 

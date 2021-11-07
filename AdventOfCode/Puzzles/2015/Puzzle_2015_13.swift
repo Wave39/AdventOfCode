@@ -35,7 +35,7 @@ class Puzzle_2015_13: PuzzleBaseClass {
             let hp = HappinessPair()
             hp.person1 = arr[0]
             hp.person2 = arr[10].substring(from: 0, to: arr[10].count - 1)
-            hp.happiness = Int(arr[3]) ?? 0
+            hp.happiness = arr[3].int
             if arr[2] == "lose" {
                 hp.happiness = -hp.happiness
             }
