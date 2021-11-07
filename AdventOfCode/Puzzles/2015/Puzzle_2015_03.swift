@@ -11,7 +11,7 @@ import Foundation
 class Puzzle_2015_03: PuzzleBaseClass {
 
     func PositionString(x: Int, y: Int) -> String {
-        return "\(x) \(y)"
+        "\(x) \(y)"
     }
 
     func solve() {
@@ -21,7 +21,7 @@ class Puzzle_2015_03: PuzzleBaseClass {
     }
 
     func solveBothParts() -> (Int, Int) {
-        return (solvePart1(), solvePart2())
+        (solvePart1(), solvePart2())
     }
 
     func solvePart1() -> Int {

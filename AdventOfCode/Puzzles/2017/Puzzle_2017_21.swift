@@ -11,7 +11,7 @@ import Foundation
 class Puzzle_2017_21: PuzzleBaseClass {
 
     func getCharacterAt(arr: [[Character]], x: Int, y: Int) -> Character {
-        return arr[y][x]
+        arr[y][x]
     }
 
     func getPixelCount(arr: [[Character]]) -> Int {

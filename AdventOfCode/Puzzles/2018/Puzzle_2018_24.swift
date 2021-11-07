@@ -44,11 +44,11 @@ class Puzzle_2018_24: NSObject {
         var groupToAttack: String = ""
 
         var effectivePower: Int {
-            return unitCount * damageAmount
+            unitCount * damageAmount
         }
 
         var description: String {
-            return "<\(groupId) \(unitType); Units: \(unitCount); HP: \(hitPointsEach); Dam: \(damageAmount) \(damageType): Init: \(initiative); Weak: \(weakness); Imm: \(immunity); EP: \(effectivePower); GTA: \(groupToAttack)>"
+            "<\(groupId) \(unitType); Units: \(unitCount); HP: \(hitPointsEach); Dam: \(damageAmount) \(damageType): Init: \(initiative); Weak: \(weakness); Imm: \(immunity); EP: \(effectivePower); GTA: \(groupToAttack)>"
         }
 
         func damageCausedBy(attackType: AttackType, amount: Int) -> Int {
@@ -146,11 +146,11 @@ class Puzzle_2018_24: NSObject {
     }
 
     func initiativeDescOrder(left: Group, right: Group) -> Bool {
-        return left.initiative > right.initiative
+        left.initiative > right.initiative
     }
 
     func groupIdOrder(left: Group, right: Group) -> Bool {
-        return left.groupId < right.groupId
+        left.groupId < right.groupId
     }
 
     func solvePart1(groups: [Group]) -> Int {
@@ -227,7 +227,7 @@ class Puzzle_2018_24: NSObject {
     }
 
     func solvePart2(groups: [Group]) -> Int {
-        return 2209
+        2209
     }
 
 }

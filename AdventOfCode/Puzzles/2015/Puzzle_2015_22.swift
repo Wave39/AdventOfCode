@@ -86,11 +86,11 @@ private class GameState {
     }
 
     func playerLoses() -> Bool {
-        return self.playerHitPoints <= 0
+        self.playerHitPoints <= 0
     }
 
     func bossLoses() -> Bool {
-        return self.bossHitPoints <= 0
+        self.bossHitPoints <= 0
     }
 
     func copy() -> GameState {

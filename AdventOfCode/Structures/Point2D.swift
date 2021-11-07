@@ -18,15 +18,15 @@ struct Point2D: Hashable, CustomStringConvertible {
     }
 
     static var origin: Point2D {
-        return Point2D(x: 0, y: 0)
+        Point2D(x: 0, y: 0)
     }
 
     var description: String {
-        return "(\(x),\(y))"
+        "(\(x),\(y))"
     }
 
     static func == (lhs: Point2D, rhs: Point2D) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y
+        lhs.x == rhs.x && lhs.y == rhs.y
     }
 
     static func maximumBounds(arr: [Point2D]) -> Point2D {
@@ -45,7 +45,7 @@ struct Point2D: Hashable, CustomStringConvertible {
     }
 
     func manhattanDistanceTo(pt: Point2D) -> Int {
-        return abs(self.x - pt.x) + abs(self.y - pt.y)
+        abs(self.x - pt.x) + abs(self.y - pt.y)
     }
 
     func adjacentLocations(includeDiagonals: Bool = false) -> [Point2D] {

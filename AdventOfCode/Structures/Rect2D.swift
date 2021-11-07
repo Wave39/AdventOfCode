@@ -22,11 +22,11 @@ struct Rect2D: Hashable {
     }
 
     var description: String {
-        return "(\(x1),\(y1)) -> (\(x2),\(y2))"
+        "(\(x1),\(y1)) -> (\(x2),\(y2))"
     }
 
     static func == (lhs: Rect2D, rhs: Rect2D) -> Bool {
-        return lhs.x1 == rhs.x1 && lhs.y1 == rhs.y1 && lhs.x2 == rhs.x2 && lhs.y2 == rhs.y2
+        lhs.x1 == rhs.x1 && lhs.y1 == rhs.y1 && lhs.x2 == rhs.x2 && lhs.y2 == rhs.y2
     }
 
 }

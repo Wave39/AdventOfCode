@@ -20,7 +20,7 @@ import Foundation
  - Returns: The natural gcd of m and n.
  */
 func gcd(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) -> Int {
-    return gcdAlgorithm(m, n)
+    gcdAlgorithm(m, n)
 }
 
 /*

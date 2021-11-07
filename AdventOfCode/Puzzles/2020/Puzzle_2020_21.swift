@@ -19,7 +19,7 @@ class Puzzle_2020_21: PuzzleBaseClass {
     }
 
     func solveBothParts() -> (Int, String) {
-        return solveBothParts(str: Puzzle_Input.puzzleInput)
+        solveBothParts(str: Puzzle_Input.puzzleInput)
     }
 
     func solveBothParts(str: String) -> (Int, String) {

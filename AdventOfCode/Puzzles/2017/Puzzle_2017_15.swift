@@ -49,7 +49,7 @@ class Puzzle_2017_15: PuzzleBaseClass {
     }
 
     func generatorsMatch(generators: (Int, Int)) -> Bool {
-        return generatorsMatch(generatorA: generators.0, generatorB: generators.1)
+        generatorsMatch(generatorA: generators.0, generatorB: generators.1)
     }
 
     func solvePart1(initialGenerators: (Int, Int)) -> Int {

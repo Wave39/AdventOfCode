@@ -22,11 +22,11 @@ class Puzzle_2020_23: PuzzleBaseClass {
     }
 
     func solvePart1() -> String {
-        return solvePart1(str: Puzzle_Input.puzzleInput, moves: 100)
+        solvePart1(str: Puzzle_Input.puzzleInput, moves: 100)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_Input.puzzleInput)
+        solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
     func solvePart1(str: String, moves: Int) -> String {

@@ -19,7 +19,7 @@ class Puzzle_2016_03: PuzzleBaseClass {
         let puzzleInputLineArray = PuzzleInput.final.components(separatedBy: "\n").filter { !$0.isEmpty }
 
         func validTriangle(a: Int, b: Int, c: Int) -> Bool {
-            return (a + b) > c && (a + c) > b && (b + c) > a
+            (a + b) > c && (a + c) > b && (b + c) > a
         }
 
         var part1Ctr = 0

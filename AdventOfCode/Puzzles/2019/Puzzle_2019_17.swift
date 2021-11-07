@@ -33,11 +33,11 @@ class Puzzle_2019_17: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_17_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_17_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_17_Input.puzzleInput)
+        solvePart2(str: Puzzle_2019_17_Input.puzzleInput)
     }
 
     func solvePart1(str: String) -> Int {
@@ -315,7 +315,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
         }
 
         func getAsciiArray(_ str: String) -> [Int] {
-            return Array(str + "\n").map { Int(String($0).asciiValue) }
+            Array(str + "\n").map { Int(String($0).asciiValue) }
         }
 
         aPath = getValidPath(aPath)

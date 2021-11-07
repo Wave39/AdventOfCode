@@ -65,7 +65,7 @@ class Puzzle_2015_18: PuzzleBaseClass {
         }
 
         func isCorner(x: Int, y: Int) -> Bool {
-            return (x == 0 && y == 0) || (x == (rows - 1) && y == 0) ||
+            (x == 0 && y == 0) || (x == (rows - 1) && y == 0) ||
                 (x == 0 && y == (columns - 1)) || (x == (rows - 1) && y == (columns - 1))
         }
 

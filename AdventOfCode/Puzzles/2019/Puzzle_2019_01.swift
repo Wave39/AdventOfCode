@@ -11,7 +11,7 @@ import Foundation
 class Puzzle_2019_01: PuzzleBaseClass {
 
     func CalculateFuel(mass: Int) -> Int {
-        return Int(floor(Double(mass) / 3.0) - 2)
+        Int(floor(Double(mass) / 3.0) - 2)
     }
 
     func solve() {
@@ -23,11 +23,11 @@ class Puzzle_2019_01: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_01_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_01_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_01_Input.puzzleInput)
+        solvePart2(str: Puzzle_2019_01_Input.puzzleInput)
     }
 
     func solvePart1(str: String) -> Int {

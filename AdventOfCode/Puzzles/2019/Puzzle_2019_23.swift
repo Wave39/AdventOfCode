@@ -23,7 +23,7 @@ class Puzzle_2019_23: PuzzleBaseClass {
     }
 
     func solveBothParts() -> (Int, Int) {
-        return solveBothParts(str: Puzzle_2019_23_Input.puzzleInput)
+        solveBothParts(str: Puzzle_2019_23_Input.puzzleInput)
     }
 
     func solveBothParts(str: String) -> (Int, Int) {

@@ -24,7 +24,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 119315717514047, cardIndex: 2020)
+        solvePart2(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 119315717514047, cardIndex: 2020)
     }
 
     func solvePart1(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
@@ -109,7 +109,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
     // the math is way too advanced for me...
 
     func solvePart2(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
-        return 3920265924568
+        3920265924568
     }
 
 }

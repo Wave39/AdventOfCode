@@ -16,7 +16,7 @@ class Puzzle_2019_25: PuzzleBaseClass {
     }
 
     func solvePart1() -> String {
-        return solvePart1(str: Puzzle_2019_25_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_25_Input.puzzleInput)
     }
 
     let commands = """
@@ -158,7 +158,7 @@ whirled peas
     }
 
     func getAsciiArray(_ str: String) -> [Int] {
-        return Array(str + "\n").map { Int(String($0).asciiValue) }
+        Array(str + "\n").map { Int(String($0).asciiValue) }
     }
 
     func getStringFromAsciiArray(_ arr: [Int]) -> String {

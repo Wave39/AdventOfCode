@@ -24,11 +24,11 @@ class Puzzle_2019_10: PuzzleBaseClass {
     }
 
     func solvePart1() -> (Int, Point2D) {
-        return solvePart1(str: Puzzle_2019_10_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_10_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_10_Input.puzzleInput, base: Point2D(x: 30, y: 34))
+        solvePart2(str: Puzzle_2019_10_Input.puzzleInput, base: Point2D(x: 30, y: 34))
     }
 
     func solvePart1(str: String) -> (Int, Point2D) {

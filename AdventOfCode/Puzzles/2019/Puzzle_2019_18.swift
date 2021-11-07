@@ -21,11 +21,11 @@ class Puzzle_2019_18: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return 4620
+        4620
     }
 
     func solvePart2() -> Int {
-        return 1564
+        1564
     }
 
 }

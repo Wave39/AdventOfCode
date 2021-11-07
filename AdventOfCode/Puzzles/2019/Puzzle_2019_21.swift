@@ -19,11 +19,11 @@ class Puzzle_2019_21: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_21_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_21_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_21_Input.puzzleInput)
+        solvePart2(str: Puzzle_2019_21_Input.puzzleInput)
     }
 
     func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
@@ -168,7 +168,7 @@ class Puzzle_2019_21: PuzzleBaseClass {
     }
 
     func getAsciiArray(_ str: String) -> [Int] {
-        return Array(str + "\n").map { Int(String($0).asciiValue) }
+        Array(str + "\n").map { Int(String($0).asciiValue) }
     }
 
     func getStringFromAsciiArray(_ arr: [Int]) -> String {
@@ -177,11 +177,11 @@ class Puzzle_2019_21: PuzzleBaseClass {
     }
 
     func solvePart1(str: String) -> Int {
-        return solveWithCommands(str: str, commands: Puzzle_2019_21_Input.part1Commands.parseIntoStringArray())
+        solveWithCommands(str: str, commands: Puzzle_2019_21_Input.part1Commands.parseIntoStringArray())
     }
 
     func solvePart2(str: String) -> Int {
-        return solveWithCommands(str: str, commands: Puzzle_2019_21_Input.part2Commands.parseIntoStringArray())
+        solveWithCommands(str: str, commands: Puzzle_2019_21_Input.part2Commands.parseIntoStringArray())
     }
 
     func solveWithCommands(str: String, commands: [String]) -> Int {

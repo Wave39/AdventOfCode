@@ -19,11 +19,11 @@ class Puzzle_2020_16: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_Input.puzzleInput)
+        solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_Input.puzzleInput)
+        solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
     struct TicketRule: Hashable {
@@ -42,7 +42,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
         }
 
         static func == (lhs: TicketRule, rhs: TicketRule) -> Bool {
-            return lhs.ruleName == rhs.ruleName
+            lhs.ruleName == rhs.ruleName
         }
     }
 

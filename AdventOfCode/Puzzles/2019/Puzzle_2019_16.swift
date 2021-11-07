@@ -19,11 +19,11 @@ class Puzzle_2019_16: PuzzleBaseClass {
     }
 
     func solvePart1() -> String {
-        return solvePart1(str: Puzzle_2019_16_Input.puzzleInput, numberOfPhases: 100)
+        solvePart1(str: Puzzle_2019_16_Input.puzzleInput, numberOfPhases: 100)
     }
 
     func solvePart2() -> String {
-        return solvePart2(str: Puzzle_2019_16_Input.puzzleInput, numberOfPhases: 100)
+        solvePart2(str: Puzzle_2019_16_Input.puzzleInput, numberOfPhases: 100)
     }
 
     func getRepeatingList(n: Int) -> [Int] {

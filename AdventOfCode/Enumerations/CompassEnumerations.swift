@@ -65,6 +65,6 @@ enum CompassDirection {
     }
 
     static func AllDirections() -> [CompassDirection] {
-        return [ NorthWest, North, NorthEast, East, SouthEast, South, SouthWest, West ]
+        [ NorthWest, North, NorthEast, East, SouthEast, South, SouthWest, West ]
     }
 }

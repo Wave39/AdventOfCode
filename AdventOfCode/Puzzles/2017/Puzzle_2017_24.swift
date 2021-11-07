@@ -16,10 +16,10 @@ class Puzzle_2017_24: PuzzleBaseClass {
         var leftPort: Int = 0
         var rightPort: Int = 0
         static func == (lhs: Component, rhs: Component) -> Bool {
-            return (lhs.leftPort == rhs.leftPort && lhs.rightPort == rhs.rightPort) || (lhs.leftPort == rhs.rightPort && lhs.rightPort == rhs.leftPort)
+            (lhs.leftPort == rhs.leftPort && lhs.rightPort == rhs.rightPort) || (lhs.leftPort == rhs.rightPort && lhs.rightPort == rhs.leftPort)
         }
         static func != (lhs: Component, rhs: Component) -> Bool {
-            return !(lhs == rhs)
+            !(lhs == rhs)
         }
 
     }

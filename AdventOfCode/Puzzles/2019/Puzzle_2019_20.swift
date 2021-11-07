@@ -58,7 +58,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_20_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_20_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {

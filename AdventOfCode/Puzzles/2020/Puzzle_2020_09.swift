@@ -19,11 +19,11 @@ class Puzzle_2020_09: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_Input.puzzleInput, preamble: Puzzle_Input.preamble)
+        solvePart1(str: Puzzle_Input.puzzleInput, preamble: Puzzle_Input.preamble)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_Input.puzzleInput, preamble: Puzzle_Input.preamble)
+        solvePart2(str: Puzzle_Input.puzzleInput, preamble: Puzzle_Input.preamble)
     }
 
     func checkArrayForSum(arr: [Int], sum: Int) -> Bool {

@@ -53,11 +53,11 @@ class Puzzle_2016_11: PuzzleBaseClass {
         var deviceType: DeviceType
 
         func description() -> String {
-            return "\(elementDict[self.elementType] ?? "")\(deviceDict[self.deviceType] ?? "") "
+            "\(elementDict[self.elementType] ?? "")\(deviceDict[self.deviceType] ?? "") "
         }
 
         static func == (lhs: Device, rhs: Device) -> Bool {
-            return lhs.elementType == rhs.elementType && lhs.deviceType == rhs.deviceType
+            lhs.elementType == rhs.elementType && lhs.deviceType == rhs.deviceType
         }
     }
 
@@ -121,7 +121,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         var elevatorFloor: Int
 
         func description() -> String {
-            return "\(floorArray) \(elevatorFloor)"
+            "\(floorArray) \(elevatorFloor)"
         }
 
         static func getBuildingState(building: BuildingStatus) -> String {

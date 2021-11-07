@@ -19,11 +19,11 @@ class Puzzle_2020_04: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_Input.puzzleInput)
+        solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_Input.puzzleInput)
+        solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
     func parsePassports(str: String) -> [[String]] {
@@ -47,7 +47,7 @@ class Puzzle_2020_04: PuzzleBaseClass {
     }
 
     func hasRequiredFields(passport: [String]) -> Bool {
-        return passport.contains { $0.starts(with: "byr:") } && passport.contains { $0.starts(with: "iyr:") } && passport.contains { $0.starts(with: "eyr:") } && passport.contains { $0.starts(with: "hgt:") } && passport.contains { $0.starts(with: "hcl:") } && passport.contains { $0.starts(with: "ecl:") } && passport.contains { $0.starts(with: "pid:") }
+        passport.contains { $0.starts(with: "byr:") } && passport.contains { $0.starts(with: "iyr:") } && passport.contains { $0.starts(with: "eyr:") } && passport.contains { $0.starts(with: "hgt:") } && passport.contains { $0.starts(with: "hcl:") } && passport.contains { $0.starts(with: "ecl:") } && passport.contains { $0.starts(with: "pid:") }
     }
 
     func solvePart1(str: String) -> Int {

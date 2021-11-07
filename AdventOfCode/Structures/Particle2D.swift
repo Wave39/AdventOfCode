@@ -22,11 +22,11 @@ struct Particle2D: Hashable {
     }
 
     var description: String {
-        return "(\(x),\(y)) -> (\(deltaX),\(deltaY))"
+        "(\(x),\(y)) -> (\(deltaX),\(deltaY))"
     }
 
     static func == (lhs: Particle2D, rhs: Particle2D) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.deltaX == rhs.deltaX && lhs.deltaY == rhs.deltaY
+        lhs.x == rhs.x && lhs.y == rhs.y && lhs.deltaX == rhs.deltaX && lhs.deltaY == rhs.deltaY
     }
 
     static func boundingRectangle(arr: [Particle2D]) -> Rect2D {

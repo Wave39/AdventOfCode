@@ -23,11 +23,11 @@ class Puzzle_2017_20: PuzzleBaseClass {
         var acceleration: XYZ = XYZ()
 
         func manhattanDistance() -> Int {
-            return abs(position.x) + abs(position.y) + abs(position.z)
+            abs(position.x) + abs(position.y) + abs(position.z)
         }
 
         func positionString() -> String {
-            return "\(position.x),\(position.y),\(position.z)"
+            "\(position.x),\(position.y),\(position.z)"
         }
     }
 
@@ -42,11 +42,11 @@ class Puzzle_2017_20: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: PuzzleInput.final)
+        solvePart1(str: PuzzleInput.final)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: PuzzleInput.final)
+        solvePart2(str: PuzzleInput.final)
     }
 
     func parseInput(str: String) {

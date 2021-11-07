@@ -62,6 +62,10 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - first_where
   - flatmap_over_map_reduce
   - force_unwrapping
+  - function_default_parameter_at_end
+  - ibinspectable_in_extension
+  - identical_operands
+  - implicit_return
 
 type_name:
   allowed_symbols: ["_"] # these are allowed in type names

@@ -19,11 +19,11 @@ class Puzzle_2019_09: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_09_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_09_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_09_Input.puzzleInput)
+        solvePart2(str: Puzzle_2019_09_Input.puzzleInput)
     }
 
     func ProcessProgram(program: inout [Int], inputArray: inout [Int], programCounter: inout Int, relativeBase: inout Int) -> Int {

@@ -18,7 +18,7 @@ class Puzzle_2018_16: NSObject {
         var command: Command = Command()
         var afterRegisters: Registers = Registers()
         var description: String {
-            return "Before: \(beforeRegisters); Command: \(command); After: \(afterRegisters)"
+            "Before: \(beforeRegisters); Command: \(command); After: \(afterRegisters)"
         }
     }
 

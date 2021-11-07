@@ -22,11 +22,11 @@ class Puzzle_2019_24: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_24_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_24_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_24_Input.puzzleInput)
+        solvePart2(str: Puzzle_2019_24_Input.puzzleInput)
     }
 
     func processGrid(grid: Grid) -> Grid {

@@ -27,11 +27,11 @@ class Puzzle_2019_08: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
+        solvePart1(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
     }
 
     func solvePart2() -> [Character] {
-        return solvePart2(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
+        solvePart2(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
     }
 
     func solvePart1(str: String, imageWidth: Int, imageHeight: Int) -> Int {

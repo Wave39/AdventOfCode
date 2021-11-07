@@ -21,7 +21,7 @@ class Puzzle_2016_15: PuzzleBaseClass {
             var initialPosition: Int
             var size: Int
             func positionAtTime(time: Int) -> Int {
-                return (initialPosition + time) % size
+                (initialPosition + time) % size
             }
         }
 

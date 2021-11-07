@@ -20,11 +20,11 @@ struct Point3D: Hashable, CustomStringConvertible {
     }
 
     var description: String {
-        return "(\(x),\(y),\(z))"
+        "(\(x),\(y),\(z))"
     }
 
     static func == (lhs: Point3D, rhs: Point3D) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
+        lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
     }
 
     static func maximumBounds(arr: [Point3D]) -> Point3D {

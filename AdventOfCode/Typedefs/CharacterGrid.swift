@@ -51,11 +51,11 @@ func printCharacterGrid(grid: CharacterGrid) {
 }
 
 func getCharacterAtCharacterGridPoint(grid: CharacterGrid, point: Point2D) -> Character {
-    return grid[point.y][point.x]
+    grid[point.y][point.x]
 }
 
 func getOnCount(grid: CharacterGrid) -> Int {
-    return getCharacterCount(grid: grid, character: "#")
+    getCharacterCount(grid: grid, character: "#")
 }
 
 func getCharacterCount(grid: CharacterGrid, character: Character) -> Int {

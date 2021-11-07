@@ -19,7 +19,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
         }
 
         var description: String {
-            return "center: \(center); orbiter: \(orbiter)"
+            "center: \(center); orbiter: \(orbiter)"
         }
     }
 
@@ -32,7 +32,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
         }
 
         var description: String {
-            return "name: \(name); step count: \(stepCount)"
+            "name: \(name); step count: \(stepCount)"
         }
     }
 
@@ -45,11 +45,11 @@ class Puzzle_2019_06: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_06_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_06_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_06_Input.puzzleInput)
+        solvePart2(str: Puzzle_2019_06_Input.puzzleInput)
     }
 
     func solvePart1(str: String) -> Int {

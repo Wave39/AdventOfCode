@@ -27,11 +27,11 @@ class Puzzle_2019_13: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_13_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_13_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_13_Input.puzzleInput)
+        solvePart2(str: Puzzle_2019_13_Input.puzzleInput)
     }
 
     func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {

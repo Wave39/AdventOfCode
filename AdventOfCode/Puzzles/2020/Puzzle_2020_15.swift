@@ -19,11 +19,11 @@ class Puzzle_2020_15: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_Input.puzzleInput)
+        solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_Input.puzzleInput)
+        solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
     func solve(str: String, turns: Int) -> Int {
@@ -62,11 +62,11 @@ class Puzzle_2020_15: PuzzleBaseClass {
     }
 
     func solvePart1(str: String) -> Int {
-        return solve(str: str, turns: 2020)
+        solve(str: str, turns: 2020)
     }
 
     func solvePart2(str: String) -> Int {
-        return solve(str: str, turns: 30000000)
+        solve(str: str, turns: 30000000)
     }
 
 }

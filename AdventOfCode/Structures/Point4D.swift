@@ -22,11 +22,11 @@ struct Point4D: Hashable, CustomStringConvertible {
     }
 
     var description: String {
-        return "(\(x),\(y),\(z),\(t))"
+        "(\(x),\(y),\(z),\(t))"
     }
 
     static func == (lhs: Point4D, rhs: Point4D) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.t == rhs.t
+        lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.t == rhs.t
     }
 
     func manhattanDistanceTo(pt: Point4D) -> Int {

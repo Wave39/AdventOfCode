@@ -19,11 +19,11 @@ class Puzzle_2020_20: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_Input.puzzleInput)
+        solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_Input.puzzleInput)
+        solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
     struct PhotoTile: Hashable {
@@ -86,7 +86,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
     }
 
     func solvePart2(str: String) -> Int {
-        return 2146
+        2146
     }
 
 }

@@ -78,11 +78,11 @@ class Puzzle_2015_XX: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: PuzzleInput.final)
+        solvePart1(str: PuzzleInput.final)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: PuzzleInput.final)
+        solvePart2(str: PuzzleInput.final)
     }
 
     func solvePart1(str: String) -> Int {

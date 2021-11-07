@@ -35,11 +35,11 @@ class Puzzle_2017_16: PuzzleBaseClass {
     }
 
     func solvePart1() -> String {
-        return solvePuzzle(puzzleInput: Puzzle_2017_16_Input.puzzleInput, iterations: 1)
+        solvePuzzle(puzzleInput: Puzzle_2017_16_Input.puzzleInput, iterations: 1)
     }
 
     func solvePart2() -> String {
-        return solvePuzzle(puzzleInput: Puzzle_2017_16_Input.puzzleInput, iterations: 1000000000)
+        solvePuzzle(puzzleInput: Puzzle_2017_16_Input.puzzleInput, iterations: 1000000000)
     }
 
     func swapCharacters(arr: inout [Character], from: Int, to: Int) {
@@ -121,7 +121,6 @@ class Puzzle_2017_16: PuzzleBaseClass {
 
         return String(sequence)
     }
-
 }
 
 private class Puzzle_2017_16_Input: NSObject {

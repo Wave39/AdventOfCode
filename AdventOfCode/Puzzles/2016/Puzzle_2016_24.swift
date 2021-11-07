@@ -21,11 +21,11 @@ class Puzzle_2016_24: PuzzleBaseClass {
             var y: Int
 
             var oldHashValue: Int {
-                return self.x * 1000 + self.y
+                self.x * 1000 + self.y
             }
 
             static func == (left: GridPosition, right: GridPosition) -> Bool {
-                return left.oldHashValue == right.oldHashValue
+                left.oldHashValue == right.oldHashValue
             }
         }
 

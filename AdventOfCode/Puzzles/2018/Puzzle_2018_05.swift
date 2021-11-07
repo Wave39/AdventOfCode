@@ -73,7 +73,7 @@ class Puzzle_2018_05: NSObject {
     }
 
     func solvePart1(polymer: String) -> Int {
-        return decomposePolymerFaster(polymer: polymer).count
+        decomposePolymerFaster(polymer: polymer).count
     }
 
     func solvePart2(polymer: String) -> Int {

@@ -19,11 +19,11 @@ class Puzzle_2019_07: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
+        solvePart1(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
+        solvePart2(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
     }
 
     func ProcessProgram(program: [Int], inputArray: [Int]) -> Int {
@@ -31,7 +31,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
         var arr = program
 
         func GetValue(_ immediate: Bool, _ value: Int) -> Int {
-            return (immediate ? value : arr[value])
+            (immediate ? value : arr[value])
         }
 
         var retval = 0
@@ -85,7 +85,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
 
     func ProcessProgramPart2(program: inout [Int], inputArray: inout [Int], programCounter: inout Int) -> (Int, Bool) {
         func GetValue(_ immediate: Bool, _ value: Int) -> Int {
-            return (immediate ? value : program[value])
+            (immediate ? value : program[value])
         }
 
         var retval = 0

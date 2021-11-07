@@ -19,11 +19,11 @@ class Puzzle_2020_24: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_Input.puzzleInput)
+        solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_Input.puzzleInput)
+        solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
     let offsetDict: Dictionary<String, (Int, Int)> = [ "w": (-2, 0), "e": (2, 0), "nw": (-1, 1), "sw": (-1, -1), "ne": (1, 1), "se": (1, -1) ]

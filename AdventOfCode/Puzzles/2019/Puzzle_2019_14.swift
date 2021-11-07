@@ -21,7 +21,7 @@ class Puzzle_2019_14: PuzzleBaseClass {
         }
 
         var description: String {
-            return "\(amount) \(compound)"
+            "\(amount) \(compound)"
         }
     }
 
@@ -30,7 +30,7 @@ class Puzzle_2019_14: PuzzleBaseClass {
         var product: ChemicalComponent = ChemicalComponent()
 
         var description: String {
-            return "\(reactants) => \(product)"
+            "\(reactants) => \(product)"
         }
     }
 
@@ -43,11 +43,11 @@ class Puzzle_2019_14: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solve(str: Puzzle_2019_14_Input.puzzleInput, part: 1)
+        solve(str: Puzzle_2019_14_Input.puzzleInput, part: 1)
     }
 
     func solvePart2() -> Int {
-        return solve(str: Puzzle_2019_14_Input.puzzleInput, part: 2)
+        solve(str: Puzzle_2019_14_Input.puzzleInput, part: 2)
     }
 
     func solve(str: String, part: Int) -> Int {

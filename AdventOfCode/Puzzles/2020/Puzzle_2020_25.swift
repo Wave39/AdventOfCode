@@ -16,7 +16,7 @@ class Puzzle_2020_25: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_Input.puzzleInput)
+        solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
     func calculateTransform(key: Int, loopSize: Int) -> Int {

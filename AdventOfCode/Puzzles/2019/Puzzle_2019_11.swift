@@ -32,11 +32,11 @@ class Puzzle_2019_11: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2019_11_Input.puzzleInput)
+        solvePart1(str: Puzzle_2019_11_Input.puzzleInput)
     }
 
     func solvePart2() -> (String, Point2D) {
-        return solvePart2(str: Puzzle_2019_11_Input.puzzleInput)
+        solvePart2(str: Puzzle_2019_11_Input.puzzleInput)
     }
 
     func ProcessProgram(program: inout [Int], inputSignal: Int, programCounter: inout Int, relativeBase: inout Int) -> ([Int], Bool) {

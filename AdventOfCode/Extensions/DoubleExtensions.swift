@@ -10,6 +10,6 @@ import Foundation
 
 extension Double {
     func toString() -> String {
-        return String(format: "%.5f", self)
+        String(format: "%.5f", self)
     }
 }

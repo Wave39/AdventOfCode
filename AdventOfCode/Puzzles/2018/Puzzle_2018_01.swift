@@ -19,11 +19,11 @@ class Puzzle_2018_01: NSObject {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2018_01_Input.puzzleInput)
+        solvePart1(str: Puzzle_2018_01_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2018_01_Input.puzzleInput)
+        solvePart2(str: Puzzle_2018_01_Input.puzzleInput)
     }
 
     func solvePart1(str: String) -> Int {

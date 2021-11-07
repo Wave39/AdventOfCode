@@ -26,11 +26,11 @@ struct Rect3D: Hashable {
     }
 
     var description: String {
-        return "(\(x1),\(y1),\(z1)) -> (\(x2),\(y2),\(z2))"
+        "(\(x1),\(y1),\(z1)) -> (\(x2),\(y2),\(z2))"
     }
 
     static func == (lhs: Rect3D, rhs: Rect3D) -> Bool {
-        return lhs.x1 == rhs.x1 && lhs.y1 == rhs.y1 && lhs.z1 == rhs.z1 && lhs.x2 == rhs.x2 && lhs.y2 == rhs.y2 && lhs.z2 == rhs.z2
+        lhs.x1 == rhs.x1 && lhs.y1 == rhs.y1 && lhs.z1 == rhs.z1 && lhs.x2 == rhs.x2 && lhs.y2 == rhs.y2 && lhs.z2 == rhs.z2
     }
 
 }

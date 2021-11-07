@@ -26,11 +26,11 @@ struct Particle3D: Hashable {
     }
 
     var description: String {
-        return "(\(x),\(y),\(z)) -> (\(deltaX),\(deltaY),\(deltaZ))"
+        "(\(x),\(y),\(z)) -> (\(deltaX),\(deltaY),\(deltaZ))"
     }
 
     static func == (lhs: Particle3D, rhs: Particle3D) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.deltaX == rhs.deltaX && lhs.deltaY == rhs.deltaY && lhs.deltaZ == rhs.deltaZ
+        lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.deltaX == rhs.deltaX && lhs.deltaY == rhs.deltaY && lhs.deltaZ == rhs.deltaZ
     }
 
     static func boundingRectangle(arr: [Particle3D]) -> Rect3D {

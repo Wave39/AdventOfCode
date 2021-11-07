@@ -13,21 +13,21 @@ extension Character {
     // For these color squares, visit this site and search for something like "fuchsia square":
     // https://emojipedia.org/
 
-    static var blackSquare: Character { return "⬛️" }
-    static var redSquare: Character { return "🟥" }
-    static var yellowSquare: Character { return "🟨" }
-    static var blueSquare: Character { return "🟦" }
-    static var whiteSquare: Character { return "⬜️" }
-    static var greenSquare: Character { return "🟩" }
-    static var orangeSquare: Character { return "🟧" }
-    static var purpleSquare: Character { return "🟪" }
+    static var blackSquare: Character { "⬛️" }
+    static var redSquare: Character { "🟥" }
+    static var yellowSquare: Character { "🟨" }
+    static var blueSquare: Character { "🟦" }
+    static var whiteSquare: Character { "⬜️" }
+    static var greenSquare: Character { "🟩" }
+    static var orangeSquare: Character { "🟧" }
+    static var purpleSquare: Character { "🟪" }
 
     var asciiValue: UInt32? {
-        return String(self).unicodeScalars.first(where: { $0.isASCII })?.value
+        String(self).unicodeScalars.first(where: { $0.isASCII })?.value
     }
 
     static func asciiChar(v: Int) -> Character {
-        return Character(UnicodeScalar(v) ?? Unicode.Scalar(0))
+        Character(UnicodeScalar(v) ?? Unicode.Scalar(0))
     }
 
     static func asciiValue(c: Character) -> Int {

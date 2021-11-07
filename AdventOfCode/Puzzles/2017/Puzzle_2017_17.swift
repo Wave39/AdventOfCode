@@ -19,11 +19,11 @@ class Puzzle_2017_17: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(puzzleInput: Puzzle_2017_17_Input.puzzleInput_part1)
+        solvePart1(puzzleInput: Puzzle_2017_17_Input.puzzleInput_part1)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(puzzleInput: Puzzle_2017_17_Input.puzzleInput_part2)
+        solvePart2(puzzleInput: Puzzle_2017_17_Input.puzzleInput_part2)
     }
 
     func createBuffer(step: Int, maxValue: Int) -> [Int] {

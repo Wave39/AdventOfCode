@@ -34,7 +34,7 @@ class Puzzle_2017_19: PuzzleBaseClass {
     }
 
     func characterAt(x: Int, y: Int) -> Character {
-        return routingDiagram[y][x]
+        routingDiagram[y][x]
     }
 
     func parsePuzzleInput(str: String) -> [[Character]] {

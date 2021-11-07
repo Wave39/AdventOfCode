@@ -12,7 +12,7 @@ import CryptoKit
 
 extension String {
     var asciiArray: [UInt32] {
-        return unicodeScalars.filter { $0.isASCII }.map { $0.value }
+        unicodeScalars.filter { $0.isASCII }.map { $0.value }
     }
 
     var asciiValue: UInt32 {
@@ -65,7 +65,7 @@ extension String {
         return retval
     }
 
-    static var clearConsole: String { return "\u{001b}[H" }
+    static var clearConsole: String { "\u{001b}[H" }
 
     func commonCharactersWith(str: String) -> String {
         var retval = ""
@@ -119,7 +119,7 @@ extension String {
     }
 
     func hasBracket() -> Bool {
-        return self.contains("[") || self.contains("]")
+        self.contains("[") || self.contains("]")
     }
 
     func hasConsecutiveCharacters(num: Int) -> Bool {
@@ -135,7 +135,7 @@ extension String {
     }
 
     func indexOf(char: Character) -> Int? {
-        return firstIndex(of: char)?.utf16Offset(in: self)
+        firstIndex(of: char)?.utf16Offset(in: self)
     }
 
     func indices(of occurrence: String) -> [Int] {
@@ -220,7 +220,7 @@ extension String {
     }
 
     func parseIntoIntArray() -> [Int] {
-        return parseIntoIntArray(separator: "\n")
+        parseIntoIntArray(separator: "\n")
     }
 
     func parseIntoIntArray(separator: Character) -> [Int] {
@@ -266,7 +266,7 @@ extension String {
     }
 
     func parseIntoStringArray(omitBlankLines: Bool = true) -> [String] {
-        return parseIntoStringArray(separator: "\n", omitEmptyStrings: omitBlankLines)
+        parseIntoStringArray(separator: "\n", omitEmptyStrings: omitBlankLines)
     }
 
     func parseIntoStringArray(separator: Character, omitEmptyStrings: Bool = true) -> [String] {
@@ -336,11 +336,11 @@ extension String {
     }
 
     func substring(range: NSRange) -> String {
-        return substring(from: range.lowerBound, to: range.upperBound)
+        substring(from: range.lowerBound, to: range.upperBound)
     }
 
     func trim() -> String {
-        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     var uniqueCharacters: String {
@@ -349,7 +349,7 @@ extension String {
     }
 
     func words(with charset: CharacterSet = .alphanumerics) -> [String] {
-        return self.unicodeScalars.split { substring in
+        self.unicodeScalars.split { substring in
             !charset.contains(substring)
         }.map(String.init)
     }
@@ -357,32 +357,32 @@ extension String {
 }
 
 extension StringProtocol {
-    var string: String { return String(self) }
+    var string: String { String(self) }
 
     subscript(offset: Int) -> Element {
-        return self[index(startIndex, offsetBy: offset)]
+        self[index(startIndex, offsetBy: offset)]
     }
 
     subscript(_ range: CountableRange<Int>) -> SubSequence {
-        return prefix(range.lowerBound + range.count)
+        prefix(range.lowerBound + range.count)
             .suffix(range.count)
     }
 
     subscript(range: CountableClosedRange<Int>) -> SubSequence {
-        return prefix(range.lowerBound + range.count)
+        prefix(range.lowerBound + range.count)
             .suffix(range.count)
     }
 
     subscript(range: PartialRangeThrough<Int>) -> SubSequence {
-        return prefix(range.upperBound.advanced(by: 1))
+        prefix(range.upperBound.advanced(by: 1))
     }
 
     subscript(range: PartialRangeUpTo<Int>) -> SubSequence {
-        return prefix(range.upperBound)
+        prefix(range.upperBound)
     }
 
     subscript(range: PartialRangeFrom<Int>) -> SubSequence {
-        return suffix(Swift.max(0, count - range.lowerBound))
+        suffix(Swift.max(0, count - range.lowerBound))
     }
 }
 
@@ -401,5 +401,5 @@ extension Substring {
         return retval
     }
 
-    var string: String { return String(self) }
+    var string: String { String(self) }
 }

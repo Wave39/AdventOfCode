@@ -36,7 +36,7 @@ class Puzzle_2018_09: NSObject {
             var clockwise: Node?
             var counterclockwise: Node?
             var toString: String {
-                return "\(self.value)"
+                "\(self.value)"
             }
         }
 

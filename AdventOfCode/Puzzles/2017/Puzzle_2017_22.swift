@@ -17,15 +17,15 @@ class Puzzle_2017_22: PuzzleBaseClass {
         case LEFT = 3
 
         func nextDirectionByTurningRight() -> Direction {
-            return Direction(rawValue: (self.rawValue + 1) % 4) ?? .UP
+            Direction(rawValue: (self.rawValue + 1) % 4) ?? .UP
         }
 
         func nextDirectionByTurningLeft() -> Direction {
-            return Direction(rawValue: (self.rawValue - 1 + 4) % 4) ?? .UP
+            Direction(rawValue: (self.rawValue - 1 + 4) % 4) ?? .UP
         }
 
         func nextDirectionByReversing() -> Direction {
-            return Direction(rawValue: (self.rawValue + 2) % 4) ?? .UP
+            Direction(rawValue: (self.rawValue + 2) % 4) ?? .UP
         }
     }
 
@@ -33,7 +33,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
     let gridCenter: Point2D = Point2D(x: 10000, y: 10000)
 
     func translatePoint(point: Point2D) -> Point2D {
-        return Point2D(x: (point.x + gridCenter.x), y: (point.y + gridCenter.y))
+        Point2D(x: (point.x + gridCenter.x), y: (point.y + gridCenter.y))
     }
 
     func getCharacterAtVirtualCoordinates(grid: CharacterGrid, point: Point2D) -> Character {

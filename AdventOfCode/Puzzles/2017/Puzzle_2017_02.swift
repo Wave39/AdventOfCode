@@ -18,11 +18,11 @@ class Puzzle_2017_02: PuzzleBaseClass {
     }
 
     func solvePart1() -> Int {
-        return solvePart1(str: Puzzle_2017_02_Input.puzzleInput)
+        solvePart1(str: Puzzle_2017_02_Input.puzzleInput)
     }
 
     func solvePart2() -> Int {
-        return solvePart2(str: Puzzle_2017_02_Input.puzzleInput)
+        solvePart2(str: Puzzle_2017_02_Input.puzzleInput)
     }
 
     func solvePart1(str: String) -> Int {

@@ -27,7 +27,7 @@ class Puzzle_2016_10: PuzzleBaseClass {
             }
 
             var description: String {
-                return "Chips: \(chips); Last comparison: \(lastComparison)"
+                "Chips: \(chips); Last comparison: \(lastComparison)"
             }
         }
 
