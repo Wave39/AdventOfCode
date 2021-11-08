@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_22: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -136,11 +135,9 @@ class Puzzle_2020_22: PuzzleBaseClass {
         let (_, winningCards) = roundWinner(player1Cards: player1, player2Cards: player2)
         return deckScore(winningCards)
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 Player 1:
 9
@@ -212,5 +209,4 @@ Player 2:
 6
 44
 """
-
 }

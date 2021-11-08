@@ -9,7 +9,6 @@
 import XCTest
 
 class GCDTests: XCTestCase {
-
 //    override func setUp() {
 //    }
 
@@ -49,7 +48,7 @@ class GCDTests: XCTestCase {
         XCTAssertEqual(findEasySolution(13, 13), 13)
         XCTAssertEqual(findEasySolution(5, 0), 5)
         XCTAssertEqual(findEasySolution(0, 6), 6)
-        XCTAssertEqual(findEasySolution(12, 13), nil)
+        XCTAssertNil(findEasySolution(12, 13))
     }
 
     func test_lcm() {
@@ -67,5 +66,4 @@ class GCDTests: XCTestCase {
             print("Error: \(error)")
         }
     }
-
 }

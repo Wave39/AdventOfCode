@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2019_14: PuzzleBaseClass {
-
     struct ChemicalComponent: CustomStringConvertible {
         var amount: Int = 0
         var compound: String = ""
@@ -152,11 +151,9 @@ class Puzzle_2019_14: PuzzleBaseClass {
 
         return retval
     }
-
 }
 
 private class Puzzle_2019_14_Input: NSObject {
-
     static let puzzleInput_test1 = """
 10 ORE => 10 A
 1 ORE => 1 B
@@ -286,5 +283,4 @@ private class Puzzle_2019_14_Input: NSObject {
 6 QHFKR, 8 PZPBV, 10 FBRG, 13 FWGTF, 1 LHVTN, 4 SCDS, 8 VHJX, 7 TSGR => 6 MHRVG
 12 GLZH => 5 LHVTN
 """
-
 }

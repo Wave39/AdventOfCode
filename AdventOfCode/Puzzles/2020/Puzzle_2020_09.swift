@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_09: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -87,11 +86,9 @@ class Puzzle_2020_09: PuzzleBaseClass {
         print("Something really bad happened.")
         return -1
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let preamble_test = 5
     static let puzzleInput_test = """
 35
@@ -1119,5 +1116,4 @@ private class Puzzle_Input: NSObject {
 61315145285247
 90655775622556
 """
-
 }

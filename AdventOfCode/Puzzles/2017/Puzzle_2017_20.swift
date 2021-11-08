@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_20: PuzzleBaseClass {
-
     struct XYZ {
         var x = 0
         var y = 0
@@ -160,7 +159,6 @@ class Puzzle_2017_20: PuzzleBaseClass {
 }
 
 private class PuzzleInput: NSObject {
-
     static let test1 =
 
 """
@@ -1181,5 +1179,4 @@ p=<2382,-652,1487>, v=<343,-96,213>, a=<-23,3,-10>
 p=<-265,-2330,-2153>, v=<-32,-334,-305>, a=<1,20,18>
 p=<995,1767,1881>, v=<141,252,264>, a=<-9,-12,-14>
 """
-
 }

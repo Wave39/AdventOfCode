@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2015_16: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -89,7 +88,6 @@ class Puzzle_2015_16: PuzzleBaseClass {
 }
 
 private class PuzzleInput: NSObject {
-
     static let final = """
 Sue 1: goldfish: 6, trees: 9, akitas: 0
 Sue 2: goldfish: 7, trees: 1, akitas: 0
@@ -592,5 +590,4 @@ Sue 498: perfumes: 7, vizslas: 6, cats: 9
 Sue 499: vizslas: 8, perfumes: 1, akitas: 3
 Sue 500: perfumes: 4, cars: 9, trees: 4
 """
-
 }

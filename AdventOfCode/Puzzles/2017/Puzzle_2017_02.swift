@@ -40,7 +40,6 @@ class Puzzle_2017_02: PuzzleBaseClass {
                 if elementInt > maxValue {
                     maxValue = elementInt
                 }
-
             }
 
             total += (maxValue - minValue)

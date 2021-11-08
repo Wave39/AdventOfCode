@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_13: PuzzleBaseClass {
-
     struct Layer {
         var maxDepth: Int = 0
         var currentDepth: Int = 0
@@ -101,11 +100,9 @@ class Puzzle_2017_13: PuzzleBaseClass {
 
         return (part1, part2)
     }
-
 }
 
 private class Puzzle_2017_13_Input: NSObject {
-
     static let puzzleInput_test1 =
 
 """
@@ -162,5 +159,4 @@ private class Puzzle_2017_13_Input: NSObject {
 88: 18
 92: 17
 """
-
 }

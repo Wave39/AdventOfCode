@@ -124,7 +124,6 @@ private class GameState {
 }
 
 class Puzzle_2015_22: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -315,5 +314,4 @@ class Puzzle_2015_22: PuzzleBaseClass {
 
         return (part1LeastAmountOfMana, part2LeastAmountOfMana)
     }
-
 }

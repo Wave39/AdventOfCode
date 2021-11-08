@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2016_19: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -81,5 +80,4 @@ class Puzzle_2016_19: PuzzleBaseClass {
         let part2Solution = findPart2Solution(elfCount: elfCount)
         return (part1Solution, part2Solution)
     }
-
 }

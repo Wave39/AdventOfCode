@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_16: NSObject {
-
     typealias Registers = [Int]
     typealias Command = [Int]
 
@@ -162,11 +161,9 @@ class Puzzle_2018_16: NSObject {
 
         return newRegisters
     }
-
 }
 
 private class Puzzle_2018_16_Input: NSObject {
-
     static let puzzleInput_test =
     """
 Before: [3, 2, 1, 1]
@@ -4181,5 +4178,4 @@ After:  [0, 2, 1, 1]
 8 1 2 1
 14 1 1 0
 """
-
 }

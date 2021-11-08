@@ -46,7 +46,6 @@ class Puzzle_2017_04: PuzzleBaseClass {
 
         return total
     }
-
 }
 
 private class Puzzle_2017_04_Input: NSObject {

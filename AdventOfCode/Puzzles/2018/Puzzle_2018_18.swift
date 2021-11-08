@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_18: NSObject {
-
     enum Acre: Character {
         case Open = "."
         case Trees = "|"
@@ -151,11 +150,9 @@ class Puzzle_2018_18: NSObject {
 
         return woods * lumberyards
     }
-
 }
 
 private class Puzzle_2018_18_Input: NSObject {
-
     static let puzzleInput_test =
     """
 .#.#...|#.
@@ -223,5 +220,4 @@ private class Puzzle_2018_18_Input: NSObject {
 #..|.##.#...|.|#.#.|||##...|....|..|.#.##|#.##|..|
 .|####.#...||..#..|.##|...#..........|.|....#|....
 """
-
 }

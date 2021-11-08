@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_11: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -94,11 +93,9 @@ class Puzzle_2020_11: PuzzleBaseClass {
 
         return getCharacterCount(grid: grid, character: "#")
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 L.LL.LL.LL
 LLLLLLL.LL
@@ -212,5 +209,4 @@ LLLLLLLLL.LLLL.LLLLL.LLLLLL.LLLLLLLL.LLLLLLLLLLL.LLLLLL.LLLLLLLL.LLLLLLLLL.LLLLL
 LLLLLLLLL.LLLLLLLLLL.LLLLLL.LLLLL.LLLLLLL.LL.LLL.LLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLL..LLLLLLLL
 LLLLLLLLLLLLLL.LLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLL.LLLLLLLLL.LLLLLLLLLL.LLLLL
 """
-
 }

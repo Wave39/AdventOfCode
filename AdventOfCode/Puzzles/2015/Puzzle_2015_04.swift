@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2015_04: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -40,11 +39,8 @@ class Puzzle_2015_04: PuzzleBaseClass {
 
         return (fiveZeroCounter, sixZeroCounter)
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let final = "ckczppom"
-
 }

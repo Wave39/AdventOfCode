@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2019_04: PuzzleBaseClass {
-
     func solve() {
         let startingValue = 134_564
         let endingValue = 585_159
@@ -83,5 +82,4 @@ class Puzzle_2019_04: PuzzleBaseClass {
 
         return retval
     }
-
 }

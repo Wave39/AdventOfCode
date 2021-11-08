@@ -9,7 +9,6 @@
 import Foundation
 
 extension Array {
-
     func generatePermutations() -> [[Element]] {
         var retval: [[Element]] = []
         var arrCopy = self

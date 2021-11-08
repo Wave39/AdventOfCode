@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2019_24: PuzzleBaseClass {
-
     typealias Grid = [[Int]]
     typealias Grid3D = [Int: Grid]
 
@@ -263,11 +262,9 @@ class Puzzle_2019_24: PuzzleBaseClass {
 
         return countBugs(dict: gridDictionary)
     }
-
 }
 
 private class Puzzle_2019_24_Input: NSObject {
-
     static let puzzleInput_test = """
 ....#
 #..#.
@@ -283,5 +280,4 @@ private class Puzzle_2019_24_Input: NSObject {
 .####
 ###..
 """
-
 }

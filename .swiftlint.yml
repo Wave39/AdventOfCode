@@ -115,11 +115,38 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - reduce_into
   - redundant_nil_coalescing
   - redundant_type_annotation
+  # - required_deinit
+  - required_enum_case
+  - single_test_class
+  - sorted_first_last
+  - sorted_imports
+  - static_operator
+  - strict_fileprivate
+  - strong_iboutlet
+  - switch_case_on_newline
+  - syntactic_sugar
+  - test_case_accessibility
+  - toggle_bool
+  - trailing_closure
+  # - type_contents_order
+  - unavailable_function
+  - unneeded_parentheses_in_closure_argument
+  - unowned_variable_capture
+  - untyped_error_in_catch
+  - unused_declaration
+  - unused_enumerated
+  - unused_import
+  - vertical_parameter_alignment_on_call
+  # - vertical_whitespace_between_cases
+  - vertical_whitespace_closing_braces
+  - vertical_whitespace_opening_braces
+  - xct_specific_matcher
+  - yoda_condition
 
 type_name:
   allowed_symbols: ["_"] # these are allowed in type names
 
-reporter: "xcode"
+# reporter: "xcode"
 
 # Alternatively, specify all rules explicitly by uncommenting this option:
 # only_rules: # delete `disabled_rules` & `opt_in_rules` if using this

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_15: PuzzleBaseClass {
-
     func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
@@ -95,7 +94,6 @@ class Puzzle_2017_15: PuzzleBaseClass {
 }
 
 private class Puzzle_2017_15_Input: NSObject {
-
     static let puzzleInput_test1 =
 
 """
@@ -109,5 +107,4 @@ Generator B starts with 8921
 Generator A starts with 679
 Generator B starts with 771
 """
-
 }

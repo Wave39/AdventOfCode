@@ -12,7 +12,6 @@
 import Foundation
 
 class Puzzle_2020_23: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -123,7 +122,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
         cups.forEach { cup in
             cupsLinkedList[cup] = Node(value: cup)
         }
-        cups.enumerated().forEach { (i, cup) in
+        cups.enumerated().forEach { i, cup in
             if i == cups.count - 1 {
                 cupsLinkedList[cup]?.next = cupsLinkedList[cups[0]]
             } else {
@@ -143,7 +142,6 @@ class Puzzle_2020_23: PuzzleBaseClass {
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 389125467
 """
@@ -151,5 +149,4 @@ private class Puzzle_Input: NSObject {
     static let puzzleInput = """
 583976241
 """
-
 }

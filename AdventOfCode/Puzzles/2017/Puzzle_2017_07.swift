@@ -8,14 +8,14 @@
 
 import Foundation
 
-private class Program {
-    var name: String = ""
-    var weight = 0
-    var towerWeight = 0
-    var otherPrograms: [String] = []
-}
-
 class Puzzle_2017_07: PuzzleBaseClass {
+    private class Program {
+        var name: String = ""
+        var weight = 0
+        var towerWeight = 0
+        var otherPrograms: [String] = []
+    }
+
     private var puzzleInput: [Program] = []
 
     func solve() {
@@ -87,7 +87,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
         return ""
     }
 
-    fileprivate func findProgram(programToFind: String) -> Program? {
+    private func findProgram(programToFind: String) -> Program? {
         for p in puzzleInput {
             if programToFind == p.name {
                 return p

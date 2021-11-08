@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_13: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -85,11 +84,9 @@ class Puzzle_2020_13: PuzzleBaseClass {
 
         return time
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 939
 7,13,x,x,59,x,31,19
@@ -104,5 +101,4 @@ private class Puzzle_Input: NSObject {
 1000303
 41,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,37,x,x,x,x,x,541,x,x,x,x,x,x,x,23,x,x,x,x,13,x,x,x,17,x,x,x,x,x,x,x,x,x,x,x,29,x,983,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,19
 """
-
 }

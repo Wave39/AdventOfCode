@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_02: NSObject {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -64,11 +63,9 @@ class Puzzle_2018_02: NSObject {
 
         return arr[minI].commonCharactersWith(str: arr[minJ])
     }
-
 }
 
 private class Puzzle_2018_02_Input: NSObject {
-
     static let puzzleInput_test = """
 abcdef
 bababc
@@ -341,5 +338,4 @@ bvhfkccnyoqxudzrpgzleimtkj
 bvhfawcnyoqzudzrpgslhimwkj
 bzhfawvnyooxudzrpgsleimtkj
 """
-
 }

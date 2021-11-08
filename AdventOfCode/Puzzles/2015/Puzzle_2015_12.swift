@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2015_12: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")

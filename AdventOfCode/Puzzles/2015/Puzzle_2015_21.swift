@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2015_21: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -77,7 +76,7 @@ class Puzzle_2015_21: PuzzleBaseClass {
                     me.hitPoints -= damage
                 }
 
-                playerHits = !playerHits
+                playerHits.toggle()
             } while me.hitPoints > 0 && them.hitPoints > 0
 
             return me.hitPoints > 0

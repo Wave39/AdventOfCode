@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_07: PuzzleBaseClass {
-
     struct BagDescription {
         var color: String
         var count: Int
@@ -102,11 +101,9 @@ class Puzzle_2020_07: PuzzleBaseClass {
         let bagCount = bagCountInsideBag(bagRules: bagRules, bagColor: "shiny gold")
         return bagCount
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test1 = """
 light red bags contain 1 bright white bag, 2 muted yellow bags.
 dark orange bags contain 3 bright white bags, 4 muted yellow bags.
@@ -725,5 +722,4 @@ plaid maroon bags contain 5 dim gray bags, 3 muted red bags, 5 posh violet bags,
 dark white bags contain 4 drab chartreuse bags, 2 striped lavender bags, 4 dull aqua bags.
 vibrant indigo bags contain 1 clear plum bag.
 """
-
 }

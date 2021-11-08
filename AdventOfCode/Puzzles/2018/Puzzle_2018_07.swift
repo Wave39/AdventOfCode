@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_07: NSObject {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -163,7 +162,6 @@ class Puzzle_2018_07: NSObject {
 }
 
 private class Puzzle_2018_07_Input: NSObject {
-
     static let puzzleInput_test = """
 Step C must be finished before step A can begin.
 Step C must be finished before step F can begin.
@@ -277,5 +275,4 @@ Step H must be finished before step J can begin.
 Step I must be finished before step P can begin.
 Step Y must be finished before step D can begin.
 """
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_23: NSObject {
-
     class Nanobot {
         var position = Point3D()
         var range: Int = 0
@@ -80,11 +79,9 @@ class Puzzle_2018_23: NSObject {
         // Yet moar shame, I once again borrowed someone else's solution
         return 97_816_347
     }
-
 }
 
 private class Puzzle_2018_23_Input: NSObject {
-
     static let puzzleInput_test =
     """
 pos=<0,0,0>, r=4
@@ -1101,5 +1098,4 @@ pos=<62560714,60729432,44622188>, r=70096101
 pos=<51261873,90926220,12535916>, r=83834975
 pos=<70597900,89863013,22934724>, r=91708987
 """
-
 }

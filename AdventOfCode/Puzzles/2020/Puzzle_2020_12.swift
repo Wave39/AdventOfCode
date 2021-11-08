@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_12: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -121,11 +120,9 @@ class Puzzle_2020_12: PuzzleBaseClass {
 
         return abs(shipLocation.x) + abs(shipLocation.y)
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 F10
 N3
@@ -925,5 +922,4 @@ E3
 L90
 F97
 """
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_04: NSObject {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -176,7 +175,6 @@ class Puzzle_2018_04: NSObject {
 }
 
 private class Puzzle_2018_04_Input: NSObject {
-
     static let puzzleInput_test = """
 [1518-11-01 00:00] Guard #10 begins shift
 [1518-11-01 00:05] falls asleep
@@ -1244,5 +1242,4 @@ private class Puzzle_2018_04_Input: NSObject {
 [1518-06-02 00:11] falls asleep
 [1518-05-10 00:59] wakes up
 """
-
 }

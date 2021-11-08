@@ -22,7 +22,7 @@ class Puzzle_2015_11: PuzzleBaseClass {
         let asciiL = "l".asciiValue
 
         func nextPassword(_ oldPassword: String) -> String {
-            var characterArray = oldPassword.map({ String($0).asciiValue - asciiA })
+            var characterArray = oldPassword.map { String($0).asciiValue - asciiA }
             var idx = 7
             while idx >= 0 {
                 characterArray[idx] = characterArray[idx] + 1
@@ -52,7 +52,7 @@ class Puzzle_2015_11: PuzzleBaseClass {
                 return false
             }
 
-            let characterArray = password.map({ String($0).asciiValue - asciiA })
+            let characterArray = password.map { String($0).asciiValue - asciiA }
             var increasingSequenceFound = false
             for i in 0...5 {
                 let c0 = Int(characterArray[i])

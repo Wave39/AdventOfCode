@@ -32,5 +32,4 @@ struct Stack<T> {
             return nil
         }
     }
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2015_09: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -126,7 +125,6 @@ class Puzzle_2015_09: PuzzleBaseClass {
         walkToBranchTips(node: rootNode)
         return (shortestDistance, longestDistance)
     }
-
 }
 
 private class PuzzleInput: NSObject {

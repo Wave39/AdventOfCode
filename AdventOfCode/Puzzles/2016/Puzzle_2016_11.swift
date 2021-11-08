@@ -337,5 +337,4 @@ class Puzzle_2016_11: PuzzleBaseClass {
         let part2Solution = findSolution(initialConfiguration: puzzleInputPart2, totalNumberOfDevices: 14)
         return (part1Solution, part2Solution)
     }
-
 }

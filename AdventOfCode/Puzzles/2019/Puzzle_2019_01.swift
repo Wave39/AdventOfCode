@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2019_01: PuzzleBaseClass {
-
     func CalculateFuel(mass: Int) -> Int {
         Int(floor(Double(mass) / 3.0) - 2)
     }
@@ -58,7 +57,6 @@ class Puzzle_2019_01: PuzzleBaseClass {
 }
 
 private class Puzzle_2019_01_Input: NSObject {
-
     static let puzzleInput = """
 120333
 142772
@@ -161,5 +159,4 @@ private class Puzzle_2019_01_Input: NSObject {
 103307
 117162
 """
-
 }

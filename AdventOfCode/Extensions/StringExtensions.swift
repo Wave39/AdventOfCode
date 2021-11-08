@@ -6,9 +6,9 @@
 //  Copyright © 2019 Wave 39 LLC. All rights reserved.
 //
 
-import Foundation
 import CommonCrypto
 import CryptoKit
+import Foundation
 
 extension String {
     var asciiArray: [UInt32] {
@@ -285,7 +285,7 @@ extension String {
     func rangesOfString(searchString: String) -> [Range<String.Index>] {
         let _indices = indices(of: searchString)
         let count = searchString.count
-        return _indices.map({ index(startIndex, offsetBy: $0)..<index(startIndex, offsetBy: $0 + count) })
+        return _indices.map { index(startIndex, offsetBy: $0)..<index(startIndex, offsetBy: $0 + count) }
     }
 
     mutating func removeAtIndex(idx: Int) {
@@ -357,7 +357,6 @@ extension String {
         }
         .map(String.init)
     }
-
 }
 
 extension StringProtocol {

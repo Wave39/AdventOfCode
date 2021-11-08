@@ -9,7 +9,6 @@
 import Foundation
 
 extension Character {
-
     // For these color squares, visit this site and search for something like "fuchsia square":
     // https://emojipedia.org/
 
@@ -23,7 +22,7 @@ extension Character {
     static var purpleSquare: Character { "🟪" }
 
     var asciiValue: UInt32? {
-        String(self).unicodeScalars.first(where: { $0.isASCII })?.value
+        String(self).unicodeScalars.first { $0.isASCII }?.value
     }
 
     static func asciiChar(v: Int) -> Character {

@@ -53,5 +53,4 @@ struct Point4D: Hashable, CustomStringConvertible {
 
         return retval
     }
-
 }

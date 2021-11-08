@@ -9,7 +9,6 @@
 import XCTest
 
 class StringExtensionsTests: XCTestCase {
-
 //    override func setUp() {
 //    }
 
@@ -21,19 +20,18 @@ class StringExtensionsTests: XCTestCase {
     }
 
     func test_hasBracket() {
-        XCTAssertEqual("123456".hasBracket(), false)
-        XCTAssertEqual("123[456".hasBracket(), true)
-        XCTAssertEqual("1234]56".hasBracket(), true)
-        XCTAssertEqual("123[4]56".hasBracket(), true)
+        XCTAssertFalse("123456".hasBracket())
+        XCTAssertTrue("123[456".hasBracket())
+        XCTAssertTrue("1234]56".hasBracket())
+        XCTAssertTrue("123[4]56".hasBracket())
     }
 
     func test_isStringHexadecimal() {
-        XCTAssertEqual("".isStringHexadecimal(), false)
-        XCTAssertEqual("1234567890".isStringHexadecimal(), true)
-        XCTAssertEqual("abcdef".isStringHexadecimal(), true)
-        XCTAssertEqual("abcdefg".isStringHexadecimal(), false)
-        XCTAssertEqual("ABCDEF".isStringHexadecimal(), true)
-        XCTAssertEqual("ABCDEFG".isStringHexadecimal(), false)
+        XCTAssertFalse("".isStringHexadecimal())
+        XCTAssertTrue("1234567890".isStringHexadecimal())
+        XCTAssertTrue("abcdef".isStringHexadecimal())
+        XCTAssertFalse("abcdefg".isStringHexadecimal())
+        XCTAssertTrue("ABCDEF".isStringHexadecimal())
+        XCTAssertFalse("ABCDEFG".isStringHexadecimal())
     }
-
 }

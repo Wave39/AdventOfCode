@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_24: PuzzleBaseClass {
-
     typealias Bridge = [Int]
 
     struct Component {
@@ -22,7 +21,6 @@ class Puzzle_2017_24: PuzzleBaseClass {
         static func != (lhs: Component, rhs: Component) -> Bool {
             !(lhs == rhs)
         }
-
     }
 
     typealias Components = [Component]
@@ -103,11 +101,9 @@ class Puzzle_2017_24: PuzzleBaseClass {
             }
         }
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let test1 =
 
 """
@@ -182,5 +178,4 @@ private class PuzzleInput: NSObject {
 29/29
 45/50
 """
-
 }

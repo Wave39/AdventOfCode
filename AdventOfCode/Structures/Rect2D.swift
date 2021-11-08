@@ -28,5 +28,4 @@ struct Rect2D: Hashable {
     static func == (lhs: Rect2D, rhs: Rect2D) -> Bool {
         lhs.x1 == rhs.x1 && lhs.y1 == rhs.y1 && lhs.x2 == rhs.x2 && lhs.y2 == rhs.y2
     }
-
 }

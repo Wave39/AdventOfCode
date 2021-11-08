@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_02: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -65,11 +64,9 @@ class Puzzle_2020_02: PuzzleBaseClass {
 
         return validPasswords
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 1-3 a: abcde
 1-3 b: cdefg
@@ -1078,5 +1075,4 @@ private class Puzzle_Input: NSObject {
 4-5 s: rsssw
 2-14 c: jckbwnnlkcmvnwtj
 """
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_20: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -88,11 +87,9 @@ class Puzzle_2020_20: PuzzleBaseClass {
     func solvePart2(str: String) -> Int {
         2_146
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 Tile 2311:
 ..##.#..#.
@@ -1934,5 +1931,4 @@ Tile 3919:
 ..#....##.
 
 """
-
 }

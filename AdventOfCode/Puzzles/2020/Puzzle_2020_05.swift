@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_05: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -66,13 +65,11 @@ class Puzzle_2020_05: PuzzleBaseClass {
             seatArr.removeAll { $0 == seatID }
         }
 
-        return seatArr.first(where: { !seatArr.contains($0 - 1) && !seatArr.contains($0 + 1) }) ?? 0
+        return seatArr.first { !seatArr.contains($0 - 1) && !seatArr.contains($0 + 1) } ?? 0
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 BFFFBBFRRR
 FFFBBBFRRR
@@ -888,5 +885,4 @@ FFBFFBBLLL
 FBFFBFBLRR
 FFFBBFFRLL
 """
-
 }

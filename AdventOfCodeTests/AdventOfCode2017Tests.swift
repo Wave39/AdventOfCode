@@ -9,7 +9,6 @@
 import XCTest
 
 class AdventOfCode2017Tests: XCTestCase {
-
 //    override func setUp() {
 //    }
 
@@ -172,5 +171,4 @@ class AdventOfCode2017Tests: XCTestCase {
         let part1 = Puzzle_2017_25().solvePart1()
         XCTAssertEqual(part1, 2_870)
     }
-
 }

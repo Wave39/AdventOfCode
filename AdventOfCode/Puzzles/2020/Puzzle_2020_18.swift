@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_18: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -155,11 +154,9 @@ class Puzzle_2020_18: PuzzleBaseClass {
 
         return retval
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 5 + (8 * 3 + 9 + 3 * 4 * 3)
 5 * 9 * (7 * 3 * 3 + 9 * 3 + (8 + 6 * 4))
@@ -555,5 +552,4 @@ private class Puzzle_Input: NSObject {
 4 + 3 + 5 + (6 * (5 * 7 + 2 * 7)) + 4 + (2 * 8 + (3 + 2 + 3 * 2) * 5 * (2 * 2))
 6 + 6 + 2 + 6 + (9 * 2 * 9)
 """
-
 }

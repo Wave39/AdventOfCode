@@ -9,9 +9,7 @@
 import Foundation
 
 class Puzzle_2020 {
-
     func solve(puzzleNumber: Int) {
-
         if puzzleNumber == 1 {
             Puzzle_2020_01().solve()
         } else if puzzleNumber == 2 {
@@ -65,15 +63,12 @@ class Puzzle_2020 {
         } else {
             print("The puzzle number \(puzzleNumber) was not found.")
         }
-
     }
-
 }
 
 // template for new puzzle classes
 
 class Puzzle_2020_XX: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -99,11 +94,9 @@ class Puzzle_2020_XX: PuzzleBaseClass {
         let lines = str.parseIntoStringArray()
         return lines.count
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 Line 1
 Line 2
@@ -113,5 +106,4 @@ Line 2
 Line 1
 Line 2
 """
-
 }

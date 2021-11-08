@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_04: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -67,7 +66,6 @@ class Puzzle_2020_04: PuzzleBaseClass {
         var validPassports = 0
         for passport in passports {
             if hasRequiredFields(passport: passport) {
-
                 // byr (Birth Year) - four digits; at least 1920 and at most 2002.
                 if let birthYear = passport.first(where: { $0.starts(with: "byr:") })?.substring(from: 4) {
                     if birthYear.count != 4 || birthYear.int < 1_920 || birthYear.int > 2_002 {
@@ -135,11 +133,9 @@ class Puzzle_2020_04: PuzzleBaseClass {
 
         return validPassports
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput0 = """
 ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
 byr:1937 iyr:2017 cid:147 hgt:183cm
@@ -1327,5 +1323,4 @@ iyr:2010 eyr:2021
 hgt:160cm hcl:#c0946f
 byr:1959
 """
-
 }

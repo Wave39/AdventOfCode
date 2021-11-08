@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_23: PuzzleBaseClass {
-
     enum InstructionType {
         case Undefined
         case Set
@@ -138,11 +137,9 @@ class Puzzle_2017_23: PuzzleBaseClass {
 
         return h
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let final =
 
 """
@@ -179,5 +176,4 @@ jnz 1 3
 sub b -17
 jnz 1 -23
 """
-
 }

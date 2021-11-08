@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_17: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -159,11 +158,9 @@ class Puzzle_2020_17: PuzzleBaseClass {
 
         return retval
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 .#.
 ..#
@@ -180,5 +177,4 @@ private class Puzzle_Input: NSObject {
 ##.####.
 .####.#.
 """
-
 }

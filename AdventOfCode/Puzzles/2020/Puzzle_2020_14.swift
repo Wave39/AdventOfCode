@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_14: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -137,11 +136,9 @@ class Puzzle_2020_14: PuzzleBaseClass {
 
         return total
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 mask = XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X
 mem[8] = 11
@@ -728,5 +725,4 @@ mem[7377] = 134144120
 mem[58224] = 211536
 mem[36878] = 173058887
 """
-
 }

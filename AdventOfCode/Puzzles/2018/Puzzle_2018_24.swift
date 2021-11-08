@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_24: NSObject {
-
     enum QualifierMode {
         case Unknown
         case Weakness
@@ -62,7 +61,6 @@ class Puzzle_2018_24: NSObject {
 
             return amount
         }
-
     }
 
     func parseGroups(str: String) -> [Group] {
@@ -229,11 +227,9 @@ class Puzzle_2018_24: NSObject {
     func solvePart2(groups: [Group]) -> Int {
         2_209
     }
-
 }
 
 private class Puzzle_2018_24_Input: NSObject {
-
     static let puzzleInput_test =
     """
 Immune System:
@@ -271,5 +267,4 @@ Infection:
 344 units each with 20830 hit points (immune to fire) with an attack that does 116 bludgeoning damage at initiative 12
 6848 units each with 50757 hit points with an attack that does 12 slashing damage at initiative 11
 """
-
 }

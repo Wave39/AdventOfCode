@@ -75,5 +75,4 @@ struct Point2D: Hashable, CustomStringConvertible {
             return Point2D(x: self.x - 1, y: self.y)
         }
     }
-
 }

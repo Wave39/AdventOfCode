@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_13: NSObject {
-
     enum TrackType {
         case NoTrack
         case StraightHorizontal
@@ -260,11 +259,9 @@ class Puzzle_2018_13: NSObject {
 
         return ((firstCollisionX, firstCollisionY), (carts[0].location.x, carts[0].location.y))
     }
-
 }
 
 private class Puzzle_2018_13_Input: NSObject {
-
     static let puzzleInput_test =
 """
 /->-`........
@@ -428,5 +425,4 @@ private class Puzzle_2018_13_Input: NSObject {
 .............|...............................................`-----------------------------------+-------/............................................
 .............`--------------------------------------------------------------------------------<--/....................................................
 """
-
 }

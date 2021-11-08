@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_25: NSObject {
-
     class Star {
         var position = Point4D()
         var constellationId: Int = 0
@@ -62,11 +61,9 @@ class Puzzle_2018_25: NSObject {
         let constellations = Set(starChart.map { $0.constellationId })
         return constellations.count
     }
-
 }
 
 class Puzzle_2018_25_Input: NSObject {
-
     static let puzzleInput_test =
     """
 1,-1,-1,-2
@@ -1131,5 +1128,4 @@ class Puzzle_2018_25_Input: NSObject {
 2,5,-5,1
 4,-6,-3,1
 """
-
 }

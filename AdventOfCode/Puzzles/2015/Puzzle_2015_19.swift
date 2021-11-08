@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2015_19: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -53,7 +52,6 @@ class Puzzle_2015_19: PuzzleBaseClass {
         func getReverseReplacements(originalMolecule: Molecule, trim: Bool) -> [Molecule] {
             var moleculeSet: Set<String> = Set()
             for replacement in replacementArray {
-
                 let nsString = originalMolecule.moleculeString as NSString
                 var r = nsString.range(of: replacement.replaceWith)
                 let c = nsString.length
@@ -74,7 +72,7 @@ class Puzzle_2015_19: PuzzleBaseClass {
             }
 
             if trim {
-                moleculeArray.sort(by: { $0.moleculeString.count < $1.moleculeString.count })
+                moleculeArray.sort { $0.moleculeString.count < $1.moleculeString.count }
                 if moleculeArray.count > moleculeTrimCount {
                     let slice = moleculeArray[0..<moleculeTrimCount]
                     moleculeArray = Array(slice)
@@ -91,7 +89,7 @@ class Puzzle_2015_19: PuzzleBaseClass {
                 moleculeArray.append(contentsOf: reverseMolecules)
             }
 
-            moleculeArray.sort(by: { $0.moleculeString.count < $1.moleculeString.count })
+            moleculeArray.sort { $0.moleculeString.count < $1.moleculeString.count }
             if moleculeArray.count > moleculeTrimCount {
                 let slice = moleculeArray[0..<moleculeTrimCount]
                 moleculeArray = Array(slice)
@@ -118,11 +116,9 @@ class Puzzle_2015_19: PuzzleBaseClass {
 
         return (part1, part2)
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let final = """
 Al => ThF
 Al => ThRnFAr
@@ -170,5 +166,4 @@ e => OMg
 """
 
     static let targetMolecule = "CRnCaSiRnBSiRnFArTiBPTiTiBFArPBCaSiThSiRnTiBPBPMgArCaSiRnTiMgArCaSiThCaSiRnFArRnSiRnFArTiTiBFArCaCaSiRnSiThCaCaSiRnMgArFYSiRnFYCaFArSiThCaSiThPBPTiMgArCaPRnSiAlArPBCaCaSiRnFYSiThCaRnFArArCaCaSiRnPBSiRnFArMgYCaCaCaCaSiThCaCaSiAlArCaCaSiRnPBSiAlArBCaCaCaCaSiThCaPBSiThPBPBCaSiRnFYFArSiThCaSiRnFArBCaCaSiRnFYFArSiThCaPBSiThCaSiRnPMgArRnFArPTiBCaPRnFArCaCaCaCaSiRnCaCaSiRnFYFArFArBCaSiThFArThSiThSiRnTiRnPMgArFArCaSiThCaPBCaSiRnBFArCaCaPRnCaCaPMgArSiRnFYFArCaSiThRnPBPMgAr"
-
 }

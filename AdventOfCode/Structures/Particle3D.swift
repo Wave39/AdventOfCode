@@ -70,5 +70,4 @@ struct Particle3D: Hashable {
 
         return retval
     }
-
 }

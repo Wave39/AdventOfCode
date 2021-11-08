@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_06: NSObject {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -210,7 +209,6 @@ private class GridLocation {
 }
 
 private class Puzzle_2018_06_Input: NSObject {
-
     static let puzzleInput_test = """
 1, 1
 1, 6

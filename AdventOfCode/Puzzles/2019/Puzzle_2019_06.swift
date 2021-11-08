@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2019_06: PuzzleBaseClass {
-
     class OrbitalRelationship: CustomStringConvertible {
         var center: String
         var orbiter: String
@@ -109,30 +108,29 @@ class Puzzle_2019_06: PuzzleBaseClass {
         }
         var youOrbits: [PlanetaryInfo] = []
 
-        let firstYou = orbitalRelationships.first(where: { $0.orbiter == "YOU" }) ?? OrbitalRelationship("", "")
+        let firstYou = orbitalRelationships.first { $0.orbiter == "YOU" } ?? OrbitalRelationship("", "")
         var pName = firstYou.center
         while pName != "COM" {
-            youOrbits.append(planets.first(where: { $0.name == pName }) ?? PlanetaryInfo("", 0))
-            pName = (orbitalRelationships.first(where: { $0.orbiter == pName }) ?? OrbitalRelationship("", "")).center
+            youOrbits.append(planets.first { $0.name == pName } ?? PlanetaryInfo("", 0))
+            pName = (orbitalRelationships.first { $0.orbiter == pName } ?? OrbitalRelationship("", "")).center
         }
 
-        pName = (orbitalRelationships.first(where: { $0.orbiter == "SAN" }) ?? OrbitalRelationship("", "")).center
+        pName = (orbitalRelationships.first { $0.orbiter == "SAN" } ?? OrbitalRelationship("", "")).center
         while pName != "COM" {
-            let planetMatch = youOrbits.first(where: { $0.name == pName })
+            let planetMatch = youOrbits.first { $0.name == pName }
             if planetMatch != nil {
                 break
             }
 
-            pName = (orbitalRelationships.first(where: { $0.orbiter == pName }) ?? OrbitalRelationship("", "")).center
+            pName = (orbitalRelationships.first { $0.orbiter == pName } ?? OrbitalRelationship("", "")).center
         }
 
-        let commonPlanet = planets.first(where: { $0.name == pName }) ?? PlanetaryInfo("", 0)
+        let commonPlanet = planets.first { $0.name == pName } ?? PlanetaryInfo("", 0)
         return (you.stepCount - commonPlanet.stepCount - 1) + (san.stepCount - commonPlanet.stepCount - 1)
     }
 }
 
 private class Puzzle_2019_06_Input: NSObject {
-
     static let puzzleInput_test1 = """
 COM)B
 B)C
@@ -1816,5 +1814,4 @@ Q3V)QYN
 KPP)BNR
 Q9V)88G
 """
-
 }

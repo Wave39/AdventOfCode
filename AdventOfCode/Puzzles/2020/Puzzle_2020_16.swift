@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_16: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -193,11 +192,9 @@ class Puzzle_2020_16: PuzzleBaseClass {
 
         return retval
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 class: 1-3 or 5-7
 row: 6-11 or 33-44
@@ -491,5 +488,4 @@ nearby tickets:
 427,842,823,347,73,849,257,158,600,449,51,478,270,303,523,295,738,237,269,120
 322,931,842,416,89,980,523,89,943,606,247,693,826,163,50,54,199,650,153,915
 """
-
 }

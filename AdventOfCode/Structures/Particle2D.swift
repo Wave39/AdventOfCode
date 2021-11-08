@@ -84,5 +84,4 @@ struct Particle2D: Hashable {
 
         return retval
     }
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2019_22: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -111,11 +110,9 @@ class Puzzle_2019_22: PuzzleBaseClass {
     func solvePart2(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
         3_920_265_924_568
     }
-
 }
 
 private class Puzzle_2019_22_Input: NSObject {
-
     static let puzzleInput_test1 = """
 cut 6
 deal with increment 7
@@ -224,5 +221,4 @@ deal with increment 19
 cut -937
 deal with increment 42
 """
-
 }

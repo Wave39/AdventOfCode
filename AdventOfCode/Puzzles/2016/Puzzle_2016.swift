@@ -94,7 +94,6 @@ class Puzzle_2016_XX: PuzzleBaseClass {
         let arr = str.parseIntoStringArray()
         return arr.count
     }
-
 }
 
 private class PuzzleInput: NSObject {

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_10: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -97,11 +96,9 @@ class Puzzle_2020_10: PuzzleBaseClass {
 
         return count
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test1 = """
 16
 10
@@ -253,5 +250,4 @@ private class Puzzle_Input: NSObject {
 63
 92
 """
-
 }

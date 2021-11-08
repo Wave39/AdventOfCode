@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_21: NSObject {
-
     typealias Registers = [Int]
 
     enum Opcode {
@@ -169,11 +168,9 @@ class Puzzle_2018_21: NSObject {
 
         return previous
     }
-
 }
 
 private class Puzzle_2018_21_Input: NSObject {
-
     static let puzzleInput = """
 #ip 1
 seti 123 0 2
@@ -208,5 +205,4 @@ eqrr 2 0 4
 addr 4 1 1
 seti 5 3 1
 """
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_25: PuzzleBaseClass {
-
     struct Substep {
         var newValue: Int = 0
         var newDirection: Int = 0
@@ -75,11 +74,9 @@ class Puzzle_2017_25: PuzzleBaseClass {
         let onesArray = tapeArray.filter { $0 == 1 }
         return onesArray.count
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let test1 =
 """
 6
@@ -188,5 +185,4 @@ private class PuzzleInput: NSObject {
 //    - Move one slot to the right.
 //    - Continue with state A.
 // """
-
 }

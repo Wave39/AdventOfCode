@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_19: NSObject {
-
     typealias Registers = [Int]
 
     class Command {
@@ -149,11 +148,9 @@ class Puzzle_2018_19: NSObject {
 
         return newRegisters
     }
-
 }
 
 private class Puzzle_2018_19_Input: NSObject {
-
     static let puzzleInput_test =
     """
 #ip 0
@@ -206,5 +203,4 @@ addr 2 3 2
 seti 0 1 0
 seti 0 0 5
 """
-
 }

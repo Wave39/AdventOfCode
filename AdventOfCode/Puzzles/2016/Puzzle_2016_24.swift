@@ -176,9 +176,9 @@ class Puzzle_2016_24: PuzzleBaseClass {
             var shortestPath: [Int] = []
             var filteredPermutations: [[Int]]
             if returnToZero {
-                filteredPermutations = permutations.filter({ $0[0] == 0 && $0[$0.count - 1] == 0 })
+                filteredPermutations = permutations.filter { $0[0] == 0 && $0[$0.count - 1] == 0 }
             } else {
-                filteredPermutations = permutations.filter({ $0[0] == 0 })
+                filteredPermutations = permutations.filter { $0[0] == 0 }
             }
 
             for p in filteredPermutations {

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_03: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -51,11 +50,9 @@ class Puzzle_2020_03: PuzzleBaseClass {
         let arr = str.parseIntoStringArray()
         return solveArray(arr: arr, deltaX: 1, deltaY: 1) * solveArray(arr: arr, deltaX: 3, deltaY: 1) * solveArray(arr: arr, deltaX: 5, deltaY: 1) * solveArray(arr: arr, deltaX: 7, deltaY: 1) * solveArray(arr: arr, deltaX: 1, deltaY: 2)
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 ..##.......
 #...#...#..
@@ -395,5 +392,4 @@ private class Puzzle_Input: NSObject {
 .##..#..#......###.....#..#....
 .....#..#.##..........#.#..#...
 """
-
 }

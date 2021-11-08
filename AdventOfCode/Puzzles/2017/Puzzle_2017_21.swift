@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_21: PuzzleBaseClass {
-
     func getCharacterAt(arr: [[Character]], x: Int, y: Int) -> Character {
         arr[y][x]
     }
@@ -230,11 +229,9 @@ class Puzzle_2017_21: PuzzleBaseClass {
 
         return (part1Solution, part2Solution)
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let startingPattern =
 
 """
@@ -360,5 +357,4 @@ private class PuzzleInput: NSObject {
 ###/#.#/### => .#../#.##/#.##/.###
 ###/###/### => #.../.#.#/#..#/#.##
 """
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_18: PuzzleBaseClass {
-
     enum InstructionType {
         case Undefined
         case SoundOrSend
@@ -244,11 +243,9 @@ class Puzzle_2017_18: PuzzleBaseClass {
 
         return program1Sends
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let test1 =
 
 """
@@ -309,5 +306,4 @@ snd a
 jgz f -16
 jgz a -19
 """
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_14: PuzzleBaseClass {
-
     var elementArray: [Int] = []
 
     func solve() {
@@ -143,13 +142,10 @@ class Puzzle_2017_14: PuzzleBaseClass {
 
         return (usedCount, regionCounter)
     }
-
 }
 
 private class Puzzle_2017_14_Input: NSObject {
-
     static let puzzleInput_test1 = "flqrgnkx"
 
     static let puzzleInput = "nbysizxe"
-
 }

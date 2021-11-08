@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_25: PuzzleBaseClass {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -45,11 +44,9 @@ class Puzzle_2020_25: PuzzleBaseClass {
 
         return calculateTransform(key: doorPublicKey, loopSize: cardLoopSize)
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 5764801
 17807724
@@ -59,5 +56,4 @@ private class Puzzle_Input: NSObject {
 15628416
 11161639
 """
-
 }

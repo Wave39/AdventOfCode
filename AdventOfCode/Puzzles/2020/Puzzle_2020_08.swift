@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2020_08: PuzzleBaseClass {
-
     enum InstructionType {
         case NOP
         case ACC
@@ -121,11 +120,9 @@ class Puzzle_2020_08: PuzzleBaseClass {
         print("The matching condition was not found, something is wrong.")
         return -1
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 nop +0
 acc +1
@@ -765,5 +762,4 @@ acc +47
 acc +22
 jmp +1
 """
-
 }

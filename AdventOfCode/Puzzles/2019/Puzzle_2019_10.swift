@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2019_10: PuzzleBaseClass {
-
     enum SectorType {
         case Asteroid
         case Empty
@@ -194,11 +193,11 @@ class Puzzle_2019_10: PuzzleBaseClass {
         var retval = 0
 
         func CheckPureDirection(_ direction: DirectionFromBase) {
-            let arr = asteroidArray.filter { $0.direction == direction }.sorted(by: { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position) })
+            let arr = asteroidArray.filter { $0.direction == direction }.sorted { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position) }
             if !arr.isEmpty {
                 asteroidsRemoved += 1
                 if let asteroidToRemove = arr.first {
-                    asteroidArray.removeAll(where: { $0.position == asteroidToRemove.position })
+                    asteroidArray.removeAll { $0.position == asteroidToRemove.position }
                     if asteroidsRemoved == 200 {
                         retval = asteroidToRemove.position.x * 100 + asteroidToRemove.position.y
                     }
@@ -214,13 +213,13 @@ class Puzzle_2019_10: PuzzleBaseClass {
                     slopesSet.insert(a.slope.toString())
                 }
 
-                let slopesArray = Array(slopesSet).sorted(by: { $0.double < $1.double })
+                let slopesArray = Array(slopesSet).sorted { $0.double < $1.double }
                 for slope in slopesArray {
-                    let arr2 = arr.filter { $0.slope.toString() == slope }.sorted(by: { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position) })
+                    let arr2 = arr.filter { $0.slope.toString() == slope }.sorted { base.manhattanDistanceTo(pt: $0.position) < base.manhattanDistanceTo(pt: $1.position) }
                     if !arr2.isEmpty {
                         asteroidsRemoved += 1
                         if let asteroidToRemove = arr2.first {
-                            asteroidArray.removeAll(where: { $0.position == asteroidToRemove.position })
+                            asteroidArray.removeAll { $0.position == asteroidToRemove.position }
                             if asteroidsRemoved == 200 {
                                 retval = asteroidToRemove.position.x * 100 + asteroidToRemove.position.y
                             }
@@ -242,13 +241,10 @@ class Puzzle_2019_10: PuzzleBaseClass {
         }
 
         return retval
-
     }
-
 }
 
 private class Puzzle_2019_10_Input: NSObject {
-
     static let puzzleInput_test1 = """
 .#..#
 .....
@@ -364,5 +360,4 @@ private class Puzzle_2019_10_Input: NSObject {
 ...##..............#......#................
 ........................#....##..#........#
 """
-
 }

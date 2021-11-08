@@ -11,7 +11,6 @@
 import Foundation
 
 class Puzzle_2020_21: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -105,9 +104,8 @@ class Puzzle_2020_21: PuzzleBaseClass {
                     }
                 }
             }
-
         }
-        let sortedByAllergyNames = allergensToIngredients.sorted { (ele1, ele2) -> Bool in
+        let sortedByAllergyNames = allergensToIngredients.sorted { ele1, ele2 -> Bool in
             ele1.key < ele2.key
         }
 
@@ -115,11 +113,9 @@ class Puzzle_2020_21: PuzzleBaseClass {
 
         return (part1Answer, part2Answer)
     }
-
 }
 
 private class Puzzle_Input: NSObject {
-
     static let puzzleInput_test = """
 mxmxvkd kfcds sqjhc nhms (contains dairy, fish)
 trh fvjkl sbzzf mxmxvkd (contains dairy)
@@ -162,5 +158,4 @@ jpztz ggmgdv mhlm fbllk pzcgr vpqxh dkgkc fjndlnv qrmvtk kkcz xgtj qqttxln jtmlc
 bdnrnx sbbkvr kmkcksz cmzlkx fbllk ffqndb xgtj mpqtc hxbl ztdctgq jndts kjsqxp vbdnhp jtmlcg tgtzx pfmnx qcrf vpqxh cqlpzd hzrzc mbnr mxnjztb bhxx jfddkg bmqvll xsfpzncj zsqn qhgg fnr jlmlz lflv rdkvvnb zclh lgllb jbxvkvf rhjhmvj kjsll xqsn tzhq hcsmg tzqxpq zjj sjxlr mdbq xtzqb kkcz rmd gjvhr vgsxs cdvjp xvbdz prgh xqdl qhkq vbxnml (contains soy, shellfish)
 qpdb chbpkvt hcsmg ztpvmk tjxrc hfmkj ffjb qdqfl prgh vmz mnptn nvdlxkc kkcz gbcsmlr xmpqj xqsn drpn gmzjtc gbv sjpx zlqcps xsfpzncj lcbbcb spqqb jrkbs lgllb xgtj vpqxh jzppz jpztz sjxlr dfvkm rmd ghshq kspzjr rltc vmnfpd ztdctgq lzxpk jbdqm ffqndb fgfl nxc rkcngr gvfsv bdnrnx pgdb mdbq vlsprc sgqj cdvjp lflv drrvln zbqhtv jdrlzk qddlv qqttxln (contains fish, eggs, sesame)
 """
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_10: NSObject {
-
     func solve() {
         _ = solveBothParts()
     }
@@ -56,16 +55,13 @@ class Puzzle_2018_10: NSObject {
                 particles[idx].x += particles[idx].deltaX
                 particles[idx].y += particles[idx].deltaY
             }
-
         } while secondsElapsed < 20_000
 
         return ("", 0)
     }
-
 }
 
 private class Puzzle_2018_10_Input: NSObject {
-
     static let puzzleInput_test = """
 position=< 9,  1> velocity=< 0,  2>
 position=< 7,  0> velocity=<-1,  0>
@@ -487,5 +483,4 @@ position=<-52612,  21312> velocity=< 5, -2>
 position=<-42053, -52592> velocity=< 4,  5>
 position=<-31490,  10750> velocity=< 3, -1>
 """
-
 }

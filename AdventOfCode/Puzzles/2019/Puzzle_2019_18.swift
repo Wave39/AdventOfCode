@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2019_18: PuzzleBaseClass {
-
     // courtesy of https://github.com/gernb/AdventOfCode2019/tree/master/Day%2018
 
     func solve() {
@@ -27,5 +26,4 @@ class Puzzle_2019_18: PuzzleBaseClass {
     func solvePart2() -> Int {
         1_564
     }
-
 }

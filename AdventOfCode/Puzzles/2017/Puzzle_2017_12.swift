@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_12: PuzzleBaseClass {
-
     func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
@@ -106,7 +105,6 @@ class Puzzle_2017_12: PuzzleBaseClass {
 }
 
 private class Puzzle_2017_12_Input: NSObject {
-
     static let puzzleInput_test1 =
 
 """
@@ -2123,5 +2121,4 @@ private class Puzzle_2017_12_Input: NSObject {
 1998 <-> 1522, 1577, 1790
 1999 <-> 308, 799, 1013
 """
-
 }

@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2018_11: NSObject {
-
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -131,13 +130,10 @@ class Puzzle_2018_11: NSObject {
 
         return (maxX, maxY, maxSize)
     }
-
 }
 
 private class Puzzle_2018_11_Input: NSObject {
-
     static let puzzleInput_test = 42
 
     static let puzzleInput = 5_093
-
 }

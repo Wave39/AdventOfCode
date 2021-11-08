@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2015_23: PuzzleBaseClass {
-
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -70,11 +69,9 @@ class Puzzle_2015_23: PuzzleBaseClass {
         let part2Processor = runProgram(lineArray: puzzleInputLineArray, a: 1)
         return (part1Processor.b, part2Processor.b)
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let final = """
 jio a, +18
 inc a
@@ -124,5 +121,4 @@ jmp +2
 hlf a
 jmp -7
 """
-
 }

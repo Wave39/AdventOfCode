@@ -97,5 +97,4 @@ struct Point3D: Hashable, CustomStringConvertible {
 
         return retval
     }
-
 }

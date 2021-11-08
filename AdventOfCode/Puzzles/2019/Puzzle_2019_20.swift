@@ -9,12 +9,13 @@
 import Foundation
 
 class Puzzle_2019_20: PuzzleBaseClass {
-
     enum Tile: Hashable, CustomStringConvertible, LosslessStringConvertible {
         init(_ value: String) {
             switch value {
-            case ".": self = .path
-            case "#": self = .wall
+            case ".":
+                self = .path
+            case "#":
+                self = .wall
             default:
                 self = .unknown
             }
@@ -30,16 +31,22 @@ class Puzzle_2019_20: PuzzleBaseClass {
 
         var description: String {
             switch self {
-            case .unknown: return String(Character.orangeSquare)
-            case .wall: return String(Character.blackSquare)
-            case .path: return String(Character.whiteSquare)
-            case .portal: return String(Character.purpleSquare)
-            case .startingPortal: return String(Character.greenSquare)
-            case .endingPortal: return String(Character.redSquare)
-            case .visited: return String(Character.yellowSquare)
+            case .unknown:
+                return String(Character.orangeSquare)
+            case .wall:
+                return String(Character.blackSquare)
+            case .path:
+                return String(Character.whiteSquare)
+            case .portal:
+                return String(Character.purpleSquare)
+            case .startingPortal:
+                return String(Character.greenSquare)
+            case .endingPortal:
+                return String(Character.redSquare)
+            case .visited:
+                return String(Character.yellowSquare)
             }
         }
-
     }
 
     struct Portal {
@@ -231,7 +238,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         func findValidMoves(from: Point2D) -> [Point2D] {
             var retval: [Point2D] = []
 
-            let port = portals.filter({ $0.location == from })
+            let port = portals.filter { $0.location == from }
             if port.count == 1 {
                 let otherPort = portals.filter { $0.identifier == port[0].identifier && $0.location != port[0].location }
                 if otherPort.count == 1 {
@@ -307,7 +314,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         func findValid3DMoves(from: Point3D) -> [Point3D] {
             var retval: [Point3D] = []
 
-            let port = portals.filter({ $0.location == Point2D(x: from.x, y: from.y) })
+            let port = portals.filter { $0.location == Point2D(x: from.x, y: from.y) }
             if port.count == 1 {
                 if from.z > 0 || port[0].inner {
                     let otherPort = portals.filter { $0.identifier == port[0].identifier && $0.location != port[0].location }
@@ -369,11 +376,9 @@ class Puzzle_2019_20: PuzzleBaseClass {
 
         return stepCount
     }
-
 }
 
 private class Puzzle_2019_20_Input: NSObject {
-
     static let puzzleInput_test1 = """
          A
          A
@@ -591,5 +596,4 @@ GX..#...#.#.#...........#.#.#                                                 #.
                                      N   J       W Z   Z   M   M       T
                                      D   I       L W   Z   X   E       Y
 """
-
 }

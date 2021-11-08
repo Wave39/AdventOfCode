@@ -9,7 +9,6 @@
 import Foundation
 
 class Puzzle_2017_22: PuzzleBaseClass {
-
     enum Direction: Int {
         case UP = 0
         case RIGHT = 1
@@ -154,11 +153,9 @@ class Puzzle_2017_22: PuzzleBaseClass {
 
         return infectionCount
     }
-
 }
 
 private class PuzzleInput: NSObject {
-
     static let test1 =
 
 """
@@ -196,5 +193,4 @@ private class PuzzleInput: NSObject {
 ##.#.#..##.#.#.##....##.#
 .#.###..##..#....#...##.#
 """
-
 }
