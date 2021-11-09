@@ -6,6 +6,8 @@
 //  Copyright © 2020 Wave 39 LLC. All rights reserved.
 //
 
+import CommonCrypto
+import CryptoKit
 import Foundation
 
 class Puzzle_2015_04: PuzzleBaseClass {
@@ -15,21 +17,33 @@ class Puzzle_2015_04: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
+    func md5StartsWithZeros(_ str: String) -> Bool {
+        if let data = str.data(using: .utf8) {
+            let computed = Insecure.MD5.hash(data: data)
+            return computed.starts(with: [0, 0])
+        }
+
+        return false
+    }
+
     func solveBothParts() -> (Int, Int) {
         var counter = 1
         var fiveZeroCounter = 0
         var sixZeroCounter = 0
 
         while fiveZeroCounter == 0 || sixZeroCounter == 0 {
-            let md5String = "\(PuzzleInput.final)\(counter)".md5
-            if md5String.hasPrefix("00000") {
-                if fiveZeroCounter == 0 {
-                    fiveZeroCounter = counter
-                }
+            let stringToTry = "\(PuzzleInput.final)\(counter)"
+            if md5StartsWithZeros(stringToTry) {
+                let md5String = stringToTry.md5
+                if md5String.hasPrefix("00000") {
+                    if fiveZeroCounter == 0 {
+                        fiveZeroCounter = counter
+                    }
 
-                if md5String.hasPrefix("000000") {
-                    if sixZeroCounter == 0 {
-                        sixZeroCounter = counter
+                    if md5String.hasPrefix("000000") {
+                        if sixZeroCounter == 0 {
+                            sixZeroCounter = counter
+                        }
                     }
                 }
             }

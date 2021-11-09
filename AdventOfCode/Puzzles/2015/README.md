@@ -6,7 +6,7 @@
 | 1 | :smile: | <1s |
 | 2 | :smile: | <1s |
 | 3 | :smile: | <1s |
-| 4 | :fire: | 1m 58s |
+| 4 | :smile: | 9s |
 | 5 | :smile: | <1s |
 | 6 | :warning: | 21s |
 | 7 | :smile: | <1s |
