@@ -72,7 +72,7 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - last_where
   - legacy_constructor
   - legacy_multiple
-  # - legacy_objc_type
+  - legacy_objc_type
   - legacy_random
   - let_var_whitespace
   - literal_expression_end_indentation
@@ -98,7 +98,6 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - overridden_super_call
   - override_in_extension
   - pattern_matching_keywords
-  # - prefer_nimble
   - prefer_self_type_over_type_of_self
   - prefer_zero_over_explicit_init
   - prefixed_toplevel_constant
@@ -115,7 +114,6 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - reduce_into
   - redundant_nil_coalescing
   - redundant_type_annotation
-  # - required_deinit
   - required_enum_case
   - single_test_class
   - sorted_first_last
