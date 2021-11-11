@@ -9,6 +9,11 @@
 import Foundation
 
 class Puzzle_2020_13: PuzzleBaseClass {
+    struct BusInfo {
+        var busID: Int
+        var minutesAfter: Int
+    }
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -50,11 +55,6 @@ class Puzzle_2020_13: PuzzleBaseClass {
         }
 
         return retval
-    }
-
-    struct BusInfo {
-        var busID: Int
-        var minutesAfter: Int
     }
 
     func solvePart2(str: String) -> Int {

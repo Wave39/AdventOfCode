@@ -9,18 +9,12 @@
 import Foundation
 
 struct Point2D: Hashable, CustomStringConvertible {
-    var x: Int = 0
-    var y: Int = 0
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(x)
-        hasher.combine(y)
-    }
-
     static var origin: Point2D {
         Point2D(x: 0, y: 0)
     }
 
+    var x: Int = 0
+    var y: Int = 0
     var description: String {
         "(\(x),\(y))"
     }
@@ -42,6 +36,11 @@ struct Point2D: Hashable, CustomStringConvertible {
         }
 
         return retval
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
     }
 
     func manhattanDistanceTo(pt: Point2D) -> Int {

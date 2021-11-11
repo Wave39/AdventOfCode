@@ -12,13 +12,6 @@ struct Point3D: Hashable, CustomStringConvertible {
     var x: Int = 0
     var y: Int = 0
     var z: Int = 0
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(x)
-        hasher.combine(y)
-        hasher.combine(z)
-    }
-
     var description: String {
         "(\(x),\(y),\(z))"
     }
@@ -63,6 +56,12 @@ struct Point3D: Hashable, CustomStringConvertible {
         }
 
         return retval
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
+        hasher.combine(z)
     }
 
     func manhattanDistanceTo(pt: Point3D) -> Int {

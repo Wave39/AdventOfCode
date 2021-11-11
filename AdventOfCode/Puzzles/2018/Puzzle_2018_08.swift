@@ -15,6 +15,10 @@ class Puzzle_2018_08: NSObject {
         var metadataArray: [Int] = []
     }
 
+    var inputArray: [Int] = []
+    var nodeIndex: Int = 0
+    var part1MetadataArray: [Int] = []
+
     func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
@@ -25,10 +29,6 @@ class Puzzle_2018_08: NSObject {
         let puzzleInput = Puzzle_2018_08_Input.puzzleInput
         return solveBothParts(str: puzzleInput)
     }
-
-    var inputArray: [Int] = []
-    var nodeIndex: Int = 0
-    var part1MetadataArray: [Int] = []
 
     func getElement() -> Int {
         let retval = inputArray[nodeIndex]

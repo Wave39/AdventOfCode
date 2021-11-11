@@ -9,6 +9,11 @@
 import Foundation
 
 class Puzzle_2020_22: PuzzleBaseClass {
+    struct Decks: Hashable {
+        var player1: [Int] = []
+        var player2: [Int] = []
+    }
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -74,11 +79,6 @@ class Puzzle_2020_22: PuzzleBaseClass {
 
         let winningCards = (!player1.isEmpty ? player1: player2)
         return deckScore(winningCards)
-    }
-
-    struct Decks: Hashable {
-        var player1: [Int] = []
-        var player2: [Int] = []
     }
 
     func solvePart2(str: String) -> Int {

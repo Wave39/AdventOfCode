@@ -15,16 +15,6 @@ struct Particle3D: Hashable {
     var deltaX: Int = 0
     var deltaY: Int = 0
     var deltaZ: Int = 0
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(x)
-        hasher.combine(y)
-        hasher.combine(z)
-        hasher.combine(deltaX)
-        hasher.combine(deltaY)
-        hasher.combine(deltaZ)
-    }
-
     var description: String {
         "(\(x),\(y),\(z)) -> (\(deltaX),\(deltaY),\(deltaZ))"
     }
@@ -69,5 +59,14 @@ struct Particle3D: Hashable {
         }
 
         return retval
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
+        hasher.combine(z)
+        hasher.combine(deltaX)
+        hasher.combine(deltaY)
+        hasher.combine(deltaZ)
     }
 }

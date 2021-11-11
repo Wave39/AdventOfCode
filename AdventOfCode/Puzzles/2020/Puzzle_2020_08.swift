@@ -9,6 +9,13 @@
 import Foundation
 
 class Puzzle_2020_08: PuzzleBaseClass {
+    typealias Program = [Instruction]
+
+    struct Instruction {
+        var opcode: InstructionType
+        var offset: Int
+    }
+
     enum InstructionType {
         case NOP
         case ACC
@@ -27,13 +34,6 @@ class Puzzle_2020_08: PuzzleBaseClass {
             }
         }
     }
-
-    struct Instruction {
-        var opcode: InstructionType
-        var offset: Int
-    }
-
-    typealias Program = [Instruction]
 
     func solve() {
         let part1 = solvePart1()

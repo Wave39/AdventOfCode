@@ -9,6 +9,8 @@
 import Foundation
 
 class Puzzle_2019_19: PuzzleBaseClass {
+    var originalProgram: [Int] = []
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -24,8 +26,6 @@ class Puzzle_2019_19: PuzzleBaseClass {
     func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_19_Input.puzzleInput)
     }
-
-    var originalProgram: [Int] = []
 
     func getXCoordinates(y: Int) -> [Int] {
         var retval: [Int] = []

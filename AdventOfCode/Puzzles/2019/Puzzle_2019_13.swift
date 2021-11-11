@@ -17,6 +17,9 @@ class Puzzle_2019_13: PuzzleBaseClass {
         case Ball = 4
     }
 
+    var board: [[Character]] = []
+    var score: Int = 0
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -192,9 +195,6 @@ class Puzzle_2019_13: PuzzleBaseClass {
         let tileValues = results.0.enumerated().compactMap { index, element in index % 3 == 2 ? element : nil }
         return tileValues.filter { $0 == TileType.Block.rawValue }.count
     }
-
-    var board: [[Character]] = []
-    var score: Int = 0
 
     func initializeBoard() {
         score = 0

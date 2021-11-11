@@ -9,22 +9,6 @@
 import Foundation
 
 class Puzzle_2020_16: PuzzleBaseClass {
-    func solve() {
-        let part1 = solvePart1()
-        print("Part 1 solution: \(part1)")
-
-        let part2 = solvePart2()
-        print("Part 2 solution: \(part2)")
-    }
-
-    func solvePart1() -> Int {
-        solvePart1(str: Puzzle_Input.puzzleInput)
-    }
-
-    func solvePart2() -> Int {
-        solvePart2(str: Puzzle_Input.puzzleInput)
-    }
-
     struct TicketRule: Hashable {
         var ruleName: String
         var limit1: Int
@@ -43,6 +27,22 @@ class Puzzle_2020_16: PuzzleBaseClass {
         static func == (lhs: TicketRule, rhs: TicketRule) -> Bool {
             lhs.ruleName == rhs.ruleName
         }
+    }
+
+    func solve() {
+        let part1 = solvePart1()
+        print("Part 1 solution: \(part1)")
+
+        let part2 = solvePart2()
+        print("Part 2 solution: \(part2)")
+    }
+
+    func solvePart1() -> Int {
+        solvePart1(str: Puzzle_Input.puzzleInput)
+    }
+
+    func solvePart2() -> Int {
+        solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
     func solvePart1(str: String) -> Int {

@@ -18,6 +18,10 @@ enum CompassDirection {
     case SouthEast
     case SouthWest
 
+    static func AllDirections() -> [CompassDirection] {
+        [ NorthWest, North, NorthEast, East, SouthEast, South, SouthWest, West ]
+    }
+
     func TurnLeft() -> CompassDirection {
         if self == .North {
             return .West
@@ -62,9 +66,5 @@ enum CompassDirection {
         }
 
         return Point2D()
-    }
-
-    static func AllDirections() -> [CompassDirection] {
-        [ NorthWest, North, NorthEast, East, SouthEast, South, SouthWest, West ]
     }
 }

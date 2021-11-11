@@ -10,6 +10,7 @@ import Foundation
 
 class Puzzle_2017_24: PuzzleBaseClass {
     typealias Bridge = [Int]
+    typealias Components = [Component]
 
     struct Component {
         var leftPort: Int = 0
@@ -22,8 +23,6 @@ class Puzzle_2017_24: PuzzleBaseClass {
             !(lhs == rhs)
         }
     }
-
-    typealias Components = [Component]
 
     var bridges: [Bridge] = []
 

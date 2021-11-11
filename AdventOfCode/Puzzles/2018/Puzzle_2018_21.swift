@@ -11,6 +11,20 @@ import Foundation
 class Puzzle_2018_21: NSObject {
     typealias Registers = [Int]
 
+    class Command {
+        var opcode: Opcode = .unknown
+        var a: Int = 0
+        var b: Int = 0
+        var c: Int = 0
+    }
+
+    class Program {
+        var instructionPointer: Int = 0
+        var boundRegister: Int = 0
+        var code: [Command] = []
+        var registers: Registers = [ 0, 0, 0, 0, 0, 0 ]
+    }
+
     enum Opcode {
         case unknown
         case addr
@@ -37,20 +51,6 @@ class Puzzle_2018_21: NSObject {
         "setr": .setr, "seti": .seti, "gtir": .gtir, "gtri": .gtri,
         "gtrr": .gtrr, "eqir": .eqir, "eqri": .eqri, "eqrr": .eqrr
     ]
-
-    class Command {
-        var opcode: Opcode = .unknown
-        var a: Int = 0
-        var b: Int = 0
-        var c: Int = 0
-    }
-
-    class Program {
-        var instructionPointer: Int = 0
-        var boundRegister: Int = 0
-        var code: [Command] = []
-        var registers: Registers = [ 0, 0, 0, 0, 0, 0 ]
-    }
 
     func parseIntoProgram(str: String) -> Program {
         let program = Program()

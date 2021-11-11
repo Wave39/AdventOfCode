@@ -9,15 +9,6 @@
 import Foundation
 
 class Puzzle_2019_25: PuzzleBaseClass {
-    func solve() {
-        let part1 = solvePart1()
-        print("Part 1 solution: \(part1)")
-    }
-
-    func solvePart1() -> String {
-        solvePart1(str: Puzzle_2019_25_Input.puzzleInput)
-    }
-
     let commands = """
 // east of starting location
 east
@@ -83,6 +74,15 @@ shell
 spool of cat6
 whirled peas
 """
+
+    func solve() {
+        let part1 = solvePart1()
+        print("Part 1 solution: \(part1)")
+    }
+
+    func solvePart1() -> String {
+        solvePart1(str: Puzzle_2019_25_Input.puzzleInput)
+    }
 
     func pad(string: String, toSize: Int) -> String {
       var padded = string

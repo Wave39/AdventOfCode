@@ -9,13 +9,13 @@
 import Foundation
 
 class Puzzle_2018_18: NSObject {
+    typealias Forest = [[Acre]]
+
     enum Acre: Character {
         case Open = "."
         case Trees = "|"
         case Lumberyard = "#"
     }
-
-    typealias Forest = [[Acre]]
 
     func forestToString(_ forest: Forest) -> String {
         var retval = ""

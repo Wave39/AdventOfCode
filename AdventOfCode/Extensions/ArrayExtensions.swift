@@ -9,6 +9,13 @@
 import Foundation
 
 extension Array {
+    var combinationsWithoutRepetition: [[Element]] {
+        guard !isEmpty else {
+            return [[]]
+        }
+        return Array(self[1...]).combinationsWithoutRepetition.flatMap { [$0, [self[0]] + $0] }
+    }
+
     func generatePermutations() -> [[Element]] {
         var retval: [[Element]] = []
         var arrCopy = self
@@ -30,12 +37,5 @@ extension Array {
         permutations(arrCopy.count, &arrCopy)
 
         return retval
-    }
-
-    var combinationsWithoutRepetition: [[Element]] {
-        guard !isEmpty else {
-            return [[]]
-        }
-        return Array(self[1...]).combinationsWithoutRepetition.flatMap { [$0, [self[0]] + $0] }
     }
 }

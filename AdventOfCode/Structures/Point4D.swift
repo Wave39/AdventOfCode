@@ -13,20 +13,19 @@ struct Point4D: Hashable, CustomStringConvertible {
     var y: Int = 0
     var z: Int = 0
     var t: Int = 0
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(x)
-        hasher.combine(y)
-        hasher.combine(z)
-        hasher.combine(t)
-    }
-
     var description: String {
         "(\(x),\(y),\(z),\(t))"
     }
 
     static func == (lhs: Point4D, rhs: Point4D) -> Bool {
         lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.t == rhs.t
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(x)
+        hasher.combine(y)
+        hasher.combine(z)
+        hasher.combine(t)
     }
 
     func manhattanDistanceTo(pt: Point4D) -> Int {

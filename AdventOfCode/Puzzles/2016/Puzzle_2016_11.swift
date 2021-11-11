@@ -174,6 +174,8 @@ class Puzzle_2016_11: PuzzleBaseClass {
         [ ]
     ]
 
+    var buildingsAlreadySeen: Set<String> = Set()
+
     func microchipsAndGeneratorsAreSafe(devices: [Device]) -> Bool {
         let microchips = devices.filter { $0.deviceType == .Microchip }
         let generators = devices.filter { $0.deviceType == .Generator }
@@ -323,8 +325,6 @@ class Puzzle_2016_11: PuzzleBaseClass {
 
         return foundSolutionAtMove
     }
-
-    var buildingsAlreadySeen: Set<String> = Set()
 
     func solve() {
         let (part1Solution, part2Solution) = solveBothParts()

@@ -9,6 +9,11 @@
 import Foundation
 
 class Puzzle_2020_06: PuzzleBaseClass {
+    struct Group {
+        var yesAnswers: String = ""
+        var peopleCount: Int = 0
+    }
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -23,11 +28,6 @@ class Puzzle_2020_06: PuzzleBaseClass {
 
     func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
-    }
-
-    struct Group {
-        var yesAnswers: String = ""
-        var peopleCount: Int = 0
     }
 
     func parseGroups(str: String) -> [Group] {

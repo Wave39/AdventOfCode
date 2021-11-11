@@ -9,6 +9,20 @@
 import Foundation
 
 class Puzzle_2020_20: PuzzleBaseClass {
+    struct PhotoTile: Hashable {
+        var tileNumber: Int
+        var imageData = CharacterGrid()
+        var edges: [String] = []
+        var edgeMatches: [Int] = []
+
+        func allPossibleEdges() -> [String] {
+            var retval: [String] = []
+            retval += edges
+            retval += edges.map { String($0.reversed()) }
+            return retval
+        }
+    }
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -23,20 +37,6 @@ class Puzzle_2020_20: PuzzleBaseClass {
 
     func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
-    }
-
-    struct PhotoTile: Hashable {
-        var tileNumber: Int
-        var imageData = CharacterGrid()
-        var edges: [String] = []
-        var edgeMatches: [Int] = []
-
-        func allPossibleEdges() -> [String] {
-            var retval: [String] = []
-            retval += edges
-            retval += edges.map { String($0.reversed()) }
-            return retval
-        }
     }
 
     func solvePart1(str: String) -> Int {

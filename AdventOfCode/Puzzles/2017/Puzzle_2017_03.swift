@@ -9,6 +9,13 @@
 import Foundation
 
 class Puzzle_2017_03: PuzzleBaseClass {
+    enum ADVANCE_DIRECTION {
+        case UP
+        case DOWN
+        case LEFT
+        case RIGHT
+    }
+
     func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print("Part 1 solution: \(part1Solution)")
@@ -26,13 +33,6 @@ class Puzzle_2017_03: PuzzleBaseClass {
         let part1Solution = abs(part1LastElement.x) + abs(part1LastElement.y)
         let part2Solution = buildPart2Spiral(limit: puzzleInput)
         return (part1Solution, part2Solution)
-    }
-
-    enum ADVANCE_DIRECTION {
-        case UP
-        case DOWN
-        case LEFT
-        case RIGHT
     }
 
     func buildPart1Spiral(limit: Int) -> Array<Point2D> {

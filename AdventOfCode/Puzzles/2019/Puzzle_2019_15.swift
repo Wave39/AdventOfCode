@@ -9,7 +9,10 @@
 import Foundation
 
 class Puzzle_2019_15: PuzzleBaseClass {
-    var globalRenderFlag = false
+    struct MoveInformation {
+        var location = Point2D()
+        var direction: MovementDirection = .North
+    }
 
     enum TileType: Int {
         case Hallway = 1
@@ -40,10 +43,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         }
     }
 
-    struct MoveInformation {
-        var location = Point2D()
-        var direction: MovementDirection = .North
-    }
+    var globalRenderFlag = false
 
     func solve() {
         let part1 = solvePart1()

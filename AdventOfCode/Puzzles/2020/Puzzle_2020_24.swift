@@ -9,6 +9,8 @@
 import Foundation
 
 class Puzzle_2020_24: PuzzleBaseClass {
+    let offsetDict: Dictionary<String, (Int, Int)> = [ "w": (-2, 0), "e": (2, 0), "nw": (-1, 1), "sw": (-1, -1), "ne": (1, 1), "se": (1, -1) ]
+
     func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -24,8 +26,6 @@ class Puzzle_2020_24: PuzzleBaseClass {
     func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
-
-    let offsetDict: Dictionary<String, (Int, Int)> = [ "w": (-2, 0), "e": (2, 0), "nw": (-1, 1), "sw": (-1, -1), "ne": (1, 1), "se": (1, -1) ]
 
     func getBlackTileCount(_ tileDict: Dictionary<Point2D, Int>) -> Int {
         var retval = 0

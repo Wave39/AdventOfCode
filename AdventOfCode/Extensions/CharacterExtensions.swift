@@ -25,6 +25,13 @@ extension Character {
         String(self).unicodeScalars.first { $0.isASCII }?.value
     }
 
+    var int: Int {
+        guard let retval = Int(String(self)) else {
+            return 0
+        }
+        return retval
+    }
+
     static func asciiChar(v: Int) -> Character {
         Character(UnicodeScalar(v) ?? Unicode.Scalar(0))
     }
@@ -32,12 +39,5 @@ extension Character {
     static func asciiValue(c: Character) -> Int {
         let s = String(c).unicodeScalars
         return Int(s[s.startIndex].value)
-    }
-
-    var int: Int {
-        guard let retval = Int(String(self)) else {
-            return 0
-        }
-        return retval
     }
 }

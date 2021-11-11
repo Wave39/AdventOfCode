@@ -9,12 +9,12 @@
 import Foundation
 
 class Puzzle_2018_25: NSObject {
+    typealias StarChart = [Star]
+
     class Star {
         var position = Point4D()
         var constellationId: Int = 0
     }
-
-    typealias StarChart = [Star]
 
     func parseStarChart(str: String) -> StarChart {
         var retval = StarChart()

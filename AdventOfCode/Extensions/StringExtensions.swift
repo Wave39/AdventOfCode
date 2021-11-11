@@ -11,6 +11,8 @@ import CryptoKit
 import Foundation
 
 extension String {
+    static var clearConsole: String { "\u{001b}[H" }
+
     var asciiArray: [UInt32] {
         unicodeScalars.filter { $0.isASCII }.map { $0.value }
     }
@@ -18,6 +20,30 @@ extension String {
     var asciiValue: UInt32 {
         let c = self.unicodeScalars.first
         return c?.value ?? 0
+    }
+
+    var double: Double {
+        guard let retval = Double(self.trim()) else {
+            return 0.0
+        }
+        return retval
+    }
+
+    var int: Int {
+        guard let retval = Int(self.trim()) else {
+            return 0
+        }
+        return retval
+    }
+
+    var md5: String {
+        let computed = Insecure.MD5.hash(data: self.data(using: .utf8) ?? Data())
+        return computed.map { String(format: "%02hhx", $0) }.joined()
+    }
+
+    var uniqueCharacters: String {
+        var set = Set<Character>()
+        return String(filter { set.insert($0).inserted })
     }
 
     func capturedGroups(withRegex pattern: String, trimResults: Bool = false) -> [String] {
@@ -65,8 +91,6 @@ extension String {
         return retval
     }
 
-    static var clearConsole: String { "\u{001b}[H" }
-
     func commonCharactersWith(str: String) -> String {
         var retval = ""
         for idx in 0..<self.count {
@@ -111,13 +135,6 @@ extension String {
         return retval
     }
 
-    var double: Double {
-        guard let retval = Double(self.trim()) else {
-            return 0.0
-        }
-        return retval
-    }
-
     func hasBracket() -> Bool {
         self.contains("[") || self.contains("]")
     }
@@ -150,13 +167,6 @@ extension String {
         }
 
         return indices
-    }
-
-    var int: Int {
-        guard let retval = Int(self.trim()) else {
-            return 0
-        }
-        return retval
     }
 
     func isStringNumeric() -> Bool {
@@ -215,11 +225,6 @@ extension String {
         } catch {
             return []
         }
-    }
-
-    var md5: String {
-        let computed = Insecure.MD5.hash(data: self.data(using: .utf8) ?? Data())
-        return computed.map { String(format: "%02hhx", $0) }.joined()
     }
 
     func parseIntoIntArray() -> [Int] {
@@ -344,11 +349,6 @@ extension String {
 
     func trim() -> String {
         self.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-
-    var uniqueCharacters: String {
-        var set = Set<Character>()
-        return String(filter { set.insert($0).inserted })
     }
 
     func words(with charset: CharacterSet = .alphanumerics) -> [String] {
