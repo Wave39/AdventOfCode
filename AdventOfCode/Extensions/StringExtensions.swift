@@ -10,43 +10,43 @@ import CommonCrypto
 import CryptoKit
 import Foundation
 
-extension String {
-    public static var clearConsole: String { "\u{001b}[H" }
+public extension String {
+    static var clearConsole: String { "\u{001b}[H" }
 
-    public var asciiArray: [UInt32] {
+    var asciiArray: [UInt32] {
         unicodeScalars.filter { $0.isASCII }.map { $0.value }
     }
 
-    public var asciiValue: UInt32 {
+    var asciiValue: UInt32 {
         let c = self.unicodeScalars.first
         return c?.value ?? 0
     }
 
-    public var double: Double {
+    var double: Double {
         guard let retval = Double(self.trim()) else {
             return 0.0
         }
         return retval
     }
 
-    public var int: Int {
+    var int: Int {
         guard let retval = Int(self.trim()) else {
             return 0
         }
         return retval
     }
 
-    public var md5: String {
+    var md5: String {
         let computed = Insecure.MD5.hash(data: self.data(using: .utf8) ?? Data())
         return computed.map { String(format: "%02hhx", $0) }.joined()
     }
 
-    public var uniqueCharacters: String {
+    var uniqueCharacters: String {
         var set = Set<Character>()
         return String(filter { set.insert($0).inserted })
     }
 
-    public func capturedGroups(withRegex pattern: String, trimResults: Bool = false) -> [String] {
+    func capturedGroups(withRegex pattern: String, trimResults: Bool = false) -> [String] {
         var results = [String]()
 
         var regex: NSRegularExpression
@@ -80,7 +80,7 @@ extension String {
         return results
     }
 
-    public func charactersDifferentFrom(str: String) -> Int {
+    func charactersDifferentFrom(str: String) -> Int {
         var retval = 0
         for idx in 0..<self.count {
             if self[idx] != str[idx] {
@@ -91,7 +91,7 @@ extension String {
         return retval
     }
 
-    public func commonCharactersWith(str: String) -> String {
+    func commonCharactersWith(str: String) -> String {
         var retval = ""
         for idx in 0..<self.count {
             if self[idx] == str[idx] {
@@ -101,12 +101,12 @@ extension String {
         return retval
     }
 
-    public func condenseWhitespace() -> String {
+    func condenseWhitespace() -> String {
         let components = self.components(separatedBy: NSCharacterSet.whitespacesAndNewlines)
         return components.filter { !$0.isEmpty }.joined(separator: " ")
     }
 
-    public func convertBinaryToHashesAndDots() -> String {
+    func convertBinaryToHashesAndDots() -> String {
         var retval = ""
 
         for c in self {
@@ -120,7 +120,7 @@ extension String {
         return retval
     }
 
-    public func convertHexToBinary() -> String {
+    func convertHexToBinary() -> String {
         var retval = ""
 
         for c in self {
@@ -135,11 +135,11 @@ extension String {
         return retval
     }
 
-    public func hasBracket() -> Bool {
+    func hasBracket() -> Bool {
         self.contains("[") || self.contains("]")
     }
 
-    public func hasConsecutiveCharacters(num: Int) -> Bool {
+    func hasConsecutiveCharacters(num: Int) -> Bool {
         let uniqueSelf = self.uniqueCharacters
         for c in uniqueSelf {
             let ctr = self.filter { $0 == c }
@@ -151,11 +151,11 @@ extension String {
         return false
     }
 
-    public func indexOf(char: Character) -> Int? {
+    func indexOf(char: Character) -> Int? {
         firstIndex(of: char)?.utf16Offset(in: self)
     }
 
-    public func indices(of occurrence: String) -> [Int] {
+    func indices(of occurrence: String) -> [Int] {
         var indices = [Int]()
         var position = startIndex
         while let range = range(of: occurrence, range: position..<endIndex) {
@@ -169,7 +169,7 @@ extension String {
         return indices
     }
 
-    public func isStringNumeric() -> Bool {
+    func isStringNumeric() -> Bool {
         if !self.isEmpty {
             var numberCharacters = NSCharacterSet.decimalDigits.inverted
             numberCharacters.remove(charactersIn: "-")
@@ -179,7 +179,7 @@ extension String {
         return false
     }
 
-    public func isStringHexadecimal() -> Bool {
+    func isStringHexadecimal() -> Bool {
         if !self.isEmpty {
             for c in self {
                 if !c.isHexDigit {
@@ -193,7 +193,7 @@ extension String {
         return false
     }
 
-    public func matchesForRegexInText(regex: String) -> [String] {
+    func matchesForRegexInText(regex: String) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = self as NSString
@@ -209,7 +209,7 @@ extension String {
         }
     }
 
-    public func matchesInCapturingGroups(pattern: String) -> [String] {
+    func matchesInCapturingGroups(pattern: String) -> [String] {
         var results = [String]()
 
         let textRange = NSMakeRange(0, self.lengthOfBytes(using: String.Encoding.utf8))
@@ -227,11 +227,11 @@ extension String {
         }
     }
 
-    public func parseIntoIntArray() -> [Int] {
+    func parseIntoIntArray() -> [Int] {
         parseIntoIntArray(separator: "\n")
     }
 
-    public func parseIntoIntArray(separator: Character) -> [Int] {
+    func parseIntoIntArray(separator: Character) -> [Int] {
         let arr = self.split(separator: separator)
         var retval: [Int] = []
         for s in arr {
@@ -241,7 +241,7 @@ extension String {
         return retval
     }
 
-    public func parseIntoMatrix() -> [[String]] {
+    func parseIntoMatrix() -> [[String]] {
         var allLines: [[String]] = []
         let lineArray = self.split(separator: "\n")
         for line in lineArray {
@@ -257,7 +257,7 @@ extension String {
         return allLines
     }
 
-    public func parseIntoCharacterMatrix() -> [[Character]] {
+    func parseIntoCharacterMatrix() -> [[Character]] {
         var allLines: [[Character]] = []
         let lineArray = self.split(separator: "\n")
         for line in lineArray {
@@ -273,11 +273,11 @@ extension String {
         return allLines
     }
 
-    public func parseIntoStringArray(omitBlankLines: Bool = true) -> [String] {
+    func parseIntoStringArray(omitBlankLines: Bool = true) -> [String] {
         parseIntoStringArray(separator: "\n", omitEmptyStrings: omitBlankLines)
     }
 
-    public func parseIntoStringArray(separator: Character, omitEmptyStrings: Bool = true) -> [String] {
+    func parseIntoStringArray(separator: Character, omitEmptyStrings: Bool = true) -> [String] {
         let arr = self.split(separator: separator, omittingEmptySubsequences: omitEmptyStrings)
         var retval: [String] = []
         for s in arr {
@@ -287,19 +287,19 @@ extension String {
         return retval
     }
 
-    public func rangesOfString(searchString: String) -> [Range<String.Index>] {
+    func rangesOfString(searchString: String) -> [Range<String.Index>] {
         let _indices = indices(of: searchString)
         let count = searchString.count
         return _indices.map { index(startIndex, offsetBy: $0)..<index(startIndex, offsetBy: $0 + count) }
     }
 
-    public mutating func removeAtIndex(idx: Int) {
+    mutating func removeAtIndex(idx: Int) {
         if let index = self.index(self.startIndex, offsetBy: idx, limitedBy: self.endIndex) {
             self.remove(at: index)
         }
     }
 
-    public func removeCharacters(startIdx: Int, charLength: Int) -> String {
+    func removeCharacters(startIdx: Int, charLength: Int) -> String {
         var newStr = self
         for _ in 0..<charLength {
             let idx0 = newStr.index(newStr.startIndex, offsetBy: startIdx)
@@ -309,14 +309,14 @@ extension String {
         return newStr
     }
 
-    public func replace(index: Int, newChar: Character) -> String {
+    func replace(index: Int, newChar: Character) -> String {
         var chars = Array(self)     // gets an array of characters
         chars[index] = newChar
         let modifiedString = String(chars)
         return modifiedString
     }
 
-    public mutating func rotate(amount: Int, left: Bool) {
+    mutating func rotate(amount: Int, left: Bool) {
         let strLen = self.count
         if left {
             for _ in 1...amount {
@@ -331,27 +331,27 @@ extension String {
         }
     }
 
-    public func substring(from: Int, to: Int) -> String {
+    func substring(from: Int, to: Int) -> String {
         let start = index(startIndex, offsetBy: from)
         let end = index(start, offsetBy: to - from)
         return String(self[start ..< end])
     }
 
-    public func substring(from: Int) -> String {
+    func substring(from: Int) -> String {
         let start = index(startIndex, offsetBy: from)
         let end = index(start, offsetBy: self.count - from)
         return String(self[start ..< end])
     }
 
-    public func substring(range: NSRange) -> String {
+    func substring(range: NSRange) -> String {
         substring(from: range.lowerBound, to: range.upperBound)
     }
 
-    public func trim() -> String {
+    func trim() -> String {
         self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
-    public func words(with charset: CharacterSet = .alphanumerics) -> [String] {
+    func words(with charset: CharacterSet = .alphanumerics) -> [String] {
         self.unicodeScalars.split { substring in
             !charset.contains(substring)
         }
@@ -359,50 +359,50 @@ extension String {
     }
 }
 
-extension StringProtocol {
-    public var string: String { String(self) }
+public extension StringProtocol {
+    var string: String { String(self) }
 
-    public subscript(offset: Int) -> Element {
+    subscript(offset: Int) -> Element {
         self[index(startIndex, offsetBy: offset)]
     }
 
-    public subscript(_ range: CountableRange<Int>) -> SubSequence {
+    subscript(_ range: CountableRange<Int>) -> SubSequence {
         prefix(range.lowerBound + range.count)
             .suffix(range.count)
     }
 
-    public subscript(range: CountableClosedRange<Int>) -> SubSequence {
+    subscript(range: CountableClosedRange<Int>) -> SubSequence {
         prefix(range.lowerBound + range.count)
             .suffix(range.count)
     }
 
-    public subscript(range: PartialRangeThrough<Int>) -> SubSequence {
+    subscript(range: PartialRangeThrough<Int>) -> SubSequence {
         prefix(range.upperBound.advanced(by: 1))
     }
 
-    public subscript(range: PartialRangeUpTo<Int>) -> SubSequence {
+    subscript(range: PartialRangeUpTo<Int>) -> SubSequence {
         prefix(range.upperBound)
     }
 
-    public subscript(range: PartialRangeFrom<Int>) -> SubSequence {
+    subscript(range: PartialRangeFrom<Int>) -> SubSequence {
         suffix(Swift.max(0, count - range.lowerBound))
     }
 }
 
-extension Substring {
-    public var double: Double {
+public extension Substring {
+    var double: Double {
         guard let retval = Double(self) else {
             return 0.0
         }
         return retval
     }
 
-    public var int: Int {
+    var int: Int {
         guard let retval = Int(self) else {
             return 0
         }
         return retval
     }
 
-    public var string: String { String(self) }
+    var string: String { String(self) }
 }

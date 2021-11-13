@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Double {
-    public func toString() -> String {
+public extension Double {
+    func toString() -> String {
         String(format: "%.5f", self)
     }
 }

@@ -18,8 +18,8 @@ public class Puzzle_2018_13: NSObject {
         case Intersection
     }
 
-    private enum TravelDirection: Int {
-        case Up = 0
+    private enum TravelDirection {
+        case Up
         case Right
         case Down
         case Left

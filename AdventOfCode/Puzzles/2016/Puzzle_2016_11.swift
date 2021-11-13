@@ -10,14 +10,14 @@ import Foundation
 
 private enum ElementType: Int {
     case Cobalt = 1
-    case Curium
-    case Dilithium
-    case Elerium
-    case Hydrogen
-    case Lithium
-    case Promethium
-    case Plutonium
-    case Ruthenium
+    case Curium = 2
+    case Dilithium = 3
+    case Elerium = 4
+    case Hydrogen = 5
+    case Lithium = 6
+    case Promethium = 7
+    case Plutonium = 8
+    case Ruthenium = 9
 }
 
 private let kElementDict: Dictionary<ElementType, String> = [
@@ -34,7 +34,7 @@ private let kElementDict: Dictionary<ElementType, String> = [
 
 private enum DeviceType: Int {
     case Microchip = 1
-    case Generator
+    case Generator = 2
 }
 
 private let kDeviceDict: Dictionary<DeviceType, String> = [
@@ -45,7 +45,7 @@ private let kDeviceDict: Dictionary<DeviceType, String> = [
 public class Puzzle_2016_11: PuzzleBaseClass {
     private enum ElevatorDirection: Int {
         case Up = 1
-        case Down
+        case Down = 2
     }
 
     private struct Device {

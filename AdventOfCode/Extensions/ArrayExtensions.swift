@@ -8,15 +8,15 @@
 
 import Foundation
 
-extension Array {
-    public var combinationsWithoutRepetition: [[Element]] {
+public extension Array {
+    var combinationsWithoutRepetition: [[Element]] {
         guard !isEmpty else {
             return [[]]
         }
         return Array(self[1...]).combinationsWithoutRepetition.flatMap { [$0, [self[0]] + $0] }
     }
 
-    public func generatePermutations() -> [[Element]] {
+    func generatePermutations() -> [[Element]] {
         var retval: [[Element]] = []
         var arrCopy = self
 
