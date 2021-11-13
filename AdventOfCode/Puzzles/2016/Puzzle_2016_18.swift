@@ -8,19 +8,19 @@
 
 import Foundation
 
-class Puzzle_2016_18: PuzzleBaseClass {
-    enum TileType {
+public class Puzzle_2016_18: PuzzleBaseClass {
+    private enum TileType {
         case Trap
         case Safe
     }
 
-    func solve() {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         func convertStringToTileTypes(source: String) -> [TileType] {
             var types: [TileType] = []
             for idx in 0..<source.count {

@@ -8,34 +8,34 @@
 
 import Foundation
 
-class Puzzle_2017_25: PuzzleBaseClass {
-    struct Substep {
+public class Puzzle_2017_25: PuzzleBaseClass {
+    private struct Substep {
         var newValue: Int = 0
         var newDirection: Int = 0
         var continueWith: Int = 0
     }
 
-    struct Step {
+    private struct Step {
         var ifZero: Substep
         var ifOne: Substep
     }
 
-    var steps: [Step] = []
-    var tapeArray: [Int] = []
-    var stepCount: Int = 0
+    private var steps: [Step] = []
+    private var tapeArray: [Int] = []
+    private var stepCount: Int = 0
 
-    func solve() {
+    public func solve() {
         let solution = solvePart1()
         print("Part 1 solution: \(solution)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = PuzzleInput.final
         parsePuzzleInput(str: puzzleInput)
         return solvePuzzle()
     }
 
-    func parsePuzzleInput(str: String) {
+    private func parsePuzzleInput(str: String) {
         steps = []
         let lineArray = str.split(separator: "\n")
         stepCount = lineArray[0].int
@@ -49,7 +49,7 @@ class Puzzle_2017_25: PuzzleBaseClass {
         }
     }
 
-    func solvePuzzle() -> Int {
+    private func solvePuzzle() -> Int {
         let arraySize = 2_000_000
         var cursorPosition = arraySize / 2
         var state = 0

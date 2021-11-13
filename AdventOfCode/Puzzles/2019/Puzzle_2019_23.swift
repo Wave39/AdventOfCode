@@ -11,22 +11,22 @@ import Foundation
 // lots of help derived from:
 // https://github.com/gernb/AdventOfCode2019
 
-final class LockObject_2019_23 {}
+private final class LockObject_2019_23 {}
 
-let kLock_2019_23 = LockObject_2019_23()
+private let kLock_2019_23 = LockObject_2019_23()
 
-class Puzzle_2019_23: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2019_23: PuzzleBaseClass {
+    public func solve() {
         let part1and2 = solveBothParts()
         print("Part 1 solution: \(part1and2.0)")
         print("Part 2 solution: \(part1and2.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         solveBothParts(str: Puzzle_2019_23_Input.puzzleInput)
     }
 
-    func solveBothParts(str: String) -> (Int, Int) {
+    private func solveBothParts(str: String) -> (Int, Int) {
         var computers: [IntcodeComputer] = []
         var inputQueues = (0 ..< 50).map { [$0] }
         var retval = (0, 0)

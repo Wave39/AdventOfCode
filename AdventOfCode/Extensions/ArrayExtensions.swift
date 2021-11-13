@@ -9,14 +9,14 @@
 import Foundation
 
 extension Array {
-    var combinationsWithoutRepetition: [[Element]] {
+    public var combinationsWithoutRepetition: [[Element]] {
         guard !isEmpty else {
             return [[]]
         }
         return Array(self[1...]).combinationsWithoutRepetition.flatMap { [$0, [self[0]] + $0] }
     }
 
-    func generatePermutations() -> [[Element]] {
+    public func generatePermutations() -> [[Element]] {
         var retval: [[Element]] = []
         var arrCopy = self
 

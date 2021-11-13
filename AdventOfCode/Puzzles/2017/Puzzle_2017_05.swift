@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2017_05: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2017_05: PuzzleBaseClass {
+    public func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print("Part 1 solution: \(part1Solution)")
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_05_Input.puzzleInput
 
         let part1Solution = solveInput(str: puzzleInput, testForStrangeJump: false)
@@ -23,7 +23,7 @@ class Puzzle_2017_05: PuzzleBaseClass {
         return (part1Solution, part2Solution)
     }
 
-    func parseInput(str: String) -> [Int] {
+    private func parseInput(str: String) -> [Int] {
         var retval: [Int] = []
         let lineArray = str.split(separator: "\n")
         for line in lineArray {
@@ -33,7 +33,7 @@ class Puzzle_2017_05: PuzzleBaseClass {
         return retval
     }
 
-    func solveInput(str: String, testForStrangeJump: Bool) -> Int {
+    private func solveInput(str: String, testForStrangeJump: Bool) -> Int {
         var total = 0
         var programCounter = 0
 

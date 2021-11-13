@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Puzzle_2019_19: PuzzleBaseClass {
-    var originalProgram: [Int] = []
+public class Puzzle_2019_19: PuzzleBaseClass {
+    private var originalProgram: [Int] = []
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -19,15 +19,15 @@ class Puzzle_2019_19: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_19_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_19_Input.puzzleInput)
     }
 
-    func getXCoordinates(y: Int) -> [Int] {
+    private func getXCoordinates(y: Int) -> [Int] {
         var retval: [Int] = []
         for x in 0..<(y + 10) {
             var arr = originalProgram
@@ -44,7 +44,7 @@ class Puzzle_2019_19: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         originalProgram = str.parseIntoIntArray(separator: ",")
         var retval = 0
         for y in 0..<50 {
@@ -55,7 +55,7 @@ class Puzzle_2019_19: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         originalProgram = str.parseIntoIntArray(separator: ",")
         // I arrived at the starting y value below through some rough trial and error
         for y in 1_240...1_500 {
@@ -70,7 +70,7 @@ class Puzzle_2019_19: PuzzleBaseClass {
         return -1
     }
 
-    func ProcessProgram19(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> (Int, Bool) {
+    private func ProcessProgram19(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> (Int, Bool) {
         enum ParameterMode {
             case position
             case immediate

@@ -8,27 +8,27 @@
 
 import Foundation
 
-struct Point4D: Hashable, CustomStringConvertible {
-    var x: Int = 0
-    var y: Int = 0
-    var z: Int = 0
-    var t: Int = 0
-    var description: String {
+public struct Point4D: Hashable, CustomStringConvertible {
+    public var x: Int = 0
+    public var y: Int = 0
+    public var z: Int = 0
+    public var t: Int = 0
+    public var description: String {
         "(\(x),\(y),\(z),\(t))"
     }
 
-    static func == (lhs: Point4D, rhs: Point4D) -> Bool {
+    public static func == (lhs: Point4D, rhs: Point4D) -> Bool {
         lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.t == rhs.t
     }
 
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(x)
         hasher.combine(y)
         hasher.combine(z)
         hasher.combine(t)
     }
 
-    func manhattanDistanceTo(pt: Point4D) -> Int {
+    public func manhattanDistanceTo(pt: Point4D) -> Int {
         var retval = abs(self.x - pt.x)
         retval += abs(self.y - pt.y)
         retval += abs(self.z - pt.z)
@@ -36,7 +36,7 @@ struct Point4D: Hashable, CustomStringConvertible {
         return retval
     }
 
-    func adjacentLocationsWithDiagonals() -> [Point4D] {
+    public func adjacentLocationsWithDiagonals() -> [Point4D] {
         var retval: [Point4D] = []
         for deltaX in -1...1 {
             for deltaY in -1...1 {

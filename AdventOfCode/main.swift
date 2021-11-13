@@ -12,12 +12,12 @@ print("")
 print("Welcome to BP's Advent Of Code Solution Machine.")
 print("Make sure to click in the Output window to enter which puzzle you would like to solve.")
 
-let kMaxYear = 2_020
-let kDefaultYear = kMaxYear
-let kDefaultPuzzle = 25
-let kDefaultYearAndPuzzle = "\(kMaxYear) \(kDefaultPuzzle)"
+private let kMaxYear = 2_020
+private let kDefaultYear = kMaxYear
+private let kDefaultPuzzle = 25
+private let kDefaultYearAndPuzzle = "\(kMaxYear) \(kDefaultPuzzle)"
 
-var quitApp = false
+private var quitApp = false
 
 while !quitApp {
     var puzzle = 0

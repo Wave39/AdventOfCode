@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CompassDirection {
+public enum CompassDirection {
     case North
     case East
     case South
@@ -18,11 +18,11 @@ enum CompassDirection {
     case SouthEast
     case SouthWest
 
-    static func AllDirections() -> [CompassDirection] {
+    public static func AllDirections() -> [CompassDirection] {
         [ NorthWest, North, NorthEast, East, SouthEast, South, SouthWest, West ]
     }
 
-    func TurnLeft() -> CompassDirection {
+    public func TurnLeft() -> CompassDirection {
         if self == .North {
             return .West
         } else if self == .West {
@@ -34,7 +34,7 @@ enum CompassDirection {
         }
     }
 
-    func TurnRight() -> CompassDirection {
+    public func TurnRight() -> CompassDirection {
         if self == .North {
             return .East
         } else if self == .East {
@@ -46,7 +46,7 @@ enum CompassDirection {
         }
     }
 
-    func OffsetFromOrigin() -> Point2D {
+    public func OffsetFromOrigin() -> Point2D {
         if self == .North {
             return Point2D(x: 0, y: -1)
         } else if self == .West {

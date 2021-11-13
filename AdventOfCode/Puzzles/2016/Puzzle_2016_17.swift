@@ -8,20 +8,20 @@
 
 import Foundation
 
-class Puzzle_2016_17: PuzzleBaseClass {
-    struct GameState {
+public class Puzzle_2016_17: PuzzleBaseClass {
+    private struct GameState {
         var currentX: Int
         var currentY: Int
         var moves: String
     }
 
-    func solve() {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (String, Int) {
+    public func solveBothParts() -> (String, Int) {
         func getOpenDirections(string: String) -> [Bool] {
             var arr: [Bool] = []
             for idx in 0...3 {

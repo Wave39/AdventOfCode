@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Puzzle_2020_13: PuzzleBaseClass {
-    struct BusInfo {
+public class Puzzle_2020_13: PuzzleBaseClass {
+    private struct BusInfo {
         var busID: Int
         var minutesAfter: Int
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -22,15 +22,15 @@ class Puzzle_2020_13: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         let earliestTimeStamp = arr[0].int
         var busIDs: [Int] = []
@@ -57,7 +57,7 @@ class Puzzle_2020_13: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var buses: [BusInfo] = []
         var idx = 0

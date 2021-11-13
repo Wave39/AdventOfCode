@@ -8,19 +8,19 @@
 
 import Foundation
 
-class Puzzle_2017_06: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2017_06: PuzzleBaseClass {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_06_Input.puzzleInput
         return solveInput(str: puzzleInput)
     }
 
-    func parseInput(str: String) -> [Int] {
+    public func parseInput(str: String) -> [Int] {
         var retval: [Int] = []
         let lineArray = str.split(separator: " ")
         for line in lineArray {
@@ -30,7 +30,8 @@ class Puzzle_2017_06: PuzzleBaseClass {
         return retval
     }
 
-    func findLargestIndex(arr: [Int]) -> Int {
+    // FUTURE: move to common code
+    private func findLargestIndex(arr: [Int]) -> Int {
         let sortedArray = arr.sorted()
         let largestValue = sortedArray.last
         for idx in 0..<arr.count {
@@ -42,7 +43,8 @@ class Puzzle_2017_06: PuzzleBaseClass {
         return NSNotFound
     }
 
-    func arrayToString(arr: [Int]) -> String {
+    // FUTURE: move to common code
+    private func arrayToString(arr: [Int]) -> String {
         var retval = ""
         for i in arr {
             retval += (String(i) + " ")
@@ -51,7 +53,7 @@ class Puzzle_2017_06: PuzzleBaseClass {
         return retval
     }
 
-    func processArray(arr: inout [Int]) {
+    private func processArray(arr: inout [Int]) {
         let largeIdx = findLargestIndex(arr: arr)
         let v = arr[largeIdx]
         arr[largeIdx] = 0
@@ -61,7 +63,7 @@ class Puzzle_2017_06: PuzzleBaseClass {
         }
     }
 
-    func solveInput(str: String) -> (Int, Int) {
+    private func solveInput(str: String) -> (Int, Int) {
         var processCounter = 0
         var loopCounter = 0
         var memoryBanks = parseInput(str: str)

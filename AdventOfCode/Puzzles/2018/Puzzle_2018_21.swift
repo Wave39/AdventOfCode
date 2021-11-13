@@ -8,24 +8,24 @@
 
 import Foundation
 
-class Puzzle_2018_21: NSObject {
-    typealias Registers = [Int]
+public class Puzzle_2018_21: NSObject {
+    private typealias Registers = [Int]
 
-    class Command {
+    private class Command {
         var opcode: Opcode = .unknown
         var a: Int = 0
         var b: Int = 0
         var c: Int = 0
     }
 
-    class Program {
+    private class Program {
         var instructionPointer: Int = 0
         var boundRegister: Int = 0
         var code: [Command] = []
         var registers: Registers = [ 0, 0, 0, 0, 0, 0 ]
     }
 
-    enum Opcode {
+    private enum Opcode {
         case unknown
         case addr
         case addi
@@ -45,14 +45,14 @@ class Puzzle_2018_21: NSObject {
         case eqrr
     }
 
-    let opcodeDict: [String: Opcode] = [
+    private let opcodeDict: [String: Opcode] = [
         "addr": .addr, "addi": .addi, "mulr": .mulr, "muli": .muli,
         "banr": .banr, "bani": .bani, "borr": .borr, "bori": .bori,
         "setr": .setr, "seti": .seti, "gtir": .gtir, "gtri": .gtri,
         "gtrr": .gtrr, "eqir": .eqir, "eqri": .eqri, "eqrr": .eqrr
     ]
 
-    func parseIntoProgram(str: String) -> Program {
+    private func parseIntoProgram(str: String) -> Program {
         let program = Program()
         let arr = str.parseIntoStringArray()
         for line in arr {
@@ -73,7 +73,7 @@ class Puzzle_2018_21: NSObject {
         return program
     }
 
-    func runCommandString(command: Command, registers: Registers) -> Registers {
+    private func runCommandString(command: Command, registers: Registers) -> Registers {
         var newRegisters = registers
         if command.opcode == .addr {
             newRegisters[command.c] = registers[command.a] + registers[command.b]
@@ -112,7 +112,7 @@ class Puzzle_2018_21: NSObject {
         return newRegisters
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         print("Please be patient, part 2 takes a very long time to run...")
@@ -120,17 +120,17 @@ class Puzzle_2018_21: NSObject {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_21_Input.puzzleInput
         return solvePart1(puzzleInput: puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_21_Input.puzzleInput
         return solvePart2(puzzleInput: puzzleInput)
     }
 
-    func solvePart1(puzzleInput: String) -> Int {
+    private func solvePart1(puzzleInput: String) -> Int {
         let program = parseIntoProgram(str: puzzleInput)
         while true {
             program.registers[program.boundRegister] = program.instructionPointer
@@ -145,7 +145,7 @@ class Puzzle_2018_21: NSObject {
         }
     }
 
-    func solvePart2(puzzleInput: String) -> Int {
+    private func solvePart2(puzzleInput: String) -> Int {
         let program = parseIntoProgram(str: puzzleInput)
         var registerSet: [Int] = []
         var previous: Int = 0

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2018_13: NSObject {
-    enum TrackType {
+public class Puzzle_2018_13: NSObject {
+    private enum TrackType {
         case NoTrack
         case StraightHorizontal
         case StraightVertical
@@ -18,7 +18,7 @@ class Puzzle_2018_13: NSObject {
         case Intersection
     }
 
-    enum TravelDirection: Int {
+    private enum TravelDirection: Int {
         case Up = 0
         case Right
         case Down
@@ -53,25 +53,25 @@ class Puzzle_2018_13: NSObject {
         }
     }
 
-    class Cart {
+    private class Cart {
         var location = Point2D()
         var travelDirection: TravelDirection = .Up
         var nextTurnDirection: TravelDirection = .Left
         var ghost = false
     }
 
-    func solve() {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> ((Int, Int), (Int, Int)) {
+    public func solveBothParts() -> ((Int, Int), (Int, Int)) {
         let puzzleInput = Puzzle_2018_13_Input.puzzleInput
         return solveBothParts(puzzleInput: puzzleInput)
     }
 
-    func trackGridToString(trackGrid: [[TrackType]], carts: [Cart]) -> String {
+    private func trackGridToString(trackGrid: [[TrackType]], carts: [Cart]) -> String {
         var characterArray: [[String]] = []
         for line in trackGrid {
             var characterLine: [String] = []
@@ -120,7 +120,7 @@ class Puzzle_2018_13: NSObject {
         return retval
     }
 
-    func solveBothParts(puzzleInput: String) -> ((Int, Int), (Int, Int)) {
+    private func solveBothParts(puzzleInput: String) -> ((Int, Int), (Int, Int)) {
         let lines = puzzleInput.parseIntoStringArray()
         var currentX = 0, currentY = 0
         var trackGrid: [[TrackType]] = []

@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Puzzle_2019_03: PuzzleBaseClass {
-    let originPoint = Point2D(x: 0, y: 0)
+public class Puzzle_2019_03: PuzzleBaseClass {
+    private let originPoint = Point2D(x: 0, y: 0)
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -19,15 +19,15 @@ class Puzzle_2019_03: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_03_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_03_Input.puzzleInput)
     }
 
-    func GetWireCoordinatesSet(str: String) -> Set<Point2D> {
+    private func GetWireCoordinatesSet(str: String) -> Set<Point2D> {
         var retval: Set<Point2D> = Set()
         var x = 0
         var y = 0
@@ -52,7 +52,7 @@ class Puzzle_2019_03: PuzzleBaseClass {
         return retval
     }
 
-    func GetWireCoordinatesDictionary(str: String) -> Dictionary<Point2D, Int> {
+    private func GetWireCoordinatesDictionary(str: String) -> Dictionary<Point2D, Int> {
         var retval: [Point2D: Int] = [:]
         var x = 0
         var y = 0
@@ -82,7 +82,7 @@ class Puzzle_2019_03: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         let wire1 = GetWireCoordinatesSet(str: arr[0])
         let wire2 = GetWireCoordinatesSet(str: arr[1])
@@ -100,7 +100,7 @@ class Puzzle_2019_03: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var retval = Int.max
         let wire1 = GetWireCoordinatesDictionary(str: arr[0])

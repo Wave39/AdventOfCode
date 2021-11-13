@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2020_11: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_11: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2020_11: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         var grid = getCharacterGrid(str: str)
         var changes = 1
         while changes > 0 {
@@ -56,7 +56,7 @@ class Puzzle_2020_11: PuzzleBaseClass {
         return getCharacterCount(grid: grid, character: "#")
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         var grid = getCharacterGrid(str: str)
         var changes = 1
         while changes > 0 {

@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Puzzle_2017_24: PuzzleBaseClass {
-    typealias Bridge = [Int]
-    typealias Components = [Component]
+public class Puzzle_2017_24: PuzzleBaseClass {
+    private typealias Bridge = [Int]
+    private typealias Components = [Component]
 
-    struct Component {
+    private struct Component {
         var leftPort: Int = 0
         var rightPort: Int = 0
 
@@ -24,21 +24,21 @@ class Puzzle_2017_24: PuzzleBaseClass {
         }
     }
 
-    var bridges: [Bridge] = []
+    private var bridges: [Bridge] = []
 
-    func solve() {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = PuzzleInput.final
         let components = parsePuzzleInput(str: puzzleInput)
         return solvePuzzle(components: components)
     }
 
-    func parsePuzzleInput(str: String) -> Components {
+    private func parsePuzzleInput(str: String) -> Components {
         var retval: [Component] = []
         for line in str.split(separator: "\n") {
             let port = line.split(separator: "/")
@@ -51,7 +51,7 @@ class Puzzle_2017_24: PuzzleBaseClass {
         return retval
     }
 
-    func solvePuzzle(components: Components) -> (Int, Int) {
+    private func solvePuzzle(components: Components) -> (Int, Int) {
         bridges = []
         let startingComponents = components.filter { $0.leftPort == 0 || $0.rightPort == 0 }
         for c in startingComponents {
@@ -80,7 +80,7 @@ class Puzzle_2017_24: PuzzleBaseClass {
         return (part1Strength, part2Strength)
     }
 
-    func buildBridge(oldBridge: Bridge, components: Components, component: Component) {
+    private func buildBridge(oldBridge: Bridge, components: Components, component: Component) {
         var newBridge = oldBridge
         let searchValue = newBridge.last ?? 0
         if component.leftPort == searchValue {

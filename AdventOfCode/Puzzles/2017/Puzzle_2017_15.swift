@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2017_15: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2017_15: PuzzleBaseClass {
+    public func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
 
@@ -17,7 +17,7 @@ class Puzzle_2017_15: PuzzleBaseClass {
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2017_15_Input.puzzleInput
 
         let puzzleInputMatrix = puzzleInput.parseIntoMatrix()
@@ -26,7 +26,7 @@ class Puzzle_2017_15: PuzzleBaseClass {
         return solvePart1(initialGenerators: initialGenerators)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2017_15_Input.puzzleInput
 
         let puzzleInputMatrix = puzzleInput.parseIntoMatrix()
@@ -35,23 +35,23 @@ class Puzzle_2017_15: PuzzleBaseClass {
         return solvePart2(initialGenerators: initialGenerators)
     }
 
-    func getNextGenerators(generators: (Int, Int)) -> (Int, Int) {
+    private func getNextGenerators(generators: (Int, Int)) -> (Int, Int) {
         let a = (generators.0 * 16_807) % 2_147_483_647
         let b = (generators.1 * 48_271) % 2_147_483_647
         return (a, b)
     }
 
-    func generatorsMatch(generatorA: Int, generatorB: Int) -> Bool {
+    private func generatorsMatch(generatorA: Int, generatorB: Int) -> Bool {
         let matchA = generatorA & 65_535
         let matchB = generatorB & 65_535
         return matchA == matchB
     }
 
-    func generatorsMatch(generators: (Int, Int)) -> Bool {
+    private func generatorsMatch(generators: (Int, Int)) -> Bool {
         generatorsMatch(generatorA: generators.0, generatorB: generators.1)
     }
 
-    func solvePart1(initialGenerators: (Int, Int)) -> Int {
+    private func solvePart1(initialGenerators: (Int, Int)) -> Int {
         let iterations = 40_000_000
         var matchCount = 0
         var generators = initialGenerators
@@ -66,7 +66,7 @@ class Puzzle_2017_15: PuzzleBaseClass {
         return matchCount
     }
 
-    func solvePart2(initialGenerators: (Int, Int)) -> Int {
+    private func solvePart2(initialGenerators: (Int, Int)) -> Int {
         let iterations = 5_000_000
         var generators = initialGenerators
         var aGenerators: [Int] = []

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2020_20: PuzzleBaseClass {
-    struct PhotoTile: Hashable {
+public class Puzzle_2020_20: PuzzleBaseClass {
+    private struct PhotoTile: Hashable {
         var tileNumber: Int
         var imageData = CharacterGrid()
         var edges: [String] = []
@@ -23,7 +23,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
         }
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -31,15 +31,15 @@ class Puzzle_2020_20: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray(omitBlankLines: false)
         var tileNumber = 0
         var tileString = ""
@@ -84,7 +84,7 @@ class Puzzle_2020_20: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         2_146
     }
 }

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2017_22: PuzzleBaseClass {
-    enum Direction: Int {
+public class Puzzle_2017_22: PuzzleBaseClass {
+    private enum Direction: Int {
         case UP = 0
         case RIGHT = 1
         case DOWN = 2
@@ -28,19 +28,19 @@ class Puzzle_2017_22: PuzzleBaseClass {
         }
     }
 
-    let gridSize = 20_000
-    let gridCenter = Point2D(x: 10_000, y: 10_000)
+    private let gridSize = 20_000
+    private let gridCenter = Point2D(x: 10_000, y: 10_000)
 
-    func translatePoint(point: Point2D) -> Point2D {
+    private func translatePoint(point: Point2D) -> Point2D {
         Point2D(x: (point.x + gridCenter.x), y: (point.y + gridCenter.y))
     }
 
-    func getCharacterAtVirtualCoordinates(grid: CharacterGrid, point: Point2D) -> Character {
+    private func getCharacterAtVirtualCoordinates(grid: CharacterGrid, point: Point2D) -> Character {
         let newPoint = Point2D(x: (point.x + gridCenter.x), y: (point.y + gridCenter.y))
         return getCharacterAtCharacterGridPoint(grid: grid, point: newPoint)
     }
 
-    func solve() {
+    public func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
 
@@ -48,17 +48,17 @@ class Puzzle_2017_22: PuzzleBaseClass {
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = PuzzleInput.final
         return solvePart1(str: puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = PuzzleInput.final
         return solvePart2(str: puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let startingGrid = getCharacterGrid(str: str, separator: "\n")
         let startingOffset = Int(startingGrid.count / 2)
 
@@ -103,7 +103,7 @@ class Puzzle_2017_22: PuzzleBaseClass {
         return infectionCount
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let startingGrid = getCharacterGrid(str: str, separator: "\n")
         let startingOffset = Int(startingGrid.count / 2)
 

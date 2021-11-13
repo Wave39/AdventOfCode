@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2017_02: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2017_02: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2017_02: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2017_02_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2017_02_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         var total = 0
         let matrix = str.parseIntoMatrix()
         for line in matrix {
@@ -48,7 +48,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
         return total
     }
 
-    func findEvenlyDivisibleIntegers(arr: [String]) -> (Int, Int) {
+    private func findEvenlyDivisibleIntegers(arr: [String]) -> (Int, Int) {
         for i in 0...(arr.count - 2) {
             for j in (i + 1)...(arr.count - 1) {
                 var e1 = arr[i].int
@@ -68,7 +68,7 @@ class Puzzle_2017_02: PuzzleBaseClass {
         return (0, 0)
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         var total = 0
         let matrix = str.parseIntoMatrix()
         for line in matrix {

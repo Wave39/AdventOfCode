@@ -8,28 +8,28 @@
 
 import XCTest
 
-class GCDTests: XCTestCase {
+public class GCDTests: XCTestCase {
 //    override func setUp() {
 //    }
 
 //    override func tearDown() {
 //    }
 
-    func test_gcd() {
+    public func test_gcd() {
         XCTAssertEqual(gcd(13, 13), 13)
         XCTAssertEqual(gcd(37, 600), 1)
         XCTAssertEqual(gcd(20, 100), 20)
         XCTAssertEqual(gcd(624_129, 2_061_517), 18_913)
     }
 
-    func test_gcdIterativeEuklid() {
+    public func test_gcdIterativeEuklid() {
         XCTAssertEqual(gcdIterativeEuklid(13, 13), 13)
         XCTAssertEqual(gcdIterativeEuklid(37, 600), 1)
         XCTAssertEqual(gcdIterativeEuklid(20, 100), 20)
         XCTAssertEqual(gcdIterativeEuklid(624_129, 2_061_517), 18_913)
     }
 
-    func test_gcdRecursiveEuklid() {
+    public func test_gcdRecursiveEuklid() {
         XCTAssertEqual(gcdRecursiveEuklid(13, 13), 13)
         XCTAssertEqual(gcdRecursiveEuklid(37, 600), 1)
         XCTAssertEqual(gcdRecursiveEuklid(20, 100), 20)
@@ -37,21 +37,21 @@ class GCDTests: XCTestCase {
         XCTAssertEqual(gcdRecursiveEuklid(10, 5), 5)
     }
 
-    func test_gcdBinaryRecursiveStein() {
+    public func test_gcdBinaryRecursiveStein() {
         XCTAssertEqual(gcdBinaryRecursiveStein(13, 13), 13)
         XCTAssertEqual(gcdBinaryRecursiveStein(37, 600), 1)
         XCTAssertEqual(gcdBinaryRecursiveStein(20, 100), 20)
         XCTAssertEqual(gcdBinaryRecursiveStein(624_129, 2_061_517), 18_913)
     }
 
-    func test_findEasySolution() {
+    public func test_findEasySolution() {
         XCTAssertEqual(findEasySolution(13, 13), 13)
         XCTAssertEqual(findEasySolution(5, 0), 5)
         XCTAssertEqual(findEasySolution(0, 6), 6)
         XCTAssertNil(findEasySolution(12, 13))
     }
 
-    func test_lcm() {
+    public func test_lcm() {
         var retval = 0
         do {
             retval = try lcm(286_332, 161_428)

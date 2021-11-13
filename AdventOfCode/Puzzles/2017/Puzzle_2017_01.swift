@@ -8,21 +8,21 @@
 
 import Foundation
 
-class Puzzle_2017_01: NSObject {
-    func solve() {
+public class Puzzle_2017_01: NSObject {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_01_Input.puzzleInput
         let part1 = solveString(str: puzzleInput, jumpAhead: 1)
         let part2 = solveString(str: puzzleInput, jumpAhead: (puzzleInput.count / 2))
         return (part1, part2)
     }
 
-    func solveString(str: String, jumpAhead: Int) -> Int {
+    private func solveString(str: String, jumpAhead: Int) -> Int {
         var total = 0
         for idx in 0..<str.count {
             let c1 = str.substring(from: idx, to: idx + 1)

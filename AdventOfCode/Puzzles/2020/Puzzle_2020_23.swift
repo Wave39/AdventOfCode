@@ -11,8 +11,8 @@
 
 import Foundation
 
-class Puzzle_2020_23: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_23: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -20,15 +20,15 @@ class Puzzle_2020_23: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> String {
+    public func solvePart1() -> String {
         solvePart1(str: Puzzle_Input.puzzleInput, moves: 100)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart1(str: String, moves: Int) -> String {
+    private func solvePart1(str: String, moves: Int) -> String {
         var cups = str.map { $0.int }
         for moveIndex in 0..<moves {
             let currentIndex = moveIndex % cups.count
@@ -73,7 +73,7 @@ class Puzzle_2020_23: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         func runMove(_ currentCup: Node) -> Node {
             var iterator: Node = currentCup.next ?? Node(value: 0, next: nil)
             var pickUp = [Node]()

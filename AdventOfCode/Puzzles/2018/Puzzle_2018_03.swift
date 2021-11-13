@@ -8,21 +8,21 @@
 
 import Foundation
 
-class Puzzle_2018_03: NSObject {
-    func solve() {
+public class Puzzle_2018_03: NSObject {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2018_03_Input.puzzleInput
         let claims = Claim.parse(str: puzzleInput)
 
         return solveBothParts(claims: claims)
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_03_Input.puzzleInput
         let claims = Claim.parse(str: puzzleInput)
 
@@ -30,7 +30,7 @@ class Puzzle_2018_03: NSObject {
         return part1
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_03_Input.puzzleInput
         let claims = Claim.parse(str: puzzleInput)
 
@@ -38,7 +38,7 @@ class Puzzle_2018_03: NSObject {
         return part2
     }
 
-    func solveBothParts(claims: [Claim]) -> (Int, Int) {
+    private func solveBothParts(claims: [Claim]) -> (Int, Int) {
         var part1 = 0
 
         var fabric: [[Int]] = []
@@ -88,7 +88,7 @@ class Puzzle_2018_03: NSObject {
     }
 }
 
-class Claim {
+private class Claim {
     var idNumber: Int = 0
     var leftEdge: Int = 0
     var topEdge: Int = 0

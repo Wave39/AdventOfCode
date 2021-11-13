@@ -12,31 +12,31 @@ extension Character {
     // For these color squares, visit this site and search for something like "fuchsia square":
     // https://emojipedia.org/
 
-    static var blackSquare: Character { "⬛️" }
-    static var redSquare: Character { "🟥" }
-    static var yellowSquare: Character { "🟨" }
-    static var blueSquare: Character { "🟦" }
-    static var whiteSquare: Character { "⬜️" }
-    static var greenSquare: Character { "🟩" }
-    static var orangeSquare: Character { "🟧" }
-    static var purpleSquare: Character { "🟪" }
+    public static var blackSquare: Character { "⬛️" }
+    public static var redSquare: Character { "🟥" }
+    public static var yellowSquare: Character { "🟨" }
+    public static var blueSquare: Character { "🟦" }
+    public static var whiteSquare: Character { "⬜️" }
+    public static var greenSquare: Character { "🟩" }
+    public static var orangeSquare: Character { "🟧" }
+    public static var purpleSquare: Character { "🟪" }
 
-    var asciiValue: UInt32? {
+    public var asciiValue: UInt32? {
         String(self).unicodeScalars.first { $0.isASCII }?.value
     }
 
-    var int: Int {
+    public var int: Int {
         guard let retval = Int(String(self)) else {
             return 0
         }
         return retval
     }
 
-    static func asciiChar(v: Int) -> Character {
+    public static func asciiChar(v: Int) -> Character {
         Character(UnicodeScalar(v) ?? Unicode.Scalar(0))
     }
 
-    static func asciiValue(c: Character) -> Int {
+    public static func asciiValue(c: Character) -> Int {
         let s = String(c).unicodeScalars
         return Int(s[s.startIndex].value)
     }

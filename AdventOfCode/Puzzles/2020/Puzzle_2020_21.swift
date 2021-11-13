@@ -10,18 +10,18 @@
 
 import Foundation
 
-class Puzzle_2020_21: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_21: PuzzleBaseClass {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, String) {
+    public func solveBothParts() -> (Int, String) {
         solveBothParts(str: Puzzle_Input.puzzleInput)
     }
 
-    func solveBothParts(str: String) -> (Int, String) {
+    private func solveBothParts(str: String) -> (Int, String) {
         let lines = str.parseIntoStringArray()
         var foodArray = [(Set<String>, Set<String>)]()
         var allIngredients = Set<String>()

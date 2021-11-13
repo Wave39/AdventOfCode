@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Puzzle_2020_24: PuzzleBaseClass {
-    let offsetDict: Dictionary<String, (Int, Int)> = [ "w": (-2, 0), "e": (2, 0), "nw": (-1, 1), "sw": (-1, -1), "ne": (1, 1), "se": (1, -1) ]
+public class Puzzle_2020_24: PuzzleBaseClass {
+    private let offsetDict: Dictionary<String, (Int, Int)> = [ "w": (-2, 0), "e": (2, 0), "nw": (-1, 1), "sw": (-1, -1), "ne": (1, 1), "se": (1, -1) ]
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -19,15 +19,15 @@ class Puzzle_2020_24: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func getBlackTileCount(_ tileDict: Dictionary<Point2D, Int>) -> Int {
+    private func getBlackTileCount(_ tileDict: Dictionary<Point2D, Int>) -> Int {
         var retval = 0
         for (_, v) in tileDict {
             if v == 1 {
@@ -38,7 +38,7 @@ class Puzzle_2020_24: PuzzleBaseClass {
         return retval
    }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var tileDict = Dictionary<Point2D, Int>()
 
@@ -66,7 +66,7 @@ class Puzzle_2020_24: PuzzleBaseClass {
         return getBlackTileCount(tileDict)
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var tileDict = Dictionary<Point2D, Int>()
         for y in -200...200 {

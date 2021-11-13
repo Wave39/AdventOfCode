@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_21: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2019_21: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2019_21: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_21_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_21_Input.puzzleInput)
     }
 
-    func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
+    private func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
         enum ParameterMode {
             case position
             case immediate
@@ -166,24 +166,24 @@ class Puzzle_2019_21: PuzzleBaseClass {
         return (outputArray, true)
     }
 
-    func getAsciiArray(_ str: String) -> [Int] {
+    private func getAsciiArray(_ str: String) -> [Int] {
         Array(str + "\n").map { Int(String($0).asciiValue) }
     }
 
-    func getStringFromAsciiArray(_ arr: [Int]) -> String {
+    private func getStringFromAsciiArray(_ arr: [Int]) -> String {
         let arr2 = arr.filter { $0 < 256 }
         return String(arr2.map { Character(UnicodeScalar($0) ?? Unicode.Scalar(0)) })
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         solveWithCommands(str: str, commands: Puzzle_2019_21_Input.part1Commands.parseIntoStringArray())
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         solveWithCommands(str: str, commands: Puzzle_2019_21_Input.part2Commands.parseIntoStringArray())
     }
 
-    func solveWithCommands(str: String, commands: [String]) -> Int {
+    private func solveWithCommands(str: String, commands: [String]) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0

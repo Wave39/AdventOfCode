@@ -8,25 +8,25 @@
 
 import Foundation
 
-class Puzzle_2018_06: NSObject {
-    func solve() {
+public class Puzzle_2018_06: NSObject {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_06_Input.puzzleInput
         return solvePart1(str: puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_06_Input.puzzleInput
         return solvePart2(str: puzzleInput)
     }
 
-    func parseIntoNormalizedCoordinates(str: String) -> [Point2D] {
+    private func parseIntoNormalizedCoordinates(str: String) -> [Point2D] {
         var retval: [Point2D] = []
         var minX = Int.max
         var minY = Int.max
@@ -53,7 +53,7 @@ class Puzzle_2018_06: NSObject {
         return retval
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let points = parseIntoNormalizedCoordinates(str: str)
         let maxBounds = Point2D.maximumBounds(arr: points)
         var gridLocations: [[GridLocation]] = []
@@ -171,7 +171,7 @@ class Puzzle_2018_06: NSObject {
         return largestArea
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         var retval = 0
         let points = parseIntoNormalizedCoordinates(str: str)
         let maxBounds = Point2D.maximumBounds(arr: points)

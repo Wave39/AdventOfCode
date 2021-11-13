@@ -8,25 +8,25 @@
 
 import Foundation
 
-class Puzzle_2018_07: NSObject {
-    func solve() {
+public class Puzzle_2018_07: NSObject {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> String {
+    public func solvePart1() -> String {
         let puzzleInput = (Puzzle_2018_07_Input.puzzleInput, 5, 60)
         return solvePart1(str: puzzleInput.0)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = (Puzzle_2018_07_Input.puzzleInput, 5, 60)
         return solvePart2(str: puzzleInput.0, numberOfElves: puzzleInput.1, additionalSecondsPerStep: puzzleInput.2)
     }
 
-    func parseInstructionsIntoDictionary(str: String) -> [String: String] {
+    private func parseInstructionsIntoDictionary(str: String) -> [String: String] {
         var retval: [String: String] = [:]
 
         let arr = str.parseIntoStringArray()
@@ -48,7 +48,7 @@ class Puzzle_2018_07: NSObject {
         return retval
     }
 
-    func findFirstAvailableStep(dict: [String: String]) -> String {
+    private func findFirstAvailableStep(dict: [String: String]) -> String {
         for k in dict.keys.sorted() {
             if let value = dict[k] {
                 if value.isEmpty {
@@ -60,7 +60,7 @@ class Puzzle_2018_07: NSObject {
         return ""
     }
 
-    func removeStepFromDictionary(dict: [String: String], stepToRemove: String) -> [String: String] {
+    private func removeStepFromDictionary(dict: [String: String], stepToRemove: String) -> [String: String] {
         var retval: [String: String] = [:]
         for (k, v) in dict {
             if k != stepToRemove {
@@ -71,7 +71,7 @@ class Puzzle_2018_07: NSObject {
         return retval
     }
 
-    func solvePart1(str: String) -> String {
+    private func solvePart1(str: String) -> String {
         var dict = parseInstructionsIntoDictionary(str: str)
         var retval = ""
         repeat {
@@ -83,12 +83,12 @@ class Puzzle_2018_07: NSObject {
         return retval
     }
 
-    func completionTimeForTask(str: String, additionalSecondsPerStep: Int) -> Int {
+    private func completionTimeForTask(str: String, additionalSecondsPerStep: Int) -> Int {
         let asciiTime = str.asciiValue - "A".asciiValue + 1
         return Int(asciiTime) + additionalSecondsPerStep
     }
 
-    func findAvailableSteps(dict: [String: String]) -> [String] {
+    private func findAvailableSteps(dict: [String: String]) -> [String] {
         var retval: [String] = []
         for k in dict.keys.sorted() {
             if let value = dict[k] {
@@ -101,7 +101,7 @@ class Puzzle_2018_07: NSObject {
         return retval
     }
 
-    func findAvailableElf(elves: Array<(String, Int)>) -> Int {
+    private func findAvailableElf(elves: Array<(String, Int)>) -> Int {
         for idx in 0..<elves.count {
             if elves[idx].0.isEmpty {
                 return idx
@@ -111,7 +111,7 @@ class Puzzle_2018_07: NSObject {
         return -1
     }
 
-    func isStepInProgress(elves: Array<(String, Int)>, step: String) -> Bool {
+    private func isStepInProgress(elves: Array<(String, Int)>, step: String) -> Bool {
         for elf in elves {
             if elf.0 == step {
                 return true
@@ -121,7 +121,7 @@ class Puzzle_2018_07: NSObject {
         return false
     }
 
-    func solvePart2(str: String, numberOfElves: Int, additionalSecondsPerStep: Int) -> Int {
+    private func solvePart2(str: String, numberOfElves: Int, additionalSecondsPerStep: Int) -> Int {
         var second = 0
         var dict = parseInstructionsIntoDictionary(str: str)
         var elves: Array<(String, Int)> = []

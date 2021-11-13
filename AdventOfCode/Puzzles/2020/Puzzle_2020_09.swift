@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2020_09: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_09: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2020_09: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput, preamble: Puzzle_Input.preamble)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput, preamble: Puzzle_Input.preamble)
     }
 
-    func checkArrayForSum(arr: [Int], sum: Int) -> Bool {
+    private func checkArrayForSum(arr: [Int], sum: Int) -> Bool {
         for i in 0..<arr.count - 1 {
             for j in (i + 1)..<arr.count {
                 if arr[i] + arr[j] == sum {
@@ -37,7 +37,7 @@ class Puzzle_2020_09: PuzzleBaseClass {
         return false
     }
 
-    func solvePart1(str: String, preamble: Int) -> Int {
+    private func solvePart1(str: String, preamble: Int) -> Int {
         var arr = str.parseIntoIntArray()
         var numberArray: [Int] = []
         for _ in 0..<preamble {
@@ -54,7 +54,7 @@ class Puzzle_2020_09: PuzzleBaseClass {
         return arr.first ?? 0
     }
 
-    func solvePart2(str: String, preamble: Int) -> Int {
+    private func solvePart2(str: String, preamble: Int) -> Int {
         let searchValue = solvePart1(str: str, preamble: preamble)
         let arr = str.parseIntoIntArray()
         var minValue: Int

@@ -8,25 +8,25 @@
 
 import Foundation
 
-class Puzzle_2018_05: NSObject {
-    func solve() {
+public class Puzzle_2018_05: NSObject {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_05_Input.puzzleInput
         return solvePart1(polymer: puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_05_Input.puzzleInput
         return solvePart2(polymer: puzzleInput)
     }
 
-    func decomposePolymer(polymer: String) -> String {
+    private func decomposePolymer(polymer: String) -> String {
         var str = polymer
         var removalFound: Bool
         var furthestAdvance = 0
@@ -54,7 +54,7 @@ class Puzzle_2018_05: NSObject {
         return str
     }
 
-    func decomposePolymerFaster(polymer: String) -> String {
+    private func decomposePolymerFaster(polymer: String) -> String {
         // this method is much faster but uses up more memory
         var str = polymer
         var lengthBeforeIteration: Int
@@ -70,11 +70,11 @@ class Puzzle_2018_05: NSObject {
         return str
     }
 
-    func solvePart1(polymer: String) -> Int {
+    private func solvePart1(polymer: String) -> Int {
         decomposePolymerFaster(polymer: polymer).count
     }
 
-    func solvePart2(polymer: String) -> Int {
+    private func solvePart2(polymer: String) -> Int {
         var retval = Int.max
         for c in "abcdefghijklmnopqrstuvwxyz" {
             let c1 = String(c)

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_22: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2019_22: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,16 +17,16 @@ class Puzzle_2019_22: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         // return solvePart1_bruteforce(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 10007, cardIndex: 2019)
         return solvePart1(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 10_007, cardIndex: 2_019)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_22_Input.puzzleInput, numberOfCards: 119_315_717_514_047, cardIndex: 2_020)
     }
 
-    func solvePart1(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
+    private func solvePart1(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
         let arr = str.parseIntoStringArray()
         var cardIndex = cardIndex
 
@@ -64,7 +64,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
         return cardIndex
     }
 
-    func solvePart1_bruteforce(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
+    private func solvePart1_bruteforce(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
         let arr = str.parseIntoStringArray()
 
         var deck: [Int] = []
@@ -107,7 +107,7 @@ class Puzzle_2019_22: PuzzleBaseClass {
     // https://github.com/kbmacneal/adv_of_code_2019
     // the math is way too advanced for me...
 
-    func solvePart2(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
+    private func solvePart2(str: String, numberOfCards: Int, cardIndex: Int) -> Int {
         3_920_265_924_568
     }
 }

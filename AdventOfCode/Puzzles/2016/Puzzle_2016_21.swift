@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2016_21: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2016_21: PuzzleBaseClass {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (String, String) {
+    public func solveBothParts() -> (String, String) {
         let passwordToScramble = "abcdefgh"
 
         let puzzleInputLineArray = PuzzleInput.final.parseIntoStringArray()

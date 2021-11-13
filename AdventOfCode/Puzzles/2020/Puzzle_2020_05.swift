@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2020_05: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_05: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2020_05: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func getSeatLocation(str: String) -> (Int, Int, Int) {
+    private func getSeatLocation(str: String) -> (Int, Int, Int) {
         let row = str.substring(from: 0, to: 7).replacingOccurrences(of: "B", with: "1").replacingOccurrences(of: "F", with: "0")
         let rowInt = Int(row, radix: 2) ?? 0
         let col = str.substring(from: 7).replacingOccurrences(of: "R", with: "1").replacingOccurrences(of: "L", with: "0")
@@ -34,12 +34,12 @@ class Puzzle_2020_05: PuzzleBaseClass {
         return (rowInt, colInt, seatID)
     }
 
-    func getSeatID(str: String) -> Int {
+    private func getSeatID(str: String) -> Int {
         let (_, _, seatID) = getSeatLocation(str: str)
         return seatID
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var maxSeatID = 0
         for line in arr {
@@ -52,7 +52,7 @@ class Puzzle_2020_05: PuzzleBaseClass {
         return maxSeatID
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         let maxSeatId = solvePart1()
         var seatArr: [Int] = []

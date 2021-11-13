@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2018_23: NSObject {
-    class Nanobot {
+public class Puzzle_2018_23: NSObject {
+    private class Nanobot {
         var position = Point3D()
         var range: Int = 0
 
@@ -25,7 +25,7 @@ class Puzzle_2018_23: NSObject {
         }
     }
 
-    func parseNanobots(str: String) -> [Nanobot] {
+    private func parseNanobots(str: String) -> [Nanobot] {
         var retval: [Nanobot] = []
 
         for line in str.parseIntoStringArray() {
@@ -41,26 +41,26 @@ class Puzzle_2018_23: NSObject {
         return retval
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_23_Input.puzzleInput
         let nanobots = parseNanobots(str: puzzleInput)
         return solvePart1(bots: nanobots)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_23_Input.puzzleInput
         let nanobots = parseNanobots(str: puzzleInput)
         return solvePart2(bots: nanobots)
     }
 
-    func solvePart1(bots: [Nanobot]) -> Int {
+    private func solvePart1(bots: [Nanobot]) -> Int {
         var botsInRange = 0
         if let maxRange = bots.map({ $0.range }).max() {
             if let maxBot = bots.first(where: { $0.range == maxRange }) {
@@ -75,7 +75,7 @@ class Puzzle_2018_23: NSObject {
         return botsInRange
     }
 
-    func solvePart2(bots: [Nanobot]) -> Int {
+    private func solvePart2(bots: [Nanobot]) -> Int {
         // Yet moar shame, I once again borrowed someone else's solution
         return 97_816_347
     }

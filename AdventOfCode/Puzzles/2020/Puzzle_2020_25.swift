@@ -8,17 +8,17 @@
 
 import Foundation
 
-class Puzzle_2020_25: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_25: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func calculateTransform(key: Int, loopSize: Int) -> Int {
+    private func calculateTransform(key: Int, loopSize: Int) -> Int {
         var retval = 1
         for _ in 1...loopSize {
             retval = (retval * key) % 20_201_227
@@ -27,7 +27,7 @@ class Puzzle_2020_25: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
 
         let cardPublicKey = lines[0].int

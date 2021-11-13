@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2017_17: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2017_17: PuzzleBaseClass {
+    public func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
 
@@ -17,15 +17,15 @@ class Puzzle_2017_17: PuzzleBaseClass {
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(puzzleInput: Puzzle_2017_17_Input.puzzleInput_part1)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(puzzleInput: Puzzle_2017_17_Input.puzzleInput_part2)
     }
 
-    func createBuffer(step: Int, maxValue: Int) -> [Int] {
+    private func createBuffer(step: Int, maxValue: Int) -> [Int] {
         var currentIndex = 0
         var buffer: [Int] = [ 0 ]
         for idx in 1...maxValue {
@@ -36,7 +36,7 @@ class Puzzle_2017_17: PuzzleBaseClass {
         return buffer
     }
 
-    func solvePart1(puzzleInput: (Int, Int, Int)) -> Int {
+    private func solvePart1(puzzleInput: (Int, Int, Int)) -> Int {
         let step = puzzleInput.0
         let maxValue = puzzleInput.1
         let searchValue = puzzleInput.2
@@ -48,7 +48,7 @@ class Puzzle_2017_17: PuzzleBaseClass {
         return buffer[idx + 1]
     }
 
-    func solvePart2(puzzleInput: (Int, Int, Int)) -> Int {
+    private func solvePart2(puzzleInput: (Int, Int, Int)) -> Int {
         let step = puzzleInput.0
         let maxValue = puzzleInput.1
         var retval = 0

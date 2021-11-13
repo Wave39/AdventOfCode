@@ -8,25 +8,25 @@
 
 import Foundation
 
-class Puzzle_2018_12: NSObject {
-    func solve() {
+public class Puzzle_2018_12: NSObject {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_12_Input.puzzleInput
         return solvePart1(puzzleInput: puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_12_Input.puzzleInput
         return solvePart2(puzzleInput: puzzleInput)
     }
 
-    func getPlantArray(inputString: String, arrayExtension: Int) -> [Bool] {
+    private func getPlantArray(inputString: String, arrayExtension: Int) -> [Bool] {
         var plantArray = Array(repeating: false, count: inputString.count + arrayExtension * 2)
         var idx = 0
         for c in inputString {
@@ -40,7 +40,7 @@ class Puzzle_2018_12: NSObject {
         return plantArray
     }
 
-    func getPlantGrowthSet(entries: String) -> Set<Int> {
+    private func getPlantGrowthSet(entries: String) -> Set<Int> {
         var plantGrowthSet: Set<Int> = Set()
         let arr = entries.parseIntoStringArray()
         for line in arr {
@@ -52,7 +52,7 @@ class Puzzle_2018_12: NSObject {
         return plantGrowthSet
     }
 
-    func arrayToString(arr: [Bool]) -> String {
+    private func arrayToString(arr: [Bool]) -> String {
         var retval = ""
         for b in arr {
             retval += (b ? "#" : ".")
@@ -61,7 +61,7 @@ class Puzzle_2018_12: NSObject {
         return retval
     }
 
-    func solvePart1(puzzleInput: (String, String)) -> Int {
+    private func solvePart1(puzzleInput: (String, String)) -> Int {
         let arrayExtension = 150
         var plantArray = getPlantArray(inputString: puzzleInput.0, arrayExtension: arrayExtension)
         let plantGrowthSet = getPlantGrowthSet(entries: puzzleInput.1)
@@ -88,7 +88,7 @@ class Puzzle_2018_12: NSObject {
         return retval
     }
 
-    func solvePart2(puzzleInput: (String, String)) -> Int {
+    private func solvePart2(puzzleInput: (String, String)) -> Int {
         // 50 billion iterations are too many to run efficiently, so I started to look for patterns or repeats
         // I noticed that at generation 100, the pattern of plants stayed at ###.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#
         // it just moved to the right by one pot number

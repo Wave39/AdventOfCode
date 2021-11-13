@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2018_02: NSObject {
-    func solve() {
+public class Puzzle_2018_02: NSObject {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,19 +17,19 @@ class Puzzle_2018_02: NSObject {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_02_Input.puzzleInput
         let array = puzzleInput.parseIntoStringArray()
         return solvePart1(arr: array)
     }
 
-    func solvePart2() -> String {
+    public func solvePart2() -> String {
         let puzzleInput = Puzzle_2018_02_Input.puzzleInput
         let array = puzzleInput.parseIntoStringArray()
         return solvePart2(arr: array)
     }
 
-    func solvePart1(arr: [String]) -> Int {
+    private func solvePart1(arr: [String]) -> Int {
         var counterOfTwos = 0
         var counterOfThrees = 0
         for s in arr {
@@ -45,7 +45,7 @@ class Puzzle_2018_02: NSObject {
         return counterOfTwos * counterOfThrees
     }
 
-    func solvePart2(arr: [String]) -> String {
+    private func solvePart2(arr: [String]) -> String {
         var minDifference = Int.max
         var minI = 0
         var minJ = 0

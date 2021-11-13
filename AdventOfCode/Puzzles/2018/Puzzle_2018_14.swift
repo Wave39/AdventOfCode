@@ -8,19 +8,19 @@
 
 import Foundation
 
-class Puzzle_2018_14: NSObject {
-    func solve() {
+public class Puzzle_2018_14: NSObject {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (String, Int) {
+    public func solveBothParts() -> (String, Int) {
         let puzzleInput = Puzzle_2018_14_Input.puzzleInput
         return solveBothParts(puzzleInput: puzzleInput)
     }
 
-    func solveBothParts(puzzleInput: Int) -> (String, Int) {
+    private func solveBothParts(puzzleInput: Int) -> (String, Int) {
         var scoreboard = [3, 7]
         var elf1 = 0
         var elf2 = 1

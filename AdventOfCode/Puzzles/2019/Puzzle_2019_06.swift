@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_06: PuzzleBaseClass {
-    class OrbitalRelationship: CustomStringConvertible {
+public class Puzzle_2019_06: PuzzleBaseClass {
+    private class OrbitalRelationship: CustomStringConvertible {
         var center: String
         var orbiter: String
 
@@ -23,7 +23,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
         }
     }
 
-    class PlanetaryInfo: CustomStringConvertible {
+    private class PlanetaryInfo: CustomStringConvertible {
         var name: String
         var stepCount: Int
 
@@ -37,7 +37,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
         }
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -45,15 +45,15 @@ class Puzzle_2019_06: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_06_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_06_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var orbitalRelationships: [OrbitalRelationship] = []
         for line in arr {
@@ -79,7 +79,7 @@ class Puzzle_2019_06: PuzzleBaseClass {
         return orbitCount
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var orbitalRelationships: [OrbitalRelationship] = []
         for line in lines {

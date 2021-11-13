@@ -8,15 +8,15 @@
 
 import Foundation
 
-class Puzzle_2020_08: PuzzleBaseClass {
-    typealias Program = [Instruction]
+public class Puzzle_2020_08: PuzzleBaseClass {
+    private typealias Program = [Instruction]
 
-    struct Instruction {
+    private struct Instruction {
         var opcode: InstructionType
         var offset: Int
     }
 
-    enum InstructionType {
+    private enum InstructionType {
         case NOP
         case ACC
         case JMP
@@ -35,7 +35,7 @@ class Puzzle_2020_08: PuzzleBaseClass {
         }
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -43,15 +43,15 @@ class Puzzle_2020_08: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func parseProgram(str: String) -> Program {
+    private func parseProgram(str: String) -> Program {
         var program = Program()
         let lines = str.parseIntoStringArray()
         for line in lines {
@@ -63,7 +63,7 @@ class Puzzle_2020_08: PuzzleBaseClass {
         return program
     }
 
-    func runProgram(program: Program) -> (Bool, Int) {
+    private func runProgram(program: Program) -> (Bool, Int) {
         var executionSet: Set<Int> = Set()
         var programCounter = 0
         var accumulator = 0
@@ -97,13 +97,13 @@ class Puzzle_2020_08: PuzzleBaseClass {
         return (programDidFinish, accumulator)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let program = parseProgram(str: str)
         let (_, accumulator) = runProgram(program: program)
         return accumulator
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let program = parseProgram(str: str)
         for idx in 0..<program.count {
             var programCopy = program

@@ -9,7 +9,7 @@
 import Foundation
 
 extension FixedWidthInteger where Self: UnsignedInteger {
-    var bytes: [UInt8] {
+    public var bytes: [UInt8] {
         var _endian = littleEndian
         let bytePtr = withUnsafePointer(to: &_endian) { ptr in
             ptr.withMemoryRebound(to: UInt8.self, capacity: MemoryLayout<Self>.size) { start in

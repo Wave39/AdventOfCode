@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Puzzle_2018_16: NSObject {
-    typealias Registers = [Int]
-    typealias Command = [Int]
+public class Puzzle_2018_16: NSObject {
+    private typealias Registers = [Int]
+    private typealias Command = [Int]
 
-    class Sample: CustomStringConvertible {
+    private class Sample: CustomStringConvertible {
         var beforeRegisters = Registers()
         var command = Command()
         var afterRegisters = Registers()
@@ -21,13 +21,13 @@ class Puzzle_2018_16: NSObject {
         }
     }
 
-    func solve() {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2018_16_Input.puzzleInput
 
         var samples: [Sample] = []
@@ -61,7 +61,7 @@ class Puzzle_2018_16: NSObject {
         return (part1, part2)
     }
 
-    func solvePart1(samples: [Sample]) -> Int {
+    private func solvePart1(samples: [Sample]) -> Int {
         let opcodes = [ "addr", "addi", "mulr", "muli", "banr", "bani", "borr", "bori", "setr", "seti", "gtir", "gtri", "gtrr", "eqir", "eqri", "eqrr" ]
 
         var retval = 0
@@ -82,7 +82,7 @@ class Puzzle_2018_16: NSObject {
         return retval
     }
 
-    func solvePart2(originalSamples: [Sample], testProgram: [Command]) -> Int {
+    private func solvePart2(originalSamples: [Sample], testProgram: [Command]) -> Int {
         var newSamples = originalSamples
         var opcodes = [ "addr", "addi", "mulr", "muli", "banr", "bani", "borr", "bori", "setr", "seti", "gtir", "gtri", "gtrr", "eqir", "eqri", "eqrr" ]
         var mappingDict: Dictionary<Int, String> = [:]
@@ -120,7 +120,7 @@ class Puzzle_2018_16: NSObject {
         return registers[0]
     }
 
-    func runCommandString(command: Command, registers: Registers, commandString: String) -> Registers {
+    private func runCommandString(command: Command, registers: Registers, commandString: String) -> Registers {
         var newRegisters = registers
         let a = command[1]
         let b = command[2]

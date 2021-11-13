@@ -123,14 +123,14 @@ private class GameState {
     }
 }
 
-class Puzzle_2015_22: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2015_22: PuzzleBaseClass {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let noSpell = Spell(type: .None, manaCost: 0, damage: 0, healing: 0, effect: nil, effectResult: nil)
         let magicMissileSpell = Spell(type: .MagicMissile, manaCost: 53, damage: 4, healing: 0, effect: nil, effectResult: nil)
         let drainSpell = Spell(type: .Drain, manaCost: 73, damage: 2, healing: 2, effect: nil, effectResult: nil)

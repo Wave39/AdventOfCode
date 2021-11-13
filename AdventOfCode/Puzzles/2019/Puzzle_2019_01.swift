@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Puzzle_2019_01: PuzzleBaseClass {
-    func CalculateFuel(mass: Int) -> Int {
+public class Puzzle_2019_01: PuzzleBaseClass {
+    private func CalculateFuel(mass: Int) -> Int {
         Int(floor(Double(mass) / 3.0) - 2)
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -21,15 +21,15 @@ class Puzzle_2019_01: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_01_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_01_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let arr = str.parseIntoIntArray()
 
         var retval = 0
@@ -40,7 +40,7 @@ class Puzzle_2019_01: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let arr = str.parseIntoIntArray()
 
         var retval = 0

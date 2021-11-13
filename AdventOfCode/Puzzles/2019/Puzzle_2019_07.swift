@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_07: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2019_07: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2019_07: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_07_Input.puzzleInput, inputSignal: 0)
     }
 
-    func ProcessProgram(program: [Int], inputArray: [Int]) -> Int {
+    private func ProcessProgram(program: [Int], inputArray: [Int]) -> Int {
         var inputArr = inputArray
         var arr = program
 
@@ -82,7 +82,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
         return retval
     }
 
-    func ProcessProgramPart2(program: inout [Int], inputArray: inout [Int], programCounter: inout Int) -> (Int, Bool) {
+    private func ProcessProgramPart2(program: inout [Int], inputArray: inout [Int], programCounter: inout Int) -> (Int, Bool) {
         func GetValue(_ immediate: Bool, _ value: Int) -> Int {
             (immediate ? value : program[value])
         }
@@ -136,7 +136,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
         return (retval, true)
     }
 
-    func solvePart1(str: String, inputSignal: Int) -> Int {
+    private func solvePart1(str: String, inputSignal: Int) -> Int {
         let arr = str.parseIntoIntArray(separator: ",")
         let phaseCombinations = [0, 1, 2, 3, 4].generatePermutations()
         var largestOutput = 0
@@ -154,7 +154,7 @@ class Puzzle_2019_07: PuzzleBaseClass {
         return largestOutput
     }
 
-    func solvePart2(str: String, inputSignal: Int) -> Int {
+    private func solvePart2(str: String, inputSignal: Int) -> Int {
         let arr = str.parseIntoIntArray(separator: ",")
         let phaseCombinations = [9, 8, 7, 6, 5].generatePermutations()
         var largestOutput = 0

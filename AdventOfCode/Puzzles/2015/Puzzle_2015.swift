@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2015 {
-    func solve(puzzleNumber: Int) {
+public class Puzzle_2015 {
+    public func solve(puzzleNumber: Int) {
         if puzzleNumber == 1 {
             Puzzle_2015_01().solve()
         } else if puzzleNumber == 2 {
@@ -68,8 +68,8 @@ class Puzzle_2015 {
 
 // template for new puzzle classes
 
-class Puzzle_2015_XX: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2015_XX: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -77,20 +77,20 @@ class Puzzle_2015_XX: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: PuzzleInput.final)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: PuzzleInput.final)
     }
 
-    func solvePart1(str: String) -> Int {
+    public func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         return arr.count
     }
 
-    func solvePart2(str: String) -> Int {
+    public func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         return arr.count
     }

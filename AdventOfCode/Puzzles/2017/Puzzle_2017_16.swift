@@ -8,15 +8,15 @@
 
 import Foundation
 
-class Puzzle_2017_16: PuzzleBaseClass {
-    enum CommandType {
+public class Puzzle_2017_16: PuzzleBaseClass {
+    private enum CommandType {
         case Spin
         case Exchange
         case Partner
         case Unknown
     }
 
-    struct DanceMove {
+    private struct DanceMove {
         var command: CommandType = .Unknown
         var spinCount: Int = 0
         var exchangeFrom: Int = 0
@@ -25,7 +25,7 @@ class Puzzle_2017_16: PuzzleBaseClass {
         var partnerTo: Character = " "
     }
 
-    func solve() {
+    public func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
 
@@ -33,21 +33,21 @@ class Puzzle_2017_16: PuzzleBaseClass {
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solvePart1() -> String {
+    public func solvePart1() -> String {
         solvePuzzle(puzzleInput: Puzzle_2017_16_Input.puzzleInput, iterations: 1)
     }
 
-    func solvePart2() -> String {
+    public func solvePart2() -> String {
         solvePuzzle(puzzleInput: Puzzle_2017_16_Input.puzzleInput, iterations: 1_000_000_000)
     }
 
-    func swapCharacters(arr: inout [Character], from: Int, to: Int) {
+    private func swapCharacters(arr: inout [Character], from: Int, to: Int) {
         let t = arr[from]
         arr[from] = arr[to]
         arr[to] = t
     }
 
-    func solvePuzzle(puzzleInput: (Int, String), iterations: Int) -> String {
+    private func solvePuzzle(puzzleInput: (Int, String), iterations: Int) -> String {
         let numberOfDancers = puzzleInput.0
         let arr = puzzleInput.1.split(separator: ",")
         var danceMoves: [DanceMove] = []

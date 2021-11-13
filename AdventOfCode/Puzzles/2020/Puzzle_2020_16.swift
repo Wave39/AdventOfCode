@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2020_16: PuzzleBaseClass {
-    struct TicketRule: Hashable {
+public class Puzzle_2020_16: PuzzleBaseClass {
+    private struct TicketRule: Hashable {
         var ruleName: String
         var limit1: Int
         var limit2: Int
@@ -29,7 +29,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
         }
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -37,15 +37,15 @@ class Puzzle_2020_16: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var yourTicketMode = false
         var nearbyTicketsMode = false
@@ -86,7 +86,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
         return errorRate
     }
 
-    func findSoloSet(setArray: [Set<Int>]) -> Int {
+    private func findSoloSet(setArray: [Set<Int>]) -> Int {
         for idx in 0..<setArray.count {
             if setArray[idx].count == 1 {
                 return idx
@@ -96,7 +96,7 @@ class Puzzle_2020_16: PuzzleBaseClass {
         return -1
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var yourTicketMode = false
         var nearbyTicketsMode = false

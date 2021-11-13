@@ -8,20 +8,20 @@
 
 import Foundation
 
-struct Rect2D: Hashable {
-    var x1: Int = 0
-    var y1: Int = 0
-    var x2: Int = 0
-    var y2: Int = 0
-    var description: String {
+public struct Rect2D: Hashable {
+    public var x1: Int = 0
+    public var y1: Int = 0
+    public var x2: Int = 0
+    public var y2: Int = 0
+    public var description: String {
         "(\(x1),\(y1)) -> (\(x2),\(y2))"
     }
 
-    static func == (lhs: Rect2D, rhs: Rect2D) -> Bool {
+    public static func == (lhs: Rect2D, rhs: Rect2D) -> Bool {
         lhs.x1 == rhs.x1 && lhs.y1 == rhs.y1 && lhs.x2 == rhs.x2 && lhs.y2 == rhs.y2
     }
 
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(x1)
         hasher.combine(y1)
         hasher.combine(x2)

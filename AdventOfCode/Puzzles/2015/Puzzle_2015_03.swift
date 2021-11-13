@@ -8,22 +8,22 @@
 
 import Foundation
 
-class Puzzle_2015_03: PuzzleBaseClass {
-    func PositionString(x: Int, y: Int) -> String {
+public class Puzzle_2015_03: PuzzleBaseClass {
+    private func PositionString(x: Int, y: Int) -> String {
         "\(x) \(y)"
     }
 
-    func solve() {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         (solvePart1(), solvePart2())
     }
 
-    func solvePart1() -> Int {
+    private func solvePart1() -> Int {
         var presentDictionary = [PositionString(x: 0, y: 0): 1]
         var santaX = 0, santaY = 0
         for c in PuzzleInput.final {
@@ -47,7 +47,7 @@ class Puzzle_2015_03: PuzzleBaseClass {
         return presentDictionary.count
     }
 
-    func solvePart2() -> Int {
+    private func solvePart2() -> Int {
         var presentDictionary = [PositionString(x: 0, y: 0): 1]
         var santaX = 0, santaY = 0
         var roboSantaX = 0, roboSantaY = 0

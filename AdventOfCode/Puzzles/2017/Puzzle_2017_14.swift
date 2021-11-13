@@ -8,21 +8,21 @@
 
 import Foundation
 
-class Puzzle_2017_14: PuzzleBaseClass {
-    var elementArray: [Int] = []
+public class Puzzle_2017_14: PuzzleBaseClass {
+    private var elementArray: [Int] = []
 
-    func solve() {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_14_Input.puzzleInput
         return solvePuzzle(str: puzzleInput)
     }
 
-    func reverseElementArray(pos: Int, len: Int) {
+    private func reverseElementArray(pos: Int, len: Int) {
         let halfLen = Int(len / 2)
         for idx in 0..<halfLen {
             let idx1 = (pos + idx) % elementArray.count
@@ -33,14 +33,14 @@ class Puzzle_2017_14: PuzzleBaseClass {
         }
     }
 
-    func setUpElementArray(ctr: Int) {
+    private func setUpElementArray(ctr: Int) {
         elementArray = []
         for idx in 0..<ctr {
             elementArray.append(idx)
         }
     }
 
-    func calculateKnotHash(str: String) -> String {
+    private func calculateKnotHash(str: String) -> String {
         setUpElementArray(ctr: 256)
         var inputLengthArray = str.asciiArray.map { Int($0) }
         inputLengthArray.append(contentsOf: [ 17, 31, 73, 47, 23 ])
@@ -74,13 +74,13 @@ class Puzzle_2017_14: PuzzleBaseClass {
         return knotHash
     }
 
-    func printArray(arr: [String], rows: Int, cols: Int) {
+    private func printArray(arr: [String], rows: Int, cols: Int) {
         for idx in 0..<rows {
             print(arr[idx].substring(from: 0, to: cols))
         }
     }
 
-    func findHash(arr: [String]) -> (Int?, Int?) {
+    private func findHash(arr: [String]) -> (Int?, Int?) {
         for y in 0..<arr.count {
             let line = arr[y]
             for x in 0..<line.count {
@@ -93,7 +93,7 @@ class Puzzle_2017_14: PuzzleBaseClass {
         return (nil, nil)
     }
 
-    func flagHash(arr: inout [String], pos: (Int, Int)) {
+    private func flagHash(arr: inout [String], pos: (Int, Int)) {
         if arr[pos.1].substring(from: pos.0, to: (pos.0 + 1)) != "#" {
             return
         }
@@ -121,7 +121,7 @@ class Puzzle_2017_14: PuzzleBaseClass {
         }
     }
 
-    func solvePuzzle(str: String) -> (Int, Int) {
+    private func solvePuzzle(str: String) -> (Int, Int) {
         var knotHashArray: [String] = []
         var usedCount = 0
         for idx in 0...127 {

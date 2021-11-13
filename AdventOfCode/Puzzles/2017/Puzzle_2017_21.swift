@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Puzzle_2017_21: PuzzleBaseClass {
-    func getCharacterAt(arr: [[Character]], x: Int, y: Int) -> Character {
+public class Puzzle_2017_21: PuzzleBaseClass {
+    private func getCharacterAt(arr: [[Character]], x: Int, y: Int) -> Character {
         arr[y][x]
     }
 
-    func getPixelCount(arr: [[Character]]) -> Int {
+    private func getPixelCount(arr: [[Character]]) -> Int {
         var retval = 0
         for y in 0..<arr.count {
             for x in 0..<arr[y].count {
@@ -26,7 +26,7 @@ class Puzzle_2017_21: PuzzleBaseClass {
         return retval
     }
 
-    func printArray(arr: [[Character]]) {
+    private func printArray(arr: [[Character]]) {
         for line in arr {
             var s = ""
             for c in line {
@@ -37,7 +37,7 @@ class Puzzle_2017_21: PuzzleBaseClass {
         }
     }
 
-    func getArray(str: String) -> [[Character]] {
+    private func getArray(str: String) -> [[Character]] {
         var arr: [[Character]] = []
         let lines = str.split(separator: "/")
         for line in lines {
@@ -52,7 +52,7 @@ class Puzzle_2017_21: PuzzleBaseClass {
         return arr
     }
 
-    func getString(arr: [[Character]]) -> String {
+    private func getString(arr: [[Character]]) -> String {
         var retval = ""
         for y in 0..<arr.count {
             for x in 0..<arr[y].count {
@@ -67,7 +67,7 @@ class Puzzle_2017_21: PuzzleBaseClass {
         return retval.trim()
     }
 
-    func getSubArray(arr: [[Character]], x: Int, y: Int, size: Int) -> [[Character]] {
+    private func getSubArray(arr: [[Character]], x: Int, y: Int, size: Int) -> [[Character]] {
         var subArray: [[Character]] = []
         for yIndex in y..<(y + size) {
             var lineArray: [Character] = []
@@ -81,7 +81,7 @@ class Puzzle_2017_21: PuzzleBaseClass {
         return subArray
     }
 
-    func rotateArrayClockwise(original: [[Character]]) -> [[Character]] {
+    private func rotateArrayClockwise(original: [[Character]]) -> [[Character]] {
         var arr: [[Character]] = []
         let size = original.count
         for x in 0..<size {
@@ -96,7 +96,7 @@ class Puzzle_2017_21: PuzzleBaseClass {
         return arr
     }
 
-    func flipArrayVertical(original: [[Character]]) -> [[Character]] {
+    private func flipArrayVertical(original: [[Character]]) -> [[Character]] {
         var arr: [[Character]] = []
         let size = original.count
         for y in 0..<size {
@@ -111,7 +111,7 @@ class Puzzle_2017_21: PuzzleBaseClass {
         return arr
     }
 
-    func flipArrayHorizontal(original: [[Character]]) -> [[Character]] {
+    private func flipArrayHorizontal(original: [[Character]]) -> [[Character]] {
         var arr: [[Character]] = []
         let size = original.count
         for y in stride(from: size - 1, through: 0, by: -1) {
@@ -126,7 +126,7 @@ class Puzzle_2017_21: PuzzleBaseClass {
         return arr
     }
 
-    func inputPatternRotations(arr: [[Character]]) -> Set<String> {
+    private func inputPatternRotations(arr: [[Character]]) -> Set<String> {
         var inputPatterns: Set<String> = Set()
         var tempArr: [[Character]] = arr
         for _ in 0..<4 {
@@ -139,13 +139,13 @@ class Puzzle_2017_21: PuzzleBaseClass {
         return inputPatterns
     }
 
-    func solve() {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         var rules: Dictionary<String, String> = [:]
         for line in PuzzleInput.final.split(separator: "\n") {
             let arr = line.split(separator: "=")

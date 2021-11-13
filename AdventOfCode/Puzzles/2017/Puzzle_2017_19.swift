@@ -8,23 +8,23 @@
 
 import Foundation
 
-class Puzzle_2017_19: PuzzleBaseClass {
-    enum Direction {
+public class Puzzle_2017_19: PuzzleBaseClass {
+    private enum Direction {
         case UP
         case DOWN
         case LEFT
         case RIGHT
     }
 
-    var routingDiagram: [[Character]] = []
+    private var routingDiagram: [[Character]] = []
 
-    func solve() {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (String, Int) {
+    public func solveBothParts() -> (String, Int) {
         let puzzleInput = PuzzleInput.final
 
         routingDiagram = parsePuzzleInput(str: puzzleInput)
@@ -32,11 +32,11 @@ class Puzzle_2017_19: PuzzleBaseClass {
         return solvePuzzle()
     }
 
-    func characterAt(x: Int, y: Int) -> Character {
+    private func characterAt(x: Int, y: Int) -> Character {
         routingDiagram[y][x]
     }
 
-    func parsePuzzleInput(str: String) -> [[Character]] {
+    private func parsePuzzleInput(str: String) -> [[Character]] {
         let lines = str.split(separator: "~")
         var lineArray: [[Character]] = []
         for line in lines {
@@ -51,7 +51,7 @@ class Puzzle_2017_19: PuzzleBaseClass {
         return lineArray
     }
 
-    func advance(direction: Direction, x: inout Int, y: inout Int) {
+    private func advance(direction: Direction, x: inout Int, y: inout Int) {
         if direction == .UP {
             y -= 1
         } else if direction == .DOWN {
@@ -63,7 +63,7 @@ class Puzzle_2017_19: PuzzleBaseClass {
         }
     }
 
-    func solvePuzzle() -> (String, Int) {
+    private func solvePuzzle() -> (String, Int) {
         var currentX = routingDiagram[0].firstIndex(of: "|") ?? 0
         var currentY = 0
         var currentDirection = Direction.DOWN

@@ -8,21 +8,21 @@
 
 import Foundation
 
-class Puzzle_2017_03: PuzzleBaseClass {
-    enum ADVANCE_DIRECTION {
+public class Puzzle_2017_03: PuzzleBaseClass {
+    private enum ADVANCE_DIRECTION {
         case UP
         case DOWN
         case LEFT
         case RIGHT
     }
 
-    func solve() {
+    public func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print("Part 1 solution: \(part1Solution)")
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_03_Input.puzzleInput
 
         let part1Array = buildPart1Spiral(limit: puzzleInput)
@@ -35,7 +35,7 @@ class Puzzle_2017_03: PuzzleBaseClass {
         return (part1Solution, part2Solution)
     }
 
-    func buildPart1Spiral(limit: Int) -> Array<Point2D> {
+    private func buildPart1Spiral(limit: Int) -> Array<Point2D> {
         var leftExtreme = 0
         var rightExtreme = 0
         var topExtreme = 0
@@ -83,7 +83,7 @@ class Puzzle_2017_03: PuzzleBaseClass {
         return arr
     }
 
-    func sumAdjacentEntries(dict: Dictionary<Point2D, Int>, origin: Point2D) -> Int {
+    private func sumAdjacentEntries(dict: Dictionary<Point2D, Int>, origin: Point2D) -> Int {
         var total = 0
 
         var positions: Array<Point2D> = []
@@ -104,7 +104,7 @@ class Puzzle_2017_03: PuzzleBaseClass {
         return total
     }
 
-    func buildPart2Spiral(limit: Int) -> Int {
+    private func buildPart2Spiral(limit: Int) -> Int {
         var leftExtreme = 0
         var rightExtreme = 0
         var topExtreme = 0

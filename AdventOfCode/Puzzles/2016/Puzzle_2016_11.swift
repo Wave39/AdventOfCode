@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ElementType: Int {
+private enum ElementType: Int {
     case Cobalt = 1
     case Curium
     case Dilithium
@@ -20,7 +20,7 @@ enum ElementType: Int {
     case Ruthenium
 }
 
-let kElementDict: Dictionary<ElementType, String> = [
+private let kElementDict: Dictionary<ElementType, String> = [
     .Cobalt: "Co",
     .Curium: "Cm",
     .Dilithium: "Di",
@@ -32,23 +32,23 @@ let kElementDict: Dictionary<ElementType, String> = [
     .Ruthenium: "Ru"
 ]
 
-enum DeviceType: Int {
+private enum DeviceType: Int {
     case Microchip = 1
     case Generator
 }
 
-let kDeviceDict: Dictionary<DeviceType, String> = [
+private let kDeviceDict: Dictionary<DeviceType, String> = [
     .Microchip: "M",
     .Generator: "G"
 ]
 
-class Puzzle_2016_11: PuzzleBaseClass {
-    enum ElevatorDirection: Int {
+public class Puzzle_2016_11: PuzzleBaseClass {
+    private enum ElevatorDirection: Int {
         case Up = 1
         case Down
     }
 
-    struct Device {
+    private struct Device {
         var elementType: ElementType
         var deviceType: DeviceType
 
@@ -61,7 +61,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         }
     }
 
-    struct BuildingStatus {
+    private struct BuildingStatus {
         var movesSoFar: Int
         var elevatorFloor: Int
         var floorArray: [[Device]]
@@ -100,7 +100,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         }
     }
 
-    struct Move {
+    private struct Move {
         var elevatorDirection: ElevatorDirection
         var devicesToCarry: [Device]
 
@@ -116,7 +116,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         }
     }
 
-    struct BuildingState {
+    private struct BuildingState {
         var floorArray: [[Int]]
         var elevatorFloor: Int
 
@@ -154,7 +154,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
     // The second floor contains a cobalt generator, a curium generator, a ruthenium generator, and a plutonium generator.
     // The third floor contains a cobalt-compatible microchip, a curium-compatible microchip, a ruthenium-compatible microchip, and a plutonium-compatible microchip.
     // The fourth floor contains nothing relevant.
-    let puzzleInputPart1: [[Device]] = [
+    private let puzzleInputPart1: [[Device]] = [
         [ Device(elementType: .Promethium, deviceType: .Generator), Device(elementType: .Promethium, deviceType: .Microchip) ],
         [ Device(elementType: .Cobalt, deviceType: .Generator), Device(elementType: .Curium, deviceType: .Generator), Device(elementType: .Ruthenium, deviceType: .Generator), Device(elementType: .Plutonium, deviceType: .Generator) ],
         [ Device(elementType: .Cobalt, deviceType: .Microchip), Device(elementType: .Curium, deviceType: .Microchip), Device(elementType: .Ruthenium, deviceType: .Microchip), Device(elementType: .Plutonium, deviceType: .Microchip) ],
@@ -167,16 +167,16 @@ class Puzzle_2016_11: PuzzleBaseClass {
     // A dilithium generator.
     // A dilithium-compatible microchip.
 
-    let puzzleInputPart2: [[Device]] = [
+    private let puzzleInputPart2: [[Device]] = [
         [ Device(elementType: .Promethium, deviceType: .Generator), Device(elementType: .Promethium, deviceType: .Microchip), Device(elementType: .Elerium, deviceType: .Generator), Device(elementType: .Elerium, deviceType: .Microchip), Device(elementType: .Dilithium, deviceType: .Generator), Device(elementType: .Dilithium, deviceType: .Microchip) ],
         [ Device(elementType: .Cobalt, deviceType: .Generator), Device(elementType: .Curium, deviceType: .Generator), Device(elementType: .Ruthenium, deviceType: .Generator), Device(elementType: .Plutonium, deviceType: .Generator) ],
         [ Device(elementType: .Cobalt, deviceType: .Microchip), Device(elementType: .Curium, deviceType: .Microchip), Device(elementType: .Ruthenium, deviceType: .Microchip), Device(elementType: .Plutonium, deviceType: .Microchip) ],
         [ ]
     ]
 
-    var buildingsAlreadySeen: Set<String> = Set()
+    private var buildingsAlreadySeen: Set<String> = Set()
 
-    func microchipsAndGeneratorsAreSafe(devices: [Device]) -> Bool {
+    private func microchipsAndGeneratorsAreSafe(devices: [Device]) -> Bool {
         let microchips = devices.filter { $0.deviceType == .Microchip }
         let generators = devices.filter { $0.deviceType == .Generator }
         var ok = true
@@ -199,7 +199,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         return ok
     }
 
-    func isMoveValid(building: BuildingStatus, move: Move) -> Bool {
+    private func isMoveValid(building: BuildingStatus, move: Move) -> Bool {
         // check the devices being left on the current floor when the elevator leaves
         var remainingDevices = building.floorArray[building.elevatorFloor]
         for d in move.devicesToCarry {
@@ -229,7 +229,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         return ok
     }
 
-    func findValidMoves(building: BuildingStatus) -> [Move] {
+    private func findValidMoves(building: BuildingStatus) -> [Move] {
         var v = Array<Move>()
 
         var elevatorDirections: [ElevatorDirection] = []
@@ -280,7 +280,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         return v
     }
 
-    func findNextBuilding(building: BuildingStatus, move: Move) -> BuildingStatus {
+    private func findNextBuilding(building: BuildingStatus, move: Move) -> BuildingStatus {
         var nextBuilding = building
         nextBuilding.history += "Move: \(move.description())\n"
 
@@ -301,7 +301,7 @@ class Puzzle_2016_11: PuzzleBaseClass {
         return nextBuilding
     }
 
-    func findSolution(initialConfiguration: [[Device]], totalNumberOfDevices: Int) -> Int {
+    private func findSolution(initialConfiguration: [[Device]], totalNumberOfDevices: Int) -> Int {
         buildingsAlreadySeen = Set()
         var initialBuilding = BuildingStatus(movesSoFar: 0, elevatorFloor: 0, floorArray: initialConfiguration, history: "")
         initialBuilding.history = initialBuilding.diagram(includeMoveCounter: true)
@@ -326,13 +326,13 @@ class Puzzle_2016_11: PuzzleBaseClass {
         return foundSolutionAtMove
     }
 
-    func solve() {
+    public func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print("Part 1 solution: \(part1Solution)")
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let part1Solution = findSolution(initialConfiguration: puzzleInputPart1, totalNumberOfDevices: 10)
         let part2Solution = findSolution(initialConfiguration: puzzleInputPart2, totalNumberOfDevices: 14)
         return (part1Solution, part2Solution)

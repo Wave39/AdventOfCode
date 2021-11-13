@@ -8,27 +8,27 @@
 
 import Foundation
 
-class Puzzle_2017_13: PuzzleBaseClass {
-    struct Layer {
+public class Puzzle_2017_13: PuzzleBaseClass {
+    private struct Layer {
         var maxDepth: Int = 0
         var currentDepth: Int = 0
         var currentDirection: Int = 1
     }
 
-    var layerDictArray: Array<Dictionary<Int, Layer>> = []
+    private var layerDictArray: Array<Dictionary<Int, Layer>> = []
 
-    func solve() {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_13_Input.puzzleInput
         return solvePuzzle(str: puzzleInput)
     }
 
-    func moveScanners(layerDict: inout Dictionary<Int, Layer>) {
+    private func moveScanners(layerDict: inout Dictionary<Int, Layer>) {
         for k in layerDict.keys {
             guard let v = layerDict[k]?.currentDepth,
                   let m = layerDict[k]?.maxDepth else {
@@ -46,7 +46,7 @@ class Puzzle_2017_13: PuzzleBaseClass {
         }
     }
 
-    func calculateSeverity(pLayerDict: Dictionary<Int, Layer>, maxLayer: Int, delay: Int) -> Int {
+    private func calculateSeverity(pLayerDict: Dictionary<Int, Layer>, maxLayer: Int, delay: Int) -> Int {
         var currentLayer = 0
         var severity = -1
 
@@ -68,7 +68,7 @@ class Puzzle_2017_13: PuzzleBaseClass {
         return severity
     }
 
-    func solvePuzzle(str: String) -> (Int, Int) {
+    private func solvePuzzle(str: String) -> (Int, Int) {
         let lineArray = str.split(separator: "\n")
         var layerDict: Dictionary<Int, Layer> = [:]
         var maxLayer = 0

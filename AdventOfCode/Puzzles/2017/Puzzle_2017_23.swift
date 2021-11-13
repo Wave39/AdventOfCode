@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2017_23: PuzzleBaseClass {
-    enum InstructionType {
+public class Puzzle_2017_23: PuzzleBaseClass {
+    private enum InstructionType {
         case Undefined
         case Set
         case Subtract
@@ -17,7 +17,7 @@ class Puzzle_2017_23: PuzzleBaseClass {
         case JumpIfNotZero
     }
 
-    struct Instruction {
+    private struct Instruction {
         var instructionType: InstructionType = .Undefined
         var parameter1Int: Int?
         var parameter1String: String?
@@ -25,9 +25,9 @@ class Puzzle_2017_23: PuzzleBaseClass {
         var parameter2String: String?
     }
 
-    var instructionArray: [Instruction] = []
+    private var instructionArray: [Instruction] = []
 
-    func solve() {
+    public func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
 
@@ -35,7 +35,7 @@ class Puzzle_2017_23: PuzzleBaseClass {
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func parsePuzzleInput(str: String) {
+    private func parsePuzzleInput(str: String) {
         instructionArray = []
         let matrix = str.parseIntoMatrix()
         for line in matrix {
@@ -66,7 +66,7 @@ class Puzzle_2017_23: PuzzleBaseClass {
         }
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = PuzzleInput.final
         parsePuzzleInput(str: puzzleInput)
 
@@ -113,14 +113,15 @@ class Puzzle_2017_23: PuzzleBaseClass {
         return multiplyCounter
     }
 
+    // FUTURE: move to common code
     // I found this function on Stack Overflow and liked it, as it seems concise and relatively fast.
     // https://stackoverflow.com/a/44413339/36984
-    func isPrime(_ number: Int) -> Bool {
+    private func isPrime(_ number: Int) -> Bool {
         let maxDivider = Int(sqrt(Double(number)))
         return number > 1 && !(2...maxDivider).contains { number % $0 == 0 }
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         // Trying to run part 2 brute force is designed to not work by the devious Advent Of Code people.
         // I figured that the code input needed to be optimized, but was too lazy to do so myself.
         // As a result, the solution to part 2 is stolen from the following site:

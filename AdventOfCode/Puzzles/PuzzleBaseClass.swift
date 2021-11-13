@@ -8,5 +8,5 @@
 
 import Foundation
 
-class PuzzleBaseClass {
+public class PuzzleBaseClass {
 }

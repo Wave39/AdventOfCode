@@ -8,22 +8,22 @@
 
 import Foundation
 
-class Puzzle_2017_08: PuzzleBaseClass {
-    var puzzleInput: [[String]] = []
+public class Puzzle_2017_08: PuzzleBaseClass {
+    private var puzzleInput: [[String]] = []
 
-    func solve() {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInputString = Puzzle_2017_08_Input.puzzleInput
         puzzleInput = puzzleInputString.parseIntoMatrix()
         return solvePuzzle()
     }
 
-    func highValue(dict: [String: Int]) -> Int {
+    private func highValue(dict: [String: Int]) -> Int {
         var retval = 0
         for (_, v) in dict {
             if v > retval {
@@ -34,7 +34,7 @@ class Puzzle_2017_08: PuzzleBaseClass {
         return retval
     }
 
-    func solvePuzzle() -> (Int, Int) {
+    private func solvePuzzle() -> (Int, Int) {
         var highestValue = 0
         var dict: [String: Int] = [:]
         for line in puzzleInput {

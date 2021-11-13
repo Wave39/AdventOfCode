@@ -8,35 +8,35 @@
 
 import Foundation
 
-class Puzzle_2018_08: NSObject {
-    class Node: NSObject {
+public class Puzzle_2018_08: NSObject {
+    private class Node: NSObject {
         var childCount: Int = 0
         var childNodes: [Node] = []
         var metadataArray: [Int] = []
     }
 
-    var inputArray: [Int] = []
-    var nodeIndex: Int = 0
-    var part1MetadataArray: [Int] = []
+    private var inputArray: [Int] = []
+    private var nodeIndex: Int = 0
+    private var part1MetadataArray: [Int] = []
 
-    func solve() {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2018_08_Input.puzzleInput
         return solveBothParts(str: puzzleInput)
     }
 
-    func getElement() -> Int {
+    private func getElement() -> Int {
         let retval = inputArray[nodeIndex]
         nodeIndex += 1
         return retval
     }
 
-    func readNode() -> Node {
+    private func readNode() -> Node {
         let node = Node()
 
         node.childCount = getElement()
@@ -56,7 +56,8 @@ class Puzzle_2018_08: NSObject {
         return node
     }
 
-    func parseStringIntoArray(str: String) {
+    // FUTURE: see if this can be used from common code
+    private func parseStringIntoArray(str: String) {
         inputArray = []
         let arr = str.parseIntoStringArray(separator: " ")
         for n in arr {
@@ -64,7 +65,7 @@ class Puzzle_2018_08: NSObject {
         }
     }
 
-    func getPart2NodeValue(node: Node) -> Int {
+    private func getPart2NodeValue(node: Node) -> Int {
         if node.childCount == 0 {
             return node.metadataArray.reduce(0, +)
         } else {
@@ -79,7 +80,7 @@ class Puzzle_2018_08: NSObject {
         }
     }
 
-    func solveBothParts(str: String) -> (Int, Int) {
+    private func solveBothParts(str: String) -> (Int, Int) {
         parseStringIntoArray(str: str)
 
         nodeIndex = 0

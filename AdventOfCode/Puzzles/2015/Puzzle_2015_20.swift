@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2015_20: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2015_20: PuzzleBaseClass {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         // thanks to Mark Heath for pointing out this algorithm
         // https://markheath.net/post/advent-of-code-day20
 

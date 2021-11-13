@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_16: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2019_16: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2019_16: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> String {
+    public func solvePart1() -> String {
         solvePart1(str: Puzzle_2019_16_Input.puzzleInput, numberOfPhases: 100)
     }
 
-    func solvePart2() -> String {
+    public func solvePart2() -> String {
         solvePart2(str: Puzzle_2019_16_Input.puzzleInput, numberOfPhases: 100)
     }
 
-    func getRepeatingList(n: Int) -> [Int] {
+    private func getRepeatingList(n: Int) -> [Int] {
         var retval = Array(repeating: 0, count: n)
         retval.append(contentsOf: Array(repeating: 1, count: n))
         retval.append(contentsOf: Array(repeating: 0, count: n))
@@ -33,7 +33,7 @@ class Puzzle_2019_16: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart1(str: String, numberOfPhases: Int) -> String {
+    private func solvePart1(str: String, numberOfPhases: Int) -> String {
         var arr = Array(str)
 
         for _ in 1...numberOfPhases {
@@ -62,7 +62,7 @@ class Puzzle_2019_16: PuzzleBaseClass {
 
     // Part 2 code courtesy of https://github.com/XorZy/Aoc_2019_Day_16/blob/master/Program.cs
 
-    func solvePart2(str: String, numberOfPhases: Int) -> String {
+    private func solvePart2(str: String, numberOfPhases: Int) -> String {
         let arr0 = str.map { $0.int }
         var arr: [Int] = []
         for _ in 0..<10_000 {

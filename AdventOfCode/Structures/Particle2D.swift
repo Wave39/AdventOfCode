@@ -8,20 +8,20 @@
 
 import Foundation
 
-struct Particle2D: Hashable {
-    var x: Int = 0
-    var y: Int = 0
-    var deltaX: Int = 0
-    var deltaY: Int = 0
-    var description: String {
+public struct Particle2D: Hashable {
+    public var x: Int = 0
+    public var y: Int = 0
+    public var deltaX: Int = 0
+    public var deltaY: Int = 0
+    public var description: String {
         "(\(x),\(y)) -> (\(deltaX),\(deltaY))"
     }
 
-    static func == (lhs: Particle2D, rhs: Particle2D) -> Bool {
+    public static func == (lhs: Particle2D, rhs: Particle2D) -> Bool {
         lhs.x == rhs.x && lhs.y == rhs.y && lhs.deltaX == rhs.deltaX && lhs.deltaY == rhs.deltaY
     }
 
-    static func boundingRectangle(arr: [Particle2D]) -> Rect2D {
+    public static func boundingRectangle(arr: [Particle2D]) -> Rect2D {
         var retval = Rect2D()
         retval.x1 = Int.max
         retval.y1 = Int.max
@@ -49,7 +49,7 @@ struct Particle2D: Hashable {
         return retval
     }
 
-    static func gridString(arr: [Particle2D]) -> String {
+    public static func gridString(arr: [Particle2D]) -> String {
         let bounds = boundingRectangle(arr: arr)
         var grid: [[Bool]] = []
         for _ in bounds.y1...bounds.y2 {
@@ -77,7 +77,7 @@ struct Particle2D: Hashable {
         return retval
     }
 
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(x)
         hasher.combine(y)
         hasher.combine(deltaX)

@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Puzzle_2015_25: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2015_25: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         func indexAtPosition(row: Int, column: Int) -> Int {
             if row == 1 && column == 1 {
                 return 0

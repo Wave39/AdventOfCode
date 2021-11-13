@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Puzzle_2020_06: PuzzleBaseClass {
-    struct Group {
+public class Puzzle_2020_06: PuzzleBaseClass {
+    private struct Group {
         var yesAnswers: String = ""
         var peopleCount: Int = 0
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -22,15 +22,15 @@ class Puzzle_2020_06: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func parseGroups(str: String) -> [Group] {
+    private func parseGroups(str: String) -> [Group] {
         let lines = str.parseIntoStringArray(omitBlankLines: false)
         var groups: [Group] = []
         var currentGroup = Group()
@@ -51,7 +51,7 @@ class Puzzle_2020_06: PuzzleBaseClass {
         return groups
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let arr = parseGroups(str: str)
         var count = 0
         for s in arr {
@@ -61,7 +61,7 @@ class Puzzle_2020_06: PuzzleBaseClass {
         return count
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let arr = parseGroups(str: str)
         var count = 0
         for s in arr {

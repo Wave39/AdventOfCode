@@ -8,9 +8,9 @@
 
 import Foundation
 
-typealias CharacterGrid = [[Character]]
+public typealias CharacterGrid = [[Character]]
 
-func getCharacterGrid(str: String, separator: Character = "\n") -> CharacterGrid {
+public func getCharacterGrid(str: String, separator: Character = "\n") -> CharacterGrid {
     var grid: CharacterGrid = []
     let lines = str.split(separator: separator)
     for line in lines {
@@ -25,7 +25,7 @@ func getCharacterGrid(str: String, separator: Character = "\n") -> CharacterGrid
     return grid
 }
 
-func initializeEmptyCharacterGrid(height: Int, width: Int) -> CharacterGrid {
+public func initializeEmptyCharacterGrid(height: Int, width: Int) -> CharacterGrid {
     var grid: CharacterGrid = []
     for _ in 0..<height {
         var lineArray: [Character] = []
@@ -39,7 +39,7 @@ func initializeEmptyCharacterGrid(height: Int, width: Int) -> CharacterGrid {
     return grid
 }
 
-func printCharacterGrid(grid: CharacterGrid) {
+public func printCharacterGrid(grid: CharacterGrid) {
     for line in grid {
         var s = ""
         for c in line {
@@ -50,15 +50,15 @@ func printCharacterGrid(grid: CharacterGrid) {
     }
 }
 
-func getCharacterAtCharacterGridPoint(grid: CharacterGrid, point: Point2D) -> Character {
+public func getCharacterAtCharacterGridPoint(grid: CharacterGrid, point: Point2D) -> Character {
     grid[point.y][point.x]
 }
 
-func getOnCount(grid: CharacterGrid) -> Int {
+public func getOnCount(grid: CharacterGrid) -> Int {
     getCharacterCount(grid: grid, character: "#")
 }
 
-func getCharacterCount(grid: CharacterGrid, character: Character) -> Int {
+public func getCharacterCount(grid: CharacterGrid, character: Character) -> Int {
     var retval = 0
     for y in 0..<grid.count {
         for x in 0..<grid[y].count {
@@ -71,7 +71,7 @@ func getCharacterCount(grid: CharacterGrid, character: Character) -> Int {
     return retval
 }
 
-func adjacentCharacters(grid: CharacterGrid, row: Int, col: Int) -> [Character] {
+public func adjacentCharacters(grid: CharacterGrid, row: Int, col: Int) -> [Character] {
     var retval: [Character] = []
     let origin = Point2D(x: col, y: row)
     let adjacentPoints = origin.adjacentLocations(includeDiagonals: true)
@@ -84,7 +84,7 @@ func adjacentCharacters(grid: CharacterGrid, row: Int, col: Int) -> [Character] 
     return retval
 }
 
-func directionalCharacters(grid: CharacterGrid, row: Int, col: Int, direction: CompassDirection, terminateWhenFound: [Character] = []) -> [Character] {
+public func directionalCharacters(grid: CharacterGrid, row: Int, col: Int, direction: CompassDirection, terminateWhenFound: [Character] = []) -> [Character] {
     var retval: [Character] = []
     let origin = Point2D(x: col, y: row)
     let offsetFromOrigin = direction.OffsetFromOrigin()
@@ -103,7 +103,7 @@ func directionalCharacters(grid: CharacterGrid, row: Int, col: Int, direction: C
     return retval
 }
 
-func getCharacterGridEdge(grid: CharacterGrid, direction: CompassDirection) -> String {
+public func getCharacterGridEdge(grid: CharacterGrid, direction: CompassDirection) -> String {
     if direction == .North {
         return String(grid.first ?? [])
     } else if direction == .South {
@@ -119,7 +119,7 @@ func getCharacterGridEdge(grid: CharacterGrid, direction: CompassDirection) -> S
     }
 }
 
-func rotateCharacterGrid(grid: CharacterGrid, rotateRight: Bool) -> CharacterGrid {
+public func rotateCharacterGrid(grid: CharacterGrid, rotateRight: Bool) -> CharacterGrid {
     let height = grid.count
     let width = grid[0].count
     var newGrid = initializeEmptyCharacterGrid(height: width, width: height)
@@ -136,7 +136,7 @@ func rotateCharacterGrid(grid: CharacterGrid, rotateRight: Bool) -> CharacterGri
     return newGrid
 }
 
-func flipCharacterGrid(grid: CharacterGrid, flipHorizontally: Bool, flipVertically: Bool) -> CharacterGrid {
+public func flipCharacterGrid(grid: CharacterGrid, flipHorizontally: Bool, flipVertically: Bool) -> CharacterGrid {
     let height = grid.count
     let width = grid[0].count
     var newGrid = initializeEmptyCharacterGrid(height: height, width: width)

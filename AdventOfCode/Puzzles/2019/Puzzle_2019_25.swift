@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_25: PuzzleBaseClass {
-    let commands = """
+public class Puzzle_2019_25: PuzzleBaseClass {
+    private let commands = """
 // east of starting location
 east
 south
@@ -64,7 +64,7 @@ drop whirled peas
 south
 """
 
-    let items = """
+    private let items = """
 antenna
 hologram
 hypercube
@@ -75,16 +75,16 @@ spool of cat6
 whirled peas
 """
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
     }
 
-    func solvePart1() -> String {
+    public func solvePart1() -> String {
         solvePart1(str: Puzzle_2019_25_Input.puzzleInput)
     }
 
-    func pad(string: String, toSize: Int) -> String {
+    private func pad(string: String, toSize: Int) -> String {
       var padded = string
       for _ in 0..<(toSize - string.count) {
         padded = "0" + padded
@@ -92,7 +92,7 @@ whirled peas
         return padded
     }
 
-    func solvePart1(str: String) -> String {
+    private func solvePart1(str: String) -> String {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0
@@ -156,16 +156,16 @@ whirled peas
         return retval
     }
 
-    func getAsciiArray(_ str: String) -> [Int] {
+    private func getAsciiArray(_ str: String) -> [Int] {
         Array(str + "\n").map { Int(String($0).asciiValue) }
     }
 
-    func getStringFromAsciiArray(_ arr: [Int]) -> String {
+    private func getStringFromAsciiArray(_ arr: [Int]) -> String {
         let arr2 = arr.filter { $0 < 256 }
         return String(arr2.map { Character(UnicodeScalar($0) ?? Unicode.Scalar(0)) })
     }
 
-    func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> (Bool, String) {
+    private func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> (Bool, String) {
         enum ParameterMode {
             case position
             case immediate

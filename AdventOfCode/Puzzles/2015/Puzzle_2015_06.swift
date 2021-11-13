@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2015_06: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2015_06: PuzzleBaseClass {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         func parseCoordinateString(_ coordinateString: String) -> (Int, Int) {
             let arr = coordinateString.split { $0 == "," }.map(String.init)
             if let first = arr.first, let last = arr.last, let firstInt = Int(first), let lastInt = Int(last) {

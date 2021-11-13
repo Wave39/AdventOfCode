@@ -8,11 +8,11 @@
 
 import Foundation
 
-class Puzzle_2019_24: PuzzleBaseClass {
-    typealias Grid = [[Int]]
-    typealias Grid3D = [Int: Grid]
+public class Puzzle_2019_24: PuzzleBaseClass {
+    private typealias Grid = [[Int]]
+    private typealias Grid3D = [Int: Grid]
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -20,15 +20,15 @@ class Puzzle_2019_24: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_24_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_24_Input.puzzleInput)
     }
 
-    func processGrid(grid: Grid) -> Grid {
+    private func processGrid(grid: Grid) -> Grid {
         let height = grid.count
         let width = grid[0].count
         var retval = Grid()
@@ -67,7 +67,7 @@ class Puzzle_2019_24: PuzzleBaseClass {
         return retval
     }
 
-    func calculateBiodiversity(grid: Grid) -> Int {
+    private func calculateBiodiversity(grid: Grid) -> Int {
         let height = grid.count
         let width = grid[0].count
         var retval = 0
@@ -85,7 +85,7 @@ class Puzzle_2019_24: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var grid = Grid()
         for line in arr {
@@ -116,7 +116,7 @@ class Puzzle_2019_24: PuzzleBaseClass {
         return calculateBiodiversity(grid: grid)
     }
 
-    func countBugs(dict: Grid3D) -> Int {
+    private func countBugs(dict: Grid3D) -> Int {
         var retval = 0
         for k in dict.keys {
             let grid = dict[k] ?? []
@@ -134,7 +134,7 @@ class Puzzle_2019_24: PuzzleBaseClass {
         return retval
     }
 
-    func processGridDictionary(dict: Grid3D) -> Grid3D {
+    private func processGridDictionary(dict: Grid3D) -> Grid3D {
         var retval = Grid3D()
 
         retval[201] = dict[201] ?? []
@@ -231,7 +231,7 @@ class Puzzle_2019_24: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var gridDictionary = Grid3D()
         for z in -201...201 {

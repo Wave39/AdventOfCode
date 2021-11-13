@@ -8,22 +8,22 @@
 
 import Foundation
 
-struct Particle3D: Hashable {
-    var x: Int = 0
-    var y: Int = 0
-    var z: Int = 0
-    var deltaX: Int = 0
-    var deltaY: Int = 0
-    var deltaZ: Int = 0
-    var description: String {
+public struct Particle3D: Hashable {
+    public var x: Int = 0
+    public var y: Int = 0
+    public var z: Int = 0
+    public var deltaX: Int = 0
+    public var deltaY: Int = 0
+    public var deltaZ: Int = 0
+    public var description: String {
         "(\(x),\(y),\(z)) -> (\(deltaX),\(deltaY),\(deltaZ))"
     }
 
-    static func == (lhs: Particle3D, rhs: Particle3D) -> Bool {
+    public static func == (lhs: Particle3D, rhs: Particle3D) -> Bool {
         lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.deltaX == rhs.deltaX && lhs.deltaY == rhs.deltaY && lhs.deltaZ == rhs.deltaZ
     }
 
-    static func boundingRectangle(arr: [Particle3D]) -> Rect3D {
+    public static func boundingRectangle(arr: [Particle3D]) -> Rect3D {
         var retval = Rect3D()
         retval.x1 = Int.max
         retval.y1 = Int.max
@@ -61,7 +61,7 @@ struct Particle3D: Hashable {
         return retval
     }
 
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(x)
         hasher.combine(y)
         hasher.combine(z)

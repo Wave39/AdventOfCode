@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2016_12: PuzzleBaseClass {
-    func processInstructions(arr: [String], registerToRetrieve: String, registers: Dictionary<String, Int>) -> Int {
+public class Puzzle_2016_12: PuzzleBaseClass {
+    private func processInstructions(arr: [String], registerToRetrieve: String, registers: Dictionary<String, Int>) -> Int {
         var registers = registers
         var programCounter = 0
         while programCounter < arr.count {
@@ -58,13 +58,13 @@ class Puzzle_2016_12: PuzzleBaseClass {
         return registers[registerToRetrieve] ?? 0
     }
 
-    func solve() {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let part1 = PuzzleInput.final.parseIntoStringArray()
         let part1Registers = [ "a": 0, "b": 0, "c": 0, "d": 0 ]
         let part1Solution = processInstructions(arr: part1, registerToRetrieve: "a", registers: part1Registers)

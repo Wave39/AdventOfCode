@@ -19,7 +19,7 @@ import Foundation
                     algorithm is used.
  - Returns: The natural gcd of m and n.
  */
-func gcd(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) -> Int {
+public func gcd(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) -> Int {
     gcdAlgorithm(m, n)
 }
 
@@ -32,7 +32,7 @@ func gcd(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterat
  - Parameter n: Second natural number
  - Returns: The natural gcd of m and n.
  */
-func gcdIterativeEuklid(_ m: Int, _ n: Int) -> Int {
+public func gcdIterativeEuklid(_ m: Int, _ n: Int) -> Int {
     var a: Int = 0
     var b: Int = max(m, n)
     var r: Int = min(m, n)
@@ -58,7 +58,7 @@ func gcdIterativeEuklid(_ m: Int, _ n: Int) -> Int {
  up to be the same in terms of complexity. That said, tail call
  elimination is not mutually exclusive to recursion.
  */
-func gcdRecursiveEuklid(_ m: Int, _ n: Int) -> Int {
+public func gcdRecursiveEuklid(_ m: Int, _ n: Int) -> Int {
     let r: Int = m % n
     if r != 0 {
         return gcdRecursiveEuklid(n, r)
@@ -83,7 +83,7 @@ func gcdRecursiveEuklid(_ m: Int, _ n: Int) -> Int {
  the subtract and shift operations take linear time for very
  large integers
  */
-func gcdBinaryRecursiveStein(_ m: Int, _ n: Int) -> Int {
+public func gcdBinaryRecursiveStein(_ m: Int, _ n: Int) -> Int {
     if let easySolution = findEasySolution(m, n) {
         return easySolution
     }
@@ -118,7 +118,7 @@ func gcdBinaryRecursiveStein(_ m: Int, _ n: Int) -> Int {
  try finding an easy solution for the GCD calculation
  before even starting more difficult operations.
  */
-func findEasySolution(_ m: Int, _ n: Int) -> Int? {
+public func findEasySolution(_ m: Int, _ n: Int) -> Int? {
     if m == n {
         return m
     }
@@ -131,7 +131,7 @@ func findEasySolution(_ m: Int, _ n: Int) -> Int? {
     return nil
 }
 
-enum LCMError: Error {
+public enum LCMError: Error {
     case divisionByZero
 }
 
@@ -148,7 +148,7 @@ enum LCMError: Error {
  - Returns: The least common multiplier of the two attributes as
  an unsigned integer
  */
-func lcm(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) throws -> Int {
+public func lcm(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gcdIterativeEuklid) throws -> Int {
     // guard m & n != 0 else { throw LCMError.divisionByZero }
     return m / gcdAlgorithm(m, n) * n
 }

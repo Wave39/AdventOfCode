@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2020_04: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_04: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2020_04: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func parsePassports(str: String) -> [[String]] {
+    private func parsePassports(str: String) -> [[String]] {
         let lines = str.parseIntoStringArray(omitBlankLines: false)
         var passports: [[String]] = []
         var currentPassport: [String] = []
@@ -45,11 +45,11 @@ class Puzzle_2020_04: PuzzleBaseClass {
         return passports
     }
 
-    func hasRequiredFields(passport: [String]) -> Bool {
+    private func hasRequiredFields(passport: [String]) -> Bool {
         passport.contains { $0.starts(with: "byr:") } && passport.contains { $0.starts(with: "iyr:") } && passport.contains { $0.starts(with: "eyr:") } && passport.contains { $0.starts(with: "hgt:") } && passport.contains { $0.starts(with: "hcl:") } && passport.contains { $0.starts(with: "ecl:") } && passport.contains { $0.starts(with: "pid:") }
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let passports = parsePassports(str: str)
         var validPassports = 0
         for passport in passports {
@@ -61,7 +61,7 @@ class Puzzle_2020_04: PuzzleBaseClass {
         return validPassports
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let passports = parsePassports(str: str)
         var validPassports = 0
         for passport in passports {

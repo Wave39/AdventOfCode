@@ -46,19 +46,17 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - empty_xctest_method
   - enum_case_associated_values_count
   - expiring_todo
-  # - explicit_acl
+  - explicit_acl
   # - explicit_enum_raw_value
   - explicit_init
   - explicit_self
   # - explicit_top_level_acl
   # - explicit_type_interface
-  - extension_access_modifier
+  # - extension_access_modifier
   - fallthrough
   - fatal_error_message
   # - file_header
-  # - file_name
   - file_name_no_space
-  # - file_types_order # ???
   - first_where
   - flatmap_over_map_reduce
   - force_unwrapping
@@ -67,17 +65,15 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - identical_operands
   - implicit_return
   - implicitly_unwrapped_optional
-  # - indentation_width
   - joined_default_parameter
   - last_where
   - legacy_constructor
   - legacy_multiple
-  - legacy_objc_type
   - legacy_random
   - let_var_whitespace
   - literal_expression_end_indentation
   - lower_acl_than_parent
-  - missing_docs
+  # - missing_docs
   - modifier_order
   - multiline_arguments
   - multiline_arguments_brackets
@@ -139,6 +135,11 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - vertical_whitespace_opening_braces
   - xct_specific_matcher
   - yoda_condition
+
+# Rules that may be enabled in the future:
+#  - legacy_objc_type
+#  - file_name
+#  - file_types_order
 
 type_name:
   allowed_symbols: ["_"] # these are allowed in type names

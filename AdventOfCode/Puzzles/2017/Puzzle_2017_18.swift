@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2017_18: PuzzleBaseClass {
-    enum InstructionType {
+public class Puzzle_2017_18: PuzzleBaseClass {
+    private enum InstructionType {
         case Undefined
         case SoundOrSend
         case Set
@@ -21,7 +21,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
         case Receive
     }
 
-    struct Instruction {
+    private struct Instruction {
         var instructionType: InstructionType = .Undefined
         var parameter1Int: Int?
         var parameter1String: String?
@@ -29,10 +29,10 @@ class Puzzle_2017_18: PuzzleBaseClass {
         var parameter2String: String?
     }
 
-    var instructionArray: [Instruction] = []
-    var registerSet: Set<String> = Set()
+    private var instructionArray: [Instruction] = []
+    private var registerSet: Set<String> = Set()
 
-    func solve() {
+    public func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
 
@@ -40,17 +40,17 @@ class Puzzle_2017_18: PuzzleBaseClass {
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         parsePuzzleInput(str: PuzzleInput.final)
         return processPart1()
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         parsePuzzleInput(str: PuzzleInput.final)
         return processPart2()
     }
 
-    func parsePuzzleInput(str: String) {
+    private func parsePuzzleInput(str: String) {
         instructionArray = []
         registerSet = Set()
         let matrix = str.parseIntoMatrix()
@@ -91,7 +91,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
         }
     }
 
-    func processPart1() -> Int {
+    private func processPart1() -> Int {
         var lastSoundPlayed = 0
         var programCounter = 0
         var registers: Dictionary<String, Int> = [:]
@@ -152,7 +152,7 @@ class Puzzle_2017_18: PuzzleBaseClass {
         return lastSoundPlayed
     }
 
-    func processPart2() -> Int {
+    private func processPart2() -> Int {
         var program1Sends = 0
         var programCounter = [ 0, 0 ]
         var registers: [Dictionary<String, Int>] = []

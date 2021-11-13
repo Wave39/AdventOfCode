@@ -8,22 +8,22 @@
 
 import Foundation
 
-struct Point2D: Hashable, CustomStringConvertible {
-    static var origin: Point2D {
+public struct Point2D: Hashable, CustomStringConvertible {
+    public static var origin: Point2D {
         Point2D(x: 0, y: 0)
     }
 
-    var x: Int = 0
-    var y: Int = 0
-    var description: String {
+    public var x: Int = 0
+    public var y: Int = 0
+    public var description: String {
         "(\(x),\(y))"
     }
 
-    static func == (lhs: Point2D, rhs: Point2D) -> Bool {
+    public static func == (lhs: Point2D, rhs: Point2D) -> Bool {
         lhs.x == rhs.x && lhs.y == rhs.y
     }
 
-    static func maximumBounds(arr: [Point2D]) -> Point2D {
+    public static func maximumBounds(arr: [Point2D]) -> Point2D {
         var retval = Point2D(x: 0, y: 0)
         for p in arr {
             if p.x > retval.x {
@@ -38,16 +38,16 @@ struct Point2D: Hashable, CustomStringConvertible {
         return retval
     }
 
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(x)
         hasher.combine(y)
     }
 
-    func manhattanDistanceTo(pt: Point2D) -> Int {
+    public func manhattanDistanceTo(pt: Point2D) -> Int {
         abs(self.x - pt.x) + abs(self.y - pt.y)
     }
 
-    func adjacentLocations(includeDiagonals: Bool = false) -> [Point2D] {
+    public func adjacentLocations(includeDiagonals: Bool = false) -> [Point2D] {
         var retval: [Point2D] = []
         retval.append(Point2D(x: self.x, y: self.y - 1))
         retval.append(Point2D(x: self.x - 1, y: self.y))
@@ -63,7 +63,7 @@ struct Point2D: Hashable, CustomStringConvertible {
         return retval
     }
 
-    func moveForward(direction: CompassDirection) -> Point2D {
+    public func moveForward(direction: CompassDirection) -> Point2D {
         if direction == .North {
             return Point2D(x: self.x, y: self.y + 1)
         } else if direction == .East {

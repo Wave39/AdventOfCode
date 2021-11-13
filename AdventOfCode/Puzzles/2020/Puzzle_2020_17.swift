@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2020_17: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_17: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2020_17: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let matrix = str.parseIntoCharacterMatrix()
         var dict: Dictionary<Point3D, Int> = [:]
         for row in 0..<matrix.count {
@@ -89,7 +89,7 @@ class Puzzle_2020_17: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let matrix = str.parseIntoCharacterMatrix()
         var dict: Dictionary<Point4D, Int> = [:]
         for row in 0..<matrix.count {

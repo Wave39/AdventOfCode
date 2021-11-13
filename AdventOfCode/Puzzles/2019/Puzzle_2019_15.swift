@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Puzzle_2019_15: PuzzleBaseClass {
-    struct MoveInformation {
+public class Puzzle_2019_15: PuzzleBaseClass {
+    private struct MoveInformation {
         var location = Point2D()
         var direction: MovementDirection = .North
     }
 
-    enum TileType: Int {
+    private enum TileType: Int {
         case Hallway = 1
         case Wall = 0
         case Oxygen = 2
@@ -23,7 +23,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         case Unknown = -1
     }
 
-    enum MovementDirection: Int {
+    private enum MovementDirection: Int {
         case North = 1
         case South = 2
         case East = 4
@@ -43,9 +43,9 @@ class Puzzle_2019_15: PuzzleBaseClass {
         }
     }
 
-    var globalRenderFlag = false
+    private var globalRenderFlag = false
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -53,7 +53,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func ProcessProgram(program: inout [Int], inputSignal: Int, programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> (Int, Bool) {
+    private func ProcessProgram(program: inout [Int], inputSignal: Int, programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> (Int, Bool) {
         enum ParameterMode {
             case position
             case immediate
@@ -187,7 +187,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         return (-1, false)
     }
 
-    func drawBoard(_ originalTileDict: Dictionary<Point2D, TileType>) {
+    private func drawBoard(_ originalTileDict: Dictionary<Point2D, TileType>) {
         if !globalRenderFlag {
             return
         }
@@ -240,15 +240,15 @@ class Puzzle_2019_15: PuzzleBaseClass {
         }
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_15_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_15_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let tileDict = createMap(str: str, render: false)
 
         var movementDict = tileDict.filter { $0.value == .Hallway || $0.value == .StartingLocation }.map { $0.key }
@@ -281,7 +281,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         return stepCount
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let tileDict = createMap(str: str, render: false)
 
         var movementDict = tileDict.filter { $0.value == .Hallway || $0.value == .StartingLocation }.map { $0.key }
@@ -310,7 +310,7 @@ class Puzzle_2019_15: PuzzleBaseClass {
         return stepCount - 1
     }
 
-    func createMap(str: String, render: Bool) -> [ Point2D: TileType ] {
+    private func createMap(str: String, render: Bool) -> [ Point2D: TileType ] {
         globalRenderFlag = render
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0

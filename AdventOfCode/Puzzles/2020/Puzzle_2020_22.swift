@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Puzzle_2020_22: PuzzleBaseClass {
-    struct Decks: Hashable {
+public class Puzzle_2020_22: PuzzleBaseClass {
+    private struct Decks: Hashable {
         var player1: [Int] = []
         var player2: [Int] = []
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -22,15 +22,15 @@ class Puzzle_2020_22: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func parseIntoCardArrays(str: String) -> ([Int], [Int]) {
+    private func parseIntoCardArrays(str: String) -> ([Int], [Int]) {
         let lines = str.parseIntoStringArray()
         var player1 = [Int]()
         var player2 = [Int]()
@@ -51,7 +51,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
         return (player1, player2)
     }
 
-    func deckScore(_ deck: [Int]) -> Int {
+    private func deckScore(_ deck: [Int]) -> Int {
         var retval = 0
         for multiplier in stride(from: deck.count, to: 0, by: -1) {
             retval += (multiplier * deck[deck.count - multiplier])
@@ -60,7 +60,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         var (player1, player2) = parseIntoCardArrays(str: str)
 
         while !player1.isEmpty && !player2.isEmpty {
@@ -81,7 +81,7 @@ class Puzzle_2020_22: PuzzleBaseClass {
         return deckScore(winningCards)
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         func roundWinner(player1Cards: [Int], player2Cards: [Int]) -> (Int, [Int]) {
             var deckSet = Set<Decks>()
             var player1 = player1Cards

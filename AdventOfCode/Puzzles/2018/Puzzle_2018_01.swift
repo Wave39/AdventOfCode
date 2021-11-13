@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2018_01: NSObject {
-    func solve() {
+public class Puzzle_2018_01: NSObject {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2018_01: NSObject {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2018_01_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2018_01_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let arr = str.split(separator: "\n")
 
         var retval = 0
@@ -36,7 +36,7 @@ class Puzzle_2018_01: NSObject {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let arr = str.split(separator: "\n")
 
         var freq = 0

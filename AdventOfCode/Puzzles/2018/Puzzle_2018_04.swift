@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2018_04: NSObject {
-    class MinuteArray {
+public class Puzzle_2018_04: NSObject {
+    private class MinuteArray {
         var minute: [Int]
 
         init() {
@@ -37,7 +37,7 @@ class Puzzle_2018_04: NSObject {
         }
     }
 
-    class SleepRecord {
+    private class SleepRecord {
         var idNumber: Int = 0
         var date: String = ""
         var minuteArray = MinuteArray()
@@ -89,26 +89,27 @@ class Puzzle_2018_04: NSObject {
             return retval
         }
     }
-    func solve() {
+
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_04_Input.puzzleInput
         let sleepRecords = SleepRecord.parse(str: puzzleInput)
         return solvePart1(sleepRecords: sleepRecords)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_04_Input.puzzleInput
         let sleepRecords = SleepRecord.parse(str: puzzleInput)
         return solvePart2(sleepRecords: sleepRecords)
     }
 
-    func solvePart1(sleepRecords: [SleepRecord]) -> Int {
+    private func solvePart1(sleepRecords: [SleepRecord]) -> Int {
         var timeDictionary: Dictionary<Int, Int> = Dictionary()
         for rec in sleepRecords {
             if timeDictionary[rec.idNumber] == nil {
@@ -146,7 +147,7 @@ class Puzzle_2018_04: NSObject {
         return maxId * maxMinute
     }
 
-    func solvePart2(sleepRecords: [SleepRecord]) -> Int {
+    private func solvePart2(sleepRecords: [SleepRecord]) -> Int {
         var guardDictionary: Dictionary<Int, MinuteArray> = Dictionary()
         for rec in sleepRecords {
             if guardDictionary[rec.idNumber] == nil {

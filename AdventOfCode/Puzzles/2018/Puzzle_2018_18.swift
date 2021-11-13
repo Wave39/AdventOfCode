@@ -8,16 +8,16 @@
 
 import Foundation
 
-class Puzzle_2018_18: NSObject {
-    typealias Forest = [[Acre]]
+public class Puzzle_2018_18: NSObject {
+    private typealias Forest = [[Acre]]
 
-    enum Acre: Character {
+    private enum Acre: Character {
         case Open = "."
         case Trees = "|"
         case Lumberyard = "#"
     }
 
-    func forestToString(_ forest: Forest) -> String {
+    private func forestToString(_ forest: Forest) -> String {
         var retval = ""
         for line in forest {
             for c in line {
@@ -30,13 +30,13 @@ class Puzzle_2018_18: NSObject {
         return retval
     }
 
-    func solve() {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2018_18_Input.puzzleInput
 
         var forest: Forest = []
@@ -55,7 +55,7 @@ class Puzzle_2018_18: NSObject {
         return (part1, part2)
     }
 
-    func getSurroundingAcres(forest: Forest, x: Int, y: Int) -> [Acre] {
+    private func getSurroundingAcres(forest: Forest, x: Int, y: Int) -> [Acre] {
         var retval: [Acre] = []
         for y1 in (y - 1)...(y + 1) {
             for x1 in (x - 1) ... (x + 1) {
@@ -68,7 +68,7 @@ class Puzzle_2018_18: NSObject {
         return retval
     }
 
-    func processForest(_ forest: Forest) -> Forest {
+    private func processForest(_ forest: Forest) -> Forest {
         var retval = forest
         for y in 0..<forest.count {
             for x in 0..<forest[0].count {
@@ -98,7 +98,7 @@ class Puzzle_2018_18: NSObject {
         return retval
     }
 
-    func solvePart1(forest: Forest) -> Int {
+    private func solvePart1(forest: Forest) -> Int {
         var forest = forest
         var minutesElapsed = 0
 
@@ -113,7 +113,7 @@ class Puzzle_2018_18: NSObject {
         return woods * lumberyards
     }
 
-    func solvePart2(forest: Forest) -> Int {
+    private func solvePart2(forest: Forest) -> Int {
         var forest = forest
         var foundDuplicate = false
         var minutesElapsed = 0

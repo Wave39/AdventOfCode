@@ -8,20 +8,20 @@
 
 import Foundation
 
-class Puzzle_2017_12: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2017_12: PuzzleBaseClass {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_12_Input.puzzleInput
 
         return solvePuzzle(str: puzzleInput)
     }
 
-    func findRow(lineArray: [[String]], rowNumber: Int) -> [String] {
+    private func findRow(lineArray: [[String]], rowNumber: Int) -> [String] {
         for l in lineArray {
             if l[0].int == rowNumber {
                 return l
@@ -31,7 +31,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
         return []
     }
 
-    func addRow(set: Set<Int>, queue: inout Array<Int>, row: [String]) {
+    private func addRow(set: Set<Int>, queue: inout Array<Int>, row: [String]) {
         for idx in 2..<(row.count) {
             let s = row[idx].replacingOccurrences(of: ",", with: "")
             let i = s.int
@@ -41,7 +41,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
         }
     }
 
-    func findGroup(lineArray: [[String]], programNumber: Int) -> Set<Int> {
+    private func findGroup(lineArray: [[String]], programNumber: Int) -> Set<Int> {
         var programSet: Set<Int> = Set()
         var programQueue: Array<Int> = []
         let firstRow = findRow(lineArray: lineArray, rowNumber: programNumber)
@@ -64,7 +64,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
         return programSet
     }
 
-    func findProgramInGroups(groups: [Set<Int>], programNumber: Int) -> Set<Int> {
+    private func findProgramInGroups(groups: [Set<Int>], programNumber: Int) -> Set<Int> {
         for g in groups {
             if g.contains(programNumber) {
                 return g
@@ -74,7 +74,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
         return []
     }
 
-    func findNextNumber(lineArray: [[String]], groups: [Set<Int>]) -> Int {
+    private func findNextNumber(lineArray: [[String]], groups: [Set<Int>]) -> Int {
         for l in lineArray {
             let n = l[0].int
             if findProgramInGroups(groups: groups, programNumber: n).isEmpty {
@@ -85,7 +85,7 @@ class Puzzle_2017_12: PuzzleBaseClass {
         return NSNotFound
     }
 
-    func solvePuzzle(str: String) -> (Int, Int) {
+    private func solvePuzzle(str: String) -> (Int, Int) {
         var lineArray: [[String]] = []
         var programGroups: [Set<Int>] = []
 

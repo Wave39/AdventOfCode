@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_04: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2019_04: PuzzleBaseClass {
+    public func solve() {
         let startingValue = 134_564
         let endingValue = 585_159
 
@@ -20,7 +20,7 @@ class Puzzle_2019_04: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func IsValidPassword(password: Int, isPart2: Bool) -> Bool {
+    private func IsValidPassword(password: Int, isPart2: Bool) -> Bool {
         let passwordAsString = "\(password)"
         var arr: [Int] = []
         for idx in 0...5 {
@@ -61,7 +61,7 @@ class Puzzle_2019_04: PuzzleBaseClass {
         return adjacentCharacters && ascendingCharacters
     }
 
-    func solvePart1(from: Int, to: Int) -> Int {
+    public func solvePart1(from: Int, to: Int) -> Int {
         var retval = 0
         for i in from...to {
             if IsValidPassword(password: i, isPart2: false) {
@@ -72,7 +72,7 @@ class Puzzle_2019_04: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(from: Int, to: Int) -> Int {
+    public func solvePart2(from: Int, to: Int) -> Int {
         var retval = 0
         for i in from...to {
             if IsValidPassword(password: i, isPart2: true) {

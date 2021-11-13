@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2020_18: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_18: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2020_18: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func calculateExpressionResult(arr: [String]) -> Int {
+    private func calculateExpressionResult(arr: [String]) -> Int {
         var retval = arr[0].int
         var addMode = true
         for idx in 1..<arr.count {
@@ -43,7 +43,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
         return retval
     }
 
-    func calculateExpressionResultForPart2(arr: [String]) -> Int {
+    private func calculateExpressionResultForPart2(arr: [String]) -> Int {
         var newArr = [ arr[0] ]
         for idx in stride(from: 1, to: arr.count - 1, by: 2) {
             if arr[idx] == "+" {
@@ -57,7 +57,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
         return calculateExpressionResult(arr: newArr)
     }
 
-    func parseParenthesis(line: String, originalIdx: Int, part2: Bool) -> (Int, Int) {
+    private func parseParenthesis(line: String, originalIdx: Int, part2: Bool) -> (Int, Int) {
         var expressionArray: [String] = []
         var idx = originalIdx + 1
         var s = ""
@@ -96,7 +96,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
         }
     }
 
-    func parseLine(line: String, part2: Bool) -> Int {
+    private func parseLine(line: String, part2: Bool) -> Int {
         var expressionArray: [String] = []
         var idx = 0
         var s = ""
@@ -135,7 +135,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
         }
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var retval = 0
         for line in lines {
@@ -145,7 +145,7 @@ class Puzzle_2020_18: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var retval = 0
         for line in lines {

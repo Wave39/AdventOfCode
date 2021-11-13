@@ -8,17 +8,17 @@
 
 import Foundation
 
-class Puzzle_2018_10: NSObject {
-    func solve() {
+public class Puzzle_2018_10: NSObject {
+    public func solve() {
         _ = solveBothParts()
     }
 
-    func solveBothParts() -> (String, Int) {
+    public func solveBothParts() -> (String, Int) {
         let puzzleInput = Puzzle_2018_10_Input.puzzleInput
         return runSimulation(pointsOfLight: puzzleInput)
     }
 
-    func parsePointsOfLight(pointsOfLight: String) -> [Particle2D] {
+    private func parsePointsOfLight(pointsOfLight: String) -> [Particle2D] {
         var retval: [Particle2D] = []
 
         let arr = pointsOfLight.parseIntoStringArray()
@@ -35,7 +35,7 @@ class Puzzle_2018_10: NSObject {
         return retval
     }
 
-    func runSimulation(pointsOfLight: String) -> (String, Int) {
+    private func runSimulation(pointsOfLight: String) -> (String, Int) {
         var secondsElapsed = 0
         var particles = parsePointsOfLight(pointsOfLight: pointsOfLight)
         var particleString: String

@@ -8,19 +8,19 @@
 
 import Foundation
 
-class Puzzle_2018_20: NSObject {
-    func solve() {
+public class Puzzle_2018_20: NSObject {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2018_20_Input.puzzleInput
         return walkRoute(str: puzzleInput)
     }
 
-    func walkRoute(str: String) -> (Int, Int) {
+    private func walkRoute(str: String) -> (Int, Int) {
         var roomDictionary: Dictionary<Point2D, Int> = [:]
         var pt = Point2D(x: 0, y: 0)
         var stepCount = 0

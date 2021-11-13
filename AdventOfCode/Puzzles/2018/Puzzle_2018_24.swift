@@ -8,20 +8,20 @@
 
 import Foundation
 
-class Puzzle_2018_24: NSObject {
-    enum QualifierMode {
+public class Puzzle_2018_24: NSObject {
+    private enum QualifierMode {
         case Unknown
         case Weakness
         case Immunity
     }
 
-    enum UnitType {
+    private enum UnitType {
         case Unknown
         case ImmuneSystem
         case Infection
     }
 
-    enum AttackType: String {
+    private enum AttackType: String {
         case Unknown = ""
         case Bludgeoning = "bludgeoning"
         case Cold = "cold"
@@ -30,7 +30,7 @@ class Puzzle_2018_24: NSObject {
         case Slashing = "slashing"
     }
 
-    class Group: CustomStringConvertible {
+    private class Group: CustomStringConvertible {
         var groupId: String = ""
         var unitType: UnitType = .Unknown
         var unitCount: Int = 0
@@ -63,7 +63,7 @@ class Puzzle_2018_24: NSObject {
         }
     }
 
-    func parseGroups(str: String) -> [Group] {
+    private func parseGroups(str: String) -> [Group] {
         var retval: [Group] = []
         var currentUnitType = UnitType.Unknown
         var immuneCount = 0, infectionCount = 0
@@ -120,11 +120,11 @@ class Puzzle_2018_24: NSObject {
         return retval
     }
 
-    func solve() {
+    public func solve() {
         print("My solution is not working, so :P")
     }
 
-    func solve_notworking() {
+    private func solve_notworking() {
         let puzzleInput = Puzzle_2018_24_Input.puzzleInput
 
         let groups = parseGroups(str: puzzleInput)
@@ -135,7 +135,7 @@ class Puzzle_2018_24: NSObject {
         print("Part 2 solution: \(part2)")
     }
 
-    func effectivePowerDescInitiativeDescOrder(left: Group, right: Group) -> Bool {
+    private func effectivePowerDescInitiativeDescOrder(left: Group, right: Group) -> Bool {
         if left.effectivePower != right.effectivePower {
             return left.effectivePower > right.effectivePower
         } else {
@@ -143,15 +143,15 @@ class Puzzle_2018_24: NSObject {
         }
     }
 
-    func initiativeDescOrder(left: Group, right: Group) -> Bool {
+    private func initiativeDescOrder(left: Group, right: Group) -> Bool {
         left.initiative > right.initiative
     }
 
-    func groupIdOrder(left: Group, right: Group) -> Bool {
+    private func groupIdOrder(left: Group, right: Group) -> Bool {
         left.groupId < right.groupId
     }
 
-    func solvePart1(groups: [Group]) -> Int {
+    private func solvePart1(groups: [Group]) -> Int {
         var groups = groups
 
         repeat {
@@ -224,7 +224,7 @@ class Puzzle_2018_24: NSObject {
         return groups.map { $0.unitCount }.reduce(0, +)
     }
 
-    func solvePart2(groups: [Group]) -> Int {
+    private func solvePart2(groups: [Group]) -> Int {
         2_209
     }
 }

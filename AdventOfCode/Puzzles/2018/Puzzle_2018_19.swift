@@ -8,24 +8,24 @@
 
 import Foundation
 
-class Puzzle_2018_19: NSObject {
-    typealias Registers = [Int]
+public class Puzzle_2018_19: NSObject {
+    private typealias Registers = [Int]
 
-    class Command {
+    private class Command {
         var opcode: String = ""
         var a: Int = 0
         var b: Int = 0
         var c: Int = 0
     }
 
-    class Program {
+    private class Program {
         var instructionPointer: Int = 0
         var boundRegister: Int = 0
         var code: [Command] = []
         var registers: Registers = [ 0, 0, 0, 0, 0, 0 ]
     }
 
-    func parseIntoProgram(str: String) -> Program {
+    private func parseIntoProgram(str: String) -> Program {
         let program = Program()
         let arr = str.parseIntoStringArray()
         for line in arr {
@@ -46,24 +46,24 @@ class Puzzle_2018_19: NSObject {
         return program
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_19_Input.puzzleInput
         return solvePart1(puzzleInput: puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_19_Input.puzzleInput
         return solvePart2(puzzleInput: puzzleInput)
     }
 
-    func solvePart1(puzzleInput: String) -> Int {
+    private func solvePart1(puzzleInput: String) -> Int {
         let program = parseIntoProgram(str: puzzleInput)
 
         repeat {
@@ -78,7 +78,7 @@ class Puzzle_2018_19: NSObject {
         return program.registers[0]
     }
 
-    func solvePart2(puzzleInput: String) -> Int {
+    private func solvePart2(puzzleInput: String) -> Int {
         let program = parseIntoProgram(str: puzzleInput)
         program.registers[0] = 1
         var searchValue = -1
@@ -110,7 +110,7 @@ class Puzzle_2018_19: NSObject {
         return total
     }
 
-    func runCommandString(command: Command, registers: Registers) -> Registers {
+    private func runCommandString(command: Command, registers: Registers) -> Registers {
         var newRegisters = registers
         if command.opcode == "addr" {
             newRegisters[command.c] = registers[command.a] + registers[command.b]

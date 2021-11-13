@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Puzzle_2019_11: PuzzleBaseClass {
-    enum PaintColor {
+public class Puzzle_2019_11: PuzzleBaseClass {
+    private enum PaintColor {
         case Black
         case White
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -30,15 +30,15 @@ class Puzzle_2019_11: PuzzleBaseClass {
         }
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_11_Input.puzzleInput)
     }
 
-    func solvePart2() -> (String, Point2D) {
+    public func solvePart2() -> (String, Point2D) {
         solvePart2(str: Puzzle_2019_11_Input.puzzleInput)
     }
 
-    func ProcessProgram(program: inout [Int], inputSignal: Int, programCounter: inout Int, relativeBase: inout Int) -> ([Int], Bool) {
+    private func ProcessProgram(program: inout [Int], inputSignal: Int, programCounter: inout Int, relativeBase: inout Int) -> ([Int], Bool) {
         enum ParameterMode {
             case position
             case immediate
@@ -167,7 +167,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
         return (outputArray, true)
     }
 
-    func ProcessProgramPart2(program: inout [Int], inputSignal: Int, programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
+    private func ProcessProgramPart2(program: inout [Int], inputSignal: Int, programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
         enum ParameterMode {
             case position
             case immediate
@@ -305,7 +305,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
         return (outputArray, true)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var inputSignal = 0
         var programCounter = 0
@@ -339,7 +339,7 @@ class Puzzle_2019_11: PuzzleBaseClass {
         return paintDict.keys.count
     }
 
-    func solvePart2(str: String) -> (String, Point2D) {
+    private func solvePart2(str: String) -> (String, Point2D) {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0

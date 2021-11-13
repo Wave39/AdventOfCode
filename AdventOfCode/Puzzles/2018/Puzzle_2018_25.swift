@@ -8,15 +8,15 @@
 
 import Foundation
 
-class Puzzle_2018_25: NSObject {
-    typealias StarChart = [Star]
+public class Puzzle_2018_25: NSObject {
+    private typealias StarChart = [Star]
 
-    class Star {
+    private class Star {
         var position = Point4D()
         var constellationId: Int = 0
     }
 
-    func parseStarChart(str: String) -> StarChart {
+    private func parseStarChart(str: String) -> StarChart {
         var retval = StarChart()
         for line in str.parseIntoStringArray() {
             let components = line.capturedGroups(withRegex: "(.*),(.*),(.*),(.*)", trimResults: true)
@@ -29,17 +29,17 @@ class Puzzle_2018_25: NSObject {
         return retval
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let starChart = parseStarChart(str: Puzzle_2018_25_Input.puzzleInput)
         return solvePart1(starChart: starChart)
     }
 
-    func solvePart1(starChart: StarChart) -> Int {
+    private func solvePart1(starChart: StarChart) -> Int {
         var starSwap = true
         while starSwap {
             starSwap = false
@@ -63,7 +63,7 @@ class Puzzle_2018_25: NSObject {
     }
 }
 
-class Puzzle_2018_25_Input: NSObject {
+private class Puzzle_2018_25_Input: NSObject {
     static let puzzleInput_test =
     """
 1,-1,-1,-2

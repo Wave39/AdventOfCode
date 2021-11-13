@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_13: PuzzleBaseClass {
-    enum TileType: Int {
+public class Puzzle_2019_13: PuzzleBaseClass {
+    private enum TileType: Int {
         case Empty = 0
         case Wall = 1
         case Block = 2
@@ -17,10 +17,10 @@ class Puzzle_2019_13: PuzzleBaseClass {
         case Ball = 4
     }
 
-    var board: [[Character]] = []
-    var score: Int = 0
+    private var board: [[Character]] = []
+    private var score: Int = 0
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -28,15 +28,15 @@ class Puzzle_2019_13: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_13_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_13_Input.puzzleInput)
     }
 
-    func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
+    private func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
         enum ParameterMode {
             case position
             case immediate
@@ -183,7 +183,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
         return (outputArray, false)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0
@@ -196,7 +196,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
         return tileValues.filter { $0 == TileType.Block.rawValue }.count
     }
 
-    func initializeBoard() {
+    private func initializeBoard() {
         score = 0
         for _ in 0...25 {
             var line: [Character] = []
@@ -208,7 +208,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
         }
     }
 
-    func drawResults(input: [Int]) {
+    private func drawResults(input: [Int]) {
         var xValues: [Int] = []
         var yValues: [Int] = []
         var tileValues: [Int] = []
@@ -254,7 +254,7 @@ class Puzzle_2019_13: PuzzleBaseClass {
         }
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0

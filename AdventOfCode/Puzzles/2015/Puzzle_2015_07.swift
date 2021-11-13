@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2015_07: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2015_07: PuzzleBaseClass {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         class Operation {
             var opcode: String
             var op1: String

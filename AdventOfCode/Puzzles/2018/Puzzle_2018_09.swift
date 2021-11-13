@@ -8,25 +8,25 @@
 
 import Foundation
 
-class Puzzle_2018_09: NSObject {
-    func solve() {
+public class Puzzle_2018_09: NSObject {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         let puzzleInput = Puzzle_2018_09_Input.puzzleInput
         return playGame(game: puzzleInput[0])
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         let puzzleInput = Puzzle_2018_09_Input.puzzleInput
         return playGameBetter(game: puzzleInput[1])
     }
 
-    func playGameBetter(game: (Int, Int)) -> Int {
+    private func playGameBetter(game: (Int, Int)) -> Int {
         // this method uses a doubly linked list instead of an integer array
         // the array inserts and deletes take far too long once the array reaches sufficient size
 
@@ -104,7 +104,7 @@ class Puzzle_2018_09: NSObject {
         return retval
     }
 
-    func playGame(game: (Int, Int)) -> Int {
+    private func playGame(game: (Int, Int)) -> Int {
         let playerCount = game.0
         let marbleCount = game.1
 

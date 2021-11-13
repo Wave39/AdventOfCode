@@ -8,19 +8,19 @@
 
 import Foundation
 
-class Puzzle_2017_11: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2017_11: PuzzleBaseClass {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_11_Input.puzzleInput
         return solvePuzzle(str: puzzleInput)
     }
 
-    func calculateDistance(pAxisSlash: Int, pAxisBackslash: Int, pAxisPipe: Int) -> Int {
+    private func calculateDistance(pAxisSlash: Int, pAxisBackslash: Int, pAxisPipe: Int) -> Int {
         var axisSlash = pAxisSlash
         var axisBackslash = pAxisBackslash
         var axisPipe = pAxisPipe
@@ -71,7 +71,7 @@ class Puzzle_2017_11: PuzzleBaseClass {
         return abs(axisSlash) + abs(axisBackslash) + abs(axisPipe)
     }
 
-    func solvePuzzle(str: String) -> (Int, Int) {
+    private func solvePuzzle(str: String) -> (Int, Int) {
         var axisBackslash = 0   // \
         var axisSlash = 0       // /
         var axisPipe = 0        // |

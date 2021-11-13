@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_08: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2019_08: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -25,15 +25,15 @@ class Puzzle_2019_08: PuzzleBaseClass {
         }
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
     }
 
-    func solvePart2() -> [Character] {
+    public func solvePart2() -> [Character] {
         solvePart2(str: Puzzle_2019_08_Input.puzzleInput, imageWidth: 25, imageHeight: 6)
     }
 
-    func solvePart1(str: String, imageWidth: Int, imageHeight: Int) -> Int {
+    private func solvePart1(str: String, imageWidth: Int, imageHeight: Int) -> Int {
         var layers: [[Character]] = []
         var layer: [Character] = []
         for c in str {
@@ -57,7 +57,7 @@ class Puzzle_2019_08: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String, imageWidth: Int, imageHeight: Int) -> [Character] {
+    private func solvePart2(str: String, imageWidth: Int, imageHeight: Int) -> [Character] {
         var layers: [[Character]] = []
         var layer: [Character] = []
         for c in str {

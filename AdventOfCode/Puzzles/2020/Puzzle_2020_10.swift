@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2020_10: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2020_10: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2020_10: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray().sorted()
         arr.insert(0, at: 0)
         arr.append((arr.max() ?? 0) + 3)
@@ -43,7 +43,7 @@ class Puzzle_2020_10: PuzzleBaseClass {
         return ones * threes
     }
 
-    func getRunPermutationCount(arr: [Int]) -> Int {
+    private func getRunPermutationCount(arr: [Int]) -> Int {
         let combinations = arr.combinationsWithoutRepetition.filter { $0.contains(arr.first ?? 0) && $0.contains(arr.last ?? 0) }
         var valid = 0
         for combination in combinations {
@@ -66,7 +66,7 @@ class Puzzle_2020_10: PuzzleBaseClass {
         return valid
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         var arr = str.parseIntoIntArray().sorted()
         arr.insert(0, at: 0)
         arr.append(arr.max() ?? 0 + 3)

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_17: PuzzleBaseClass {
-    enum TileType: Int {
+public class Puzzle_2019_17: PuzzleBaseClass {
+    private enum TileType: Int {
         case Path = 35
         case EmptySpace = 46
         case RobotUp = 94
@@ -18,12 +18,12 @@ class Puzzle_2019_17: PuzzleBaseClass {
         case RobotRight = 62
     }
 
-    enum TurnDirection {
+    private enum TurnDirection {
         case Left
         case Right
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -31,15 +31,15 @@ class Puzzle_2019_17: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_17_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_17_Input.puzzleInput)
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0
@@ -81,7 +81,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
         return total
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var programCounter = 0
         var relativeBase = 0
@@ -338,7 +338,7 @@ class Puzzle_2019_17: PuzzleBaseClass {
         return finalResults.0.last ?? 0
     }
 
-    func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
+    private func ProcessProgram(program: inout [Int], inputSignal: inout [Int], programCounter: inout Int, relativeBase: inout Int, expandedMemory: inout Dictionary<Int, Int>) -> ([Int], Bool) {
         enum ParameterMode {
             case position
             case immediate

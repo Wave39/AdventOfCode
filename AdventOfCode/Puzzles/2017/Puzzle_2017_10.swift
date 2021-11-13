@@ -8,23 +8,23 @@
 
 import Foundation
 
-class Puzzle_2017_10: PuzzleBaseClass {
-    var elementArray: [Int] = []
+public class Puzzle_2017_10: PuzzleBaseClass {
+    private var elementArray: [Int] = []
 
-    func solve() {
+    public func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print("Part 1 solution: \(part1Solution)")
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solveBothParts() -> (Int, String) {
+    public func solveBothParts() -> (Int, String) {
         let puzzleInput = Puzzle_2017_10_Input.puzzleInput
         let part1Solution = solvePart1(arr: puzzleInput)
         let part2Solution = solvePart2(arr: puzzleInput)
         return (part1Solution, part2Solution)
     }
 
-    func reverseElementArray(pos: Int, len: Int) {
+    private func reverseElementArray(pos: Int, len: Int) {
         let halfLen = Int(len / 2)
         for idx in 0..<halfLen {
             let idx1 = (pos + idx) % elementArray.count
@@ -35,14 +35,14 @@ class Puzzle_2017_10: PuzzleBaseClass {
         }
     }
 
-    func setUpElementArray(ctr: Int) {
+    private func setUpElementArray(ctr: Int) {
         elementArray = []
         for idx in 0..<ctr {
             elementArray.append(idx)
         }
     }
 
-    func solvePart1(arr: Array<Any>) -> Int {
+    private func solvePart1(arr: Array<Any>) -> Int {
         setUpElementArray(ctr: arr[0] as! Int)
         var currentPosition = 0
         var skipSize = 0
@@ -56,7 +56,7 @@ class Puzzle_2017_10: PuzzleBaseClass {
         return elementArray[0] * elementArray[1]
     }
 
-    func solvePart2(arr: Array<Any>) -> String {
+    private func solvePart2(arr: Array<Any>) -> String {
         setUpElementArray(ctr: arr[0] as! Int)
 
         let str = arr[1] as! String

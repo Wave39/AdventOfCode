@@ -8,19 +8,19 @@
 
 import Foundation
 
-class Puzzle_2017_09: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2017_09: PuzzleBaseClass {
+    public func solve() {
         let solution = solveBothParts()
         print("Part 1 solution: \(solution.0)")
         print("Part 2 solution: \(solution.1)")
     }
 
-    func solveBothParts() -> (Int, Int) {
+    public func solveBothParts() -> (Int, Int) {
         let puzzleInput = Puzzle_2017_09_Input.puzzleInput
         return solvePuzzle(str: puzzleInput)
     }
 
-    func solvePuzzle(str: String) -> (Int, Int) {
+    private func solvePuzzle(str: String) -> (Int, Int) {
         let strWithGarbageRemoved = removeGarbage(str: str)
         let strWithOtherCharactersRemoved = removeOtherCharacters(str: strWithGarbageRemoved.0)
         var level = 0
@@ -38,7 +38,7 @@ class Puzzle_2017_09: PuzzleBaseClass {
         return (total, strWithGarbageRemoved.1)
     }
 
-    func removeGarbage(str: String) -> (String, Int) {
+    private func removeGarbage(str: String) -> (String, Int) {
         var newStr = str
         var garbageCtr = 0
 
@@ -52,13 +52,13 @@ class Puzzle_2017_09: PuzzleBaseClass {
         return (newStr, garbageCtr)
     }
 
-    func removeOtherCharacters(str: String) -> String {
+    private func removeOtherCharacters(str: String) -> String {
         let set = CharacterSet(charactersIn: "{}")
         let stripped = str.components(separatedBy: set.inverted).joined()
         return stripped
     }
 
-    func findGarbage(str: String) -> (Int?, Int?, Int?) {
+    private func findGarbage(str: String) -> (Int?, Int?, Int?) {
         guard let startIndex = str.firstIndex(of: "<")?.utf16Offset(in: str) else {
             return (nil, nil, nil)
         }

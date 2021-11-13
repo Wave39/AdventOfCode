@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_09: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2019_09: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2019_09: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_09_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_09_Input.puzzleInput)
     }
 
-    func ProcessProgram(program: inout [Int], inputArray: inout [Int], programCounter: inout Int, relativeBase: inout Int) -> Int {
+    private func ProcessProgram(program: inout [Int], inputArray: inout [Int], programCounter: inout Int, relativeBase: inout Int) -> Int {
         enum ParameterMode {
             case position
             case immediate
@@ -152,7 +152,7 @@ class Puzzle_2019_09: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var inputSignals = [ 1 ]
         var programCounter = 0
@@ -161,7 +161,7 @@ class Puzzle_2019_09: PuzzleBaseClass {
         return results
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         var arr = str.parseIntoIntArray(separator: ",")
         var inputSignals = [ 2 ]
         var programCounter = 0

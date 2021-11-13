@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_12: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2019_12: PuzzleBaseClass {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -17,15 +17,15 @@ class Puzzle_2019_12: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_12_Input.puzzleInput, stepCount: 1_000)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_12_Input.puzzleInput)
     }
 
-    func solvePart1(str: String, stepCount: Int) -> Int {
+    private func solvePart1(str: String, stepCount: Int) -> Int {
         let arr = str.parseIntoStringArray()
         var moons: [Particle3D] = []
         for line in arr {
@@ -75,7 +75,7 @@ class Puzzle_2019_12: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
         var moons: [Particle3D] = []
         for line in arr {

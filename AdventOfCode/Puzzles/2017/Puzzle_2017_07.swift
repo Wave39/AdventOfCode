@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Puzzle_2017_07: PuzzleBaseClass {
+public class Puzzle_2017_07: PuzzleBaseClass {
     private class Program {
         var name: String = ""
         var weight = 0
@@ -18,13 +18,13 @@ class Puzzle_2017_07: PuzzleBaseClass {
 
     private var puzzleInput: [Program] = []
 
-    func solve() {
+    public func solve() {
         let (part1Solution, part2Solution) = solveBothParts()
         print("Part 1 solution: \(part1Solution)")
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solveBothParts() -> (String, Int) {
+    public func solveBothParts() -> (String, Int) {
         let puzzleInputString = Puzzle_2017_07_Input.puzzleInput
         puzzleInput = parseInput(str: puzzleInputString)
         calculateTowerWeights()
@@ -56,13 +56,13 @@ class Puzzle_2017_07: PuzzleBaseClass {
         return retval
     }
 
-    func calculateTowerWeights() {
+    private func calculateTowerWeights() {
         for p in puzzleInput {
             p.towerWeight = towerWeight(program: p.name)
         }
     }
 
-    func parseAdditionalPrograms(str: String) -> [String] {
+    private func parseAdditionalPrograms(str: String) -> [String] {
         var retval: [String] = []
         var s = str.replacingOccurrences(of: "-> ", with: "")
         s = s.replacingOccurrences(of: ",", with: "")
@@ -73,7 +73,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
         return retval
     }
 
-    func findProgramInOtherPrograms(programToFind: String) -> String {
+    private func findProgramInOtherPrograms(programToFind: String) -> String {
         for p in puzzleInput {
             if !p.otherPrograms.isEmpty {
                 for op in p.otherPrograms {
@@ -97,7 +97,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
         return nil
     }
 
-    func towerWeight(program: String) -> Int {
+    private func towerWeight(program: String) -> Int {
         guard let parent = findProgram(programToFind: program) else {
             return 0
         }
@@ -112,7 +112,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart1() -> String {
+    public func solvePart1() -> String {
         for p in puzzleInput {
             if !p.otherPrograms.isEmpty {
                 let parent = findProgramInOtherPrograms(programToFind: p.name)
@@ -125,7 +125,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
         return ""
     }
 
-    func findOddTowerWeight(programs: [String]) -> String {
+    private func findOddTowerWeight(programs: [String]) -> String {
         var dict: Dictionary<Int, [String]> = [:]
         for p in programs {
             if let subprogram = findProgram(programToFind: p) {
@@ -146,7 +146,7 @@ class Puzzle_2017_07: PuzzleBaseClass {
         return ""
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         var retval = 0
         for p in puzzleInput {
             if !p.otherPrograms.isEmpty {

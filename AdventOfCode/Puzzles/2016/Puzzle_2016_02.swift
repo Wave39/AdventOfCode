@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2016_02: PuzzleBaseClass {
-    func solve() {
+public class Puzzle_2016_02: PuzzleBaseClass {
+    public func solve() {
         let (part1, part2) = solveBothParts()
         print("Part 1 solution: \(part1)")
         print("Part 2 solution: \(part2)")
     }
 
-    func solveBothParts() -> (String, String) {
+    public func solveBothParts() -> (String, String) {
         let puzzleInputLineArray = PuzzleInput.final.components(separatedBy: "\n").filter { !$0.isEmpty }
 
         var part1Key = 5

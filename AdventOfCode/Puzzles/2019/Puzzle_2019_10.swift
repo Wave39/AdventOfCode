@@ -8,13 +8,13 @@
 
 import Foundation
 
-class Puzzle_2019_10: PuzzleBaseClass {
-    enum SectorType {
+public class Puzzle_2019_10: PuzzleBaseClass {
+    private enum SectorType {
         case Asteroid
         case Empty
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1.0)")
 
@@ -22,15 +22,15 @@ class Puzzle_2019_10: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> (Int, Point2D) {
+    public func solvePart1() -> (Int, Point2D) {
         solvePart1(str: Puzzle_2019_10_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: Puzzle_2019_10_Input.puzzleInput, base: Point2D(x: 30, y: 34))
     }
 
-    func solvePart1(str: String) -> (Int, Point2D) {
+    private func solvePart1(str: String) -> (Int, Point2D) {
         let lines = str.parseIntoStringArray()
         var sectorGrid: [[SectorType]] = []
         for line in lines {
@@ -106,7 +106,7 @@ class Puzzle_2019_10: PuzzleBaseClass {
         return (retval, baseLocation)
     }
 
-    func solvePart2(str: String, base: Point2D) -> Int {
+    private func solvePart2(str: String, base: Point2D) -> Int {
         let lines = str.parseIntoStringArray()
         var sectorGrid: [[SectorType]] = []
         for line in lines {

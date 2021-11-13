@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Puzzle_2017_20: PuzzleBaseClass {
-    struct XYZ {
+public class Puzzle_2017_20: PuzzleBaseClass {
+    private struct XYZ {
         var x = 0
         var y = 0
         var z = 0
     }
 
-    struct Particle {
+    private struct Particle {
         var particleNumber: Int = -1
         var position = XYZ()
         var velocity = XYZ()
@@ -30,9 +30,9 @@ class Puzzle_2017_20: PuzzleBaseClass {
         }
     }
 
-    var particles: [Particle] = []
+    private var particles: [Particle] = []
 
-    func solve() {
+    public func solve() {
         let part1Solution = solvePart1()
         print("Part 1 solution: \(part1Solution)")
 
@@ -40,15 +40,15 @@ class Puzzle_2017_20: PuzzleBaseClass {
         print("Part 2 solution: \(part2Solution)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: PuzzleInput.final)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         solvePart2(str: PuzzleInput.final)
     }
 
-    func parseInput(str: String) {
+    private func parseInput(str: String) {
         let itemRegex = "p=<(.\\d*),(.\\d*),(.\\d*)>, v=<(.\\d*),(.\\d*),(.\\d*)>, a=<(.\\d*),(.\\d*),(.\\d*)>"
         particles = []
         let lines = str.split(separator: "\n")
@@ -71,7 +71,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
         }
     }
 
-    func findClosestParticle() -> (Int, Int) {
+    private func findClosestParticle() -> (Int, Int) {
         var closestIndex = -1
         var closestDistance = Int.max
         for idx in 0..<particles.count {
@@ -85,7 +85,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
         return (closestIndex, closestDistance)
     }
 
-    func advanceParticles() {
+    private func advanceParticles() {
         for idx in 0..<particles.count {
             particles[idx].velocity.x += particles[idx].acceleration.x
             particles[idx].velocity.y += particles[idx].acceleration.y
@@ -96,7 +96,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
         }
     }
 
-    func removeCollidedParticles() {
+    private func removeCollidedParticles() {
         var particleDict: Dictionary<String, [Int]> = [:]
         var idx = 0
         for p in particles {
@@ -128,7 +128,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
         }
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         parseInput(str: str)
 
         var lastClosest = -1
@@ -145,7 +145,7 @@ class Puzzle_2017_20: PuzzleBaseClass {
         return closest.0
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         parseInput(str: str)
         removeCollidedParticles()
 

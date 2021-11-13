@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Puzzle_2019_20: PuzzleBaseClass {
-    enum Tile: Hashable, CustomStringConvertible, LosslessStringConvertible {
+public class Puzzle_2019_20: PuzzleBaseClass {
+    private enum Tile: Hashable, CustomStringConvertible, LosslessStringConvertible {
         init(_ value: String) {
             switch value {
             case ".":
@@ -49,14 +49,14 @@ class Puzzle_2019_20: PuzzleBaseClass {
         }
     }
 
-    struct Portal {
+    private struct Portal {
         var location: Point2D
         var identifier: String
         var outer: Bool
         var inner: Bool
     }
 
-    func solve() {
+    public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
 
@@ -64,16 +64,16 @@ class Puzzle_2019_20: PuzzleBaseClass {
         print("Part 2 solution: \(part2)")
     }
 
-    func solvePart1() -> Int {
+    public func solvePart1() -> Int {
         solvePart1(str: Puzzle_2019_20_Input.puzzleInput)
     }
 
-    func solvePart2() -> Int {
+    public func solvePart2() -> Int {
         // return solvePart2(str: Puzzle_2019_20_Input.puzzleInput_test3)
         return solvePart2(str: Puzzle_2019_20_Input.puzzleInput)
     }
 
-    func printBoard(_ board: [[Tile]]) {
+    private func printBoard(_ board: [[Tile]]) {
         for line in board {
             var str = ""
             for tile in line {
@@ -84,7 +84,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         }
     }
 
-    func parseBoard(_ arr: [[String]]) -> [[Tile]] {
+    private func parseBoard(_ arr: [[String]]) -> [[Tile]] {
         var board: [[Tile]] = []
         let maxX = arr[2].count
         for y in 2..<arr.count {
@@ -165,7 +165,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         return board
     }
 
-    func optimizeBoard(board: inout [[Tile]]) {
+    private func optimizeBoard(board: inout [[Tile]]) {
         let boardHeight = board.count
         let boardWidth = board[0].count
         var replacements = 0
@@ -201,7 +201,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         } while replacements > 0
     }
 
-    func findPortals(board: [[Tile]]) -> [Portal] {
+    private func findPortals(board: [[Tile]]) -> [Portal] {
         var retval: [Portal] = []
         let boardHeight = board.count
         let boardWidth = board[0].count
@@ -221,7 +221,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         return retval
     }
 
-    func solvePart1(str: String) -> Int {
+    private func solvePart1(str: String) -> Int {
         let arr = str.parseIntoStringArray().map { $0.map { String($0) } }
         let board = parseBoard(arr)
         // printBoard(board)
@@ -297,7 +297,7 @@ class Puzzle_2019_20: PuzzleBaseClass {
         return stepCount
     }
 
-    func solvePart2(str: String) -> Int {
+    private func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray().map { $0.map { String($0) } }
         var board = parseBoard(arr)
         // printBoard(board)

@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Stack<T> {
-    var array: [T] = []
+public struct Stack<T> {
+    public var array: [T] = []
 
-    mutating func push(_ element: T) {
+    public mutating func push(_ element: T) {
         array.append(element)
     }
 
-    mutating func pop() -> T? {
+    public mutating func pop() -> T? {
         if !array.isEmpty {
             let index = array.count - 1
             let poppedValue = array.remove(at: index)
@@ -25,7 +25,7 @@ struct Stack<T> {
         }
     }
 
-    func peek() -> T? {
+    public func peek() -> T? {
         if !array.isEmpty {
             return array.last
         } else {
