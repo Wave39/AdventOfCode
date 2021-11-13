@@ -27,7 +27,7 @@ I guess my excuse can be that I was recovering from a major heel surgery and was
 | 18 | :eyes: | 17s |
 | 19 | :smile: | 5s | 
 | 20 | :smile: | <1s |
-| 21 | :fire: | <1s (*) | Both part of my solution work, but part 2 takes over 3000 seconds (50 minutes) to chug through to a solution. This is why I do not have a test case for part 2. |
+| 21 | :smile: | <1s | Both part of my solution work, but part 2 takes over 3000 seconds (50 minutes) to chug through to a solution. This is why I do not have a test case for part 2. |
 | 22 | :smile: | <1s | Part 2 was too complicated, so I ended up borrowing someone else's solution. |
 | 23 | :smile: | <1s | See Day 22. |
 | 24 | :smile: | <1s | See Day 17. |

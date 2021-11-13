@@ -7,12 +7,42 @@ the room right outside the security checkpoint.
 Then I could go through all combinations of those 8 items until one sequence worked.
 
 This was a very fun puzzle to close out the Advent of Code for 2019. Bravo to Eric Wastl and his team for another great December.
-## Hall of Shame
-### Day 16
-I had to borrow an algorithm from another person who solved this problem and adapt it to Swift to get part 2 finished.
-### Day 18
-White flag raised.
-### Day 22
-See Day 16.
-### Day 23
-I was able to get both parts solved with my code, but with a huge assist to another person's Swift solution.
+
+## Status
+
+| Day | Status | Execution Time | Hall of Shame |
+| :---: | :---: | :---: | :--- |
+| 1 | :smile: | <1s |
+| 2 | :smile: | <1s |
+| 3 | :smile: | <1s |
+| 4 | :smile: | 6s |
+| 5 | :smile: | <1s |
+| 6 | :smile: | 2s |
+| 7 | :smile: | <1s |
+| 8 | :smile: | <1s |
+| 9 | :smile: | 3s |
+| 10 | :warning: | 32s |
+| 11 | :smile: | <1s |
+| 12 | :smile: | 4s |
+| 13 | :smile: | 1s |
+| 14 | :smile: | <1s |
+| 15 | :smile: | 1s |
+| 16 | :warning: | 34s | I had to borrow an algorithm from another person who solved this problem and adapt it to Swift to get part 2 finished. |
+| 17 | :smile: | <1s |
+| 18 | :smile: | <1s | White flag raised. |
+| 19 | :smile: | 3s | 
+| 20 | :smile: | 3s |
+| 21 | :smile: | <1s |
+| 22 | :smile: | <1s | See Day 16. |
+| 23 | :smile: | <1s | I was able to get both parts solved with my code, but with a huge assist to another person's Swift solution. |
+| 24 | :eyes: | 10s |
+| 25 | :smile: | 6s |
+
+### Legend
+
+| Status | Time for solution | Next steps |
+| :---: | :---: | :--- |
+| :smile: | 0..<10 seconds | All good here! |
+| :eyes: | 10..<20 seconds | Could use some tidying up... |
+| :warning: | 20..<60 seconds | Investigation is warranted. |
+| :fire: | 60... seconds | It's a twister! It's a twister! |
