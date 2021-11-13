@@ -323,6 +323,10 @@
 		E0D3EF2F23D3C22F0064413A /* Puzzle_2017_19.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3EF2D23D3C22F0064413A /* Puzzle_2017_19.swift */; };
 		E0D3EF3123D3C38F0064413A /* Puzzle_2017_20.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3EF3023D3C38F0064413A /* Puzzle_2017_20.swift */; };
 		E0D3EF3223D3C38F0064413A /* Puzzle_2017_20.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3EF3023D3C38F0064413A /* Puzzle_2017_20.swift */; };
+		E0D40E552740531D00A766C6 /* Puzzle_2021.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D40E542740531D00A766C6 /* Puzzle_2021.swift */; };
+		E0D40E572740536A00A766C6 /* Puzzle_2021_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D40E562740536A00A766C6 /* Puzzle_2021_01.swift */; };
+		E0D40E592740551900A766C6 /* AdventOfCode2021Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D40E582740551900A766C6 /* AdventOfCode2021Tests.swift */; };
+		E0D40E5A2740558400A766C6 /* Puzzle_2021_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D40E562740536A00A766C6 /* Puzzle_2021_01.swift */; };
 		E0D7123223C2741E007B3E9C /* Puzzle_2017.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123123C2741E007B3E9C /* Puzzle_2017.swift */; };
 		E0D7123323C2741E007B3E9C /* Puzzle_2017.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123123C2741E007B3E9C /* Puzzle_2017.swift */; };
 		E0D7123523C2747E007B3E9C /* Puzzle_2017_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123423C2747E007B3E9C /* Puzzle_2017_01.swift */; };
@@ -552,6 +556,10 @@
 		E0D3EF2A23D3C02C0064413A /* Puzzle_2017_18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_18.swift; sourceTree = "<group>"; };
 		E0D3EF2D23D3C22F0064413A /* Puzzle_2017_19.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_19.swift; sourceTree = "<group>"; };
 		E0D3EF3023D3C38F0064413A /* Puzzle_2017_20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_20.swift; sourceTree = "<group>"; };
+		E0D40E53274051C700A766C6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E0D40E542740531D00A766C6 /* Puzzle_2021.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2021.swift; sourceTree = "<group>"; };
+		E0D40E562740536A00A766C6 /* Puzzle_2021_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2021_01.swift; sourceTree = "<group>"; };
+		E0D40E582740551900A766C6 /* AdventOfCode2021Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode2021Tests.swift; sourceTree = "<group>"; };
 		E0D7122E23C27006007B3E9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0D7123023C273FE007B3E9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0D7123123C2741E007B3E9C /* Puzzle_2017.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017.swift; sourceTree = "<group>"; };
@@ -689,6 +697,7 @@
 			isa = PBXGroup;
 			children = (
 				E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */,
+				E0D40E52274051A900A766C6 /* 2021 */,
 				E0C294A9256DF1BB00BAEE72 /* 2020 */,
 				E02114852398085F00F49FC1 /* 2019 */,
 				E0F4FA73239DA24F002F51A8 /* 2018 */,
@@ -840,6 +849,16 @@
 			path = Typedefs;
 			sourceTree = "<group>";
 		};
+		E0D40E52274051A900A766C6 /* 2021 */ = {
+			isa = PBXGroup;
+			children = (
+				E0D40E53274051C700A766C6 /* README.md */,
+				E0D40E542740531D00A766C6 /* Puzzle_2021.swift */,
+				E0D40E562740536A00A766C6 /* Puzzle_2021_01.swift */,
+			);
+			path = 2021;
+			sourceTree = "<group>";
+		};
 		E0D7122F23C273DE007B3E9C /* 2017 */ = {
 			isa = PBXGroup;
 			children = (
@@ -879,6 +898,7 @@
 			children = (
 				E03F8D8223F05CDD00CB1644 /* Extensions */,
 				E0014C6423C4259400651C57 /* Functions */,
+				E0D40E582740551900A766C6 /* AdventOfCode2021Tests.swift */,
 				E0C294C1256DF42900BAEE72 /* AdventOfCode2020Tests.swift */,
 				E0F4FA5C239D9401002F51A8 /* AdventOfCode2019Tests.swift */,
 				E0F4FA78239DA3B0002F51A8 /* AdventOfCode2018Tests.swift */,
@@ -1075,6 +1095,7 @@
 				E03F8D8023F05C5A00CB1644 /* Puzzle_2016_03.swift in Sources */,
 				E067F1B223AAE831005C4D26 /* Puzzle_2019_16.swift in Sources */,
 				E0A124E723A3DD2B00DE46F1 /* Puzzle_2019_13.swift in Sources */,
+				E0D40E572740536A00A766C6 /* Puzzle_2021_01.swift in Sources */,
 				E0D3EF2823D3BEBE0064413A /* Puzzle_2017_17.swift in Sources */,
 				E021149A2398943900F49FC1 /* Stack.swift in Sources */,
 				E0CBC89423EF3AC10002B5EA /* Puzzle_2017_25.swift in Sources */,
@@ -1109,6 +1130,7 @@
 				E04119A2239B16830031AD8B /* Puzzle_2019_06.swift in Sources */,
 				E0BE570523F766130076E4D9 /* Puzzle_2016_16.swift in Sources */,
 				E0EB01612590DC090055C4BB /* Puzzle_2020_21.swift in Sources */,
+				E0D40E552740531D00A766C6 /* Puzzle_2021.swift in Sources */,
 				E023A69B259623D8006C1A0E /* Puzzle_2020_25.swift in Sources */,
 				E020200B23F78A5C00217780 /* Puzzle_2015.swift in Sources */,
 				E04ADE3124007463006BD59C /* Puzzle_2015_08.swift in Sources */,
@@ -1280,6 +1302,7 @@
 				E0A8501023C22B3100947CA3 /* Puzzle_2018_19.swift in Sources */,
 				E01EC3162588F2C00041E08E /* Puzzle_2020_15.swift in Sources */,
 				E0F4FA6A239D9601002F51A8 /* StringExtensions.swift in Sources */,
+				E0D40E5A2740558400A766C6 /* Puzzle_2021_01.swift in Sources */,
 				E053277423B3C2F2005793B2 /* Puzzle_2019_22.swift in Sources */,
 				E03F8D7923EF9C9D00CB1644 /* Puzzle_2016_01.swift in Sources */,
 				E0F4FA65239D95EE002F51A8 /* Point2D.swift in Sources */,
@@ -1382,6 +1405,7 @@
 				E0C294C2256DF42900BAEE72 /* AdventOfCode2020Tests.swift in Sources */,
 				E0D3EF0823D38FCB0064413A /* Puzzle_2017_06.swift in Sources */,
 				E0BE570623F766130076E4D9 /* Puzzle_2016_16.swift in Sources */,
+				E0D40E592740551900A766C6 /* AdventOfCode2021Tests.swift in Sources */,
 				E0D3EF3223D3C38F0064413A /* Puzzle_2017_20.swift in Sources */,
 				E0B6BBE2258F96F7006D84C0 /* Puzzle_2020_20.swift in Sources */,
 				E053277123B3B428005793B2 /* Puzzle_2019_21.swift in Sources */,

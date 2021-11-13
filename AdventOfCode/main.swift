@@ -12,9 +12,9 @@ print("")
 print("Welcome to BP's Advent Of Code Solution Machine.")
 print("Make sure to click in the Output window to enter which puzzle you would like to solve.")
 
-private let kMaxYear = 2_020
+private let kMaxYear = 2_021
 private let kDefaultYear = kMaxYear
-private let kDefaultPuzzle = 25
+private let kDefaultPuzzle = 1
 private let kDefaultYearAndPuzzle = "\(kMaxYear) \(kDefaultPuzzle)"
 
 private var quitApp = false
@@ -54,8 +54,10 @@ while !quitApp {
         print("Solving \(year) puzzle \(puzzle), please stand by...")
 
         let start = DispatchTime.now()
-        if year == 020 {
-            Puzzle_2020().solve(puzzleNumber: puzzle)
+        if year == 2_021 {
+            Puzzle_2021().solve(puzzleNumber: puzzle)
+        } else if year == 2_020 {
+                Puzzle_2020().solve(puzzleNumber: puzzle)
         } else if year == 2_019 {
             Puzzle_2019().solve(puzzleNumber: puzzle)
         } else if year == 2_018 {
