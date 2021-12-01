@@ -15,7 +15,7 @@
 | 10 | :smile: | 2s |
 | 11 | :eyes: | 11s |
 | 12 | :smile: | <1s |
-| 13 | :fire: | 1m 34s |
+| 13 | :eyes: | 19s |
 | 14 | :smile: | <1s |
 | 15 | :smile: | 1s |
 | 16 | :smile: | <1s |

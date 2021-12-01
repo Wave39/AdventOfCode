@@ -84,7 +84,13 @@ public class Puzzle_2015_13: PuzzleBaseClass {
             }
         }
 
+        var peopleHappinessDictionary: [String: Int] = [:]
         func calculateHappinessBetweenPeople(person1: String, person2: String) -> Int {
+            let personKey = "\(person1) \(person2)"
+            if let cachedHappiness = peopleHappinessDictionary[personKey] {
+                return cachedHappiness
+            }
+
             var happiness = 0
             for happinessPair in happinessPairArray {
                 if (person1 == happinessPair.person1 && person2 == happinessPair.person2) ||
@@ -92,6 +98,8 @@ public class Puzzle_2015_13: PuzzleBaseClass {
                     happiness += happinessPair.happiness
                 }
             }
+
+            peopleHappinessDictionary[personKey] = happiness
 
             return happiness
         }
