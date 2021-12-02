@@ -3,7 +3,8 @@
 
 | Day | Status | Execution Time | Hall of Shame |
 | :---: | :---: | :---: | :--- |
-| 1 | TBD | TBD |
+| 1 | :smile: | <1s |
+| [2](https://adventofcode.com/2021/day/2) | :smile: | <1s |
 
 ### Legend
 
