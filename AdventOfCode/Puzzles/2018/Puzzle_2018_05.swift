@@ -6,9 +6,67 @@
 //  Copyright © 2019 Wave 39 LLC. All rights reserved.
 //
 
+// https://adventofcode.com/2018/day/5
+
+// Big assist to Bo Oelkers for the hint on abandoning strings for structs
+// https://github.com/sendtobo/AdventOfCode2018/blob/master/Sources/AoC/5/Day5.swift
+
 import Foundation
 
 public class Puzzle_2018_05: NSObject {
+    private enum Polarity {
+        case upper
+        case lower
+    }
+
+    private struct Unit {
+        var polarity: Polarity
+        var value: String
+
+        init(string: String) {
+            self.polarity = string == string.lowercased() ? .lower : .upper
+            self.value = string.lowercased()
+        }
+
+        func sameButNotPolarity(with unit: Unit) -> Bool {
+            self.value == unit.value && self.polarity != unit.polarity
+        }
+    }
+
+    private func fullySmash(_ startUnits: [Unit]) -> [Unit] {
+        var startUnits = startUnits
+        var endUnits = self.smash(startUnits)
+        while startUnits.count != endUnits.count {
+            startUnits = endUnits
+            endUnits = self.smash(startUnits)
+        }
+
+        return endUnits
+    }
+
+    private func smash(_ units: [Unit]) -> [Unit] {
+        var endUnits = [Unit]()
+        var skipUnit = false
+        for (index, unit) in units.enumerated() {
+            if skipUnit {
+                skipUnit = false
+            } else {
+                let nextIndex = index + 1
+                if nextIndex < units.count {
+                    let nextUnit = units[nextIndex]
+                    if unit.sameButNotPolarity(with: nextUnit) {
+                        skipUnit = true
+                    } else {
+                        endUnits.append(unit)
+                    }
+                } else {
+                    endUnits.append(unit)
+                }
+            }
+        }
+        return endUnits
+    }
+
     public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -75,18 +133,33 @@ public class Puzzle_2018_05: NSObject {
     }
 
     private func solvePart2(polymer: String) -> Int {
-        var retval = Int.max
-        for c in "abcdefghijklmnopqrstuvwxyz" {
-            let c1 = String(c)
-            let c2 = String(c).uppercased()
-            let newPolymer = polymer.replacingOccurrences(of: c1, with: "").replacingOccurrences(of: c2, with: "")
-            let newerPolymer = decomposePolymerFaster(polymer: newPolymer)
-            if newerPolymer.count < retval {
-                retval = newerPolymer.count
+        // This was my feeble attempt to process with strings, it took about 100 seconds to finish because of all the string thrashing
+//        var retval = Int.max
+//        for c in "abcdefghijklmnopqrstuvwxyz" {
+//            let c1 = String(c)
+//            let c2 = String(c).uppercased()
+//            let newPolymer = polymer.replacingOccurrences(of: c1, with: "").replacingOccurrences(of: c2, with: "")
+//            let newerPolymer = decomposePolymerFaster(polymer: newPolymer)
+//            if newerPolymer.count < retval {
+//                retval = newerPolymer.count
+//            }
+//        }
+//
+//        return retval
+
+        let startUnits = polymer.map { Unit(string: "\($0)") }
+        // Pre smash the input to optimize since we are always going to be doing that work
+        let preSmashedUnits = fullySmash(startUnits)
+        var smallestCount = Int.max
+        for char in "abcdefghijklmnopqrstuvwxyz" {
+            let tempUnits = preSmashedUnits.filter { $0.value != "\(char)" }
+            let smashedCount = fullySmash(tempUnits).count
+            if smashedCount < smallestCount {
+                smallestCount = smashedCount
             }
         }
 
-        return retval
+        return smallestCount
     }
 }
 

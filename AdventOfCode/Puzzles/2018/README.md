@@ -11,7 +11,7 @@ I guess my excuse can be that I was recovering from a major heel surgery and was
 | 2 | :smile: | <1s |
 | 3 | :smile: | 2s |
 | 4 | :smile: | <1s |
-| 5 | :fire: | 1m 26s |
+| [5](https://adventofcode.com/2018/day/5) | :eyes: | 16s | Thanks to Bo Oelkers for the tip on moving away from string processing |
 | 6 | :smile: | 5s |
 | 7 | :smile: | <1s |
 | 8 | :smile: | <1s |
