@@ -3,8 +3,9 @@
 
 | Day | Status | Execution Time | Hall of Shame |
 | :---: | :---: | :---: | :--- |
-| 1 | :smile: | <1s |
+| [1](https://adventofcode.com/2021/day/1) | :smile: | <1s |
 | [2](https://adventofcode.com/2021/day/2) | :smile: | <1s |
+| [3](https://adventofcode.com/2021/day/3) | :smile: | <1s |
 
 ### Legend
 
