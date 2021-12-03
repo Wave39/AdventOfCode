@@ -52,8 +52,8 @@ public class Puzzle_2021_03: PuzzleBaseClass {
             }
         }
 
-        let gamma = Int(gammaString, radix: 2) ?? 0
-        let epsilon = Int(epsilonString, radix: 2) ?? 0
+        let gamma = gammaString.binaryToInt
+        let epsilon = epsilonString.binaryToInt
         return gamma * epsilon
     }
 
@@ -86,7 +86,7 @@ public class Puzzle_2021_03: PuzzleBaseClass {
             currentBit += 1
         }
 
-        return Int(values[0], radix: 2) ?? 0
+        return values[0].binaryToInt
     }
 
     private func solvePart2(str: String) -> Int {

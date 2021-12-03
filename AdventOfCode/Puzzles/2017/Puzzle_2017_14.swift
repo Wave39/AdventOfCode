@@ -68,7 +68,7 @@ public class Puzzle_2017_14: PuzzleBaseClass {
 
         var knotHash = ""
         for i in denseHash {
-            knotHash += ((i <= 15 ? "0" : "") + String(i, radix: 16))
+            knotHash += ((i <= 15 ? "0" : "") + i.hexadecimalString())
         }
 
         return knotHash

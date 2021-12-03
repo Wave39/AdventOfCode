@@ -123,7 +123,7 @@ whirled peas
                     inputSignal = getAsciiArray(commandArray.first ?? "")
                     commandArray.remove(at: 0)
                 } else {
-                    let bitmaskBinary = pad(string: String(bitmask, radix: 2), toSize: 8)
+                    let bitmaskBinary = pad(string: bitmask.binaryString(), toSize: 8)
                     for idx in 0..<8 {
                         if bitmaskBinary[idx] == "1" {
                             commandArray.append("take " + itemArray[idx])

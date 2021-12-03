@@ -19,3 +19,23 @@ public extension FixedWidthInteger where Self: UnsignedInteger {
         return [UInt8](bytePtr)
     }
 }
+
+public extension Int {
+    func binaryString(padLength: Int = 0) -> String {
+        var binaryValue = String(self, radix: 2)
+        while binaryValue.count < padLength {
+            binaryValue = "0" + binaryValue
+        }
+
+        return binaryValue
+    }
+
+    func hexadecimalString(padLength: Int = 0) -> String {
+        var hexadecimalValue = String(self, radix: 16)
+        while hexadecimalValue.count < padLength {
+            hexadecimalValue = "0" + hexadecimalValue
+        }
+
+        return hexadecimalValue
+    }
+}

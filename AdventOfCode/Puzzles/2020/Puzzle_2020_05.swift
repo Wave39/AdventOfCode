@@ -27,9 +27,9 @@ public class Puzzle_2020_05: PuzzleBaseClass {
 
     private func getSeatLocation(str: String) -> (Int, Int, Int) {
         let row = str.substring(from: 0, to: 7).replacingOccurrences(of: "B", with: "1").replacingOccurrences(of: "F", with: "0")
-        let rowInt = Int(row, radix: 2) ?? 0
+        let rowInt = row.binaryToInt
         let col = str.substring(from: 7).replacingOccurrences(of: "R", with: "1").replacingOccurrences(of: "L", with: "0")
-        let colInt = Int(col, radix: 2) ?? 0
+        let colInt = col.binaryToInt
         let seatID = rowInt * 8 + colInt
         return (rowInt, colInt, seatID)
     }

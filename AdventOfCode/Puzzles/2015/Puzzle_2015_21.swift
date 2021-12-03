@@ -83,7 +83,7 @@ public class Puzzle_2015_21: PuzzleBaseClass {
         }
 
         func getOnBitCount(_ n: Int) -> Int {
-            let str = String(n, radix: 2)
+            let str = n.binaryString()
             let str1s = str.filter { $0 == "1" }
             return str1s.count
         }

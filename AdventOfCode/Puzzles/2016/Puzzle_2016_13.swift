@@ -34,7 +34,7 @@ public class Puzzle_2016_13: PuzzleBaseClass {
             }
 
             let n = (c.x * c.x) + (3 * c.x) + (2 * c.x * c.y) + (c.y) + (c.y * c.y) + favoriteNumber
-            let str = String(n, radix: 2)
+            let str = n.binaryString()
             let ones = str.filter { $0 == "1" }.count
             return (ones % 2) == 1
         }

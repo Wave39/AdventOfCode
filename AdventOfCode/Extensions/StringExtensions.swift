@@ -22,9 +22,23 @@ public extension String {
         return c?.value ?? 0
     }
 
+    var binaryToInt: Int {
+        guard let retval = Int(self, radix: 2) else {
+            return 0
+        }
+        return retval
+    }
+
     var double: Double {
         guard let retval = Double(self.trim()) else {
             return 0.0
+        }
+        return retval
+    }
+
+    var hexadecimalToInt: Int {
+        guard let retval = Int(self, radix: 16) else {
+            return 0
         }
         return retval
     }
@@ -124,7 +138,8 @@ public extension String {
         var retval = ""
 
         for c in self {
-            var b = String(Int(String(c), radix: 16) ?? 0, radix: 2)
+            let v = String(c).hexadecimalToInt
+            var b = v.binaryString()
             while b.count < 4 {
                 b = "0" + b
             }

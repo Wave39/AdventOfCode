@@ -25,16 +25,6 @@ public class Puzzle_2020_14: PuzzleBaseClass {
         solvePart2(str: Puzzle_Input.puzzleInput)
     }
 
-    // FUTURE: move to common code
-    private func binaryString(_ v: Int, padLength: Int) -> String {
-        var binaryValue = String(v, radix: 2)
-        while binaryValue.count < padLength {
-            binaryValue = "0" + binaryValue
-        }
-
-        return binaryValue
-    }
-
     private func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
         var bitmask = ""
@@ -53,7 +43,7 @@ public class Puzzle_2020_14: PuzzleBaseClass {
                     memoryValues[addr] = 0
                 }
 
-                let binaryValue = binaryString(mem[1].int, padLength: 36)
+                let binaryValue = mem[1].int.binaryString(padLength: 36)
                 var newBinaryValue = ""
                 for idx in 0..<36 {
                     if bitmask[idx] == "0" || bitmask[idx] == "1" {
@@ -63,7 +53,7 @@ public class Puzzle_2020_14: PuzzleBaseClass {
                     }
                 }
 
-                memoryValues[addr] = Int(newBinaryValue, radix: 2) ?? 0
+                memoryValues[addr] = newBinaryValue.binaryToInt
             } else {
                 print("Unknown input: \(arr[0])")
             }
@@ -80,12 +70,12 @@ public class Puzzle_2020_14: PuzzleBaseClass {
     private func getMemoryAddresses(originalAddress: Int, bitmask: String) -> [Int] {
         var retval: [Int] = []
 
-        let binaryValue = binaryString(originalAddress, padLength: 36)
+        let binaryValue = originalAddress.binaryString(padLength: 36)
         let xCount = bitmask.filter { $0 == "X" }.count
         if xCount > 0 {
             let pow = (2 << xCount)
             for idx in 0..<pow {
-                var powString = binaryString(idx, padLength: xCount)
+                var powString = idx.binaryString(padLength: xCount)
                 var newAddress = ""
                 for idx in 0..<36 {
                     if bitmask[idx] == "0" {
@@ -98,7 +88,7 @@ public class Puzzle_2020_14: PuzzleBaseClass {
                     }
                 }
 
-                retval.append(Int(newAddress, radix: 2) ?? 0)
+                retval.append(newAddress.binaryToInt)
             }
         }
 
