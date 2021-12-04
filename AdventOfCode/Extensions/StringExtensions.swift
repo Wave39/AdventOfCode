@@ -242,6 +242,31 @@ public extension String {
         }
     }
 
+    func pad(with: String, toSize: Int, onTheLeft: Bool) -> String {
+        if with.count != 1 {
+            return self
+        }
+
+        var padded = self
+        for _ in 0..<(toSize - padded.count) {
+            if onTheLeft {
+                padded = with + padded
+            } else {
+                padded += with
+            }
+        }
+
+        return padded
+    }
+
+    func padLeft(with: String, toSize: Int) -> String {
+        pad(with: with, toSize: toSize, onTheLeft: true)
+    }
+
+    func padRight(with: String, toSize: Int) -> String {
+        pad(with: with, toSize: toSize, onTheLeft: false)
+    }
+
     func parseIntoIntArray() -> [Int] {
         parseIntoIntArray(separator: "\n")
     }
