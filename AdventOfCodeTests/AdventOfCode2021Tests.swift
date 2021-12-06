@@ -56,4 +56,137 @@ public class AdventOfCode2021Tests: XCTestCase {
         let part2 = Puzzle_2021_06().solvePart2()
         XCTAssertEqual(part2, 1_746_710_169_834)
     }
+
+    public func test2021day07() {
+        let part1 = Puzzle_2021_07().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_07().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day08() {
+        let part1 = Puzzle_2021_08().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_08().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day09() {
+        let part1 = Puzzle_2021_09().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_09().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day10() {
+        let part1 = Puzzle_2021_10().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_10().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day11() {
+        let part1 = Puzzle_2021_11().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_11().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day12() {
+        let part1 = Puzzle_2021_12().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_12().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day13() {
+        let part1 = Puzzle_2021_13().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_13().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day14() {
+        let part1 = Puzzle_2021_14().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_14().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day15() {
+        let part1 = Puzzle_2021_15().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_15().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day16() {
+        let part1 = Puzzle_2021_16().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_16().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day17() {
+        let part1 = Puzzle_2021_17().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_17().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day18() {
+        let part1 = Puzzle_2021_18().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_18().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day19() {
+        let part1 = Puzzle_2021_19().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_19().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day20() {
+        let part1 = Puzzle_2021_20().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_20().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day21() {
+        let part1 = Puzzle_2021_21().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_21().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day22() {
+        let part1 = Puzzle_2021_22().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_22().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day23() {
+        let part1 = Puzzle_2021_23().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_23().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day24() {
+        let part1 = Puzzle_2021_24().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_24().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
+
+    public func test2021day25() {
+        let part1 = Puzzle_2021_25().solvePart1()
+        XCTAssertEqual(part1, 2)
+        let part2 = Puzzle_2021_25().solvePart2()
+        XCTAssertEqual(part2, 2)
+    }
 }

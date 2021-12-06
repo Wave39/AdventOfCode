@@ -22,6 +22,44 @@ public class Puzzle_2021 {
             Puzzle_2021_05().solve()
         } else if puzzleNumber == 6 {
             Puzzle_2021_06().solve()
+        } else if puzzleNumber == 7 {
+            Puzzle_2021_07().solve()
+        } else if puzzleNumber == 8 {
+            Puzzle_2021_08().solve()
+        } else if puzzleNumber == 9 {
+            Puzzle_2021_09().solve()
+        } else if puzzleNumber == 10 {
+            Puzzle_2021_10().solve()
+        } else if puzzleNumber == 11 {
+            Puzzle_2021_11().solve()
+        } else if puzzleNumber == 12 {
+            Puzzle_2021_12().solve()
+        } else if puzzleNumber == 13 {
+            Puzzle_2021_13().solve()
+        } else if puzzleNumber == 14 {
+            Puzzle_2021_14().solve()
+        } else if puzzleNumber == 15 {
+            Puzzle_2021_15().solve()
+        } else if puzzleNumber == 16 {
+            Puzzle_2021_16().solve()
+        } else if puzzleNumber == 17 {
+            Puzzle_2021_17().solve()
+        } else if puzzleNumber == 18 {
+            Puzzle_2021_18().solve()
+        } else if puzzleNumber == 19 {
+            Puzzle_2021_19().solve()
+        } else if puzzleNumber == 20 {
+            Puzzle_2021_20().solve()
+        } else if puzzleNumber == 21 {
+            Puzzle_2021_21().solve()
+        } else if puzzleNumber == 22 {
+            Puzzle_2021_22().solve()
+        } else if puzzleNumber == 23 {
+            Puzzle_2021_23().solve()
+        } else if puzzleNumber == 24 {
+            Puzzle_2021_24().solve()
+        } else if puzzleNumber == 25 {
+            Puzzle_2021_25().solve()
         } else {
             print("The puzzle number \(puzzleNumber) was not found.")
         }
