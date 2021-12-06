@@ -20,6 +20,8 @@ public class Puzzle_2021 {
             Puzzle_2021_04().solve()
         } else if puzzleNumber == 5 {
             Puzzle_2021_05().solve()
+        } else if puzzleNumber == 6 {
+            Puzzle_2021_06().solve()
         } else {
             print("The puzzle number \(puzzleNumber) was not found.")
         }
@@ -38,11 +40,11 @@ public class Puzzle_2021_XX: PuzzleBaseClass {
     }
 
     public func solvePart1() -> Int {
-        solvePart1(str: Puzzle_Input.final)
+        solvePart1(str: Puzzle_Input.test)
     }
 
     public func solvePart2() -> Int {
-        solvePart2(str: Puzzle_Input.final)
+        solvePart2(str: Puzzle_Input.test)
     }
 
     private func solvePart1(str: String) -> Int {

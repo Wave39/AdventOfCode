@@ -8,6 +8,7 @@
 | [3](https://adventofcode.com/2021/day/3) | :smile: | <1s |
 | [4](https://adventofcode.com/2021/day/4) | :smile: | <1s |
 | [5](https://adventofcode.com/2021/day/5) | :smile: | <1s |
+| [6](https://adventofcode.com/2021/day/6) | :smile: | <1s |
 
 ### Legend
 
