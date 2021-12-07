@@ -16,7 +16,7 @@
 | [11](https://adventofcode.com/2016/day/11) | :eyes: | 17s |
 | [12](https://adventofcode.com/2016/day/12) | :fire: | 6m 58s |
 | [13](https://adventofcode.com/2016/day/13) | :smile: | <1s |
-| [14](https://adventofcode.com/2016/day/14) | :fire: | 26m 10s |
+| [14](https://adventofcode.com/2016/day/14) | :fire: | 4m 59s | The changes that I made for day 5 of this year also helped bring this down from 26 minutes to about 5 minutes. |
 | [15](https://adventofcode.com/2016/day/15) | :eyes: | 12s |
 | [16](https://adventofcode.com/2016/day/16) | :warning: | 57s |
 | [17](https://adventofcode.com/2016/day/17) | :smile: | 2s |
