@@ -20,7 +20,8 @@ public class Puzzle_2016_05: PuzzleBaseClass {
         var part2Password = "--------"
         var idx = 0
         let part1Prefix = PuzzleInput.final
-        while part1Password.count < 8 || part2Password.contains("-") {
+        var part2PasswordCount = 0
+        while part1Password.count < 8 || part2PasswordCount < 8 {
             let md5String = "\(part1Prefix)\(idx)".md5
             if md5String.hasPrefix("00000") {
                 // print("On index \(idx) the MD5 hash is \(md5String)")
@@ -33,6 +34,7 @@ public class Puzzle_2016_05: PuzzleBaseClass {
                 if sixthChar >= "0" && sixthChar <= "7" {
                     let pos = sixthChar.int
                     if part2Password[pos] == "-" {
+                        part2PasswordCount += 1
                         let seventhChar = md5String[6]
                         part2Password = part2Password.replace(index: pos, newChar: seventhChar)
                         // print("Part 2 password becomes \(part2Password)")

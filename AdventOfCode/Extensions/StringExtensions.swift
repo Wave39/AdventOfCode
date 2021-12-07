@@ -52,7 +52,8 @@ public extension String {
 
     var md5: String {
         let computed = Insecure.MD5.hash(data: self.data(using: .utf8) ?? Data())
-        return computed.map { String(format: "%02hhx", $0) }.joined()
+        // return computed.map { String(format: "%02hhx", $0) }.joined() // very slow
+        return Data(computed).hexEncodedString()
     }
 
     var uniqueCharacters: String {
