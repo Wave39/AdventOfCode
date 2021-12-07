@@ -9,6 +9,7 @@
 | [4](https://adventofcode.com/2021/day/4) | :smile: | <1s |
 | [5](https://adventofcode.com/2021/day/5) | :smile: | <1s |
 | [6](https://adventofcode.com/2021/day/6) | :smile: | <1s |
+| [7](https://adventofcode.com/2021/day/7) | :smile: | <1s | This one would have taken 2 or 3 seconds to solve, so I decided to try to cache the fuel consumption values for part 2, and it worked out great. |
 
 ### Legend
 
