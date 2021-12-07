@@ -1,10 +1,12 @@
 //
-//  Puzzle_2021_2.swift
+//  Puzzle_2021_22.swift
 //  AdventOfCode
 //
 //  Created by Brian Prescott on 12/6/21.
 //  Copyright © 2021 Wave 39 LLC. All rights reserved.
 //
+
+// https://adventofcode.com/2021/day/22
 
 import Foundation
 
