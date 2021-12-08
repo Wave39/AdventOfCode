@@ -15,16 +15,21 @@ If you change the puzzle input for your own puzzle input, the tests will most li
 
 Here are some links to the README files for the various years, along with my thoughts about the solutions.
 
-[2015](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2015/README.md) |
-[2016](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2016/README.md) |
-[2017](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2017/README.md) |
-[2018](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2018/README.md) |
-[2019](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2019/README.md) |
+[2021](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2021/README.md) |
 [2020](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2020/README.md) |
-[2021](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2021/README.md)
+[2019](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2019/README.md) |
+[2018](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2018/README.md) |
+[2017](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2017/README.md) |
+[2016](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2016/README.md) |
+[2015](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2015/README.md)
 
 ## Advent of Code link
 Here is the link to the Advent Of Code web site, just in case you can't figure it out for yourself or in the 
 event that Google is down:
 
 http://adventofcode.com
+
+## Other repository links
+And here are some other links to Advent of Code public repositories that may be interesting.
+
+From John Boker: [2021](https://github.com/johnboker/AoC2021) | [2020](https://github.com/johnboker/AoC2020) | [2019](https://github.com/johnboker/AoC2019) | [2018](https://github.com/johnboker/AoC2018) | [2017](https://github.com/johnboker/AoC2017) | [2016](https://github.com/johnboker/AoC2016)
