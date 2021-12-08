@@ -11,8 +11,50 @@
 import Foundation
 
 public class Puzzle_2021_08: PuzzleBaseClass {
-    private typealias Possibilities = [String: Set<String>]
+    // segments
+    //  aaaa
+    // b    c
+    // b    c
+    //  dddd
+    // e    f
+    // e    f
+    //  gggg
+
+    // segments  digit
+    //    2        1
+    //    3        7
+    //    4        4
+    //    5        2, 3, 5
+    //    6        0, 6, 9
+    //    7        8
+
+    // digits   common segments  different segments
+    // 2, 3, 5  a, d, g          b, c, e, f
+    // 0, 6, 9  a, b, f, g       c, d, e
+
+    // how to get segment:
+    // a: get single 2 segment number (1), get single 3 segment number (7), find character in 7 not in 1
+    // d: find 2 common segment characters in 5 segment numbers that are also in common segment characters in 6 segment numbers, leftover character in 5 segment commons is d
+    // b: get single 2 segment number (1), get single 4 segment number (4), eliminate 1 characters, eliminate d character, leftover character is b
+    // g: get 5 segment common characters, eliminate a character, eliminate d character, leftover character is g
+    // f: get 6 segment common characters, eliminate a character, eliminate b character, eliminate g character, leftover character is f
+    // c: get single 4 segment number (4), eliminate b character, eliminate d character, eliminate f character, leftover character is c
+    // e: leftover character from all above
+
     private typealias Mapping = [String: String]
+
+    private let displayDictionary: [String: String] = [
+        "0": "abcefg",
+        "1": "cf",
+        "2": "acdeg",
+        "3": "acdfg",
+        "4": "bcdf",
+        "5": "abdfg",
+        "6": "abdefg",
+        "7": "acf",
+        "8": "abcdefg",
+        "9": "abcdfg"
+    ]
 
     public func solve() {
         let part1 = solvePart1()
@@ -27,7 +69,7 @@ public class Puzzle_2021_08: PuzzleBaseClass {
     }
 
     public func solvePart2() -> Int {
-        solvePart2(str: Puzzle_Input.test1)
+        solvePart2(str: Puzzle_Input.final)
     }
 
     private func solvePart1(str: String) -> Int {
@@ -46,49 +88,22 @@ public class Puzzle_2021_08: PuzzleBaseClass {
         return counter
     }
 
-    //  aaaa
-    // b    c
-    // b    c
-    //  dddd
-    // e    f
-    // e    f
-    //  gggg
-
-    // segments  digit
-    //    1        -
-    //    2        1
-    //    3        7
-    //    4        4
-    //    5        2, 3, 5
-    //    6        0, 6, 9
-    //    7        8
-
-    // digits   common segments  different segments
-    // 2, 3, 5  a, d, g          b, c, e, f
-    // 0, 6, 9  a, b, f, g       c, d, e
-
-    // how to get segment:
-    // a: get single 2 segment number (1), get single 3 segment number (7), find character in 7 not in 1
-    // d: find 2 common segment characters in 5 segment numbers that are also in common segment characters in 6 segment numbers, leftover character in 5 segment commons is d
-    // b: get single 2 segment number (1), get single 4 segment number (4), eliminate 1 characters, eliminate d character, leftover character is b
-
     private func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
-        var possibilities: Possibilities = [:]
-        possibilities["a"] = []
-        possibilities["b"] = []
-        possibilities["c"] = []
-        possibilities["d"] = []
-        possibilities["e"] = []
-        possibilities["f"] = []
-        possibilities["g"] = []
-        var mapping: Mapping = ["a": "", "b": "", "c": "", "d": "", "e": "", "f": "", "g": ""]
+        var mapping: Mapping
 
+        var total = 0
         for line in lines {
+            mapping = ["a": "", "b": "", "c": "", "d": "", "e": "", "f": "", "g": ""]
             let components = line.parseIntoStringArray(separator: " ")
             var inputs: [String] = []
+            var outputs: [String] = []
             for idx in 0...9 {
                 inputs.append(components[idx])
+            }
+
+            for idx in 11...14 {
+                outputs.append(components[idx])
             }
 
             // 1
@@ -97,35 +112,16 @@ public class Puzzle_2021_08: PuzzleBaseClass {
                 return -1
             }
 
-            for char in one {
-                possibilities["c"]?.insert(String(char))
-                possibilities["f"]?.insert(String(char))
-            }
-
             // 7
             guard let seven = inputs.first(where: { $0.count == 3 }) else {
                 print("BIG PROBLEM!")
                 return -1
             }
 
-            for char in seven {
-                if !one.contains(char) {
-                    possibilities["a"]?.insert(String(char))
-                    mapping["a"] = String(char)
-                }
-            }
-
             // 4
             guard let four = inputs.first(where: { $0.count == 4 }) else {
                 print("BIG PROBLEM!")
                 return -1
-            }
-
-            for char in four {
-                if !one.contains(char) {
-                    possibilities["b"]?.insert(String(char))
-                    possibilities["d"]?.insert(String(char))
-                }
             }
 
             // 5 segment numbers
@@ -135,18 +131,8 @@ public class Puzzle_2021_08: PuzzleBaseClass {
                 let flatmap = fiveSegmentNumbers.compactMap { $0 }.joined()
                 let dict = flatmap.characterCounts()
                 fiveSegmentCommon = String(dict.filter { $0.value == 3 }.map { $0.key })
-                for number in fiveSegmentNumbers {
-                    for char in number {
-                        if !fiveSegmentCommon.contains(char) {
-                            possibilities["b"]?.insert(String(char))
-                            possibilities["c"]?.insert(String(char))
-                            possibilities["e"]?.insert(String(char))
-                            possibilities["f"]?.insert(String(char))
-                        }
-                    }
-                }
             } else {
-                print("BIG PROBLEM")
+                print("BIG PROBLEM!")
             }
 
             // 6 segment numbers
@@ -156,28 +142,65 @@ public class Puzzle_2021_08: PuzzleBaseClass {
                 let flatmap = sixSegmentNumbers.compactMap { $0 }.joined()
                 let dict = flatmap.characterCounts()
                 sixSegmentCommon = String(dict.filter { $0.value == 3 }.map { $0.key })
-                for number in sixSegmentNumbers {
-                    for char in number {
-                        if !sixSegmentCommon.contains(char) {
-                            possibilities["c"]?.insert(String(char))
-                            possibilities["d"]?.insert(String(char))
-                            possibilities["e"]?.insert(String(char))
-                        }
-                    }
-                }
             } else {
-                print("BIG PROBLEM")
+                print("BIG PROBLEM!")
             }
+
+            mapping["a"] = String.uncommonCharacters(str1: one, str2: seven)
 
             let fiveAndSixCommon = String.commonCharacters(str1: fiveSegmentCommon, str2: sixSegmentCommon)
             mapping["d"] = String.uncommonCharacters(str1: fiveSegmentCommon, str2: fiveAndSixCommon)
 
             let fourAndOneUncommon = String.uncommonCharacters(str1: four, str2: one)
+            mapping["b"] = String.uncommonCharacters(str1: fourAndOneUncommon, str2: mapping["d"] ?? "")
 
-            print(mapping)
+            let fiveAndAUncommon = String.uncommonCharacters(str1: fiveSegmentCommon, str2: mapping["a"] ?? "")
+            mapping["g"] = String.uncommonCharacters(str1: fiveAndAUncommon, str2: mapping["d"] ?? "")
+
+            let sixAndAUncommon = String.uncommonCharacters(str1: sixSegmentCommon, str2: mapping["a"] ?? "")
+            let sixAndAAndBUncommon = String.uncommonCharacters(str1: sixAndAUncommon, str2: mapping["b"] ?? "")
+            mapping["f"] = String.uncommonCharacters(str1: sixAndAAndBUncommon, str2: mapping["g"] ?? "")
+
+            let fourAndBUncommon = String.uncommonCharacters(str1: four, str2: mapping["b"] ?? "")
+            let fourAndBAndDUncommon = String.uncommonCharacters(str1: fourAndBUncommon, str2: mapping["d"] ?? "")
+            mapping["c"] = String.uncommonCharacters(str1: fourAndBAndDUncommon, str2: mapping["f"] ?? "")
+
+            var chars: Set<String> = ["a", "b", "c", "d", "e", "f", "g"]
+            for key in mapping.keys {
+                if let str = mapping[key], !str.isEmpty {
+                    chars.remove(str)
+                }
+            }
+
+            mapping["e"] = chars.first
+
+            var translatedOutputs: [String] = []
+            for output in outputs {
+                var outputString = ""
+                for char in output {
+                    if let found = mapping.first(where: { $0.value == String(char) }) {
+                        outputString += found.key
+                    } else {
+                        print("BIG PROBLEM!")
+                    }
+                }
+
+                translatedOutputs.append(String(outputString.sorted()))
+            }
+
+            var entry = ""
+            for output in translatedOutputs {
+                if let found = displayDictionary.first(where: { $0.value == output }) {
+                    entry += found.key
+                } else {
+                    print("BIG PROBLEM!")
+                }
+            }
+
+            total += entry.int
         }
 
-        return lines.count
+        return total
     }
 }
 
