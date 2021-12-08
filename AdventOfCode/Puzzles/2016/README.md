@@ -14,7 +14,7 @@
 | [9](https://adventofcode.com/2016/day/9) | :smile: | <1s |
 | [10](https://adventofcode.com/2016/day/10) | :smile: | <1s |
 | [11](https://adventofcode.com/2016/day/11) | :eyes: | 17s |
-| [12](https://adventofcode.com/2016/day/12) | :fire: | 6m 58s |
+| [12](https://adventofcode.com/2016/day/12) | :warning: | 21s | By pre-processing the instructions instead of parsing them over and over again, I was able to get this one down to about 20 seconds from about 7 minutes. |
 | [13](https://adventofcode.com/2016/day/13) | :smile: | <1s |
 | [14](https://adventofcode.com/2016/day/14) | :fire: | 4m 59s | The changes that I made for day 5 of this year also helped bring this down from 26 minutes to about 5 minutes. |
 | [15](https://adventofcode.com/2016/day/15) | :eyes: | 12s |
