@@ -105,7 +105,7 @@ opt_in_rules: # some rules are turned off by default, so you need to opt-in
   - quick_discouraged_pending_test
   - raw_value_for_camel_cased_codable_enum
   - reduce_boolean
-  - reduce_into
+  # - reduce_into
   - redundant_nil_coalescing
   - redundant_type_annotation
   - required_enum_case

@@ -61,6 +61,18 @@ public extension String {
         return String(filter { set.insert($0).inserted })
     }
 
+    static func commonCharacters(str1: String, str2: String) -> String {
+        let dict = (str1 + str2).characterCounts()
+        let str = String(dict.filter { $0.value == 2 }.map { $0.key })
+        return str
+    }
+
+    static func uncommonCharacters(str1: String, str2: String) -> String {
+        let dict = (str1 + str2).characterCounts()
+        let str = String(dict.filter { $0.value != 2 }.map { $0.key })
+        return str
+    }
+
     func capturedGroups(withRegex pattern: String, trimResults: Bool = false) -> [String] {
         var results = [String]()
 
@@ -93,6 +105,15 @@ public extension String {
         }
 
         return results
+    }
+
+    func characterCounts() -> [Character: Int] {
+        self.reduce([:]) { d, c -> [Character: Int] in
+            var d = d
+            let i = d[c] ?? 0
+            d[c] = i + 1
+            return d
+        }
     }
 
     func charactersDifferentFrom(str: String) -> Int {
