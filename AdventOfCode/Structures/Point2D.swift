@@ -63,6 +63,11 @@ public struct Point2D: Hashable, CustomStringConvertible {
         return retval
     }
 
+    public func adjacentLocationsWithinGrid(rows: Int, columns: Int, includeDiagonals: Bool = false) -> [Point2D] {
+        let locations = adjacentLocations(includeDiagonals: includeDiagonals)
+        return locations.filter { $0.x >= 0 && $0.x < columns && $0.y >= 0 && $0.y < rows }
+    }
+
     public func moveForward(direction: CompassDirection) -> Point2D {
         if direction == .North {
             return Point2D(x: self.x, y: self.y + 1)

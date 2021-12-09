@@ -303,6 +303,21 @@ public extension String {
         return retval
     }
 
+    func parseIntoDigitMatrix() -> [[Int]] {
+        var allLines: [[Int]] = []
+        let lineArray = self.split(separator: "\n")
+        for line in lineArray {
+            var thisLine: [Int] = []
+            for element in line {
+                thisLine.append(element.int)
+            }
+
+            allLines.append(thisLine)
+        }
+
+        return allLines
+    }
+
     func parseIntoMatrix() -> [[String]] {
         var allLines: [[String]] = []
         let lineArray = self.split(separator: "\n")

@@ -26,7 +26,7 @@ while !quitApp {
 
     while !quitApp && (day < 1 || day > 25) {
         print("")
-        print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to 2020 and a number from 1 to 25, default of \(defaultYearAndPuzzle), or Q to quit)")
+        print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to \(defaultYear) and a number from 1 to 25, default of \(defaultYearAndPuzzle), or Q to quit)")
         guard let response = readLine() else { continue }
         if response.lowercased().trim() == "q" {
             quitApp = true
