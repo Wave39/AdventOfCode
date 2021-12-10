@@ -80,9 +80,9 @@ public class AdventOfCode2021Tests: XCTestCase {
 
     public func test2021day10() {
         let part1 = Puzzle_2021_10().solvePart1()
-        XCTAssertEqual(part1, 2)
+        XCTAssertEqual(part1, 390_993)
         let part2 = Puzzle_2021_10().solvePart2()
-        XCTAssertEqual(part2, 2)
+        XCTAssertEqual(part2, 2_391_385_187)
     }
 
     public func test2021day11() {
