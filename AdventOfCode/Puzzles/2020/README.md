@@ -20,22 +20,22 @@ Links to other years: [2021](https://github.com/Wave39/AdventOfCode/blob/master/
 | [7](https://adventofcode.com/2020/day/7) | :smile: | <1s |
 | [8](https://adventofcode.com/2020/day/8) | :smile: | <1s |
 | [9](https://adventofcode.com/2020/day/9) | :smile: | <1s |
-| 10 | :smile: | <1s |
-| 11 | :warning: | 20s |
-| 12 | :smile: | <1s |
-| 13 | :smile: | <1s |
-| 14 | :eyes: | 10s |
-| 15 | :warning: | 31s |
-| 16 | :smile: | <1s |
-| 17 | :eyes: | 15s |
-| 18 | :smile: | <1s |
-| 19 | :smile: | <1s | I had to borrow Swift code another person who solved part 1 of this problem, and then tweaked it slightly to solve part 2. The way that I was going to solve it was going to take way too long, due to the sheer number of combinations. His solution comes at it from the correct way, checking the strings against the rules instead of generating all the combinations from the rules. |
-| 20 | :smile: | <1s | The first part was relatively easy, but it became clear to me that there was no way I was going to be able to solve part 2 in a timely fashion. As a result, I found a python solution out there and faked my way through it. It's not called the "Hall of Shame" for nothing. |
-| 21 | :smile: | <1s |
-| 22 | :smile: | 6s |
-| 23 | :warning: | 45s | Ditto from day 20, but I once again used Felix Larson's swift code as a guide to solve part 2. |
-| 24 | :eyes: | 14s |
-| 25 | :smile: | 5s |
+| [10](https://adventofcode.com/2020/day/10) | :smile: | <1s |
+| [11](https://adventofcode.com/2020/day/11) | :warning: | 20s |
+| [12](https://adventofcode.com/2020/day/12) | :smile: | <1s |
+| [13](https://adventofcode.com/2020/day/13) | :smile: | <1s |
+| [14](https://adventofcode.com/2020/day/14) | :eyes: | 10s |
+| [15](https://adventofcode.com/2020/day/15) | :warning: | 31s |
+| [16](https://adventofcode.com/2020/day/16) | :smile: | <1s |
+| [17](https://adventofcode.com/2020/day/17) | :eyes: | 15s |
+| [18](https://adventofcode.com/2020/day/18) | :smile: | <1s |
+| [19](https://adventofcode.com/2020/day/19) | :smile: | <1s | I had to borrow Swift code another person who solved part 1 of this problem, and then tweaked it slightly to solve part 2. The way that I was going to solve it was going to take way too long, due to the sheer number of combinations. His solution comes at it from the correct way, checking the strings against the rules instead of generating all the combinations from the rules. |
+| [20](https://adventofcode.com/2020/day/20) | :smile: | <1s | The first part was relatively easy, but it became clear to me that there was no way I was going to be able to solve part 2 in a timely fashion. As a result, I found a python solution out there and faked my way through it. It's not called the "Hall of Shame" for nothing. |
+| [21](https://adventofcode.com/2020/day/21) | :smile: | <1s |
+| [22](https://adventofcode.com/2020/day/22) | :smile: | 6s |
+| [23](https://adventofcode.com/2020/day/23) | :warning: | 45s | Ditto from day 20, but I once again used Felix Larson's swift code as a guide to solve part 2. |
+| [24](https://adventofcode.com/2020/day/24) | :eyes: | 14s |
+| [25](https://adventofcode.com/2020/day/25) | :smile: | 5s |
 
 ### Legend
 

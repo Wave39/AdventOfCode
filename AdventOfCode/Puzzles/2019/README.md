@@ -21,31 +21,31 @@ This was a very fun puzzle to close out the Advent of Code for 2019. Bravo to Er
 
 | Day | Status | Execution Time | Hall of Shame |
 | :---: | :---: | :---: | :--- |
-| 1 | :smile: | <1s |
-| 2 | :smile: | <1s |
-| 3 | :smile: | <1s |
-| 4 | :smile: | 6s |
-| 5 | :smile: | <1s |
-| 6 | :smile: | 2s |
-| 7 | :smile: | <1s |
-| 8 | :smile: | <1s |
-| 9 | :smile: | 3s |
-| 10 | :warning: | 32s |
-| 11 | :smile: | <1s |
-| 12 | :smile: | 4s |
-| 13 | :smile: | 1s |
-| 14 | :smile: | <1s |
-| 15 | :smile: | 1s |
-| 16 | :warning: | 34s | I had to borrow an algorithm from another person who solved this problem and adapt it to Swift to get part 2 finished. |
-| 17 | :smile: | <1s |
-| 18 | :smile: | <1s | White flag raised. |
-| 19 | :smile: | 3s | 
-| 20 | :smile: | 3s |
-| 21 | :smile: | <1s |
-| 22 | :smile: | <1s | See Day 16. |
-| 23 | :smile: | <1s | I was able to get both parts solved with my code, but with a huge assist to another person's Swift solution. |
-| 24 | :eyes: | 10s |
-| 25 | :smile: | 6s |
+| [1](https://adventofcode.com/2020/day/1) | :smile: | <1s |
+| [2](https://adventofcode.com/2020/day/2) | :smile: | <1s |
+| [3](https://adventofcode.com/2020/day/3) | :smile: | <1s |
+| [4](https://adventofcode.com/2020/day/4) | :smile: | 6s |
+| [5](https://adventofcode.com/2020/day/5) | :smile: | <1s |
+| [6](https://adventofcode.com/2020/day/6) | :smile: | 2s |
+| [7](https://adventofcode.com/2020/day/7) | :smile: | <1s |
+| [8](https://adventofcode.com/2020/day/8) | :smile: | <1s |
+| [9](https://adventofcode.com/2020/day/9) | :smile: | 3s |
+| [10](https://adventofcode.com/2020/day/10) | :warning: | 32s |
+| [11](https://adventofcode.com/2020/day/11) | :smile: | <1s |
+| [12](https://adventofcode.com/2020/day/12) | :smile: | 4s |
+| [13](https://adventofcode.com/2020/day/13) | :smile: | 1s |
+| [14](https://adventofcode.com/2020/day/14) | :smile: | <1s |
+| [15](https://adventofcode.com/2020/day/15) | :smile: | 1s |
+| [16](https://adventofcode.com/2020/day/16) | :warning: | 34s | I had to borrow an algorithm from another person who solved this problem and adapt it to Swift to get part 2 finished. |
+| [17](https://adventofcode.com/2020/day/17) | :smile: | <1s |
+| [18](https://adventofcode.com/2020/day/18) | :smile: | <1s | White flag raised. |
+| [19](https://adventofcode.com/2020/day/19) | :smile: | 3s | 
+| [20](https://adventofcode.com/2020/day/20) | :smile: | 3s |
+| [21](https://adventofcode.com/2020/day/21) | :smile: | <1s |
+| [22](https://adventofcode.com/2020/day/22) | :smile: | <1s | See Day 16. |
+| [23](https://adventofcode.com/2020/day/23) | :smile: | <1s | I was able to get both parts solved with my code, but with a huge assist to another person's Swift solution. |
+| [24](https://adventofcode.com/2020/day/24) | :eyes: | 10s |
+| [25](https://adventofcode.com/2020/day/25) | :smile: | 6s |
 
 ### Legend
 
