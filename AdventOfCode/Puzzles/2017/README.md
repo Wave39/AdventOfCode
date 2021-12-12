@@ -1,4 +1,13 @@
 # 2017 
+
+Links to other years: [2021](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2021/README.md) |
+[2020](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2020/README.md) |
+[2019](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2019/README.md) |
+[2018](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2018/README.md) |
+2017 |
+[2016](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2016/README.md) |
+[2015](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2015/README.md)
+
 ## Status
 
 | Day | Status | Execution Time | Hall of Shame |
