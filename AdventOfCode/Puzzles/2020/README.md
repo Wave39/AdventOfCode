@@ -11,15 +11,15 @@ Links to other years: [2021](https://github.com/Wave39/AdventOfCode/blob/master/
 
 | Day | Status | Execution Time | Hall of Shame |
 | :---: | :---: | :---: | :--- |
-| 1 | :smile: | <1s |
-| 2 | :smile: | <1s |
-| 3 | :smile: | <1s |
-| 4 | :smile: | <1s |
-| 5 | :smile: | <1s |
-| 6 | :smile: | <1s |
-| 7 | :smile: | <1s |
-| 8 | :smile: | <1s |
-| 9 | :smile: | <1s |
+| [1](https://adventofcode.com/2020/day/1) | :smile: | <1s |
+| [2](https://adventofcode.com/2020/day/2) | :smile: | <1s |
+| [3](https://adventofcode.com/2020/day/3) | :smile: | <1s |
+| [4](https://adventofcode.com/2020/day/4) | :smile: | <1s |
+| [5](https://adventofcode.com/2020/day/5) | :smile: | <1s |
+| [6](https://adventofcode.com/2020/day/6) | :smile: | <1s |
+| [7](https://adventofcode.com/2020/day/7) | :smile: | <1s |
+| [8](https://adventofcode.com/2020/day/8) | :smile: | <1s |
+| [9](https://adventofcode.com/2020/day/9) | :smile: | <1s |
 | 10 | :smile: | <1s |
 | 11 | :warning: | 20s |
 | 12 | :smile: | <1s |
