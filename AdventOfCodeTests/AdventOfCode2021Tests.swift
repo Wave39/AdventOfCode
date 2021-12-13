@@ -100,10 +100,9 @@ public class AdventOfCode2021Tests: XCTestCase {
     }
 
     public func test2021day13() {
-        let part1 = Puzzle_2021_13().solvePart1()
-        XCTAssertEqual(part1, 2)
-        let part2 = Puzzle_2021_13().solvePart2()
-        XCTAssertEqual(part2, 2)
+        let (part1, part2String, _) = Puzzle_2021_13().solveBothParts()
+        XCTAssertEqual(part1, 785)
+        XCTAssertEqual(part2String, "####...##..##..#..#...##..##...##..#..#.#.......#.#..#.#..#....#.#..#.#..#.#..#.###.....#.#..#.####....#.#....#..#.####.#.......#.####.#..#....#.#.##.####.#..#.#....#..#.#..#.#..#.#..#.#..#.#..#.#..#.#.....##..#..#.#..#..##...###.#..#.#..#.")
     }
 
     public func test2021day14() {

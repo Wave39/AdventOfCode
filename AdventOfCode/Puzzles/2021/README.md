@@ -24,6 +24,7 @@ Links to other years: 2021 |
 | [10](https://adventofcode.com/2021/day/10) | :smile: | <1s |
 | [11](https://adventofcode.com/2021/day/11) | :smile: | <1s |
 | [12](https://adventofcode.com/2021/day/12) | :smile: | 8s | Day 12 is the furthest that I have made it so far with my own solutions finishing in less than a second, so this one is a bit disappointing. I will have to circle back eventually and figure out how to accomplish this one faster. |
+| [13](https://adventofcode.com/2021/day/13) | :smile: | 1s |
 
 ### Legend
 
