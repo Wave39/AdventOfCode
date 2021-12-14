@@ -8,6 +8,9 @@
 
 // https://adventofcode.com/2021/day/14
 
+// Special thanks to Gereon Steffens for pointing me in the right direction, namely away from strings
+// https://github.com/gereons/AoC2021/blob/main/Sources/AdventOfCode/puzzle14.swift
+
 import Foundation
 
 public class Puzzle_2021_14: PuzzleBaseClass {
@@ -24,115 +27,57 @@ public class Puzzle_2021_14: PuzzleBaseClass {
     }
 
     public func solvePart2() -> Int {
-        solvePart2(str: Puzzle_Input.test)
+        solvePart2(str: Puzzle_Input.final)
+    }
+
+    private func processInput(str: String, iterations: Int) -> Int {
+        var arr = str.parseIntoStringArray()
+        let originalString = arr.removeFirst()
+        var exchangeDict: [String: String] = [:]
+        for line in arr {
+            let components = line.capturedGroups(withRegex: "(..) -> (.)", trimResults: true)
+            exchangeDict[components[0]] = components[1]
+        }
+
+        var pairDict = [String: Int]()
+        let template = originalString.map { String($0) }
+        for idx in 0..<(template.count - 1) {
+            let pair = template[idx] + template[idx + 1]
+            pairDict[pair, default: 0] += 1
+        }
+
+        for _ in 1...iterations {
+            let keys = pairDict.keys
+            var newPairDict = [String: Int]()
+            for key in keys.map({ String($0) }) {
+                if let substitution = exchangeDict[key] {
+                    let key1 = String(key[0]) + substitution
+                    newPairDict[key1, default: 0] += pairDict[key] ?? 0
+                    let key2 = substitution + String(key[1])
+                    newPairDict[key2, default: 0] += pairDict[key] ?? 0
+                }
+            }
+            pairDict = newPairDict
+        }
+
+        var letterCounts = [String: Int]()
+        for key in pairDict.keys.map({ String($0) }) {
+            letterCounts[String(key[0]), default: 0] += pairDict[key] ?? 0
+            letterCounts[String(key[1]), default: 0] += pairDict[key] ?? 0
+        }
+
+        let min = letterCounts.map { $1 }.min() ?? 0
+        let max = letterCounts.map { $1 }.max() ?? 0
+
+        return (max + 1) / 2 - (min + 1) / 2
     }
 
     private func solvePart1(str: String) -> Int {
-        var arr = str.parseIntoStringArray()
-        let originalString = arr.removeFirst()
-        var exchangeDict: [String: String] = [:]
-        for line in arr {
-            let components = line.capturedGroups(withRegex: "(..) -> (.)", trimResults: true)
-            exchangeDict[components[0]] = components[1]
-        }
-
-        var str = originalString.map { String($0) }
-        for _ in 1...10 {
-            var newStr = ""
-            for idx in 0..<(str.count - 1) {
-                let pair = str[idx] + str[idx + 1]
-                newStr += str[idx]
-                if let exchange = exchangeDict[pair] {
-                    newStr += exchange
-                }
-            }
-
-            newStr += str.last ?? ""
-            str = newStr.map { String($0) }
-        }
-
-        let counts = str.lazy.joined().characterCounts().map { $0.value }.sorted()
-        guard let countsMax = counts.last, let countsMin = counts.first else {
-            return -1
-        }
-
-        return countsMax - countsMin
+        processInput(str: str, iterations: 10)
     }
 
     private func solvePart2(str: String) -> Int {
-        var arr = str.parseIntoStringArray()
-        let originalString = arr.removeFirst()
-        var exchangeDict: [String: String] = [:]
-        for line in arr {
-            let components = line.capturedGroups(withRegex: "(..) -> (.)", trimResults: true)
-            exchangeDict[components[0]] = components[1]
-        }
-
-        var str = originalString.map { String($0) }
-        for step in 1...40 {
-            print(step)
-            var newStr = ""
-            for idx in 0..<(str.count - 1) {
-                let pair = str[idx] + str[idx + 1]
-                newStr += str[idx]
-                if let exchange = exchangeDict[pair] {
-                    newStr += exchange
-                }
-            }
-
-            newStr += str.last ?? ""
-            str = newStr.map { String($0) }
-        }
-
-        let counts = str.lazy.joined().characterCounts().map { $0.value }.sorted()
-        guard let countsMax = counts.last, let countsMin = counts.first else {
-            return -1
-        }
-
-        print(counts, countsMax, countsMin)
-        return countsMax - countsMin
-    }
-
-    private func solvePart2_alt(str: String) -> Int {
-        var arr = str.parseIntoStringArray()
-        let originalString = arr.removeFirst()
-        var exchangeDict: [String: String] = [:]
-        for line in arr {
-            let components = line.capturedGroups(withRegex: "(..) -> (.)", trimResults: true)
-            exchangeDict[components[0]] = components[1]
-        }
-
-        print(originalString)
-        print(exchangeDict)
-
-        for idx in 0..<(str.count - 1) {
-            let originalPair = String(str[idx]) + String(str[idx + 1])
-            var str = originalPair.map { String($0) }
-            for step in 1...40 {
-                print(step)
-                var newStr = ""
-                for idx in 0..<(str.count - 1) {
-                    let pair = str[idx] + str[idx + 1]
-                    newStr += str[idx]
-                    if let exchange = exchangeDict[pair] {
-                        newStr += exchange
-                    }
-                }
-                newStr += str.last ?? ""
-                str = newStr.map { String($0) }
-                print(str.count)
-            }
-
-            print(originalPair, str)
-        }
-
-        let counts = str.characterCounts().map { $0.value }.sorted()
-        guard let countsMax = counts.last, let countsMin = counts.first else {
-            return -1
-        }
-
-        print(counts, countsMax, countsMin)
-        return countsMax - countsMin
+        processInput(str: str, iterations: 40)
     }
 }
 

@@ -25,6 +25,7 @@ Links to other years: 2021 |
 | [11](https://adventofcode.com/2021/day/11) | :smile: | <1s |
 | [12](https://adventofcode.com/2021/day/12) | :smile: | 8s | Day 12 is the furthest that I have made it so far with my own solutions finishing in less than a second, so this one is a bit disappointing. I will have to circle back eventually and figure out how to accomplish this one faster. |
 | [13](https://adventofcode.com/2021/day/13) | :smile: | 1s |
+| [14](https://adventofcode.com/2021/day/14) | :smile: | 1s | As usual, part 2's processing becomes unwieldy quickly when doing the brute force processing that works so well on part 1. An assist goes out to Gereon Steffens for providing the key that I could follow. |
 
 ### Legend
 
