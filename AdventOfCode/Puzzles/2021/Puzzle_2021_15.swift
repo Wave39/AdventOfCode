@@ -13,9 +13,73 @@
 import Foundation
 
 public class Puzzle_2021_15: PuzzleBaseClass {
+    private typealias Grid = [[Int]]
+
+    private static func pointsInGrid(width: Int, height: Int) -> Set<Point2D> {
+        Set((0..<width).flatMap { x in
+            (0..<height).map { y -> Point2D in
+                .init(x: x, y: y)
+            }
+        })
+    }
+
+    private static func pointsInGrid(_ grid: Grid) -> Set<Point2D> {
+        pointsInGrid(width: grid[0].count, height: grid.count)
+    }
+
+    private static func lookupValue(in grid: Grid, at point: Point2D) -> Int {
+        grid[point.y][point.x]
+    }
+
+    private static func findShortestDistance(in grid: Grid) -> Int {
+        // dijktstra
+        let allPoints = pointsInGrid(grid)
+        let start = Point2D(x: 0, y: 0)
+        let target = Point2D(x: grid[0].count - 1, y: grid.count - 1)
+        var distances: [Point2D: Int] = [start: 0]
+        var queue = PriorityQueue<Point2D> {
+            distances[$0, default: .max] < distances[$1, default: .max]
+        }
+        queue.enqueue(start)
+
+        while let node = queue.dequeue() {
+            guard node != target else { break }
+
+            let neighbours: Set<Point2D> = [
+                .init(x: node.x + 1, y: node.y),
+                .init(x: node.x, y: node.y + 1),
+                .init(x: node.x - 1, y: node.y),
+                .init(x: node.x, y: node.y - 1)
+            ]
+
+            guard let currentNodeDistance = distances[node] else {
+                fatalError("Could not find distance for current node.")
+            }
+
+            for neighbour in neighbours {
+                guard allPoints.contains(neighbour) else { continue }
+
+                let value = lookupValue(in: grid, at: neighbour)
+                let distanceThroughCurrent = currentNodeDistance + value
+
+                if distanceThroughCurrent < distances[neighbour, default: .max] {
+                    distances[neighbour] = distanceThroughCurrent
+
+                    if let index = queue.index(of: neighbour) {
+                        queue.changePriority(index: index, value: neighbour)
+                    } else {
+                        queue.enqueue(neighbour)
+                    }
+                }
+            }
+        }
+
+        return distances[target]!
+    }
+
     public func solve() {
-        // let part1 = solvePart1()
-        // print("Part 1 solution: \(part1)")
+        let part1 = solvePart1()
+        print("Part 1 solution: \(part1)")
 
         let part2 = solvePart2()
         print("Part 2 solution: \(part2)")
@@ -95,7 +159,7 @@ public class Puzzle_2021_15: PuzzleBaseClass {
                                 value -= 9
                             }
 
-                            newMatrix[row + yGroup * 10][column + xGroup * 10] = value
+                            newMatrix[row + yGroup * rows][column + xGroup * columns] = value
                         }
                     }
                 }
@@ -108,41 +172,44 @@ public class Puzzle_2021_15: PuzzleBaseClass {
     private func solvePart2(str: String) -> Int {
         let originalMatrix = str.parseIntoDigitMatrix()
         let matrix = cloneMatrix(matrix: originalMatrix)
-        let rows = matrix.count
-        let columns = matrix[0].count
-        var vertexArray = Array(repeating: Array(repeating: Vertex(identifier: ""), count: columns), count: rows)
-        var vertexSet: Set<Vertex> = Set()
+        let retval = Puzzle_2021_15.findShortestDistance(in: matrix)
+        return retval
 
-        // set up vertex array
-        for row in 0..<rows {
-            for column in 0..<columns {
-                let point = Point2D(x: column, y: row)
-                let vertex = Vertex(identifier: point.description)
-                vertexArray[row][column] = vertex
-            }
-        }
-
-        // create neighbor links
-        for row in 0..<rows {
-            for column in 0..<columns {
-                let point = Point2D(x: column, y: row)
-                let adjacentLocations = point.adjacentLocationsWithinGrid(rows: rows, columns: columns)
-                for location in adjacentLocations {
-                    let neighbor = (vertexArray[location.y][location.x], matrix[location.y][location.x])
-                    vertexArray[row][column].neighbors.append(neighbor)
-                }
-
-                vertexSet.insert(vertexArray[row][column])
-            }
-        }
-
-        let dijkstra = Dijkstra(vertices: vertexSet)
-        let startTime = Date()
-        dijkstra.findShortestPaths(from: vertexArray[0][0])
-        let endTime = Date()
-        print("calculation time is = \((endTime.timeIntervalSince(startTime))) sec")
-
-        return vertexArray[rows - 1][columns - 1].pathLengthFromStart
+//        let rows = matrix.count
+//        let columns = matrix[0].count
+//        var vertexArray = Array(repeating: Array(repeating: Vertex(identifier: ""), count: columns), count: rows)
+//        var vertexSet: Set<Vertex> = Set()
+//
+//        // set up vertex array
+//        for row in 0..<rows {
+//            for column in 0..<columns {
+//                let point = Point2D(x: column, y: row)
+//                let vertex = Vertex(identifier: point.description)
+//                vertexArray[row][column] = vertex
+//            }
+//        }
+//
+//        // create neighbor links
+//        for row in 0..<rows {
+//            for column in 0..<columns {
+//                let point = Point2D(x: column, y: row)
+//                let adjacentLocations = point.adjacentLocationsWithinGrid(rows: rows, columns: columns)
+//                for location in adjacentLocations {
+//                    let neighbor = (vertexArray[location.y][location.x], matrix[location.y][location.x])
+//                    vertexArray[row][column].neighbors.append(neighbor)
+//                }
+//
+//                vertexSet.insert(vertexArray[row][column])
+//            }
+//        }
+//
+//        let dijkstra = Dijkstra(vertices: vertexSet)
+//        let startTime = Date()
+//        dijkstra.findShortestPaths(from: vertexArray[0][0])
+//        let endTime = Date()
+//        print("calculation time is = \((endTime.timeIntervalSince(startTime))) sec")
+//
+//        return vertexArray[rows - 1][columns - 1].pathLengthFromStart
     }
 }
 
