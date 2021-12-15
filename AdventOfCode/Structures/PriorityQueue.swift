@@ -6,6 +6,8 @@
 //  Copyright © 2021 Wave 39 LLC. All rights reserved.
 //
 
+// swiftlint:disable all
+
 import Foundation
 
 /*

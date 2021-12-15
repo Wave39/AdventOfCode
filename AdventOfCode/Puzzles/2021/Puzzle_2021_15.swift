@@ -8,6 +8,7 @@
 
 // https://adventofcode.com/2021/day/15
 
+// Special thanks to Luke Redpath for demonstrating how to optimize the algorithm so it would finish faster.
 // https://github.com/lukeredpath/AdventOfCode2021/blob/main/Sources/AdventOfCode2021/15.swift
 
 import Foundation
@@ -16,11 +17,13 @@ public class Puzzle_2021_15: PuzzleBaseClass {
     private typealias Grid = [[Int]]
 
     private static func pointsInGrid(width: Int, height: Int) -> Set<Point2D> {
-        Set((0..<width).flatMap { x in
-            (0..<height).map { y -> Point2D in
-                .init(x: x, y: y)
+        Set(
+            (0..<width).flatMap { x in
+                (0..<height).map { y -> Point2D in
+                        .init(x: x, y: y)
+                }
             }
-        })
+        )
     }
 
     private static func pointsInGrid(_ grid: Grid) -> Set<Point2D> {
@@ -32,13 +35,12 @@ public class Puzzle_2021_15: PuzzleBaseClass {
     }
 
     private static func findShortestDistance(in grid: Grid) -> Int {
-        // dijktstra
         let allPoints = pointsInGrid(grid)
         let start = Point2D(x: 0, y: 0)
         let target = Point2D(x: grid[0].count - 1, y: grid.count - 1)
         var distances: [Point2D: Int] = [start: 0]
-        var queue = PriorityQueue<Point2D> {
-            distances[$0, default: .max] < distances[$1, default: .max]
+        var queue = PriorityQueue<Point2D> { point0, point1 in
+            distances[point0, default: .max] < distances[point1, default: .max]
         }
         queue.enqueue(start)
 
@@ -74,7 +76,7 @@ public class Puzzle_2021_15: PuzzleBaseClass {
             }
         }
 
-        return distances[target]!
+        return distances[target] ?? 0
     }
 
     public func solve() {
@@ -124,10 +126,7 @@ public class Puzzle_2021_15: PuzzleBaseClass {
         }
 
         let dijkstra = Dijkstra(vertices: vertexSet)
-        let startTime = Date()
         dijkstra.findShortestPaths(from: vertexArray[0][0])
-        let endTime = Date()
-        print("calculation time is = \((endTime.timeIntervalSince(startTime))) sec")
 
         return vertexArray[rows - 1][columns - 1].pathLengthFromStart
     }
@@ -174,42 +173,6 @@ public class Puzzle_2021_15: PuzzleBaseClass {
         let matrix = cloneMatrix(matrix: originalMatrix)
         let retval = Puzzle_2021_15.findShortestDistance(in: matrix)
         return retval
-
-//        let rows = matrix.count
-//        let columns = matrix[0].count
-//        var vertexArray = Array(repeating: Array(repeating: Vertex(identifier: ""), count: columns), count: rows)
-//        var vertexSet: Set<Vertex> = Set()
-//
-//        // set up vertex array
-//        for row in 0..<rows {
-//            for column in 0..<columns {
-//                let point = Point2D(x: column, y: row)
-//                let vertex = Vertex(identifier: point.description)
-//                vertexArray[row][column] = vertex
-//            }
-//        }
-//
-//        // create neighbor links
-//        for row in 0..<rows {
-//            for column in 0..<columns {
-//                let point = Point2D(x: column, y: row)
-//                let adjacentLocations = point.adjacentLocationsWithinGrid(rows: rows, columns: columns)
-//                for location in adjacentLocations {
-//                    let neighbor = (vertexArray[location.y][location.x], matrix[location.y][location.x])
-//                    vertexArray[row][column].neighbors.append(neighbor)
-//                }
-//
-//                vertexSet.insert(vertexArray[row][column])
-//            }
-//        }
-//
-//        let dijkstra = Dijkstra(vertices: vertexSet)
-//        let startTime = Date()
-//        dijkstra.findShortestPaths(from: vertexArray[0][0])
-//        let endTime = Date()
-//        print("calculation time is = \((endTime.timeIntervalSince(startTime))) sec")
-//
-//        return vertexArray[rows - 1][columns - 1].pathLengthFromStart
     }
 }
 
