@@ -29,6 +29,7 @@ Links to other years: 2021 |
 | [15](https://adventofcode.com/2021/day/15) | :warning: | 31s | My Dijkstra routine worked great on part 1 but took way too long on part 2, so I found some code that Luke Redpath put together that modified the algorithm a little to prioritize the points, and that seems to have brought the time down to a manageable amount. |
 | [16](https://adventofcode.com/2021/day/16) | :smile: | <1s |
 | [17](https://adventofcode.com/2021/day/17) | :smile: | 2s |
+| [18](https://adventofcode.com/2021/day/18) | :smile: | 1s | My code was not working for some reason, and I was looking at it for too long. Another assist to Gereon Steffens for his code that I shamelessly pilfered. |
 
 ### Legend
 
