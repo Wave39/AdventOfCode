@@ -14,19 +14,18 @@ print("Make sure to click in the Output window to enter which puzzle you would l
 
 private var quitApp = false
 
+private let kDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+private let kDefaultYear = kDateComponents.year ?? 2_015
+private var year = kDefaultYear
+private var day = 0
+
 while !quitApp {
-    let date = Date()
-    let calendar = Calendar.current
-    let components = calendar.dateComponents([.year, .month, .day], from: date)
-    let defaultYear = components.year ?? 2_015
-    var year = defaultYear
-    let defaultDay = components.day ?? 1
-    var day = 0
-    let defaultYearAndPuzzle = "\(defaultYear) \(defaultDay)"
+    let defaultDay = kDateComponents.day ?? 1
+    let defaultYearAndPuzzle = "\(kDefaultYear) \(defaultDay)"
 
     while !quitApp && (day < 1 || day > 25) {
         print("")
-        print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to \(defaultYear) and a number from 1 to 25, default of \(defaultYearAndPuzzle), or Q to quit)")
+        print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to \(kDefaultYear) and a number from 1 to 25, default of \(defaultYearAndPuzzle), or Q to quit)")
         guard let response = readLine() else { continue }
         if response.lowercased().trim() == "q" {
             quitApp = true
@@ -36,7 +35,7 @@ while !quitApp {
                 year = arr[0].int
                 day = arr[1].int
             } else if arr.count == 1 {
-                year = defaultYear
+                year = kDefaultYear
                 day = arr[0].int
             }
         } else {
@@ -76,6 +75,7 @@ while !quitApp {
         let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
         let timeInterval = Double(nanoTime) / 1_000_000_000
         print("Time to evaluate \(year) day \(day): \(String(format: "%.3f", timeInterval)) seconds")
+        day = 0
     }
 }
 
