@@ -32,7 +32,7 @@ public class Puzzle_2021_19: PuzzleBaseClass {
     }
 
     private func solvePart2(str: String) -> Int {
-        9634
+        9_634
     }
 }
 
