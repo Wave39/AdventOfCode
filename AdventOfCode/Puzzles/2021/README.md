@@ -31,6 +31,7 @@ Links to other years: 2021 |
 | [17](https://adventofcode.com/2021/day/17) | :smile: | 2s |
 | [18](https://adventofcode.com/2021/day/18) | :smile: | 1s | My code was not working for some reason, and I was looking at it for too long. Another assist to Gereon Steffens for his code that I shamelessly pilfered. |
 | [19](https://adventofcode.com/2021/day/19) | :smile: | <1s | I had to give up on this one, I was getting nowhere fast and I could not figure out any of the explanations on how to get to the answer on the Reddit thread. Great shame. |
+| [20](https://adventofcode.com/2021/day/20) | :warning: | 24s |
 
 ### Legend
 
