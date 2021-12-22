@@ -31,4 +31,40 @@ public struct Rect3D: Hashable {
         hasher.combine(y2)
         hasher.combine(z2)
     }
+
+    public func normalize() -> Rect3D {
+        var rect = self
+        if rect.x1 > rect.x2 {
+            Int.swap(&rect.x1, &rect.x2)
+        }
+        if rect.y1 > rect.y2 {
+            Int.swap(&rect.y1, &rect.y2)
+        }
+        if rect.z1 > rect.z2 {
+            Int.swap(&rect.z1, &rect.z2)
+        }
+
+        return rect
+    }
+
+    public func intersection(with rect: Rect3D) -> Rect3D? {
+        let rect1 = self // .normalize()
+        let rect2 = rect // .normalize()
+
+        let leftX = max(rect1.x1, rect2.x1)
+        let rightX = min(rect1.x2, rect2.x2)
+        if rightX - leftX > 0 {
+            let leftY = max(rect1.y1, rect2.y1)
+            let rightY = min(rect1.y2, rect2.y2)
+            if rightY - leftY > 0 {
+                let leftZ = max(rect1.z1, rect2.z1)
+                let rightZ = min(rect1.z2, rect2.z2)
+                if rightZ - leftZ > 0 {
+                    return Rect3D(x1: leftX, y1: leftY, z1: leftZ, x2: rightX, y2: rightY, z2: rightZ)
+                }
+            }
+        }
+
+        return nil
+    }
 }

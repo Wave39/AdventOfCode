@@ -156,16 +156,16 @@ public class AdventOfCode2021Tests: XCTestCase {
 
     public func test2021day21() {
         let part1 = Puzzle_2021_21().solvePart1()
-        XCTAssertEqual(part1, 2)
+        XCTAssertEqual(part1, 597_600)
         let part2 = Puzzle_2021_21().solvePart2()
-        XCTAssertEqual(part2, 2)
+        XCTAssertEqual(part2, 634_769_613_696_613)
     }
 
     public func test2021day22() {
         let part1 = Puzzle_2021_22().solvePart1()
-        XCTAssertEqual(part1, 2)
+        XCTAssertEqual(part1, 602_574)
         let part2 = Puzzle_2021_22().solvePart2()
-        XCTAssertEqual(part2, 2)
+        XCTAssertEqual(part2, 1_288_707_160_324_706)
     }
 
     public func test2021day23() {

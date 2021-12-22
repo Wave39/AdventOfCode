@@ -21,6 +21,12 @@ public extension FixedWidthInteger where Self: UnsignedInteger {
 }
 
 public extension Int {
+    static func swap(_ int1: inout Int, _ int2: inout Int) {
+        let temp = int1
+        int1 = int2
+        int2 = temp
+    }
+
     func binaryString(padLength: Int = 0) -> String {
         var binaryValue = String(self, radix: 2)
         while binaryValue.count < padLength {

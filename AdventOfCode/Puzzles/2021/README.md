@@ -32,6 +32,8 @@ Links to other years: 2021 |
 | [18](https://adventofcode.com/2021/day/18) | :smile: | 1s | My code was not working for some reason, and I was looking at it for too long. Another assist to Gereon Steffens for his code that I shamelessly pilfered. |
 | [19](https://adventofcode.com/2021/day/19) | :smile: | <1s | I had to give up on this one, I was getting nowhere fast and I could not figure out any of the explanations on how to get to the answer on the Reddit thread. Great shame. |
 | [20](https://adventofcode.com/2021/day/20) | :warning: | 24s |
+| [21](https://adventofcode.com/2021/day/21) | :smile: | <1s | I had to give up on part 2 of this one, as again I could not make heads nor tails of any of the discussion or sample code. |
+| [22](https://adventofcode.com/2021/day/22) | :smile: | 5s | Giving up on part 2 is becoming a theme. By studying other code I was able to get my code close, but for some reason it is always off by 14 lights. Weird. |
 
 ### Legend
 
