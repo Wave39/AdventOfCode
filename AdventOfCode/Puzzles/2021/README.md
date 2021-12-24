@@ -35,6 +35,7 @@ Links to other years: 2021 |
 | [21](https://adventofcode.com/2021/day/21) | :smile: | <1s | I had to give up on part 2 of this one, as again I could not make heads nor tails of any of the discussion or sample code. |
 | [22](https://adventofcode.com/2021/day/22) | :smile: | 5s | Giving up on part 2 is becoming a theme. By studying other code I was able to get my code close, but for some reason it is always off by 14 lights. Weird. |
 | [23](https://adventofcode.com/2021/day/23) | :fire: | 1m32s |
+| [24](https://adventofcode.com/2021/day/24) | :smile: | <1s | Of course I put together the code to try and process the instruction set provided in the puzzle input, thinking that it would at least solve part 1 and then I figure out how to pivot for part 2. Thanks to David Philipson for an amazing explanation of what was going on with the groups of code. |
 
 ### Legend
 
