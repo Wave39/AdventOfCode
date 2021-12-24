@@ -34,6 +34,7 @@ Links to other years: 2021 |
 | [20](https://adventofcode.com/2021/day/20) | :warning: | 24s |
 | [21](https://adventofcode.com/2021/day/21) | :smile: | <1s | I had to give up on part 2 of this one, as again I could not make heads nor tails of any of the discussion or sample code. |
 | [22](https://adventofcode.com/2021/day/22) | :smile: | 5s | Giving up on part 2 is becoming a theme. By studying other code I was able to get my code close, but for some reason it is always off by 14 lights. Weird. |
+| [23](https://adventofcode.com/2021/day/23) | :fire: | 1m32s |
 
 ### Legend
 

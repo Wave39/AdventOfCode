@@ -10,6 +10,27 @@ import Foundation
 
 public typealias CharacterGrid = [[Character]]
 
+public extension CharacterGrid {
+    func getAllPoints() -> [Point2D] {
+        var points = [Point2D]()
+        for y in 0..<self.count {
+            for x in 0..<self[0].count {
+                points.append(Point2D(x: x, y: y))
+            }
+        }
+
+        return points
+    }
+
+    func characterAtPoint(_ point: Point2D) -> Character {
+        self[point.y][point.x]
+    }
+
+    func characterAtCoordinates(_ x: Int, _ y: Int) -> Character {
+        self[y][x]
+    }
+}
+
 public func getCharacterGrid(str: String, separator: Character = "\n") -> CharacterGrid {
     var grid: CharacterGrid = []
     let lines = str.split(separator: separator)
