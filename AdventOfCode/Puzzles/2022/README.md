@@ -14,7 +14,7 @@ Links to other years:
 
 | Day | Status | Execution Time | Hall of Shame |
 | :---: | :---: | :---: | :--- |
-| 1 [(AoC)](https://adventofcode.com/2022/day/1), [(code)](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_01.swift) | ? | ? |
+| 1 ([AoC](https://adventofcode.com/2022/day/1), [code])(https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_01.swift) | ? | ? |
 
 ### Legend
 
