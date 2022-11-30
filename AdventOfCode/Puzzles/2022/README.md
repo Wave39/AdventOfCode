@@ -12,9 +12,9 @@ Links to other years:
 
 ## Status
 
-| Day | Status | Execution Time | Hall of Shame |
-| :---: | :---: | :---: | :--- |
-| [1](https://adventofcode.com/2022/day/1) [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_01.swift) | ? | ? |
+| Day | Code | Status | Execution Time | Hall of Shame |
+| :---: | :---: | :---: | :---: | :--- |
+| [1](https://adventofcode.com/2022/day/1) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_01.swift) | ? | ? |
 
 ### Legend
 
