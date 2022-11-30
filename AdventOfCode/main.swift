@@ -55,7 +55,9 @@ while !quitApp {
         print("Solving \(year) puzzle \(day), please stand by...")
 
         let start = DispatchTime.now()
-        if year == 2_021 {
+        if year == 2_022 {
+            Puzzle_2022().solve(puzzleNumber: day)
+        } else if year == 2_021 {
             Puzzle_2021().solve(puzzleNumber: day)
         } else if year == 2_020 {
             Puzzle_2020().solve(puzzleNumber: day)

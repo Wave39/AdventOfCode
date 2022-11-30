@@ -15,6 +15,7 @@ If you change the puzzle input for your own puzzle input, the tests will most li
 
 Here are some links to the README files for the various years, along with my thoughts about the solutions.
 
+[2022](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/README.md) |
 [2021](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2021/README.md) |
 [2020](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2020/README.md) |
 [2019](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2019/README.md) |
