@@ -1,7 +1,7 @@
 # Advent Of Code Solution Machine
 
 This Mac OS command line application provides solutions to the puzzles on the Advent Of Code web site. 
-You will need to be running version 11.0 or newer of Xcode with Swift 5.0 in order to use this project.
+You will need to be running a newer version of Xcode with Swift 5.0 in order to use this project.
 
 I have chosen to try and tackle these exercises in Swift mostly as a way to continue to learn and get more proficient with Swift.
 
