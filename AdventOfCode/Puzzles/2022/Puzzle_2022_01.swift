@@ -25,25 +25,7 @@ public class Puzzle_2022_01: PuzzleBaseClass {
         solvePart2(str: Puzzle_Input.final)
     }
 
-    private func solvePart1(str: String) -> Int {
-        let arr = str.parseIntoStringArray(omitBlankLines: false)
-        var calorieMax = Int.min
-        var currentCalories = 0
-        for line in arr {
-            if line.isEmpty {
-                calorieMax = max(calorieMax, currentCalories)
-                currentCalories = 0
-            } else {
-                currentCalories += Int(line) ?? 0
-            }
-        }
-
-        calorieMax = max(calorieMax, currentCalories)
-
-        return calorieMax
-    }
-
-    private func solvePart2(str: String) -> Int {
+    private func getSortedCalorieArray(str: String) -> [Int] {
         let arr = str.parseIntoStringArray(omitBlankLines: false)
         var calorieArray: [Int] = []
         var currentCalories = 0
@@ -58,6 +40,16 @@ public class Puzzle_2022_01: PuzzleBaseClass {
 
         calorieArray.append(currentCalories)
         calorieArray.sort { $0 > $1 }
+        return calorieArray
+    }
+
+    private func solvePart1(str: String) -> Int {
+        let calorieArray = getSortedCalorieArray(str: str)
+        return calorieArray[0]
+    }
+
+    private func solvePart2(str: String) -> Int {
+        let calorieArray = getSortedCalorieArray(str: str)
         return calorieArray[0] + calorieArray[1] + calorieArray[2]
     }
 }
