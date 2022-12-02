@@ -12,6 +12,8 @@ public class Puzzle_2022 {
     public func solve(puzzleNumber: Int) {
         if puzzleNumber == 1 {
             Puzzle_2022_01().solve()
+        } else if puzzleNumber == 2 {
+            Puzzle_2022_02().solve()
         } else {
             print("The puzzle number \(puzzleNumber) was not found.")
         }
