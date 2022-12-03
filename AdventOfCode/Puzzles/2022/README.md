@@ -16,6 +16,7 @@ Links to other years:
 | :---: | :---: | :---: | :---: | :--- |
 | [1](https://adventofcode.com/2022/day/1) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_01.swift) | :smile: | <1s |
 | [2](https://adventofcode.com/2022/day/2) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_02.swift) | :smile: | <1s |
+| [3](https://adventofcode.com/2022/day/3) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_03.swift) | :smile: | <1s |
 
 ### Legend
 
