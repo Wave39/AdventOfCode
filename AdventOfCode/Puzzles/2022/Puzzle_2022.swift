@@ -20,6 +20,8 @@ public class Puzzle_2022 {
             Puzzle_2022_04().solve()
         } else if puzzleNumber == 5 {
             Puzzle_2022_05().solve()
+        } else if puzzleNumber == 6 {
+            Puzzle_2022_06().solve()
         } else {
             print("The puzzle number \(puzzleNumber) was not found.")
         }
