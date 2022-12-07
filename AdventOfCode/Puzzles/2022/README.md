@@ -20,6 +20,8 @@ Links to other years:
 | [4](https://adventofcode.com/2022/day/4) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_04.swift) | :smile: | <1s |
 | [5](https://adventofcode.com/2022/day/5) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_05.swift) | :smile: | <1s |
 | [6](https://adventofcode.com/2022/day/6) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_06.swift) | :smile: | <1s |
+| [7](https://adventofcode.com/2022/day/7) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_07.swift) | :smile: | <1s |
+
 ### Legend
 
 | Status | Time for solution | Next steps |

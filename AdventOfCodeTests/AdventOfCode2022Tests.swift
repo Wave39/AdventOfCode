@@ -56,4 +56,11 @@ public class AdventOfCode2022Tests: XCTestCase {
         let part2 = Puzzle_2022_06().solvePart2()
         XCTAssertEqual(part2, 3_444)
     }
+
+    public func test2022day07() {
+        let part1 = Puzzle_2022_07().solvePart1()
+        XCTAssertEqual(part1, 1_315_285)
+        let part2 = Puzzle_2022_07().solvePart2()
+        XCTAssertEqual(part2, 9_847_279)
+    }
 }
