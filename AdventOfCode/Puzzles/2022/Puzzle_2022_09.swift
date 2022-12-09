@@ -9,6 +9,13 @@
 import Foundation
 
 public class Puzzle_2022_09: PuzzleBaseClass {
+    private let directionDict: [String: Point2D] = [
+        "L": Point2D(x: -1, y: 0),
+        "R": Point2D(x: +1, y: 0),
+        "U": Point2D(x: 0, y: -1),
+        "D": Point2D(x: 0, y: +1)
+    ]
+
     public func solve() {
         let part1 = solvePart1()
         print("Part 1 solution: \(part1)")
@@ -25,65 +32,51 @@ public class Puzzle_2022_09: PuzzleBaseClass {
         solvePart2(str: Puzzle_Input.final)
     }
 
-    private func findTailCoordinates(headX: Int, headY: Int, tailX: Int, tailY: Int) -> (Int, Int) {
-        var newTailX = tailX
-        var newTailY = tailY
-        if abs(headX - tailX) > 1 || abs(headY - tailY) > 1 {
-            if headX == tailX && headY != tailY {
-                if headY > tailY {
-                    newTailY = tailY + 1
+    private func findNewKnotCoordinates(head: Point2D, knot: Point2D) -> Point2D {
+        var newKnot = knot
+        if abs(head.x - knot.x) > 1 || abs(head.y - knot.y) > 1 {
+            if head.x == knot.x && head.y != knot.y {
+                if head.y > knot.y {
+                    newKnot.y = knot.y + 1
                 } else {
-                    newTailY = tailY - 1
+                    newKnot.y = knot.y - 1
                 }
-            } else if headX != tailX && headY == tailY {
-                if headX > tailX {
-                    newTailX = tailX + 1
+            } else if head.x != knot.x && head.y == knot.y {
+                if head.x > knot.x {
+                    newKnot.x = knot.x + 1
                 } else {
-                    newTailX = tailX - 1
+                    newKnot.x = knot.x - 1
                 }
             } else {
-                if headX > tailX {
-                    newTailX = tailX + 1
+                if head.x > knot.x {
+                    newKnot.x = knot.x + 1
                 } else {
-                    newTailX = tailX - 1
+                    newKnot.x = knot.x - 1
                 }
 
-                if headY > tailY {
-                    newTailY = tailY + 1
+                if head.y > knot.y {
+                    newKnot.y = knot.y + 1
                 } else {
-                    newTailY = tailY - 1
+                    newKnot.y = knot.y - 1
                 }
             }
         }
 
-        return (newTailX, newTailY)
+        return newKnot
     }
 
     private func solvePart1(str: String) -> Int {
         let lines = str.parseIntoStringArray()
-        var headX = 0
-        var headY = 0
-        var tailX = 0
-        var tailY = 0
+        var head = Point2D.origin
+        var tail = Point2D.origin
         var tailCoordinates: Set<Point2D> = Set()
-        tailCoordinates.insert(Point2D(x: tailX, y: tailY))
+        tailCoordinates.insert(tail)
         for line in lines {
             let arr = line.parseIntoStringArray(separator: " ")
-            let direction = arr[0]
-            let steps = Int(arr[1]) ?? 0
-            for _ in 1...steps {
-                if direction == "L" {
-                    headX -= 1
-                } else if direction == "R" {
-                    headX += 1
-                } else if direction == "U" {
-                    headY -= 1
-                } else {
-                    headY += 1
-                }
-
-                (tailX, tailY) = findTailCoordinates(headX: headX, headY: headY, tailX: tailX, tailY: tailY)
-                tailCoordinates.insert(Point2D(x: tailX, y: tailY))
+            for _ in 1...(Int(arr[1]) ?? 0) {
+                head += directionDict[arr[0], default: .origin]
+                tail = findNewKnotCoordinates(head: head, knot: tail)
+                tailCoordinates.insert(tail)
             }
         }
 
@@ -92,32 +85,20 @@ public class Puzzle_2022_09: PuzzleBaseClass {
 
     private func solvePart2(str: String) -> Int {
         let lines = str.parseIntoStringArray()
-        var headX = 0
-        var headY = 0
-        var tailX = Array(repeating: 0, count: 9)
-        var tailY = Array(repeating: 0, count: 9)
+        var head = Point2D.origin
+        var knots = Array(repeating: Point2D.origin, count: 9)
         var tailCoordinates: Set<Point2D> = Set()
-        tailCoordinates.insert(Point2D(x: tailX[0], y: tailY[0]))
+        tailCoordinates.insert(knots[8])
         for line in lines {
             let arr = line.parseIntoStringArray(separator: " ")
-            let direction = arr[0]
-            let steps = Int(arr[1]) ?? 0
-            for _ in 1...steps {
-                if direction == "L" {
-                    headX -= 1
-                } else if direction == "R" {
-                    headX += 1
-                } else if direction == "U" {
-                    headY -= 1
-                } else {
-                    headY += 1
+            for _ in 1...(Int(arr[1]) ?? 0) {
+                head += directionDict[arr[0], default: .origin]
+                knots[0] = findNewKnotCoordinates(head: head, knot: knots[0])
+                for idx in 1...8 {
+                    knots[idx] = findNewKnotCoordinates(head: knots[idx - 1], knot: knots[idx])
                 }
 
-                (tailX[0], tailY[0]) = findTailCoordinates(headX: headX, headY: headY, tailX: tailX[0], tailY: tailY[0])
-                for idx in 1...8 {
-                    (tailX[idx], tailY[idx]) = findTailCoordinates(headX: tailX[idx - 1], headY: tailY[idx - 1], tailX: tailX[idx], tailY: tailY[idx])
-                }
-                tailCoordinates.insert(Point2D(x: tailX[8], y: tailY[8]))
+                tailCoordinates.insert(knots[8])
             }
         }
 

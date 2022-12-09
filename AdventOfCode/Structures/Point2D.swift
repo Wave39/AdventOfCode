@@ -19,8 +19,16 @@ public struct Point2D: Hashable, CustomStringConvertible {
         "(\(x),\(y))"
     }
 
-    public static func == (lhs: Point2D, rhs: Point2D) -> Bool {
-        lhs.x == rhs.x && lhs.y == rhs.y
+    public static func == (left: Point2D, right: Point2D) -> Bool {
+        left.x == right.x && left.y == right.y
+    }
+
+    public static func + (left: Point2D, right: Point2D) -> Point2D {
+        Point2D(x: left.x + right.x, y: left.y + right.y)
+    }
+
+    public static func += (left: inout Point2D, right: Point2D) {
+        left = Point2D(x: left.x + right.x, y: left.y + right.y)
     }
 
     public static func maximumBounds(arr: [Point2D]) -> Point2D {
