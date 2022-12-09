@@ -33,4 +33,4 @@ http://adventofcode.com
 ## Other repository links
 And here are some other links to Advent of Code public repositories that may be interesting.
 
-From John Boker: [2021](https://github.com/johnboker/AoC2021) | [2020](https://github.com/johnboker/AoC2020) | [2019](https://github.com/johnboker/AoC2019) | [2018](https://github.com/johnboker/AoC2018) | [2017](https://github.com/johnboker/AoC2017) | [2016](https://github.com/johnboker/AoC2016)
+From John Boker: [2022](https://github.com/johnboker/AoC2022) | [2021](https://github.com/johnboker/AoC2021) | [2020](https://github.com/johnboker/AoC2020) | [2019](https://github.com/johnboker/AoC2019) | [2018](https://github.com/johnboker/AoC2018) | [2017](https://github.com/johnboker/AoC2017) | [2016](https://github.com/johnboker/AoC2016)
