@@ -208,6 +208,40 @@
 		E091EAA225792F3300D1106C /* Puzzle_2020_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = E091EAA025792F3300D1106C /* Puzzle_2020_03.swift */; };
 		E09E5DFB23F0D40000604BFC /* Puzzle_2016_10.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E5DFA23F0D40000604BFC /* Puzzle_2016_10.swift */; };
 		E09E5DFC23F0D40000604BFC /* Puzzle_2016_10.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E5DFA23F0D40000604BFC /* Puzzle_2016_10.swift */; };
+		E09F0E262942CCF600F60128 /* Puzzle_2022_09.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E252942CCF600F60128 /* Puzzle_2022_09.swift */; };
+		E09F0E272942CCF600F60128 /* Puzzle_2022_09.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E252942CCF600F60128 /* Puzzle_2022_09.swift */; };
+		E09F0E292942CD0000F60128 /* Puzzle_2022_10.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E282942CD0000F60128 /* Puzzle_2022_10.swift */; };
+		E09F0E2A2942CD0000F60128 /* Puzzle_2022_10.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E282942CD0000F60128 /* Puzzle_2022_10.swift */; };
+		E09F0E2C2942CD0B00F60128 /* Puzzle_2022_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E2B2942CD0B00F60128 /* Puzzle_2022_11.swift */; };
+		E09F0E2D2942CD0B00F60128 /* Puzzle_2022_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E2B2942CD0B00F60128 /* Puzzle_2022_11.swift */; };
+		E09F0E2F2942CD1300F60128 /* Puzzle_2022_12.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E2E2942CD1300F60128 /* Puzzle_2022_12.swift */; };
+		E09F0E302942CD1300F60128 /* Puzzle_2022_12.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E2E2942CD1300F60128 /* Puzzle_2022_12.swift */; };
+		E09F0E322942CD1D00F60128 /* Puzzle_2022_13.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E312942CD1D00F60128 /* Puzzle_2022_13.swift */; };
+		E09F0E332942CD1D00F60128 /* Puzzle_2022_13.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E312942CD1D00F60128 /* Puzzle_2022_13.swift */; };
+		E09F0E352942CD2F00F60128 /* Puzzle_2022_14.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E342942CD2F00F60128 /* Puzzle_2022_14.swift */; };
+		E09F0E362942CD2F00F60128 /* Puzzle_2022_14.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E342942CD2F00F60128 /* Puzzle_2022_14.swift */; };
+		E09F0E382942CD3700F60128 /* Puzzle_2022_15.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E372942CD3700F60128 /* Puzzle_2022_15.swift */; };
+		E09F0E392942CD3700F60128 /* Puzzle_2022_15.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E372942CD3700F60128 /* Puzzle_2022_15.swift */; };
+		E09F0E3B2942CD4000F60128 /* Puzzle_2022_16.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E3A2942CD4000F60128 /* Puzzle_2022_16.swift */; };
+		E09F0E3C2942CD4000F60128 /* Puzzle_2022_16.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E3A2942CD4000F60128 /* Puzzle_2022_16.swift */; };
+		E09F0E3E2942CD4A00F60128 /* Puzzle_2022_17.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E3D2942CD4A00F60128 /* Puzzle_2022_17.swift */; };
+		E09F0E3F2942CD4A00F60128 /* Puzzle_2022_17.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E3D2942CD4A00F60128 /* Puzzle_2022_17.swift */; };
+		E09F0E412942CD5300F60128 /* Puzzle_2022_18.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E402942CD5300F60128 /* Puzzle_2022_18.swift */; };
+		E09F0E422942CD5300F60128 /* Puzzle_2022_18.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E402942CD5300F60128 /* Puzzle_2022_18.swift */; };
+		E09F0E442942CD5B00F60128 /* Puzzle_2022_19.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E432942CD5B00F60128 /* Puzzle_2022_19.swift */; };
+		E09F0E452942CD5B00F60128 /* Puzzle_2022_19.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E432942CD5B00F60128 /* Puzzle_2022_19.swift */; };
+		E09F0E472942CD6400F60128 /* Puzzle_2022_20.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E462942CD6400F60128 /* Puzzle_2022_20.swift */; };
+		E09F0E482942CD6400F60128 /* Puzzle_2022_20.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E462942CD6400F60128 /* Puzzle_2022_20.swift */; };
+		E09F0E4A2942CD6E00F60128 /* Puzzle_2022_21.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E492942CD6E00F60128 /* Puzzle_2022_21.swift */; };
+		E09F0E4B2942CD6E00F60128 /* Puzzle_2022_21.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E492942CD6E00F60128 /* Puzzle_2022_21.swift */; };
+		E09F0E4D2942CD7600F60128 /* Puzzle_2022_22.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E4C2942CD7600F60128 /* Puzzle_2022_22.swift */; };
+		E09F0E4E2942CD7600F60128 /* Puzzle_2022_22.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E4C2942CD7600F60128 /* Puzzle_2022_22.swift */; };
+		E09F0E502942CD7E00F60128 /* Puzzle_2022_23.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E4F2942CD7E00F60128 /* Puzzle_2022_23.swift */; };
+		E09F0E512942CD7E00F60128 /* Puzzle_2022_23.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E4F2942CD7E00F60128 /* Puzzle_2022_23.swift */; };
+		E09F0E532942CD8900F60128 /* Puzzle_2022_24.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E522942CD8900F60128 /* Puzzle_2022_24.swift */; };
+		E09F0E542942CD8900F60128 /* Puzzle_2022_24.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E522942CD8900F60128 /* Puzzle_2022_24.swift */; };
+		E09F0E562942CD9300F60128 /* Puzzle_2022_25.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E552942CD9300F60128 /* Puzzle_2022_25.swift */; };
+		E09F0E572942CD9300F60128 /* Puzzle_2022_25.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E552942CD9300F60128 /* Puzzle_2022_25.swift */; };
 		E0A124E723A3DD2B00DE46F1 /* Puzzle_2019_13.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A124E623A3DD2B00DE46F1 /* Puzzle_2019_13.swift */; };
 		E0A124E823A3DD2B00DE46F1 /* Puzzle_2019_13.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A124E623A3DD2B00DE46F1 /* Puzzle_2019_13.swift */; };
 		E0A1B461239E8A080067C582 /* Puzzle_2019_09.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A1B460239E8A080067C582 /* Puzzle_2019_09.swift */; };
@@ -576,6 +610,23 @@
 		E090D8A123B6CA5A0050111E /* Puzzle_2019_23.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_23.swift; sourceTree = "<group>"; };
 		E091EAA025792F3300D1106C /* Puzzle_2020_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_03.swift; sourceTree = "<group>"; };
 		E09E5DFA23F0D40000604BFC /* Puzzle_2016_10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2016_10.swift; sourceTree = "<group>"; };
+		E09F0E252942CCF600F60128 /* Puzzle_2022_09.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_09.swift; sourceTree = "<group>"; };
+		E09F0E282942CD0000F60128 /* Puzzle_2022_10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_10.swift; sourceTree = "<group>"; };
+		E09F0E2B2942CD0B00F60128 /* Puzzle_2022_11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_11.swift; sourceTree = "<group>"; };
+		E09F0E2E2942CD1300F60128 /* Puzzle_2022_12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_12.swift; sourceTree = "<group>"; };
+		E09F0E312942CD1D00F60128 /* Puzzle_2022_13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_13.swift; sourceTree = "<group>"; };
+		E09F0E342942CD2F00F60128 /* Puzzle_2022_14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_14.swift; sourceTree = "<group>"; };
+		E09F0E372942CD3700F60128 /* Puzzle_2022_15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_15.swift; sourceTree = "<group>"; };
+		E09F0E3A2942CD4000F60128 /* Puzzle_2022_16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_16.swift; sourceTree = "<group>"; };
+		E09F0E3D2942CD4A00F60128 /* Puzzle_2022_17.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_17.swift; sourceTree = "<group>"; };
+		E09F0E402942CD5300F60128 /* Puzzle_2022_18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_18.swift; sourceTree = "<group>"; };
+		E09F0E432942CD5B00F60128 /* Puzzle_2022_19.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_19.swift; sourceTree = "<group>"; };
+		E09F0E462942CD6400F60128 /* Puzzle_2022_20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_20.swift; sourceTree = "<group>"; };
+		E09F0E492942CD6E00F60128 /* Puzzle_2022_21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_21.swift; sourceTree = "<group>"; };
+		E09F0E4C2942CD7600F60128 /* Puzzle_2022_22.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_22.swift; sourceTree = "<group>"; };
+		E09F0E4F2942CD7E00F60128 /* Puzzle_2022_23.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_23.swift; sourceTree = "<group>"; };
+		E09F0E522942CD8900F60128 /* Puzzle_2022_24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_24.swift; sourceTree = "<group>"; };
+		E09F0E552942CD9300F60128 /* Puzzle_2022_25.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_25.swift; sourceTree = "<group>"; };
 		E0A124E623A3DD2B00DE46F1 /* Puzzle_2019_13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_13.swift; sourceTree = "<group>"; };
 		E0A1B460239E8A080067C582 /* Puzzle_2019_09.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_09.swift; sourceTree = "<group>"; };
 		E0A1B46323A031710067C582 /* Puzzle_2019_10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_10.swift; sourceTree = "<group>"; };
@@ -965,6 +1016,23 @@
 				E03683E3293F8ABC0058CD80 /* Puzzle_2022_06.swift */,
 				E0D5E3052940D261008A1D25 /* Puzzle_2022_07.swift */,
 				E0D5E30829421BD8008A1D25 /* Puzzle_2022_08.swift */,
+				E09F0E252942CCF600F60128 /* Puzzle_2022_09.swift */,
+				E09F0E282942CD0000F60128 /* Puzzle_2022_10.swift */,
+				E09F0E2B2942CD0B00F60128 /* Puzzle_2022_11.swift */,
+				E09F0E2E2942CD1300F60128 /* Puzzle_2022_12.swift */,
+				E09F0E312942CD1D00F60128 /* Puzzle_2022_13.swift */,
+				E09F0E342942CD2F00F60128 /* Puzzle_2022_14.swift */,
+				E09F0E372942CD3700F60128 /* Puzzle_2022_15.swift */,
+				E09F0E3A2942CD4000F60128 /* Puzzle_2022_16.swift */,
+				E09F0E3D2942CD4A00F60128 /* Puzzle_2022_17.swift */,
+				E09F0E402942CD5300F60128 /* Puzzle_2022_18.swift */,
+				E09F0E432942CD5B00F60128 /* Puzzle_2022_19.swift */,
+				E09F0E462942CD6400F60128 /* Puzzle_2022_20.swift */,
+				E09F0E492942CD6E00F60128 /* Puzzle_2022_21.swift */,
+				E09F0E4C2942CD7600F60128 /* Puzzle_2022_22.swift */,
+				E09F0E4F2942CD7E00F60128 /* Puzzle_2022_23.swift */,
+				E09F0E522942CD8900F60128 /* Puzzle_2022_24.swift */,
+				E09F0E552942CD9300F60128 /* Puzzle_2022_25.swift */,
 			);
 			path = 2022;
 			sourceTree = "<group>";
@@ -1244,6 +1312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E09F0E562942CD9300F60128 /* Puzzle_2022_25.swift in Sources */,
 				E03F8D9223F0775200CB1644 /* Puzzle_2016_08.swift in Sources */,
 				E0CBC88723EF30C60002B5EA /* Puzzle_2017_22.swift in Sources */,
 				E03FD4F923BD1D960090A8B5 /* Puzzle_2018_10.swift in Sources */,
@@ -1254,6 +1323,7 @@
 				E02114922398928700F49FC1 /* Point3D.swift in Sources */,
 				E0D3EF1623D3978B0064413A /* Puzzle_2017_11.swift in Sources */,
 				E0AE8B3F275E9B5100D3E4FF /* Puzzle_2021_23.swift in Sources */,
+				E09F0E4A2942CD6E00F60128 /* Puzzle_2022_21.swift in Sources */,
 				E021147B2397FEBD00F49FC1 /* main.swift in Sources */,
 				E03FD4FC23BD205D0090A8B5 /* Puzzle_2018_11.swift in Sources */,
 				E0BE571A23F77F140076E4D9 /* Puzzle_2016_23.swift in Sources */,
@@ -1272,6 +1342,7 @@
 				E03F8D8F23F0752500CB1644 /* Puzzle_2016_07.swift in Sources */,
 				E015CD2D23B9016D00986637 /* Puzzle_2019_24.swift in Sources */,
 				E0BE570823F7707B0076E4D9 /* Puzzle_2016_17.swift in Sources */,
+				E09F0E442942CD5B00F60128 /* Puzzle_2022_19.swift in Sources */,
 				E0A1B46423A031710067C582 /* Puzzle_2019_10.swift in Sources */,
 				E053277323B3C2F2005793B2 /* Puzzle_2019_22.swift in Sources */,
 				E0D3EEFE23D38ADE0064413A /* Puzzle_2017_03.swift in Sources */,
@@ -1280,6 +1351,7 @@
 				E0B6BBE1258F96F7006D84C0 /* Puzzle_2020_20.swift in Sources */,
 				E0F4FA75239DA271002F51A8 /* Puzzle_2018.swift in Sources */,
 				E0A8500023C129E900947CA3 /* Puzzle_2018_14.swift in Sources */,
+				E09F0E3B2942CD4000F60128 /* Puzzle_2022_16.swift in Sources */,
 				E0AE8B27275E9AFC00D3E4FF /* Puzzle_2021_15.swift in Sources */,
 				E0A8500923C1357100947CA3 /* Puzzle_2018_17.swift in Sources */,
 				E060759C23BA72AE00F048B0 /* Puzzle_2018_08.swift in Sources */,
@@ -1300,6 +1372,7 @@
 				E0D5E30929421BD8008A1D25 /* Puzzle_2022_08.swift in Sources */,
 				E0CBC89423EF3AC10002B5EA /* Puzzle_2017_25.swift in Sources */,
 				E0D3EF1323D396260064413A /* Puzzle_2017_10.swift in Sources */,
+				E09F0E532942CD8900F60128 /* Puzzle_2022_24.swift in Sources */,
 				E026B4E523A1556300FDDABD /* Puzzle_2019_11.swift in Sources */,
 				E0D7123223C2741E007B3E9C /* Puzzle_2017.swift in Sources */,
 				E02114982398940300F49FC1 /* Rect2D.swift in Sources */,
@@ -1309,6 +1382,7 @@
 				E060759923BA717700F048B0 /* Puzzle_2018_07.swift in Sources */,
 				E02114942398934C00F49FC1 /* Point4D.swift in Sources */,
 				E02404EF257C19B400C2C9A0 /* Puzzle_2020_05.swift in Sources */,
+				E09F0E3E2942CD4A00F60128 /* Puzzle_2022_17.swift in Sources */,
 				E0CBC89123EF373C0002B5EA /* Puzzle_2017_24.swift in Sources */,
 				E0578B132594BFA700E38F01 /* Puzzle_2020_24.swift in Sources */,
 				E03F8D7623EF9BF300CB1644 /* Puzzle_2016.swift in Sources */,
@@ -1320,6 +1394,7 @@
 				E0BE56FF23F75D3D0076E4D9 /* Puzzle_2016_14.swift in Sources */,
 				E04119A6239BDE900031AD8B /* ArrayExtensions.swift in Sources */,
 				E0D3EF1923D399360064413A /* Puzzle_2017_12.swift in Sources */,
+				E09F0E502942CD7E00F60128 /* Puzzle_2022_23.swift in Sources */,
 				E02114902398909600F49FC1 /* Point2D.swift in Sources */,
 				E0AE8B0F275E9A8F00D3E4FF /* Puzzle_2021_07.swift in Sources */,
 				E057614B23DE31D800F2DC9A /* Puzzle_2017_21.swift in Sources */,
@@ -1336,8 +1411,11 @@
 				E04119A2239B16830031AD8B /* Puzzle_2019_06.swift in Sources */,
 				E0BE570523F766130076E4D9 /* Puzzle_2016_16.swift in Sources */,
 				E0EB01612590DC090055C4BB /* Puzzle_2020_21.swift in Sources */,
+				E09F0E2F2942CD1300F60128 /* Puzzle_2022_12.swift in Sources */,
 				E0D40E552740531D00A766C6 /* Puzzle_2021.swift in Sources */,
+				E09F0E352942CD2F00F60128 /* Puzzle_2022_14.swift in Sources */,
 				E023A69B259623D8006C1A0E /* Puzzle_2020_25.swift in Sources */,
+				E09F0E322942CD1D00F60128 /* Puzzle_2022_13.swift in Sources */,
 				E020200B23F78A5C00217780 /* Puzzle_2015.swift in Sources */,
 				E04ADE3124007463006BD59C /* Puzzle_2015_08.swift in Sources */,
 				E04ADE3A24007AE2006BD59C /* Puzzle_2015_11.swift in Sources */,
@@ -1349,6 +1427,7 @@
 				E0AA3F2B2585D92100D61C17 /* Puzzle_2020_13.swift in Sources */,
 				E07EBDB424070AB900236098 /* Puzzle_2015_13.swift in Sources */,
 				E07EBDB72409B1BA00236098 /* Puzzle_2015_14.swift in Sources */,
+				E09F0E382942CD3700F60128 /* Puzzle_2022_15.swift in Sources */,
 				84E10227276A48AA00241C55 /* Dijkstra.swift in Sources */,
 				E009159E293A098700E903A4 /* Puzzle_2022_02.swift in Sources */,
 				E060759323BA6CFC00F048B0 /* Puzzle_2018_05.swift in Sources */,
@@ -1357,6 +1436,7 @@
 				E0699D0423A807C3009C415B /* Puzzle_2019_15.swift in Sources */,
 				E04ADE372400790B006BD59C /* Puzzle_2015_10.swift in Sources */,
 				E0A8501B23C2656E00947CA3 /* Puzzle_2018_23.swift in Sources */,
+				E09F0E262942CCF600F60128 /* Puzzle_2022_09.swift in Sources */,
 				E0AE8B39275E9B2C00D3E4FF /* Puzzle_2021_21.swift in Sources */,
 				E0A8501523C2325300947CA3 /* Puzzle_2018_21.swift in Sources */,
 				E0374FB12584F5B5005A8879 /* Puzzle_2020_12.swift in Sources */,
@@ -1392,6 +1472,7 @@
 				E01DA9F923A2B84E00656E6E /* GCD.swift in Sources */,
 				E021148B23982DF500F49FC1 /* Puzzle_2019.swift in Sources */,
 				E0AE8B45275E9B6000D3E4FF /* Puzzle_2021_25.swift in Sources */,
+				E09F0E4D2942CD7600F60128 /* Puzzle_2022_22.swift in Sources */,
 				E021148D23987F9F00F49FC1 /* Puzzle_2019_02.swift in Sources */,
 				E085EE05258E395C00541CA1 /* Puzzle_2020_19.swift in Sources */,
 				E0D3EF0423D38E910064413A /* Puzzle_2017_05.swift in Sources */,
@@ -1419,6 +1500,7 @@
 				E0A8502123C26B3C00947CA3 /* Puzzle_2018_24.swift in Sources */,
 				E048B55B275D10B700F5AEBF /* Line2D.swift in Sources */,
 				E0D3EF2223D3BAD10064413A /* Puzzle_2017_15.swift in Sources */,
+				E09F0E472942CD6400F60128 /* Puzzle_2022_20.swift in Sources */,
 				E0DA624925825FA300FE888B /* SequenceExtensions.swift in Sources */,
 				84E10229276A48B400241C55 /* Vertex.swift in Sources */,
 				E0BF2DBE240AB46400442612 /* Puzzle_2015_17.swift in Sources */,
@@ -1429,6 +1511,7 @@
 				E0D3EF2523D3BD160064413A /* Puzzle_2017_16.swift in Sources */,
 				E01DA9F523A27EB800656E6E /* Rect3D.swift in Sources */,
 				E06FD59C257FC204003BF596 /* Puzzle_2020_08.swift in Sources */,
+				E09F0E292942CD0000F60128 /* Puzzle_2022_10.swift in Sources */,
 				E0CBC88B23EF317F0002B5EA /* CharacterGrid.swift in Sources */,
 				E0B2FDD723AEB5BB00581425 /* CharacterExtensions.swift in Sources */,
 				E0BE570B23F7725A0076E4D9 /* Puzzle_2016_18.swift in Sources */,
@@ -1436,6 +1519,7 @@
 				E0708E5423B976A600C7125A /* Puzzle_2018_04.swift in Sources */,
 				E003168B258B944400979411 /* Puzzle_2020_17.swift in Sources */,
 				E091EAA125792F3300D1106C /* Puzzle_2020_03.swift in Sources */,
+				E09F0E2C2942CD0B00F60128 /* Puzzle_2022_11.swift in Sources */,
 				E0BE571D23F7806C0076E4D9 /* Puzzle_2016_24.swift in Sources */,
 				E0BF2DD0240C554E00442612 /* Puzzle_2015_23.swift in Sources */,
 				E0D3EF1C23D39BFE0064413A /* Puzzle_2017_13.swift in Sources */,
@@ -1455,6 +1539,7 @@
 				E03F8D9523F07AFB00CB1644 /* Puzzle_2016_09.swift in Sources */,
 				E0BF2DC4240AC19B00442612 /* Puzzle_2015_19.swift in Sources */,
 				E053BF342937F2BE0045C1D3 /* Puzzle_2022.swift in Sources */,
+				E09F0E412942CD5300F60128 /* Puzzle_2022_18.swift in Sources */,
 				E0E2F1CE25839F8D004AF3F7 /* Puzzle_2020_11.swift in Sources */,
 				E04ADE3424007728006BD59C /* Puzzle_2015_09.swift in Sources */,
 				E0AE8B12275E9AA600D3E4FF /* Puzzle_2021_08.swift in Sources */,
@@ -1468,6 +1553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E01DA9FA23A2B84E00656E6E /* GCD.swift in Sources */,
+				E09F0E452942CD5B00F60128 /* Puzzle_2022_19.swift in Sources */,
 				E0791927258A3AFC00008DF8 /* Puzzle_2020_16.swift in Sources */,
 				E0AE8B37275E9B2300D3E4FF /* Puzzle_2021_20.swift in Sources */,
 				E0EB01622590DC090055C4BB /* Puzzle_2020_21.swift in Sources */,
@@ -1490,18 +1576,23 @@
 				E0AA3F2C2585D92100D61C17 /* Puzzle_2020_13.swift in Sources */,
 				E067F1B623ABEDCC005C4D26 /* Puzzle_2019_17.swift in Sources */,
 				E0AE8B13275E9AA600D3E4FF /* Puzzle_2021_08.swift in Sources */,
+				E09F0E2D2942CD0B00F60128 /* Puzzle_2022_11.swift in Sources */,
 				E04ADE3524007728006BD59C /* Puzzle_2015_09.swift in Sources */,
 				E0AE8B19275E9AB800D3E4FF /* Puzzle_2021_10.swift in Sources */,
+				E09F0E482942CD6400F60128 /* Puzzle_2022_20.swift in Sources */,
 				E0D3EF1723D3978B0064413A /* Puzzle_2017_11.swift in Sources */,
 				E0F4FA72239D9722002F51A8 /* Puzzle_2019_08.swift in Sources */,
 				E0A8500A23C1357100947CA3 /* Puzzle_2018_17.swift in Sources */,
+				E09F0E2A2942CD0000F60128 /* Puzzle_2022_10.swift in Sources */,
 				E07EBDBB2409B32100236098 /* Puzzle_2015_15.swift in Sources */,
 				E01DA9F323A27E1200656E6E /* Particle3D.swift in Sources */,
 				E0AE8B3D275E9B3300D3E4FF /* Puzzle_2021_22.swift in Sources */,
 				E03F8D8D23F06A8700CB1644 /* Puzzle_2016_06.swift in Sources */,
+				E09F0E572942CD9300F60128 /* Puzzle_2022_25.swift in Sources */,
 				E0B9D8B22405B8A400956EAD /* Puzzle_2015_12.swift in Sources */,
 				E0F4FA69239D95FE002F51A8 /* Stack.swift in Sources */,
 				E060759723BA6F0000F048B0 /* Puzzle_2018_06.swift in Sources */,
+				E09F0E362942CD2F00F60128 /* Puzzle_2022_14.swift in Sources */,
 				E04ADE2F2400729F006BD59C /* Puzzle_2015_07.swift in Sources */,
 				E0E2F1CF25839F8D004AF3F7 /* Puzzle_2020_11.swift in Sources */,
 				E0DA624A25825FA300FE888B /* SequenceExtensions.swift in Sources */,
@@ -1511,20 +1602,24 @@
 				E03F8D8423F05CF900CB1644 /* StringExtensionsTests.swift in Sources */,
 				E0BE571E23F7806C0076E4D9 /* Puzzle_2016_24.swift in Sources */,
 				E0BE571823F77D690076E4D9 /* Puzzle_2016_22.swift in Sources */,
+				E09F0E392942CD3700F60128 /* Puzzle_2022_15.swift in Sources */,
 				E073414B2582511400B8B5D0 /* Puzzle_2020_10.swift in Sources */,
 				E03FD4F723BD1B3C0090A8B5 /* Puzzle_2018_09.swift in Sources */,
 				E01DA9F023A27C3900656E6E /* Puzzle_2019_12.swift in Sources */,
+				E09F0E422942CD5300F60128 /* Puzzle_2022_18.swift in Sources */,
 				E020200E23F78AC500217780 /* Puzzle_2015_01.swift in Sources */,
 				E03F65122773B75B00890EEF /* Rect3DTests.swift in Sources */,
 				E03F8D9623F07AFB00CB1644 /* Puzzle_2016_09.swift in Sources */,
 				E0A8500423C12D7A00947CA3 /* Puzzle_2018_15.swift in Sources */,
 				E0AE8B2E275E9B0A00D3E4FF /* Puzzle_2021_17.swift in Sources */,
 				E0BF2DC8240AC55000442612 /* Puzzle_2015_20.swift in Sources */,
+				E09F0E3F2942CD4A00F60128 /* Puzzle_2022_17.swift in Sources */,
 				E0031691258CE3AE00979411 /* Puzzle_2020_18.swift in Sources */,
 				E0F4FA7E239DAB97002F51A8 /* Puzzle_2018_02.swift in Sources */,
 				E0AE8B10275E9A8F00D3E4FF /* Puzzle_2021_07.swift in Sources */,
 				E06A402D257AA069005EB511 /* Puzzle_2020_04.swift in Sources */,
 				E0AE8B43275E9B5900D3E4FF /* Puzzle_2021_24.swift in Sources */,
+				E09F0E3C2942CD4000F60128 /* Puzzle_2022_16.swift in Sources */,
 				E0BE571523F778960076E4D9 /* Puzzle_2016_21.swift in Sources */,
 				E0A1B46823A135FE0067C582 /* DoubleExtensions.swift in Sources */,
 				E0D3EF0E23D3928D0064413A /* Puzzle_2017_08.swift in Sources */,
@@ -1540,6 +1635,7 @@
 				E0BF2DBC240AB1F300442612 /* Puzzle_2015_16.swift in Sources */,
 				E0F4FA79239DA3B0002F51A8 /* AdventOfCode2018Tests.swift in Sources */,
 				E0A8501C23C2656E00947CA3 /* Puzzle_2018_23.swift in Sources */,
+				E09F0E302942CD1300F60128 /* Puzzle_2022_12.swift in Sources */,
 				E0CBC89223EF373C0002B5EA /* Puzzle_2017_24.swift in Sources */,
 				E0A8500723C133EE00947CA3 /* Puzzle_2018_16.swift in Sources */,
 				E0AE8B40275E9B5100D3E4FF /* Puzzle_2021_23.swift in Sources */,
@@ -1600,6 +1696,7 @@
 				E08C95042593771800DD5399 /* Puzzle_2020_23.swift in Sources */,
 				E0BE570F23F7753E0076E4D9 /* Puzzle_2016_19.swift in Sources */,
 				E067F1B323AAE831005C4D26 /* Puzzle_2019_16.swift in Sources */,
+				E09F0E4E2942CD7600F60128 /* Puzzle_2022_22.swift in Sources */,
 				E03FD50023BD21F60090A8B5 /* Puzzle_2018_12.swift in Sources */,
 				E04F452223F4E32A00EB3A26 /* Puzzle_2016_12.swift in Sources */,
 				E04ADE2324006828006BD59C /* Puzzle_2015_03.swift in Sources */,
@@ -1609,6 +1706,7 @@
 				E07EBDB82409B1BA00236098 /* Puzzle_2015_14.swift in Sources */,
 				E0D3EF2623D3BD160064413A /* Puzzle_2017_16.swift in Sources */,
 				8433673B275A52B500B53991 /* Puzzle_2021_03.swift in Sources */,
+				E09F0E4B2942CD6E00F60128 /* Puzzle_2022_21.swift in Sources */,
 				E0A8501923C2645000947CA3 /* Puzzle_2018_22.swift in Sources */,
 				E0BF2DC2240ABEF100442612 /* Puzzle_2015_18.swift in Sources */,
 				E091EAA225792F3300D1106C /* Puzzle_2020_03.swift in Sources */,
@@ -1642,6 +1740,7 @@
 				E085EE06258E395C00541CA1 /* Puzzle_2020_19.swift in Sources */,
 				E0374FB22584F5B5005A8879 /* Puzzle_2020_12.swift in Sources */,
 				E0857923275FDAB700D4F659 /* DataExtensions.swift in Sources */,
+				E09F0E542942CD8900F60128 /* Puzzle_2022_24.swift in Sources */,
 				E0708E5223B9738C00C7125A /* Puzzle_2018_03.swift in Sources */,
 				E0A124E823A3DD2B00DE46F1 /* Puzzle_2019_13.swift in Sources */,
 				E03F8D7E23F05AA000CB1644 /* Puzzle_2016_02.swift in Sources */,
@@ -1649,6 +1748,7 @@
 				E0A1B462239E8A080067C582 /* Puzzle_2019_09.swift in Sources */,
 				E0B2FDD523AC721500581425 /* Puzzle_2019_18.swift in Sources */,
 				E09E5DFC23F0D40000604BFC /* Puzzle_2016_10.swift in Sources */,
+				E09F0E512942CD7E00F60128 /* Puzzle_2022_23.swift in Sources */,
 				E0708E5523B976A600C7125A /* Puzzle_2018_04.swift in Sources */,
 				E05DE091276A91620010788E /* Heap.swift in Sources */,
 				E0AE8B22275E9AEA00D3E4FF /* Puzzle_2021_13.swift in Sources */,
@@ -1657,6 +1757,7 @@
 				841ED6C62758F6EA00157C4F /* Puzzle_2021_02.swift in Sources */,
 				E0AE8B31275E9B1200D3E4FF /* Puzzle_2021_18.swift in Sources */,
 				E08D1941293E362200F0E1B3 /* Puzzle_2022_05.swift in Sources */,
+				E09F0E332942CD1D00F60128 /* Puzzle_2022_13.swift in Sources */,
 				E0AC2A2323AF088600CCC314 /* Puzzle_2019_20.swift in Sources */,
 				E06FD59D257FC204003BF596 /* Puzzle_2020_08.swift in Sources */,
 				E03FD4FD23BD205D0090A8B5 /* Puzzle_2018_11.swift in Sources */,
@@ -1673,6 +1774,7 @@
 				E0AE8B16275E9AB000D3E4FF /* Puzzle_2021_09.swift in Sources */,
 				E0D3EF0823D38FCB0064413A /* Puzzle_2017_06.swift in Sources */,
 				E0BE570623F766130076E4D9 /* Puzzle_2016_16.swift in Sources */,
+				E09F0E272942CCF600F60128 /* Puzzle_2022_09.swift in Sources */,
 				E0D40E592740551900A766C6 /* AdventOfCode2021Tests.swift in Sources */,
 				E0D3EF3223D3C38F0064413A /* Puzzle_2017_20.swift in Sources */,
 				E0B6BBE2258F96F7006D84C0 /* Puzzle_2020_20.swift in Sources */,
