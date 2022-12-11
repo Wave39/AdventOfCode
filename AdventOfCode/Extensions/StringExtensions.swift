@@ -29,6 +29,11 @@ public extension String {
         return retval
     }
 
+    var digitsOnly: String {
+        let str = self.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        return str
+    }
+
     var double: Double {
         guard let retval = Double(self.trim()) else {
             return 0.0
