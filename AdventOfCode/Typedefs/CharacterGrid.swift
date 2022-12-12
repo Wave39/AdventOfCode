@@ -11,6 +11,14 @@ import Foundation
 public typealias CharacterGrid = [[Character]]
 
 public extension CharacterGrid {
+    var width: Int {
+        self[0].count
+    }
+
+    var height: Int {
+        self.count
+    }
+
     func getAllPoints() -> [Point2D] {
         var points = [Point2D]()
         for y in 0..<self.count {
@@ -28,6 +36,18 @@ public extension CharacterGrid {
 
     func characterAtCoordinates(_ x: Int, _ y: Int) -> Character {
         self[y][x]
+    }
+
+    func adjacentGridCells(origin: Point2D, includeDiagonals: Bool) -> [(Point2D, Character)] {
+        var retval: [(Point2D, Character)] = []
+        let adjacentPoints = origin.adjacentLocations(includeDiagonals: includeDiagonals)
+        for point in adjacentPoints {
+            if point.x >= 0 && point.x < self[0].count && point.y >= 0 && point.y < self.count {
+                retval.append((point, self[point.y][point.x]))
+            }
+        }
+
+        return retval
     }
 }
 
@@ -92,9 +112,24 @@ public func getCharacterCount(grid: CharacterGrid, character: Character) -> Int 
     return retval
 }
 
+public func findCharacter(grid: CharacterGrid, character: Character) -> Point2D? {
+    for y in 0..<grid.count {
+        for x in 0..<grid[y].count {
+            if grid[y][x] == character {
+                return Point2D(x: x, y: y)
+            }
+        }
+    }
+
+    return nil
+}
+
 public func adjacentCharacters(grid: CharacterGrid, row: Int, col: Int) -> [Character] {
+    adjacentCharacters(grid: grid, origin: Point2D(x: col, y: row))
+}
+
+public func adjacentCharacters(grid: CharacterGrid, origin: Point2D) -> [Character] {
     var retval: [Character] = []
-    let origin = Point2D(x: col, y: row)
     let adjacentPoints = origin.adjacentLocations(includeDiagonals: true)
     for point in adjacentPoints {
         if point.x >= 0 && point.x < grid[0].count && point.y >= 0 && point.y < grid.count {
