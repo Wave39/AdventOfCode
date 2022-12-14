@@ -61,6 +61,15 @@ public extension String {
         return Data(computed).hexEncodedString()
     }
 
+    var point2D: Point2D {
+        let arr = self.parseIntoIntArray(separator: ",")
+        if arr.count == 2 {
+            return Point2D(x: arr[0], y: arr[1])
+        } else {
+            return .origin
+        }
+    }
+
     var uniqueCharacters: String {
         var set = Set<Character>()
         return String(filter { set.insert($0).inserted })

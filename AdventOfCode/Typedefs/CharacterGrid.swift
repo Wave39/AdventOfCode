@@ -91,6 +91,22 @@ public func printCharacterGrid(grid: CharacterGrid) {
     }
 }
 
+public func printCharacterGrid(grid: CharacterGrid, x1: Int, x2: Int, y1: Int, y2: Int) {
+    let xStart = min(x1, x2)
+    let xEnd = max(x1, x2)
+    let yStart = min(y1, y2)
+    let yEnd = max(y1, y2)
+    for y in yStart...yEnd {
+        let line = grid[y]
+        var s = ""
+        for x in xStart...xEnd {
+            s += String(line[x])
+        }
+
+        print(s)
+    }
+}
+
 public func getCharacterAtCharacterGridPoint(grid: CharacterGrid, point: Point2D) -> Character {
     grid[point.y][point.x]
 }
