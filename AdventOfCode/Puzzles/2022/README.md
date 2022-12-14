@@ -26,7 +26,7 @@ Links to other years:
 | [10](https://adventofcode.com/2022/day/10) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_10.swift) | :smile: | <1s |
 | [11](https://adventofcode.com/2022/day/11) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_11.swift) | :smile: | <1s | I had to take a peek at the reddit thread to realize that all of the divisors were prime numbers, and that I could just use a multiple of those factors to reduce the worry levels. |
 | [12](https://adventofcode.com/2022/day/12) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_12.swift) | :smile: | <1s | Thanks to Benedikt Müller for guidance on this one. I was doing a BFS pretty early on but could never get it working just right with the direction that I was taking. |
-| [13](https://adventofcode.com/2022/day/13) | TBD | TBD | TBD |
+| [13](https://adventofcode.com/2022/day/13) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_13.swift) | :smile: | <1s | I got frustrated working on the parsing code and just stole the Swift solution I found on Reddit from Bas Buijsen (u/Mammoth_Spray_3451). |
 | [14](https://adventofcode.com/2022/day/14) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_14.swift) | :smile: | 1s |
 
 ### Legend
