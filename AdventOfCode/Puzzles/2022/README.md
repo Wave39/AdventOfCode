@@ -28,6 +28,7 @@ Links to other years:
 | [12](https://adventofcode.com/2022/day/12) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_12.swift) | :smile: | <1s | Thanks to Benedikt Müller for guidance on this one. I was doing a BFS pretty early on but could never get it working just right with the direction that I was taking. |
 | [13](https://adventofcode.com/2022/day/13) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_13.swift) | :smile: | <1s | I got frustrated working on the parsing code and just stole the Swift solution I found on Reddit from Bas Buijsen (u/Mammoth_Spray_3451). |
 | [14](https://adventofcode.com/2022/day/14) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_14.swift) | :smile: | 1s |
+| [15](https://adventofcode.com/2022/day/15) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_15.swift) | :warning: | 43s | It took me a hot minute to realize that I needed to focus in on the locations that were just outside the scanned range of each sensor. Once I put all of the spots that qualified into a dictionary with a counter, the one with the maximum count is the one that we are looking for. This is sort of a brute force solution that warrants revisiting at some point in the future. |
 
 ### Legend
 

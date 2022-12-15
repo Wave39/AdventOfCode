@@ -87,4 +87,40 @@ public struct Point2D: Hashable, CustomStringConvertible {
             return Point2D(x: self.x - 1, y: self.y)
         }
     }
+
+    public func locationsAtManhattanDistance(_ manhattanDistance: Int) -> [Point2D] {
+        if manhattanDistance == 0 {
+            return [ self ]
+        }
+
+        var retval: [Point2D] = []
+        var x1 = self.x
+        var x2 = self.x
+        for y in (y - manhattanDistance - 1)...(y - 1) {
+            retval.append(Point2D(x: x1, y: y))
+            if x1 != x2 {
+                retval.append(Point2D(x: x2, y: y))
+            }
+
+            x1 -= 1
+            x2 += 1
+        }
+
+        retval.append(Point2D(x: self.x - manhattanDistance - 1, y: self.y))
+        retval.append(Point2D(x: self.x + manhattanDistance + 1, y: self.y))
+
+        x1 = self.x
+        x2 = self.x
+        for y in stride(from: (y + manhattanDistance + 1), through: (y + 1), by: -1) {
+            retval.append(Point2D(x: x1, y: y))
+            if x1 != x2 {
+                retval.append(Point2D(x: x2, y: y))
+            }
+
+            x1 -= 1
+            x2 += 1
+        }
+
+        return retval
+    }
 }
