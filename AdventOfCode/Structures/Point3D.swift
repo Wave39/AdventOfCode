@@ -9,6 +9,10 @@
 import Foundation
 
 public struct Point3D: Hashable, CustomStringConvertible {
+    public static var origin: Point3D {
+        Point3D(x: 0, y: 0, z: 0)
+    }
+
     public var x: Int = 0
     public var y: Int = 0
     public var z: Int = 0
@@ -18,6 +22,14 @@ public struct Point3D: Hashable, CustomStringConvertible {
 
     public static func == (lhs: Point3D, rhs: Point3D) -> Bool {
         lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
+    }
+
+    public static func + (left: Point3D, right: Point3D) -> Point3D {
+        Point3D(x: left.x + right.x, y: left.y + right.y, z: left.z + right.z)
+    }
+
+    public static func += (left: inout Point3D, right: Point3D) {
+        left = Point3D(x: left.x + right.x, y: left.y + right.y, z: left.z + right.z)
     }
 
     public static func maximumBounds(arr: [Point3D]) -> Point3D {
