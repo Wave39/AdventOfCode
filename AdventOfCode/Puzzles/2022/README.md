@@ -30,6 +30,7 @@ Links to other years:
 | [14](https://adventofcode.com/2022/day/14) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_14.swift) | :smile: | 1s |
 | [15](https://adventofcode.com/2022/day/15) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_15.swift) | :warning: | 43s | It took me a hot minute to realize that I needed to focus in on the locations that were just outside the scanned range of each sensor. Once I put all of the spots that qualified into a dictionary with a counter, the one with the maximum count is the one that we are looking for. This is sort of a brute force solution that warrants revisiting at some point in the future. |
 | [18](https://adventofcode.com/2022/day/18) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_18.swift) | :smile: | <1s | Once again, I was able to finish part 1 with no problem, but was totally lost on part 2, thanks to Gereon Steffens for his part 2 solution. (This year's contest seems to be much more difficult than previous years, not sure if this is by design or just random coincidence.) |
+| [21](https://adventofcode.com/2022/day/21) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_21.swift) | :smile: | 6s | I should probably set this one up to use a binary search of integer values to find the sweet spot instead of just finding the right starting search integer through trial and error. |
 
 ### Legend
 
