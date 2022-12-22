@@ -164,9 +164,9 @@ public class AdventOfCode2022Tests: XCTestCase {
 
     public func test2022day22() {
         let part1 = Puzzle_2022_22().solvePart1()
-        XCTAssertEqual(part1, 2)
+        XCTAssertEqual(part1, 126_350)
         let part2 = Puzzle_2022_22().solvePart2()
-        XCTAssertEqual(part2, 2)
+        XCTAssertEqual(part2, 129_339)
     }
 
     public func test2022day23() {
