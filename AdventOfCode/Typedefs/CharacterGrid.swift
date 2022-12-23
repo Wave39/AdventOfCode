@@ -49,6 +49,60 @@ public extension CharacterGrid {
 
         return retval
     }
+
+    func findInstancesOf(_ character: Character) -> [Point2D] {
+        var retval: [Point2D] = []
+        for y in 0..<height {
+            for x in 0..<width {
+                if self[y][x] == character {
+                    retval.append(Point2D(x: x, y: y))
+                }
+            }
+        }
+
+        return retval
+    }
+
+    func printToConsole() {
+        for line in self {
+            var s = ""
+            for c in line {
+                s += String(c)
+            }
+
+            print(s)
+        }
+    }
+
+    func printToConsole(x1: Int, x2: Int, y1: Int, y2: Int) {
+        let xStart = Swift.min(x1, x2)
+        let xEnd = Swift.max(x1, x2)
+        let yStart = Swift.min(y1, y2)
+        let yEnd = Swift.max(y1, y2)
+        for y in yStart...yEnd {
+            let line = self[y]
+            var s = ""
+            for x in xStart...xEnd {
+                s += String(line[x])
+            }
+
+            print(s)
+        }
+    }
+
+    func getDirectionalPoint(point: Point2D, direction: CompassDirection) -> Point2D {
+        if direction == .North {
+            return Point2D(x: point.x, y: point.y - 1)
+        } else if direction == .East {
+            return Point2D(x: point.x + 1, y: point.y)
+        } else if direction == .South {
+            return Point2D(x: point.x, y: point.y + 1)
+        } else if direction == .West {
+            return Point2D(x: point.x - 1, y: point.y)
+        } else {
+            return point
+        }
+    }
 }
 
 public func getCharacterGrid(str: String, separator: Character = "\n") -> CharacterGrid {
@@ -78,33 +132,6 @@ public func initializeEmptyCharacterGrid(height: Int, width: Int) -> CharacterGr
     }
 
     return grid
-}
-
-public func printCharacterGrid(grid: CharacterGrid) {
-    for line in grid {
-        var s = ""
-        for c in line {
-            s += String(c)
-        }
-
-        print(s)
-    }
-}
-
-public func printCharacterGrid(grid: CharacterGrid, x1: Int, x2: Int, y1: Int, y2: Int) {
-    let xStart = min(x1, x2)
-    let xEnd = max(x1, x2)
-    let yStart = min(y1, y2)
-    let yEnd = max(y1, y2)
-    for y in yStart...yEnd {
-        let line = grid[y]
-        var s = ""
-        for x in xStart...xEnd {
-            s += String(line[x])
-        }
-
-        print(s)
-    }
 }
 
 public func getCharacterAtCharacterGridPoint(grid: CharacterGrid, point: Point2D) -> Character {

@@ -61,10 +61,8 @@ public enum CompassDirection {
             return Point2D(x: -1, y: -1)
         } else if self == .SouthEast {
             return Point2D(x: 1, y: 1)
-        } else if self == .SouthWest {
+        } else {
             return Point2D(x: -1, y: 1)
         }
-
-        return Point2D()
     }
 }

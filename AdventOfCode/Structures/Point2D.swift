@@ -55,6 +55,25 @@ public struct Point2D: Hashable, CustomStringConvertible {
         abs(self.x - pt.x) + abs(self.y - pt.y)
     }
 
+    // For the adjacentLocations array, the indices of the adjacent locations are:
+    //
+    // Including diagonals:
+    //
+    //  4  0  5
+    //   \ | /
+    // 1 - * - 2
+    //   / | \
+    //  6  3  7
+    //
+    // Not including diagonals:
+    //
+    //     0
+    //     |
+    // 1 - * - 2
+    //     |
+    //     3
+    //
+
     public func adjacentLocations(includeDiagonals: Bool = false) -> [Point2D] {
         var retval: [Point2D] = []
         retval.append(Point2D(x: self.x, y: self.y - 1))
@@ -83,8 +102,10 @@ public struct Point2D: Hashable, CustomStringConvertible {
             return Point2D(x: self.x + 1, y: self.y)
         } else if direction == .South {
             return Point2D(x: self.x, y: self.y - 1)
-        } else {
+        } else if direction == .West {
             return Point2D(x: self.x - 1, y: self.y)
+        } else {
+            return self
         }
     }
 
