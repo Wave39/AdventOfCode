@@ -37,6 +37,7 @@ Links to other years:
 | [21](https://adventofcode.com/2022/day/21) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_21.swift) | :smile: | 6s | I should probably set this one up to use a binary search of integer values to find the sweet spot instead of just finding the right starting search integer through trial and error. |
 | [22](https://adventofcode.com/2022/day/22) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_22.swift) | :smile: | 6s | I gave up on trying to do the cube rotations and instead just found a C# solution that I ran my input through. |
 | [23](https://adventofcode.com/2022/day/23) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_23.swift) | :warning: | 21s |
+| [24](https://adventofcode.com/2022/day/24) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_24.swift) | :smile: | <1s | See day 16. |
 
 ### Legend
 
