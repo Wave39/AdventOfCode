@@ -38,6 +38,7 @@ Links to other years:
 | [22](https://adventofcode.com/2022/day/22) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_22.swift) | :smile: | 6s | I gave up on trying to do the cube rotations and instead just found a C# solution that I ran my input through. |
 | [23](https://adventofcode.com/2022/day/23) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_23.swift) | :warning: | 21s |
 | [24](https://adventofcode.com/2022/day/24) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_24.swift) | :smile: | <1s | See day 16. |
+| [25](https://adventofcode.com/2022/day/25) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/Puzzle_2022_25.swift) | :smile: | <1s |
 
 ### Legend
 
