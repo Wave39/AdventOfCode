@@ -16,6 +16,7 @@ Links to other years:
 | Day | Code | Status | Execution Time | Hall of Shame |
 | :---: | :---: | :---: | :---: | :--- |
 | [1](https://adventofcode.com/2023/day/1) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_01.swift) | :smile: | <1s |
+| [2](https://adventofcode.com/2023/day/2) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_02.swift) | :smile: | <1s |
 
 ### Legend
 
@@ -24,5 +25,5 @@ Links to other years:
 | :smile: | 0..<10 seconds | All good here! |
 | :eyes: | 10..<20 seconds | Could use some tidying up... |
 | :warning: | 20..<60 seconds | Investigation is warranted. |
-| :fire: | 60... seconds | In fact, never play this again. |
+| :fire: | 60... seconds | Surely you can't be serious. |
 
