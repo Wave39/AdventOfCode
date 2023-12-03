@@ -156,6 +156,11 @@ public extension String {
         return components.filter { !$0.isEmpty }.joined(separator: " ")
     }
 
+    func condenseCharacters(char: Character) -> String {
+        let components = self.components(separatedBy: CharacterSet(charactersIn: String(char)))
+        return components.filter { !$0.isEmpty }.joined(separator: String(char))
+    }
+
     func convertBinaryToHashesAndDots() -> String {
         var retval = ""
 
