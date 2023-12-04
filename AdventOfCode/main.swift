@@ -15,7 +15,7 @@ print("Welcome to BP's Advent Of Code Solution Machine.")
 
 if hardCodedPuzzleSelection {
     let start = DispatchTime.now()
-    Puzzle_2023().solve(puzzleNumber: 3)
+    Puzzle_2023().solve(puzzleNumber: 4)
     let end = DispatchTime.now()
     let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
     let timeInterval = Double(nanoTime) / 1_000_000_000

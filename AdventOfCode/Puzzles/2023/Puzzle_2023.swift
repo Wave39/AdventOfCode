@@ -17,7 +17,7 @@ public class Puzzle_2023 {
         } else if puzzleNumber == 3 {
             Puzzle_2023_03().solve()
         } else if puzzleNumber == 4 {
-            // Puzzle_2023_04().solve()
+            Puzzle_2023_04().solve()
         } else if puzzleNumber == 5 {
             // Puzzle_2023_05().solve()
         } else if puzzleNumber == 6 {

@@ -445,6 +445,8 @@
 		E0D5E3072940D261008A1D25 /* Puzzle_2022_07.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5E3052940D261008A1D25 /* Puzzle_2022_07.swift */; };
 		E0D5E30929421BD8008A1D25 /* Puzzle_2022_08.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5E30829421BD8008A1D25 /* Puzzle_2022_08.swift */; };
 		E0D5E30A29421BD8008A1D25 /* Puzzle_2022_08.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D5E30829421BD8008A1D25 /* Puzzle_2022_08.swift */; };
+		E0D6C1CB2B1D94AA002D0504 /* Puzzle_2023_04.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D6C1CA2B1D94AA002D0504 /* Puzzle_2023_04.swift */; };
+		E0D6C1CC2B1D94AA002D0504 /* Puzzle_2023_04.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D6C1CA2B1D94AA002D0504 /* Puzzle_2023_04.swift */; };
 		E0D7123223C2741E007B3E9C /* Puzzle_2017.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123123C2741E007B3E9C /* Puzzle_2017.swift */; };
 		E0D7123323C2741E007B3E9C /* Puzzle_2017.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123123C2741E007B3E9C /* Puzzle_2017.swift */; };
 		E0D7123523C2747E007B3E9C /* Puzzle_2017_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123423C2747E007B3E9C /* Puzzle_2017_01.swift */; };
@@ -745,6 +747,7 @@
 		E0D40E582740551900A766C6 /* AdventOfCode2021Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode2021Tests.swift; sourceTree = "<group>"; };
 		E0D5E3052940D261008A1D25 /* Puzzle_2022_07.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_07.swift; sourceTree = "<group>"; };
 		E0D5E30829421BD8008A1D25 /* Puzzle_2022_08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_08.swift; sourceTree = "<group>"; };
+		E0D6C1CA2B1D94AA002D0504 /* Puzzle_2023_04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2023_04.swift; sourceTree = "<group>"; };
 		E0D7122E23C27006007B3E9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0D7123023C273FE007B3E9C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E0D7123123C2741E007B3E9C /* Puzzle_2017.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017.swift; sourceTree = "<group>"; };
@@ -1060,6 +1063,7 @@
 				E0B0F89A2B1A2AC3004FD139 /* Puzzle_2023_01.swift */,
 				E061EAD62B1B76AB00FD3168 /* Puzzle_2023_02.swift */,
 				E005479C2B1CC672005D57F3 /* Puzzle_2023_03.swift */,
+				E0D6C1CA2B1D94AA002D0504 /* Puzzle_2023_04.swift */,
 			);
 			path = 2023;
 			sourceTree = "<group>";
@@ -1489,6 +1493,7 @@
 				E067F1B523ABEDCC005C4D26 /* Puzzle_2019_17.swift in Sources */,
 				E0BF2DC7240AC55000442612 /* Puzzle_2015_20.swift in Sources */,
 				E0A1B461239E8A080067C582 /* Puzzle_2019_09.swift in Sources */,
+				E0D6C1CB2B1D94AA002D0504 /* Puzzle_2023_04.swift in Sources */,
 				E04ADE2524006A31006BD59C /* Puzzle_2015_04.swift in Sources */,
 				E0D3EF0A23D390F50064413A /* Puzzle_2017_07.swift in Sources */,
 				E021148923981DDB00F49FC1 /* PuzzleBaseClass.swift in Sources */,
@@ -1795,6 +1800,7 @@
 				E08D1941293E362200F0E1B3 /* Puzzle_2022_05.swift in Sources */,
 				E09F0E332942CD1D00F60128 /* Puzzle_2022_13.swift in Sources */,
 				E0AC2A2323AF088600CCC314 /* Puzzle_2019_20.swift in Sources */,
+				E0D6C1CC2B1D94AA002D0504 /* Puzzle_2023_04.swift in Sources */,
 				E06FD59D257FC204003BF596 /* Puzzle_2020_08.swift in Sources */,
 				E03FD4FD23BD205D0090A8B5 /* Puzzle_2018_11.swift in Sources */,
 				E03FD50323BD25990090A8B5 /* Puzzle_2018_13.swift in Sources */,
