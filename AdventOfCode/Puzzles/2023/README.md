@@ -18,6 +18,8 @@ Links to other years:
 | [1](https://adventofcode.com/2023/day/1) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_01.swift) | :smile: | <1s |
 | [2](https://adventofcode.com/2023/day/2) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_02.swift) | :smile: | <1s |
 | [3](https://adventofcode.com/2023/day/3) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_03.swift) | :smile: | <1s |
+| [4](https://adventofcode.com/2023/day/4) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_04.swift) | :smile: | <1s |
+| [5](https://adventofcode.com/2023/day/5) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_05.swift) | :fire: | 2m 54s | I ran this with the optimizations turned on because I knew it was going to take a while. Since I don't understand any of the solutions presented in the subreddit, this one is going to stand for now. |
 
 ### Legend
 
