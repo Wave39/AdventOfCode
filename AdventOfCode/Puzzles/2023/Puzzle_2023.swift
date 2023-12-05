@@ -19,47 +19,47 @@ public class Puzzle_2023 {
         } else if puzzleNumber == 4 {
             Puzzle_2023_04().solve()
         } else if puzzleNumber == 5 {
-            // Puzzle_2023_05().solve()
+            Puzzle_2023_05().solve()
         } else if puzzleNumber == 6 {
-            // Puzzle_2023_06().solve()
+            Puzzle_2023_06().solve()
         } else if puzzleNumber == 7 {
-            // Puzzle_2023_07().solve()
+            Puzzle_2023_07().solve()
         } else if puzzleNumber == 8 {
-            // Puzzle_2023_08().solve()
+            Puzzle_2023_08().solve()
         } else if puzzleNumber == 9 {
-            // Puzzle_2023_09().solve()
+            Puzzle_2023_09().solve()
         } else if puzzleNumber == 10 {
-            // Puzzle_2023_10().solve()
+            Puzzle_2023_10().solve()
         } else if puzzleNumber == 11 {
-            // Puzzle_2023_11().solve()
+            Puzzle_2023_11().solve()
         } else if puzzleNumber == 12 {
-            // Puzzle_2023_12().solve()
+            Puzzle_2023_12().solve()
         } else if puzzleNumber == 13 {
-            // Puzzle_2023_13().solve()
+            Puzzle_2023_13().solve()
         } else if puzzleNumber == 14 {
-            // Puzzle_2023_14().solve()
+            Puzzle_2023_14().solve()
         } else if puzzleNumber == 15 {
-            // Puzzle_2023_15().solve()
+            Puzzle_2023_15().solve()
         } else if puzzleNumber == 16 {
-            // Puzzle_2023_16().solve()
+            Puzzle_2023_16().solve()
         } else if puzzleNumber == 17 {
-            // Puzzle_2023_17().solve()
+            Puzzle_2023_17().solve()
         } else if puzzleNumber == 18 {
-            // Puzzle_2023_18().solve()
+            Puzzle_2023_18().solve()
         } else if puzzleNumber == 19 {
-            // Puzzle_2023_19().solve()
+            Puzzle_2023_19().solve()
         } else if puzzleNumber == 20 {
-            // Puzzle_2023_20().solve()
+            Puzzle_2023_20().solve()
         } else if puzzleNumber == 21 {
-            // Puzzle_2023_21().solve()
+            Puzzle_2023_21().solve()
         } else if puzzleNumber == 22 {
-            // Puzzle_2023_22().solve()
+            Puzzle_2023_22().solve()
         } else if puzzleNumber == 23 {
-            // Puzzle_2023_23().solve()
+            Puzzle_2023_23().solve()
         } else if puzzleNumber == 24 {
-            // Puzzle_2023_24().solve()
+            Puzzle_2023_24().solve()
         } else if puzzleNumber == 25 {
-            // Puzzle_2023_25().solve()
+            Puzzle_2023_25().solve()
         } else {
             print("The puzzle number \(puzzleNumber) was not found.")
         }
