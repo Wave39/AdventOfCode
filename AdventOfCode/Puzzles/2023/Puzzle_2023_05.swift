@@ -28,8 +28,8 @@ public class Puzzle_2023_05: PuzzleBaseClass {
     private func solvePart1(str: String) -> Int {
         func getValuesArray() -> [(Int, Int, Int)] {
             var retval = [(Int, Int, Int)]()
-            while !arr.isEmpty && !arr.first!.isEmpty {
-                let values = arr.first!.split(separator: " ").map { Int($0)! }
+            while !arr.isEmpty && !arr[0].isEmpty {
+                let values = arr[0].split(separator: " ").map { $0.int }
                 retval.append((values[0], values[1], values[2]))
                 arr.removeFirst()
             }
@@ -85,8 +85,8 @@ public class Puzzle_2023_05: PuzzleBaseClass {
     private func solvePart2(str: String) -> Int {
         func getValuesArray() -> [(Int, Int, Int)] {
             var retval = [(Int, Int, Int)]()
-            while !arr.isEmpty && !arr.first!.isEmpty {
-                let values = arr.first!.split(separator: " ").map { Int($0)! }
+            while !arr.isEmpty && !arr[0].isEmpty {
+                let values = arr[0].split(separator: " ").map { $0.int }
                 retval.append((values[0], values[1], values[2]))
                 arr.removeFirst()
             }
@@ -110,7 +110,7 @@ public class Puzzle_2023_05: PuzzleBaseClass {
         }
 
         var arr = str.parseIntoStringArray(omitBlankLines: false)
-        let seeds = arr[0].replacingOccurrences(of: "seeds: ", with: "").split(separator: " ").map { Int($0)! }
+        let seeds = arr[0].replacingOccurrences(of: "seeds: ", with: "").split(separator: " ").map { $0.int }
         arr.removeFirst(3)
 
         let seedToSoilMap = getValuesArray()

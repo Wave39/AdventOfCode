@@ -138,7 +138,7 @@ public class Puzzle_2022_19: PuzzleBaseClass {
 //            // print("max geodes \(maxGeodes)")
 //        }
 
-        return 2_301
+        2_301
     }
 
     private func solvePart2(str: String) -> Int {

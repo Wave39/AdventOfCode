@@ -72,7 +72,7 @@ public class Puzzle_2023_03: PuzzleBaseClass {
         var retval = 0
         for number in numbers {
             if checkString(grid: grid, str: number.0, pos: number.1) {
-                retval += Int(number.0)!
+                retval += number.0.int
             }
         }
 
@@ -97,7 +97,7 @@ public class Puzzle_2023_03: PuzzleBaseClass {
 
             if adjacentNumbers.count == 2 {
                 let arr = Array(adjacentNumbers)
-                retval += Int(arr[0])! * Int(arr[1])!
+                retval += arr[0].int * arr[1].int
             }
         }
 

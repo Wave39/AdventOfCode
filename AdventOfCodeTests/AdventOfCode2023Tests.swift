@@ -8,7 +8,7 @@
 
 import XCTest
 
-final class AdventOfCode2023Tests: XCTestCase {
+public class AdventOfCode2023Tests: XCTestCase {
     public func test2023day01() {
         let part1 = Puzzle_2023_01().solvePart1()
         XCTAssertEqual(part1, 55_386)

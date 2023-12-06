@@ -30,8 +30,8 @@ public class Puzzle_2023_04: PuzzleBaseClass {
         var retval = 0
         for line in arr {
             let components = line.capturedGroups(withRegex: "Card (.*): (.*) \\| (.*)", trimResults: true)
-            let winningNumbers = Set(components[1].split(separator: " ").map { Int($0)! })
-            let myNumbers = components[2].split(separator: " ").map { Int($0)! }
+            let winningNumbers = Set(components[1].split(separator: " ").map { $0.int })
+            let myNumbers = components[2].split(separator: " ").map { $0.int }
             var score = 0
             for number in myNumbers {
                 if winningNumbers.contains(number) {
@@ -54,8 +54,8 @@ public class Puzzle_2023_04: PuzzleBaseClass {
         var cardCount = Array(repeating: 1, count: arr.count)
         for line in arr {
             let components = line.capturedGroups(withRegex: "Card (.*): (.*) \\| (.*)", trimResults: true)
-            let winningNumbers = Set(components[1].split(separator: " ").map { Int($0)! })
-            let myNumbers = components[2].split(separator: " ").map { Int($0)! }
+            let winningNumbers = Set(components[1].split(separator: " ").map { $0.int })
+            let myNumbers = components[2].split(separator: " ").map { $0.int }
             var matches = 0
             for number in myNumbers {
                 if winningNumbers.contains(number) {
@@ -64,7 +64,7 @@ public class Puzzle_2023_04: PuzzleBaseClass {
             }
 
             if matches > 0 {
-                let startingIndex = Int(components[0])!
+                let startingIndex = components[0].int
                 for idx in 1...matches {
                     cardCount[startingIndex + idx - 1] += cardCount[startingIndex - 1]
                 }

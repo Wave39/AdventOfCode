@@ -30,7 +30,7 @@ public class Puzzle_2023_01: PuzzleBaseClass {
         var retval = 0
         for line in arr {
             let numbers = String(line.filter { $0 >= "1" && $0 <= "9" })
-            retval += (Int(String(numbers.first!))! * 10 + Int(String(numbers.last!))!)
+            retval += (String(numbers.first!).int * 10 + String(numbers.last!).int)
         }
 
         return retval
@@ -60,7 +60,7 @@ public class Puzzle_2023_01: PuzzleBaseClass {
             }
 
             let numbers = String(line2.filter { $0 >= "1" && $0 <= "9" })
-            retval += (Int(String(numbers.first!))! * 10 + Int(String(numbers.last!))!)
+            retval += (String(numbers.first!).int * 10 + String(numbers.last!).int)
         }
 
         return retval

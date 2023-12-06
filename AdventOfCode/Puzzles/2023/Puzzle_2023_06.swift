@@ -26,7 +26,7 @@ public class Puzzle_2023_06: PuzzleBaseClass {
     }
 
     private func travelDistance(hold: Int, time: Int) -> Int {
-        return hold * (time - hold)
+        hold * (time - hold)
     }
 
     private func solvePart1(str: String) -> Int {
@@ -52,9 +52,9 @@ public class Puzzle_2023_06: PuzzleBaseClass {
 
     private func solvePart2(str: String) -> Int {
         let arr = str.parseIntoStringArray()
-        let time = Int(arr[0].replacingOccurrences(of: "Time:", with: "").replacingOccurrences(of: " ", with: ""))!
-        let distance = Int(arr[1].replacingOccurrences(of: "Distance:", with: "").replacingOccurrences(of: " ", with: ""))!
-        let multiplier = 1000
+        let time = arr[0].replacingOccurrences(of: "Time:", with: "").replacingOccurrences(of: " ", with: "").int
+        let distance = arr[1].replacingOccurrences(of: "Distance:", with: "").replacingOccurrences(of: " ", with: "").int
+        let multiplier = 1_000
 
         // find the lower boundary position
         var hold = 0

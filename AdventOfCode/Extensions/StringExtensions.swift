@@ -412,8 +412,7 @@ public extension String {
         return modifiedString
     }
 
-    func replaceFirst(of pattern:String,
-                      with replacement:String) -> String {
+    func replaceFirst(of pattern: String, with replacement: String) -> String {
         if let range = self.range(of: pattern) {
             return self.replacingCharacters(in: range, with: replacement)
         } else {

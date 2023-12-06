@@ -90,7 +90,7 @@ public class Puzzle_2022_11: PuzzleBaseClass {
                             worry /= 3
                         }
 
-                        if worry % monkeyArray[idx].divisor == 0 {
+                        if worry.isMultiple(of: monkeyArray[idx].divisor) {
                             monkeyArray[monkeyArray[idx].trueMonkey].items.append(worry)
                         } else {
                             monkeyArray[monkeyArray[idx].falseMonkey].items.append(worry)

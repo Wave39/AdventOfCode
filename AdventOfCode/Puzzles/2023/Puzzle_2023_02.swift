@@ -30,15 +30,15 @@ public class Puzzle_2023_02: PuzzleBaseClass {
             let arr2 = draw.parseIntoStringArray(separator: ",")
             for item in arr2 {
                 if item.contains("blue") {
-                    if Int(item.replacingOccurrences(of: "blue", with: "").trim())! > 14 {
+                    if item.replacingOccurrences(of: "blue", with: "").trim().int > 14 {
                         return false
                     }
                 } else if item.contains("red") {
-                    if Int(item.replacingOccurrences(of: "red", with: "").trim())! > 12 {
+                    if item.replacingOccurrences(of: "red", with: "").trim().int > 12 {
                         return false
                     }
                 } else {
-                    if Int(item.replacingOccurrences(of: "green", with: "").trim())! > 13 {
+                    if item.replacingOccurrences(of: "green", with: "").trim().int > 13 {
                         return false
                     }
                 }
@@ -55,7 +55,7 @@ public class Puzzle_2023_02: PuzzleBaseClass {
             let arr1 = line.description.parseIntoStringArray(separator: ":").map { $0.trim().replacingOccurrences(of: "Game ", with: "") }
             let arr2 = arr1[1].parseIntoStringArray(separator: ";").map { $0.trim() }
             if gameIsPossible(arr2) {
-                retval += Int(arr1[0])!
+                retval += arr1[0].int
             }
         }
 
@@ -70,17 +70,11 @@ public class Puzzle_2023_02: PuzzleBaseClass {
             let arr2 = draw.parseIntoStringArray(separator: ",")
             for item in arr2 {
                 if item.contains("blue") {
-                    if Int(item.replacingOccurrences(of: "blue", with: "").trim())! > maxBlue {
-                        maxBlue = Int(item.replacingOccurrences(of: "blue", with: "").trim())!
-                    }
+                    maxBlue = max(maxBlue, item.replacingOccurrences(of: "blue", with: "").trim().int)
                 } else if item.contains("red") {
-                    if Int(item.replacingOccurrences(of: "red", with: "").trim())! > maxRed {
-                        maxRed = Int(item.replacingOccurrences(of: "red", with: "").trim())!
-                    }
+                    maxRed = max(maxRed, item.replacingOccurrences(of: "red", with: "").trim().int)
                 } else {
-                    if Int(item.replacingOccurrences(of: "green", with: "").trim())! > maxGreen {
-                        maxGreen = Int(item.replacingOccurrences(of: "green", with: "").trim())!
-                    }
+                    maxGreen = max(maxGreen, item.replacingOccurrences(of: "green", with: "").trim().int)
                 }
             }
         }
