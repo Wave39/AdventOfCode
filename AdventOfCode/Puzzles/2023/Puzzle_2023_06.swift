@@ -18,32 +18,82 @@ public class Puzzle_2023_06: PuzzleBaseClass {
     }
 
     public func solvePart1() -> Int {
-        solvePart1(str: Puzzle_Input.test)
+        solvePart1(str: Puzzle_Input.final)
     }
 
     public func solvePart2() -> Int {
-        solvePart2(str: Puzzle_Input.test)
+        solvePart2(str: Puzzle_Input.final)
+    }
+
+    private func travelDistance(hold: Int, time: Int) -> Int {
+        return hold * (time - hold)
     }
 
     private func solvePart1(str: String) -> Int {
-        let arr = str.parseIntoIntArray()
-        return arr.count
+        let arr = str.parseIntoStringArray()
+        let timeArray = arr[0].replacingOccurrences(of: "Time:", with: "").parseIntoIntArray(separator: " ")
+        let distanceArray = arr[1].replacingOccurrences(of: "Distance:", with: "").parseIntoIntArray(separator: " ")
+        var winsArray = [Int]()
+        for idx in 0..<timeArray.count {
+            let time = timeArray[idx]
+            let distance = distanceArray[idx]
+            var wins = 0
+            for hold in 1...(time - 1) {
+                if travelDistance(hold: hold, time: time) > distance {
+                    wins += 1
+                }
+            }
+
+            winsArray.append(wins)
+        }
+
+        return winsArray.reduce(1, *)
     }
 
     private func solvePart2(str: String) -> Int {
-        let arr = str.parseIntoIntArray()
-        return arr.count
+        let arr = str.parseIntoStringArray()
+        let time = Int(arr[0].replacingOccurrences(of: "Time:", with: "").replacingOccurrences(of: " ", with: ""))!
+        let distance = Int(arr[1].replacingOccurrences(of: "Distance:", with: "").replacingOccurrences(of: " ", with: ""))!
+        let multiplier = 1000
+
+        // find the lower boundary position
+        var hold = 0
+        while travelDistance(hold: hold, time: time) <= distance {
+            hold += multiplier
+        }
+
+        hold -= multiplier
+        while travelDistance(hold: hold, time: time) <= distance {
+            hold += 1
+        }
+
+        let lowerBound = hold
+
+        // find the upper boundary position
+        hold = time
+        while travelDistance(hold: hold, time: time) <= distance {
+            hold -= multiplier
+        }
+
+        hold += multiplier
+        while travelDistance(hold: hold, time: time) <= distance {
+            hold -= 1
+        }
+
+        let upperBound = hold
+
+        return (upperBound - lowerBound + 1)
     }
 }
 
 private class Puzzle_Input: NSObject {
     static let test = """
-Line 1
-Line 2
+Time:      7  15   30
+Distance:  9  40  200
 """
 
     static let final = """
-Line 1
-Line 2
+Time:        62     64     91     90
+Distance:   553   1010   1473   1074
 """
 }
