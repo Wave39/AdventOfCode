@@ -152,3 +152,16 @@ public func lcm(_ m: Int, _ n: Int, using gcdAlgorithm: (Int, Int) -> (Int) = gc
     // guard m & n != 0 else { throw LCMError.divisionByZero }
     return m / gcdAlgorithm(m, n) * n
 }
+
+public func lcm(_ numbers: [Int]) -> Int {
+    var currentLcm = numbers[0]
+    do {
+        for idx in 1..<numbers.count {
+            currentLcm = try lcm(currentLcm, numbers[idx])
+        }
+    } catch {
+        dump(error)
+    }
+
+    return currentLcm
+}
