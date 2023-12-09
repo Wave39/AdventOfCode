@@ -22,6 +22,8 @@ Links to other years:
 | [5](https://adventofcode.com/2023/day/5) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_05.swift) | :fire: | 2m 54s | I ran this with the optimizations turned on because I knew it was going to take a while. Since I don't understand any of the solutions presented in the subreddit, this one is going to stand for now. |
 | [6](https://adventofcode.com/2023/day/6) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_06.swift) | :smile: | <1s |
 | [7](https://adventofcode.com/2023/day/7) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_07.swift) | :smile: | <1s |
+| [8](https://adventofcode.com/2023/day/8) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_08.swift) | :smile: | <1s | It occurred to me pretty quickly that this was looking like an LCM problem, so I decided to try to work out the individual component values and then use the LCM on those, and what do you know, it worked! |
+| [9](https://adventofcode.com/2023/day/9) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_09.swift) | :smile: | <1s |
 
 ### Legend
 
