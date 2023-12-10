@@ -24,6 +24,7 @@ Links to other years:
 | [7](https://adventofcode.com/2023/day/7) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_07.swift) | :smile: | <1s |
 | [8](https://adventofcode.com/2023/day/8) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_08.swift) | :smile: | <1s | It occurred to me pretty quickly that this was looking like an LCM problem, so I decided to try to work out the individual component values and then use the LCM on those, and what do you know, it worked! |
 | [9](https://adventofcode.com/2023/day/9) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_09.swift) | :smile: | <1s |
+| [10](https://adventofcode.com/2023/day/10) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_10.swift) | :eyes: | 11s | I tried to use some of my planimeter code here but it wasn't working, so I had to look for clues in other people's solutions. |
 
 ### Legend
 
