@@ -130,6 +130,27 @@ public extension String {
         }
     }
 
+    func consecutiveCharacterCounts() -> [(Character, Int)] {
+        if self.isEmpty {
+            return []
+        }
+
+        var retval = [ (self.first!, 1) ]
+        var arrCtr = 1
+        var lastCharacter = self.first!
+        for idx in 1..<self.count {
+            if self[idx] != lastCharacter {
+                lastCharacter = self[idx]
+                retval.append((lastCharacter, 1))
+                arrCtr += 1
+            } else {
+                retval[arrCtr - 1].1 += 1
+            }
+        }
+
+        return retval
+    }
+
     func charactersDifferentFrom(str: String) -> Int {
         var retval = 0
         for idx in 0..<self.count {
