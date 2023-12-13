@@ -117,7 +117,7 @@ public class Puzzle_2023_12: PuzzleBaseClass {
         var retval = 0
         let arr = str.parseIntoStringArray()
         for line in arr {
-            print(line)
+            //print(line)
             let arr2 = line.parseIntoStringArray(separator: " ")
             //let x = arr2[0].consecutiveCharacterCounts()
             let damagedSprings = arr2[1].parseIntoIntArray(separator: ",")

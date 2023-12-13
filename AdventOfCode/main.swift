@@ -15,7 +15,11 @@ print("Welcome to BP's Advent Of Code Solution Machine.")
 
 if hardCodedPuzzleSelection {
     let start = DispatchTime.now()
-    Puzzle_2023().solve(puzzleNumber: 12)
+    let kDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+    let defaultYear = kDateComponents.year ?? 2_015
+    let defaultDay = kDateComponents.day ?? 1
+    print("\nSolving \(defaultYear) puzzle \(defaultDay), please stand by...")
+    Puzzle_2023().solve(puzzleNumber: defaultDay)
     let end = DispatchTime.now()
     let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
     let timeInterval = Double(nanoTime) / 1_000_000_000

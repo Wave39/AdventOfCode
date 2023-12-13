@@ -27,6 +27,7 @@ Links to other years:
 | [10](https://adventofcode.com/2023/day/10) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_10.swift) | :eyes: | 11s | I tried to use some of my planimeter code here but it wasn't working, so I had to look for clues in other people's solutions. |
 | [11](https://adventofcode.com/2023/day/11) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_11.swift) | :smile: | 6s |
 | [12](https://adventofcode.com/2023/day/12) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_12.swift) | :smile: | 2s | Once again I had to find some help in the Reddit solutions thread, and then used ChatGPT to convert some C# code I liked to Swift to fit the bill. |
+| [13](https://adventofcode.com/2023/day/13) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_13.swift) | :smile: | <1s |
 
 ### Legend
 
