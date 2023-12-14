@@ -28,6 +28,7 @@ Links to other years:
 | [11](https://adventofcode.com/2023/day/11) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_11.swift) | :smile: | 6s |
 | [12](https://adventofcode.com/2023/day/12) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_12.swift) | :smile: | 2s | Once again I had to find some help in the Reddit solutions thread, and then used ChatGPT to convert some C# code I liked to Swift to fit the bill. |
 | [13](https://adventofcode.com/2023/day/13) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_13.swift) | :smile: | <1s |
+| [14](https://adventofcode.com/2023/day/14) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_14.swift) | :smile: | 5s | I knew from experience that this was a looping problem, and had some trouble getting my indices in order, so I hit the Reddit solutions thread for some ideas. |
 
 ### Legend
 
