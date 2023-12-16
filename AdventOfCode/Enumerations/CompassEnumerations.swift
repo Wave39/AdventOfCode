@@ -65,4 +65,12 @@ public enum CompassDirection {
             return Point2D(x: -1, y: 1)
         }
     }
+
+    public func MovingHorizontally() -> Bool {
+        return self == .West || self == .East
+    }
+
+    public func MovingVertically() -> Bool {
+        return self == .North || self == .South
+    }
 }

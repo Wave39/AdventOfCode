@@ -109,6 +109,38 @@ public struct Point2D: Hashable, CustomStringConvertible {
         }
     }
 
+    public func moveForwardFromTopLeftOrigin(direction: CompassDirection) -> Point2D {
+        if direction == .North {
+            return Point2D(x: self.x, y: self.y - 1)
+        } else if direction == .East {
+            return Point2D(x: self.x + 1, y: self.y)
+        } else if direction == .South {
+            return Point2D(x: self.x, y: self.y + 1)
+        } else if direction == .West {
+            return Point2D(x: self.x - 1, y: self.y)
+        } else {
+            return self
+        }
+    }
+
+    public func moveForward(direction: CompassDirection, rows: Int, columns: Int) -> Point2D? {
+        let point = moveForward(direction: direction)
+        if point.x < 0 || point.x >= columns || point.y < 0 || point.y >= rows {
+            return nil
+        }
+
+        return point
+    }
+
+    public func moveForwardFromTopLeftOrigin(direction: CompassDirection, rows: Int, columns: Int) -> Point2D? {
+        let point = moveForwardFromTopLeftOrigin(direction: direction)
+        if point.x < 0 || point.x >= columns || point.y < 0 || point.y >= rows {
+            return nil
+        }
+
+        return point
+    }
+
     public func locationsAtManhattanDistance(_ manhattanDistance: Int) -> [Point2D] {
         if manhattanDistance == 0 {
             return [ self ]

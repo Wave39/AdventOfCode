@@ -30,6 +30,7 @@ Links to other years:
 | [13](https://adventofcode.com/2023/day/13) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_13.swift) | :smile: | <1s |
 | [14](https://adventofcode.com/2023/day/14) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_14.swift) | :smile: | 5s | I knew from experience that this was a looping problem, and had some trouble getting my indices in order, so I hit the Reddit solutions thread for some ideas. |
 | [15](https://adventofcode.com/2023/day/15) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_15.swift) | :smile: | <1s |
+| [16](https://adventofcode.com/2023/day/16) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_16.swift) | :smile: | 2s |
 
 ### Legend
 

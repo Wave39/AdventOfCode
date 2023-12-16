@@ -34,6 +34,10 @@ public extension CharacterGrid {
         self[point.y][point.x]
     }
 
+    mutating func setCharacterAtPoint(_ point: Point2D, _ char: Character) {
+        self[point.y][point.x] = char
+    }
+    
     func characterAtCoordinates(_ x: Int, _ y: Int) -> Character {
         self[y][x]
     }
