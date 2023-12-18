@@ -32,6 +32,7 @@ Links to other years:
 | [15](https://adventofcode.com/2023/day/15) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_15.swift) | :smile: | <1s |
 | [16](https://adventofcode.com/2023/day/16) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_16.swift) | :smile: | 2s |
 | [17](https://adventofcode.com/2023/day/17) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_17.swift) | :smile: | 5s | My naive pathfinding solution was not even working on the test data, so I shamelessly had to find someone's C# solution using a priority queue and adaptify it to Swift. |
+| [18](https://adventofcode.com/2023/day/18) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_18.swift) | :smile: | <1s | See Day 10. |
 
 ### Legend
 
