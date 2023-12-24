@@ -22,6 +22,8 @@ public enum CompassDirection {
         [ NorthWest, North, NorthEast, East, SouthEast, South, SouthWest, West ]
     }
 
+    public static let orthogonal: [CompassDirection] = [ .North, .West, .South, .East ]
+
     public func TurnLeft() -> CompassDirection {
         if self == .North {
             return .West

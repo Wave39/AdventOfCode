@@ -255,6 +255,8 @@
 		E0A1B46523A031710067C582 /* Puzzle_2019_10.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A1B46323A031710067C582 /* Puzzle_2019_10.swift */; };
 		E0A1B46723A135FE0067C582 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A1B46623A135FE0067C582 /* DoubleExtensions.swift */; };
 		E0A1B46823A135FE0067C582 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A1B46623A135FE0067C582 /* DoubleExtensions.swift */; };
+		E0A669482B37776200983B7F /* Point2DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A669472B37776200983B7F /* Point2DTests.swift */; };
+		E0A6694A2B3784F500983B7F /* SetExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A669492B3784F500983B7F /* SetExtensions.swift */; };
 		E0A8500023C129E900947CA3 /* Puzzle_2018_14.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A84FFF23C129E900947CA3 /* Puzzle_2018_14.swift */; };
 		E0A8500123C129E900947CA3 /* Puzzle_2018_14.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A84FFF23C129E900947CA3 /* Puzzle_2018_14.swift */; };
 		E0A8500323C12D7A00947CA3 /* Puzzle_2018_15.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A8500223C12D7A00947CA3 /* Puzzle_2018_15.swift */; };
@@ -686,6 +688,8 @@
 		E0A1B460239E8A080067C582 /* Puzzle_2019_09.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_09.swift; sourceTree = "<group>"; };
 		E0A1B46323A031710067C582 /* Puzzle_2019_10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_10.swift; sourceTree = "<group>"; };
 		E0A1B46623A135FE0067C582 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		E0A669472B37776200983B7F /* Point2DTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point2DTests.swift; sourceTree = "<group>"; };
+		E0A669492B3784F500983B7F /* SetExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExtensions.swift; sourceTree = "<group>"; };
 		E0A84FFF23C129E900947CA3 /* Puzzle_2018_14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2018_14.swift; sourceTree = "<group>"; };
 		E0A8500223C12D7A00947CA3 /* Puzzle_2018_15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2018_15.swift; sourceTree = "<group>"; };
 		E0A8500523C133EE00947CA3 /* Puzzle_2018_16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2018_16.swift; sourceTree = "<group>"; };
@@ -952,6 +956,7 @@
 				E0A1B46623A135FE0067C582 /* DoubleExtensions.swift */,
 				E04B819F273A032C003CB67F /* IntegerExtensions.swift */,
 				E0211482239800A300F49FC1 /* StringExtensions.swift */,
+				E0A669492B3784F500983B7F /* SetExtensions.swift */,
 				E0DA624825825FA300FE888B /* SequenceExtensions.swift */,
 			);
 			path = Extensions;
@@ -1037,6 +1042,7 @@
 		E03F65102773B73600890EEF /* Structures */ = {
 			isa = PBXGroup;
 			children = (
+				E0A669472B37776200983B7F /* Point2DTests.swift */,
 				E03F65112773B75B00890EEF /* Rect3DTests.swift */,
 			);
 			path = Structures;
@@ -1525,6 +1531,7 @@
 				E0BF2DCA240C4F2900442612 /* Puzzle_2015_21.swift in Sources */,
 				E0F4FA7D239DAB97002F51A8 /* Puzzle_2018_02.swift in Sources */,
 				E04F451E23F4DFF500EB3A26 /* Puzzle_2016_11.swift in Sources */,
+				E0A6694A2B3784F500983B7F /* SetExtensions.swift in Sources */,
 				E08D1940293E362200F0E1B3 /* Puzzle_2022_05.swift in Sources */,
 				E03FD50223BD25990090A8B5 /* Puzzle_2018_13.swift in Sources */,
 				E0AA3F2B2585D92100D61C17 /* Puzzle_2020_13.swift in Sources */,
@@ -1716,6 +1723,7 @@
 				E0F4FA69239D95FE002F51A8 /* Stack.swift in Sources */,
 				E060759723BA6F0000F048B0 /* Puzzle_2018_06.swift in Sources */,
 				E09F0E362942CD2F00F60128 /* Puzzle_2022_14.swift in Sources */,
+				E0A669482B37776200983B7F /* Point2DTests.swift in Sources */,
 				E04ADE2F2400729F006BD59C /* Puzzle_2015_07.swift in Sources */,
 				E0E2F1CF25839F8D004AF3F7 /* Puzzle_2020_11.swift in Sources */,
 				E0DA624A25825FA300FE888B /* SequenceExtensions.swift in Sources */,

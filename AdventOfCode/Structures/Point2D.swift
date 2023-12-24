@@ -31,6 +31,14 @@ public struct Point2D: Hashable, CustomStringConvertible {
         left = Point2D(x: left.x + right.x, y: left.y + right.y)
     }
 
+    public static func - (left: Point2D, right: Point2D) -> Point2D {
+        Point2D(x: left.x - right.x, y: left.y - right.y)
+    }
+
+    public static func -= (left: inout Point2D, right: Point2D) {
+        left = Point2D(x: left.x - right.x, y: left.y - right.y)
+    }
+
     public static func maximumBounds(arr: [Point2D]) -> Point2D {
         var retval = Point2D(x: 0, y: 0)
         for p in arr {
@@ -175,5 +183,30 @@ public struct Point2D: Hashable, CustomStringConvertible {
         }
 
         return retval
+    }
+
+    public func directionTo(_ point: Point2D, topLeftOrigin: Bool = false) -> CompassDirection {
+        let delta = self - point
+        if topLeftOrigin {
+            if delta.x == 0 && delta.y == -1 {
+                return .South
+            } else if delta.x == 0 && delta.y == 1 {
+                return .North
+            } else if delta.x == 1 && delta.y == 0 {
+                return .West
+            } else {
+                return .East
+            }
+        } else {
+            if delta.x == 0 && delta.y == 1 {
+                return .South
+            } else if delta.x == 0 && delta.y == -1 {
+                return .North
+            } else if delta.x == 1 && delta.y == 0 {
+                return .West
+            } else {
+                return .East
+            }
+        }
     }
 }

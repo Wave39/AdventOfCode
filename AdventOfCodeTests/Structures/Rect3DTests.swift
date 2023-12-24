@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 import XCTest
 
 public class Rect3DTests: XCTestCase {

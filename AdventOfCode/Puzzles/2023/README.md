@@ -37,6 +37,7 @@ Links to other years:
 | [20](https://adventofcode.com/2023/day/20) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_20.swift) | :smile: | <1s | I can see that this competition is getting tougher each year. I guess they must be running out of puzzles. |
 | [21](https://adventofcode.com/2023/day/21) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_21.swift) | :smile: | <1s | See Day 19. (The bloodbath continues.) |
 | [22](https://adventofcode.com/2023/day/22) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_22.swift) | :smile: | 7s |
+| [23](https://adventofcode.com/2023/day/23) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/Puzzle_2023_23.swift) | :smile: | <1s | See Day 19. |
 
 ### Legend
 
