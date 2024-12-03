@@ -13,7 +13,7 @@ public class Puzzle_2024 {
         if puzzleNumber == 1 {
             Puzzle_2024_01().solve()
         } else if puzzleNumber == 2 {
-            //Puzzle_2024_02().solve()
+            Puzzle_2024_02().solve()
         } else if puzzleNumber == 3 {
             //Puzzle_2024_03().solve()
         } else if puzzleNumber == 4 {
