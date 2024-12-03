@@ -8,7 +8,7 @@
 
 import Foundation
 
-let hardCodedPuzzleSelection = true
+let hardCodedPuzzleSelection = false
 
 print("")
 print("Welcome to BP's Advent Of Code Solution Machine.")
@@ -19,7 +19,7 @@ if hardCodedPuzzleSelection {
     let defaultYear = kDateComponents.year ?? 2_015
     let defaultDay = kDateComponents.day ?? 1
     print("\nSolving \(defaultYear) puzzle \(defaultDay), please stand by...")
-    Puzzle_2023().solve(puzzleNumber: defaultDay)
+    Puzzle_2024().solve(puzzleNumber: defaultDay)
     let end = DispatchTime.now()
     let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
     let timeInterval = Double(nanoTime) / 1_000_000_000
@@ -73,7 +73,9 @@ if hardCodedPuzzleSelection {
             print("Solving \(year) puzzle \(day), please stand by...")
     
             let start = DispatchTime.now()
-            if year == 2_023 {
+            if year == 2_024 {
+                Puzzle_2024().solve(puzzleNumber: day)
+            } else if year == 2_023 {
                 Puzzle_2023().solve(puzzleNumber: day)
             } else if year == 2_022 {
                 Puzzle_2022().solve(puzzleNumber: day)
