@@ -18,6 +18,8 @@ Links to other years:
 | :---: | :---: | :---: | :---: | :--- |
 | [1](https://adventofcode.com/2024/day/1) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2024/Puzzle_2024_01.swift) | :smile: | <1s |
 | [1](https://adventofcode.com/2024/day/2) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2024/Puzzle_2024_02.swift) | :smile: | <1s |
+| [1](https://adventofcode.com/2024/day/3) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2024/Puzzle_2024_03.swift) | :smile: | <1s |
+| [1](https://adventofcode.com/2024/day/4) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2024/Puzzle_2024_04.swift) | :smile: | <1s |
 
 ### Legend
 

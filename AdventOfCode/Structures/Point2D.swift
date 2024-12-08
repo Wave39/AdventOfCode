@@ -209,4 +209,49 @@ public struct Point2D: Hashable, CustomStringConvertible {
             }
         }
     }
+
+    public func walkingPaths(rows: Int, columns: Int, stepCount: Int) -> [[Point2D]] {
+        var retval = [[Point2D]]()
+        var validDirections = [CompassDirection]()
+        if self.x <= columns - stepCount {
+            validDirections.append(.East)
+            if self.y >= 3 {
+                validDirections.append(.NorthEast)
+            }
+
+            if self.y <= rows - stepCount {
+                validDirections.append(.SouthEast)
+            }
+        }
+
+        if self.x >= 3 {
+            validDirections.append(.West)
+            if self.y >= 3 {
+                validDirections.append(.NorthWest)
+            }
+
+            if self.y <= rows - stepCount {
+                validDirections.append(.SouthWest)
+            }
+        }
+
+        if self.y >= 3 {
+            validDirections.append(.North)
+        }
+
+        if self.y <= rows - stepCount {
+            validDirections.append(.South)
+        }
+
+        for direction in validDirections {
+            var arr = [self]
+            for _ in 0..<(stepCount - 1) {
+                arr.append(arr.last! + direction.OffsetFromOrigin())
+            }
+
+            retval.append(arr)
+        }
+        
+        return retval
+    }
 }
