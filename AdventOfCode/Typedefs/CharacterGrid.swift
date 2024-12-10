@@ -30,6 +30,19 @@ public extension CharacterGrid {
         return points
     }
 
+    func getAllPointsMatchingCharacter(_ character: Character) -> [Point2D] {
+        var points = [Point2D]()
+        for y in 0..<self.count {
+            for x in 0..<self[0].count {
+                if characterAtCoordinates(x, y) == character {
+                    points.append(Point2D(x: x, y: y))
+                }
+            }
+        }
+
+        return points
+    }
+
     func characterAtPoint(_ point: Point2D) -> Character {
         self[point.y][point.x]
     }
@@ -105,6 +118,36 @@ public extension CharacterGrid {
             return Point2D(x: point.x - 1, y: point.y)
         } else {
             return point
+        }
+    }
+
+    func getCharacterAtCharacterGridPoint(_ point: Point2D) -> Character {
+        self[point.y][point.x]
+    }
+
+    func getDirectionalCharacter(point: Point2D, direction: CompassDirection) -> Character {
+        if direction == .North {
+            return getCharacterAtCharacterGridPoint(Point2D(x: point.x, y: point.y - 1))
+        } else if direction == .East {
+            return getCharacterAtCharacterGridPoint(Point2D(x: point.x + 1, y: point.y))
+        } else if direction == .South {
+            return getCharacterAtCharacterGridPoint(Point2D(x: point.x, y: point.y + 1))
+        } else if direction == .West {
+            return getCharacterAtCharacterGridPoint(Point2D(x: point.x - 1, y: point.y))
+        } else {
+            return getCharacterAtCharacterGridPoint(point)
+        }
+    }
+
+    func isNextStepOffGrid(point: Point2D, direction: CompassDirection) -> Bool {
+        if direction == .North {
+            return point.y == 0
+        } else if direction == .South {
+            return point.y == self.height - 1
+        } else if direction == .East {
+            return point.x == self.width - 1
+        } else {
+            return point.x == 0
         }
     }
 }

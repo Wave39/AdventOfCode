@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum CompassDirection {
+public enum CompassDirection: Hashable {
     case North
     case East
     case South
