@@ -8,18 +8,33 @@
 
 import Foundation
 
-let hardCodedPuzzleSelection = false
+// Use empty string for console entry of date, "today" for the current date, or "MMMM DD" for a specific day
+let hardCodedPuzzleSelection = ""
 
 print("")
 print("Welcome to BP's Advent Of Code Solution Machine.")
 
-if hardCodedPuzzleSelection {
+if hardCodedPuzzleSelection == "today" {
     let start = DispatchTime.now()
     let kDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
     let defaultYear = kDateComponents.year ?? 2_015
     let defaultDay = kDateComponents.day ?? 1
     print("\nSolving \(defaultYear) puzzle \(defaultDay), please stand by...")
-    Puzzle_2024().solve(puzzleNumber: defaultDay)
+    solvePuzzle(year: defaultYear, day: defaultDay)
+    let end = DispatchTime.now()
+    let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+    let timeInterval = Double(nanoTime) / 1_000_000_000
+    print("Time to evaluate: \(String(format: "%.3f", timeInterval)) seconds")
+    print("")
+    print("Press Enter to terminate application")
+    _ = readLine()
+} else if !hardCodedPuzzleSelection.isEmpty {
+    let arr = hardCodedPuzzleSelection.parseIntoStringArray(separator: " ")
+    let year = arr[0].int
+    let day = arr[1].int
+    let start = DispatchTime.now()
+    print("\nSolving \(year) puzzle \(day), please stand by...")
+    solvePuzzle(year: year, day: day)
     let end = DispatchTime.now()
     let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
     let timeInterval = Double(nanoTime) / 1_000_000_000
@@ -73,28 +88,7 @@ if hardCodedPuzzleSelection {
             print("Solving \(year) puzzle \(day), please stand by...")
     
             let start = DispatchTime.now()
-            if year == 2_024 {
-                Puzzle_2024().solve(puzzleNumber: day)
-            } else if year == 2_023 {
-                Puzzle_2023().solve(puzzleNumber: day)
-            } else if year == 2_022 {
-                Puzzle_2022().solve(puzzleNumber: day)
-            } else if year == 2_021 {
-                Puzzle_2021().solve(puzzleNumber: day)
-            } else if year == 2_020 {
-                Puzzle_2020().solve(puzzleNumber: day)
-            } else if year == 2_019 {
-                Puzzle_2019().solve(puzzleNumber: day)
-            } else if year == 2_018 {
-                Puzzle_2018().solve(puzzleNumber: day)
-            } else if year == 2_017 {
-                Puzzle_2017().solve(puzzleNumber: day)
-            } else if year == 2_016 {
-                Puzzle_2016().solve(puzzleNumber: day)
-            } else if year == 2_015 {
-                Puzzle_2015().solve(puzzleNumber: day)
-            }
-    
+            solvePuzzle(year: year, day: day)
             let end = DispatchTime.now()
             let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
             let timeInterval = Double(nanoTime) / 1_000_000_000
@@ -105,4 +99,28 @@ if hardCodedPuzzleSelection {
     
     print("")
     print("Thanks for checking out my Advent Of Code Solution Machine.")
+}
+
+func solvePuzzle(year: Int, day: Int) {
+    if year == 2_024 {
+        Puzzle_2024().solve(puzzleNumber: day)
+    } else if year == 2_023 {
+        Puzzle_2023().solve(puzzleNumber: day)
+    } else if year == 2_022 {
+        Puzzle_2022().solve(puzzleNumber: day)
+    } else if year == 2_021 {
+        Puzzle_2021().solve(puzzleNumber: day)
+    } else if year == 2_020 {
+        Puzzle_2020().solve(puzzleNumber: day)
+    } else if year == 2_019 {
+        Puzzle_2019().solve(puzzleNumber: day)
+    } else if year == 2_018 {
+        Puzzle_2018().solve(puzzleNumber: day)
+    } else if year == 2_017 {
+        Puzzle_2017().solve(puzzleNumber: day)
+    } else if year == 2_016 {
+        Puzzle_2016().solve(puzzleNumber: day)
+    } else if year == 2_015 {
+        Puzzle_2015().solve(puzzleNumber: day)
+    }
 }

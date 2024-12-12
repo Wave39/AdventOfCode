@@ -222,6 +222,8 @@
 		E09A5F972CFF96F400415FDD /* Puzzle_2024_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09A5F962CFF96F400415FDD /* Puzzle_2024_01.swift */; };
 		E09A5F982CFF96F400415FDD /* Puzzle_2024_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09A5F962CFF96F400415FDD /* Puzzle_2024_01.swift */; };
 		E09A5F9A2CFF9A1A00415FDD /* AdventOfCode2024Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09A5F992CFF9A1A00415FDD /* AdventOfCode2024Tests.swift */; };
+		E09DBEC42D0B06AF0014A32E /* Puzzle_2024_08.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DBEC32D0B06AF0014A32E /* Puzzle_2024_08.swift */; };
+		E09DBEC52D0B06AF0014A32E /* Puzzle_2024_08.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09DBEC32D0B06AF0014A32E /* Puzzle_2024_08.swift */; };
 		E09E5DFB23F0D40000604BFC /* Puzzle_2016_10.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E5DFA23F0D40000604BFC /* Puzzle_2016_10.swift */; };
 		E09E5DFC23F0D40000604BFC /* Puzzle_2016_10.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E5DFA23F0D40000604BFC /* Puzzle_2016_10.swift */; };
 		E09F0E262942CCF600F60128 /* Puzzle_2022_09.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09F0E252942CCF600F60128 /* Puzzle_2022_09.swift */; };
@@ -690,6 +692,7 @@
 		E09A5F932CFF96A100415FDD /* Puzzle_2024.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2024.swift; sourceTree = "<group>"; };
 		E09A5F962CFF96F400415FDD /* Puzzle_2024_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2024_01.swift; sourceTree = "<group>"; };
 		E09A5F992CFF9A1A00415FDD /* AdventOfCode2024Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode2024Tests.swift; sourceTree = "<group>"; };
+		E09DBEC32D0B06AF0014A32E /* Puzzle_2024_08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2024_08.swift; sourceTree = "<group>"; };
 		E09E5DFA23F0D40000604BFC /* Puzzle_2016_10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2016_10.swift; sourceTree = "<group>"; };
 		E09F0E252942CCF600F60128 /* Puzzle_2022_09.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_09.swift; sourceTree = "<group>"; };
 		E09F0E282942CD0000F60128 /* Puzzle_2022_10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_10.swift; sourceTree = "<group>"; };
@@ -1164,6 +1167,7 @@
 				E06154CE2D066B7F00857DB5 /* Puzzle_2024_05.swift */,
 				E0BCD3FB2D07E4ED008C9189 /* Puzzle_2024_06.swift */,
 				E06698FE2D0A78E50028BF9F /* Puzzle_2024_07.swift */,
+				E09DBEC32D0B06AF0014A32E /* Puzzle_2024_08.swift */,
 			);
 			path = 2024;
 			sourceTree = "<group>";
@@ -1713,6 +1717,7 @@
 				E0AE8B36275E9B2300D3E4FF /* Puzzle_2021_20.swift in Sources */,
 				E0B2FDD423AC721500581425 /* Puzzle_2019_18.swift in Sources */,
 				E090D8A223B6CA5A0050111E /* Puzzle_2019_23.swift in Sources */,
+				E09DBEC42D0B06AF0014A32E /* Puzzle_2024_08.swift in Sources */,
 				E0A52C812CFF9E2200F9003C /* Puzzle_2024_02.swift in Sources */,
 				E03350DF2580FDE80012076C /* Puzzle_2020_09.swift in Sources */,
 				E03F8D9523F07AFB00CB1644 /* Puzzle_2016_09.swift in Sources */,
@@ -1956,6 +1961,7 @@
 				E0A1B462239E8A080067C582 /* Puzzle_2019_09.swift in Sources */,
 				E0B2FDD523AC721500581425 /* Puzzle_2019_18.swift in Sources */,
 				E09E5DFC23F0D40000604BFC /* Puzzle_2016_10.swift in Sources */,
+				E09DBEC52D0B06AF0014A32E /* Puzzle_2024_08.swift in Sources */,
 				E09F0E512942CD7E00F60128 /* Puzzle_2022_23.swift in Sources */,
 				E0708E5523B976A600C7125A /* Puzzle_2018_04.swift in Sources */,
 				E05DE091276A91620010788E /* Heap.swift in Sources */,

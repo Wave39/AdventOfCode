@@ -19,6 +19,10 @@ public extension CharacterGrid {
         self.count
     }
 
+    func pointIsValid(_ point: Point2D) -> Bool {
+        point.x >= 0 && point.y >= 0 && point.x < width && point.y < height
+    }
+    
     func getAllPoints() -> [Point2D] {
         var points = [Point2D]()
         for y in 0..<self.count {
@@ -41,6 +45,18 @@ public extension CharacterGrid {
         }
 
         return points
+    }
+
+    func getCharacterMap(ignorePeriods: Bool) -> [Character: [Point2D]] {
+        var retval = [Character: [Point2D]]()
+        for point in self.getAllPoints() {
+            let character = self.characterAtPoint(point)
+            if !ignorePeriods || character != "." {
+                retval[character, default: [Point2D]()].append(point)
+            }
+        }
+        
+        return retval
     }
 
     func characterAtPoint(_ point: Point2D) -> Character {
