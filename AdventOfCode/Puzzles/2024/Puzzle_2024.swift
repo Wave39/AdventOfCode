@@ -23,7 +23,7 @@ public class Puzzle_2024 {
         } else if puzzleNumber == 6 {
             Puzzle_2024_06().solve()
         } else if puzzleNumber == 7 {
-            //Puzzle_2024_07().solve()
+            Puzzle_2024_07().solve()
         } else if puzzleNumber == 8 {
             //Puzzle_2024_08().solve()
         } else if puzzleNumber == 9 {

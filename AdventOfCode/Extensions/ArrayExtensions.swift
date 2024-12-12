@@ -57,4 +57,23 @@ public extension Array {
     func combinations(of count: Int) -> [[Element]] {
         return combinations(of: ArraySlice(self), count: count)
     }
+
+    func generateCombinationsOfSize(_ size: Int) -> [[Element]] {
+        var results = [[Element]]()
+        for _ in 1...size {
+            let oldResults = results
+            results = []
+            for newElement in self {
+                if oldResults.isEmpty {
+                    results.append([newElement])
+                } else {
+                    for oldResult in oldResults {
+                        results.append(oldResult + [newElement])
+                    }
+                }
+            }
+        }
+
+        return results
+    }
 }
