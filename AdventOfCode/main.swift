@@ -9,12 +9,14 @@
 import Foundation
 
 // Use empty string for console entry of date, "today" for the current date, or "MMMM DD" for a specific day
-let hardCodedPuzzleSelection = ""
+//let puzzleSelection = ""
+//let puzzleSelection = "today"
+let puzzleSelection = "2024 12"
 
 print("")
 print("Welcome to BP's Advent Of Code Solution Machine.")
 
-if hardCodedPuzzleSelection == "today" {
+if puzzleSelection == "today" {
     let start = DispatchTime.now()
     let kDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: Date())
     let defaultYear = kDateComponents.year ?? 2_015
@@ -28,8 +30,8 @@ if hardCodedPuzzleSelection == "today" {
     print("")
     print("Press Enter to terminate application")
     _ = readLine()
-} else if !hardCodedPuzzleSelection.isEmpty {
-    let arr = hardCodedPuzzleSelection.parseIntoStringArray(separator: " ")
+} else if !puzzleSelection.isEmpty {
+    let arr = puzzleSelection.parseIntoStringArray(separator: " ")
     let year = arr[0].int
     let day = arr[1].int
     let start = DispatchTime.now()

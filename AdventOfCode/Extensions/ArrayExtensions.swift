@@ -76,4 +76,36 @@ public extension Array {
 
         return results
     }
+
+    func chunked(by condition: (Element, Element) -> Bool) -> [[Element]] {
+        guard !isEmpty else { return [] }
+        var result = [[Element]]()
+        var tmp = [Element]()
+        for index in 0 ..< self.count - 1 {
+            tmp.append(self[index])
+            if !condition(self[index], self[index + 1]) {
+                result.append(tmp)
+                tmp.removeAll()
+            }
+        }
+        tmp.append(self[self.count - 1])
+        result.append(tmp)
+
+        return result
+    }
+}
+
+public extension Array where Element == Int {
+    func countIntegerGaps() -> Int {
+        guard self.count > 1 else { return 0 }
+        var gapCount = 0
+        for i in 0..<self.count - 1 {
+            let difference = self[i + 1] - self[i]
+            if difference > 1 {
+                gapCount += 1
+            }
+        }
+
+        return gapCount
+    }
 }

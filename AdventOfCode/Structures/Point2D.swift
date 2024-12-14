@@ -8,7 +8,15 @@
 
 import Foundation
 
-public struct Point2D: Hashable, CustomStringConvertible {
+public struct Point2D: Hashable, Sendable, CustomStringConvertible, Comparable {
+    public static func < (lhs: Point2D, rhs: Point2D) -> Bool {
+        if lhs.x == rhs.x {
+            return lhs.y < rhs.y
+        }
+
+        return lhs.x < rhs.x
+    }
+
     public static var origin: Point2D {
         Point2D(x: 0, y: 0)
     }

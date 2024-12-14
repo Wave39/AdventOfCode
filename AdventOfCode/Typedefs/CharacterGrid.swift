@@ -96,6 +96,18 @@ public extension CharacterGrid {
         return retval
     }
 
+    func findFirstLetter() -> Point2D? {
+        for y in 0..<height {
+            for x in 0..<width {
+                if self[y][x].isLetter {
+                    return Point2D(x: x, y: y)
+                }
+            }
+        }
+
+        return nil
+    }
+
     func printToConsole() {
         for line in self {
             var s = ""
