@@ -119,6 +119,19 @@ public extension CharacterGrid {
         }
     }
 
+    func toString() -> String {
+        var s = ""
+        for line in self {
+            for c in line {
+                s += String(c)
+            }
+
+            s += "\n"
+        }
+
+        return s
+    }
+
     func printToConsole(x1: Int, x2: Int, y1: Int, y2: Int) {
         let xStart = Swift.min(x1, x2)
         let xEnd = Swift.max(x1, x2)
