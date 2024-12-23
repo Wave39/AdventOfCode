@@ -9,9 +9,9 @@
 import Foundation
 
 // Use empty string for console entry of date, "today" for the current date, or "MMMM DD" for a specific day
-//let puzzleSelection = ""
+let puzzleSelection = ""
 //let puzzleSelection = "today"
-let puzzleSelection = "2024 12"
+//let puzzleSelection = "2024 15"
 
 print("")
 print("Welcome to BP's Advent Of Code Solution Machine.")

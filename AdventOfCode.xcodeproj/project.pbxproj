@@ -80,6 +80,8 @@
 		E026B4E623A1556700FDDABD /* Puzzle_2019_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026B4E423A1556300FDDABD /* Puzzle_2019_11.swift */; };
 		E026B4E923A17C9100FDDABD /* CompassEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026B4E823A17C9100FDDABD /* CompassEnumerations.swift */; };
 		E026B4EA23A17C9100FDDABD /* CompassEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E026B4E823A17C9100FDDABD /* CompassEnumerations.swift */; };
+		E02969462D19D43F003ABC77 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02969452D19D43F003ABC77 /* InputError.swift */; };
+		E02969472D19D43F003ABC77 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02969452D19D43F003ABC77 /* InputError.swift */; };
 		E02D9A0E275BDB1E007CEB48 /* Puzzle_2021_04.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D9A0D275BDB1E007CEB48 /* Puzzle_2021_04.swift */; };
 		E02D9A0F275BDB20007CEB48 /* Puzzle_2021_04.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D9A0D275BDB1E007CEB48 /* Puzzle_2021_04.swift */; };
 		E03350DF2580FDE80012076C /* Puzzle_2020_09.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03350DE2580FDE80012076C /* Puzzle_2020_09.swift */; };
@@ -487,6 +489,8 @@
 		E0D7123823C2756D007B3E9C /* AdventOfCode2017Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D7123723C2756D007B3E9C /* AdventOfCode2017Tests.swift */; };
 		E0DA624925825FA300FE888B /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA624825825FA300FE888B /* SequenceExtensions.swift */; };
 		E0DA624A25825FA300FE888B /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA624825825FA300FE888B /* SequenceExtensions.swift */; };
+		E0DAE21A2D131DEB002DDC63 /* Puzzle_2024_15.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DAE2192D131DEB002DDC63 /* Puzzle_2024_15.swift */; };
+		E0DAE21B2D131DEB002DDC63 /* Puzzle_2024_15.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DAE2192D131DEB002DDC63 /* Puzzle_2024_15.swift */; };
 		E0E2F1CE25839F8D004AF3F7 /* Puzzle_2020_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E2F1CD25839F8D004AF3F7 /* Puzzle_2020_11.swift */; };
 		E0E2F1CF25839F8D004AF3F7 /* Puzzle_2020_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E2F1CD25839F8D004AF3F7 /* Puzzle_2020_11.swift */; };
 		E0EB01612590DC090055C4BB /* Puzzle_2020_21.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EB01602590DC090055C4BB /* Puzzle_2020_21.swift */; };
@@ -627,6 +631,7 @@
 		E02404EE257C19B400C2C9A0 /* Puzzle_2020_05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_05.swift; sourceTree = "<group>"; };
 		E026B4E423A1556300FDDABD /* Puzzle_2019_11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_11.swift; sourceTree = "<group>"; };
 		E026B4E823A17C9100FDDABD /* CompassEnumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassEnumerations.swift; sourceTree = "<group>"; };
+		E02969452D19D43F003ABC77 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 		E02D9A0D275BDB1E007CEB48 /* Puzzle_2021_04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2021_04.swift; sourceTree = "<group>"; };
 		E03350DE2580FDE80012076C /* Puzzle_2020_09.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_09.swift; sourceTree = "<group>"; };
 		E03683E3293F8ABC0058CD80 /* Puzzle_2022_06.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_06.swift; sourceTree = "<group>"; };
@@ -849,6 +854,7 @@
 		E0D7123423C2747E007B3E9C /* Puzzle_2017_01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2017_01.swift; sourceTree = "<group>"; };
 		E0D7123723C2756D007B3E9C /* AdventOfCode2017Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode2017Tests.swift; sourceTree = "<group>"; };
 		E0DA624825825FA300FE888B /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
+		E0DAE2192D131DEB002DDC63 /* Puzzle_2024_15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2024_15.swift; sourceTree = "<group>"; };
 		E0E2F1CD25839F8D004AF3F7 /* Puzzle_2020_11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_11.swift; sourceTree = "<group>"; };
 		E0EB01602590DC090055C4BB /* Puzzle_2020_21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_21.swift; sourceTree = "<group>"; };
 		E0F4FA54239D2DA8002F51A8 /* Puzzle_2019_08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_08.swift; sourceTree = "<group>"; };
@@ -1068,6 +1074,7 @@
 			isa = PBXGroup;
 			children = (
 				84E1022C276A740A00241C55 /* Heap.swift */,
+				E02969452D19D43F003ABC77 /* InputError.swift */,
 				E048B55A275D10B700F5AEBF /* Line2D.swift */,
 				E0211495239893A100F49FC1 /* Particle2D.swift */,
 				E01DA9F123A27E1200656E6E /* Particle3D.swift */,
@@ -1194,6 +1201,7 @@
 				E09DBECF2D0BA7C30014A32E /* Puzzle_2024_12.swift */,
 				E020211C2D0F7920008061DA /* Puzzle_2024_13.swift */,
 				E020211F2D0F9A76008061DA /* Puzzle_2024_14.swift */,
+				E0DAE2192D131DEB002DDC63 /* Puzzle_2024_15.swift */,
 			);
 			path = 2024;
 			sourceTree = "<group>";
@@ -1536,6 +1544,7 @@
 				E0FBC5A32B1E6141005F4414 /* Puzzle_2023_20.swift in Sources */,
 				E09F0E3B2942CD4000F60128 /* Puzzle_2022_16.swift in Sources */,
 				E0BCD3FC2D07E4ED008C9189 /* Puzzle_2024_06.swift in Sources */,
+				E0DAE21A2D131DEB002DDC63 /* Puzzle_2024_15.swift in Sources */,
 				E0AE8B27275E9AFC00D3E4FF /* Puzzle_2021_15.swift in Sources */,
 				E0A8500923C1357100947CA3 /* Puzzle_2018_17.swift in Sources */,
 				E060759C23BA72AE00F048B0 /* Puzzle_2018_08.swift in Sources */,
@@ -1626,6 +1635,7 @@
 				E009159E293A098700E903A4 /* Puzzle_2022_02.swift in Sources */,
 				E060759323BA6CFC00F048B0 /* Puzzle_2018_05.swift in Sources */,
 				E0699D0123A709ED009C415B /* Puzzle_2019_14.swift in Sources */,
+				E02969462D19D43F003ABC77 /* InputError.swift in Sources */,
 				E0C294AC256DF21A00BAEE72 /* Puzzle_2020.swift in Sources */,
 				E0FBC5732B1E60A9005F4414 /* Puzzle_2023_05.swift in Sources */,
 				E0699D0423A807C3009C415B /* Puzzle_2019_15.swift in Sources */,
@@ -1970,6 +1980,7 @@
 				E0F4FA66239D95F1002F51A8 /* Point3D.swift in Sources */,
 				E0F4FA7B239DA3BA002F51A8 /* Puzzle_2018_01.swift in Sources */,
 				E0F4FA5D239D9401002F51A8 /* AdventOfCode2019Tests.swift in Sources */,
+				E0DAE21B2D131DEB002DDC63 /* Puzzle_2024_15.swift in Sources */,
 				E04ADE2924006DB9006BD59C /* Puzzle_2015_05.swift in Sources */,
 				E0FBC5AA2B1E6154005F4414 /* Puzzle_2023_22.swift in Sources */,
 				E0AE8B28275E9AFC00D3E4FF /* Puzzle_2021_15.swift in Sources */,
@@ -2045,6 +2056,7 @@
 				E0AE8B1F275E9ACC00D3E4FF /* Puzzle_2021_12.swift in Sources */,
 				E0A8500D23C229C200947CA3 /* Puzzle_2018_18.swift in Sources */,
 				E03F8D9323F0775200CB1644 /* Puzzle_2016_08.swift in Sources */,
+				E02969472D19D43F003ABC77 /* InputError.swift in Sources */,
 				E0D3EF2023D3A2010064413A /* Puzzle_2017_14.swift in Sources */,
 				E0578B142594BFA700E38F01 /* Puzzle_2020_24.swift in Sources */,
 				E02156DB2577D9C80020219A /* Puzzle_2020_02.swift in Sources */,
@@ -2222,6 +2234,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wave39.AdventOfCodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2241,6 +2254,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wave39.AdventOfCodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

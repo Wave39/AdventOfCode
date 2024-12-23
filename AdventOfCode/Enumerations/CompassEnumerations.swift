@@ -18,6 +18,19 @@ public enum CompassDirection: Hashable {
     case SouthEast
     case SouthWest
 
+    var step: Point2D {
+        switch self {
+        case .North: return Point2D(x: 0, y: -1)
+        case .South: return Point2D(x: 0, y: 1)
+        case .East: return Point2D(x: 1, y: 0)
+        case .West: return Point2D(x: -1, y: 0)
+        case .NorthEast: return Point2D(x: 1, y: -1)
+        case .NorthWest: return Point2D(x: -1, y: -1)
+        case .SouthEast: return Point2D(x: 1, y: 1)
+        case .SouthWest: return Point2D(x: -1, y: 1)
+        }
+    }
+
     public static func AllDirections() -> [CompassDirection] {
         [ NorthWest, North, NorthEast, East, SouthEast, South, SouthWest, West ]
     }
