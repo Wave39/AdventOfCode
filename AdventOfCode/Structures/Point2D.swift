@@ -262,4 +262,17 @@ public struct Point2D: Hashable, Sendable, CustomStringConvertible, Comparable {
         
         return retval
     }
+
+    public func moved(to direction: CompassDirection, steps: Int = 1) -> Point2D {
+        switch direction {
+        case .North: self + .init(x: 0, y: -steps)
+        case .South: self + .init(x: 0, y: steps)
+        case .East: self + .init(x: steps, y: 0)
+        case .West: self + .init(x: -steps, y: 0)
+        case .NorthWest: self + .init(x: -steps, y: -steps)
+        case .NorthEast: self + .init(x: steps, y: -steps)
+        case .SouthWest: self + .init(x: -steps, y: steps)
+        case .SouthEast: self + .init(x: steps, y: steps)
+        }
+    }
 }

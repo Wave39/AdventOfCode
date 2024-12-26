@@ -482,6 +482,26 @@ public extension String {
         }
         .map(String.init)
     }
+
+    func allLines() -> [String] {
+        return components(separatedBy: .newlines)
+    }
+
+    func parseGrid2D<Tile>(_ mapping: (_ character: String, _ point: Point2D) -> Tile?) -> [Point2D: Tile] {
+        var grid: [Point2D: Tile] = [:]
+
+        for (y, line) in allLines().enumerated() {
+            for (x, character) in line.enumerated() {
+                let point = Point2D(x: x, y: y)
+
+                if let tile = mapping(String(character), point) {
+                    grid[point] = tile
+                }
+            }
+        }
+
+        return grid
+    }
 }
 
 public extension StringProtocol {
