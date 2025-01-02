@@ -43,7 +43,7 @@ public class Puzzle_2024 {
         } else if puzzleNumber == 16 {
             Puzzle_2024_16().solve()
         } else if puzzleNumber == 17 {
-            //Puzzle_2024_17().solve()
+            Puzzle_2024_17().solve()
         } else if puzzleNumber == 18 {
             //Puzzle_2024_18().solve()
         } else if puzzleNumber == 19 {
