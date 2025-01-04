@@ -343,6 +343,11 @@ public extension String {
         return retval
     }
 
+    func parseIntoPoint2D(separator: Character = ",") -> Point2D {
+        let arr = self.split(separator: separator)
+        return Point2D(x: arr[0].int, y: arr[1].int)
+    }
+
     func parseIntoDigitMatrix() -> [[Int]] {
         var allLines: [[Int]] = []
         let lineArray = self.split(separator: "\n")
