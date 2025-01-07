@@ -36,6 +36,7 @@ Links to other years:
 | [1](https://adventofcode.com/2024/day/18) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2024/Puzzle_2024_18.swift) | :eyes: | 12s | 
 | [1](https://adventofcode.com/2024/day/19) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2024/Puzzle_2024_19.swift) | :smile: | 3.5s | See day 12. |
 | [1](https://adventofcode.com/2024/day/20) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2024/Puzzle_2024_20.swift) | :warning: | 25s | See day 12. |
+| [1](https://adventofcode.com/2024/day/21) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2024/Puzzle_2024_21.swift) | :smile: | <1s | See day 12. |
 
 ### Legend
 
