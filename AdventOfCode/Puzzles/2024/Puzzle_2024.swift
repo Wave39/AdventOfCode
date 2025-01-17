@@ -59,7 +59,7 @@ public class Puzzle_2024 {
         } else if puzzleNumber == 24 {
             Puzzle_2024_24().solve()
         } else if puzzleNumber == 25 {
-            //Puzzle_2024_25().solve()
+            Puzzle_2024_25().solve()
         } else {
             print("The puzzle number \(puzzleNumber) was not found.")
         }

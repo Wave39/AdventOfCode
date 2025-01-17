@@ -11,7 +11,7 @@ import Foundation
 // Use empty string for console entry of date, "today" for the current date, or "MMMM DD" for a specific day
 let puzzleSelection = ""
 //let puzzleSelection = "today"
-//let puzzleSelection = "2024 15"
+//let puzzleSelection = "2024 25"
 
 print("")
 print("Welcome to BP's Advent Of Code Solution Machine.")
@@ -60,7 +60,7 @@ if puzzleSelection == "today" {
     
         while !quitApp && (day < 1 || day > 25) {
             print("")
-            print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to \(kDefaultYear) and a number from 1 to 25, default of \(defaultYearAndPuzzle), or Q to quit)")
+            print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to \(kDefaultYear) and a number from 1 to 25, or Q to quit)")
             guard let response = readLine() else { continue }
             if response.lowercased().trim() == "q" {
                 quitApp = true
@@ -73,11 +73,6 @@ if puzzleSelection == "today" {
                     year = kDefaultYear
                     day = arr[0].int
                 }
-            } else {
-                let arr = defaultYearAndPuzzle.parseIntoStringArray(separator: " ")
-                year = arr[0].int
-                day = arr[1].int
-                print("Defaulting to puzzle \(defaultYearAndPuzzle)")
             }
         }
     
