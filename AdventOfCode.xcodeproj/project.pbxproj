@@ -150,6 +150,9 @@
 		E04ADE3A24007AE2006BD59C /* Puzzle_2015_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04ADE3924007AE2006BD59C /* Puzzle_2015_11.swift */; };
 		E04ADE3B24007AE2006BD59C /* Puzzle_2015_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04ADE3924007AE2006BD59C /* Puzzle_2015_11.swift */; };
 		E04B81A0273A032C003CB67F /* IntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B819F273A032C003CB67F /* IntegerExtensions.swift */; };
+		E04E3B382D3178520054FA4E /* Puzzle_2024_24.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E3B372D3178520054FA4E /* Puzzle_2024_24.swift */; };
+		E04E3B392D3178520054FA4E /* Puzzle_2024_24.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E3B372D3178520054FA4E /* Puzzle_2024_24.swift */; };
+		E04E3B3C2D31B5F10054FA4E /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = E04E3B3B2D31B5F10054FA4E /* AsyncAlgorithms */; };
 		E04F451E23F4DFF500EB3A26 /* Puzzle_2016_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04F451D23F4DFF500EB3A26 /* Puzzle_2016_11.swift */; };
 		E04F451F23F4DFF500EB3A26 /* Puzzle_2016_11.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04F451D23F4DFF500EB3A26 /* Puzzle_2016_11.swift */; };
 		E04F452123F4E32A00EB3A26 /* Puzzle_2016_12.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04F452023F4E32A00EB3A26 /* Puzzle_2016_12.swift */; };
@@ -694,6 +697,7 @@
 		E04ADE362400790B006BD59C /* Puzzle_2015_10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2015_10.swift; sourceTree = "<group>"; };
 		E04ADE3924007AE2006BD59C /* Puzzle_2015_11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2015_11.swift; sourceTree = "<group>"; };
 		E04B819F273A032C003CB67F /* IntegerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerExtensions.swift; sourceTree = "<group>"; };
+		E04E3B372D3178520054FA4E /* Puzzle_2024_24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2024_24.swift; sourceTree = "<group>"; };
 		E04F451D23F4DFF500EB3A26 /* Puzzle_2016_11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2016_11.swift; sourceTree = "<group>"; };
 		E04F452023F4E32A00EB3A26 /* Puzzle_2016_12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2016_12.swift; sourceTree = "<group>"; };
 		E053276F23B3B428005793B2 /* Puzzle_2019_21.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_21.swift; sourceTree = "<group>"; };
@@ -930,6 +934,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0F55CE02D0D317A00BD9735 /* Collections in Frameworks */,
+				E04E3B3C2D31B5F10054FA4E /* AsyncAlgorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,6 +1254,7 @@
 				E0ACFEFF2D2D91CF000F694C /* Puzzle_2024_21.swift */,
 				E0BE77022D2F1C210090B11D /* Puzzle_2024_22.swift */,
 				E031B6822D300F1B000CE897 /* Puzzle_2024_23.swift */,
+				E04E3B372D3178520054FA4E /* Puzzle_2024_24.swift */,
 			);
 			path = 2024;
 			sourceTree = "<group>";
@@ -1526,6 +1532,7 @@
 			mainGroup = E021146E2397FEBD00F49FC1;
 			packageReferences = (
 				E0F55CDE2D0D317A00BD9735 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				E04E3B3A2D31B5F10054FA4E /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
 			);
 			productRefGroup = E02114782397FEBD00F49FC1 /* Products */;
 			projectDirPath = "";
@@ -1745,6 +1752,7 @@
 				E06950092D1DE56F009411B8 /* CollectionExtensions.swift in Sources */,
 				E0FBC5762B1E60B9005F4414 /* Puzzle_2023_06.swift in Sources */,
 				E09F0E4D2942CD7600F60128 /* Puzzle_2022_22.swift in Sources */,
+				E04E3B392D3178520054FA4E /* Puzzle_2024_24.swift in Sources */,
 				E021148D23987F9F00F49FC1 /* Puzzle_2019_02.swift in Sources */,
 				E085EE05258E395C00541CA1 /* Puzzle_2020_19.swift in Sources */,
 				E0D3EF0423D38E910064413A /* Puzzle_2017_05.swift in Sources */,
@@ -2121,6 +2129,7 @@
 				E0AE8B16275E9AB000D3E4FF /* Puzzle_2021_09.swift in Sources */,
 				E0D3EF0823D38FCB0064413A /* Puzzle_2017_06.swift in Sources */,
 				E0BE570623F766130076E4D9 /* Puzzle_2016_16.swift in Sources */,
+				E04E3B382D3178520054FA4E /* Puzzle_2024_24.swift in Sources */,
 				E005479E2B1CC672005D57F3 /* Puzzle_2023_03.swift in Sources */,
 				E09F0E272942CCF600F60128 /* Puzzle_2022_09.swift in Sources */,
 				E0D40E592740551900A766C6 /* AdventOfCode2021Tests.swift in Sources */,
@@ -2370,6 +2379,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E04E3B3A2D31B5F10054FA4E /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
 		E0F55CDE2D0D317A00BD9735 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-collections.git";
@@ -2381,6 +2398,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E04E3B3B2D31B5F10054FA4E /* AsyncAlgorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E04E3B3A2D31B5F10054FA4E /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
+			productName = AsyncAlgorithms;
+		};
 		E0ACFF032D2DA59A000F694C /* Collections */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E0F55CDE2D0D317A00BD9735 /* XCRemoteSwiftPackageReference "swift-collections" */;

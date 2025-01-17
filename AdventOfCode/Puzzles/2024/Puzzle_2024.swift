@@ -57,7 +57,7 @@ public class Puzzle_2024 {
         } else if puzzleNumber == 23 {
             Puzzle_2024_23().solve()
         } else if puzzleNumber == 24 {
-            //Puzzle_2024_24().solve()
+            Puzzle_2024_24().solve()
         } else if puzzleNumber == 25 {
             //Puzzle_2024_25().solve()
         } else {

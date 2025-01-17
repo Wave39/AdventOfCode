@@ -507,6 +507,10 @@ public extension String {
 
         return grid
     }
+
+    var paragraphs: [[String]] {
+        split(separator: "\n", omittingEmptySubsequences: false).split(separator: "").map { $0.map(String.init) }
+    }
 }
 
 public extension StringProtocol {
