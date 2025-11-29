@@ -11,7 +11,7 @@ import Foundation
 // Use empty string for console entry of date, "today" for the current date, or "MMMM DD" for a specific day
 let puzzleSelection = ""
 //let puzzleSelection = "today"
-//let puzzleSelection = "2024 25"
+//let puzzleSelection = "2025 01"
 
 print("")
 print("Welcome to BP's Advent Of Code Solution Machine.")
@@ -99,7 +99,9 @@ if puzzleSelection == "today" {
 }
 
 func solvePuzzle(year: Int, day: Int) {
-    if year == 2_024 {
+    if year == 2_025 {
+        Puzzle_2025().solve(puzzleNumber: day)
+    } else if year == 2_024 {
         Puzzle_2024().solve(puzzleNumber: day)
     } else if year == 2_023 {
         Puzzle_2023().solve(puzzleNumber: day)

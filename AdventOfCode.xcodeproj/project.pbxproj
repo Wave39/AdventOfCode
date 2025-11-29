@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,7 @@
 		E009159F293A098700E903A4 /* Puzzle_2022_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = E009159D293A098700E903A4 /* Puzzle_2022_02.swift */; };
 		E00998CA258791EA00DAF97D /* Puzzle_2020_14.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00998C9258791EA00DAF97D /* Puzzle_2020_14.swift */; };
 		E00998CB258791EA00DAF97D /* Puzzle_2020_14.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00998C9258791EA00DAF97D /* Puzzle_2020_14.swift */; };
+		E0136A582EDA880900A47A84 /* AdventOfCode2025Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0136A572EDA880900A47A84 /* AdventOfCode2025Tests.swift */; };
 		E015CD2D23B9016D00986637 /* Puzzle_2019_24.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015CD2C23B9016D00986637 /* Puzzle_2019_24.swift */; };
 		E015CD2E23B9016D00986637 /* Puzzle_2019_24.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015CD2C23B9016D00986637 /* Puzzle_2019_24.swift */; };
 		E015CD3023B912D100986637 /* Puzzle_2019_25.swift in Sources */ = {isa = PBXBuildFile; fileRef = E015CD2F23B912D100986637 /* Puzzle_2019_25.swift */; };
@@ -622,6 +623,7 @@
 		E005479C2B1CC672005D57F3 /* Puzzle_2023_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2023_03.swift; sourceTree = "<group>"; };
 		E009159D293A098700E903A4 /* Puzzle_2022_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2022_02.swift; sourceTree = "<group>"; };
 		E00998C9258791EA00DAF97D /* Puzzle_2020_14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_14.swift; sourceTree = "<group>"; };
+		E0136A572EDA880900A47A84 /* AdventOfCode2025Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventOfCode2025Tests.swift; sourceTree = "<group>"; };
 		E015CD2C23B9016D00986637 /* Puzzle_2019_24.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_24.swift; sourceTree = "<group>"; };
 		E015CD2F23B912D100986637 /* Puzzle_2019_25.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2019_25.swift; sourceTree = "<group>"; };
 		E01998EB257D1FCB00E31030 /* Puzzle_2020_06.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2020_06.swift; sourceTree = "<group>"; };
@@ -931,6 +933,50 @@
 		E0FF7E382D28E1A3003D29E2 /* Puzzle_2024_20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puzzle_2024_20.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E0136A3D2EDA87B300A47A84 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Puzzle_2025_01.swift,
+				Puzzle_2025_02.swift,
+				Puzzle_2025_03.swift,
+				Puzzle_2025_04.swift,
+				Puzzle_2025_05.swift,
+				Puzzle_2025_06.swift,
+				Puzzle_2025_07.swift,
+				Puzzle_2025_08.swift,
+				Puzzle_2025_09.swift,
+				Puzzle_2025_10.swift,
+				Puzzle_2025_11.swift,
+				Puzzle_2025_12.swift,
+				Puzzle_2025.swift,
+			);
+			target = E02114762397FEBD00F49FC1 /* AdventOfCode */;
+		};
+		E0136A562EDA87C100A47A84 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Puzzle_2025_01.swift,
+				Puzzle_2025_02.swift,
+				Puzzle_2025_03.swift,
+				Puzzle_2025_04.swift,
+				Puzzle_2025_05.swift,
+				Puzzle_2025_06.swift,
+				Puzzle_2025_07.swift,
+				Puzzle_2025_08.swift,
+				Puzzle_2025_09.swift,
+				Puzzle_2025_10.swift,
+				Puzzle_2025_11.swift,
+				Puzzle_2025_12.swift,
+			);
+			target = E0F4FA59239D9401002F51A8 /* AdventOfCodeTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E0136A072EDA82F000A47A84 /* 2025 */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (E0136A3D2EDA87B300A47A84 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, E0136A562EDA87C100A47A84 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = 2025; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		E02114742397FEBD00F49FC1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -1066,6 +1112,7 @@
 		E02114842398083E00F49FC1 /* Puzzles */ = {
 			isa = PBXGroup;
 			children = (
+				E0136A072EDA82F000A47A84 /* 2025 */,
 				E021148823981DDB00F49FC1 /* PuzzleBaseClass.swift */,
 				E09A5F902CFF962700415FDD /* 2024 */,
 				E0B0F8972B1A2AA1004FD139 /* 2023 */,
@@ -1420,6 +1467,7 @@
 				E03F65102773B73600890EEF /* Structures */,
 				E03F8D8223F05CDD00CB1644 /* Extensions */,
 				E0014C6423C4259400651C57 /* Functions */,
+				E0136A572EDA880900A47A84 /* AdventOfCode2025Tests.swift */,
 				E09A5F992CFF9A1A00415FDD /* AdventOfCode2024Tests.swift */,
 				E087595B2B1A394700447DAC /* AdventOfCode2023Tests.swift */,
 				E053BF392937F4BF0045C1D3 /* AdventOfCode2022Tests.swift */,
@@ -2095,6 +2143,7 @@
 				E03F8D7E23F05AA000CB1644 /* Puzzle_2016_02.swift in Sources */,
 				E0D3EF2923D3BEBE0064413A /* Puzzle_2017_17.swift in Sources */,
 				E0A1B462239E8A080067C582 /* Puzzle_2019_09.swift in Sources */,
+				E0136A582EDA880900A47A84 /* AdventOfCode2025Tests.swift in Sources */,
 				E0B2FDD523AC721500581425 /* Puzzle_2019_18.swift in Sources */,
 				E09E5DFC23F0D40000604BFC /* Puzzle_2016_10.swift in Sources */,
 				E09DBEC52D0B06AF0014A32E /* Puzzle_2024_08.swift in Sources */,

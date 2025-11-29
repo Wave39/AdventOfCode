@@ -1,6 +1,7 @@
 # 2019
 
 Links to other years: 
+[2025](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/README.md) |
 [2024](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2024/README.md) |
 [2023](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2023/README.md) |
 [2022](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2022/README.md) |
