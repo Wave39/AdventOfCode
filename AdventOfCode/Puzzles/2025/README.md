@@ -17,7 +17,7 @@ Links to other years:
 
 | Day | Code | Status | Execution Time | Hall of Shame |
 | :---: | :---: | :---: | :---: | :--- |
-| [1](https://adventofcode.com/2025/day/1) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_01.swift) | | |
+| [1](https://adventofcode.com/2025/day/1) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_01.swift) | :smile: | <1s |
 | [2](https://adventofcode.com/2025/day/2) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_02.swift) | | |
 | [3](https://adventofcode.com/2025/day/3) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_03.swift) | | |
 | [4](https://adventofcode.com/2025/day/4) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_04.swift) | | |
