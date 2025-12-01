@@ -11,9 +11,9 @@ import XCTest
 final class AdventOfCode2025Tests: XCTestCase {
     public func test2025day01() {
         let part1 = Puzzle_2025_01().solvePart1()
-        XCTAssertEqual(part1, 2)
+        XCTAssertEqual(part1, 1_129)
         let part2 = Puzzle_2025_01().solvePart2()
-        XCTAssertEqual(part2, 2)
+        XCTAssertEqual(part2, 6_638)
     }
 
     public func test2025day02() {

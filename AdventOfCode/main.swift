@@ -9,8 +9,8 @@
 import Foundation
 
 // Use empty string for console entry of date, "today" for the current date, or "MMMM DD" for a specific day
-let puzzleSelection = ""
-//let puzzleSelection = "today"
+//let puzzleSelection = ""
+let puzzleSelection = "today"
 //let puzzleSelection = "2025 01"
 
 print("")
@@ -55,9 +55,6 @@ if puzzleSelection == "today" {
     var day = 0
 
     while !quitApp {
-        let defaultDay = kDateComponents.day ?? 1
-        let defaultYearAndPuzzle = "\(kDefaultYear) \(defaultDay)"
-    
         while !quitApp && (day < 1 || day > 25) {
             print("")
             print("Which year and puzzle would you like the Solution Machine to solve? (Enter a year from 2015 to \(kDefaultYear) and a number from 1 to 25, or Q to quit)")

@@ -218,6 +218,7 @@
 		E073414B2582511400B8B5D0 /* Puzzle_2020_10.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07341492582511400B8B5D0 /* Puzzle_2020_10.swift */; };
 		E0791926258A3AFC00008DF8 /* Puzzle_2020_16.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0791925258A3AFC00008DF8 /* Puzzle_2020_16.swift */; };
 		E0791927258A3AFC00008DF8 /* Puzzle_2020_16.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0791925258A3AFC00008DF8 /* Puzzle_2020_16.swift */; };
+		E07D7FD92EDE404000E48DE7 /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = E07D7FD82EDE404000E48DE7 /* AsyncAlgorithms */; };
 		E07EBDB424070AB900236098 /* Puzzle_2015_13.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07EBDB324070AB900236098 /* Puzzle_2015_13.swift */; };
 		E07EBDB524070AB900236098 /* Puzzle_2015_13.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07EBDB324070AB900236098 /* Puzzle_2015_13.swift */; };
 		E07EBDB72409B1BA00236098 /* Puzzle_2015_14.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07EBDB62409B1BA00236098 /* Puzzle_2015_14.swift */; };
@@ -992,6 +993,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0ACFF042D2DA59A000F694C /* Collections in Frameworks */,
+				E07D7FD92EDE404000E48DE7 /* AsyncAlgorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1562,7 +1564,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 2610;
 				ORGANIZATIONNAME = "Wave 39 LLC";
 				TargetAttributes = {
 					E02114762397FEBD00F49FC1 = {
@@ -2247,6 +2249,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = D9KUNWHAM5;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -2269,6 +2272,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -2311,6 +2315,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = D9KUNWHAM5;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -2326,6 +2331,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
@@ -2337,7 +2343,6 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = D9KUNWHAM5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wave39.AdventOfCode;
@@ -2352,7 +2357,6 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = D9KUNWHAM5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wave39.AdventOfCode;
@@ -2367,7 +2371,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = D9KUNWHAM5;
 				INFOPLIST_FILE = AdventOfCodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2387,7 +2390,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = D9KUNWHAM5;
 				INFOPLIST_FILE = AdventOfCodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2454,6 +2456,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		E04E3B3B2D31B5F10054FA4E /* AsyncAlgorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E04E3B3A2D31B5F10054FA4E /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
+			productName = AsyncAlgorithms;
+		};
+		E07D7FD82EDE404000E48DE7 /* AsyncAlgorithms */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E04E3B3A2D31B5F10054FA4E /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
 			productName = AsyncAlgorithms;
