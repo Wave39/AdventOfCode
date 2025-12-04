@@ -32,9 +32,9 @@ final class AdventOfCode2025Tests: XCTestCase {
 
     public func test2025day04() {
         let part1 = Puzzle_2025_04().solvePart1()
-        XCTAssertEqual(part1, 2)
+        XCTAssertEqual(part1, 1_587)
         let part2 = Puzzle_2025_04().solvePart2()
-        XCTAssertEqual(part2, 2)
+        XCTAssertEqual(part2, 8_946)
     }
 
     public func test2025day05() {
