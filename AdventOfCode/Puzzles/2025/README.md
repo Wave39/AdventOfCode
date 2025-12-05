@@ -21,7 +21,7 @@ Links to other years:
 | [2](https://adventofcode.com/2025/day/2) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_02.swift) | :smile: | <1s |
 | [3](https://adventofcode.com/2025/day/3) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_03.swift) | :smile: | <1s | ChatGPT helped me with part 2. Either I am getting old and feeble, or Eric is ramping up the difficulty quick this year since there are only 12 puzzles. |
 | [4](https://adventofcode.com/2025/day/4) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_04.swift) | :smile: | <1s |
-| [5](https://adventofcode.com/2025/day/5) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_05.swift) | | |
+| [5](https://adventofcode.com/2025/day/5) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_05.swift) | :smile: | <1s | I knew what had to be done, and I had ChatGPT help me refine my range merging function. |
 | [6](https://adventofcode.com/2025/day/6) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_06.swift) | | |
 | [7](https://adventofcode.com/2025/day/7) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_07.swift) | | |
 | [8](https://adventofcode.com/2025/day/8) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_08.swift) | | |
