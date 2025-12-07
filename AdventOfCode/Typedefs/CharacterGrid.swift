@@ -71,6 +71,10 @@ public extension CharacterGrid {
         self[y][x]
     }
 
+    mutating func setCharacterAtCoordinates(_ x: Int, _ y: Int, _ char: Character) {
+        self[y][x] = char
+    }
+
     func adjacentGridCells(origin: Point2D, includeDiagonals: Bool) -> [(Point2D, Character)] {
         var retval: [(Point2D, Character)] = []
         let adjacentPoints = origin.adjacentLocations(includeDiagonals: includeDiagonals)
