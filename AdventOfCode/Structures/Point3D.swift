@@ -83,6 +83,13 @@ public struct Point3D: Hashable, CustomStringConvertible {
         return retval
     }
 
+    public func straightLineDistanceTo(pt: Point3D) -> Double {
+        let dx = Double(self.x - pt.x)
+        let dy = Double(self.y - pt.y)
+        let dz = Double(self.z - pt.z)
+        return sqrt(dx * dx + dy * dy + dz * dz)
+    }
+
     public func adjacentLocations() -> [Point3D] {
         var retval: [Point3D] = []
         retval.append(Point3D(x: self.x, y: self.y - 1, z: self.z))
