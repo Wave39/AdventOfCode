@@ -348,6 +348,16 @@ public extension String {
         return Point2D(x: arr[0].int, y: arr[1].int)
     }
 
+    func parseIntoPoint2DArray() -> [Point2D] {
+        var points: [Point2D] = []
+        let lineArray = self.split(separator: "\n")
+        for line in lineArray {
+            points.append(String(line).parseIntoPoint2D())
+        }
+
+        return points
+    }
+
     func parseIntoPoint3D(separator: Character = ",") -> Point3D {
         let arr = self.split(separator: separator)
         return Point3D(x: arr[0].int, y: arr[1].int, z: arr[2].int)

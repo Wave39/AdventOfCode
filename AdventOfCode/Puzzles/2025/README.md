@@ -25,7 +25,7 @@ Links to other years:
 | [6](https://adventofcode.com/2025/day/6) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_06.swift) | :smile: | <1s |
 | [7](https://adventofcode.com/2025/day/7) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_07.swift) | :smile: | <1s | Again I knew what I needed, and ChatGPT helped me put it together. I sense a theme... |
 | [8](https://adventofcode.com/2025/day/8) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_08.swift) | :smile: | 2s |
-| [9](https://adventofcode.com/2025/day/9) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_09.swift) | | |
+| [9](https://adventofcode.com/2025/day/9) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_09.swift) | :smile: | 5s | Heavy assist to ChatGPT for today's part 2. |
 | [10](https://adventofcode.com/2025/day/10) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_10.swift) | | |
 | [11](https://adventofcode.com/2025/day/11) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_11.swift) | | |
 | [12](https://adventofcode.com/2025/day/12) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_12.swift) | | |
@@ -37,4 +37,4 @@ Links to other years:
 | :smile: | 0..<10 seconds | All good here! |
 | :eyes: | 10..<20 seconds | Could use some tidying up... |
 | :warning: | 20..<60 seconds | Investigation is warranted. |
-| :fire: | 60... seconds | I picked the wrong week to quit sniffing glue. |
+| :fire: | 60... seconds | Looks like I picked the wrong week to quit sniffing glue. |

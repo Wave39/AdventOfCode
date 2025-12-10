@@ -71,6 +71,10 @@ public struct Point2D: Hashable, Sendable, CustomStringConvertible, Comparable {
         abs(self.x - pt.x) + abs(self.y - pt.y)
     }
 
+    public func areaTo(pt: Point2D) -> Int {
+        (abs(self.x - pt.x) + 1) * (abs(self.y - pt.y) + 1)
+    }
+
     // For the adjacentLocations array, the indices of the adjacent locations are:
     //
     // Including diagonals:
