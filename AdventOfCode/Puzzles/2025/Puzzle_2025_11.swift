@@ -18,32 +18,756 @@ public class Puzzle_2025_11: PuzzleBaseClass {
     }
 
     public func solvePart1() -> Int {
-        solvePart1(str: Puzzle_Input.test)
+        solvePart1(str: Puzzle_Input.final)
     }
 
     public func solvePart2() -> Int {
-        solvePart2(str: Puzzle_Input.test)
+        solvePart2(str: Puzzle_Input.final)
+    }
+
+    struct Device {
+        var name = ""
+        var connections = [String]()
     }
 
     private func solvePart1(str: String) -> Int {
-        let arr = str.parseIntoIntArray()
-        return arr.count
+        let lines = str.parseIntoStringArray()
+        var devices = [Device]()
+        for line in lines {
+            var arr = line.parseIntoStringArray(separator: " ")
+            var newDevice = Device()
+            newDevice.name = arr.removeFirst().replacingOccurrences(of: ":", with: "")
+            newDevice.connections = arr
+            devices.append(newDevice)
+        }
+
+        var deviceDict = [String: [String]]()
+        for device in devices {
+            deviceDict[device.name] = device.connections
+        }
+
+        var openPaths = [[String]]()
+        openPaths.append(["you"])
+        var outPaths = [[String]]()
+        while !openPaths.isEmpty {
+            let pathToProcess = openPaths.removeFirst()
+            let deviceConnections = deviceDict[pathToProcess.last!]!
+            for connection in deviceConnections {
+                if !pathToProcess.contains(connection) {
+                    var newPath = pathToProcess
+                    newPath.append(connection)
+                    if connection == "out" {
+                        outPaths.append(newPath)
+                    } else {
+                        openPaths.append(newPath)
+                    }
+                }
+            }
+        }
+
+        return outPaths.count
     }
 
     private func solvePart2(str: String) -> Int {
-        let arr = str.parseIntoIntArray()
-        return arr.count
+        let lines = str.parseIntoStringArray()
+        var devices = [Device]()
+        for line in lines {
+            var parts = line.parseIntoStringArray(separator: " ")
+            var newDevice = Device()
+            newDevice.name = parts.removeFirst().replacingOccurrences(of: ":", with: "")
+            newDevice.connections = parts
+            devices.append(newDevice)
+        }
+
+        // Build adjacency map
+        var deviceDict = [String: [String]]()
+        for device in devices {
+            deviceDict[device.name] = device.connections
+        }
+
+        // State for memoization: (node, hasFFT, hasDAC)
+        struct State: Hashable {
+            let node: String
+            let hasFFT: Bool
+            let hasDAC: Bool
+        }
+
+        var memo = [State: Int]()
+
+        func dfs(node: String, hasFFT: Bool, hasDAC: Bool) -> Int {
+            // Update flags when we *are at* this node
+            let newHasFFT = hasFFT || (node == "fft")
+            let newHasDAC = hasDAC || (node == "dac")
+
+            let state = State(node: node, hasFFT: newHasFFT, hasDAC: newHasDAC)
+            if let cached = memo[state] {
+                return cached
+            }
+
+            // Reached out: only count paths that have seen BOTH fft and dac
+            if node == "out" {
+                let result = (newHasFFT && newHasDAC) ? 1 : 0
+                memo[state] = result
+                return result
+            }
+
+            guard let neighbors = deviceDict[node] else {
+                memo[state] = 0
+                return 0
+            }
+
+            var total = 0
+            for next in neighbors {
+                total += dfs(node: next, hasFFT: newHasFFT, hasDAC: newHasDAC)
+            }
+
+            memo[state] = total
+            return total
+        }
+
+        // Part 2 starts from "svr"
+        return dfs(node: "svr", hasFFT: false, hasDAC: false)
+    }
+
+    private func solvePart2_naive(str: String) -> Int {
+        let lines = str.parseIntoStringArray()
+        var devices = [Device]()
+        for line in lines {
+            var arr = line.parseIntoStringArray(separator: " ")
+            var newDevice = Device()
+            newDevice.name = arr.removeFirst().replacingOccurrences(of: ":", with: "")
+            newDevice.connections = arr
+            devices.append(newDevice)
+        }
+
+        var deviceDict = [String: [String]]()
+        for device in devices {
+            deviceDict[device.name] = device.connections
+        }
+
+        var openPaths = [[String]]()
+        openPaths.append(["svr"])
+        var outPaths = [[String]]()
+        while !openPaths.isEmpty {
+            let pathToProcess = openPaths.removeFirst()
+            let deviceConnections = deviceDict[pathToProcess.last!]!
+            for connection in deviceConnections {
+                if !pathToProcess.contains(connection) {
+                    var newPath = pathToProcess
+                    newPath.append(connection)
+                    if connection == "out" {
+                        outPaths.append(newPath)
+                    } else {
+                        openPaths.append(newPath)
+                    }
+                }
+            }
+        }
+
+        let validPaths = outPaths.filter { $0.contains("fft") && $0.contains("dac") }
+
+        return validPaths.count
     }
 }
 
 private class Puzzle_Input: NSObject {
     static let test = """
-Line 1
-Line 2
+aaa: you hhh
+you: bbb ccc
+bbb: ddd eee
+ccc: ddd eee fff
+ddd: ggg
+eee: out
+fff: out
+ggg: out
+hhh: ccc fff iii
+iii: out
+"""
+
+    static let test2 = """
+svr: aaa bbb
+aaa: fft
+fft: ccc
+bbb: tty
+tty: ccc
+ccc: ddd eee
+ddd: hub
+hub: fff
+eee: dac
+dac: fff
+fff: ggg hhh
+ggg: out
+hhh: out
 """
 
     static let final = """
-Line 1
-Line 2
+shx: usd tnq min tsg shc ilw wje wui iyi jvd lab syu jap lyc utc ees
+dke: out
+iit: xpy
+rwz: nht
+fnk: woh vaa hpc aql dfq qct obn vdy otq bbf kjz jbo
+azf: ogd xuz oll rzq
+ljq: jcx
+muz: dnx dac fgb
+ejr: foc zdx rmc
+ayv: fvz
+zkf: wkm mpe zps
+odi: ybq jxb
+job: que reh twn
+crg: qje
+jph: yhv
+wsq: bnb xzs rgl
+wny: zfk sqb
+rjz: kmz rvt
+rmc: bmr ycq mzw myd rxa uwx bgg two gtu
+beg: kxp iwg you
+vxz: omz
+gkk: fns
+nmv: yhn mtv wwk
+pry: tea kln dzt jvq pak qqc vuj phb wny
+wfb: ckw ogm
+bnn: ibq zdx rmc
+tqc: zvk
+pwx: mgx emq
+qct: zsg lgp eoa cqg wfb
+eoa: yga ckw rub
+yhv: ncm uve mrr bzu
+lgp: ckw
+dfl: aux
+zoi: drr
+huu: fns rol
+tqz: klf gsz efl
+jfp: fns rol uqy
+tfp: qqt ebp tqz
+bzu: ffm vsu
+xiw: rmc foc ibq
+mpe: out
+hzk: ibq foc
+qts: tjb ztv
+tto: mkw
+bjp: rmc zdx
+ubu: anv
+wed: iro njj syi nku
+mfd: tjb
+ckp: xlr qne
+kvg: lqa kvy
+zvk: ybq pry jxb dmu
+rai: cqm rdk
+bgg: pur npq
+ljb: anv dum hdz
+fgh: jqs sqp ept hnx
+lwm: piv mgx
+amg: qcp
+phb: aeu hgi niz bjx
+vcv: iec
+zsg: ogm ckw rub
+ggz: kxp iwg you fnk
+rpq: cqm rdk
+zey: cpt xiw xjq
+lig: aye wtc wbh agg
+sqb: xwo
+tjb: oqi snu hnn cxp zka eoq sce igg crr kom xvg xea cnn dwd rvv jva
+dzt: zuh yhg ocy ubu ljb
+vsn: fnk you iwg kxp
+ept: qwp
+lcj: ugo pkl
+tea: hgi aeu bjx niz
+oqi: csa umy
+bbf: dfl jcu xda sfg
+cqm: zpq amg map
+cqa: pkl ugo jcx lgk
+xdw: fcw olh svq huu nnx
+jlb: oxf bjp
+iro: rgp
+ees: rpm mxd umf
+cya: iec bnn
+ucp: bzu uve akd mrr
+ycq: bnb gav rgl
+hcg: whz egh grp
+npq: qne xlr koe
+hgi: rtq uxh aog sgg
+rav: rai
+eyb: jft
+iua: dnx
+edk: trd akj aok
+ewv: ocy ubu yhg zuh
+drr: lwp
+lyc: shp uwq pwx
+zjm: cxy jxb
+ujq: foc zdx rmc
+sfg: qbi
+uwk: hos wvu ggd
+uio: qbk xqj job
+jvk: ept jqs
+xex: hzk ipu ugl
+igg: wed
+nkg: pxc swh
+maa: egh whz
+rbm: jph xpy clk
+ehg: rmc zdx ibq foc
+kdo: bno bqe
+lrw: uqy
+tsg: shp
+iri: gav
+mgx: yzx
+min: rpm mxd
+tlq: fns rol uqy
+jxr: tnq tsg shc utc
+pld: out
+grp: ztv
+jcx: pch
+fgb: buj drr
+hcr: omz
+zkn: dmu pry jxb ybq
+vbi: you fnk kxp
+hil: hos wvu ggd
+dbx: dmu pry jxb ybq
+lvp: yzx
+ptf: gkc uio jsu zny
+lwp: you fnk iwg kxp
+aqt: lhq upa
+thg: olc
+mvu: uwk sfd qwn ipb
+kxp: uvd kjz vaa woh aql ptf qct obn rav hgf otq bbf jbo hpc gsw sgm ywv vdy
+ohu: ebp
+lzw: znc
+ztv: hnn oqi snu zka eoq cxp igg khi fpj sce xvg crr dwd cnn rvv jva vks axk
+jtq: oxd
+prw: tif zex jkb lwe
+ebp: gsz efl klf
+map: ima wye qcp
+zny: job
+glc: fft tuw
+uts: tfp zze
+ivv: hil ipb qwn
+cxp: dms
+syu: hct mcf
+gjy: jfp omz
+zpq: btn qcp wye
+sgg: byk
+nku: ffr
+gzv: lqa kvy
+oge: uwk hil ipb qwn
+xuz: iwg kxp you
+two: idl jvk tqn
+gsw: gkc zny uio
+wnt: vlj puq azf olc
+wbh: uvz ybl
+foc: vzq ycq mzw fxv wsq
+vgv: mss oti pne tqc
+pak: hgi gcq niz
+wmb: rdo lig nsv
+dwd: uoq
+mhi: out
+kie: uah nkg
+pdg: beg vsn
+upa: dnh qim lss
+nzr: lvp
+fmm: gav bnb
+tqn: sqp hnx ozd jqs
+hse: cxy dmu pry jxb ybq
+fpj: nbz qfe
+wqj: vxv akj trd aok
+vzx: iju fgd jft
+eak: out
+jhn: zps
+tif: usi wce
+hqa: rmc ibq
+ihe: wyz
+lfp: gzv fsd kvg aix
+puq: hir ogd
+pch: hqa nnl ydp
+anv: mkw suv tlq gkk
+jmb: dac fgb
+ruo: yzx
+mxd: fhp sjx dfy
+nbf: ctg pxc swh
+uvd: ayv rpq
+idl: ozd hnx sqp jqs
+mry: ruo mfd nht
+ybl: pdf vbi vsn
+yvt: dmr kdo yyb osw
+brq: vqg wzq lqv pqy
+hgf: rpq
+lhq: foe lss
+nor: jim
+ruk: lgh
+fsd: lqa gkv
+ziu: tjb
+yhg: dum anv tto
+aql: jsu
+ugo: rtl ohg sri
+enz: fjj uts ees jap lyc ilw usd tnq min iyi wui wje
+xpm: fft tuw yss xex
+vks: vsh cqa
+gkv: fnk iwg kxp
+aok: jxb dmu cxy
+prc: jph lna xpy
+hyp: cya
+akj: pry ybq
+ukn: rmc ibq zdx
+hct: ino qts
+lab: mry nzr hje rwz
+wce: fns uqy
+rfb: xzs
+efl: yzx ztv
+kln: sqb jim
+koe: hbd njh uai ptb
+mss: zkn
+ozl: ztv
+vuj: bjx niz hgi gcq aeu
+osw: fvt bno
+jkb: wce
+jft: out
+lss: fwv edk
+fgd: out
+suv: rol uqy
+uer: dnx zoi
+ilw: uen umg gco qhj jwi
+yga: hvl
+qbk: reh twn que
+xqj: twn
+vdy: uxj rbm prc
+shp: piv emq
+aam: fcw huu svq nnx
+uvz: vbi ewo beg vsn
+nbz: nkg
+xga: yzx tjb
+usd: lwm pwx
+uxj: clk jph
+trd: pry jxb cxy dmu
+otm: vgv qje wyz
+jwi: hcg
+klf: yzx
+iec: zdx ibq
+qbi: rjz znc gye
+kvy: you fnk kxp
+zze: tqz
+hjj: rzq xuz ogd
+uxh: lrw
+ogm: mkm hvl tmd
+csa: njj hyp nku
+kjz: jcu xda wmd
+jsu: syh qbk job
+qcp: eak nil pld dke
+reh: eru zkf ico dps
+ggd: iwg fnk
+wyz: mss tqc pne
+twn: eru ico dps zkf
+gco: maa
+caj: odi
+sgm: rpq ayv
+rzq: kxp fnk
+rtq: byk sxw
+dnx: drr
+bno: iwg
+mcj: ibq foc
+qwp: dmu cxy pry jxb
+axk: ljq cqa vsh
+btn: pld nil eak oln dke
+ogd: fnk kxp iwg
+wkm: out
+aku: fhg aam
+lgk: ohg
+wye: nil
+jqz: kvg
+fns: vlb wmb eza nmv wnt wrv mxa pbs snn
+omz: rol uqy
+uur: fns rol uqy
+buj: qbz
+wzx: yvt wwk mtv
+yyb: fvt bno
+sxw: fns
+gkc: qbk syh xqj job
+obn: zsg lgp eoa cqg wfb
+lqa: kxp fnk
+rub: sgv hvl mkm
+gml: ztv
+njh: yvf
+tbf: gco uen jwi
+zis: fax
+fwv: vxv
+gtu: lhq
+iuz: hdx
+ptb: txn cpk
+hvl: itd
+jim: prw xwo
+ctg: cpt mcj ujq xjq
+cpt: rmc zdx ibq
+que: ico dps zkf jhn
+ktp: wwk
+olh: uqy
+vjv: mhi iju
+erx: ybq pry
+znc: brq nhw dqw rvt kmz
+dqw: vqg lqv wzq rxc pqy
+qwn: ggd
+jsh: rdo
+oxd: pry
+ncm: pwb ffm vsu
+dum: tlq lpq
+jxb: lnm jrb kpk kln ewv
+sce: hwp maj gpj
+czz: nkg nbf
+pxc: xjq cpt mcj
+ino: tjb
+yzx: crr kom xvg xea cnn dwd rvv axk jva oqi snu hnn cxp eoq zka fpj sce igg khi
+nil: out
+foe: fwv edk lrz
+uwq: piv ziu emq lyr
+hwp: bjp ukn
+xfb: yzx
+gav: caj dcs iuz
+lna: hfp bje
+rdk: amg
+nnx: fns
+zfk: raq xwo
+rvt: vqg wzq lqv
+iju: out
+umg: hcg tnx
+aix: kvy
+svr: jxr shx enz uha gjl
+dkt: out
+gjl: ees uts utc lyc jap syu tbf lab jvd wui wje ilw tsg shc qbx min tnq usd
+ihb: fhg xdw
+lqv: out
+dps: mpe
+gpj: bqd ukn
+sri: ehg hqa ydp nnl
+bnb: dcs caj epv
+eno: fvt bqe
+swh: mcj xjq
+pbs: iua jmb muz
+qim: lrz rdb wqj
+khi: czz kie nbz
+eru: dkt wkm mpe
+dms: nbf
+byk: rol fns
+raq: jkb xde zex tif
+oll: fnk
+vzq: lhq gjp
+zex: wce usi
+xjq: ibq
+toi: xfb xga qts
+oks: aix fsd
+lwe: wce
+mkw: uqy fns rol
+ipb: ggd wvu
+uoq: nku njj syi
+pwb: out
+vlj: hir oll rzq ogd xuz
+ief: fns
+mig: byk
+uen: maa
+gcq: rtq mig aog sgg
+zdx: and otm ycq iri vzq aqt wsq gtu crg two bgg rxa ihe fmm myd fxv bmr zis rfb
+rol: ktp ivv lfp gwh wnt wrv wmb mof mvu thg
+exq: zuh yhg ubu ocy
+nmf: lig nsv
+wmd: lzw
+dnh: wqj lrz rdb edk
+wui: dvj mxd rpm
+yss: ugl hzk ejr
+rgl: caj jtq
+mxa: hjj
+xda: qbi aux lzw
+rtx: iju jft fgd
+bqe: kxp fnk you
+dcs: dbx odi
+utr: ckp npq
+ozd: ygq qwp
+fcw: rol fns uqy
+fax: foe
+qje: pne tqc
+wek: qqt ebp
+eza: lig nsv
+woh: cqg eoa lgp zsg
+dvj: dxc
+myd: npq pur
+eoq: nbz
+ydp: zdx ibq foc rmc
+hpc: rbm prc iit
+tmd: eyb vzx rtx
+njj: cya ffr
+ffm: out
+clk: yhv bje
+zps: out
+ckw: hvl tmd wti
+hos: kxp iwg
+mof: rdo
+tnx: whz
+yvf: cxy dmu jxb
+uah: ctg zey
+zka: uoq umy
+jcu: qbi
+lpq: rol
+qqc: qod vxz gjy
+akd: vsu pwb
+hir: kxp you
+and: pur npq
+pkl: rtl
+qqt: ozl gsz efl
+ywv: wmd sfg jcu
+sez: ggz lwp qbz
+nsv: agg
+rtl: ehg nnl
+fvz: map
+jqs: qwp
+cxy: nor kln tea exq pak qqc ihb aku
+nhw: vqg pqy rxc
+yhn: eno yyb kdo osw
+aog: lrw sxw byk
+vsu: out
+kpk: hcr qod gjy lgh
+pur: qne xlr
+ocy: hdz tto
+kmz: pqy
+osb: yhg ljb ubu
+ffr: bnn
+jva: xpm wml
+oti: zvk zjm
+wwk: eno yyb
+wrv: jhf jmb uer muz iua
+nnl: rmc
+svq: fns
+crr: ljq lcj
+tuw: ejr ipu ugl
+xpy: ucp yhv bje
+syi: vcv
+hnx: qwp ygq hse
+lvj: hcr qod gjy lgh
+wtc: ybl pdg
+pne: zvk zjm zkn
+uwx: jvk idl tqn
+txn: ybq pry cxy
+ohg: nnl hqa ydp
+xzs: epv caj iuz jtq
+otq: iit rbm
+lrz: trd akj vxv aok
+pqy: out
+itd: jft
+sgv: eyb vzx vjv rtx
+sjx: tjb
+mcf: qts xga xfb
+jbo: ayv
+jap: mry nzr rwz
+sfd: wvu hos
+niz: rtq mig aog sgg
+fft: ugl hzk ejr
+mrr: ffm
+snn: gzv fsd aix
+cnn: xpm glc
+xvg: gpj hwp
+vlb: hjj vlj
+uai: xfz txn erx
+oxf: zdx
+agg: ybl uvz
+lgh: ief
+qfe: nbf nkg
+wwy: ebp qqt
+wml: yss fft
+ygq: dmu cxy ybq
+hbd: erx xfz yvf
+xfz: ybq pry jxb dmu
+dxc: yzx
+jrb: aeu gcq niz
+ugl: zdx ibq rmc
+fxv: wyz
+ima: nil eak dke oln
+cpk: jxb cxy
+uha: wui utc ees wje lyc qbx tsg syu fjj usd tnq
+hfp: mrr uve ncm
+hnn: ljq cqa
+ewo: fnk you
+utc: jwi qhj uen
+dfq: dfl wmd sfg
+xlr: hbd njh bdx ptb
+gsz: ztv tjb
+aeu: mig rtq
+wzq: out
+jvq: xdw aam
+rpm: dxc sqq fhp
+vqg: out
+rxa: wyz
+oln: out
+rdo: aye wtc
+fhp: ztv tjb yzx
+ico: dkt mpe
+tnq: pwx uwq lwm
+xwo: xde jkb tif
+rdb: trd akj aok
+hje: ruo gml
+ybq: ihb qqc exq lnm lvj tea ruk
+qbz: fnk iwg kxp
+mzw: jvk idl fgh
+ibq: ycq mzw utr aqt and otm two bgg ihe gtu crg myd bmr fmm zis rfb
+qne: uai ptb
+rxc: out
+lnm: jim
+hdz: mkw suv lpq
+umy: njj
+you: obn rav qct otq ptf gsw
+iwg: kjz rav obn hgf ptf aql vaa woh dfq bbf jbo otq ywv sgm vdy hpc
+nht: yzx tjb ztv
+wje: wek zze ohu wwy
+qve: kmz nhw
+rgp: axv bnn
+aux: qve gye
+wvu: you fnk
+jvd: mcf toi
+vsh: lgk
+bmr: ckp
+emq: ztv tjb yzx
+usi: rol fns
+syh: twn reh que
+bqd: zdx foc rmc
+qbx: shp
+qod: omz ief
+dmu: ewv nor dzt osb ruk tea
+fjj: wek tfp wwy zze ohu
+sqq: yzx tjb
+whz: tjb yzx
+snu: glc xpm
+kom: uoq wed
+ipu: foc rmc
+mtv: eno osw
+wti: rtx eyb itd vjv vzx
+vaa: rbm
+jhf: zoi
+fhg: olh nnx
+egh: ztv tjb yzx
+maj: oxf bqd ukn
+bje: bzu uve akd ncm
+gwh: jhf uer jmb iua
+epv: odi dbx
+piv: yzx tjb
+cqg: yga rub
+dac: buj sez drr
+axv: foc rmc
+xea: jlb
+xde: uur
+vxv: pry cxy dmu
+aye: uvz pdg
+qhj: hcg maa
+fvt: fnk you kxp iwg
+lyr: ztv
+uqy: nmf jsh wrv gwh oge eza oks vlb wzx jqz
+pdf: kxp iwg fnk
+shc: hct
+olc: oll hir ogd xuz
+rvv: nbz czz dms qfe
+mkm: vzx
+gjp: qim
+dmr: bno fvt
+zuh: dum
+gye: brq nhw kmz dqw
+hdx: jxb cxy dmu
+sqp: qwp hse
+iyi: nzr mry
+umf: fhp dfy
+bdx: erx txn yvf
+uve: vsu
+bjx: aog sgg uxh mig
+dfy: tjb ztv
 """
 }
