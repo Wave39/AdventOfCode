@@ -28,7 +28,7 @@ Links to other years:
 | [9](https://adventofcode.com/2025/day/9) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_09.swift) | :smile: | 5s | Heavy assist to ChatGPT for today's part 2. |
 | [10](https://adventofcode.com/2025/day/10) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_10.swift) | :smile: | <1s | I must say that the ChatGPT Rust to Swift code conversion is pretty remarkable. |
 | [11](https://adventofcode.com/2025/day/11) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_11.swift) | :smile: | <1s | And I have to complement ChatGPT for taking my naive path following code and creating a DFS routine. |
-| [12](https://adventofcode.com/2025/day/12) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_12.swift) | | |
+| [12](https://adventofcode.com/2025/day/12) | [:book:](https://github.com/Wave39/AdventOfCode/blob/master/AdventOfCode/Puzzles/2025/Puzzle_2025_12.swift) | :smile: | <1s | I tried to work though algorithms before I gave up and saw how easy the solution was. Thanks Reddit. |
 
 ### Legend
 
